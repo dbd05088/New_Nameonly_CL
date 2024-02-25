@@ -16,13 +16,13 @@ from utils.method_manager_new import select_method
 
 def main():
     args = config.base_parser()
-    num_samples = {'cifar10': 50000, 'cifar100': 50000, 'clear10':30000, 'clear100':100000, 'tinyimagenet': 100000, 'imagenet': 1281165}
+    num_samples = {'cifar10': 10000, 'PACS':1670, "OfficeHome":4357}
     logging.config.fileConfig("./configuration/logging.conf")
     logger = logging.getLogger()
 
-    os.makedirs(f"results/{args.dataset}/{args.note}", exist_ok=True)
-    os.makedirs(f"tensorboard/{args.dataset}/{args.note}", exist_ok=True)
-    fileHandler = logging.FileHandler(f'results/{args.dataset}/{args.note}/seed_{args.rnd_seed}.log', mode="w")
+    os.makedirs(f"results/{args.dataset}/{args.note}/{args.type_name}", exist_ok=True)
+    os.makedirs(f"tensorboard/{args.dataset}/{args.note}/{args.type_name}", exist_ok=True)
+    fileHandler = logging.FileHandler(f'results/{args.dataset}/{args.note}/{args.type_name}/seed_{args.rnd_seed}.log', mode="w")
 
     formatter = logging.Formatter(
         "[%(levelname)s] %(filename)s:%(lineno)d > %(message)s"
@@ -51,7 +51,7 @@ def main():
     # get datalist
     print("args.dataset", args.dataset, "num_samples", num_samples[args.dataset])
     train_datalist, cls_dict, cls_addition = get_train_datalist(args.dataset, args.sigma, args.repeat, args.init_cls, args.rnd_seed, args.type_name)
-    test_datalists = get_test_datalist(args.dataset)
+    test_domain_name, test_datalists = get_test_datalist(args.dataset)
     samples_cnt = 0
 
     # Reduce datalist in Debug mode
@@ -82,25 +82,30 @@ def main():
 
         samples_cnt += 1
         method.online_step(data, samples_cnt, args.n_worker)
-        if samples_cnt % args.eval_period == 0:
+        #if samples_cnt % args.eval_period == 0:
+        eval_point = [int(point) for point in args.eval_point.split(" ")]
+        if samples_cnt in eval_point:
             avg_acc = []
             cls_acc = []
-            for test_datalist  in test_datalists:
-                eval_dict = method.online_evaluate(test_datalist, samples_cnt, 512, args.n_worker, cls_dict, cls_addition, data["time"])
+            avg_loss = []
+            for domain_name, test_datalist  in zip(test_domain_name, test_datalists):
+                sample_num, eval_dict = method.online_evaluate(domain_name, test_datalist, samples_cnt, 32, args.n_worker, cls_dict, cls_addition, data["time"])
                 avg_acc.append(eval_dict['avg_acc'])
+                avg_loss.append(eval_dict['avg_loss'])
                 cls_acc.append(eval_dict['cls_acc'])
+            method.report_test("Total", sample_num, np.mean(avg_loss), np.mean(avg_acc))
             eval_results["test_acc"].append(np.mean(avg_acc))
             eval_results["percls_acc"].append(np.mean(cls_acc))
             eval_results["data_cnt"].append(samples_cnt)
         if samples_cnt % args.samples_per_task == 0 and (args.mode in ["memo", "xder", "afec"]) and samples_cnt != num_samples[args.dataset]:
             method.online_after_task()
         
-    if eval_results["data_cnt"][-1] != samples_cnt:
-        print("noop!!")
-        for test_datalist in test_datalists:
-            eval_dict = method.online_evaluate(test_datalist, samples_cnt, 512, args.n_worker, cls_dict, cls_addition, data["time"])
+    # if eval_results["data_cnt"][-1] != samples_cnt:
+    #     print("noop!!")
+    #     for test_datalist in test_datalists:
+    #         eval_dict = method.online_evaluate(test_datalist, samples_cnt, 512, args.n_worker, cls_dict, cls_addition, data["time"])
 
-    A_last = eval_dict['avg_acc']
+    A_last = eval_results["test_acc"][-1] #eval_dict['avg_acc']
 
     if args.mode == 'gdumb':
         eval_results = method.evaluate_all(test_datalist, args.memory_epoch, args.batchsize, args.n_worker, cls_dict, cls_addition)

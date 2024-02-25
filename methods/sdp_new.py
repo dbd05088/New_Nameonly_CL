@@ -189,7 +189,6 @@ class SDP(CLManagerBase):
         for name, buffer in model_buffers.items():
             shadow_buffers[name].copy_(buffer)
 
-        self.total_flops += (9 * self.params)
 
     def model_forward(self, x, y, distill=True, use_cutmix=True):
         criterion = nn.CrossEntropyLoss(reduction='none')

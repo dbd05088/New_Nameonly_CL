@@ -117,7 +117,7 @@ class CLManagerBase:
         self.f_period = kwargs['f_period']
         self.f_next_time = 0
         self.start_time = time.time()
-        num_samples = {'cifar10': 50000, 'cifar100': 50000, 'clear10':30000, 'clear100':100000, 'tinyimagenet': 100000, 'imagenet': 1281167}
+        num_samples = {'cifar10': 10000, 'PACS':1670, "OfficeHome":4357}
         self.total_samples = num_samples[self.dataset]
 
         self.exposed_domains = []
@@ -304,11 +304,11 @@ class CLManagerBase:
             f"ETA {datetime.timedelta(seconds=int((time.time() - self.start_time) * (self.total_samples-sample_num) / sample_num))}"
         )
 
-    def report_test(self, sample_num, avg_loss, avg_acc):
+    def report_test(self, domain_name, sample_num, avg_loss, avg_acc):
         writer.add_scalar(f"test/loss", avg_loss, sample_num)
         writer.add_scalar(f"test/acc", avg_acc, sample_num)
         logger.info(
-            f"Test | Sample # {sample_num} | test_loss {avg_loss:.4f} | test_acc {avg_acc:.4f} | TFLOPs {self.total_flops/1000:.2f}"
+            f"{domain_name} Test | Sample # {sample_num} | test_loss {avg_loss:.4f} | test_acc {avg_acc:.4f} | TFLOPs {self.total_flops/1000:.2f}"
         )
 
     def update_schedule(self, reset=False):
@@ -320,7 +320,7 @@ class CLManagerBase:
             self.scheduler.step()
 
 
-    def online_evaluate(self, test_list, sample_num, batch_size, n_worker, cls_dict, cls_addition, data_time):
+    def online_evaluate(self, domain_name, test_list, sample_num, batch_size, n_worker, cls_dict, cls_addition, data_time):
         test_df = pd.DataFrame(test_list)
         '''
         if "clear" in self.dataset:
@@ -350,12 +350,12 @@ class CLManagerBase:
         )
         eval_dict = self.evaluation(test_loader, self.criterion)
         
-        self.report_test(sample_num, eval_dict["avg_loss"], eval_dict["avg_acc"])
+        self.report_test(domain_name, sample_num, eval_dict["avg_loss"], eval_dict["avg_acc"], )
 
         # if sample_num >= self.f_next_time:
         #     self.get_forgetting(sample_num, test_list, cls_dict, batch_size, n_worker)
         #     self.f_next_time += self.f_period
-        return eval_dict
+        return sample_num, eval_dict
 
 
     def evaluation(self, test_loader, criterion):

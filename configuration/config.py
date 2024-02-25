@@ -132,6 +132,7 @@ def base_parser():
 
     # Eval period
     parser.add_argument("--eval_period", type=int, default=100, help="evaluation period for true online setup")
+    parser.add_argument("--eval_point", type=str, default=50, help="evaluation points for true online setup")
     parser.add_argument("--use_kornia", action="store_true", help="enable kornia")
     parser.add_argument("--transform_on_worker", action="store_false", help="transform_on_worker")
     parser.add_argument("--temp_batchsize", type=int, help="temporary batch size, for true online")

@@ -2,16 +2,16 @@
 
 # CIL CONFIG
 # NOTE="imagenet_sdp_sigma0_mem_10000_iter_0.125"
-NOTE="er_clear10_sigma0_mem_4000_iter_1"
+NOTE="er_OfficeHome_iter2_mem200"
 MODE="er"
 
 K_COEFF="4"
 TEMPERATURE="0.125"
 
 TRANSFORM_ON_GPU="--transform_on_gpu"
-N_WORKER=3
-FUTURE_STEPS=4
-EVAL_N_WORKER=3
+N_WORKER=4
+FUTURE_STEPS=8
+EVAL_N_WORKER=4
 EVAL_BATCH_SIZE=1000
 #USE_KORNIA="--use_kornia"
 USE_KORNIA=""
@@ -19,9 +19,9 @@ UNFREEZE_RATE=0.5
 SEEDS="1"
 DATA_DIR=""
 
-GPUS=("0" "1" "2")
-DATASET="cifar10" # cifar10, cifar100, tinyimagenet, imagenet
-ONLINE_ITER=0.25
+GPUS=("1" "2" "3")
+DATASET="OfficeHome" # cifar10, cifar100, tinyimagenet, imagenet
+ONLINE_ITER=2
 SIGMA=0
 REPEAT=1
 INIT_CLS=100
@@ -32,19 +32,44 @@ if [ "$DATASET" == "cifar10" ]; then
     TYPES=("ma" "generated" "web")
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
-    MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=100
+    MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=1000
     BATCHSIZE=16; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
-    BASEINIT_SAMPLES=30000 FEAT_DIM=8 FEAT_MEM_SIZE=3000
-    SAMPLES_PER_TASK=10000
+    BASEINIT_SAMPLES=6000 FEAT_DIM=8 FEAT_MEM_SIZE=3000
+    SAMPLES_PER_TASK=20000
 
-elif [ "$DATASET" == "cifar100" ]; then
-    MEM_SIZE=4000
-    N_SMP_CLS="2" K="3" MIR_CANDS=50
-    CANDIDATE_SIZE=100 VAL_SIZE=2
-    MODEL_NAME="resnet32" VAL_PERIOD=500 EVAL_PERIOD=100 
+elif [ "$DATASET" == "PACS" ]; then
+    MEM_SIZE=200
+    TYPES=("ma" "generated" "web")
+    N_SMP_CLS="9" K="3" MIR_CANDS=50
+    CANDIDATE_SIZE=50 VAL_SIZE=5
+    MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=1000
     BATCHSIZE=16; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
-    BASEINIT_SAMPLES=30000 FEAT_DIM=8 FEAT_MEM_SIZE=3000
-    SAMPLES_PER_TASK=10000
+    BASEINIT_SAMPLES=6000 FEAT_DIM=8 FEAT_MEM_SIZE=3000
+    SAMPLES_PER_TASK=2000
+    if [ "$SEEDS" == "1" ]; then
+        EVAL_POINT="668 614 388"
+    elif [ "$SEEDS" == "2" ]; then
+        EVAL_POINT="648 388 634"
+    elif [ "$SEEDS" == "3" ]; then
+        EVAL_POINT="573 466 631"
+    fi
+
+elif [ "$DATASET" == "OfficeHome" ]; then
+    MEM_SIZE=400
+    TYPES=("ma" "generated" "web")
+    N_SMP_CLS="9" K="3" MIR_CANDS=50
+    CANDIDATE_SIZE=50 VAL_SIZE=5
+    MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=1000
+    BATCHSIZE=16; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
+    BASEINIT_SAMPLES=6000 FEAT_DIM=8 FEAT_MEM_SIZE=3000
+    SAMPLES_PER_TASK=2000
+    if [ "$SEEDS" == "1" ]; then
+        EVAL_POINT="930 833 831 869 894"
+    elif [ "$SEEDS" == "2" ]; then
+        EVAL_POINT="872 757 903 837 988"
+    elif [ "$SEEDS" == "3" ]; then
+        EVAL_POINT="770 980 824 915 868"
+    fi
 
 elif [ "$DATASET" == "clear10" ]; then
     MEM_SIZE=4000
@@ -97,7 +122,7 @@ do
         --sigma $SIGMA --repeat $REPEAT --init_cls $INIT_CLS --samples_per_task $SAMPLES_PER_TASK \
         --rnd_seed $RND_SEED --val_memory_size $VAL_SIZE --type_name "${TYPES[$index]}" \
         --model_name $MODEL_NAME --opt_name $OPT_NAME --sched_name $SCHED_NAME \
-        --lr $LR --batchsize $BATCHSIZE --mir_cands $MIR_CANDS \
+        --lr $LR --batchsize $BATCHSIZE --mir_cands $MIR_CANDS --eval_point "${EVAL_POINT}" \
         --memory_size $MEM_SIZE $TRANSFORM_ON_GPU --online_iter $ONLINE_ITER \
         --note $NOTE --eval_period $EVAL_PERIOD --imp_update_period $IMP_UPDATE_PERIOD $USE_AMP --n_worker $N_WORKER --future_steps $FUTURE_STEPS --eval_n_worker $EVAL_N_WORKER --eval_batch_size $EVAL_BATCH_SIZE \
         --baseinit_samples $BASEINIT_SAMPLES --spatial_feat_dim $FEAT_DIM --feat_memsize $FEAT_MEM_SIZE &

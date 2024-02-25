@@ -1733,7 +1733,9 @@ def get_train_datalist(dataset, sigma, repeat, init_cls, rnd_seed, type_name):
 
 def get_test_datalist(dataset) -> List:
     val_jsons = os.listdir(f"collections/{dataset}/test")
-    return [pd.read_json(f"collections/{dataset}/test/{val_json}").to_dict(orient="records")  for val_json in val_jsons]
+    test_domain_name = [val_name.split("_")[1] for val_name in val_jsons]
+    print(test_domain_name)
+    return test_domain_name, [pd.read_json(f"collections/{dataset}/test/{val_json}").to_dict(orient="records")  for val_json in val_jsons]
 
 
 # from https://github.com/drimpossible/GDumb/blob/74a5e814afd89b19476cd0ea4287d09a7df3c7a8/src/utils.py#L102:5

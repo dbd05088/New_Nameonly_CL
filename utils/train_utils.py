@@ -413,30 +413,18 @@ def select_model(model_name, dataset, num_classes=None, opt_dict=None, G=False, 
         }
     )
 
-    if "mnist" in dataset:
-        model_class = getattr(mnist, "MLP")
-    elif "cifar" in dataset:
-        model_class = getattr(cifar, "ResNet")
-        if G:
-            model_class = getattr(cifar, "ResNet_G")
-            opt["ver2"] = ver2
-        elif F:
-            model_class = getattr(cifar, "ResNet_F")
-            opt["ver2"] = ver2
-    elif "imagenet" in dataset or "clear" in dataset:
-        #model_class = getattr(imagenet, "ResNet")
-        model_imagenet=True
-        model_class = getattr(cifar, "ResNet")
-        if G:
-            model_class = getattr(cifar, "ResNet_G")
-            opt["ver2"] = ver2
-        elif F:
-            model_class = getattr(cifar, "ResNet_F")
-            opt["ver2"] = ver2
-    else:
-        raise NotImplementedError(
-            "Please select the appropriate datasets (mnist, cifar10, cifar100, imagenet)"
-        )
+   
+    
+    #model_class = getattr(imagenet, "ResNet")
+    model_imagenet=True
+    model_class = getattr(cifar, "ResNet")
+    if G:
+        model_class = getattr(cifar, "ResNet_G")
+        opt["ver2"] = ver2
+    elif F:
+        model_class = getattr(cifar, "ResNet_F")
+        opt["ver2"] = ver2
+    
     if model_name == "resnet18":
         opt["depth"] = 18
     elif model_name == "resnet32":
