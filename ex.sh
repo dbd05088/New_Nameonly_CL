@@ -90,6 +90,27 @@ elif [ "$DATASET" == "OfficeHome" ]; then
         EVAL_POINT="940 892 848 772 905"
     fi
 
+elif [ "$DATASET" == "DomainNet" ]; then
+    MEM_SIZE=400
+    TYPES=("ma" "generated" "web")
+    N_SMP_CLS="9" K="3" MIR_CANDS=50
+    CANDIDATE_SIZE=50 VAL_SIZE=5
+    MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=100
+    BATCHSIZE=16; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
+    BASEINIT_SAMPLES=6000 FEAT_DIM=8 FEAT_MEM_SIZE=3000
+    SAMPLES_PER_TASK=2000
+    if [ "$SEEDS" == "1" ]; then
+        EVAL_POINT="10142 10350 10170 9947 10263"
+    elif [ "$SEEDS" == "2" ]; then
+        EVAL_POINT="10089 9980 10347 10170 10286"
+    elif [ "$SEEDS" == "3" ]; then
+        EVAL_POINT="10131 10196 10076 10261 10208"
+    elif [ "$SEEDS" == "4" ]; then
+        EVAL_POINT="10191 10350 10004 10109 10218"
+    elif [ "$SEEDS" == "5" ]; then
+        EVAL_POINT="10162 10071 10106 10183 10350"
+    fi
+
 elif [ "$DATASET" == "clear10" ]; then
     MEM_SIZE=4000
     N_SMP_CLS="2" K="3" MIR_CANDS=50
