@@ -2,8 +2,8 @@
 
 # CIL CONFIG
 # NOTE="imagenet_sdp_sigma0_mem_10000_iter_0.125"
-NOTE="final_ewc_cifar10_iter2_mem1000"
-MODE="ewc"
+NOTE="final_mir_DomainNet_iter3_mem7000"
+MODE="mir"
 
 K_COEFF="4"
 TEMPERATURE="0.125"
@@ -16,12 +16,12 @@ EVAL_BATCH_SIZE=1000
 #USE_KORNIA="--use_kornia"
 USE_KORNIA=""
 UNFREEZE_RATE=0.5
-SEEDS="5"
+SEEDS="1"
 DATA_DIR=""
 
-GPUS=("0" "1" "2")
-DATASET="cifar10" # cifar10, cifar100, tinyimagenet, imagenet
-ONLINE_ITER=2
+GPUS=("3" "4" "5")
+DATASET="DomainNet" # cifar10, cifar100, tinyimagenet, imagenet
+ONLINE_ITER=3
 SIGMA=0
 REPEAT=1
 INIT_CLS=100
@@ -91,12 +91,12 @@ elif [ "$DATASET" == "OfficeHome" ]; then
     fi
 
 elif [ "$DATASET" == "DomainNet" ]; then
-    MEM_SIZE=400
+    MEM_SIZE=7000
     TYPES=("ma" "generated" "web")
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
-    MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=100
-    BATCHSIZE=16; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
+    MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=300
+    BATCHSIZE=32; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
     BASEINIT_SAMPLES=6000 FEAT_DIM=8 FEAT_MEM_SIZE=3000
     SAMPLES_PER_TASK=2000
     if [ "$SEEDS" == "1" ]; then

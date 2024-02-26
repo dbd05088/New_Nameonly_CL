@@ -16,7 +16,7 @@ from utils.method_manager_new import select_method
 
 def main():
     args = config.base_parser()
-    num_samples = {'cifar10': 10000, 'PACS':1670, "OfficeHome":4357}
+    num_samples = {'cifar10': 10000, 'PACS':1670, "OfficeHome":4357, "DomainNet":50872}
     logging.config.fileConfig("./configuration/logging.conf")
     logger = logging.getLogger()
 
@@ -74,7 +74,7 @@ def main():
     task_id = 0
 
     for i, data in enumerate(train_datalist):
-
+        eval_point = [int(point) for point in args.eval_point.split(" ")]
         # explicit task boundary for twf
         if samples_cnt in eval_point and args.mode in ["bic", "xder", "der_lider", "er_lider", "xder_lider", "co2l"]:
             method.online_before_task(task_id)
@@ -83,7 +83,6 @@ def main():
         samples_cnt += 1
         method.online_step(data, samples_cnt, args.n_worker)
         #if samples_cnt % args.eval_period == 0:
-        eval_point = [int(point) for point in args.eval_point.split(" ")]
         if samples_cnt in eval_point or samples_cnt % args.eval_period == 0:
             avg_acc = []
             cls_acc = []
@@ -97,17 +96,26 @@ def main():
             eval_results["test_acc"].append(np.mean(avg_acc))
             eval_results["percls_acc"].append(np.mean(cls_acc))
             eval_results["data_cnt"].append(samples_cnt)
-            if samples_cnt % args.eval_period == 0:
+            if samples_cnt in eval_point:
                 eval_results["avg_test_acc"].append(np.mean(avg_acc))
                 method.report_test("Task", sample_num, np.mean(avg_loss), np.mean(avg_acc))
                 
         if samples_cnt % args.samples_per_task == 0 and (args.mode in ["ewc", "memo", "xder", "afec"]) and samples_cnt != num_samples[args.dataset]:
             method.online_after_task()
         
-    # if eval_results["data_cnt"][-1] != samples_cnt:
-    #     print("noop!!")
-    #     for test_datalist in test_datalists:
-    #         eval_dict = method.online_evaluate(test_datalist, samples_cnt, 512, args.n_worker, cls_dict, cls_addition, data["time"])
+    if eval_results["data_cnt"][-1] != samples_cnt:
+        for domain_name, test_datalist  in zip(test_domain_name, test_datalists):
+            sample_num, eval_dict = method.online_evaluate(domain_name, test_datalist, samples_cnt, 32, args.n_worker, cls_dict, cls_addition, data["time"])
+            avg_acc.append(eval_dict['avg_acc'])
+            avg_loss.append(eval_dict['avg_loss'])
+            cls_acc.append(eval_dict['cls_acc'])
+        method.report_test("Total", sample_num, np.mean(avg_loss), np.mean(avg_acc))
+        eval_results["test_acc"].append(np.mean(avg_acc))
+        eval_results["percls_acc"].append(np.mean(cls_acc))
+        eval_results["data_cnt"].append(samples_cnt)
+        if samples_cnt in eval_point:
+            eval_results["avg_test_acc"].append(np.mean(avg_acc))
+            method.report_test("Task", sample_num, np.mean(avg_loss), np.mean(avg_acc))
 
     A_last = eval_results["test_acc"][-1] #eval_dict['avg_acc']
 
