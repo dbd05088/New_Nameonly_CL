@@ -7,7 +7,7 @@ from scipy.stats import sem
 warnings.filterwarnings(action='ignore')
 dir = 'OfficeHome'
 
-def print_from_log(exp_name, seeds=(1, 2, 3)):
+def print_from_log(exp_name, seeds=(1, 2, 3, 4, 5)):
     A_auc = []
     A_last = []
     A_avg = []
