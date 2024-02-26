@@ -76,7 +76,7 @@ def main():
     for i, data in enumerate(train_datalist):
 
         # explicit task boundary for twf
-        if samples_cnt % args.samples_per_task == 0 and args.mode in ["bic", "xder", "der_lider", "er_lider", "xder_lider", "co2l"]:
+        if samples_cnt in eval_point and args.mode in ["bic", "xder", "der_lider", "er_lider", "xder_lider", "co2l"]:
             method.online_before_task(task_id)
             task_id += 1
 
@@ -84,7 +84,7 @@ def main():
         method.online_step(data, samples_cnt, args.n_worker)
         #if samples_cnt % args.eval_period == 0:
         eval_point = [int(point) for point in args.eval_point.split(" ")]
-        if samples_cnt in eval_point:
+        if samples_cnt in eval_point or samples_cnt % args.eval_period == 0:
             avg_acc = []
             cls_acc = []
             avg_loss = []
@@ -97,7 +97,11 @@ def main():
             eval_results["test_acc"].append(np.mean(avg_acc))
             eval_results["percls_acc"].append(np.mean(cls_acc))
             eval_results["data_cnt"].append(samples_cnt)
-        if samples_cnt % args.samples_per_task == 0 and (args.mode in ["memo", "xder", "afec"]) and samples_cnt != num_samples[args.dataset]:
+            if samples_cnt % args.eval_period == 0:
+                eval_results["avg_test_acc"].append(np.mean(avg_acc))
+                method.report_test("Task", sample_num, np.mean(avg_loss), np.mean(avg_acc))
+                
+        if samples_cnt % args.samples_per_task == 0 and (args.mode in ["ewc", "memo", "xder", "afec"]) and samples_cnt != num_samples[args.dataset]:
             method.online_after_task()
         
     # if eval_results["data_cnt"][-1] != samples_cnt:
@@ -116,6 +120,7 @@ def main():
 
     # Accuracy (A)
     A_auc = np.mean(eval_results["test_acc"])
+    A_avg = np.mean(eval_results["avg_test_acc"])
 
     # KLR_avg = np.mean(method.knowledge_loss_rate[1:])
     # KGR_avg = np.mean(method.knowledge_gain_rate)
@@ -123,7 +128,7 @@ def main():
     KGR_avg = 0.0
 
     logger.info(f"======== Summary =======")
-    logger.info(f"A_auc {A_auc:6f} | A_last {A_last:6f} | KLR_avg {KLR_avg:6f} | KGR_avg {KGR_avg:6f} | Total FLOPs {method.total_flops:4f}")
+    logger.info(f"A_auc {A_auc:6f} | A_last {A_last:6f} | A_avg {A_avg:6f} | KLR_avg {KLR_avg:6f} | KGR_avg {KGR_avg:6f} | Total FLOPs {method.total_flops:4f}")
 
 if __name__ == "__main__":
     torch.multiprocessing.set_start_method('spawn')

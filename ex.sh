@@ -2,8 +2,8 @@
 
 # CIL CONFIG
 # NOTE="imagenet_sdp_sigma0_mem_10000_iter_0.125"
-NOTE="er_OfficeHome_iter2_mem200"
-MODE="er"
+NOTE="final_aser_OfficeHome_iter2_mem200"
+MODE="aser"
 
 K_COEFF="4"
 TEMPERATURE="0.125"
@@ -19,7 +19,7 @@ UNFREEZE_RATE=0.5
 SEEDS="1"
 DATA_DIR=""
 
-GPUS=("1" "2" "3")
+GPUS=("4" "5" "6")
 DATASET="OfficeHome" # cifar10, cifar100, tinyimagenet, imagenet
 ONLINE_ITER=2
 SIGMA=0
@@ -32,7 +32,7 @@ if [ "$DATASET" == "cifar10" ]; then
     TYPES=("ma" "generated" "web")
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
-    MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=1000
+    MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=100
     BATCHSIZE=16; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
     BASEINIT_SAMPLES=6000 FEAT_DIM=8 FEAT_MEM_SIZE=3000
     SAMPLES_PER_TASK=20000
@@ -42,7 +42,7 @@ elif [ "$DATASET" == "PACS" ]; then
     TYPES=("ma" "generated" "web")
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
-    MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=1000
+    MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=100
     BATCHSIZE=16; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
     BASEINIT_SAMPLES=6000 FEAT_DIM=8 FEAT_MEM_SIZE=3000
     SAMPLES_PER_TASK=2000
@@ -52,6 +52,10 @@ elif [ "$DATASET" == "PACS" ]; then
         EVAL_POINT="648 388 634"
     elif [ "$SEEDS" == "3" ]; then
         EVAL_POINT="573 466 631"
+    elif [ "$SEEDS" == "4" ]; then
+        EVAL_POINT="557 712 401"
+    elif [ "$SEEDS" == "5" ]; then
+        EVAL_POINT="570 712 388"
     fi
 
 elif [ "$DATASET" == "OfficeHome" ]; then
@@ -59,7 +63,7 @@ elif [ "$DATASET" == "OfficeHome" ]; then
     TYPES=("ma" "generated" "web")
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
-    MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=1000
+    MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=100
     BATCHSIZE=16; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
     BASEINIT_SAMPLES=6000 FEAT_DIM=8 FEAT_MEM_SIZE=3000
     SAMPLES_PER_TASK=2000
@@ -69,6 +73,10 @@ elif [ "$DATASET" == "OfficeHome" ]; then
         EVAL_POINT="872 757 903 837 988"
     elif [ "$SEEDS" == "3" ]; then
         EVAL_POINT="770 980 824 915 868"
+    elif [ "$SEEDS" == "4" ]; then
+        EVAL_POINT="869 870 848 834 936"
+    elif [ "$SEEDS" == "5" ]; then
+        EVAL_POINT="940 892 848 772 905"
     fi
 
 elif [ "$DATASET" == "clear10" ]; then
