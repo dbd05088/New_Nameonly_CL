@@ -2,8 +2,8 @@
 
 # CIL CONFIG
 # NOTE="imagenet_sdp_sigma0_mem_10000_iter_0.125"
-NOTE="final_mir_DomainNet_iter3_mem7000"
-MODE="mir"
+NOTE="real_final_der_OfficeHome_iter2_mem400"
+MODE="der"
 
 K_COEFF="4"
 TEMPERATURE="0.125"
@@ -19,9 +19,9 @@ UNFREEZE_RATE=0.5
 SEEDS="1"
 DATA_DIR=""
 
-GPUS=("3" "4" "5")
-DATASET="DomainNet" # cifar10, cifar100, tinyimagenet, imagenet
-ONLINE_ITER=3
+GPUS=("4" "5" "7")
+DATASET="OfficeHome" # cifar10, cifar100, tinyimagenet, imagenet
+ONLINE_ITER=2
 SIGMA=0
 REPEAT=1
 INIT_CLS=100
@@ -37,15 +37,15 @@ if [ "$DATASET" == "cifar10" ]; then
     BASEINIT_SAMPLES=6000 FEAT_DIM=8 FEAT_MEM_SIZE=3000
     SAMPLES_PER_TASK=20000
     if [ "$SEEDS" == "1" ]; then
-        EVAL_POINT="2000 2000 2000 2000 2000"
+        EVAL_POINT="2000 4000 6000 8000 10000"
     elif [ "$SEEDS" == "2" ]; then
-        EVAL_POINT="2000 2000 2000 2000 2000"
+        EVAL_POINT="2000 4000 6000 8000 10000"
     elif [ "$SEEDS" == "3" ]; then
-        EVAL_POINT="2000 2000 2000 2000 2000"
+        EVAL_POINT="2000 4000 6000 8000 10000"
     elif [ "$SEEDS" == "4" ]; then
-        EVAL_POINT="2000 2000 2000 2000 2000"
+        EVAL_POINT="2000 4000 6000 8000 10000"
     elif [ "$SEEDS" == "5" ]; then
-        EVAL_POINT="2000 2000 2000 2000 2000"
+        EVAL_POINT="2000 4000 6000 8000 10000"
     fi
 
 elif [ "$DATASET" == "PACS" ]; then
@@ -58,15 +58,15 @@ elif [ "$DATASET" == "PACS" ]; then
     BASEINIT_SAMPLES=6000 FEAT_DIM=8 FEAT_MEM_SIZE=3000
     SAMPLES_PER_TASK=2000
     if [ "$SEEDS" == "1" ]; then
-        EVAL_POINT="668 614 388"
+        EVAL_POINT="668 1282 1670"
     elif [ "$SEEDS" == "2" ]; then
-        EVAL_POINT="648 388 634"
+        EVAL_POINT="648 1036 1670"
     elif [ "$SEEDS" == "3" ]; then
-        EVAL_POINT="573 466 631"
+        EVAL_POINT="573 1039 1670"
     elif [ "$SEEDS" == "4" ]; then
-        EVAL_POINT="557 712 401"
+        EVAL_POINT="557 1269 1670"
     elif [ "$SEEDS" == "5" ]; then
-        EVAL_POINT="570 712 388"
+        EVAL_POINT="570 1282 1670"
     fi
 
 elif [ "$DATASET" == "OfficeHome" ]; then
@@ -79,15 +79,15 @@ elif [ "$DATASET" == "OfficeHome" ]; then
     BASEINIT_SAMPLES=6000 FEAT_DIM=8 FEAT_MEM_SIZE=3000
     SAMPLES_PER_TASK=2000
     if [ "$SEEDS" == "1" ]; then
-        EVAL_POINT="930 833 831 869 894"
+        EVAL_POINT="930 1763 2594 3463 4357"
     elif [ "$SEEDS" == "2" ]; then
-        EVAL_POINT="872 757 903 837 988"
+        EVAL_POINT="872 1629 2532 3369 4357"
     elif [ "$SEEDS" == "3" ]; then
-        EVAL_POINT="770 980 824 915 868"
+        EVAL_POINT="770 1750 2574 3489 4357"
     elif [ "$SEEDS" == "4" ]; then
-        EVAL_POINT="869 870 848 834 936"
+        EVAL_POINT="869 1739 2587 3421 4357"
     elif [ "$SEEDS" == "5" ]; then
-        EVAL_POINT="940 892 848 772 905"
+        EVAL_POINT="940 1832 2680 3452 4357"
     fi
 
 elif [ "$DATASET" == "DomainNet" ]; then
@@ -100,15 +100,15 @@ elif [ "$DATASET" == "DomainNet" ]; then
     BASEINIT_SAMPLES=6000 FEAT_DIM=8 FEAT_MEM_SIZE=3000
     SAMPLES_PER_TASK=2000
     if [ "$SEEDS" == "1" ]; then
-        EVAL_POINT="10142 10350 10170 9947 10263"
+        EVAL_POINT="10142 20492 30662 40609 50872"
     elif [ "$SEEDS" == "2" ]; then
-        EVAL_POINT="10089 9980 10347 10170 10286"
+        EVAL_POINT="10089 20069 30416 40586 50872"
     elif [ "$SEEDS" == "3" ]; then
-        EVAL_POINT="10131 10196 10076 10261 10208"
+        EVAL_POINT="10131 20327 30403 40664 50872"
     elif [ "$SEEDS" == "4" ]; then
-        EVAL_POINT="10191 10350 10004 10109 10218"
+        EVAL_POINT="10191 20541 30545 40654 50872"
     elif [ "$SEEDS" == "5" ]; then
-        EVAL_POINT="10162 10071 10106 10183 10350"
+        EVAL_POINT="10162 20233 30339 40522 50872"
     fi
 
 elif [ "$DATASET" == "clear10" ]; then
