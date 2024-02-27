@@ -16,7 +16,7 @@ from utils.method_manager_new import select_method
 
 def main():
     args = config.base_parser()
-    num_samples = {'cifar10': 10000, 'PACS':1670, "OfficeHome":4357, "DomainNet":50872}
+    num_samples = {'cifar10': 100000, 'PACS':1670, "OfficeHome":4357, "DomainNet":50872}
     logging.config.fileConfig("./configuration/logging.conf")
     logger = logging.getLogger()
 
