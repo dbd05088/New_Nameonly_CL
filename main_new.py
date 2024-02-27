@@ -76,7 +76,7 @@ def main():
     for i, data in enumerate(train_datalist):
         eval_point = [int(point) for point in args.eval_point.split(" ")]
         # explicit task boundary for twf
-        if samples_cnt in eval_point and args.mode in ["bic", "xder", "der_lider", "er_lider", "xder_lider", "co2l"]:
+        if samples_cnt in [0] + eval_point and args.mode in ["bic", "xder", "der_lider", "er_lider", "xder_lider", "co2l"]:
             method.online_before_task(task_id)
             task_id += 1
 
@@ -100,7 +100,7 @@ def main():
                 eval_results["avg_test_acc"].append(np.mean(avg_acc))
                 method.report_test("Task", sample_num, np.mean(avg_loss), np.mean(avg_acc))
                 
-        if samples_cnt % args.samples_per_task == 0 and (args.mode in ["ewc", "memo", "xder", "afec"]) and samples_cnt != num_samples[args.dataset]:
+        if samples_cnt in eval_point and (args.mode in ["ewc", "memo", "xder", "afec"]) and samples_cnt != num_samples[args.dataset]:
             method.online_after_task()
         
     if eval_results["data_cnt"][-1] != samples_cnt:
