@@ -27,7 +27,7 @@ writer = SummaryWriter("tensorboard")
 
 class XDER(DER):
     def __init__(self, train_datalist, test_datalist, device, **kwargs):
-        self.mean, self.std, num_class, inp_size, _ = get_statistics(dataset=kwargs["dataset"])
+        self.mean, self.std, num_class, inp_size, _ = get_statistics(dataset=kwargs["dataset"], type_name=kwargs["type_name"])
         super().__init__(train_datalist, test_datalist, device, **kwargs)
         self.simclr_lss = SupConLoss(temperature=5, base_temperature=5, reduction='sum')
         self.gpu_augmentation = strong_aug(inp_size, self.mean, self.std)
