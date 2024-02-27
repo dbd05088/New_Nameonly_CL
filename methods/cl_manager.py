@@ -117,7 +117,7 @@ class CLManagerBase:
         self.f_period = kwargs['f_period']
         self.f_next_time = 0
         self.start_time = time.time()
-        num_samples = {'cifar10': 10000, 'PACS':1670, "OfficeHome":4357, "DomainNet":50872}
+        num_samples = {'cifar10': 100000, 'PACS':1670, "OfficeHome":4357, "DomainNet":50872}
         self.total_samples = num_samples[self.dataset]
 
         self.exposed_domains = []
