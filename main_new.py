@@ -100,7 +100,7 @@ def main():
                 eval_results["avg_test_acc"].append(np.mean(avg_acc))
                 method.report_test("Task", sample_num, np.mean(avg_loss), np.mean(avg_acc))
                 
-        if samples_cnt % args.samples_per_task == 0 and (args.mode in ["ewc", "memo", "xder", "afec"]) and samples_cnt != num_samples[args.dataset]:
+        if samples_cnt % args.samples_per_task == 0 and (args.mode in ["memo", "xder", "afec"]) and samples_cnt != num_samples[args.dataset]:
             method.online_after_task()
         
     if eval_results["data_cnt"][-1] != samples_cnt:
