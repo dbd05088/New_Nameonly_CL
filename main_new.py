@@ -62,6 +62,14 @@ def main():
         test_datalist = test_datalist[:2000]
 
 
+    eval_point = [int(point) for point in args.eval_point.split(" ")]
+    if "10" in args.type_name:
+        eval_point = [point*10 for point in eval_point]
+        args.baseinit_samples*=10
+        
+    print("eval_point")
+    print(eval_point)
+    
     logger.info(f"Select a CIL method ({args.mode})")
     method = select_method(args, train_datalist, test_datalists, device)
 
@@ -72,12 +80,6 @@ def main():
 
     samples_cnt = 0
     task_id = 0
-    eval_point = [int(point) for point in args.eval_point.split(" ")]
-    if "10" in args.type_name:
-        eval_point = [point*10 for point in eval_point]
-        
-    print("eval_point")
-    print(eval_point)
     
     for i, data in enumerate(train_datalist):
         # explicit task boundary for twf
