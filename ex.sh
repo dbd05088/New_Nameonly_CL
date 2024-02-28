@@ -2,8 +2,8 @@
 
 # CIL CONFIG
 # NOTE="imagenet_sdp_sigma0_mem_10000_iter_0.125"
-NOTE="web10_xder_cifar10_iter2_mem1000"
-MODE="xder"
+NOTE="web10_mir_cifar10_iter2_mem1000"
+MODE="mir"
 
 K_COEFF="4"
 TEMPERATURE="0.125"
@@ -19,7 +19,7 @@ UNFREEZE_RATE=0.5
 SEEDS="1"
 DATA_DIR=""
 
-GPUS=("0" "1" "2")
+GPUS=("0" "1" "4")
 DATASET="cifar10" # cifar10, cifar100, tinyimagenet, imagenet
 ONLINE_ITER=2
 SIGMA=0
@@ -28,6 +28,17 @@ INIT_CLS=100
 USE_AMP=""
 
 if [ "$DATASET" == "cifar10" ]; then
+    MEM_SIZE=1000
+    TYPES=("ma" "generated" "web")
+    N_SMP_CLS="9" K="3" MIR_CANDS=50
+    CANDIDATE_SIZE=50 VAL_SIZE=5
+    MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=100
+    BATCHSIZE=16; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
+    BASEINIT_SAMPLES=6000 FEAT_DIM=8 FEAT_MEM_SIZE=3000
+    SAMPLES_PER_TASK=20000
+    EVAL_POINT="2000 4000 6000 8000 10000"
+
+elif [ "$DATASET" == "cifar10_web_10" ]; then
     MEM_SIZE=1000
     TYPES=("web_10")
     N_SMP_CLS="9" K="3" MIR_CANDS=50
@@ -57,6 +68,27 @@ elif [ "$DATASET" == "PACS" ]; then
         EVAL_POINT="557 1269 1670"
     elif [ "$SEEDS" == "5" ]; then
         EVAL_POINT="570 1282 1670"
+    fi
+
+elif [ "$DATASET" == "PACS_web_10" ]; then
+    MEM_SIZE=200
+    TYPES=("web_10")
+    N_SMP_CLS="9" K="3" MIR_CANDS=50
+    CANDIDATE_SIZE=50 VAL_SIZE=5
+    MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=100
+    BATCHSIZE=16; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
+    BASEINIT_SAMPLES=6000 FEAT_DIM=8 FEAT_MEM_SIZE=3000
+    SAMPLES_PER_TASK=2000
+    if [ "$SEEDS" == "1" ]; then
+        EVAL_POINT="6680 12820 16700"
+    elif [ "$SEEDS" == "2" ]; then
+        EVAL_POINT="6480 10360 16700"
+    elif [ "$SEEDS" == "3" ]; then
+        EVAL_POINT="5730 10390 16700"
+    elif [ "$SEEDS" == "4" ]; then
+        EVAL_POINT="5570 12690 16700"
+    elif [ "$SEEDS" == "5" ]; then
+        EVAL_POINT="5700 12820 16700"
     fi
 
 elif [ "$DATASET" == "OfficeHome" ]; then
