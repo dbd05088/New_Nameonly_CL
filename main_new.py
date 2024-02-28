@@ -16,7 +16,7 @@ from utils.method_manager_new import select_method
 
 def main():
     args = config.base_parser()
-    num_samples = {'cifar10': 100000, 'PACS':1670, "OfficeHome":4357, "DomainNet":50872}
+    #num_samples = {'cifar10': 10000, 'PACS':1670, 'cifar10_10': 10000, 'PACS_10':16700, "OfficeHome":4357, "DomainNet":50872}
     logging.config.fileConfig("./configuration/logging.conf")
     logger = logging.getLogger()
 
@@ -49,10 +49,10 @@ def main():
 
 
     # get datalist
-    print("args.dataset", args.dataset, "num_samples", num_samples[args.dataset])
     train_datalist, cls_dict, cls_addition = get_train_datalist(args.dataset, args.sigma, args.repeat, args.init_cls, args.rnd_seed, args.type_name)
     test_domain_name, test_datalists = get_test_datalist(args.dataset)
     samples_cnt = 0
+    print("args.dataset", args.dataset, "num_samples", len(train_datalist)) #num_samples[args.dataset]
 
     # Reduce datalist in Debug mode
     if args.debug:
@@ -72,9 +72,14 @@ def main():
 
     samples_cnt = 0
     task_id = 0
-
+    eval_point = [int(point) for point in args.eval_point.split(" ")]
+    if "10" in args.type_name:
+        eval_point = [point*10 for point in eval_point]
+        
+    print("eval_point")
+    print(eval_point)
+    
     for i, data in enumerate(train_datalist):
-        eval_point = [int(point) for point in args.eval_point.split(" ")]
         # explicit task boundary for twf
         if samples_cnt in [0] + eval_point and args.mode in ["bic", "xder", "der_lider", "er_lider", "xder_lider", "co2l"]:
             method.online_before_task(task_id)
@@ -100,7 +105,7 @@ def main():
                 eval_results["avg_test_acc"].append(np.mean(avg_acc))
                 method.report_test("Task", sample_num, np.mean(avg_loss), np.mean(avg_acc))
                 
-        if samples_cnt in eval_point and (args.mode in ["ewc", "memo", "xder", "afec"]) and samples_cnt != num_samples[args.dataset]:
+        if samples_cnt in eval_point and (args.mode in ["ewc", "memo", "xder", "afec"]) and samples_cnt != len(train_datalist):
             method.online_after_task()
         
     if eval_results["data_cnt"][-1] != samples_cnt:
