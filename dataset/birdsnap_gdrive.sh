@@ -4,18 +4,18 @@ gdrive files download 1dsh8OfcIig4-xWva3-1TqOJrxCTZGvVm #generated
 gdrive files download 1C4F7tHYjK5_zFuz05R9-riPB8gaMNLLv # web-10
 gdrive files download 1FbsRWv2rKJWGpf4tgEDTiEUlApeTHAwV # web
 
-tar -xvf birdsnap_MA.tar
+tar -xvf birdsnap_ma.tar
 tar -xvf birdsnap_generated.tar
 tar -xvf birdsnap_web.tar
 tar -xvf birdsnap_web_10.tar
 
 mkdir birdsnap
-mv birdsnap_MA birdsnap
+mv birdsnap_ma birdsnap
 mv birdsnap_generated birdsnap
 mv birdsnap_web birdsnap
 mv birdsnap_web_10 birdsnap
 
-rm -xvf birdsnap_MA.tar
+rm -xvf birdsnap_ma.tar
 rm -xvf birdsnap_generated.tar
 rm -xvf birdsnap_web.tar
 rm -xvf birdsnap_web_10.tar
