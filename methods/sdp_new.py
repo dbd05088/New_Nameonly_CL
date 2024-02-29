@@ -148,7 +148,6 @@ class SDP(CLManagerBase):
         y = self.cls_dict[sample['klass']]
         x = x.to(self.device)
         logit = self.sdp_model(x)
-
         self.total_flops += self.forward_flops
 
         prob = F.softmax(logit, dim=1)
