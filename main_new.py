@@ -107,7 +107,7 @@ def main():
                 eval_results["avg_test_acc"].append(np.mean(avg_acc))
                 method.report_test("Task", sample_num, np.mean(avg_loss), np.mean(avg_acc))
                 
-        if samples_cnt in eval_point and (args.mode in ["ewc", "memo", "xder", "afec"]) and samples_cnt != len(train_datalist):
+        if samples_cnt in eval_point and (args.mode in ["memo", "xder", "afec"]) and samples_cnt != len(train_datalist):
             method.online_after_task()
         
     if eval_results["data_cnt"][-1] != samples_cnt:
