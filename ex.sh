@@ -21,7 +21,6 @@ DATA_DIR=""
 
 GPUS=("2" "2" "2")
 DATASET="PACS" # cifar10, cifar100, tinyimagenet, imagenet
-ONLINE_ITER=2
 SIGMA=0
 REPEAT=1
 INIT_CLS=100
@@ -35,18 +34,20 @@ if [ "$DATASET" == "cifar10" ]; then
     MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=100
     BATCHSIZE=16; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
     BASEINIT_SAMPLES=6000 FEAT_DIM=14 FEAT_MEM_SIZE=24000
-    SAMPLES_PER_TASK=20000
+    SAMPLES_PER_TASK=20000 
+    ONLINE_ITER=2
     EVAL_POINT="2000 4000 6000 8000 10000"
 
 elif [ "$DATASET" == "PACS" ]; then
     MEM_SIZE=200
-    TYPES=("ma" "generated" "web")
+    TYPES=("sdxl_diversified")
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
     MODEL_NAME="vit" VAL_PERIOD=500 EVAL_PERIOD=100
     BATCHSIZE=16; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
     BASEINIT_SAMPLES=1002 FEAT_DIM=14 FEAT_MEM_SIZE=4800
     SAMPLES_PER_TASK=2000
+    ONLINE_ITER=2
     if [ "$SEEDS" == "1" ]; then
         EVAL_POINT="668 1282 1670"
     elif [ "$SEEDS" == "2" ]; then
@@ -68,6 +69,7 @@ elif [ "$DATASET" == "OfficeHome" ]; then
     BATCHSIZE=16; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
     BASEINIT_SAMPLES=2614 FEAT_DIM=14 FEAT_MEM_SIZE=9600
     SAMPLES_PER_TASK=2000
+    ONLINE_ITER=2
     if [ "$SEEDS" == "1" ]; then
         EVAL_POINT="930 1763 2594 3463 4357"
     elif [ "$SEEDS" == "2" ]; then
@@ -89,6 +91,7 @@ elif [ "$DATASET" == "DomainNet" ]; then
     BATCHSIZE=32; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
     BASEINIT_SAMPLES=30523 FEAT_DIM=14 FEAT_MEM_SIZE=168000
     SAMPLES_PER_TASK=2000
+    ONLINE_ITER=3
     if [ "$SEEDS" == "1" ]; then
         EVAL_POINT="10142 20492 30662 40609 50872"
     elif [ "$SEEDS" == "2" ]; then
