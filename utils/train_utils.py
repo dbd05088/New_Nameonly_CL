@@ -8,7 +8,7 @@ from torch.utils.data import DataLoader
 from onedrivedownloader import download as dn
 from torch.optim import SGD
 import timm
-
+import copy
 
 from utils.data_loader import get_train_datalist, ImageDataset, StreamDataset, MemoryDataset, cutmix_data, get_statistics, get_test_datalist
 import torch.nn.functional as F
@@ -394,7 +394,26 @@ def get_data_loader(opt_dict, dataset, pre_train=False):
 
 def select_model(model_name, dataset, num_classes=None, opt_dict=None, G=False, F=False, ver2=False):
     if model_name == 'vit':
-        return timm.create_model('vit_base_patch16_224', pretrained=False)
+        if G:
+            model = timm.create_model('vit_base_patch16_224', pretrained=False)
+            # layer_name = 'blocks.9.norm1'
+            # hook_model = ViTModel(base_model, layer_name, G=G)
+            # layers = list(model.children())[:4]
+            # layers.extend(list(model.children())[4][:9])
+            # print("param list", list(model.children()))
+            # print("length", len(list(model.children())))
+            layers=[model.patch_embed]
+            layers.extend(model.blocks[:6])
+            # model.cls_token, model.pos_embed, nn.Sequential(*layers)
+            return nn.Sequential(*layers)
+        elif F:
+            model = timm.create_model('vit_base_patch16_224', pretrained=False)
+            layers = model.blocks[6:]
+            layers.append(model.head)
+            return model.norm, nn.Sequential(*layers)
+        else:
+            model = timm.create_model('vit_base_patch16_224', pretrained=False)
+            return ViTModel(model)
     
     model_imagenet = False
     opt = edict(
@@ -705,3 +724,26 @@ class SupConLoss(nn.Module):
         loss = loss.view(anchor_count, batch_size).mean(0)
 
         return loss.mean() if self.reduction == 'mean' else loss.sum()
+    
+    
+class ViTModel(nn.Module):
+    def __init__(self, vit_model, layer_name=None, G=False):
+        super(ViTModel, self).__init__()
+        self.vit_model = vit_model
+        self.layer_name = layer_name
+        # self.intermediate_output = None
+        # self.hook_handle = self.vit_model.norm.register_forward_hook(self.hook_fn)
+        self.head = copy.deepcopy(self.vit_model.head)
+        self.vit_model.head = nn.Identity()
+        self.G = G
+
+    def hook_fn(self, module, input, output):
+        print("module name", module._get_name())
+        self.intermediate_output = output
+
+    def forward(self, x, get_feature=False):
+        features = self.vit_model(x) 
+        output = self.head(features)
+        if get_feature:
+            return output, features
+        return output

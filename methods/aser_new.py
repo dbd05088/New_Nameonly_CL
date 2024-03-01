@@ -258,24 +258,24 @@ class ASER(CLManagerBase):
             self.temp_batch = []
             self.num_updates -= int(self.num_updates)
 
-    def add_new_class(self, class_name):
-        self.cls_dict[class_name] = len(self.exposed_classes)
-        self.exposed_classes.append(class_name)
-        self.num_learned_class = len(self.exposed_classes)
-        prev_weight = copy.deepcopy(self.model.fc.weight.data)
-        prev_bias = copy.deepcopy(self.model.fc.bias.data)
-        self.model.fc = nn.Linear(self.model.fc.in_features, self.num_learned_class).to(self.device)
-        with torch.no_grad():
-            if self.num_learned_class > 1:
-                self.model.fc.weight[:self.num_learned_class - 1] = prev_weight
-                self.model.fc.bias[:self.num_learned_class - 1] = prev_bias
-        for param in self.optimizer.param_groups[1]['params']:
-            if param in self.optimizer.state.keys():
-                del self.optimizer.state[param]
-        del self.optimizer.param_groups[1]
-        self.optimizer.add_param_group({'params': self.model.fc.parameters()})
-        if 'reset' in self.sched_name:
-            self.update_schedule(reset=True)
+    # def add_new_class(self, class_name):
+    #     self.cls_dict[class_name] = len(self.exposed_classes)
+    #     self.exposed_classes.append(class_name)
+    #     self.num_learned_class = len(self.exposed_classes)
+    #     prev_weight = copy.deepcopy(self.model.fc.weight.data)
+    #     prev_bias = copy.deepcopy(self.model.fc.bias.data)
+    #     self.model.fc = nn.Linear(self.model.fc.in_features, self.num_learned_class).to(self.device)
+    #     with torch.no_grad():
+    #         if self.num_learned_class > 1:
+    #             self.model.fc.weight[:self.num_learned_class - 1] = prev_weight
+    #             self.model.fc.bias[:self.num_learned_class - 1] = prev_bias
+    #     for param in self.optimizer.param_groups[1]['params']:
+    #         if param in self.optimizer.state.keys():
+    #             del self.optimizer.state[param]
+    #     del self.optimizer.param_groups[1]
+    #     self.optimizer.add_param_group({'params': self.model.fc.parameters()})
+    #     if 'reset' in self.sched_name:
+    #         self.update_schedule(reset=True)
 
 
     def online_train(self, sample_num, iterations=1):

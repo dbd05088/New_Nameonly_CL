@@ -76,19 +76,25 @@ class SDP(CLManagerBase):
             self.memory.replace_sample(sample)
 
     def add_new_class(self, class_name):
+        if hasattr(self.model, 'fc'):
+            fc_name = 'fc'
+        elif hasattr(self.model, 'head'):
+            fc_name = 'head'
         self.cls_dict[class_name] = len(self.exposed_classes)
         self.exposed_classes.append(class_name)
         self.num_learned_class = len(self.exposed_classes)
-        prev_weight = copy.deepcopy(self.model.fc.weight.data)
-        prev_bias = copy.deepcopy(self.model.fc.bias.data)
-        self.model.fc = nn.Linear(self.model.fc.in_features, self.num_learned_class).to(self.device)
+        model_fc = getattr(self.model, fc_name)
+        prev_weight = copy.deepcopy(model_fc.weight.data)
+        prev_bias = copy.deepcopy(model_fc.bias.data)
+        setattr(self.model, fc_name, nn.Linear(model_fc.in_features, self.num_learned_class).to(self.device))
+        model_fc = getattr(self.model, fc_name)
         with torch.no_grad():
             if self.num_learned_class > 1:
-                self.model.fc.weight[:self.num_learned_class - 1] = prev_weight
-                self.model.fc.bias[:self.num_learned_class - 1] = prev_bias
-        self.sdp_model.fc = copy.deepcopy(self.model.fc)
-        self.ema_model_1.fc = copy.deepcopy(self.model.fc)
-        self.ema_model_2.fc = copy.deepcopy(self.model.fc)
+                model_fc.weight[:self.num_learned_class - 1] = prev_weight
+                model_fc.bias[:self.num_learned_class - 1] = prev_bias
+        setattr(self.sdp_model, fc_name, copy.deepcopy(model_fc))
+        setattr(self.ema_model_1, fc_name, copy.deepcopy(model_fc))
+        setattr(self.ema_model_2, fc_name, copy.deepcopy(model_fc))
         if 'reset' in self.sched_name:
             self.update_schedule(reset=True)
         self.cls_pred.append([])
@@ -142,7 +148,6 @@ class SDP(CLManagerBase):
         y = self.cls_dict[sample['klass']]
         x = x.to(self.device)
         logit = self.sdp_model(x)
-
         self.total_flops += self.forward_flops
 
         prob = F.softmax(logit, dim=1)
