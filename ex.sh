@@ -58,6 +58,7 @@ elif [ "$DATASET" == "aircraft" ]; then
         EVAL_POINT="1331 2666 4001 5331 6667"
     elif [ "$SEEDS" == "5" ]; then
         EVAL_POINT="1332 2665 3999 5330 6667"
+    fi
 
 elif [ "$DATASET" == "PACS" ]; then
     MEM_SIZE=200
