@@ -394,7 +394,7 @@ def get_data_loader(opt_dict, dataset, pre_train=False):
 
 def select_model(model_name, dataset, num_classes=None, opt_dict=None, G=False, F=False, ver2=False):
     if model_name == 'vit':
-        return timm.create_model('vit_base_patch16_224', pretrained=False)
+        return timm.create_model('vit_base_patch16_224', pretrained=True)
     
     model_imagenet = False
     opt = edict(
