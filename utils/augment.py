@@ -504,7 +504,8 @@ def get_statistics(dataset: str, type_name:str):
         "cifar10", 
         "PACS",
         "OfficeHome",
-        "DomainNet"
+        "DomainNet",
+        "birdsnap"
     ]
 
     mean = {
@@ -544,8 +545,15 @@ def get_statistics(dataset: str, type_name:str):
                     "painting":(0.57188677, 0.54422885, 0.50600895),
                     "generated":(0.51486457, 0.47512137, 0.43738667),
                     "web":(0.52883154, 0.5070628, 0.4686003)
+                    },
+        "birdsnap": {
+                    "ma":(0.48562428, 0.49993579, 0.45427733),
+                    "generated":(0.52061567, 0.4907617, 0.42836726),
+                    "web":(0.51192757, 0.5201538, 0.47111271),
+                    "web_10":(0.51192757, 0.5201538, 0.47111271)
                     }
     }
+    
     std = {
         "cifar10": {
                     "c":(0.22923981, 0.23307575, 0.26722828),
@@ -583,6 +591,12 @@ def get_statistics(dataset: str, type_name:str):
                     "painting":(0.22932183, 0.2227554, 0.22761393),
                     "generated":(0.18092263, 0.17377207, 0.17117467),
                     "web":(0.22322423, 0.22032975, 0.22439602)
+                    },
+        "birdsnap": {
+                    "ma":(0.16857489, 0.16997163, 0.18407089),
+                    "generated":(0.13778179, 0.13694537, 0.142607),
+                    "web":(0.17907705, 0.17926208, 0.19245465),
+                    "web_10":(0.17907705, 0.17926208, 0.19245465)
                     }
     }
     
@@ -590,7 +604,8 @@ def get_statistics(dataset: str, type_name:str):
         "cifar10": 10,
         "PACS": 7,
         "OfficeHome": 65,
-        "DomainNet": 345
+        "DomainNet": 345,
+        "birdsnap": 500
     }
 
     in_channels = 3
