@@ -108,7 +108,7 @@ class SDP(CLManagerBase):
                 if param in self.optimizer.state.keys():
                     del self.optimizer.state[param]
             del self.optimizer.param_groups[1]
-            self.optimizer.add_param_group({'params': self.model.fc.parameters()})
+            self.optimizer.add_param_group({'params': getattr(self.model, fc_name).parameters()})
             if len(sdict['state']) > 0:
                 if 'adam' in self.opt_name:
                     fc_weight = self.optimizer.param_groups[1]['params'][0]
@@ -165,6 +165,10 @@ class SDP(CLManagerBase):
 
     @torch.no_grad()
     def update_sdp_model(self, num_updates=1.0):
+        if hasattr(self.model, 'fc'):
+            fc_name = 'fc'
+        elif hasattr(self.model, 'head'):
+            fc_name = 'head'
         ema_inv_ratio_1 = (1 - self.ema_ratio_1) ** num_updates
         ema_inv_ratio_2 = (1 - self.ema_ratio_2) ** num_updates
         model_params = OrderedDict(self.model.named_parameters())
@@ -182,9 +186,12 @@ class SDP(CLManagerBase):
                 self.ema_ratio_2 / (self.ema_ratio_2 - self.ema_ratio_1) * ema_params_1[name] - self.ema_ratio_1 / (self.ema_ratio_2 - self.ema_ratio_1) * ema_params_2[
                     name])
             # + ((1. - self.ema_ratio_2)*self.ema_ratio_1**self.ema_updates - (1. - self.ema_ratio_1)*self.ema_ratio_2**self.ema_updates) / (self.ema_ratio_1 - self.ema_ratio_2) * param)
-        self.sdp_model.fc = copy.deepcopy(self.model.fc)
-        self.ema_model_1.fc = copy.deepcopy(self.model.fc)
-        self.ema_model_2.fc = copy.deepcopy(self.model.fc)
+        setattr(self.sdp_model, fc_name, copy.deepcopy(getattr(self.model, fc_name)))
+        setattr(self.ema_model_1, fc_name, copy.deepcopy(getattr(self.model, fc_name)))
+        setattr(self.ema_model_2, fc_name, copy.deepcopy(getattr(self.model, fc_name)))
+        # self.sdp_model.fc = copy.deepcopy(self.model.fc)
+        # self.ema_model_1.fc = copy.deepcopy(self.model.fc)
+        # self.ema_model_2.fc = copy.deepcopy(self.model.fc)
 
         model_buffers = OrderedDict(self.model.named_buffers())
         shadow_buffers = OrderedDict(self.sdp_model.named_buffers())
@@ -196,6 +203,10 @@ class SDP(CLManagerBase):
 
 
     def model_forward(self, x, y, distill=True, use_cutmix=True):
+        if hasattr(self.model, 'fc'):
+            fc_name = 'fc'
+        elif hasattr(self.model, 'head'):
+            fc_name = 'head'
         criterion = nn.CrossEntropyLoss(reduction='none')
         self.sdp_model.train()
         do_cutmix = use_cutmix and self.cutmix and np.random.rand(1) < 0.5
@@ -211,8 +222,9 @@ class SDP(CLManagerBase):
                     self.total_flops += ((feature.shape[0] * feature.shape[1] * 3) / 10e9)
 
                     sample_weight = self.cls_pred_mean
-                    grad = lam * self.get_grad(logit.detach(), labels_a, self.model.fc.weight) + (
-                            1 - lam) * self.get_grad(logit.detach(), labels_b, self.model.fc.weight)
+                    model_fc = getattr(self.model, fc_name)
+                    grad = lam * self.get_grad(logit.detach(), labels_a, model_fc.weight) + (
+                            1 - lam) * self.get_grad(logit.detach(), labels_b, model_fc.weight)
                     beta = torch.sqrt((grad.detach() ** 2).sum(dim=1) / (distill_loss.detach() * 4 + 1e-8)).mean()
                     self.total_flops += (grad.shape[0] * grad.shape[1] * 3 + len(distill_loss)) / 10e9
                     loss = ((1 - sample_weight) * cls_loss + beta * sample_weight * distill_loss).mean()
@@ -227,7 +239,8 @@ class SDP(CLManagerBase):
                     self.total_flops += ((feature.shape[0] * feature.shape[1] * 3) / 10e9)
 
                     sample_weight = self.cls_pred_mean
-                    grad = self.get_grad(logit.detach(), y, self.model.fc.weight)
+                    model_fc = getattr(self.model, fc_name)
+                    grad = self.get_grad(logit.detach(), y, model_fc.weight)
                     beta = torch.sqrt((grad.detach() ** 2).sum(dim=1) / (distill_loss.detach() * 4 + 1e-8)).mean()
                     self.total_flops += (grad.shape[0] * grad.shape[1] * 3 + len(distill_loss)) / 10e9
                     loss = ((1 - sample_weight) * cls_loss + beta * sample_weight * distill_loss).mean()
