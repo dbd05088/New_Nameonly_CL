@@ -30,20 +30,20 @@ MODEL_BLOCK_DICT = {
                  ['group3.blocks.block4'],
                  ['pool', 'fc']],
     
-    'vit': [['patch_embed', 'pos_drop', 'patch_drop', 'norm_pre'], 
-            ['blocks.0'], 
-            ['blocks.1'], 
-            ['blocks.2'], 
-            ['blocks.3'], 
-            ['blocks.4'], 
-            ['blocks.5'], 
-            ['blocks.6'], 
-            ['blocks.7'], 
-            ['blocks.8'], 
-            ['blocks.9'], 
-            ['blocks.10'], 
-            ['blocks.11'], 
-            ['norm', 'fc_norm', 'head_drop', 'head']]
+    'vit': [['vit_model.patch_embed', 'vit_model.pos_drop', 'vit_model.patch_drop', 'vit_model.norm_pre'], 
+            ['vit_model.blocks.0'], 
+            ['vit_model.blocks.1'], 
+            ['vit_model.blocks.2'], 
+            ['vit_model.blocks.3'], 
+            ['vit_model.blocks.4'], 
+            ['vit_model.blocks.5'], 
+            ['vit_model.blocks.6'], 
+            ['vit_model.blocks.7'], 
+            ['vit_model.blocks.8'], 
+            ['vit_model.blocks.9'], 
+            ['vit_model.blocks.10'], 
+            ['vit_model.blocks.11'], 
+            ['vit_model.norm', 'vit_model.fc_norm', 'vit_model.head_drop', 'head']]
 }
 
 REMIND_MODEL_BLOCK_DICT = {
@@ -76,20 +76,20 @@ REMIND_MODEL_BLOCK_DICT = {
                  ['model_F.group3.blocks.block4'],
                  ['model_F.pool','fc']],
     
-    'vit': [['patch_embed', 'pos_drop', 'patch_drop', 'norm_pre'], 
-            ['blocks.0'], 
-            ['blocks.1'], 
-            ['blocks.2'], 
-            ['blocks.3'], 
-            ['blocks.4'], 
-            ['blocks.5'], 
-            ['blocks.6'], 
-            ['blocks.7'], 
-            ['blocks.8'], 
-            ['blocks.9'], 
-            ['blocks.10'], 
-            ['blocks.11'], 
-            ['norm', 'fc_norm', 'head_drop', 'head']]
+    'vit': [['model_G.0'], 
+            ['model_G.1'], 
+            ['model_G.2'], 
+            ['model_G.3'], 
+            ['model_G.4'], 
+            ['model_G.5'], 
+            ['model_G.6'], 
+            ['model_G.7'], 
+            ['model_G.8'], 
+            ['model_G.9'], 
+            ['model_F.0'], 
+            ['model_F.1'], 
+            ['model_F.2'], 
+            ['norm'],['fc']]
 }
 
 MEMO_MODEL_BLOCK_DICT = {
@@ -122,20 +122,20 @@ MEMO_MODEL_BLOCK_DICT = {
                  ['AdaptiveExtractors.0.group3.blocks.block4'],
                  ['AdaptiveExtractors.0.pool'], ['fc']],
     
-    'vit': [['patch_embed', 'pos_drop', 'patch_drop', 'norm_pre'], 
-            ['blocks.0'], 
-            ['blocks.1'], 
-            ['blocks.2'], 
-            ['blocks.3'], 
-            ['blocks.4'], 
-            ['blocks.5'], 
-            ['blocks.6'], 
-            ['blocks.7'], 
-            ['blocks.8'], 
-            ['blocks.9'], 
-            ['blocks.10'], 
-            ['blocks.11'], 
-            ['norm', 'fc_norm', 'head_drop', 'head']]
+    'vit': [['backbone.0'], 
+            ['backbone.1'], 
+            ['backbone.2'], 
+            ['backbone.3'], 
+            ['backbone.4'], 
+            ['backbone.5'], 
+            ['backbone.6'], 
+            ['AdaptiveExtractors.0.0'], 
+            ['AdaptiveExtractors.0.1'], 
+            ['AdaptiveExtractors.0.2'], 
+            ['AdaptiveExtractors.0.3'], 
+            ['AdaptiveExtractors.0.4'], 
+            ['AdaptiveExtractors.0.5'], 
+            ['norm', 'fc']]
 }
 
 
