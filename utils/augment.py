@@ -505,7 +505,8 @@ def get_statistics(dataset: str, type_name:str):
         "PACS",
         "OfficeHome",
         "DomainNet",
-        "birdsnap"
+        "birdsnap",
+        "aircraft"
     ]
 
     mean = {
@@ -554,6 +555,13 @@ def get_statistics(dataset: str, type_name:str):
                     "generated":(0.52061567, 0.4907617, 0.42836726),
                     "web":(0.51192757, 0.5201538, 0.47111271),
                     "web_10":(0.51192757, 0.5201538, 0.47111271)
+                    },
+        "aircraft": {
+                    "train_ma":(0.47799557, 0.50874851, 0.53231959),
+                    "test_ma":(0.47457604, 0.50624293, 0.5313826),
+                    "sdxl_diversified":(0.5243231,  0.50895877, 0.49565841),
+                    "web_10":(0.53440468, 0.55515636, 0.57052223),
+                    "web":(0.53440468, 0.55515636, 0.57052223)
                     }
     }
     
@@ -602,6 +610,13 @@ def get_statistics(dataset: str, type_name:str):
                     "generated":(0.13778179, 0.13694537, 0.142607),
                     "web":(0.17907705, 0.17926208, 0.19245465),
                     "web_10":(0.17907705, 0.17926208, 0.19245465)
+                    },
+        "aircraft": {
+                    "train_ma":(0.18552984, 0.18497887, 0.20751855),
+                    "test_ma":(0.18449496, 0.18354592, 0.20612134),
+                    "sdxl_diversified":(0.16649881, 0.15924763, 0.15869668),
+                    "web":(0.20432787, 0.20202054, 0.21482215),
+                    "web_10":(0.20432787, 0.20202054, 0.21482215),
                     }
     }
     
@@ -610,7 +625,8 @@ def get_statistics(dataset: str, type_name:str):
         "PACS": 7,
         "OfficeHome": 65,
         "DomainNet": 345,
-        "birdsnap": 500
+        "birdsnap": 500,
+        "aircraft": 100
     }
 
     in_channels = 3
