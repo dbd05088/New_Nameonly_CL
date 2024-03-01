@@ -2,8 +2,8 @@
 
 # CIL CONFIG
 # NOTE="imagenet_sdp_sigma0_mem_10000_iter_0.125"
-NOTE="web10_aser_cifar10_iter2_mem1000"
-MODE="aser"
+NOTE="vit_pretrained_xder_PACS_iter2_mem200"
+MODE="xder"
 
 K_COEFF="4"
 TEMPERATURE="0.125"
@@ -16,11 +16,11 @@ EVAL_BATCH_SIZE=1000
 #USE_KORNIA="--use_kornia"
 USE_KORNIA=""
 UNFREEZE_RATE=0.5
-SEEDS="3"
+SEEDS="5"
 DATA_DIR=""
 
-GPUS=("7" "1" "2")
-DATASET="cifar10" # cifar10, cifar100, tinyimagenet, imagenet
+GPUS=("2" "2" "2")
+DATASET="PACS" # cifar10, cifar100, tinyimagenet, imagenet
 ONLINE_ITER=2
 SIGMA=0
 REPEAT=1
@@ -43,7 +43,7 @@ elif [ "$DATASET" == "PACS" ]; then
     TYPES=("ma" "generated" "web")
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
-    MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=100
+    MODEL_NAME="vit" VAL_PERIOD=500 EVAL_PERIOD=100
     BATCHSIZE=16; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
     BASEINIT_SAMPLES=1002 FEAT_DIM=14 FEAT_MEM_SIZE=4800
     SAMPLES_PER_TASK=2000
