@@ -106,6 +106,28 @@ elif [ "$DATASET" == "PACS" ]; then
         EVAL_POINT="570 1282 1670"
     fi
 
+elif [ "$DATASET" == "PACS_final" ]; then
+    MEM_SIZE=200
+    TYPES=("train_ma" "web" "web_10" "sdxl_diversified")
+    N_SMP_CLS="9" K="3" MIR_CANDS=50
+    CANDIDATE_SIZE=50 VAL_SIZE=5
+    MODEL_NAME="vit" VAL_PERIOD=500 EVAL_PERIOD=100
+    BATCHSIZE=16; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
+    BASEINIT_SAMPLES=1002 FEAT_DIM=14 FEAT_MEM_SIZE=4800
+    SAMPLES_PER_TASK=2000
+    ONLINE_ITER=2
+    if [ "$SEEDS" == "1" ]; then
+        EVAL_POINT="458 764 1333"
+    elif [ "$SEEDS" == "2" ]; then
+        EVAL_POINT="638 948 1333"
+    elif [ "$SEEDS" == "3" ]; then
+        EVAL_POINT="520 1013 1333"
+    elif [ "$SEEDS" == "4" ]; then
+        EVAL_POINT="641 950 1333"
+    elif [ "$SEEDS" == "5" ]; then
+        EVAL_POINT="455 764 1333"
+    fi
+
 elif [ "$DATASET" == "OfficeHome" ]; then
     MEM_SIZE=400
     TYPES=("ma" "generated" "web")
