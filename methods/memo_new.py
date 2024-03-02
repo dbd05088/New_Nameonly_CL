@@ -338,7 +338,7 @@ class MEMOResnet(nn.Module):
         super(MEMOResnet, self).__init__()
         self.backbone = select_model(model_name, dataset, 1, G=True, ver2=True)
         self.extractor = select_model(model_name, dataset, 1, F=True, ver2=True)
-        self.fc = nn.Linear(self.extractor.fc.in_features, 1).to(self.device)
+        self.fc = nn.Linear(self.extractor.fc.in_features, 1)
         self.extractor.fc = nn.Identity()
         self.AdaptiveExtractors = nn.ModuleList()
         self.aux_classifier = None
