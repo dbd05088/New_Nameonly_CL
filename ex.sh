@@ -61,7 +61,7 @@ elif [ "$DATASET" == "aircraft" ]; then
     fi
 
 elif [ "$DATASET" == "food101" ]; then
-    MEM_SIZE=800
+    MEM_SIZE=2000
     TYPES=("train_ma" "sdxl_diversified" "web")
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
