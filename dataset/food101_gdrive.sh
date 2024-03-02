@@ -11,8 +11,8 @@ tar -xvf food101_web.tar
 tar -xvf food101_sdxl_diversified.tar
 
 mkdir food101
-mv food101_train food101
-mv food101_test food101
+mv food101_train_ma food101
+mv food101_test_ma food101
 mv food101_web food101
 #mv food101_web_10 food101
 mv food101_sdxl_diversified food101
