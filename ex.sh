@@ -151,25 +151,25 @@ elif [ "$DATASET" == "OfficeHome" ]; then
     fi
 
 elif [ "$DATASET" == "DomainNet" ]; then
-    MEM_SIZE=7000
-    TYPES=("ma" "generated" "web")
+    MEM_SIZE=8000
+    TYPES=("ma" "sdxl_diversified" "web")
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
     MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=300
-    BATCHSIZE=32; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
+    BATCHSIZE=48; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
     BASEINIT_SAMPLES=30523 FEAT_DIM=14 FEAT_MEM_SIZE=168000
     SAMPLES_PER_TASK=2000
     ONLINE_ITER=3
     if [ "$SEEDS" == "1" ]; then
-        EVAL_POINT="10142 20492 30662 40609 50872"
+        EVAL_POINT="10037, 20073, 30338, 40393, 50273"
     elif [ "$SEEDS" == "2" ]; then
-        EVAL_POINT="10089 20069 30416 40586 50872"
+        EVAL_POINT="10189, 20304, 30413, 40177, 50273"
     elif [ "$SEEDS" == "3" ]; then
-        EVAL_POINT="10131 20327 30403 40664 50872"
+        EVAL_POINT="9825, 19943, 30186, 40109, 50273"
     elif [ "$SEEDS" == "4" ]; then
-        EVAL_POINT="10191 20541 30545 40654 50872"
+        EVAL_POINT="10276, 20398, 30423, 40359, 50273"
     elif [ "$SEEDS" == "5" ]; then
-        EVAL_POINT="10162 20233 30339 40522 50872"
+        EVAL_POINT="9918, 20137, 30290, 40184, 50273"
     fi
 
 else
