@@ -3,7 +3,7 @@ gdrive files download 1Gnqna2AjQk-wVIwogGWS04MCvYnTmkdi
 gdrive files download 1UDKD-volVNLmujzmdBGIBDhbc2o1-wsf
 gdrive files download 1VNIz2xPm6ICKzp8i7KhhyN2VYv4fkQZY
 gdrive files download 1I5W7bL46cduMMrNq4gH5KsUOonLejMuZ
-gdrive files download 1mXLknDb--GavWYD3vlEmdlU7E-5se0ER
+gdrive files download 1G_aILsxwKAhfFPwSuc2ecnuhE9JH1RH-
 
 tar -xvf DomainNet_train_ma.tar
 tar -xvf DomainNet_test_ma.tar
