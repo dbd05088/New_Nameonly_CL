@@ -3,14 +3,12 @@ gdrive files download 1LfcRv1xFlLbT9Etx71JbpWzKSQiouxjO # PACS_MA
 gdrive files download 1zLPhg_Yg685fZbkNE_lZE0S4RUp9yC8n # PACS_generated
 gdrive files download 1eimtHK_-h_ynWQ_LbLFO7RJ8ZD8d8zIJ # PACS_web
 gdrive files download 1vBi06KY_0ZHkPznP3bdWVkIgSyKvcFZc # PACS_sdxl_diversified
-gdrive files download 1bpMSWOmu59LksTThsDnVo2RE2l1epKAi # PACS_both_ensembled
 
 tar -xvf PACS_MA.tar
 tar -xvf PACS_generated.tar
 tar -xvf PACS_web.tar
 tar -xvf PACS_web_10.tar
 tar -xvf PACS_sdxl_diversified.tar
-tar -xvf PACS_both_ensembled.tar
 
 mkdir PACS
 mv PACS_MA PACS
@@ -18,11 +16,9 @@ mv PACS_generated PACS
 mv PACS_web PACS
 mv PACS_web_10 PACS
 mv PACS_sdxl_diversified PACS
-mv PACS_both_ensembled PACS
 
 rm PACS_generated.tar
 rm PACS_MA.tar
 rm PACS_web.tar
 rm PACS_web_10.tar
 rm PACS_sdxl_diversified.tar
-rm PACS_PACS_both_ensembled.tar
