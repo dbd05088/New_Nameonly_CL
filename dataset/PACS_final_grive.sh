@@ -21,7 +21,7 @@ mv PACS_final_test_ma PACS_final
 mv PACS_final_web PACS_final
 mv PACS_final_web_10 PACS_final
 mv PACS_final_sdxl_diversified PACS_final
-mv PACS_both_ensembled PACS
+mv PACS_both_ensembled PACS_final
 
 rm PACS_MA.tar
 rm PACS_final_train_ma.tar

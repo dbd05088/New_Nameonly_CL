@@ -41,8 +41,11 @@ class MEMO(CLManagerBase):
         else:
             self.model = MEMOVIT(self.model_name, self.dataset).to(self.device)
         self.model.num_features = self.model.fc.in_features
-        _, self.extractor = select_model(self.model_name, self.dataset, 1, F=True, ver2=True)
-        self.extractor[-1] = nn.Identity()
+        self.extractor = select_model(self.model_name, self.dataset, 1, F=True, ver2=True)
+        if "resnet" in self.model_name:
+            self.extractor.fc = nn.Identity()
+        else:
+            self.extractor[-1] = nn.Identity()
         self.model.AdaptiveExtractors.append(copy.deepcopy(self.extractor.to(self.device)))
         for n, p in self.model.named_parameters():
             print(n)
@@ -338,7 +341,7 @@ class MEMOResnet(nn.Module):
         super(MEMOResnet, self).__init__()
         self.backbone = select_model(model_name, dataset, 1, G=True, ver2=True)
         self.extractor = select_model(model_name, dataset, 1, F=True, ver2=True)
-        self.fc = nn.Linear(self.extractor.fc.in_features, 1).to(self.device)
+        self.fc = nn.Linear(self.extractor.fc.in_features, 1)
         self.extractor.fc = nn.Identity()
         self.AdaptiveExtractors = nn.ModuleList()
         self.aux_classifier = None
