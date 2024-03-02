@@ -506,7 +506,8 @@ def get_statistics(dataset: str, type_name:str):
         "OfficeHome",
         "DomainNet",
         "birdsnap",
-        "aircraft"
+        "aircraft", 
+        "food101"
     ]
 
     mean = {
@@ -562,6 +563,13 @@ def get_statistics(dataset: str, type_name:str):
                     "sdxl_diversified":(0.5243231,  0.50895877, 0.49565841),
                     "web_10":(0.53440468, 0.55515636, 0.57052223),
                     "web":(0.53440468, 0.55515636, 0.57052223)
+                    },
+        "food101": {
+                    "train_ma":(0.5418628, 0.44118891, 0.34277118),
+                    "test_ma":(0.5418628, 0.44118891, 0.34277118),
+                    "sdxl_diversified":(0.56653057, 0.46730779, 0.38791377),
+                    "web":(0.59503791, 0.50928233, 0.41866666),
+                    "web_10":(0.59503791, 0.50928233, 0.41866666),
                     }
     }
     
@@ -617,6 +625,13 @@ def get_statistics(dataset: str, type_name:str):
                     "sdxl_diversified":(0.16649881, 0.15924763, 0.15869668),
                     "web":(0.20432787, 0.20202054, 0.21482215),
                     "web_10":(0.20432787, 0.20202054, 0.21482215),
+                    },
+        "food101": {
+                    "train_ma":(0.5418628, 0.44118891, 0.34277118),
+                    "test_ma":(0.5418628, 0.44118891, 0.34277118),
+                    "sdxl_diversified":(0.20913193, 0.20663952, 0.20379563),
+                    "web":(0.22852881, 0.239719, 0.25335559),
+                    "web":(0.22852881, 0.239719, 0.25335559),
                     }
     }
     
@@ -626,7 +641,8 @@ def get_statistics(dataset: str, type_name:str):
         "OfficeHome": 65,
         "DomainNet": 345,
         "birdsnap": 500,
-        "aircraft": 100
+        "aircraft": 100,
+        "food101": 101
     }
 
     in_channels = 3
