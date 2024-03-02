@@ -139,15 +139,15 @@ elif [ "$DATASET" == "OfficeHome" ]; then
     SAMPLES_PER_TASK=2000
     ONLINE_ITER=2
     if [ "$SEEDS" == "1" ]; then
-        EVAL_POINT="930 1763 2594 3463 4357"
+        EVAL_POINT="715, 1367, 2003, 2693, 3459"
     elif [ "$SEEDS" == "2" ]; then
-        EVAL_POINT="872 1629 2532 3369 4357"
+        EVAL_POINT="714, 1395, 2068, 2744, 3459"
     elif [ "$SEEDS" == "3" ]; then
-        EVAL_POINT="770 1750 2574 3489 4357"
+        EVAL_POINT="634, 1356, 2075, 2772, 3459"
     elif [ "$SEEDS" == "4" ]; then
-        EVAL_POINT="869 1739 2587 3421 4357"
+        EVAL_POINT="727, 1395, 2105, 2842, 3459"
     elif [ "$SEEDS" == "5" ]; then
-        EVAL_POINT="940 1832 2680 3452 4357"
+        EVAL_POINT="621, 1317, 2002, 2740, 3459"
     fi
 
 elif [ "$DATASET" == "DomainNet" ]; then
