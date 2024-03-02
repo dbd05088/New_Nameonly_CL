@@ -1738,7 +1738,6 @@ def get_test_datalist(dataset) -> List:
         index = val_name.split("_").index("sigma0")
         domain_name = "_".join(val_name.split("_")[1:index])
         test_domain_name.append(domain_name)
-    print(test_domain_name)
     return test_domain_name, [pd.read_json(f"collections/{dataset}/test/{val_json}").to_dict(orient="records")  for val_json in val_jsons]
 
 
