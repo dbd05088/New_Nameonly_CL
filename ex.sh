@@ -129,12 +129,12 @@ elif [ "$DATASET" == "PACS_final" ]; then
     fi
 
 elif [ "$DATASET" == "OfficeHome" ]; then
-    MEM_SIZE=400
-    TYPES=("ma" "generated" "web")
+    MEM_SIZE=500
+    TYPES=("train_ma" "generated" "web")
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
     MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=100
-    BATCHSIZE=16; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
+    BATCHSIZE=32; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
     BASEINIT_SAMPLES=2614 FEAT_DIM=14 FEAT_MEM_SIZE=9600
     SAMPLES_PER_TASK=2000
     ONLINE_ITER=2
@@ -152,11 +152,11 @@ elif [ "$DATASET" == "OfficeHome" ]; then
 
 elif [ "$DATASET" == "DomainNet" ]; then
     MEM_SIZE=8000
-    TYPES=("ma" "sdxl_diversified" "web")
+    TYPES=("train_ma" "sdxl_diversified" "web")
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
     MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=300
-    BATCHSIZE=48; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
+    BATCHSIZE=64; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
     BASEINIT_SAMPLES=30523 FEAT_DIM=14 FEAT_MEM_SIZE=168000
     SAMPLES_PER_TASK=2000
     ONLINE_ITER=3
