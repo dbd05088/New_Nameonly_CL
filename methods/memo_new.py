@@ -36,14 +36,18 @@ class MEMO(CLManagerBase):
         
     def initialize_future(self):
         self.model = self.model.cpu()
-        self.model = MEMOModel(self.model_name, self.dataset).to(self.device)
-        self.extractor = select_model(self.model_name, self.dataset, 1, F=True, ver2=True)
-        self.model.fc = nn.Linear(self.extractor.fc.in_features, 1).to(self.device)
+        if "resnet" in self.model_name:
+            self.model = MEMOResnet(self.model_name, self.dataset).to(self.device)
+        else:
+            self.model = MEMOVIT(self.model_name, self.dataset).to(self.device)
         self.model.num_features = self.model.fc.in_features
-        self.extractor.fc = nn.Identity()
+        _, self.extractor = select_model(self.model_name, self.dataset, 1, F=True, ver2=True)
+        self.extractor[-1] = nn.Identity()
         self.model.AdaptiveExtractors.append(copy.deepcopy(self.extractor.to(self.device)))
+        for n, p in self.model.named_parameters():
+            print(n)
         self.get_flops_parameter(self.method_name)
-    
+
         
         self.optimizer = select_optimizer(self.opt_name, self.lr, self.model)
         self.scheduler = select_scheduler(self.sched_name, self.optimizer)
@@ -231,6 +235,7 @@ class MEMO(CLManagerBase):
         self.memory.update_after_task()
         
         self.out_dim = len(self.model.AdaptiveExtractors)*self.num_features
+        self.model.norm = nn.LayerNorm(self.out_dim).to(self.device)
 
         prev_weight = copy.deepcopy(self.model.fc.weight.data)
         prev_bias = copy.deepcopy(self.model.fc.bias.data)
@@ -328,13 +333,13 @@ class MEMO(CLManagerBase):
         self.n_model_cls.append(copy.deepcopy(self.num_learned_class))
 
 
-class MEMOModel(nn.Module):
+class MEMOResnet(nn.Module):
     def __init__(self, model_name, dataset):
-        super(MEMOModel, self).__init__()
+        super(MEMOResnet, self).__init__()
         self.backbone = select_model(model_name, dataset, 1, G=True, ver2=True)
-        # self.extractor = select_model(model_name, dataset, 1, F=True, ver2=True)
-        self.fc = None
-        # self.extractor.fc = nn.Identity()
+        self.extractor = select_model(model_name, dataset, 1, F=True, ver2=True)
+        self.fc = nn.Linear(self.extractor.fc.in_features, 1).to(self.device)
+        self.extractor.fc = nn.Identity()
         self.AdaptiveExtractors = nn.ModuleList()
         self.aux_classifier = None
         self.num_features = None
@@ -347,6 +352,33 @@ class MEMOModel(nn.Module):
         cls_out = self.fc(features)
         if self.aux_classifier is not None and not test:
             aux_cls_out = self.aux_classifier(features[:,-self.num_features:])
+        return cls_out, aux_cls_out
+    
+class MEMOVIT(nn.Module):
+    def __init__(self, model_name, dataset):
+        super(MEMOVIT, self).__init__()
+        self.backbone = select_model(model_name, dataset, 1, G=True, ver2=True)
+        self.norm, self.extractor = select_model(model_name, dataset, 1, F=True, ver2=True)
+        self.fc = nn.Linear(self.extractor[-1].in_features, 1)
+        self.aux_norm = nn.LayerNorm(self.extractor[-1].in_features)
+        self.extractor[-1] = nn.Identity()
+        self.AdaptiveExtractors = nn.ModuleList()
+        self.aux_classifier = None
+        self.num_features = None
+    
+    def forward(self, x, test=False):
+        aux_cls_out = None
+        out0 = self.backbone(x)
+        print("len(AdaptiveExtractors)", len(self.AdaptiveExtractors))
+        print("self.fc.in_features", self.fc.in_features)
+        features = [extractor(out0) for extractor in self.AdaptiveExtractors]
+        features = torch.cat(features,2)
+        features = features.mean(dim=1)
+        features = self.norm(features)
+        cls_out = self.fc(features)
+        if self.aux_classifier is not None and not test:
+            features = features[:,-self.num_features:]
+            aux_cls_out = self.aux_classifier(self.aux_norm(features))
         return cls_out, aux_cls_out
 
 class MEMOMemory(MemoryBase):
@@ -423,4 +455,3 @@ class MEMOMemory(MemoryBase):
             self.cls_count[remove_cls] -= 1
             del self.images[remove_ind]
             del self.sample_ids[remove_ind]
-

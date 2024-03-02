@@ -129,12 +129,12 @@ MEMO_MODEL_BLOCK_DICT = {
             ['backbone.4'], 
             ['backbone.5'], 
             ['backbone.6'], 
+            ['backbone.7'], 
             ['AdaptiveExtractors.0.0'], 
-            ['AdaptiveExtractors.0.1'], 
+            ['AdaptiveExtractors.0.1'],
             ['AdaptiveExtractors.0.2'], 
             ['AdaptiveExtractors.0.3'], 
             ['AdaptiveExtractors.0.4'], 
-            ['AdaptiveExtractors.0.5'], 
             ['norm', 'fc']]
 }
 

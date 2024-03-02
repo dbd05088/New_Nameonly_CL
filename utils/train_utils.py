@@ -403,13 +403,14 @@ def select_model(model_name, dataset, num_classes=None, opt_dict=None, G=False, 
             # print("param list", list(model.children()))
             # print("length", len(list(model.children())))
             layers=[model.patch_embed]
-            layers.extend(model.blocks[:6])
+            layers.extend(model.blocks[:8])
             # model.cls_token, model.pos_embed, nn.Sequential(*layers)
             return nn.Sequential(*layers)
         elif F:
             model = timm.create_model('vit_base_patch16_224', pretrained=True)
-            layers = model.blocks[6:]
+            layers = model.blocks[8:]
             layers.append(model.head)
+            
             return model.norm, nn.Sequential(*layers)
         else:
             model = timm.create_model('vit_base_patch16_224', pretrained=True)
