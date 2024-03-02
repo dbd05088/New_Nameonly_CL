@@ -139,15 +139,15 @@ elif [ "$DATASET" == "OfficeHome" ]; then
     SAMPLES_PER_TASK=2000
     ONLINE_ITER=2
     if [ "$SEEDS" == "1" ]; then
-        EVAL_POINT="715, 1367, 2003, 2693, 3459"
+        EVAL_POINT="715 1367 2003 2693 3459"
     elif [ "$SEEDS" == "2" ]; then
-        EVAL_POINT="714, 1395, 2068, 2744, 3459"
+        EVAL_POINT="714 1395 2068 2744 3459"
     elif [ "$SEEDS" == "3" ]; then
-        EVAL_POINT="634, 1356, 2075, 2772, 3459"
+        EVAL_POINT="634 1356 2075 2772 3459"
     elif [ "$SEEDS" == "4" ]; then
-        EVAL_POINT="727, 1395, 2105, 2842, 3459"
+        EVAL_POINT="727 1395 2105 2842 3459"
     elif [ "$SEEDS" == "5" ]; then
-        EVAL_POINT="621, 1317, 2002, 2740, 3459"
+        EVAL_POINT="621 1317 2002 2740 3459"
     fi
 
 elif [ "$DATASET" == "DomainNet" ]; then
@@ -161,15 +161,15 @@ elif [ "$DATASET" == "DomainNet" ]; then
     SAMPLES_PER_TASK=2000
     ONLINE_ITER=3
     if [ "$SEEDS" == "1" ]; then
-        EVAL_POINT="10037, 20073, 30338, 40393, 50273"
+        EVAL_POINT="10037 20073 30338 40393 50273"
     elif [ "$SEEDS" == "2" ]; then
-        EVAL_POINT="10189, 20304, 30413, 40177, 50273"
+        EVAL_POINT="10189 20304 30413 40177 50273"
     elif [ "$SEEDS" == "3" ]; then
-        EVAL_POINT="9825, 19943, 30186, 40109, 50273"
+        EVAL_POINT="9825 19943 30186 40109 50273"
     elif [ "$SEEDS" == "4" ]; then
-        EVAL_POINT="10276, 20398, 30423, 40359, 50273"
+        EVAL_POINT="10276 20398 30423 40359 50273"
     elif [ "$SEEDS" == "5" ]; then
-        EVAL_POINT="9918, 20137, 30290, 40184, 50273"
+        EVAL_POINT="9918 20137 30290 40184 50273"
     fi
 
 else
