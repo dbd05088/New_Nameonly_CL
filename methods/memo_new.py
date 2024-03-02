@@ -232,7 +232,7 @@ class MEMO(CLManagerBase):
 
         for _, param in self.model.AdaptiveExtractors[-2].named_parameters():
             param.requires_grad = False
-        self.memory.update_after_task()
+        # self.memory.update_after_task()
         
         self.out_dim = len(self.model.AdaptiveExtractors)*self.num_features
         self.model.norm = nn.LayerNorm(self.out_dim).to(self.device)
