@@ -60,6 +60,18 @@ elif [ "$DATASET" == "aircraft" ]; then
         EVAL_POINT="1332 2665 3999 5330 6667"
     fi
 
+elif [ "$DATASET" == "food101" ]; then
+    MEM_SIZE=800
+    TYPES=("train_ma" "sdxl_diversified" "web")
+    N_SMP_CLS="9" K="3" MIR_CANDS=50
+    CANDIDATE_SIZE=50 VAL_SIZE=5
+    MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=100
+    BATCHSIZE=32; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
+    BASEINIT_SAMPLES=1002 FEAT_DIM=14 FEAT_MEM_SIZE=4800
+    SAMPLES_PER_TASK=2000
+    ONLINE_ITER=3
+    EVAL_POINT="1000 2000 3000 4000 5050"
+
 elif [ "$DATASET" == "PACS" ]; then
     MEM_SIZE=200
     TYPES=("sdxl_diversified")
