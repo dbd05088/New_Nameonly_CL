@@ -549,7 +549,11 @@ def get_statistics(dataset: str, type_name:str):
                     "ensembled_RMD_temp5":(0.53656395, 0.48488934, 0.43561592),
                     "ensembled_RMD_temp2":(0.54081422, 0.48460521, 0.4343478 ),
                     "ensembled_RMD_temp1":(0.5396411,  0.48450562, 0.4337191),
-                    "both_ensembled":(0.51523965, 0.46755071, 0.4216341)
+                    "both_ensembled":(0.51523965, 0.46755071, 0.4216341),
+                    "ensembled_samplewise_RMD_0_5":(0.4883345,  0.45737695, 0.40193969),
+                    "ensembled_samplewise_RMD_1":(0.48671596, 0.45466132, 0.40009417),
+                    "ensembled_samplewise_RMD_3":(0.49161892, 0.45853651, 0.40862421),
+                    "ensembled_samplewise_RMD_5":(0.50430008, 0.47350873, 0.41511933),
                     },
         "OfficeHome": {
                     "Art":(0.51358405, 0.48082051, 0.44370487),
@@ -644,6 +648,10 @@ def get_statistics(dataset: str, type_name:str):
                     "ensembled_RMD_temp5":(0.23011463, 0.21752798, 0.21647304),
                     "ensembled_RMD_temp2":(0.22805581, 0.21592939, 0.21297527),
                     "ensembled_RMD_temp1":(0.22313806, 0.20945158, 0.20829474),
+                    "ensembled_samplewise_RMD_0_5":(0.25248181, 0.23518097, 0.23524056),
+                    "ensembled_samplewise_RMD_1":(0.25340686, 0.23475339, 0.23515346),
+                    "ensembled_samplewise_RMD_3":(0.25275237, 0.23498074, 0.23600923),
+                    "ensembled_samplewise_RMD_5":(0.25056432, 0.23311634, 0.23532709),
                     },
         "OfficeHome": {
                     "Art":(0.23799188, 0.23378391, 0.22740558),

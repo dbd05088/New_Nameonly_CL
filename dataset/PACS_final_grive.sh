@@ -53,3 +53,26 @@ rm PACS_ensembled_RMD_temp2.tar
 rm PACS_ensembled_RMD_temp5.tar
 rm PACS_ensembled_RMD_temp10.tar
 #######################
+
+
+### samplewise exp ###
+gdrive files download 1MDjt93gD4ClkW61IrL6ZdOyOe8YQjf4A
+gdrive files download 1MDjt93gD4ClkW61IrL6ZdOyOe8YQjf4A
+gdrive files download 1dvTEhMxX94vwXp-gQ8fJZHU87EY0VURc
+gdrive files download 1vll5aPNctm7zMuFShGjQFKsfIgAkJdMx
+
+tar -xvf PACS_ensembled_samplewise_RMD_0_5.tar
+tar -xvf PACS_ensembled_samplewise_RMD_1.tar
+tar -xvf PACS_ensembled_samplewise_RMD_3.tar
+tar -xvf PACS_ensembled_samplewise_RMD_5.tar
+
+mv PACS_ensembled_samplewise_RMD_0_5 PACS_final
+mv PACS_ensembled_samplewise_RMD_1 PACS_final
+mv PACS_ensembled_samplewise_RMD_3 PACS_final
+mv PACS_ensembled_samplewise_RMD_5 PACS_final
+
+rm PACS_ensembled_samplewise_RMD_0_5.tar
+rm PACS_ensembled_samplewise_RMD_1.tar
+rm PACS_ensembled_samplewise_RMD_3.tar
+rm PACS_ensembled_samplewise_RMD_5.tar
+#######################
