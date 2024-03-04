@@ -4,25 +4,33 @@ gdrive files download 18BDlPQR5gktey3rUccFeRczeF5FId9pa
 gdrive files download 1VVXJvoo-5FWKABYbd8nWCVE4exqZbf11
 gdrive files download 13_Siy5m-aj_mEVvugPsmSAoZRJIJz9H8
 gdrive files download 1mClS-e1TGE6iXMLgfhieisBSN4kUaKRy
+gdrive files download 1cCoHfnDhbg3fZBqwJihNZh6Ot-fmRwQS
+gdrive files download 1VSqCJqKNYS7Kdmu-cNfWYlBVACk5Jnf6
 
 tar -xvf cct_train_ma.tar
 tar -xvf cct_in_test_ma.tar
 tar -xvf cct_out_test_ma.tar
 tar -xvf cct_web.tar
-tar -xvf cct_web_10.tar
+# tar -xvf cct_web_10.tar
 tar -xvf cct_sdxl_diversified.tar
+tar -xvf cct_generated.tar
+tar -xvf cct_sdxl_diversified_nofiltering.tar
 
 mkdir cct
 mv cct_train_ma cct
 mv cct_in_test_ma cct
 mv cct_out_test_ma cct
-mv cct_web_10 cct
+# mv cct_web_10 cct
 mv cct_web cct
 mv cct_sdxl_diversified cct
+mv cct_sdxl_diversified_nofiltering cct
+mv cct_generated cct
 
 rm cct_train_ma.tar
 rm cct_in_test_ma.tar
 rm cct_out_test_ma.tar
 rm cct_web.tar
-rm cct_web_10.tar
+# rm cct_web_10.tar
 rm cct_sdxl_diversified.tar
+rm cct_sdxl_diversified_nofiltering.tar
+rm cct_generated.tar

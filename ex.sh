@@ -74,7 +74,7 @@ elif [ "$DATASET" == "food101" ]; then
 
 elif [ "$DATASET" == "cct" ]; then
     MEM_SIZE=400
-    TYPES=("train_ma" "sdxl_diversified" "web")
+    TYPES=("train_ma" "sdxl_diversified" "web" "generated" "sdxl_diversified_nofiltering")
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
     MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=100
