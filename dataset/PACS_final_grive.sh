@@ -30,3 +30,26 @@ rm PACS_final_web2.tar
 rm PACS_final_sdxl_diversified.tar
 rm PACS_both_ensembled.tar
 rm PACS_generated.tar
+
+
+### temperature exp ###
+gdrive files download 1mI5-cJY8ofwU6ZeiUBp9Ym_Q_kfQzzG-
+gdrive files download 1tDwpUQu69sSl2ZkcMfyHecOTpU1XU88B
+gdrive files download 1Z8pgas6mgGPuNYfXKP36Tm-bDlNJ3d53
+gdrive files download 1mwXwJesZg_067tEoPFR6S9GGkF_863DJ
+
+tar -xvf PACS_ensembled_RMD_temp1.tar
+tar -xvf PACS_ensembled_RMD_temp2.tar
+tar -xvf PACS_ensembled_RMD_temp5.tar
+tar -xvf PACS_ensembled_RMD_temp10.tar
+
+mv PACS_ensembled_RMD_temp1 PACS_final
+mv PACS_ensembled_RMD_temp2 PACS_final
+mv PACS_ensembled_RMD_temp5 PACS_final
+mv PACS_ensembled_RMD_temp10 PACS_final
+
+rm PACS_ensembled_RMD_temp1.tar
+rm PACS_ensembled_RMD_temp2.tar
+rm PACS_ensembled_RMD_temp5.tar
+rm PACS_ensembled_RMD_temp10.tar
+#######################
