@@ -108,7 +108,7 @@ elif [ "$DATASET" == "PACS" ]; then
 
 elif [ "$DATASET" == "PACS_final" ]; then
     MEM_SIZE=200
-    TYPES=("train_ma" "web" "web_10" "sdxl_diversified" "both_ensembled")
+    TYPES=("train_ma" "web2" "sdxl_diversified" "both_ensembled")
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
     MODEL_NAME="vit" VAL_PERIOD=500 EVAL_PERIOD=100
