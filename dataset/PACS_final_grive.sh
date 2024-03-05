@@ -1,35 +1,35 @@
-gdrive files download 11zV8OnLYqQ9JQZVkxv_1OTWdtbscBsUn 
-gdrive files download 1Q-leEeSjgWZNQUbapU1GmHKFr947_-K- 
-gdrive files download 1pFiNMTBHV5KdDIX0eh7a6zy_afnIK2Rg
-gdrive files download 1LfcRv1xFlLbT9Etx71JbpWzKSQiouxjO
-gdrive files download 1bpMSWOmu59LksTThsDnVo2RE2l1epKAi # PACS_both_ensembled
-gdrive files download 1zLPhg_Yg685fZbkNE_lZE0S4RUp9yC8n
-gdrive files download 1j0QpNXPtrF-7eR8a8pwxHSKXeJQ_-OoJ
+# gdrive files download 11zV8OnLYqQ9JQZVkxv_1OTWdtbscBsUn 
+# gdrive files download 1Q-leEeSjgWZNQUbapU1GmHKFr947_-K- 
+# gdrive files download 1pFiNMTBHV5KdDIX0eh7a6zy_afnIK2Rg
+# gdrive files download 1LfcRv1xFlLbT9Etx71JbpWzKSQiouxjO
+# gdrive files download 1bpMSWOmu59LksTThsDnVo2RE2l1epKAi # PACS_both_ensembled
+# gdrive files download 1zLPhg_Yg685fZbkNE_lZE0S4RUp9yC8n
+# gdrive files download 1j0QpNXPtrF-7eR8a8pwxHSKXeJQ_-OoJ
 
-tar -xvf PACS_final_train_ma.tar
-tar -xvf PACS_final_test_ma.tar
-tar -xvf PACS_final_web2.tar
-tar -xvf PACS_MA.tar
-tar -xvf PACS_final_sdxl_diversified.tar
-tar -xvf PACS_both_ensembled.tar
-tar -xvf PACS_generated.tar
+# tar -xvf PACS_final_train_ma.tar
+# tar -xvf PACS_final_test_ma.tar
+# tar -xvf PACS_final_web2.tar
+# tar -xvf PACS_MA.tar
+# tar -xvf PACS_final_sdxl_diversified.tar
+# tar -xvf PACS_both_ensembled.tar
+# tar -xvf PACS_generated.tar
 
-mkdir PACS_final
-mv PACS_MA PACS_final
-mv PACS_final_train_ma PACS_final
-mv PACS_final_test_ma PACS_final
-mv PACS_final_web2 PACS_final
-mv PACS_final_sdxl_diversified PACS_final
-mv PACS_both_ensembled PACS_final
-mv PACS_generated PACS_final
+# mkdir PACS_final
+# mv PACS_MA PACS_final
+# mv PACS_final_train_ma PACS_final
+# mv PACS_final_test_ma PACS_final
+# mv PACS_final_web2 PACS_final
+# mv PACS_final_sdxl_diversified PACS_final
+# mv PACS_both_ensembled PACS_final
+# mv PACS_generated PACS_final
 
-rm PACS_MA.tar
-rm PACS_final_train_ma.tar
-rm PACS_final_test_ma.tar
-rm PACS_final_web2.tar
-rm PACS_final_sdxl_diversified.tar
-rm PACS_both_ensembled.tar
-rm PACS_generated.tar
+# rm PACS_MA.tar
+# rm PACS_final_train_ma.tar
+# rm PACS_final_test_ma.tar
+# rm PACS_final_web2.tar
+# rm PACS_final_sdxl_diversified.tar
+# rm PACS_both_ensembled.tar
+# rm PACS_generated.tar
 
 
 ### temperature exp ###
@@ -55,25 +55,25 @@ rm PACS_generated.tar
 # #######################
 
 ### modelwise exp ###
-gdrive files download 1Lhybt-iPWMRxaSgMwnA9q6sgglHOo4qu
-gdrive files download 1Vq0sT7sEhL1PRZBCw7WPialIZoYKHFD1
-gdrive files download 1pruaOIeVO4dy3EGryXIAJkySbUV5_ENY
-gdrive files download 1YNgu59uxnloTDyWznL_8UGV7D8KcmNAR
+# gdrive files download 1Lhybt-iPWMRxaSgMwnA9q6sgglHOo4qu
+# gdrive files download 1Vq0sT7sEhL1PRZBCw7WPialIZoYKHFD1
+# gdrive files download 1pruaOIeVO4dy3EGryXIAJkySbUV5_ENY
+# gdrive files download 1YNgu59uxnloTDyWznL_8UGV7D8KcmNAR
 
-tar -xvf PACS_ensembled_RMD_0_5.tar
-tar -xvf PACS_ensembled_RMD_1.tar
-tar -xvf PACS_ensembled_RMD_3.tar
-tar -xvf PACS_ensembled_RMD_5.tar
+# tar -xvf PACS_ensembled_RMD_0_5.tar
+# tar -xvf PACS_ensembled_RMD_1.tar
+# tar -xvf PACS_ensembled_RMD_3.tar
+# tar -xvf PACS_ensembled_RMD_5.tar
 
-mv PACS_ensembled_RMD_0_5 PACS_final
-mv PACS_ensembled_RMD_1 PACS_final
-mv PACS_ensembled_RMD_3 PACS_final
-mv PACS_ensembled_RMD_5 PACS_final
+# mv PACS_ensembled_RMD_0_5 PACS_final
+# mv PACS_ensembled_RMD_1 PACS_final
+# mv PACS_ensembled_RMD_3 PACS_final
+# mv PACS_ensembled_RMD_5 PACS_final
 
-rm PACS_ensembled_RMD_0_5.tar
-rm PACS_ensembled_RMD_1.tar
-rm PACS_ensembled_RMD_3.tar
-rm PACS_ensembled_RMD_5.tar
+# rm PACS_ensembled_RMD_0_5.tar
+# rm PACS_ensembled_RMD_1.tar
+# rm PACS_ensembled_RMD_3.tar
+# rm PACS_ensembled_RMD_5.tar
 #######################
 
 ### samplewise exp ###
@@ -97,3 +97,20 @@ rm PACS_ensembled_RMD_5.tar
 # rm PACS_ensembled_samplewise_RMD_3.tar
 # rm PACS_ensembled_samplewise_RMD_5.tar
 #######################
+
+
+gdrive files download 1fZgQ4TvKnaj5LTmqyHoDlU3VoUI3p4AB
+gdrive files download 1WDORFfRZf87N3Xv_RP2RKSMjZHoiAE5O
+gdrive files download 1Ne_5DPbwyo-H5T6l--OU_0IFwyjzTZQB
+
+tar -xvf PACS_ensembled_RMD_0_5_modelwise.tar
+tar -xvf PACS_ensembled_RMD_1_modelwise.tar
+tar -xvf PACS_ensembled_RMD_3_modelwise.tar
+
+mv PACS_ensembled_RMD_0_5_modelwise.tar PACS_final
+mv PACS_ensembled_RMD_1_modelwise.tar PACS_final
+mv PACS_ensembled_RMD_3_modelwise.tar PACS_final
+
+rm PACS_ensembled_RMD_0_5_modelwise.tar
+rm PACS_ensembled_RMD_1_modelwise.tar
+rm PACS_ensembled_RMD_3_modelwise.tar
