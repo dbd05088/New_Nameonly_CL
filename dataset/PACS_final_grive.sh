@@ -107,9 +107,9 @@ tar -xvf PACS_ensembled_RMD_0_5_modelwise.tar
 tar -xvf PACS_ensembled_RMD_1_modelwise.tar
 tar -xvf PACS_ensembled_RMD_3_modelwise.tar
 
-mv PACS_ensembled_RMD_0_5_modelwise.tar PACS_final
-mv PACS_ensembled_RMD_1_modelwise.tar PACS_final
-mv PACS_ensembled_RMD_3_modelwise.tar PACS_final
+mv PACS_ensembled_RMD_0_5_modelwise PACS_final
+mv PACS_ensembled_RMD_1_modelwise PACS_final
+mv PACS_ensembled_RMD_3_modelwise PACS_final
 
 rm PACS_ensembled_RMD_0_5_modelwise.tar
 rm PACS_ensembled_RMD_1_modelwise.tar
