@@ -1,4 +1,17 @@
-#/bin/bash
+#!/bin/bash
+#SBATCH --time=20:00:00
+#SBATCH -c 8
+#SBATCH --job-name=TEST
+#SBATCH --mem=16G
+#SBATCH --gres=gpu:rtx8000:1
+#SBATCH --reservation=ubuntu1804
+#SBATCH --signal=SIGUSR1@90 # 90 seconds before time limit
+#SBATCH --output=$SCRATCH/vpmamba-%j.out
+#SBATCH --error=$SCRATCH/vpmamba-%j.err
+pyfile=/home/mila/j/justine.gehring/scratch/sw/New_Nameonly_CL/main_new.py
+module load anaconda/3
+conda activate /home/mila/j/justine.gehring/.conda/envs/name_only/
+ulimit -Sn $(ulimit -Hn)
 
 # CIL CONFIG
 # NOTE="imagenet_sdp_sigma0_mem_10000_iter_0.125"
