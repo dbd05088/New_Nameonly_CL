@@ -116,7 +116,12 @@
 # rm PACS_final_ensembled_RMD_classwise_temp_3.tar
 
 ### equalweight ensemble ###
-gdrive files download 1hE8d1i9SjjmgkDmslfgiKhyA01xKrqoN
-tar -xvf PACS_final_equalweighted.tar
-mv PACS_final_equalweighted PACS_final
-rm PACS_final_equalweighted.tar
+# gdrive files download 1hE8d1i9SjjmgkDmslfgiKhyA01xKrqoN
+# tar -xvf PACS_final_equalweighted.tar
+# mv PACS_final_equalweighted PACS_final
+# rm PACS_final_equalweighted.tar
+
+gdrive files download 1mZP20hEI7ZI8GvTXHtBqPysg_xex4Kjm
+tar -xvf PACS_final_generated.tar
+mv PACS_final_generated PACS_final
+rm PACS_final_generated.tar
