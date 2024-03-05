@@ -207,10 +207,10 @@ elif [ "$DATASET" == "OfficeHome" ]; then
 
 elif [ "$DATASET" == "DomainNet" ]; then
     MEM_SIZE=8000
-    TYPES=("train_ma" "sdxl_diversified" "web2" "generated")
+    TYPES=("RMD_classwise_temp_3" "RMD_classwise_temp_5")
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
-    MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=300
+    MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=1000
     BATCHSIZE=64; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
     BASEINIT_SAMPLES=30523 FEAT_DIM=14 FEAT_MEM_SIZE=168000
     SAMPLES_PER_TASK=2000
