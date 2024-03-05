@@ -99,18 +99,18 @@
 #######################
 
 
-gdrive files download 1fZgQ4TvKnaj5LTmqyHoDlU3VoUI3p4AB
-gdrive files download 1WDORFfRZf87N3Xv_RP2RKSMjZHoiAE5O
-gdrive files download 1Ne_5DPbwyo-H5T6l--OU_0IFwyjzTZQB
+gdrive files download 1BgXNXE-qWqW_Rr3zKz9k1yIzPksSuxoA
+gdrive files download 1IinghAZHJlN1btD0Q2N_1LMbBJRZ26Ix
+gdrive files download 1mdNk3gLXI-5jdKrZWoENEzxMEysLgWw1
 
-tar -xvf PACS_ensembled_RMD_0_5_modelwise.tar
-tar -xvf PACS_ensembled_RMD_1_modelwise.tar
-tar -xvf PACS_ensembled_RMD_3_modelwise.tar
+tar -xvf PACS_final_ensembled_RMD_classwise_temp_3.tar
+tar -xvf PACS_final_ensembled_RMD_classwise_temp_1.tar
+tar -xvf PACS_final_ensembled_RMD_classwise_temp_0_5.tar
 
-mv PACS_ensembled_RMD_0_5_modelwise.tar PACS_final
-mv PACS_ensembled_RMD_1_modelwise.tar PACS_final
-mv PACS_ensembled_RMD_3_modelwise.tar PACS_final
+mv PACS_final_ensembled_RMD_classwise_temp_0_5 PACS_final
+mv PACS_final_ensembled_RMD_classwise_temp_1 PACS_final
+mv PACS_final_ensembled_RMD_classwise_temp_3 PACS_final
 
-rm PACS_ensembled_RMD_0_5_modelwise.tar
-rm PACS_ensembled_RMD_1_modelwise.tar
-rm PACS_ensembled_RMD_3_modelwise.tar
+rm PACS_final_ensembled_RMD_classwise_temp_0_5.tar
+rm PACS_final_ensembled_RMD_classwise_temp_1.tar
+rm PACS_final_ensembled_RMD_classwise_temp_3.tar
