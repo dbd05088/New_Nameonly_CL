@@ -121,7 +121,28 @@
 # mv PACS_final_equalweighted PACS_final
 # rm PACS_final_equalweighted.tar
 
-gdrive files download 1mZP20hEI7ZI8GvTXHtBqPysg_xex4Kjm
-tar -xvf PACS_final_generated.tar
-mv PACS_final_generated PACS_final
-rm PACS_final_generated.tar
+### generated ###
+# gdrive files download 1mZP20hEI7ZI8GvTXHtBqPysg_xex4Kjm
+# tar -xvf PACS_final_generated.tar
+# mv PACS_final_generated PACS_final
+# rm PACS_final_generated.tar
+
+### sampling exp ###
+gdrive files download 12GrpmJyI99uN6CgJV96rMwjnTtSuS0-x
+gdrive files download 1mhR4vVbOqj8cjosdPHltB-HHXqq4D9ia
+gdrive files download 1eN6mBuxJ39WPQuuHmN-ly2vZrA2XVqbu
+
+# tar -xvf PACS_final_sampling_2.tar
+tar -xvf PACS_final_sampling_0_5.tar
+tar -xvf PACS_final_sampling_0_25.tar
+tar -xvf PACS_final_sampling_0_125.tar
+
+# mv PACS_final_sampling_2 PACS_final
+mv PACS_final_sampling_1 PACS_final
+mv PACS_final_sampling_0_25 PACS_final
+mv PACS_final_sampling_0_125 PACS_final
+
+# rm PACS_final_sampling_2.tar
+rm PACS_final_sampling_0_5.tar
+rm PACS_final_sampling_0_25.tar
+rm PACS_final_sampling_0_125.tar

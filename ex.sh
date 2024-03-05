@@ -119,9 +119,11 @@ elif [ "$DATASET" == "PACS" ]; then
         EVAL_POINT="570 1282 1670"
     fi
 
+
+
 elif [ "$DATASET" == "PACS_final" ]; then
     MEM_SIZE=200
-    TYPES=("equalweighted" "ensembled_RMD_0_5_modelwise" "ensembled_RMD_1_modelwise" "ensembled_RMD_3_modelwise" "ensembled_RMD_classwise_temp_0_5" "ensembled_RMD_classwise_temp_1" "PACS_final_ensembled_RMD_classwise_temp_3") #("ensembled_samplewise_RMD_0_5" "ensembled_samplewise_RMD_1" "ensembled_samplewise_RMD_3" "ensembled_samplewise_RMD_5") #("ensembled_RMD_temp1" "ensembled_RMD_temp2" "ensembled_RMD_temp5" "ensembled_RMD_temp10")
+    TYPES=("sampling_0_5" "sampling_0_25" "sampling_0_125") #"equalweighted" "ensembled_RMD_0_5_modelwise" "ensembled_RMD_1_modelwise" "ensembled_RMD_3_modelwise" "ensembled_RMD_classwise_temp_0_5" "ensembled_RMD_classwise_temp_1" "PACS_final_ensembled_RMD_classwise_temp_3") #("ensembled_samplewise_RMD_0_5" "ensembled_samplewise_RMD_1" "ensembled_samplewise_RMD_3" "ensembled_samplewise_RMD_5") #("ensembled_RMD_temp1" "ensembled_RMD_temp2" "ensembled_RMD_temp5" "ensembled_RMD_temp10")
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
     MODEL_NAME="vit" VAL_PERIOD=500 EVAL_PERIOD=100
@@ -140,6 +142,46 @@ elif [ "$DATASET" == "PACS_final" ]; then
     elif [ "$SEEDS" == "5" ]; then
         EVAL_POINT="455 764 1333"
     fi
+
+    # 0_5
+    # if [ "$SEEDS" == "1" ]; then
+    #     EVAL_POINT="228 380 664"
+    # elif [ "$SEEDS" == "2" ]; then
+    #     EVAL_POINT="318 472 664"
+    # elif [ "$SEEDS" == "3" ]; then
+    #     EVAL_POINT="259 505 664"
+    # elif [ "$SEEDS" == "4" ]; then
+    #     EVAL_POINT="319 473 664"
+    # elif [ "$SEEDS" == "5" ]; then
+    #     EVAL_POINT="226 380 664"
+    # fi
+
+    # 0_25
+    # if [ "$SEEDS" == "1" ]; then
+    #     EVAL_POINT="113 189 331"
+    # elif [ "$SEEDS" == "2" ]; then
+    #     EVAL_POINT="159 235 331"
+    # elif [ "$SEEDS" == "3" ]; then
+    #     EVAL_POINT="129 252 331"
+    # elif [ "$SEEDS" == "4" ]; then
+    #     EVAL_POINT="159 236 331"
+    # elif [ "$SEEDS" == "5" ]; then
+    #     EVAL_POINT="112 189 331"
+    # fi
+
+    # 0_125
+    # if [ "$SEEDS" == "1" ]; then
+    #     EVAL_POINT="55 93 164"
+    # elif [ "$SEEDS" == "2" ]; then
+    #     EVAL_POINT="79 116 164"
+    # elif [ "$SEEDS" == "3" ]; then
+    #     EVAL_POINT="64 125 164"
+    # elif [ "$SEEDS" == "4" ]; then
+    #     EVAL_POINT="79 117 164"
+    # elif [ "$SEEDS" == "5" ]; then
+    #     EVAL_POINT="55 93 164"
+    # fi
+
 
 elif [ "$DATASET" == "OfficeHome" ]; then
     MEM_SIZE=500

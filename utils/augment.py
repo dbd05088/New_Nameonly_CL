@@ -552,7 +552,11 @@ def get_statistics(dataset: str, type_name:str):
                     "ensembled_RMD_classwise_temp_0_5":(0.53033692, 0.47375953, 0.42994062),
                     "ensembled_RMD_classwise_temp_1":(0.53485207, 0.47997114, 0.43362797),
                     "ensembled_RMD_classwise_temp_3":(0.53094405, 0.48009067, 0.43317851),
-                    "equalweighted":(0.53725296, 0.49204404, 0.44404841)
+                    "equalweighted":(0.53725296, 0.49204404, 0.44404841),
+                    # "sampling_0_2":(),
+                    "sampling_0_5":(0.51723006, 0.45879043, 0.41935535),
+                    "sampling_0_25":(0.52326325, 0.46327718, 0.42244572),
+                    "sampling_0_125":(0.52006566, 0.46500732, 0.41964415),
                     },
         "OfficeHome": {
                     "Art":(0.51358405, 0.48082051, 0.44370487),
@@ -652,7 +656,11 @@ def get_statistics(dataset: str, type_name:str):
                     "ensembled_RMD_classwise_temp_0_5":(0.2180623, 0.20280125, 0.19698737),
                     "ensembled_RMD_classwise_temp_1":(0.21935218, 0.20703404, 0.2056899),
                     "ensembled_RMD_classwise_temp_3":(0.22964757, 0.2173234, 0.21666681),
-                    "equalweighted":(0.23272649, 0.22465021, 0.227593)
+                    "equalweighted":(0.23272649, 0.22465021, 0.227593),
+                    # "sampling_0_2":(),
+                    "sampling_0_5":(0.17922899, 0.1697177,  0.16662483),
+                    "sampling_0_25":(0.17866125, 0.16993222, 0.16687865),
+                    "sampling_0_125":(0.17917574, 0.17251923, 0.16918126),
                     },
         "OfficeHome": {
                     "Art":(0.23799188, 0.23378391, 0.22740558),
