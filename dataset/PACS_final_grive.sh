@@ -98,19 +98,25 @@
 # rm PACS_ensembled_samplewise_RMD_5.tar
 #######################
 
+### classwise ensemble ###
+# gdrive files download 1BgXNXE-qWqW_Rr3zKz9k1yIzPksSuxoA
+# gdrive files download 1IinghAZHJlN1btD0Q2N_1LMbBJRZ26Ix
+# gdrive files download 1mdNk3gLXI-5jdKrZWoENEzxMEysLgWw1
 
-gdrive files download 1BgXNXE-qWqW_Rr3zKz9k1yIzPksSuxoA
-gdrive files download 1IinghAZHJlN1btD0Q2N_1LMbBJRZ26Ix
-gdrive files download 1mdNk3gLXI-5jdKrZWoENEzxMEysLgWw1
+# tar -xvf PACS_final_ensembled_RMD_classwise_temp_3.tar
+# tar -xvf PACS_final_ensembled_RMD_classwise_temp_1.tar
+# tar -xvf PACS_final_ensembled_RMD_classwise_temp_0_5.tar
 
-tar -xvf PACS_final_ensembled_RMD_classwise_temp_3.tar
-tar -xvf PACS_final_ensembled_RMD_classwise_temp_1.tar
-tar -xvf PACS_final_ensembled_RMD_classwise_temp_0_5.tar
+# mv PACS_final_ensembled_RMD_classwise_temp_0_5 PACS_final
+# mv PACS_final_ensembled_RMD_classwise_temp_1 PACS_final
+# mv PACS_final_ensembled_RMD_classwise_temp_3 PACS_final
 
-mv PACS_final_ensembled_RMD_classwise_temp_0_5 PACS_final
-mv PACS_final_ensembled_RMD_classwise_temp_1 PACS_final
-mv PACS_final_ensembled_RMD_classwise_temp_3 PACS_final
+# rm PACS_final_ensembled_RMD_classwise_temp_0_5.tar
+# rm PACS_final_ensembled_RMD_classwise_temp_1.tar
+# rm PACS_final_ensembled_RMD_classwise_temp_3.tar
 
-rm PACS_final_ensembled_RMD_classwise_temp_0_5.tar
-rm PACS_final_ensembled_RMD_classwise_temp_1.tar
-rm PACS_final_ensembled_RMD_classwise_temp_3.tar
+### equalweight ensemble ###
+gdrive files download 1hE8d1i9SjjmgkDmslfgiKhyA01xKrqoN
+tar -xvf PACS_final_equalweighted.tar
+mv PACS_final_equalweighted PACS_final
+rm PACS_final_equalweighted.tar

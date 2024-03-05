@@ -552,6 +552,7 @@ def get_statistics(dataset: str, type_name:str):
                     "ensembled_RMD_classwise_temp_0_5":(0.53033692, 0.47375953, 0.42994062),
                     "ensembled_RMD_classwise_temp_1":(0.53485207, 0.47997114, 0.43362797),
                     "ensembled_RMD_classwise_temp_3":(0.53094405, 0.48009067, 0.43317851),
+                    "equalweighted":(0.53725296, 0.49204404, 0.44404841)
                     },
         "OfficeHome": {
                     "Art":(0.51358405, 0.48082051, 0.44370487),
@@ -651,6 +652,7 @@ def get_statistics(dataset: str, type_name:str):
                     "ensembled_RMD_classwise_temp_0_5":(0.2180623, 0.20280125, 0.19698737),
                     "ensembled_RMD_classwise_temp_1":(0.21935218, 0.20703404, 0.2056899),
                     "ensembled_RMD_classwise_temp_3":(0.22964757, 0.2173234, 0.21666681),
+                    "equalweighted":(0.23272649, 0.22465021, 0.227593)
                     },
         "OfficeHome": {
                     "Art":(0.23799188, 0.23378391, 0.22740558),
