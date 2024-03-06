@@ -128,21 +128,26 @@
 # rm PACS_final_generated.tar
 
 ### sampling exp ###
-gdrive files download 12GrpmJyI99uN6CgJV96rMwjnTtSuS0-x
-gdrive files download 1mhR4vVbOqj8cjosdPHltB-HHXqq4D9ia
-gdrive files download 1eN6mBuxJ39WPQuuHmN-ly2vZrA2XVqbu
+# gdrive files download 12GrpmJyI99uN6CgJV96rMwjnTtSuS0-x
+# gdrive files download 1mhR4vVbOqj8cjosdPHltB-HHXqq4D9ia
+# gdrive files download 1eN6mBuxJ39WPQuuHmN-ly2vZrA2XVqbu
+gdrive files download 1hc4YCvHIge-S6vJ6gN7NYvUoo32F1S-R
+gdrive files download 1-sDloBihAs-BbtpEiLvML3skiw-eK1OA
 
-# tar -xvf PACS_final_sampling_2.tar
-tar -xvf PACS_final_sampling_0_5.tar
-tar -xvf PACS_final_sampling_0_25.tar
-tar -xvf PACS_final_sampling_0_125.tar
+tar -xvf PACS_final_sampling_4.tar
+tar -xvf PACS_final_sampling_2.tar
+# tar -xvf PACS_final_sampling_0_5.tar
+# tar -xvf PACS_final_sampling_0_25.tar
+# tar -xvf PACS_final_sampling_0_125.tar
 
-# mv PACS_final_sampling_2 PACS_final
-mv PACS_final_sampling_0.5 PACS_final
-mv PACS_final_sampling_0_25 PACS_final
-mv PACS_final_sampling_0_125 PACS_final
+mv PACS_final_sampling_4 PACS_final
+mv PACS_final_sampling_2 PACS_final
+# mv PACS_final_sampling_0.5 PACS_final
+# mv PACS_final_sampling_0_25 PACS_final
+# mv PACS_final_sampling_0_125 PACS_final
 
-# rm PACS_final_sampling_2.tar
-rm PACS_final_sampling_0_5.tar
-rm PACS_final_sampling_0_25.tar
-rm PACS_final_sampling_0_125.tar
+rm PACS_final_sampling_4.tar
+rm PACS_final_sampling_2.tar
+# rm PACS_final_sampling_0_5.tar
+# rm PACS_final_sampling_0_25.tar
+# rm PACS_final_sampling_0_125.tar
