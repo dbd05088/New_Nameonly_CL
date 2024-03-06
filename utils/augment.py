@@ -625,6 +625,9 @@ def get_statistics(dataset: str, type_name:str):
                     "RMD_classwise_temp_0_5":(0.52702979, 0.47652813, 0.4241084),
                     "RMD_classwise_temp_1":(0.52702749, 0.48113256, 0.42356121),
                     "RMD_classwise_temp_3":(0.52747117, 0.48726641, 0.42258619),
+                    "RMD_normalized_temp_0_5":(0.51942573, 0.48232471, 0.41917736),
+                    "RMD_normalized_temp_1":(0.51073459, 0.47572054, 0.41164762),
+                    "RMD_normalized_temp_3":(0.50950205, 0.47585092, 0.41832985)
                     }
     }
     
