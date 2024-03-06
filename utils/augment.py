@@ -564,6 +564,9 @@ def get_statistics(dataset: str, type_name:str):
                     "normalized_temp_0_5":(0.53745756, 0.4837548, 0.43563313),
                     "normalized_temp_1":(0.54169585, 0.4915278, 0.44077598),
                     "normalized_temp_3":(0.54241649, 0.49224293, 0.44261785),
+                    "RMD_normalized_temp_0_5":(0.51942573, 0.48232471, 0.41917736),
+                    "RMD_normalized_temp_1":(0.51073459, 0.47572054, 0.41164762),
+                    "RMD_normalized_temp_3":(0.50950205, 0.47585092, 0.41832985)
                     },
         "OfficeHome": {
                     "Art":(0.51358405, 0.48082051, 0.44370487),
@@ -735,6 +738,9 @@ def get_statistics(dataset: str, type_name:str):
                     "RMD_classwise_temp_0_5":(0.18573232, 0.17753892, 0.17155214),
                     "RMD_classwise_temp_1":(0.19494221, 0.18584087, 0.18087914),
                     "RMD_classwise_temp_3":(0.20605713, 0.19763828, 0.19486717),
+                    "RMD_normalized_temp_0_5":(0.21642599, 0.20714685, 0.20520932),
+                    "RMD_normalized_temp_1":(0.22041605, 0.21177786, 0.21032885),
+                    "RMD_normalized_temp_3":(0.22382269, 0.21600402, 0.21548007)
                     }
     }
 
