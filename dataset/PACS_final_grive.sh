@@ -153,18 +153,35 @@
 # rm PACS_final_sampling_0_125.tar
 
 ### RMD exp ###
-gdrive files download 1JjFWjRYgPaX4F63blUg3mbbINFsYDWdX
-gdrive files download 1yCbcctL0j69F1o-jCbG8PLAzMfIB7lm4
-gdrive files download 1_LCPreeDUjn2A5fJ_pH5rRbmx-e2jBK8
+# gdrive files download 1JjFWjRYgPaX4F63blUg3mbbINFsYDWdX
+# gdrive files download 1yCbcctL0j69F1o-jCbG8PLAzMfIB7lm4
+# gdrive files download 1_LCPreeDUjn2A5fJ_pH5rRbmx-e2jBK8
 
-tar -xvf PACS_final_bottomk.tar
-tar -xvf PACS_final_topk.tar
-tar -xvf PACS_final_inverseprob.tar
+# tar -xvf PACS_final_bottomk.tar
+# tar -xvf PACS_final_topk.tar
+# tar -xvf PACS_final_inverseprob.tar
 
-mv PACS_final_bottomk PACS_final
-mv PACS_final_topk PACS_final
-mv PACS_final_inverseprob PACS_final
+# mv PACS_final_bottomk PACS_final
+# mv PACS_final_topk PACS_final
+# mv PACS_final_inverseprob PACS_final
 
-rm PACS_final_bottomk.tar
-rm PACS_final_topk.tar
-rm PACS_final_inverseprob.tar
+# rm PACS_final_bottomk.tar
+# rm PACS_final_topk.tar
+# rm PACS_final_inverseprob.tar
+
+### RMD_norm exp ###
+gdrive files download 1JIdlOUaW_Y8_95st9Yi-HUWTLmUVHM4u
+gdrive files download 1onZlzK8x22NDVcFyofxt_JZ-UGLQXynV
+gdrive files download 10wRcD-r73nCBbc2e4Jyo0b2DFD8LSHnA
+
+tar -xvf PACS_final_normalized_temp_0_5.tar
+tar -xvf PACS_final_normalized_temp_1.tar
+tar -xvf PACS_final_normalized_temp_3.tar
+
+mv PACS_final_normalized_temp_0_5 PACS_final
+mv PACS_final_normalized_temp_1 PACS_final
+mv PACS_final_normalized_temp_3 PACS_final
+
+rm PACS_final_normalized_temp_0_5.tar
+rm PACS_final_normalized_temp_1.tar
+rm PACS_final_normalized_temp_3.tar
