@@ -32,7 +32,7 @@ class XDER(DER):
         self.simclr_lss = SupConLoss(temperature=5, base_temperature=5, reduction='sum')
         self.gpu_augmentation = strong_aug(inp_size, self.mean, self.std)
         self.simclr_temp = 5
-        self.simclr_batch_size = 20000
+        self.simclr_batch_size = 1
         self.gamma = 0.85
         if 'clear' in self.dataset:
             self.tasks = 10
@@ -103,7 +103,7 @@ class XDER(DER):
                 train_loss, train_acc, logits = self.online_train(iterations=int(self.num_updates))
                 for i, num in enumerate(self.logit_num_to_save[0]):
                     if num is not None:
-                        self.memory.save_logits(num, logits[i])
+                        self.memory.save_logits(num, logits[i][:self.num_learned_class])
                 del self.logit_num_to_save[0]
                 self.report_training(sample_num, train_loss, train_acc)
                 self.num_updates -= int(self.num_updates)
@@ -231,7 +231,7 @@ class XDER(DER):
             # buf_idx = self.indices.to(self.device)
             buf_idx = torch.Tensor(self.waiting_indices.pop(0)).to(self.device)
             if len(self.logit_num_to_get[0]) > 0:
-                y2, mask = self.memory.get_logit(self.logit_num_to_get[0], self.n_classes)
+                y2, mask = self.memory.get_logit(self.logit_num_to_get[0], self.num_learned_class)
                 y2, mask = y2.to(self.device), mask.to(self.device)
             else:
                 y2, mask = [], []
@@ -288,6 +288,53 @@ class XDER(DER):
             else:
                 return_logit = logit.detach().cpu()
         return total_loss / iterations, correct / num_data, return_logit
+
+    def model_forward(self, x, y, y2=None, mask=None, alpha=0.5, beta=0.5):
+        criterion = nn.CrossEntropyLoss(reduction='none')
+        do_cutmix = self.cutmix and np.random.rand(1) < 0.5
+        distill_size = len(y2)//2
+        if distill_size > 0:
+            y = y[:-distill_size]
+            y2 = y2[-distill_size:]
+            mask = mask[-distill_size:]
+            if do_cutmix:
+                x[:-distill_size], labels_a, labels_b, lam = cutmix_data(x=x[:-distill_size], y=y, alpha=1.0)
+                with torch.cuda.amp.autocast(self.use_amp):
+                    logit = self.model(x)[:, :self.num_learned_class]
+                    cls_logit = logit[:-distill_size]
+                    cls_loss = lam * criterion(cls_logit, labels_a) + (1 - lam) * criterion(cls_logit, labels_b)
+                    
+                    self.total_flops += ((len(cls_logit) * 4) / 10e9)
+                    
+                    loss = cls_loss[:self.temp_batch_size].mean() + alpha * cls_loss[self.temp_batch_size:].mean()
+                    
+                    self.total_flops += (len(cls_loss)  / 10e9)
+                    
+                    distill_logit = logit[-distill_size:]
+                    loss += beta * (mask * (y2 - distill_logit) ** 2).mean()
+                    
+                    self.total_flops += ((distill_size * 4) / 10e9)
+            else:
+                with torch.cuda.amp.autocast(self.use_amp):
+                    logit = self.model(x)[:, :self.num_learned_class]
+                    cls_logit = logit[:-distill_size]
+                    cls_loss = criterion(cls_logit, y)
+                    
+                    self.total_flops += ((distill_size * 2) / 10e9)
+                    
+                    loss = cls_loss[:self.temp_batch_size].mean() + alpha * cls_loss[self.temp_batch_size:].mean()
+                    
+                    self.total_flops += (len(cls_loss) / 10e9)
+                    
+                    distill_logit = logit[-distill_size:]
+                    loss += beta * (mask * (y2 - distill_logit) ** 2).mean()
+                    
+                    self.total_flops += ((distill_size * 4)/10e9)
+
+            self.total_flops += (len(x) * self.forward_flops)
+            return logit, loss
+        else:
+            return CLManagerBase.model_forward(self, x, y)
 
     def reservoir_memory(self, sample):
         self.seen += 1
