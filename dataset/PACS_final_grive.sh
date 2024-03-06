@@ -142,7 +142,7 @@ tar -xvf PACS_final_sampling_2.tar
 
 mv PACS_final_sampling_4 PACS_final
 mv PACS_final_sampling_2 PACS_final
-# mv PACS_final_sampling_0.5 PACS_final
+# mv PACS_final_sampling_0_5 PACS_final
 # mv PACS_final_sampling_0_25 PACS_final
 # mv PACS_final_sampling_0_125 PACS_final
 
