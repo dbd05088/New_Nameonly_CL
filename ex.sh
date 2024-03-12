@@ -87,7 +87,7 @@ elif [ "$DATASET" == "food101" ]; then
 
 elif [ "$DATASET" == "cct" ]; then
     MEM_SIZE=400
-    TYPES=("RMD_normalized_temp_0_5" "RMD_normalized_temp_1" "RMD_normalized_temp_3") #"train_ma" "sdxl_diversified" "web" "generated" "sdxl_diversified_nofiltering" "RMD_classwise_temp_0_5" "RMD_classwise_temp_1" "RMD_classwise_temp_3"
+    TYPES=("scale_4", "scale_2", "scale_1", "scale_0_5", "scale_0_25", "scale_0_125") #"train_ma" "sdxl_diversified" "web" "generated" "sdxl_diversified_nofiltering" "RMD_classwise_temp_0_5" "RMD_classwise_temp_1" "RMD_classwise_temp_3"
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
     MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=100

@@ -51,18 +51,47 @@
 # rm cct_RMD_classwise_temp_3.tar
 
 ### cct normalize ###
-gdrive files download 11qNP_DxtqWKeFdPCqNgS6QbI0-hCBF4V
-gdrive files download 1FjLkvtZEh-Cwn3G-eQU4KOXBfMIVFvq6
-gdrive files download 1JKQV9AU8w3NVjpkkCWTza2M2IjZScPUs
+# gdrive files download 11qNP_DxtqWKeFdPCqNgS6QbI0-hCBF4V
+# gdrive files download 1FjLkvtZEh-Cwn3G-eQU4KOXBfMIVFvq6
+# gdrive files download 1JKQV9AU8w3NVjpkkCWTza2M2IjZScPUs
 
-tar -xvf cct_RMD_normalized_temp_0_5.tar
-tar -xvf cct_RMD_normalized_temp_1.tar
-tar -xvf cct_RMD_normalized_temp_3.tar
+# tar -xvf cct_RMD_normalized_temp_0_5.tar
+# tar -xvf cct_RMD_normalized_temp_1.tar
+# tar -xvf cct_RMD_normalized_temp_3.tar
 
-mv cct_RMD_normalized_temp_0_5 cct
-mv cct_RMD_normalized_temp_1 cct
-mv cct_RMD_normalized_temp_3 cct
+# mv cct_RMD_normalized_temp_0_5 cct
+# mv cct_RMD_normalized_temp_1 cct
+# mv cct_RMD_normalized_temp_3 cct
 
-rm cct_RMD_normalized_temp_0_5.tar
-rm cct_RMD_normalized_temp_1.tar
-rm cct_RMD_normalized_temp_3.tar
+# rm cct_RMD_normalized_temp_0_5.tar
+# rm cct_RMD_normalized_temp_1.tar
+# rm cct_RMD_normalized_temp_3.tar
+
+### cct scaling ###
+gdrive files download 1QrU6GDkxhQGeriIYEEfgIMMCICHjps29
+gdrive files download 1P2zZl9j_NLN84q8Tq81ip0NHUzyPsMb4
+gdrive files download 1MmAyNqUgdG-Ti3JQRuzQCN6ts85vPLKj
+gdrive files download 18yGNhrQD8-GADjXfJWMxDdoT1--hRcjS
+gdrive files download 16UFK8ZuKzJNu0FoSqS7P_M0uNGP6sJ7R
+gdrive files download 1g98uRDaKlNevOu-I-s8uXd8gfU0Csvi2
+
+tar -xvf cct_scale_0_125.tar
+tar -xvf cct_scale_0_25.tar
+tar -xvf cct_scale_0_5.tar
+tar -xvf cct_scale_1.tar
+tar -xvf cct_scale_2.tar
+tar -xvf cct_scale_4.tar
+
+mv cct_scale_0_125 cct
+mv cct_scale_0_25 cct
+mv cct_scale_0_5 cct
+mv cct_scale_1 cct
+mv cct_scale_2 cct
+mv cct_scale_4 cct
+
+rm cct_scale_0_125.tar
+rm cct_scale_0_25.tar
+rm cct_scale_0_5.tar
+rm cct_scale_1.tar
+rm cct_scale_2.tar
+rm cct_scale_4.tar
