@@ -186,14 +186,38 @@
 # rm PACS_final_normalized_temp_1.tar
 # rm PACS_final_normalized_temp_3.tar
 
-gdrive files download 1Z5c33H3EvnEmjuHd7MKoMN_O_ztG_Tra
-gdrive files download 1redm8e6M3vXFb6439MIPHgkqNWvbrsPI
+# gdrive files download 1Z5c33H3EvnEmjuHd7MKoMN_O_ztG_Tra
+# gdrive files download 1redm8e6M3vXFb6439MIPHgkqNWvbrsPI
 
-tar -xvf PACS_final_RMD_web_temp_2.tar
-tar -xvf PACS_final_RMD_web_temp_3.tar
+# tar -xvf PACS_final_RMD_web_temp_2.tar
+# tar -xvf PACS_final_RMD_web_temp_3.tar
 
-mv PACS_final_RMD_web_temp_2 PACS_final/PACS_final_web_RMD_temp_2
-mv PACS_final_RMD_web_temp_3 PACS_final/PACS_final_web_RMD_temp_3
+# mv PACS_final_RMD_web_temp_2 PACS_final/PACS_final_web_RMD_temp_2
+# mv PACS_final_RMD_web_temp_3 PACS_final/PACS_final_web_RMD_temp_3
 
-rm PACS_final_RMD_web_temp_2.tar
-rm PACS_final_RMD_web_temp_3.tar
+# rm PACS_final_RMD_web_temp_2.tar
+# rm PACS_final_RMD_web_temp_3.tar
+
+gdrive files download 1x59JUQDzJQ7-MCgDPvd21trdKDof96rv
+gdrive files download 1RHp4Y5lDFcl2M8kzRfPCpyGhkmHFtpkH
+gdrive files download 1tKO7Do83mky_z7NG-bD25x6njmMxio5k
+gdrive files download 1uWESRdqZ6oxOA-ph6wKjogASUWerw17W
+gdrive files download 1SO7kP1Le0OeUTIZDvWqKro4IFvmIg_B-
+
+tar -xvf PACS_final_web_temp_equalweight.tar
+tar -xvf PACS_final_web_topk.tar
+tar -xvf PACS_final_web_bottomk.tar
+tar -xvf PACS_final_web_inverse_temp_2.tar
+tar -xvf PACS_final_web_inverse_temp_3.tar
+
+mv PACS_final_web_inverse_temp_2 PACS_final
+mv PACS_final_web_inverse_temp_3 PACS_final
+mv PACS_final_web_bottomk PACS_final
+mv PACS_final_web_topk PACS_final
+mv PACS_final_web_temp_equalweight PACS_final
+
+rm PACS_final_web_temp_equalweight.tar
+rm PACS_final_web_topk.tar
+rm PACS_final_web_bottomk.tar
+rm PACS_final_web_inverse_temp_2.tar
+rm PACS_final_web_inverse_temp_3.tar
