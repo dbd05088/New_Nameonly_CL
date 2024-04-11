@@ -170,18 +170,30 @@
 # rm PACS_final_inverseprob.tar
 
 ### RMD_norm exp ###
-gdrive files download 1JIdlOUaW_Y8_95st9Yi-HUWTLmUVHM4u
-gdrive files download 1onZlzK8x22NDVcFyofxt_JZ-UGLQXynV
-gdrive files download 10wRcD-r73nCBbc2e4Jyo0b2DFD8LSHnA
+# gdrive files download 1JIdlOUaW_Y8_95st9Yi-HUWTLmUVHM4u
+# gdrive files download 1onZlzK8x22NDVcFyofxt_JZ-UGLQXynV
+# gdrive files download 10wRcD-r73nCBbc2e4Jyo0b2DFD8LSHnA
 
-tar -xvf PACS_final_normalized_temp_0_5.tar
-tar -xvf PACS_final_normalized_temp_1.tar
-tar -xvf PACS_final_normalized_temp_3.tar
+# tar -xvf PACS_final_normalized_temp_0_5.tar
+# tar -xvf PACS_final_normalized_temp_1.tar
+# tar -xvf PACS_final_normalized_temp_3.tar
 
-mv PACS_final_normalized_temp_0_5 PACS_final
-mv PACS_final_normalized_temp_1 PACS_final
-mv PACS_final_normalized_temp_3 PACS_final
+# mv PACS_final_normalized_temp_0_5 PACS_final
+# mv PACS_final_normalized_temp_1 PACS_final
+# mv PACS_final_normalized_temp_3 PACS_final
 
-rm PACS_final_normalized_temp_0_5.tar
-rm PACS_final_normalized_temp_1.tar
-rm PACS_final_normalized_temp_3.tar
+# rm PACS_final_normalized_temp_0_5.tar
+# rm PACS_final_normalized_temp_1.tar
+# rm PACS_final_normalized_temp_3.tar
+
+gdrive files download 1Z5c33H3EvnEmjuHd7MKoMN_O_ztG_Tra
+gdrive files download 1redm8e6M3vXFb6439MIPHgkqNWvbrsPI
+
+tar -xvf PACS_final_RMD_web_temp_2.tar
+tar -xvf PACS_final_RMD_web_temp_3.tar
+
+mv PACS_final_RMD_web_temp_2 PACS_final
+mv PACS_final_RMD_web_temp_3 PACS_final
+
+rm PACS_final_RMD_web_temp_2.tar
+rm PACS_final_RMD_web_temp_3.tar
