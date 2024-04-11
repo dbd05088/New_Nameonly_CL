@@ -27,14 +27,26 @@
 # rm DomainNet_web2.tar
 # rm DomainNet_generated.tar
 
-gdrive files download 1xVSq77maFcHh089ina-gGMuu80yGP8CL
-gdrive files download 16kV6FtqtHGyr12iUgfuhYndMw-IrLXl2
+# gdrive files download 1xVSq77maFcHh089ina-gGMuu80yGP8CL
+# gdrive files download 16kV6FtqtHGyr12iUgfuhYndMw-IrLXl2
 
-tar -xvf DomainNet_RMD_classwise_temp_3.tar
-tar -xvf DomainNet_RMD_classwise_temp_5.tar
+# tar -xvf DomainNet_RMD_classwise_temp_3.tar
+# tar -xvf DomainNet_RMD_classwise_temp_5.tar
 
-mv DomainNet_RMD_classwise_temp_3 DomainNet
-mv DomainNet_RMD_classwise_temp_5 DomainNet
+# mv DomainNet_RMD_classwise_temp_3 DomainNet
+# mv DomainNet_RMD_classwise_temp_5 DomainNet
 
-rm DomainNet_RMD_classwise_temp_3.tar
-rm DomainNet_RMD_classwise_temp_5.tar
+# rm DomainNet_RMD_classwise_temp_3.tar
+# rm DomainNet_RMD_classwise_temp_5.tar
+
+gdrive files download 1QS2mVXaTanGJISgDyg_16La1rlr99MqC
+gdrive files download 1WFLpCPrhEHdEjNoCRDPKCJBKEzb65Jc1
+
+tar -xvf DomainNet_RMD_web_temp_2.tar
+tar -xvf DomainNet_RMD_web_temp_3.tar
+
+mv DomainNet_RMD_web_temp_2 DomainNet
+mv DomainNet_RMD_web_temp_3 DomainNet
+
+rm DomainNet_RMD_web_temp_3.tar
+rm DomainNet_RMD_web_temp_5.tar

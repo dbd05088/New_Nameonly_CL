@@ -205,7 +205,7 @@ elif [ "$DATASET" == "OfficeHome" ]; then
 
 elif [ "$DATASET" == "DomainNet" ]; then
     MEM_SIZE=8000
-    TYPES=("RMD_classwise_temp_3" "RMD_classwise_temp_5")
+    TYPES=("RMD_web_temp_2" "RMD_web_temp_3")
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
     MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=1000
