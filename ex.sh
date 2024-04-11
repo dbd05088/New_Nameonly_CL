@@ -1,22 +1,7 @@
-#!/bin/bash
-#SBATCH --time=20:00:00
-#SBATCH -c 8
-#SBATCH --job-name=TEST
-#SBATCH --mem=16G
-#SBATCH --gres=gpu:rtx8000:1
-#SBATCH --reservation=ubuntu1804
-#SBATCH --signal=SIGUSR1@90 # 90 seconds before time limit
-#SBATCH --output=$SCRATCH/vpmamba-%j.out
-#SBATCH --error=$SCRATCH/vpmamba-%j.err
-pyfile=/home/mila/j/justine.gehring/scratch/sw/New_Nameonly_CL/main_new.py
-module load anaconda/3
-conda activate /home/mila/j/justine.gehring/.conda/envs/name_only/
-ulimit -Sn $(ulimit -Hn)
-
 # CIL CONFIG
 # NOTE="imagenet_sdp_sigma0_mem_10000_iter_0.125"
-NOTE="vit_pretrained_xder_PACS_iter2_mem200"
-MODE="xder"
+NOTE="resnet18_er_DomainNet_webRMD_iter2_mem200"
+MODE="er"
 
 K_COEFF="4"
 TEMPERATURE="0.125"
@@ -29,11 +14,11 @@ EVAL_BATCH_SIZE=1000
 #USE_KORNIA="--use_kornia"
 USE_KORNIA=""
 UNFREEZE_RATE=0.5
-SEEDS="5"
+SEEDS="1"
 DATA_DIR=""
 
-GPUS=("2" "2" "2")
-DATASET="PACS" # cifar10, cifar100, tinyimagenet, imagenet
+GPUS=("0" "1" "2")
+DATASET="DomainNet" # cifar10, cifar100, tinyimagenet, imagenet
 SIGMA=0
 REPEAT=1
 INIT_CLS=100
@@ -121,7 +106,7 @@ elif [ "$DATASET" == "PACS" ]; then
 
 elif [ "$DATASET" == "PACS_final" ]; then
     MEM_SIZE=200
-    TYPES=("web_RMD_temp_2" "web_RMD_temp_3") #"inverseprob" "bottomk" "topk") #"sampling_4" "sampling_2" "sampling_0_5" "sampling_0_25" "sampling_0_125" #"equalweighted" "ensembled_RMD_0_5_modelwise" "ensembled_RMD_1_modelwise" "ensembled_RMD_3_modelwise" "ensembled_RMD_classwise_temp_0_5" "ensembled_RMD_classwise_temp_1" "PACS_final_ensembled_RMD_classwise_temp_3") #("ensembled_samplewise_RMD_0_5" "ensembled_samplewise_RMD_1" "ensembled_samplewise_RMD_3" "ensembled_samplewise_RMD_5") #("ensembled_RMD_temp1" "ensembled_RMD_temp2" "ensembled_RMD_temp5" "ensembled_RMD_temp10")
+    TYPES=("RMD_web_temp_2" "RMD_web_temp_3") # "web_RMD_temp_3" "inverseprob" "bottomk" "topk") #"sampling_4" "sampling_2" "sampling_0_5" "sampling_0_25" "sampling_0_125" #"equalweighted" "ensembled_RMD_0_5_modelwise" "ensembled_RMD_1_modelwise" "ensembled_RMD_3_modelwise" "ensembled_RMD_classwise_temp_0_5" "ensembled_RMD_classwise_temp_1" "PACS_final_ensembled_RMD_classwise_temp_3") #("ensembled_samplewise_RMD_0_5" "ensembled_samplewise_RMD_1" "ensembled_samplewise_RMD_3" "ensembled_samplewise_RMD_5") #("ensembled_RMD_temp1" "ensembled_RMD_temp2" "ensembled_RMD_temp5" "ensembled_RMD_temp10")
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
     MODEL_NAME="vit" VAL_PERIOD=500 EVAL_PERIOD=100
@@ -234,7 +219,7 @@ for RND_SEED in $SEEDS
 do
     for index in "${!TYPES[@]}"
     do
-        python main_new.py --mode $MODE $DATA_DIR \
+        nohup python main_new.py --mode $MODE $DATA_DIR \
         --dataset $DATASET --unfreeze_rate $UNFREEZE_RATE $USE_KORNIA --k_coeff $K_COEFF --temperature $TEMPERATURE \
         --sigma $SIGMA --repeat $REPEAT --init_cls $INIT_CLS --samples_per_task $SAMPLES_PER_TASK \
         --rnd_seed $RND_SEED --val_memory_size $VAL_SIZE --type_name "${TYPES[$index]}" \
@@ -242,6 +227,6 @@ do
         --lr $LR --batchsize $BATCHSIZE --mir_cands $MIR_CANDS --eval_point "${EVAL_POINT}" \
         --memory_size $MEM_SIZE $TRANSFORM_ON_GPU --online_iter $ONLINE_ITER \
         --note $NOTE --eval_period $EVAL_PERIOD --imp_update_period $IMP_UPDATE_PERIOD $USE_AMP --n_worker $N_WORKER --future_steps $FUTURE_STEPS --eval_n_worker $EVAL_N_WORKER --eval_batch_size $EVAL_BATCH_SIZE \
-        --baseinit_samples $BASEINIT_SAMPLES --spatial_feat_dim $FEAT_DIM --feat_memsize $FEAT_MEM_SIZE
+        --baseinit_samples $BASEINIT_SAMPLES --spatial_feat_dim $FEAT_DIM --feat_memsize $FEAT_MEM_SIZE &
     done
 done
