@@ -1,6 +1,6 @@
 # CIL CONFIG
 # NOTE="imagenet_sdp_sigma0_mem_10000_iter_0.125"
-NOTE="resnet18_er_PACS_final_webRMD_iter2_mem200"
+NOTE="resnet18_er_PACS_final_4_12_iter2_mem200"
 MODE="er"
 
 K_COEFF="4"
@@ -17,7 +17,7 @@ UNFREEZE_RATE=0.5
 SEEDS="1"
 DATA_DIR=""
 
-GPUS=("7" "7" "2")
+GPUS=("0" "1" "2" "3" "4")
 DATASET="PACS_final" # cifar10, cifar100, tinyimagenet, imagenet
 SIGMA=0
 REPEAT=1
@@ -106,7 +106,7 @@ elif [ "$DATASET" == "PACS" ]; then
 
 elif [ "$DATASET" == "PACS_final" ]; then
     MEM_SIZE=200
-    TYPES=("web_temp_equalweight" "web_topk" "web_bottomk" "web_inverse_temp_2" "web_inverse_temp_3") # "web_RMD_temp_3" "inverseprob" "bottomk" "topk") #"sampling_4" "sampling_2" "sampling_0_5" "sampling_0_25" "sampling_0_125" #"equalweighted" "ensembled_RMD_0_5_modelwise" "ensembled_RMD_1_modelwise" "ensembled_RMD_3_modelwise" "ensembled_RMD_classwise_temp_0_5" "ensembled_RMD_classwise_temp_1" "PACS_final_ensembled_RMD_classwise_temp_3") #("ensembled_samplewise_RMD_0_5" "ensembled_samplewise_RMD_1" "ensembled_samplewise_RMD_3" "ensembled_samplewise_RMD_5") #("ensembled_RMD_temp1" "ensembled_RMD_temp2" "ensembled_RMD_temp5" "ensembled_RMD_temp10")
+    TYPES=("web_equalweight") # "web_RMD_temp_3" "inverseprob" "bottomk" "topk") #"sampling_4" "sampling_2" "sampling_0_5" "sampling_0_25" "sampling_0_125" #"equalweighted" "ensembled_RMD_0_5_modelwise" "ensembled_RMD_1_modelwise" "ensembled_RMD_3_modelwise" "ensembled_RMD_classwise_temp_0_5" "ensembled_RMD_classwise_temp_1" "PACS_final_ensembled_RMD_classwise_temp_3") #("ensembled_samplewise_RMD_0_5" "ensembled_samplewise_RMD_1" "ensembled_samplewise_RMD_3" "ensembled_samplewise_RMD_5") #("ensembled_RMD_temp1" "ensembled_RMD_temp2" "ensembled_RMD_temp5" "ensembled_RMD_temp10")
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
     MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=100

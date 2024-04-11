@@ -204,7 +204,7 @@ gdrive files download 1tKO7Do83mky_z7NG-bD25x6njmMxio5k
 gdrive files download 1uWESRdqZ6oxOA-ph6wKjogASUWerw17W
 gdrive files download 1SO7kP1Le0OeUTIZDvWqKro4IFvmIg_B-
 
-tar -xvf PACS_final_web_temp_equalweight.tar
+tar -xvf PACS_final_web_equalweight.tar
 tar -xvf PACS_final_web_topk.tar
 tar -xvf PACS_final_web_bottomk.tar
 tar -xvf PACS_final_web_inverse_temp_2.tar
@@ -214,9 +214,9 @@ mv PACS_final_web_inverse_temp_2 PACS_final
 mv PACS_final_web_inverse_temp_3 PACS_final
 mv PACS_final_web_bottomk PACS_final
 mv PACS_final_web_topk PACS_final
-mv PACS_final_web_temp_equalweight PACS_final
+mv PACS_final_web_equalweight PACS_final
 
-rm PACS_final_web_temp_equalweight.tar
+rm PACS_final_web_equalweight.tar
 rm PACS_final_web_topk.tar
 rm PACS_final_web_bottomk.tar
 rm PACS_final_web_inverse_temp_2.tar
