@@ -192,8 +192,8 @@ gdrive files download 1redm8e6M3vXFb6439MIPHgkqNWvbrsPI
 tar -xvf PACS_final_RMD_web_temp_2.tar
 tar -xvf PACS_final_RMD_web_temp_3.tar
 
-mv PACS_final_RMD_web_temp_2 PACS_final
-mv PACS_final_RMD_web_temp_3 PACS_final
+mv PACS_final_RMD_web_temp_2 PACS_final/PACS_final_web_RMD_temp_2
+mv PACS_final_RMD_web_temp_3 PACS_final/PACS_final_web_RMD_temp_3
 
 rm PACS_final_RMD_web_temp_2.tar
 rm PACS_final_RMD_web_temp_3.tar

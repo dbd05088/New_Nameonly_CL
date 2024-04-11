@@ -48,5 +48,5 @@ tar -xvf DomainNet_RMD_web_temp_3.tar
 mv DomainNet_RMD_web_temp_2 DomainNet
 mv DomainNet_RMD_web_temp_3 DomainNet
 
+rm DomainNet_RMD_web_temp_2.tar
 rm DomainNet_RMD_web_temp_3.tar
-rm DomainNet_RMD_web_temp_5.tar
