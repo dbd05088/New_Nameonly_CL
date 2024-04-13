@@ -198,20 +198,26 @@
 # rm PACS_final_RMD_web_temp_2.tar
 # rm PACS_final_RMD_web_temp_3.tar
 
+gdrive files download 1SO7kP1Le0OeUTIZDvWqKro4IFvmIg_B-
+gdrive files download 19sOeOcz1ePMwzphWRK7mS7yFDPfCjLq3
+gdrive files download 19lRuuu5e1j-YugmT6B9dQRo9YBtiOs7a
+gdrive files download 1R52S0_svDa2GI94yPTP2M0lbusD7Kmq3
+gdrive files download 1dcZcb7EO6iHh7lOzeyOXjt1MouF1k7Y5
 gdrive files download 1x59JUQDzJQ7-MCgDPvd21trdKDof96rv
 gdrive files download 1RHp4Y5lDFcl2M8kzRfPCpyGhkmHFtpkH
-gdrive files download 1tKO7Do83mky_z7NG-bD25x6njmMxio5k
-gdrive files download 1uWESRdqZ6oxOA-ph6wKjogASUWerw17W
-gdrive files download 1SO7kP1Le0OeUTIZDvWqKro4IFvmIg_B-
 
 tar -xvf PACS_final_web_equalweight.tar
 tar -xvf PACS_final_web_topk.tar
 tar -xvf PACS_final_web_bottomk.tar
-tar -xvf PACS_final_web_inverse_temp_2.tar
-tar -xvf PACS_final_web_inverse_temp_3.tar
+tar -xvf PACS_final_web_RMD_temp_0_5.tar
+tar -xvf PACS_final_web_RMD_temp_1.tar
+tar -xvf PACS_final_web_RMD_temp_2.tar
+tar -xvf PACS_final_web_RMD_temp_3.tar
 
-mv PACS_final_web_inverse_temp_2 PACS_final
-mv PACS_final_web_inverse_temp_3 PACS_final
+mv PACS_final_web_RMD_temp_0_5 PACS_final
+mv PACS_final_web_RMD_temp_1 PACS_final
+mv PACS_final_web_RMD_temp_2 PACS_final
+mv PACS_final_web_RMD_temp_3 PACS_final
 mv PACS_final_web_bottomk PACS_final
 mv PACS_final_web_topk PACS_final
 mv PACS_final_web_equalweight PACS_final
@@ -219,5 +225,7 @@ mv PACS_final_web_equalweight PACS_final
 rm PACS_final_web_equalweight.tar
 rm PACS_final_web_topk.tar
 rm PACS_final_web_bottomk.tar
-rm PACS_final_web_inverse_temp_2.tar
-rm PACS_final_web_inverse_temp_3.tar
+rm PACS_final_web_RMD_temp_0_5.tar
+rm PACS_final_web_RMD_temp_1.tar
+rm PACS_final_web_RMD_temp_2.tar
+rm PACS_final_web_RMD_temp_3.tar
