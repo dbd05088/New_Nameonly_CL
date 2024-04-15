@@ -106,7 +106,7 @@ elif [ "$DATASET" == "PACS" ]; then
 
 elif [ "$DATASET" == "PACS_final" ]; then
     MEM_SIZE=200
-    TYPES=("web_equalweight" "web_topk" "web_bottomk" "web_RMD_temp_0_5" "web_RMD_temp_1" "web_RMD_temp_2" "web_RMD_temp_3") # "web_RMD_temp_3" "inverseprob" "bottomk" "topk") #"sampling_4" "sampling_2" "sampling_0_5" "sampling_0_25" "sampling_0_125" #"equalweighted" "ensembled_RMD_0_5_modelwise" "ensembled_RMD_1_modelwise" "ensembled_RMD_3_modelwise" "ensembled_RMD_classwise_temp_0_5" "ensembled_RMD_classwise_temp_1" "PACS_final_ensembled_RMD_classwise_temp_3") #("ensembled_samplewise_RMD_0_5" "ensembled_samplewise_RMD_1" "ensembled_samplewise_RMD_3" "ensembled_samplewise_RMD_5") #("ensembled_RMD_temp1" "ensembled_RMD_temp2" "ensembled_RMD_temp5" "ensembled_RMD_temp10")
+    TYPES=("web_inverse_temp_0_5" "flickr" "bing") # "web_RMD_temp_3" "inverseprob" "bottomk" "topk") #"sampling_4" "sampling_2" "sampling_0_5" "sampling_0_25" "sampling_0_125" #"equalweighted" "ensembled_RMD_0_5_modelwise" "ensembled_RMD_1_modelwise" "ensembled_RMD_3_modelwise" "ensembled_RMD_classwise_temp_0_5" "ensembled_RMD_classwise_temp_1" "PACS_final_ensembled_RMD_classwise_temp_3") #("ensembled_samplewise_RMD_0_5" "ensembled_samplewise_RMD_1" "ensembled_samplewise_RMD_3" "ensembled_samplewise_RMD_5") #("ensembled_RMD_temp1" "ensembled_RMD_temp2" "ensembled_RMD_temp5" "ensembled_RMD_temp10")
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
     MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=100
@@ -114,29 +114,18 @@ elif [ "$DATASET" == "PACS_final" ]; then
     BASEINIT_SAMPLES=1002 FEAT_DIM=14 FEAT_MEM_SIZE=4800
     SAMPLES_PER_TASK=2000
     ONLINE_ITER=2
-    if [ "$SEEDS" == "1" ]; then
-        EVAL_POINT="730 1026 1333"
-    elif [ "$SEEDS" == "2" ]; then
-        EVAL_POINT="454 1023 1333"
-    elif [ "$SEEDS" == "3" ]; then
-        EVAL_POINT="528 837 1333"
-    elif [ "$SEEDS" == "4" ]; then
-        EVAL_POINT="517 829 1333"
-    elif [ "$SEEDS" == "5" ]; then
-        EVAL_POINT="714 1026 1333"
-    fi
 
-    # if [ "$SEEDS" == "1" ]; then
-    #     EVAL_POINT="458 764 1333"
-    # elif [ "$SEEDS" == "2" ]; then
-    #     EVAL_POINT="638 948 1333"
-    # elif [ "$SEEDS" == "3" ]; then
-    #     EVAL_POINT="520 1013 1333"
-    # elif [ "$SEEDS" == "4" ]; then
-    #     EVAL_POINT="641 950 1333"
-    # elif [ "$SEEDS" == "5" ]; then
-    #     EVAL_POINT="455 764 1333"
-    # fi
+    if [ "$SEEDS" == "1" ]; then
+        EVAL_POINT="458 764 1333"
+    elif [ "$SEEDS" == "2" ]; then
+        EVAL_POINT="638 948 1333"
+    elif [ "$SEEDS" == "3" ]; then
+        EVAL_POINT="520 1013 1333"
+    elif [ "$SEEDS" == "4" ]; then
+        EVAL_POINT="641 950 1333"
+    elif [ "$SEEDS" == "5" ]; then
+        EVAL_POINT="455 764 1333"
+    fi
 
     # 0_5
     # if [ "$SEEDS" == "1" ]; then
