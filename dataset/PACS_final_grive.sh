@@ -230,18 +230,30 @@
 # rm PACS_final_web_RMD_temp_2.tar
 # rm PACS_final_web_RMD_temp_3.tar
 
-gdrive files download 1Z5kSh5A9l3A4VOgn-0XmBfeckPmdTamx
-gdrive files download 16EL80IAe6nNVNliwsudn75sH0crYXakt
-gdrive files download 1MDJbthhSPmjUtjIH9dHbOUEaLcjVCXkD
+# gdrive files download 1Z5kSh5A9l3A4VOgn-0XmBfeckPmdTamx
+# gdrive files download 16EL80IAe6nNVNliwsudn75sH0crYXakt
+# gdrive files download 1MDJbthhSPmjUtjIH9dHbOUEaLcjVCXkD
 
-tar -xvf PACS_final_web_inverse_temp_0_5.tar
-tar -xvf PACS_final_bing.tar
-tar -xvf PACS_final_flickr.tar
+# tar -xvf PACS_final_web_inverse_temp_0_5.tar
+# tar -xvf PACS_final_bing.tar
+# tar -xvf PACS_final_flickr.tar
 
-mv PACS_final_web_inverse_temp_0_5 PACS_final 
-mv PACS_final_bing PACS_final
-mv PACS_final_flickr PACS_final
+# mv PACS_final_web_inverse_temp_0_5 PACS_final 
+# mv PACS_final_bing PACS_final
+# mv PACS_final_flickr PACS_final
 
-rm PACS_final_web_inverse_temp_0_5.tar
-rm PACS_final_bing.tar
-rm PACS_final_flickr.tar
+# rm PACS_final_web_inverse_temp_0_5.tar
+# rm PACS_final_bing.tar
+# rm PACS_final_flickr.tar
+
+gdrive files download 1HQl3f0pc4501b_L1zmmlYHE-eyb-Y3bw
+gdrive files download 17sbLbq8ZiCs3wgziSANfGKuuu8PDODOg
+
+tar -xvf PACS_final_web_RMD_temp_0_5_WF.tar
+tar -xvf PACS_final_web_inverse_temp_0_5_WF.tar
+
+mv PACS_final_web_RMD_temp_0_5_WF PACS_final 
+mv PACS_final_web_inverse_temp_0_5_WF PACS_final
+
+rm PACS_final_web_RMD_temp_0_5_WF.tar
+rm PACS_final_web_inverse_temp_0_5_WF.tar
