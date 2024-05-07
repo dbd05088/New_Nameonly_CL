@@ -1,5 +1,6 @@
 import logging
 import random
+import math
 import copy
 import time
 import os
@@ -34,15 +35,22 @@ class XDER(DER):
         self.simclr_temp = 5
         self.simclr_batch_size = 1
         self.gamma = 0.85
+        
         if 'clear' in self.dataset:
             self.tasks = 10
+        elif 'cct' in self.dataset:
+            self.tasks = 4
+        elif 'PACS' in self.dataset:
+            self.tasks = 3
         else:
             self.tasks = 5
+            
         self.m = 0.2
         self.eta = 0.01
         self.simclr_num_aug = 2
         self.lambd = 0.04
-        self.cpt = int(num_class / self.tasks)
+        self.cpt = math.ceil(float(num_class) / self.tasks)
+        self.fake_num_class = self.cpt * self.tasks
         self.update_counter = torch.zeros(kwargs["memory_size"]).to(self.device)
         self.x = time.time()
     
@@ -53,6 +61,12 @@ class XDER(DER):
         self.dataloader = XDERLoader(self.n_worker, self.cls_dict, self.train_transform, self.data_dir, self.transform_on_gpu, self.cpu_transform, self.device, self.use_kornia, self.transform_on_worker, self.test_transform)
         self.memory = XDERMemory(self.memory_size, self.n_classes)
         self.model = select_model(self.model_name, self.dataset, self.n_classes).to(self.device)
+        if self.model_name == 'vit':
+            head_weight = copy.deepcopy(self.model.head.weight.data[:self.n_classes])
+            head_bias = copy.deepcopy(self.model.head.bias.data[:self.n_classes])
+            self.model.head = nn.Linear(self.model.head.in_features, self.n_classes).to(self.device)
+            self.model.head.weight.data = head_weight
+            self.model.head.bias.data = head_bias
         self.optimizer = select_optimizer(self.opt_name, self.lr, self.model)
         self.scheduler = select_scheduler(self.sched_name, self.optimizer)
 
@@ -78,8 +92,58 @@ class XDER(DER):
         self.waiting_batch = []
         self.waiting_indices = []
         self.waiting_scl_batch = []
+        # if self.model_name == "vit":
+        #     self.define_new_model_forward()
         for i in range(self.future_steps):
             self.load_batch()
+    
+    # def define_new_model_forward(self):
+    def model_forward(self, x, y, y2=None, mask=None, alpha=0.5, beta=0.5):
+        criterion = nn.CrossEntropyLoss(reduction='none')
+        do_cutmix = self.cutmix and np.random.rand(1) < 0.5
+        distill_size = len(y2)//2
+        if distill_size > 0:
+            y = y[:-distill_size]
+            y2 = y2[-distill_size:]
+            mask = mask[-distill_size:]
+            if do_cutmix:
+                x[:-distill_size], labels_a, labels_b, lam = cutmix_data(x=x[:-distill_size], y=y, alpha=1.0)
+                with torch.cuda.amp.autocast(self.use_amp):
+                    logit = self.model(x)[:, :self.num_learned_class]
+                    cls_logit = logit[:-distill_size]
+                    cls_loss = lam * criterion(cls_logit, labels_a) + (1 - lam) * criterion(cls_logit, labels_b)
+                    
+                    self.total_flops += ((len(cls_logit) * 4) / 10e9)
+                    
+                    loss = cls_loss[:self.temp_batch_size].mean() + alpha * cls_loss[self.temp_batch_size:].mean()
+                    
+                    self.total_flops += (len(cls_loss)  / 10e9)
+                    
+                    distill_logit = logit[-distill_size:]
+                    loss += beta * (mask * (y2 - distill_logit) ** 2).mean()
+                    
+                    self.total_flops += ((distill_size * 4) / 10e9)
+            else:
+                with torch.cuda.amp.autocast(self.use_amp):
+                    logit = self.model(x)[:, :self.num_learned_class]
+                    cls_logit = logit[:-distill_size]
+                    cls_loss = criterion(cls_logit, y)
+                    
+                    self.total_flops += ((distill_size * 2) / 10e9)
+                    
+                    loss = cls_loss[:self.temp_batch_size].mean() + alpha * cls_loss[self.temp_batch_size:].mean()
+                    
+                    self.total_flops += (len(cls_loss) / 10e9)
+                    
+                    distill_logit = logit[-distill_size:]
+                    loss += beta * (mask * (y2 - distill_logit) ** 2).mean()
+                    
+                    self.total_flops += ((distill_size * 4)/10e9)
+
+            self.total_flops += (len(x) * self.forward_flops)
+            return logit, loss
+        else:
+            return CLManagerBase.model_forward(self, x, y)
 
     def add_new_class(self, class_name):
         self.cls_dict[class_name] = len(self.exposed_classes)
@@ -231,7 +295,10 @@ class XDER(DER):
             # buf_idx = self.indices.to(self.device)
             buf_idx = torch.Tensor(self.waiting_indices.pop(0)).to(self.device)
             if len(self.logit_num_to_get[0]) > 0:
+                #if self.model_name == "resnet18":
                 y2, mask = self.memory.get_logit(self.logit_num_to_get[0], self.num_learned_class)
+                #elif self.model_name == "vit":
+                #    y2, mask = self.memory.get_logit(self.logit_num_to_get[0], self.num_learned_class)
                 y2, mask = y2.to(self.device), mask.to(self.device)
             else:
                 y2, mask = [], []
@@ -240,6 +307,7 @@ class XDER(DER):
             self.before_model_update()
             self.optimizer.zero_grad()
             logit, loss = self.model_forward(x, y, y2, mask)
+        
             loss_cons = self.get_consistency_loss(loss, y, not_aug_img, buf_na_inputsscl, buf_labelsscl)
             loss_constr_past, loss_constr_futu = self.get_logit_constraint_loss(loss, logit[:self.temp_batch_size], logit[self.temp_batch_size:], y[self.temp_batch_size:])
             
@@ -265,7 +333,7 @@ class XDER(DER):
             if self.cur_task > 0:
                 with torch.no_grad():
                     # update past logits
-                    logit[:self.temp_batch_size] = self.update_memory_logits(y[:self.temp_batch_size], logit[:self.temp_batch_size], logit[:self.temp_batch_size], 0, n_tasks=self.cur_task)
+                    logit[:self.temp_batch_size] = self.update_memory_logits(y[:self.temp_batch_size], logit[:self.temp_batch_size], logit[:self.temp_batch_size], 0, n_tasks=self.cur_task)[:, :logit.size(1)]
                     
                     # update future past logits
                     chosen = (y[self.temp_batch_size:] // self.cpt) < self.cur_task
@@ -288,53 +356,6 @@ class XDER(DER):
             else:
                 return_logit = logit.detach().cpu()
         return total_loss / iterations, correct / num_data, return_logit
-
-    def model_forward(self, x, y, y2=None, mask=None, alpha=0.5, beta=0.5):
-        criterion = nn.CrossEntropyLoss(reduction='none')
-        do_cutmix = self.cutmix and np.random.rand(1) < 0.5
-        distill_size = len(y2)//2
-        if distill_size > 0:
-            y = y[:-distill_size]
-            y2 = y2[-distill_size:]
-            mask = mask[-distill_size:]
-            if do_cutmix:
-                x[:-distill_size], labels_a, labels_b, lam = cutmix_data(x=x[:-distill_size], y=y, alpha=1.0)
-                with torch.cuda.amp.autocast(self.use_amp):
-                    logit = self.model(x)[:, :self.num_learned_class]
-                    cls_logit = logit[:-distill_size]
-                    cls_loss = lam * criterion(cls_logit, labels_a) + (1 - lam) * criterion(cls_logit, labels_b)
-                    
-                    self.total_flops += ((len(cls_logit) * 4) / 10e9)
-                    
-                    loss = cls_loss[:self.temp_batch_size].mean() + alpha * cls_loss[self.temp_batch_size:].mean()
-                    
-                    self.total_flops += (len(cls_loss)  / 10e9)
-                    
-                    distill_logit = logit[-distill_size:]
-                    loss += beta * (mask * (y2 - distill_logit) ** 2).mean()
-                    
-                    self.total_flops += ((distill_size * 4) / 10e9)
-            else:
-                with torch.cuda.amp.autocast(self.use_amp):
-                    logit = self.model(x)[:, :self.num_learned_class]
-                    cls_logit = logit[:-distill_size]
-                    cls_loss = criterion(cls_logit, y)
-                    
-                    self.total_flops += ((distill_size * 2) / 10e9)
-                    
-                    loss = cls_loss[:self.temp_batch_size].mean() + alpha * cls_loss[self.temp_batch_size:].mean()
-                    
-                    self.total_flops += (len(cls_loss) / 10e9)
-                    
-                    distill_logit = logit[-distill_size:]
-                    loss += beta * (mask * (y2 - distill_logit) ** 2).mean()
-                    
-                    self.total_flops += ((distill_size * 4)/10e9)
-
-            self.total_flops += (len(x) * self.forward_flops)
-            return logit, loss
-        else:
-            return CLManagerBase.model_forward(self, x, y)
 
     def reservoir_memory(self, sample):
         self.seen += 1
@@ -414,7 +435,11 @@ class XDER(DER):
 
     def update_memory_logits(self, gt, old, new, cur_task, n_tasks = 1):
         #transplant = new[task_mask][torch.arange(new[task_mask]), self.cur_task]
+        old = torch.cat([old, torch.zeros(old.size(0), self.fake_num_class-old.size(1)).to(self.device)], dim=1)
+        new = torch.cat([new, torch.zeros(new.size(0), self.fake_num_class-new.size(1)).to(self.device)], dim=1)
         transplant = new[:, cur_task * self.cpt : (cur_task + n_tasks) * self.cpt]
+        if transplant.size(1) == 0:
+            return old
         gt_values = old[torch.arange(len(gt)), gt]
         max_values = transplant.max(1).values
         coeff = self.gamma * gt_values / max_values
@@ -443,6 +468,8 @@ class XDER(DER):
                 scl_inputs = self.gpu_augmentation(scl_na_inputs.repeat_interleave(self.simclr_num_aug, 0)).to(self.device)
             #with bn_track_stats(self, False):
             scl_outputs = self.model(scl_inputs).float()
+            scl_outputs = torch.cat([scl_outputs, torch.zeros(scl_outputs.size(0), self.fake_num_class-scl_outputs.size(1)).to(self.device)], dim=1)
+            
             self.total_flops += len(scl_inputs) * self.forward_flops
 
             scl_featuresFull = scl_outputs.reshape(-1, self.simclr_num_aug, scl_outputs.shape[-1])  # [N, n_aug, 100]
@@ -459,6 +486,8 @@ class XDER(DER):
 
     def get_logit_constraint_loss(self, loss_stream, outputs, buf_outputs, buf_labels):
         # Past Logits Constraint
+        outputs = torch.cat([outputs, torch.zeros(outputs.size(0), self.fake_num_class-outputs.size(1)).to(self.device)], dim=1)
+        buf_outputs = torch.cat([buf_outputs, torch.zeros(buf_outputs.size(0), self.fake_num_class-buf_outputs.size(1)).to(self.device)], dim=1)
         loss_constr_past = torch.tensor(0.).type(loss_stream.dtype)
         if self.cur_task > 0:
             chead = F.softmax(outputs[:, :(self.cur_task + 1) * self.cpt], 1)
