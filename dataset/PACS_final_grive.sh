@@ -246,14 +246,19 @@
 # rm PACS_final_bing.tar
 # rm PACS_final_flickr.tar
 
-gdrive files download 1HQl3f0pc4501b_L1zmmlYHE-eyb-Y3bw
-gdrive files download 17sbLbq8ZiCs3wgziSANfGKuuu8PDODOg
+# gdrive files download 1HQl3f0pc4501b_L1zmmlYHE-eyb-Y3bw
+# gdrive files download 17sbLbq8ZiCs3wgziSANfGKuuu8PDODOg
 
-tar -xvf PACS_final_web_RMD_temp_0_5_WF.tar
-tar -xvf PACS_final_web_inverse_temp_0_5_WF.tar
+# tar -xvf PACS_final_web_RMD_temp_0_5_WF.tar
+# tar -xvf PACS_final_web_inverse_temp_0_5_WF.tar
 
-mv PACS_final_web_RMD_temp_0_5_WF PACS_final 
-mv PACS_final_web_inverse_temp_0_5_WF PACS_final
+# mv PACS_final_web_RMD_temp_0_5_WF PACS_final 
+# mv PACS_final_web_inverse_temp_0_5_WF PACS_final
 
-rm PACS_final_web_RMD_temp_0_5_WF.tar
-rm PACS_final_web_inverse_temp_0_5_WF.tar
+# rm PACS_final_web_RMD_temp_0_5_WF.tar
+# rm PACS_final_web_inverse_temp_0_5_WF.tar
+
+gdrive files download 1iDEAWYiIGBDfND-nFTeNIGl3-SLWS5pp
+tar -xf PACS_final_all_samples_prob.tar
+mv PACS_final_all_samples_prob PACS_final
+rm PACS_final_all_samples_prob.tar
