@@ -98,7 +98,7 @@ class MIR(ER):
             
             if self.aoa_eval and i%(self.online_iter*self.temp_batch_size)==0:
                 aoa_x = data["not_aug_img"].to(self.device)
-                self.aoa_evaluation(aoa_x, y)
+                self.aoa_evaluation(aoa_x, data['label'].to(self.device))
                 
             memory_cands_test = cands
             str_x = data['image'][:self.temp_batch_size]
