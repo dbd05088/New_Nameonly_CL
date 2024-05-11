@@ -582,6 +582,7 @@ def get_statistics(dataset: str, type_name:str):
                     "web_inverse_temp_0_5":(0.53706894, 0.51088275, 0.46145639),
                     "web_inverse_temp_0_5_WF":(0.54732783, 0.52285951, 0.47791955),
                     "web_RMD_temp_0_5_WF":(0.50594095, 0.48157681, 0.43301249),
+                    "all_samples_prob":(0.5343382, 0.48667845, 0.4379973)
                     },
         "OfficeHome": {
                     "Art":(0.51358405, 0.48082051, 0.44370487),
@@ -721,6 +722,7 @@ def get_statistics(dataset: str, type_name:str):
                     "web_inverse_temp_0_5":(0.22928743, 0.22998894, 0.23930002),
                     "web_inverse_temp_0_5_WF":(0.23973816, 0.23830177, 0.24505062),
                     "web_RMD_temp_0_5_WF":(0.24006538, 0.23427868, 0.23942805),
+                    "all_samples_prob":(0.23403024, 0.22381824, 0.22537254)
                     },
         "OfficeHome": {
                     "Art":(0.23799188, 0.23378391, 0.22740558),
