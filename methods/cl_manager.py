@@ -500,8 +500,8 @@ class CLManagerBase:
                 total_loss += loss.item()
                 label += y.tolist()
 
-        avg_loss = total_loss / len(test_loader)
-        return avg_loss
+        avg_acc = total_correct / total_num_data
+        return avg_acc
         
 
     def reset_opt(self):
@@ -563,7 +563,8 @@ class CLManagerBase:
                 dataset=self.dataset,
                 transform=self.test_transform,
                 cls_list=next_task_cls,
-                data_dir=self.data_dir
+                data_dir=self.data_dir,
+                augmentation=self.train_transform
             )
             train_loader = DataLoader(
                 train_dataset,

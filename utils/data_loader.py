@@ -94,7 +94,8 @@ class MultiProcessLoader():
                 images = self.transform(images.to(self.device))
             data['image'] = images
             data['label'] = labels
-            data['not_aug_img'] = torch.cat(not_aug_images)
+            if aoa:
+                data['not_aug_img'] = torch.cat(not_aug_images)
             return data
         else:
             return None
@@ -257,7 +258,7 @@ class Preprocess(nn.Module):
 
 class ImageDataset(Dataset):
     def __init__(self, data_frame: pd.DataFrame, dataset: str, transform=None, cls_list=None, data_dir=None,
-                 preload=False, device=None, transform_on_gpu=False, use_kornia=False):
+                 preload=False, device=None, transform_on_gpu=False, use_kornia=False, augmentation=None):
         self.use_kornia = use_kornia
         self.data_frame = data_frame
         self.dataset = dataset
@@ -267,6 +268,7 @@ class ImageDataset(Dataset):
         self.preload = preload
         self.device = device
         self.transform_on_gpu = transform_on_gpu
+        self.augmentation = augmentation
         if self.preload:
             mean, std, n_classes, inp_size, _ = get_statistics(dataset=self.dataset)
             self.preprocess = Preprocess(input_size=inp_size)
@@ -300,6 +302,8 @@ class ImageDataset(Dataset):
                 elif self.transform:
                     image = self.transform(image)
                 sample["image"] = image
+                if augmentation is not None:
+                    self.augmentation(image)
                 sample["label"] = label
                 sample["image_name"] = img_name
                 self.loaded_images.append(sample)

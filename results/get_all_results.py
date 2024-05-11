@@ -72,9 +72,7 @@ def print_from_log(exp_name, in_dis, ood_dis, seeds=(1,2,3,4,5)):
                     for n_t in range(n_tasks-1):
                         backward_transfer[dom].append(float(acc_per_task[n_t][-5:]) - domain_task_accs[dom][n_t])
                 else:
-                    print("here",float(acc_per_task[cur_task][-5:]))
                     domain_task_accs[dom].append(float(acc_per_task[cur_task][-5:]))
-                    print("here1", domain_task_accs)
             elif 'AOA' in line:
                 aoa_seed.append(float(line.split(" ")[-1]))
             elif 'ADAPTATION' in line:
@@ -101,7 +99,6 @@ def print_from_log(exp_name, in_dis, ood_dis, seeds=(1,2,3,4,5)):
     # print("In", in_last)
     # print("ood", ood_avg)
     # print("ood", ood_last)
-    print("backword", backward_transfer)
     if np.isnan(np.mean(in_avg)):
         pass
     else:
