@@ -35,7 +35,7 @@ def get_stat(image_root_dir):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Get mean and std for images')
-    parser.add_argument('--image_root_dir', type=str, help='Root directory of images')
+    parser.add_argument('-r', '--image_root_dir', type=str, help='Root directory of images')
     args = parser.parse_args()
     result = get_stat(args.image_root_dir)
 
