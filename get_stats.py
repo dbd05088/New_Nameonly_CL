@@ -39,5 +39,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
     result = get_stat(args.image_root_dir)
 
-    print(f"Mean: {result['mean']}")
-    print(f"Std: {result['std']}")
+    mean = (result['mean'][0], result['mean'][1], result['mean'][2])
+    std = (result['std'][0], result['std'][1], result['std'][2])
+    print(f"Mean: ({result['mean'][0]:.8f}, {result['mean'][1]:.8f}, {result['mean'][2]:.8f})")
+    print(f"Std: ({result['std'][0]:.8f}, {result['std'][1]:.8f}, {result['std'][2]:.8f})")
