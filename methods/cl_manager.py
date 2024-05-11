@@ -530,12 +530,12 @@ class CLManagerBase:
             next_task_cls = self.p_cls_list[self.cls_per_task[self.cur_task]:self.cls_per_task[self.cur_task+1]]
         
         test_df = pd.DataFrame(test_list)
-        exp_test_df = test_df[test_df['klass'].isin(self.exposed_classes+next_task_cls)]
+        exp_test_df = test_df[test_df['klass'].isin(next_task_cls)]
         test_dataset = ImageDataset(
             exp_test_df,
             dataset=self.dataset,
             transform=self.test_transform,
-            cls_list=self.exposed_classes+next_task_cls,
+            cls_list=next_task_cls,
             data_dir=self.data_dir
         )
         test_loader = DataLoader(
@@ -555,7 +555,6 @@ class CLManagerBase:
                     if train_data_cnt[data["klass"]] < self.fast_adaptation_samples_per_class:
                         train_data.append(data)
                         train_data_cnt[data["klass"]] += 1
-            random.shuffle(train_data)
             
             train_df = pd.DataFrame(train_data)
             train_dataset = ImageDataset(
@@ -568,7 +567,7 @@ class CLManagerBase:
             )
             train_loader = DataLoader(
                 train_dataset,
-                shuffle=False,
+                shuffle=True,
                 batch_size=batch_size,
                 num_workers=n_worker,
             )
@@ -591,7 +590,7 @@ class CLManagerBase:
                     
             self.fast_optimizer = select_optimizer(self.opt_name, self.lr, self.fast_model)
             self.fast_scheduler = select_scheduler(self.sched_name, self.fast_optimizer)
-            
+            self.fast_model.train()
             for ep in range(self.fast_epoch):
                 for i, data in enumerate(train_loader):
                     x = data["image"].to(self.device)
