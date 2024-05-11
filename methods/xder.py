@@ -35,15 +35,6 @@ class XDER(DER):
         self.simclr_temp = 5
         self.simclr_batch_size = 1
         self.gamma = 0.85
-        
-        if 'clear' in self.dataset:
-            self.tasks = 10
-        elif 'cct' in self.dataset:
-            self.tasks = 4
-        elif 'PACS' in self.dataset:
-            self.tasks = 3
-        else:
-            self.tasks = 5
             
         self.m = 0.2
         self.eta = 0.01
