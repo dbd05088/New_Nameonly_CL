@@ -262,3 +262,20 @@ gdrive files download 1iDEAWYiIGBDfND-nFTeNIGl3-SLWS5pp
 tar -xf PACS_final_all_samples_prob.tar
 mv PACS_final_all_samples_prob PACS_final
 rm PACS_final_all_samples_prob.tar
+
+gdrive files download 1PpO6kRVc2nY352Jt0HuiAIiZLoHhXfxb
+gdrive files download 1w90tb5ouFT7eunFEycP6w-hwNwj2my9M
+gdrive files download 1aT4Gr4uO_BGikghLLkPur-hJT2AMpmf4
+gdrive files download 1K1PkR5XTlY_U9lbuWdxIOEQUM-1ejQDS
+tar -xf PACS_final_twostage_temp_0_5.tar
+tar -xf PACS_final_twostage_temp_1.tar
+tar -xf PACS_final_twostage_temp_2.tar
+tar -xf PACS_final_twostage_temp_3.tar
+mv PACS_final_twostage_temp_0_5 PACS_final
+mv PACS_final_twostage_temp_1 PACS_final
+mv PACS_final_twostage_temp_2 PACS_final
+mv PACS_final_twostage_temp_3 PACS_final
+rm PACS_final_twostage_temp_0_5.tar
+rm PACS_final_twostage_temp_1.tar
+rm PACS_final_twostage_temp_2.tar
+rm PACS_final_twostage_temp_3.tar
