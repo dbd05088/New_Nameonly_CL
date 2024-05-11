@@ -22,9 +22,9 @@ class MIR(ER):
 
     def initialize_future(self):
         self.data_stream = iter(self.train_datalist)
-        self.dataloader = MultiProcessLoader(self.n_worker, self.cls_dict, self.train_transform, self.data_dir, self.transform_on_gpu, self.cpu_transform, self.device, self.use_kornia, self.transform_on_worker)
+        self.dataloader = MultiProcessLoader(self.n_worker, self.cls_dict, self.train_transform, self.data_dir, self.transform_on_gpu, self.cpu_transform, self.device, self.use_kornia, self.transform_on_worker, test_transform=self.test_transform)
         self.memory = MemoryBase(self.memory_size)
-        self.cand_loader = MultiProcessLoader(self.n_worker, self.cls_dict, self.test_transform, self.data_dir, transform_on_gpu=False, cpu_transform=None, device=self.device, use_kornia=False, transform_on_worker=False)
+        self.cand_loader = MultiProcessLoader(self.n_worker, self.cls_dict, self.test_transform, self.data_dir, transform_on_gpu=False, cpu_transform=None, device=self.device, use_kornia=False, transform_on_worker=False, test_transform=self.test_transform)
         self.memory_list = []
         self.temp_batch = []
         self.temp_future_batch = []
@@ -67,7 +67,7 @@ class MIR(ER):
 
     # loader로부터 load된 batch를 받아오는 것
     def get_batch(self):
-        batch = self.dataloader.get_batch()
+        batch = self.dataloader.get_batch(aoa=self.aoa_eval)
         cand_batch = self.cand_loader.get_batch()
         self.load_batch()
         return batch, cand_batch
@@ -95,6 +95,11 @@ class MIR(ER):
 
         for i in range(iterations):
             data, cands = self.get_batch()
+            
+            if self.aoa_eval and i%(self.online_iter*self.temp_batch_size)==0:
+                aoa_x = data["not_aug_img"].to(self.device)
+                self.aoa_evaluation(aoa_x, y)
+                
             memory_cands_test = cands
             str_x = data['image'][:self.temp_batch_size]
             str_y = data['label'][:self.temp_batch_size]

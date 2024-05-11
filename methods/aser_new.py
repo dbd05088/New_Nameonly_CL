@@ -30,11 +30,11 @@ class ASER(CLManagerBase):
 
     def initialize_future(self):
         self.data_stream = iter(self.train_datalist)
-        self.dataloader = MultiProcessLoader(self.n_worker, self.cls_dict, self.train_transform, self.data_dir, self.transform_on_gpu, self.cpu_transform, self.device)
-        self.candidate_train_dataloader = MultiProcessLoader(self.n_worker, self.cls_dict, self.train_transform, self.data_dir, self.transform_on_gpu, self.cpu_transform, self.device)
-        self.current_dataloader = MultiProcessLoader(self.n_worker, self.cls_dict, self.test_transform, self.data_dir, False, self.cpu_transform, self.device)
-        self.candidate_dataloader = MultiProcessLoader(self.n_worker, self.cls_dict, self.test_transform, self.data_dir, False, self.cpu_transform, self.device)
-        self.eval_dataloader = MultiProcessLoader(self.n_worker, self.cls_dict, self.test_transform, self.data_dir, False, self.cpu_transform, self.device)
+        self.dataloader = MultiProcessLoader(self.n_worker, self.cls_dict, self.train_transform, self.data_dir, self.transform_on_gpu, self.cpu_transform, self.device, test_transform=self.test_transform)
+        self.candidate_train_dataloader = MultiProcessLoader(self.n_worker, self.cls_dict, self.train_transform, self.data_dir, self.transform_on_gpu, self.cpu_transform, self.device, test_transform=self.test_transform)
+        self.current_dataloader = MultiProcessLoader(self.n_worker, self.cls_dict, self.test_transform, self.data_dir, False, self.cpu_transform, self.device, test_transform=self.test_transform)
+        self.candidate_dataloader = MultiProcessLoader(self.n_worker, self.cls_dict, self.test_transform, self.data_dir, False, self.cpu_transform, self.device, test_transform=self.test_transform)
+        self.eval_dataloader = MultiProcessLoader(self.n_worker, self.cls_dict, self.test_transform, self.data_dir, False, self.cpu_transform, self.device, test_transform=self.test_transform)
         self.memory = AserMemory(self.memory_size, self.n_smp_cls)
         self.memory_list = []
         self.temp_batch = []
@@ -105,7 +105,7 @@ class ASER(CLManagerBase):
 
     # loader로부터 load된 batch를 받아오는 것
     def get_batch(self):
-        batch = self.dataloader.get_batch()
+        batch = self.dataloader.get_batch(aoa=self.aoa_eval)
         if self.sample_num >= 10 * self.candidate_size:
             candidate_batch = self.candidate_dataloader.get_batch()
             eval_batch = self.eval_dataloader.get_batch()
@@ -284,6 +284,10 @@ class ASER(CLManagerBase):
         for i in range(iterations):
             self.model.train()
             batch_data = self.get_batch()
+            
+            if self.aoa_eval and i%(self.online_iter*self.temp_batch_size)==0:
+                aoa_x = data["not_aug_img"].to(self.device)
+                self.aoa_evaluation(aoa_x, y)
             
             if type(batch_data)!=dict:
                 data, current_eval_data, candidate_train_data, candidate_data, eval_data = batch_data
