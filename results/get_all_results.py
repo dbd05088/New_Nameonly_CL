@@ -93,7 +93,7 @@ def print_from_log(exp_name, in_dis, ood_dis, seeds=(1,2,3,4,5)):
         overall_last.append(round(all_acc[-1]*100,2))
         aoa_auc.append(round(sum(aoa_seed)/len(aoa_seed)*100,2))
         aoa_last.append(round(aoa_seed[-1]*100,2))
-        fast_adaptation.append(round(sum(fa_seed)/len(fa_seed),2))
+        fast_adaptation.append(round(sum(fa_seed)/len(fa_seed)*100,2))
     # print(f'Exp:{exp_name} ')
     # print("In", in_avg)
     # print("In", in_last)
@@ -106,7 +106,7 @@ def print_from_log(exp_name, in_dis, ood_dis, seeds=(1,2,3,4,5)):
         print(f'Exp:{exp_name} ood-distribution \t\t\t {np.mean(ood_avg):.2f}/{sem(ood_avg):.2f} \t {np.mean(ood_last):.2f}/{sem(ood_last):.2f}')
         print(f'Exp:{exp_name} overall \t\t\t {np.mean(overall_avg):.2f}/{sem(overall_avg):.2f} \t {np.mean(overall_last):.2f}/{sem(overall_last):.2f}')
         print(f'Exp:{exp_name} real_time_evaluation \t\t\t {np.mean(aoa_auc):.2f}/{sem(aoa_auc):.2f} \t {np.mean(aoa_last):.2f}/{sem(aoa_last):.2f}')
-        print(f'Exp:{exp_name} fast_adaptation \t\t\t {np.mean(fast_adaptation):.2f}/{sem(fast_adaptation):.2f} \t {np.mean(fast_adaptation):.2f}/{sem(fast_adaptation):.2f}')
+        print(f'Exp:{exp_name} fast_adaptation \t\t\t {np.mean(fast_adaptation):.2f}/{sem(fast_adaptation):.2f}')
         for i in range(len(domain_list)):
             print(f'Exp:{exp_name} {domain_list[i]} backward_transfer \t\t\t {np.mean(backward_transfer[domain_list[i]]):.2f}/{sem(backward_transfer[domain_list[i]]):.2f}')
 
