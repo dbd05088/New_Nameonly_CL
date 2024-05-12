@@ -145,6 +145,15 @@ class MEMO(CLManagerBase):
                     self.model.aux_classifier.weight[:aux_prev_weight.shape[0], :aux_prev_weight.shape[1]] = aux_prev_weight
                     self.model.aux_classifier.bias[:aux_prev_weight.shape[0]] = aux_prev_bias
             
+            # for real time evaluation
+            saved_prev_weight = copy.deepcopy(self.saved_model.fc.weight.data)
+            saved_prev_bias = copy.deepcopy(self.saved_model.fc.bias.data)
+            self.saved_model.fc = nn.Linear(self.out_dim, self.num_learned_class).to(self.device)
+            with torch.no_grad():
+                # print("shape", prev_weight.shape)
+                self.saved_model.fc.weight[:saved_prev_weight.shape[0], :saved_prev_weight.shape[1]] = saved_prev_weight
+                self.saved_model.fc.bias[:saved_prev_weight.shape[0]] = saved_prev_bias
+            
             if update_aux_param:      
                 for param in self.optimizer.param_groups[2]['params']:
                     if param in self.optimizer.state.keys():
@@ -179,7 +188,22 @@ class MEMO(CLManagerBase):
             if 'reset' in self.sched_name:
                 self.update_schedule(reset=True)
         
+    def aoa_evaluation(self, image, label):
+        total_correct, total_num_data, total_loss = 0.0, 0.0, 0.0
+        self.saved_model.eval()
+        image, label = image[:self.temp_batch_size], label[:self.temp_batch_size]
+        with torch.no_grad():
+            logit, _ = self.saved_model(image, test=True)
+            pred = torch.argmax(logit, dim=-1)
+            _, preds = logit.topk(self.topk, 1, True, True)
+
+            total_correct += torch.sum(preds == label.unsqueeze(1)).item()
+            total_num_data += label.size(0)
+        avg_acc = total_correct / total_num_data
+        logger.info(f"AOA | Sample # {self.sample_num} | Real Time Evaluation: {avg_acc:.3f}")
         
+        self.saved_model = copy.deepcopy(self.model)    
+    
     def online_train(self, iterations=1):
     
         total_loss, correct, num_data = 0.0, 0.0, 0.0
@@ -254,6 +278,8 @@ class MEMO(CLManagerBase):
         with torch.no_grad():
             self.model.fc.weight[:prev_weight.shape[0], :prev_weight.shape[1]] = prev_weight
             self.model.fc.bias[:prev_weight.shape[0]] = prev_bias
+        
+        self.saved_model = copy.deepcopy(self.model)
         
         if len(self.optimizer.param_groups) == 2:
             for param in self.optimizer.param_groups[1]['params']:
@@ -338,8 +364,8 @@ class MEMO(CLManagerBase):
                 total_loss += loss.item()
                 label += y.tolist()
 
-        avg_loss = total_loss / len(test_loader)
-        return avg_loss
+        avg_acc = total_correct / total_num_data
+        return avg_acc
     
     def calculate_fast_adaptation(self, domain_name, sample_num, test_list, cls_dict, batch_size, n_worker):
         if self.cur_task+1 == self.tasks:
@@ -348,12 +374,12 @@ class MEMO(CLManagerBase):
             next_task_cls = self.p_cls_list[self.cls_per_task[self.cur_task]:self.cls_per_task[self.cur_task+1]]
         
         test_df = pd.DataFrame(test_list)
-        exp_test_df = test_df[test_df['klass'].isin(self.exposed_classes+next_task_cls)]
+        exp_test_df = test_df[test_df['klass'].isin(next_task_cls)]
         test_dataset = ImageDataset(
             exp_test_df,
             dataset=self.dataset,
             transform=self.test_transform,
-            cls_list=self.exposed_classes+next_task_cls,
+            cls_list=next_task_cls,
             data_dir=self.data_dir
         )
         test_loader = DataLoader(
@@ -373,7 +399,6 @@ class MEMO(CLManagerBase):
                     if train_data_cnt[data["klass"]] < self.fast_adaptation_samples_per_class:
                         train_data.append(data)
                         train_data_cnt[data["klass"]] += 1
-            random.shuffle(train_data)
             
             train_df = pd.DataFrame(train_data)
             train_dataset = ImageDataset(
@@ -381,11 +406,12 @@ class MEMO(CLManagerBase):
                 dataset=self.dataset,
                 transform=self.test_transform,
                 cls_list=next_task_cls,
-                data_dir=self.data_dir
+                data_dir=self.data_dir,
+                augmentation=self.train_transform
             )
             train_loader = DataLoader(
                 train_dataset,
-                shuffle=False,
+                shuffle=True,
                 batch_size=batch_size,
                 num_workers=n_worker,
             )
@@ -414,7 +440,7 @@ class MEMO(CLManagerBase):
                     x = data["image"].to(self.device)
                     y = data["label"].to(self.device)
                     with torch.cuda.amp.autocast(self.use_amp):
-                        logit = self.fast_model(x)
+                        logit, _ = self.fast_model(x)
                         loss = self.criterion(logit, y)
                 
                     _, preds = logit.topk(self.topk, 1, True, True)
@@ -429,6 +455,39 @@ class MEMO(CLManagerBase):
             
         avg_acc = self.fast_evaluation(test_loader, self.criterion)
         logger.info(f"{domain_name} ADAPTATION | Sample # {sample_num} | Task{self.cur_task} -> Task{self.cur_task+1} fast adaptation: {avg_acc:.3f}")
+    
+    def calculate_task_metric(self, domain_name, sample_num, test_list, cls_dict, batch_size, n_worker):
+        test_df = pd.DataFrame(test_list)
+        exp_test_df = test_df[test_df['klass'].isin(self.exposed_classes)]
+        test_dataset = ImageDataset(
+            exp_test_df,
+            dataset=self.dataset,
+            transform=self.test_transform,
+            cls_list=self.exposed_classes,
+            data_dir=self.data_dir
+        )
+        test_loader = DataLoader(
+            test_dataset,
+            shuffle=False,
+            batch_size=batch_size,
+            num_workers=n_worker,
+        )
+        preds = []
+        gts = []
+        self.model.eval()
+        with torch.no_grad():
+            for i, data in enumerate(test_loader):
+                x = data["image"]
+                y = data["label"]
+                x = x.to(self.device)
+                logit, _ = self.model(x, test=True)
+                pred = torch.argmax(logit, dim=-1)
+                preds.append(pred.detach().cpu().numpy())
+                gts.append(y.detach().cpu().numpy())
+        self.preds = np.concatenate(preds)
+        gts = np.concatenate(gts)
+        self.gt_label = gts
+        self.calculate_task_acc(domain_name, sample_num)
     
     def get_forgetting(self, sample_num, test_list, cls_dict, batch_size, n_worker):
         test_df = pd.DataFrame(test_list)
