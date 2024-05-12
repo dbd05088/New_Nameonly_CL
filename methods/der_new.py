@@ -25,7 +25,7 @@ class DER(CLManagerBase):
 
     def initialize_future(self):
         self.data_stream = iter(self.train_datalist)
-        self.dataloader = MultiProcessLoader(self.n_worker, self.cls_dict, self.train_transform, self.data_dir, self.transform_on_gpu, self.cpu_transform, self.device, self.use_kornia, self.transform_on_worker)
+        self.dataloader = MultiProcessLoader(self.n_worker, self.cls_dict, self.train_transform, self.data_dir, self.transform_on_gpu, self.cpu_transform, self.device, self.use_kornia, self.transform_on_worker, self.test_transform)
         self.memory = DERMemory(self.memory_size)
 
         self.logit_num_to_get = []
@@ -81,6 +81,7 @@ class DER(CLManagerBase):
 
 
     def online_step(self, sample, sample_num, n_worker):
+        self.fast_trained=False
         self.sample_num = sample_num
         if sample['klass'] not in self.exposed_classes:
             self.add_new_class(sample['klass'])
@@ -114,6 +115,9 @@ class DER(CLManagerBase):
             data = self.get_batch()
             x = data["image"].to(self.device)
             y = data["label"].to(self.device)
+            if self.aoa_eval and i%(self.online_iter*self.temp_batch_size)==0:
+                aoa_x = data["not_aug_img"].to(self.device)
+                self.aoa_evaluation(aoa_x, y)
             if len(self.logit_num_to_get[0]) > 0:
                 y2, mask = self.memory.get_logit(self.logit_num_to_get[0], self.num_learned_class)
                 y2, mask = y2.to(self.device), mask.to(self.device)

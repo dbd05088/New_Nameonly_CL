@@ -1,9 +1,11 @@
 import logging
 import os
 import copy
+import random
 
 import time
 import datetime
+from collections import defaultdict
 
 import numpy as np
 import pandas as pd
@@ -126,12 +128,49 @@ class CLManagerBase:
         self.initialize_future()
         self.total_flops = 0.0
         self.writer = SummaryWriter(f'tensorboard/{self.dataset}/{self.note}/seed_{self.rnd_seed}')
+        
+        eval_point = kwargs['eval_point']
+        if 'clear' in self.dataset:
+            self.tasks = 10
+        elif 'cct' in self.dataset:
+            self.tasks = 4
+            self.cls_per_task = [3]*self.tasks
+        elif 'PACS' in self.dataset:
+            self.tasks = 3
+            self.cls_per_task = [3,2,2]
+        elif 'DomainNet' in self.dataset:
+            self.tasks = 5
+            self.cls_per_task = [69]*self.tasks
+        elif 'cifar10' in self.dataset:
+            self.tasks = 5
+            self.cls_per_task = [2]*self.tasks
+        
+        total_cls=0
+        for i in range(self.tasks):
+            total_cls+=self.cls_per_task[i]
+            self.cls_per_task[i] = total_cls
+            
+        self.cur_task = 0
+        self.eval_point = [int(point) for point in eval_point.split(" ")]
+        self.prep_fast_adaptation_data()
+        self.fast_adaptation_samples_per_class = 100
+        self.fast_epoch = 10
+        self.fast_trained = False
+        self.aoa_eval = True
+        self.saved_model = copy.deepcopy(self.model)
+        
 
+    def prep_fast_adaptation_data(self):
+        self.p_cls_list = []
+        for data in self.train_datalist:
+            if data["klass"] not in self.p_cls_list:
+                self.p_cls_list.append(data["klass"])
+            
 
     # Memory 새로 정의 (not MemoryBase)
     def initialize_future(self):
         self.data_stream = iter(self.train_datalist)
-        self.dataloader = MultiProcessLoader(self.n_worker, self.cls_dict, self.train_transform, self.data_dir, self.transform_on_gpu, self.cpu_transform, self.device, self.use_kornia, self.transform_on_worker)
+        self.dataloader = MultiProcessLoader(self.n_worker, self.cls_dict, self.train_transform, self.data_dir, self.transform_on_gpu, self.cpu_transform, self.device, self.use_kornia, self.transform_on_worker, self.test_transform)
         self.memory = MemoryBase(self.memory_size)
 
         self.memory_list = []
@@ -182,7 +221,7 @@ class CLManagerBase:
 
     # loader로부터 load된 batch를 받아오는 것
     def get_batch(self):
-        batch = self.dataloader.get_batch()
+        batch = self.dataloader.get_batch(aoa=self.aoa_eval)
         self.load_batch()
         return batch
 
@@ -203,6 +242,7 @@ class CLManagerBase:
             self.waiting_batch.append(self.temp_future_batch + self.memory.retrieval(self.memory_batch_size))
 
     def online_step(self, sample, sample_num, n_worker):
+        self.fast_trained=False
         self.sample_num = sample_num
         if sample['klass'] not in self.exposed_classes:
             self.add_new_class(sample['klass'])
@@ -223,6 +263,7 @@ class CLManagerBase:
         self.cls_dict[class_name] = len(self.exposed_classes)
         self.exposed_classes.append(class_name)
         self.num_learned_class = len(self.exposed_classes)
+        
         model_fc = getattr(self.model, fc_name)
         prev_weight = copy.deepcopy(model_fc.weight.data)
         prev_bias = copy.deepcopy(model_fc.bias.data)
@@ -232,6 +273,16 @@ class CLManagerBase:
             if self.num_learned_class > 1:
                 model_fc.weight[:self.num_learned_class - 1] = prev_weight
                 model_fc.bias[:self.num_learned_class - 1] = prev_bias
+        saved_model_fc = getattr(self.saved_model, fc_name)
+        saved_prev_weight = copy.deepcopy(saved_model_fc.weight.data)
+        saved_prev_bias = copy.deepcopy(saved_model_fc.bias.data)
+        setattr(self.saved_model, fc_name, nn.Linear(saved_model_fc.in_features, self.num_learned_class).to(self.device))
+        saved_model_fc = getattr(self.saved_model, fc_name)
+        with torch.no_grad():
+            if self.num_learned_class > 1:
+                saved_model_fc.weight[:self.num_learned_class - 1] = saved_prev_weight
+                saved_model_fc.bias[:self.num_learned_class - 1] = saved_prev_bias
+                
         for param in self.optimizer.param_groups[1]['params']:
             if param in self.optimizer.state.keys():
                 del self.optimizer.state[param]
@@ -248,6 +299,10 @@ class CLManagerBase:
             data = self.get_batch()
             x = data["image"].to(self.device)
             y = data["label"].to(self.device)
+            if self.aoa_eval and i%(self.online_iter*self.temp_batch_size)==0:
+                aoa_x = data["not_aug_img"].to(self.device)
+                self.aoa_evaluation(aoa_x, y)
+                
             self.before_model_update()
 
             self.optimizer.zero_grad()
@@ -273,6 +328,22 @@ class CLManagerBase:
             num_data += y.size(0)
 
         return total_loss / iterations, correct / num_data
+
+    def aoa_evaluation(self, image, label):
+        total_correct, total_num_data, total_loss = 0.0, 0.0, 0.0
+        self.saved_model.eval()
+        image, label = image[:self.temp_batch_size], label[:self.temp_batch_size]
+        with torch.no_grad():
+            logit = self.saved_model(image)
+            pred = torch.argmax(logit, dim=-1)
+            _, preds = logit.topk(self.topk, 1, True, True)
+
+            total_correct += torch.sum(preds == label.unsqueeze(1)).item()
+            total_num_data += label.size(0)
+        avg_acc = total_correct / total_num_data
+        logger.info(f"AOA | Sample # {self.sample_num} | Real Time Evaluation: {avg_acc:.3f}")
+        
+        self.saved_model = copy.deepcopy(self.model)
 
     def before_model_update(self):
         pass
@@ -320,7 +391,12 @@ class CLManagerBase:
             self.scheduler.step()
 
 
-    def online_evaluate(self, domain_name, test_list, sample_num, batch_size, n_worker, cls_dict, cls_addition, data_time):
+    def online_evaluate(self, domain_name, cur_task, test_list, sample_num, batch_size, n_worker, cls_dict, cls_addition, data_time):
+        self.cur_task = cur_task
+        if sample_num in self.eval_point:
+            self.calculate_task_metric(domain_name, sample_num, test_list, cls_dict, batch_size, n_worker)
+            if self.cur_task < self.tasks-1:
+                self.calculate_fast_adaptation(domain_name, sample_num, test_list, cls_dict, batch_size, n_worker)
         test_df = pd.DataFrame(test_list)
         '''
         if "clear" in self.dataset:
@@ -355,6 +431,7 @@ class CLManagerBase:
         # if sample_num >= self.f_next_time:
         #     self.get_forgetting(sample_num, test_list, cls_dict, batch_size, n_worker)
         #     self.f_next_time += self.f_period
+    
         return sample_num, eval_dict
 
 
@@ -393,6 +470,39 @@ class CLManagerBase:
         ret = {"avg_loss": avg_loss, "avg_acc": avg_acc, "cls_acc": cls_acc}
 
         return ret
+    
+    def fast_evaluation(self, test_loader, criterion):
+        total_correct, total_num_data, total_loss = 0.0, 0.0, 0.0
+        correct_l = torch.zeros(self.n_classes)
+        num_data_l = torch.zeros(self.n_classes)
+        label = []
+
+        self.model.eval()
+        with torch.no_grad():
+            for i, data in enumerate(test_loader):
+                x = data["image"]
+                y = data["label"]
+                x = x.to(self.device)
+                y = y.to(self.device)
+                logit = self.fast_model(x)
+
+                loss = criterion(logit, y)
+                pred = torch.argmax(logit, dim=-1)
+                _, preds = logit.topk(self.topk, 1, True, True)
+
+                total_correct += torch.sum(preds == y.unsqueeze(1)).item()
+                total_num_data += y.size(0)
+
+                xlabel_cnt, correct_xlabel_cnt = self._interpret_pred(y, pred)
+                correct_l += correct_xlabel_cnt.detach().cpu()
+                num_data_l += xlabel_cnt.detach().cpu()
+
+                total_loss += loss.item()
+                label += y.tolist()
+
+        avg_acc = total_correct / total_num_data
+        return avg_acc
+        
 
     def reset_opt(self):
         self.optimizer = select_optimizer(self.opt_name, self.lr, self.model)
@@ -413,7 +523,150 @@ class CLManagerBase:
 
         return ret_num_data, ret_corrects
 
+    def calculate_fast_adaptation(self, domain_name, sample_num, test_list, cls_dict, batch_size, n_worker):
+        if self.cur_task+1 == self.tasks:
+            next_task_cls = self.p_cls_list[self.cls_per_task[self.cur_task]:]
+        else:
+            next_task_cls = self.p_cls_list[self.cls_per_task[self.cur_task]:self.cls_per_task[self.cur_task+1]]
+        
+        test_df = pd.DataFrame(test_list)
+        exp_test_df = test_df[test_df['klass'].isin(next_task_cls)]
+        test_dataset = ImageDataset(
+            exp_test_df,
+            dataset=self.dataset,
+            transform=self.test_transform,
+            cls_list=next_task_cls,
+            data_dir=self.data_dir
+        )
+        test_loader = DataLoader(
+            test_dataset,
+            shuffle=False,
+            batch_size=batch_size,
+            num_workers=n_worker,
+        )
+        
+        if not self.fast_trained:
+            train_data = []
+            train_data_cnt = {}
+            for data in self.train_datalist:
+                if data["klass"] in next_task_cls:
+                    if data["klass"] not in list(train_data_cnt.keys()):
+                        train_data_cnt[data["klass"]] = 0
+                    if train_data_cnt[data["klass"]] < self.fast_adaptation_samples_per_class:
+                        train_data.append(data)
+                        train_data_cnt[data["klass"]] += 1
+            
+            train_df = pd.DataFrame(train_data)
+            train_dataset = ImageDataset(
+                train_df,
+                dataset=self.dataset,
+                transform=self.test_transform,
+                cls_list=next_task_cls,
+                data_dir=self.data_dir,
+                augmentation=self.train_transform
+            )
+            train_loader = DataLoader(
+                train_dataset,
+                shuffle=True,
+                batch_size=batch_size,
+                num_workers=n_worker,
+            )
+            
+            self.fast_trained=True
+            self.fast_model = copy.deepcopy(self.model)
+            
+            if hasattr(self.fast_model, 'fc'):
+                fc_name = 'fc'
+            elif hasattr(self.fast_model, 'head'):
+                fc_name = 'head'
+            model_fc = getattr(self.fast_model, fc_name)
+            prev_weight = copy.deepcopy(model_fc.weight.data)
+            prev_bias = copy.deepcopy(model_fc.bias.data)
+            setattr(self.fast_model, fc_name, nn.Linear(model_fc.in_features, self.cls_per_task[self.cur_task+1]).to(self.device))
+            model_fc = getattr(self.fast_model, fc_name)
+            with torch.no_grad():
+                model_fc.weight[:self.num_learned_class] = prev_weight
+                model_fc.bias[:self.num_learned_class] = prev_bias
+                    
+            self.fast_optimizer = select_optimizer(self.opt_name, self.lr, self.fast_model)
+            self.fast_scheduler = select_scheduler(self.sched_name, self.fast_optimizer)
+            self.fast_model.train()
+            for ep in range(self.fast_epoch):
+                for i, data in enumerate(train_loader):
+                    x = data["image"].to(self.device)
+                    y = data["label"].to(self.device)
+                    with torch.cuda.amp.autocast(self.use_amp):
+                        logit = self.fast_model(x)
+                        loss = self.criterion(logit, y)
+                
+                    _, preds = logit.topk(self.topk, 1, True, True)
 
+                    if self.use_amp:
+                        self.scaler.scale(loss).backward()
+                        self.scaler.step(self.fast_optimizer)
+                        self.scaler.update()
+                    else:
+                        loss.backward()
+                        self.fast_optimizer.step()
+            
+        avg_acc = self.fast_evaluation(test_loader, self.criterion)
+        logger.info(f"{domain_name} ADAPTATION | Sample # {sample_num} | Task{self.cur_task} -> Task{self.cur_task+1} fast adaptation: {avg_acc:.3f}")
+        
+    
+    def calculate_task_metric(self, domain_name, sample_num, test_list, cls_dict, batch_size, n_worker):
+        test_df = pd.DataFrame(test_list)
+        exp_test_df = test_df[test_df['klass'].isin(self.exposed_classes)]
+        test_dataset = ImageDataset(
+            exp_test_df,
+            dataset=self.dataset,
+            transform=self.test_transform,
+            cls_list=self.exposed_classes,
+            data_dir=self.data_dir
+        )
+        test_loader = DataLoader(
+            test_dataset,
+            shuffle=False,
+            batch_size=batch_size,
+            num_workers=n_worker,
+        )
+        preds = []
+        gts = []
+        self.model.eval()
+        with torch.no_grad():
+            for i, data in enumerate(test_loader):
+                x = data["image"]
+                y = data["label"]
+                x = x.to(self.device)
+                logit = self.model(x)
+                pred = torch.argmax(logit, dim=-1)
+                preds.append(pred.detach().cpu().numpy())
+                gts.append(y.detach().cpu().numpy())
+        self.preds = np.concatenate(preds)
+        gts = np.concatenate(gts)
+        self.gt_label = gts
+        self.calculate_task_acc(domain_name, sample_num)
+    
+    def calculate_task_acc(self, domain_name, sample_num):
+        correct_cnt = np.zeros(self.n_classes)
+        cls_cnt = np.zeros(self.n_classes)
+        for i, gt in enumerate(self.gt_label):
+            cls_cnt[gt] += 1
+            if gt == self.preds[i]:
+                correct_cnt[gt] += 1
+        correct_prob = correct_cnt/cls_cnt
+        print("overall_acc", sum(correct_cnt)/sum(cls_cnt))
+        log = f'{domain_name} ACC_PER_TASK | Sample # {sample_num} | '
+        task_acc=0
+        task=0
+        for cls in range(self.n_classes):
+            task_acc+=correct_prob[cls]
+            if cls+1 in self.cls_per_task:
+                log += f'Task {task}: {(task_acc/(self.cls_per_task[task])):.3f}, '
+                task+=1
+                task_acc=0
+        
+        logger.info(log)
+    
     def get_forgetting(self, sample_num, test_list, cls_dict, batch_size, n_worker):
         test_df = pd.DataFrame(test_list)
         test_dataset = ImageDataset(
@@ -540,6 +793,7 @@ class CLManagerBase:
          
     
 class MemoryBase:
+    
     def __init__(self, memory_size):
         self.memory_size = memory_size
         self.images = []

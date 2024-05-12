@@ -80,13 +80,14 @@ def main():
 
     samples_cnt = 0
     task_id = 0
+    cur_task=0
     
     for i, data in enumerate(train_datalist):
         # explicit task boundary for twf
         if samples_cnt in [0] + eval_point and args.mode in ["bic", "xder", "der_lider", "er_lider", "xder_lider", "co2l"]:
             method.online_before_task(task_id)
             task_id += 1
-
+        
         samples_cnt += 1
         method.online_step(data, samples_cnt, args.n_worker)
         #if samples_cnt % args.eval_period == 0:
@@ -95,7 +96,7 @@ def main():
             cls_acc = []
             avg_loss = []
             for domain_name, test_datalist  in zip(test_domain_name, test_datalists):
-                sample_num, eval_dict = method.online_evaluate(domain_name, test_datalist, samples_cnt, 32, args.n_worker, cls_dict, cls_addition, data["time"])
+                sample_num, eval_dict = method.online_evaluate(domain_name, cur_task, test_datalist, samples_cnt, 32, args.n_worker, cls_dict, cls_addition, data["time"])
                 avg_acc.append(eval_dict['avg_acc'])
                 avg_loss.append(eval_dict['avg_loss'])
                 cls_acc.append(eval_dict['cls_acc'])
@@ -106,7 +107,7 @@ def main():
             if samples_cnt in eval_point:
                 eval_results["avg_test_acc"].append(np.mean(avg_acc))
                 method.report_test("Task", sample_num, np.mean(avg_loss), np.mean(avg_acc))
-                
+                cur_task+=1
         if samples_cnt in eval_point and (args.mode in ["memo", "xder", "afec"]) and samples_cnt != len(train_datalist):
             method.online_after_task()
         
