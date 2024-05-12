@@ -82,6 +82,8 @@ class DER(CLManagerBase):
 
     def online_step(self, sample, sample_num, n_worker):
         self.fast_trained=False
+        if self.fast_model is not None:
+            self.fast_model = None
         self.sample_num = sample_num
         if sample['klass'] not in self.exposed_classes:
             self.add_new_class(sample['klass'])
