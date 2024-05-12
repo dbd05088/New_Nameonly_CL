@@ -107,10 +107,10 @@ class ASER(CLManagerBase):
     def get_batch(self):
         batch = self.dataloader.get_batch(aoa=self.aoa_eval)
         if self.sample_num >= 10 * self.candidate_size:
-            candidate_batch = self.candidate_dataloader.get_batch()
-            eval_batch = self.eval_dataloader.get_batch()
-            candidate_train_batch = self.candidate_train_dataloader.get_batch()
-            current_eval_batch = self.current_dataloader.get_batch()
+            candidate_batch = self.candidate_dataloader.get_batch(aoa=self.aoa_eval)
+            eval_batch = self.eval_dataloader.get_batch(aoa=self.aoa_eval)
+            candidate_train_batch = self.candidate_train_dataloader.get_batch(aoa=self.aoa_eval)
+            current_eval_batch = self.current_dataloader.get_batch(aoa=self.aoa_eval)
             self.load_batch()
             return (batch, current_eval_batch, candidate_train_batch, candidate_batch, eval_batch)
         else:
@@ -247,6 +247,7 @@ class ASER(CLManagerBase):
         return deep_features_
 
     def online_step(self, sample, sample_num, n_worker):
+        self.fast_trained=False
         self.sample_num = sample_num
         if sample['klass'] not in self.exposed_classes:
             self.add_new_class(sample['klass'])
@@ -284,10 +285,6 @@ class ASER(CLManagerBase):
         for i in range(iterations):
             self.model.train()
             batch_data = self.get_batch()
-            
-            if self.aoa_eval and i%(self.online_iter*self.temp_batch_size)==0:
-                aoa_x = data["not_aug_img"].to(self.device)
-                self.aoa_evaluation(aoa_x, y)
             
             if type(batch_data)!=dict:
                 data, current_eval_data, candidate_train_data, candidate_data, eval_data = batch_data
@@ -327,6 +324,10 @@ class ASER(CLManagerBase):
                 data = batch_data
                 x = data['image']
                 y = data['label']
+            
+            if self.aoa_eval and i%(self.online_iter*self.temp_batch_size)==0:
+                aoa_x = data["not_aug_img"].to(self.device)
+                self.aoa_evaluation(aoa_x, data['label'].to(self.device))
             
             x = x.to(self.device)
             y = y.to(self.device)
