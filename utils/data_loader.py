@@ -27,7 +27,7 @@ logger = logging.getLogger()
 
 
 class MultiProcessLoader():
-    def __init__(self, n_workers, cls_dict, transform, data_dir, transform_on_gpu=False, cpu_transform=None, device='cpu', use_kornia=False, transform_on_worker=True, init=True):
+    def __init__(self, n_workers, cls_dict, transform, data_dir, transform_on_gpu=False, cpu_transform=None, device='cpu', use_kornia=False, transform_on_worker=True, test_transform=None, init=True):
         self.n_workers = n_workers
         self.cls_dict = cls_dict
         self.transform = transform
@@ -39,13 +39,15 @@ class MultiProcessLoader():
         self.result_queues = []
         self.workers = []
         self.index_queues = []
+        self.test_transform = test_transform
+                
         if init:
             for i in range(self.n_workers):
                 index_queue = multiprocessing.Queue()
                 index_queue.cancel_join_thread()
                 result_queue = multiprocessing.Queue()
                 result_queue.cancel_join_thread()
-                w = multiprocessing.Process(target=worker_loop, args=(index_queue, result_queue, data_dir, self.transform, self.transform_on_gpu, self.cpu_transform, self.device, use_kornia, transform_on_worker))
+                w = multiprocessing.Process(target=worker_loop, args=(index_queue, result_queue, data_dir, self.transform, self.transform_on_gpu, self.cpu_transform, self.device, use_kornia, transform_on_worker, test_transform))
                 w.daemon = True
                 w.start()
                 self.workers.append(w)
@@ -73,15 +75,18 @@ class MultiProcessLoader():
             self.index_queues[i].put(batch[len(batch)*i//self.n_workers:len(batch)*(i+1)//self.n_workers])
 
     @torch.no_grad()
-    def get_batch(self):
+    def get_batch(self, aoa=False):
         data = dict()
         images = []
         labels = []
+        not_aug_images = []
         for i in range(self.n_workers):
             loaded_samples = self.result_queues[i].get(timeout=3000.0)
             if loaded_samples is not None:
                 images.append(loaded_samples["image"])
                 labels.append(loaded_samples["label"])
+                if aoa:
+                    not_aug_images.append(loaded_samples["not_aug_img"])
         if len(images) > 0:
             images = torch.cat(images)
             labels = torch.cat(labels)
@@ -89,6 +94,8 @@ class MultiProcessLoader():
                 images = self.transform(images.to(self.device))
             data['image'] = images
             data['label'] = labels
+            if aoa:
+                data['not_aug_img'] = torch.cat(not_aug_images)
             return data
         else:
             return None
@@ -251,7 +258,7 @@ class Preprocess(nn.Module):
 
 class ImageDataset(Dataset):
     def __init__(self, data_frame: pd.DataFrame, dataset: str, transform=None, cls_list=None, data_dir=None,
-                 preload=False, device=None, transform_on_gpu=False, use_kornia=False):
+                 preload=False, device=None, transform_on_gpu=False, use_kornia=False, augmentation=None):
         self.use_kornia = use_kornia
         self.data_frame = data_frame
         self.dataset = dataset
@@ -261,6 +268,7 @@ class ImageDataset(Dataset):
         self.preload = preload
         self.device = device
         self.transform_on_gpu = transform_on_gpu
+        self.augmentation = augmentation
         if self.preload:
             mean, std, n_classes, inp_size, _ = get_statistics(dataset=self.dataset)
             self.preprocess = Preprocess(input_size=inp_size)
@@ -294,6 +302,8 @@ class ImageDataset(Dataset):
                 elif self.transform:
                     image = self.transform(image)
                 sample["image"] = image
+                if augmentation is not None:
+                    self.augmentation(image)
                 sample["label"] = label
                 sample["image_name"] = img_name
                 self.loaded_images.append(sample)
