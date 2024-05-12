@@ -258,24 +258,41 @@
 # rm PACS_final_web_RMD_temp_0_5_WF.tar
 # rm PACS_final_web_inverse_temp_0_5_WF.tar
 
-gdrive files download 1iDEAWYiIGBDfND-nFTeNIGl3-SLWS5pp
-tar -xf PACS_final_all_samples_prob.tar
-mv PACS_final_all_samples_prob PACS_final
-rm PACS_final_all_samples_prob.tar
+# gdrive files download 1iDEAWYiIGBDfND-nFTeNIGl3-SLWS5pp
+# tar -xf PACS_final_all_samples_prob.tar
+# mv PACS_final_all_samples_prob PACS_final
+# rm PACS_final_all_samples_prob.tar
 
-gdrive files download 1PpO6kRVc2nY352Jt0HuiAIiZLoHhXfxb
-gdrive files download 1w90tb5ouFT7eunFEycP6w-hwNwj2my9M
-gdrive files download 1aT4Gr4uO_BGikghLLkPur-hJT2AMpmf4
-gdrive files download 1K1PkR5XTlY_U9lbuWdxIOEQUM-1ejQDS
-tar -xf PACS_final_twostage_temp_0_5.tar
-tar -xf PACS_final_twostage_temp_1.tar
-tar -xf PACS_final_twostage_temp_2.tar
-tar -xf PACS_final_twostage_temp_3.tar
-mv PACS_final_twostage_temp_0_5 PACS_final
-mv PACS_final_twostage_temp_1 PACS_final
-mv PACS_final_twostage_temp_2 PACS_final
-mv PACS_final_twostage_temp_3 PACS_final
-rm PACS_final_twostage_temp_0_5.tar
-rm PACS_final_twostage_temp_1.tar
-rm PACS_final_twostage_temp_2.tar
-rm PACS_final_twostage_temp_3.tar
+# gdrive files download 1PpO6kRVc2nY352Jt0HuiAIiZLoHhXfxb
+# gdrive files download 1w90tb5ouFT7eunFEycP6w-hwNwj2my9M
+# gdrive files download 1aT4Gr4uO_BGikghLLkPur-hJT2AMpmf4
+# gdrive files download 1K1PkR5XTlY_U9lbuWdxIOEQUM-1ejQDS
+# tar -xf PACS_final_twostage_temp_0_5.tar
+# tar -xf PACS_final_twostage_temp_1.tar
+# tar -xf PACS_final_twostage_temp_2.tar
+# tar -xf PACS_final_twostage_temp_3.tar
+# mv PACS_final_twostage_temp_0_5 PACS_final
+# mv PACS_final_twostage_temp_1 PACS_final
+# mv PACS_final_twostage_temp_2 PACS_final
+# mv PACS_final_twostage_temp_3 PACS_final
+# rm PACS_final_twostage_temp_0_5.tar
+# rm PACS_final_twostage_temp_1.tar
+# rm PACS_final_twostage_temp_2.tar
+# rm PACS_final_twostage_temp_3.tar
+
+gdrive files download 1Z_AGTbPkuD2D0JqE5ujXQ5ysbfAjACEB
+gdrive files download 1WccteT8AEUWbyXseV_pVX3sugG4p1rev
+gdrive files download 1pvZFRyL4y2lUmX_YjNK2mtsLT7qU05T_
+gdrive files download 1rN8ORuKm8uI_MTEWiXCvxe2Zi5lBAV2D
+tar -xf PACS_final_web_newsample_rmd_temp_1.tar
+tar -xf PACS_final_web_newsample_rmd_temp_2.tar
+tar -xf PACS_final_web_newsample_rmd_equalweight.tar
+tar -xf PACS_final_web_flickr.tar
+mv PACS_final_web_newsample_rmd_temp_1 PACS_final
+mv PACS_final_web_newsample_rmd_temp_2 PACS_final
+mv PACS_final_web_newsample_rmd_equalweight PACS_final
+mv PACS_final_web_flickr PACS_final
+rm PACS_final_web_newsample_rmd_temp_1.tar
+rm PACS_final_web_newsample_rmd_temp_2.tar
+rm PACS_final_web_newsample_rmd_equalweight.tar
+rm PACS_final_web_flickr.tar
