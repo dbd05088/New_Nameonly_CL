@@ -124,7 +124,7 @@ class MultiProcessLoader():
 
 class XDERLoader(MultiProcessLoader):
     def __init__(self, n_workers, cls_dict, transform, data_dir, transform_on_gpu=False, cpu_transform=None, device='cpu', use_kornia=False, transform_on_worker=True, test_transform=None, scl=False, init=True):
-        super().__init__(n_workers, cls_dict, transform, data_dir, transform_on_gpu, cpu_transform, device, use_kornia, transform_on_worker, init=False)
+        super().__init__(n_workers, cls_dict, transform, data_dir, transform_on_gpu, cpu_transform, device, use_kornia, transform_on_worker, init=False, test_transform=test_transform)
         self.n_workers = n_workers
         self.cls_dict = cls_dict
         self.transform = transform
