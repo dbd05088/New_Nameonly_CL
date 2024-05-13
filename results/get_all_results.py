@@ -5,7 +5,7 @@ from scipy.stats import sem
 from collections import defaultdict
 
 warnings.filterwarnings(action='ignore')
-dir = 'PACS_final'
+dir = 'cifar10'
 
 if 'PACS' in dir:
     in_dis = ['final_test_ma']
@@ -16,8 +16,8 @@ elif 'cct' in dir:
     ood_dis = ['out_test_ma']
     n_samples, n_tasks = 2400, 4
 elif 'cifar10' in dir:
-    in_dis = ['original']
-    ood_dis = ['c Test', 'nc Test']
+    in_dis = ['original_test']
+    ood_dis = ['> c', '> nc']
     n_samples, n_tasks = 10000, 5
 elif 'DomainNet' in dir:
     in_dis = ['test_ma']
@@ -107,8 +107,8 @@ def print_from_log(exp_name, in_dis, ood_dis, seeds=(1,2,3,4,5)):
         print(f'Exp:{exp_name} overall \t\t\t {np.mean(overall_avg):.2f}/{sem(overall_avg):.2f} \t {np.mean(overall_last):.2f}/{sem(overall_last):.2f}')
         print(f'Exp:{exp_name} real_time_evaluation \t\t\t {np.mean(aoa_auc):.2f}/{sem(aoa_auc):.2f} \t {np.mean(aoa_last):.2f}/{sem(aoa_last):.2f}')
         print(f'Exp:{exp_name} fast_adaptation \t\t\t {np.mean(fast_adaptation):.2f}/{sem(fast_adaptation):.2f}')
-        for i in range(len(domain_list)):
-            print(f'Exp:{exp_name} {domain_list[i]} backward_transfer \t\t\t {np.mean(backward_transfer[domain_list[i]]):.2f}/{sem(backward_transfer[domain_list[i]]):.2f}')
+        for i, dom in enumerate(list(backward_transfer.keys())):
+            print(f'Exp:{exp_name} {dom} backward_transfer \t\t\t {np.mean(backward_transfer[dom]):.2f}/{sem(backward_transfer[dom]):.2f}')
 
 for exp in exp_type_list:
     try:
