@@ -590,7 +590,11 @@ def get_statistics(dataset: str, type_name:str):
                     'web_newsample_rmd_temp_1':(0.51574887, 0.48980316, 0.44052203),
                     'web_newsample_rmd_temp_2':(0.51864207, 0.49585058, 0.44854735),
                     'web_newsample_rmd_equalweight':(0.54175447, 0.51804228, 0.47492823),
-                    'web_flickr':(0.47682046, 0.45049774, 0.39945674)
+                    'web_flickr':(0.47682046, 0.45049774, 0.39945674),
+                    'web_all_samples_prob_temp_0_5': (0.52865591, 0.49990131, 0.44848083),
+                    'web_all_samples_prob_temp_1': (0.53324246, 0.50664445, 0.45611224),
+                    'web_all_samples_prob_temp_2': (0.53345579, 0.50754015, 0.45797141),
+                    
                     },
         "OfficeHome": {
                     "Art":(0.51358405, 0.48082051, 0.44370487),
@@ -738,7 +742,11 @@ def get_statistics(dataset: str, type_name:str):
                     'web_newsample_rmd_temp_1':(0.23673531, 0.23262494, 0.23905953),
                     'web_newsample_rmd_temp_2':(0.23738215, 0.23280859, 0.24132405),
                     'web_newsample_rmd_equalweight':(0.23424578, 0.23033454, 0.23933767),
-                    'web_flickr':(0.24045768, 0.23540716, 0.23927941)
+                    'web_flickr':(0.24045768, 0.23540716, 0.23927941),
+                    'web_all_samples_prob_temp_0_5':(0.23512824, 0.23086828, 0.24020265),
+                    'web_all_samples_prob_temp_1':(0.23366232, 0.23035766, 0.24020971),
+                    'web_all_samples_prob_temp_2':(0.23465503, 0.23265774, 0.24369821)
+
                     },
         "OfficeHome": {
                     "Art":(0.23799188, 0.23378391, 0.22740558),
