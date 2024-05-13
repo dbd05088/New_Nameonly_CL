@@ -68,30 +68,49 @@
 # rm cct_RMD_normalized_temp_3.tar
 
 ### cct scaling ###
-gdrive files download 1QrU6GDkxhQGeriIYEEfgIMMCICHjps29
-gdrive files download 1P2zZl9j_NLN84q8Tq81ip0NHUzyPsMb4
-gdrive files download 1MmAyNqUgdG-Ti3JQRuzQCN6ts85vPLKj
-gdrive files download 18yGNhrQD8-GADjXfJWMxDdoT1--hRcjS
-gdrive files download 16UFK8ZuKzJNu0FoSqS7P_M0uNGP6sJ7R
-gdrive files download 1g98uRDaKlNevOu-I-s8uXd8gfU0Csvi2
+# gdrive files download 1QrU6GDkxhQGeriIYEEfgIMMCICHjps29
+# gdrive files download 1P2zZl9j_NLN84q8Tq81ip0NHUzyPsMb4
+# gdrive files download 1MmAyNqUgdG-Ti3JQRuzQCN6ts85vPLKj
+# gdrive files download 18yGNhrQD8-GADjXfJWMxDdoT1--hRcjS
+# gdrive files download 16UFK8ZuKzJNu0FoSqS7P_M0uNGP6sJ7R
+# gdrive files download 1g98uRDaKlNevOu-I-s8uXd8gfU0Csvi2
 
-tar -xvf cct_scale_0_125.tar
-tar -xvf cct_scale_0_25.tar
-tar -xvf cct_scale_0_5.tar
-tar -xvf cct_scale_1.tar
-tar -xvf cct_scale_2.tar
-tar -xvf cct_scale_4.tar
+# tar -xvf cct_scale_0_125.tar
+# tar -xvf cct_scale_0_25.tar
+# tar -xvf cct_scale_0_5.tar
+# tar -xvf cct_scale_1.tar
+# tar -xvf cct_scale_2.tar
+# tar -xvf cct_scale_4.tar
 
-mv cct_scale_0_125 cct
-mv cct_scale_0_25 cct
-mv cct_scale_0_5 cct
-mv cct_scale_1 cct
-mv cct_scale_2 cct
-mv cct_scale_4 cct
+# mv cct_scale_0_125 cct
+# mv cct_scale_0_25 cct
+# mv cct_scale_0_5 cct
+# mv cct_scale_1 cct
+# mv cct_scale_2 cct
+# mv cct_scale_4 cct
 
-rm cct_scale_0_125.tar
-rm cct_scale_0_25.tar
-rm cct_scale_0_5.tar
-rm cct_scale_1.tar
-rm cct_scale_2.tar
-rm cct_scale_4.tar
+# rm cct_scale_0_125.tar
+# rm cct_scale_0_25.tar
+# rm cct_scale_0_5.tar
+# rm cct_scale_1.tar
+# rm cct_scale_2.tar
+# rm cct_scale_4.tar
+
+
+### cct web 0514
+gdrive files download 1pxrZ0N5E7C-nPBOoOi6JVhyNxdgNL6fu
+gdrive files download 1bMeHe6ruALUxkEPTxqYFblhniPg02Baw
+gdrive files download 13_1kZB5yTsNABzhUF9mxhXrl6nzMW0GH
+gdrive files download 1o87z_qwlfmnAHUzqDS8jQrcS09ewCcua
+tar -xf cct_flickr_subsampled_filtered.tar
+tar -xf cct_web_newsample_rmd_equalweight.tar
+tar -xf cct_web_all_samples_temp_1.tar
+tar -xf cct_web_all_samples_temp_2.tar
+mv cct_flickr_subsampled_filtered cct/
+mv cct_web_newsample_rmd_equalweight cct/
+mv cct_web_all_samples_temp_1 cct/
+mv cct_web_all_samples_temp_2 cct/
+rm cct_flickr_subsampled_filtered.tar
+rm cct_web_newsample_rmd_equalweight.tar
+rm cct_web_all_samples_temp_1.tar
+rm cct_web_all_samples_temp_2.tar
