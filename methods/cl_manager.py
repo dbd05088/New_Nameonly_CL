@@ -709,7 +709,7 @@ class CLManagerBase:
             self.knowledge_loss_rate.append(klr)
             self.knowledge_gain_rate.append(kgr)
             self.forgetting_time.append(sample_num)
-            logger.info(f'{domain_name} ACC_PER_TASK | KLR {klr} | KGR {kgr}')
+            logger.info(f'{domain_name} FORGETTING | KLR {klr} | KGR {kgr}')
             np.save(self.save_path + '_KLR.npy', self.knowledge_loss_rate)
             np.save(self.save_path + '_KGR.npy', self.knowledge_gain_rate)
             np.save(self.save_path + '_forgetting_time.npy', self.forgetting_time)
