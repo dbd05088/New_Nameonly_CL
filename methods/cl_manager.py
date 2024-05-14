@@ -107,8 +107,9 @@ class CLManagerBase:
         self.future_sampling = True
         self.future_retrieval = True
 
+        self.gt_label = None
         self.gt_label_forgetting = None
-        self.test_records = []
+        self.test_records = defaultdict(list)
         self.n_model_cls = []
         self.knowledge_loss_rate = []
         self.knowledge_gain_rate = []
@@ -163,9 +164,13 @@ class CLManagerBase:
 
     def prep_fast_adaptation_data(self):
         self.p_cls_list = []
+        self.p_cls_dict = {}
+        label = 0
         for data in self.train_datalist:
             if data["klass"] not in self.p_cls_list:
                 self.p_cls_list.append(data["klass"])
+                self.p_cls_dict[data["klass"]] = label
+                label+=1
             
 
     # Memory 새로 정의 (not MemoryBase)
@@ -677,7 +682,7 @@ class CLManagerBase:
             test_df,
             dataset=self.dataset,
             transform=self.test_transform,
-            cls_list=list(self.cls_dict.keys()),
+            cls_list=self.p_cls_list,
             data_dir=self.data_dir
         )
         test_loader = DataLoader(
@@ -699,13 +704,12 @@ class CLManagerBase:
                 preds.append(pred.detach().cpu().numpy())
                 gts.append(y.detach().cpu().numpy())
         preds = np.concatenate(preds)
-        if self.gt_label_forgetting is None:
-            gts = np.concatenate(gts)
-            self.gt_label_forgetting = gts
-        self.test_records.append(preds)
+        gts = np.concatenate(gts)
+        self.gt_label_forgetting = gts
+        self.test_records[domain_name].append(preds)
         self.n_model_cls.append(copy.deepcopy(self.num_learned_class))
-        if len(self.test_records) > 1:
-            klr, kgr = self.calculate_online_forgetting(self.n_classes, self.gt_label_forgetting, self.test_records[-2], self.test_records[-1], self.n_model_cls[-2], self.n_model_cls[-1])
+        if len(self.test_records[domain_name]) > 1:
+            klr, kgr = self.calculate_online_forgetting(self.n_classes, self.gt_label_forgetting, self.test_records[domain_name][-2], self.test_records[domain_name][-1], self.n_model_cls[-2], self.n_model_cls[-1])
             self.knowledge_loss_rate.append(klr)
             self.knowledge_gain_rate.append(kgr)
             self.forgetting_time.append(sample_num)
