@@ -50,6 +50,10 @@ class XDER_LiDER(XDER):
             y = data["label"].to(self.device)
             not_aug_img = data["not_aug_img"].to(self.device)
             
+            if self.aoa_eval and i%(self.online_iter*self.temp_batch_size)==0:
+                aoa_x = not_aug_img
+                self.aoa_evaluation(aoa_x, y)
+            
             buf_na_inputsscl = scl_data["image"].to(self.device) if scl_data is not None else None
             buf_labelsscl = scl_data["label"].to(self.device) if scl_data is not None else None
                 
