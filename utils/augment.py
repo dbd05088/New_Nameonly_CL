@@ -590,7 +590,11 @@ def get_statistics(dataset: str, type_name:str):
                     'web_newsample_rmd_temp_1':(0.51574887, 0.48980316, 0.44052203),
                     'web_newsample_rmd_temp_2':(0.51864207, 0.49585058, 0.44854735),
                     'web_newsample_rmd_equalweight':(0.54175447, 0.51804228, 0.47492823),
-                    'web_flickr':(0.47682046, 0.45049774, 0.39945674)
+                    'web_flickr':(0.47682046, 0.45049774, 0.39945674),
+                    'web_all_samples_prob_temp_0_5': (0.52865591, 0.49990131, 0.44848083),
+                    'web_all_samples_prob_temp_1': (0.53324246, 0.50664445, 0.45611224),
+                    'web_all_samples_prob_temp_2': (0.53345579, 0.50754015, 0.45797141),
+                    
                     },
         "OfficeHome": {
                     "Art":(0.51358405, 0.48082051, 0.44370487),
@@ -660,6 +664,10 @@ def get_statistics(dataset: str, type_name:str):
                     "scale_0_5":(0.51805931, 0.46420517, 0.42233651),
                     "scale_0_25":(0.51518538, 0.46298607, 0.42078061),
                     "scale_0_125":(0.51714077, 0.46494558, 0.42308853),
+                    "flickr_subsampled_filtered":(0.44837553, 0.43611605, 0.37450998),
+                    "web_newsample_rmd_equalweight":(0.52777213, 0.51342452, 0.45816106),
+                    "web_all_samples_temp_1":(0.49967874, 0.48412077, 0.42060240),
+                    "web_all_samples_temp_2":(0.49909596, 0.48309918, 0.42047919),
                     }
     }
     
@@ -738,7 +746,11 @@ def get_statistics(dataset: str, type_name:str):
                     'web_newsample_rmd_temp_1':(0.23673531, 0.23262494, 0.23905953),
                     'web_newsample_rmd_temp_2':(0.23738215, 0.23280859, 0.24132405),
                     'web_newsample_rmd_equalweight':(0.23424578, 0.23033454, 0.23933767),
-                    'web_flickr':(0.24045768, 0.23540716, 0.23927941)
+                    'web_flickr':(0.24045768, 0.23540716, 0.23927941),
+                    'web_all_samples_prob_temp_0_5':(0.23512824, 0.23086828, 0.24020265),
+                    'web_all_samples_prob_temp_1':(0.23366232, 0.23035766, 0.24020971),
+                    'web_all_samples_prob_temp_2':(0.23465503, 0.23265774, 0.24369821)
+
                     },
         "OfficeHome": {
                     "Art":(0.23799188, 0.23378391, 0.22740558),
@@ -808,9 +820,12 @@ def get_statistics(dataset: str, type_name:str):
                     "scale_0_5":(0.17105396, 0.16100793, 0.15656501),
                     "scale_0_25":(0.1699539,  0.16190387, 0.15763668),
                     "scale_0_125":(0.17355853, 0.16547043, 0.16018723),
+                    "flickr_subsampled_filtered":(0.20729227, 0.20227100, 0.20310905),
+                    "web_newsample_rmd_equalweight":(0.22187183, 0.22034188, 0.22438531),
+                    "web_all_samples_temp_1":(0.21717677, 0.21466005, 0.21725733),
+                    "web_all_samples_temp_2":(0.21502680, 0.21245418, 0.21504778),
                     }
     }
-
 
     classes = {
         "cifar10": 10,

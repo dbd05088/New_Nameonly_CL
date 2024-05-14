@@ -280,19 +280,33 @@
 # rm PACS_final_twostage_temp_2.tar
 # rm PACS_final_twostage_temp_3.tar
 
-gdrive files download 1bjeREOe9rs-HrPGa8cDSxBZu4wN0DzkW
-gdrive files download 1zfinJr15WFJn3DVVCvf0vH8SuNynpGG1
-gdrive files download 1jsP1Y1lNlREtpIKz8rnbsI8O0ZIKfYTf
-gdrive files download 1_DOHSGD-aGELhi50KMF6riIgBzId2kDm
-tar -xf PACS_final_web_newsample_rmd_temp_1.tar
-tar -xf PACS_final_web_newsample_rmd_temp_2.tar
-tar -xf PACS_final_web_newsample_rmd_equalweight.tar
-tar -xf PACS_final_web_flickr.tar
-mv PACS_final_web_newsample_rmd_temp_1 PACS_final
-mv PACS_final_web_newsample_rmd_temp_2 PACS_final
-mv PACS_final_web_newsample_rmd_equalweight PACS_final
-mv PACS_final_web_flickr PACS_final
-rm PACS_final_web_newsample_rmd_temp_1.tar
-rm PACS_final_web_newsample_rmd_temp_2.tar
-rm PACS_final_web_newsample_rmd_equalweight.tar
-rm PACS_final_web_flickr.tar
+# gdrive files download 1bjeREOe9rs-HrPGa8cDSxBZu4wN0DzkW
+# gdrive files download 1zfinJr15WFJn3DVVCvf0vH8SuNynpGG1
+# gdrive files download 1jsP1Y1lNlREtpIKz8rnbsI8O0ZIKfYTf
+# gdrive files download 1_DOHSGD-aGELhi50KMF6riIgBzId2kDm
+# tar -xf PACS_final_web_newsample_rmd_temp_1.tar
+# tar -xf PACS_final_web_newsample_rmd_temp_2.tar
+# tar -xf PACS_final_web_newsample_rmd_equalweight.tar
+# tar -xf PACS_final_web_flickr.tar
+# mv PACS_final_web_newsample_rmd_temp_1 PACS_final
+# mv PACS_final_web_newsample_rmd_temp_2 PACS_final
+# mv PACS_final_web_newsample_rmd_equalweight PACS_final
+# mv PACS_final_web_flickr PACS_final
+# rm PACS_final_web_newsample_rmd_temp_1.tar
+# rm PACS_final_web_newsample_rmd_temp_2.tar
+# rm PACS_final_web_newsample_rmd_equalweight.tar
+# rm PACS_final_web_flickr.tar
+
+# 0513 - PACS final web RMD ensembled with new sampling, samplewise
+gdrive files download 10IyfveOheSRPoGJ4R8srVNYPS1df2vvH
+gdrive files download 1_sosVhC8tC90q0ZtjL7SySwHM7XAZECx
+gdrive files download 1uML9G22Up4JuR1CglKj3h-pYMt-t31nN
+tar -xf PACS_final_web_all_samples_prob_temp_0_5.tar
+tar -xf PACS_final_web_all_samples_prob_temp_1.tar
+tar -xf PACS_final_web_all_samples_prob_temp_2.tar
+mv PACS_final_web_all_samples_prob_temp_0_5 PACS_final
+mv PACS_final_web_all_samples_prob_temp_1 PACS_final
+mv PACS_final_web_all_samples_prob_temp_2 PACS_final
+rm PACS_final_web_all_samples_prob_temp_0_5.tar
+rm PACS_final_web_all_samples_prob_temp_1.tar
+rm PACS_final_web_all_samples_prob_temp_2.tar

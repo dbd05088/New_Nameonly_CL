@@ -131,3 +131,4 @@ dmypy.json
 .pyre/
 dataset/PACS_final/
 web_dataset/
+dataset/cct/
