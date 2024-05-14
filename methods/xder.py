@@ -41,7 +41,6 @@ class XDER(DER):
         self.simclr_num_aug = 2
         self.lambd = 0.04
         self.cpt = math.ceil(float(num_class) / self.tasks)
-        print("cpt", self.cpt)
         self.fake_num_class = self.cpt * self.tasks
         self.update_counter = torch.zeros(kwargs["memory_size"]).to(self.device)
         self.x = time.time()
@@ -141,7 +140,6 @@ class XDER(DER):
         self.cls_dict[class_name] = len(self.exposed_classes)
         self.exposed_classes.append(class_name)
         self.num_learned_class = len(self.exposed_classes)
-        print("update_learned_clsses", self.num_learned_class)
 
     def get_batch(self):
         batch = self.dataloader.get_batch()
@@ -428,7 +426,6 @@ class XDER(DER):
             buf_idx = torch.Tensor(self.waiting_indices.pop(0)).to(self.device)
             if len(self.logit_num_to_get[0]) > 0:
                 #if self.model_name == "resnet18":
-                print("learned_clsses", self.num_learned_class)
                 y2, mask = self.memory.get_logit(self.logit_num_to_get[0], self.num_learned_class)
                 #elif self.model_name == "vit":
                 #    y2, mask = self.memory.get_logit(self.logit_num_to_get[0], self.num_learned_class)
@@ -476,15 +473,11 @@ class XDER(DER):
 
                     if chosen.any():
                         # to_transplant = self.update_logits(buf_logits[chosen], buf_outputs[chosen], buf_labels[chosen], self.task, self.tasks - self.task)
-                        for lo in logit:
-                            print("here", len(lo))
                         to_transplant = self.update_memory_logits(y[self.temp_batch_size:], y2, logit[self.temp_batch_size:].detach(), self.cur_task, n_tasks = self.tasks - self.cur_task)
                         '''
                         self.memory.logits[buf_idx[chosen], :] = to_transplant
                         self.memory.task_ids[buf_idx[chosen]] = self.cur_task
                         '''
-                        for to in to_transplant:
-                            print("here2", len(to))
                         self.memory.update_logits(buf_idx[chosen], to_transplant[chosen])
                         self.memory.update_task_ids(buf_idx[chosen], self.cur_task)
 
@@ -575,7 +568,6 @@ class XDER(DER):
         old = torch.cat([old, torch.zeros(old.size(0), self.fake_num_class-old.size(1)).to(self.device)], dim=1)
         new = torch.cat([new, torch.zeros(new.size(0), self.fake_num_class-new.size(1)).to(self.device)], dim=1)
         transplant = new[:, cur_task * self.cpt : (cur_task + n_tasks) * self.cpt]
-        print("transplant", transplant.shape, len(transplant[0]))
         if transplant.size(1) == 0:
             return old
         gt_values = old[torch.arange(len(gt)), gt]
@@ -668,7 +660,6 @@ class XDERMemory(DERMemory):
         
     def update_logits(self, indices, new_logits):
         for new_logit, indice in zip(new_logits, indices) :
-            print("update_sample",len(new_logit))
             self.logits[indice] = new_logit.cpu()
             
     def update_task_ids(self, indices, new_task_id):
@@ -682,8 +673,6 @@ class XDERMemory(DERMemory):
             self.task_ids[idx] = task_id
 
     def replace_sample(self, sample, idx=None, logit=None):
-        if logit is not None:
-            print("replace_sample",len(logit))
         self.cls_count[self.cls_dict[sample['klass']]] += 1
         logit_num = len(self.logits)
         if idx is None:

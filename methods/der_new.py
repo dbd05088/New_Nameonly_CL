@@ -278,8 +278,12 @@ class DERMemory(MemoryBase):
         logit_masks = []
         for i in logit_nums:
             len_logit = len(self.logits[i])
-            logits.append(torch.cat([self.logits[i], torch.zeros(num_classes-len_logit)]))
-            logit_masks.append(torch.cat([torch.ones(len_logit), torch.zeros(num_classes-len_logit)]))
+            if len_logit > num_classes:
+                logits.append(self.logits[i][:num_classes])
+                logit_masks.append(torch.ones(num_classes))
+            else:
+                logits.append(torch.cat([self.logits[i], torch.zeros(num_classes-len_logit)]))
+                logit_masks.append(torch.cat([torch.ones(len_logit), torch.zeros(num_classes-len_logit)]))
         return torch.stack(logits), torch.stack(logit_masks)
 
     def save_logits(self, logit_num, logit):
