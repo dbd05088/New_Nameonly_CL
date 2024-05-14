@@ -280,7 +280,7 @@ class CLManagerBase:
         saved_model_fc = getattr(self.saved_model, fc_name)
         saved_prev_weight = copy.deepcopy(saved_model_fc.weight.data)
         saved_prev_bias = copy.deepcopy(saved_model_fc.bias.data)
-        setattr(self.saved_model, fc_name, nn.Linear(saved_model_fc.in_features, self.num_learned_class).to(self.device))
+        setattr(self.saved_model, fc_name, nn.Linear(saved_model_fc.in_features, self.num_learned_class))
         saved_model_fc = getattr(self.saved_model, fc_name)
         with torch.no_grad():
             if self.num_learned_class > 1:
@@ -335,6 +335,7 @@ class CLManagerBase:
 
     def aoa_evaluation(self, image, label):
         total_correct, total_num_data, total_loss = 0.0, 0.0, 0.0
+        self.saved_model.to(self.device)
         self.saved_model.eval()
         image, label = image[:self.temp_batch_size], label[:self.temp_batch_size]
         with torch.no_grad():
@@ -347,7 +348,7 @@ class CLManagerBase:
         avg_acc = total_correct / total_num_data
         logger.info(f"AOA | Sample # {self.sample_num} | Real Time Evaluation: {avg_acc:.3f}")
         
-        self.saved_model = copy.deepcopy(self.model)
+        self.saved_model = copy.deepcopy(self.model).cpu()
 
     def before_model_update(self):
         pass
@@ -401,6 +402,7 @@ class CLManagerBase:
             self.calculate_task_metric(domain_name, sample_num, test_list, cls_dict, batch_size, n_worker)
             if self.cur_task < self.tasks-1:
                 self.calculate_fast_adaptation(domain_name, sample_num, test_list, cls_dict, batch_size, n_worker)
+            self.get_forgetting(domain_name, sample_num, test_list, cls_dict, batch_size, n_worker)
         test_df = pd.DataFrame(test_list)
         '''
         if "clear" in self.dataset:
@@ -431,11 +433,8 @@ class CLManagerBase:
         eval_dict = self.evaluation(test_loader, self.criterion)
         
         self.report_test(domain_name, sample_num, eval_dict["avg_loss"], eval_dict["avg_acc"], )
-
-        # if sample_num >= self.f_next_time:
-        #     self.get_forgetting(sample_num, test_list, cls_dict, batch_size, n_worker)
-        #     self.f_next_time += self.f_period
-    
+            
+        del test_loader
         return sample_num, eval_dict
 
 
@@ -615,8 +614,8 @@ class CLManagerBase:
             
         avg_acc = self.fast_evaluation(test_loader, self.criterion)
         logger.info(f"{domain_name} ADAPTATION | Sample # {sample_num} | Task{self.cur_task} -> Task{self.cur_task+1} fast adaptation: {avg_acc:.3f}")
-        
-    
+        del test_loader
+
     def calculate_task_metric(self, domain_name, sample_num, test_list, cls_dict, batch_size, n_worker):
         test_df = pd.DataFrame(test_list)
         exp_test_df = test_df[test_df['klass'].isin(self.exposed_classes)]
@@ -649,6 +648,7 @@ class CLManagerBase:
         gts = np.concatenate(gts)
         self.gt_label = gts
         self.calculate_task_acc(domain_name, sample_num)
+        del test_loader
     
     def calculate_task_acc(self, domain_name, sample_num):
         correct_cnt = np.zeros(self.n_classes)
@@ -671,7 +671,7 @@ class CLManagerBase:
         
         logger.info(log)
     
-    def get_forgetting(self, sample_num, test_list, cls_dict, batch_size, n_worker):
+    def get_forgetting(self, domain_name, sample_num, test_list, cls_dict, batch_size, n_worker):
         test_df = pd.DataFrame(test_list)
         test_dataset = ImageDataset(
             test_df,
@@ -709,7 +709,7 @@ class CLManagerBase:
             self.knowledge_loss_rate.append(klr)
             self.knowledge_gain_rate.append(kgr)
             self.forgetting_time.append(sample_num)
-            logger.info(f'KLR {klr} | KGR {kgr}')
+            logger.info(f'{domain_name} ACC_PER_TASK | KLR {klr} | KGR {kgr}')
             np.save(self.save_path + '_KLR.npy', self.knowledge_loss_rate)
             np.save(self.save_path + '_KGR.npy', self.knowledge_gain_rate)
             np.save(self.save_path + '_forgetting_time.npy', self.forgetting_time)
