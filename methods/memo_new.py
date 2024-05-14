@@ -148,7 +148,7 @@ class MEMO(CLManagerBase):
             # for real time evaluation
             saved_prev_weight = copy.deepcopy(self.saved_model.fc.weight.data)
             saved_prev_bias = copy.deepcopy(self.saved_model.fc.bias.data)
-            self.saved_model.fc = nn.Linear(self.out_dim, self.num_learned_class).to(self.device)
+            self.saved_model.fc = nn.Linear(self.out_dim, self.num_learned_class)
             with torch.no_grad():
                 # print("shape", prev_weight.shape)
                 self.saved_model.fc.weight[:saved_prev_weight.shape[0], :saved_prev_weight.shape[1]] = saved_prev_weight
@@ -190,6 +190,7 @@ class MEMO(CLManagerBase):
         
     def aoa_evaluation(self, image, label):
         total_correct, total_num_data, total_loss = 0.0, 0.0, 0.0
+        self.saved_model.to(self.device)
         self.saved_model.eval()
         image, label = image[:self.temp_batch_size], label[:self.temp_batch_size]
         with torch.no_grad():
@@ -202,7 +203,7 @@ class MEMO(CLManagerBase):
         avg_acc = total_correct / total_num_data
         logger.info(f"AOA | Sample # {self.sample_num} | Real Time Evaluation: {avg_acc:.3f}")
         
-        self.saved_model = copy.deepcopy(self.model)    
+        self.saved_model = copy.deepcopy(self.model).cpu()    
     
     def online_train(self, iterations=1):
     
@@ -279,7 +280,7 @@ class MEMO(CLManagerBase):
             self.model.fc.weight[:prev_weight.shape[0], :prev_weight.shape[1]] = prev_weight
             self.model.fc.bias[:prev_weight.shape[0]] = prev_bias
         
-        self.saved_model = copy.deepcopy(self.model)
+        self.saved_model = copy.deepcopy(self.model).cpu()
         
         if len(self.optimizer.param_groups) == 2:
             for param in self.optimizer.param_groups[1]['params']:
@@ -299,6 +300,50 @@ class MEMO(CLManagerBase):
             self.optimizer.add_param_group({'params': self.model.fc.parameters()})
         if 'reset' in self.sched_name:
             self.update_schedule(reset=True)
+    
+    def get_forgetting(self, sample_num, test_list, cls_dict, batch_size, n_worker):
+        test_df = pd.DataFrame(test_list)
+        test_dataset = ImageDataset(
+            test_df,
+            dataset=self.dataset,
+            transform=self.test_transform,
+            cls_list=list(cls_dict.keys()),
+            data_dir=self.data_dir
+        )
+        test_loader = DataLoader(
+            test_dataset,
+            shuffle=False,
+            batch_size=batch_size,
+            num_workers=n_worker,
+        )
+        preds = []
+        gts = []
+        self.model.eval()
+        with torch.no_grad():
+            for i, data in enumerate(test_loader):
+                x = data["image"]
+                y = data["label"]
+                x = x.to(self.device)
+                logit, _ = self.model(x,test=True)
+                pred = torch.argmax(logit, dim=-1)
+                preds.append(pred.detach().cpu().numpy())
+                gts.append(y.detach().cpu().numpy())
+        preds = np.concatenate(preds)
+        if self.gt_label is None:
+            gts = np.concatenate(gts)
+            self.gt_label = gts
+        self.test_records.append(preds)
+        self.n_model_cls.append(copy.deepcopy(self.num_learned_class))
+        if len(self.test_records) > 1:
+            klr, kgr, = self.calculate_online_forgetting(self.n_classes, self.gt_label, self.test_records[-2], self.test_records[-1], self.n_model_cls[-2], self.n_model_cls[-1])
+            self.knowledge_loss_rate.append(klr)
+            self.knowledge_gain_rate.append(kgr)
+            self.forgetting_time.append(sample_num)
+            logger.info(f'KLR {klr} | KGR {kgr}')
+            np.save(self.save_path + '_KLR.npy', self.knowledge_loss_rate)
+            np.save(self.save_path + '_KGR.npy', self.knowledge_gain_rate)
+            np.save(self.save_path + '_forgetting_time.npy', self.forgetting_time)
+    
     
     def evaluation(self, test_loader, criterion):
         total_correct, total_num_data, total_loss = 0.0, 0.0, 0.0
