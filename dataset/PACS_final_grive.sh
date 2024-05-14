@@ -298,15 +298,24 @@
 # rm PACS_final_web_flickr.tar
 
 # 0513 - PACS final web RMD ensembled with new sampling, samplewise
-gdrive files download 10IyfveOheSRPoGJ4R8srVNYPS1df2vvH
-gdrive files download 1_sosVhC8tC90q0ZtjL7SySwHM7XAZECx
-gdrive files download 1uML9G22Up4JuR1CglKj3h-pYMt-t31nN
-tar -xf PACS_final_web_all_samples_prob_temp_0_5.tar
-tar -xf PACS_final_web_all_samples_prob_temp_1.tar
-tar -xf PACS_final_web_all_samples_prob_temp_2.tar
-mv PACS_final_web_all_samples_prob_temp_0_5 PACS_final
-mv PACS_final_web_all_samples_prob_temp_1 PACS_final
-mv PACS_final_web_all_samples_prob_temp_2 PACS_final
-rm PACS_final_web_all_samples_prob_temp_0_5.tar
-rm PACS_final_web_all_samples_prob_temp_1.tar
-rm PACS_final_web_all_samples_prob_temp_2.tar
+# gdrive files download 10IyfveOheSRPoGJ4R8srVNYPS1df2vvH
+# gdrive files download 1_sosVhC8tC90q0ZtjL7SySwHM7XAZECx
+# gdrive files download 1uML9G22Up4JuR1CglKj3h-pYMt-t31nN
+# tar -xf PACS_final_web_all_samples_prob_temp_0_5.tar
+# tar -xf PACS_final_web_all_samples_prob_temp_1.tar
+# tar -xf PACS_final_web_all_samples_prob_temp_2.tar
+# mv PACS_final_web_all_samples_prob_temp_0_5 PACS_final
+# mv PACS_final_web_all_samples_prob_temp_1 PACS_final
+# mv PACS_final_web_all_samples_prob_temp_2 PACS_final
+# rm PACS_final_web_all_samples_prob_temp_0_5.tar
+# rm PACS_final_web_all_samples_prob_temp_1.tar
+# rm PACS_final_web_all_samples_prob_temp_2.tar
+
+gdrive files download 1iETOC7FFvmjz6qgYeY97gpdZFfKXSkdK
+gdrive files download 1KctDy6IjUtIrMjWpTC7ap1kDvVICp8A4
+tar -xf PACS_final_sdxl_diversified_new.tar
+tar -xf PACS_final_sdxl_diversified_new_filtered.tar
+mv PACS_final_sdxl_diversified_new PACS_final
+mv PACS_final_sdxl_diversified_new_filtered PACS_final
+rm PACS_final_sdxl_diversified_new.tar
+rm PACS_final_sdxl_diversified_new_filtered.tar
