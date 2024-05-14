@@ -531,7 +531,6 @@ def get_statistics(dataset: str, type_name:str):
     in_channels = 3
     inp_size = 224
     
-    breakpoint()
     return (
         data['mean'][dataset][type_name],
         data['std'][dataset][type_name],
