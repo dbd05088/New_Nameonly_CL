@@ -2,6 +2,7 @@ import os
 import cv2
 import numpy as np
 import argparse
+import json
 from tqdm import tqdm
 
 image_exts = ['.jpg', '.jpeg', '.png', '.bmp']
@@ -43,3 +44,24 @@ if __name__ == '__main__':
     std = (result['std'][0], result['std'][1], result['std'][2])
     print(f"Mean: ({result['mean'][0]:.8f}, {result['mean'][1]:.8f}, {result['mean'][2]:.8f})")
     print(f"Std: ({result['std'][0]:.8f}, {result['std'][1]:.8f}, {result['std'][2]:.8f})")
+
+    # Write result stats to json file
+    json_path = './utils/data_statistics.json'
+    with open(json_path, 'r') as f:
+        data_statistics = json.load(f)
+    
+    last_part = os.path.basename(os.path.normpath(args.image_root_dir))
+    
+    dataset_list = ["PACS_final", "DomainNet", "cct"]
+    dataset_name = next((name for name in dataset_list if last_part.startswith(name)), None)
+    type_name = last_part[len(dataset_name) + 1:]
+
+    if type_name in data_statistics['mean'][dataset_name]:
+        print(f"[WARNING... dataset {dataset_name} - type {type_name} already exist!")
+
+    data_statistics['mean'][dataset_name][type_name] = mean
+    data_statistics['std'][dataset_name][type_name] = std
+
+    print(f"Dataset name: {dataset_name}, type name: {type_name}")
+    with open(json_path, 'w') as f:
+        json.dump(data_statistics, f)
