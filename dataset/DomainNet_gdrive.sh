@@ -39,14 +39,24 @@
 # rm DomainNet_RMD_classwise_temp_3.tar
 # rm DomainNet_RMD_classwise_temp_5.tar
 
-gdrive files download 1QS2mVXaTanGJISgDyg_16La1rlr99MqC
-gdrive files download 1WFLpCPrhEHdEjNoCRDPKCJBKEzb65Jc1
+# gdrive files download 1QS2mVXaTanGJISgDyg_16La1rlr99MqC
+# gdrive files download 1WFLpCPrhEHdEjNoCRDPKCJBKEzb65Jc1
 
-tar -xvf DomainNet_RMD_web_temp_2.tar
-tar -xvf DomainNet_RMD_web_temp_3.tar
+# tar -xvf DomainNet_RMD_web_temp_2.tar
+# tar -xvf DomainNet_RMD_web_temp_3.tar
 
-mv DomainNet_RMD_web_temp_2 DomainNet
-mv DomainNet_RMD_web_temp_3 DomainNet
+# mv DomainNet_RMD_web_temp_2 DomainNet
+# mv DomainNet_RMD_web_temp_3 DomainNet
 
-rm DomainNet_RMD_web_temp_2.tar
-rm DomainNet_RMD_web_temp_3.tar
+# rm DomainNet_RMD_web_temp_2.tar
+# rm DomainNet_RMD_web_temp_3.tar
+
+mkdir -p DomainNet
+gdrive files download 1LRfSItkn8G-2zptq5JJjVrsVYaEFhb3Y
+gdrive files download 1w7ht9yY4gi9-mFFzFjwJ7YqeGP1RjZxA
+tar -xf DomainNet_newsample_flickr.tar
+tar -xf DomainNet_newsample_equalweight.tar
+mv DomainNet_newsample_flickr DomainNet/
+mv DomainNet_newsample_equalweight DomainNet/
+rm DomainNet_newsample_flickr.tar
+rm DomainNet_newsample_equalweight.tar
