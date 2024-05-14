@@ -311,11 +311,16 @@
 # rm PACS_final_web_all_samples_prob_temp_1.tar
 # rm PACS_final_web_all_samples_prob_temp_2.tar
 
-gdrive files download 1iETOC7FFvmjz6qgYeY97gpdZFfKXSkdK
-gdrive files download 1KctDy6IjUtIrMjWpTC7ap1kDvVICp8A4
-tar -xf PACS_final_sdxl_diversified_new.tar
-tar -xf PACS_final_sdxl_diversified_new_filtered.tar
-mv PACS_final_sdxl_diversified_new PACS_final
-mv PACS_final_sdxl_diversified_new_filtered PACS_final
-rm PACS_final_sdxl_diversified_new.tar
-rm PACS_final_sdxl_diversified_new_filtered.tar
+# gdrive files download 1iETOC7FFvmjz6qgYeY97gpdZFfKXSkdK
+# gdrive files download 1KctDy6IjUtIrMjWpTC7ap1kDvVICp8A4
+# tar -xf PACS_final_sdxl_diversified_new.tar
+# tar -xf PACS_final_sdxl_diversified_new_filtered.tar
+# mv PACS_final_sdxl_diversified_new PACS_final
+# mv PACS_final_sdxl_diversified_new_filtered PACS_final
+# rm PACS_final_sdxl_diversified_new.tar
+# rm PACS_final_sdxl_diversified_new_filtered.tar
+
+gdrive files download 1VH69J_570FfhJi3qKGYWx162UPFC2t4X
+tar -xf PACS_final_sdxl_clip_50prompts.tar
+mv PACS_final_sdxl_clip_50prompts.tar PACS_final
+rm PACS_final_sdxl_clip_50prompts.tar
