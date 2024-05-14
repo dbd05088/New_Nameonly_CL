@@ -107,7 +107,7 @@ class CLManagerBase:
         self.future_sampling = True
         self.future_retrieval = True
 
-        self.gt_label = None
+        self.gt_label_forgetting = None
         self.test_records = []
         self.n_model_cls = []
         self.knowledge_loss_rate = []
@@ -699,13 +699,13 @@ class CLManagerBase:
                 preds.append(pred.detach().cpu().numpy())
                 gts.append(y.detach().cpu().numpy())
         preds = np.concatenate(preds)
-        if self.gt_label is None:
+        if self.gt_label_forgetting is None:
             gts = np.concatenate(gts)
-            self.gt_label = gts
+            self.gt_label_forgetting = gts
         self.test_records.append(preds)
         self.n_model_cls.append(copy.deepcopy(self.num_learned_class))
         if len(self.test_records) > 1:
-            klr, kgr, = self.calculate_online_forgetting(self.n_classes, self.gt_label, self.test_records[-2], self.test_records[-1], self.n_model_cls[-2], self.n_model_cls[-1])
+            klr, kgr = self.calculate_online_forgetting(self.n_classes, self.gt_label_forgetting, self.test_records[-2], self.test_records[-1], self.n_model_cls[-2], self.n_model_cls[-1])
             self.knowledge_loss_rate.append(klr)
             self.knowledge_gain_rate.append(kgr)
             self.forgetting_time.append(sample_num)
