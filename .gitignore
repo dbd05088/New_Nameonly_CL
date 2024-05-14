@@ -133,3 +133,5 @@ dataset/PACS_final/
 web_dataset/
 dataset/cct/
 tensorboard/
+dataset/*.tar
+dataset/DomainNet/
