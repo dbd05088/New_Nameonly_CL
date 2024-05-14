@@ -20,7 +20,7 @@ from torch.utils.tensorboard import SummaryWriter
 from utils.data_worker import worker_loop
 from methods.cl_manager import CLManagerBase, MemoryBase
 from methods.der_new import DER, DERMemory
-from utils.data_loader import XDERLoader, cutmix_data, get_statistics, MemoryDataset
+from utils.data_loader import ImageDataset, XDERLoader, cutmix_data, get_statistics, MemoryDataset
 
 logger = logging.getLogger()
 writer = SummaryWriter("tensorboard")
@@ -41,6 +41,7 @@ class XDER(DER):
         self.simclr_num_aug = 2
         self.lambd = 0.04
         self.cpt = math.ceil(float(num_class) / self.tasks)
+        print("cpt", self.cpt)
         self.fake_num_class = self.cpt * self.tasks
         self.update_counter = torch.zeros(kwargs["memory_size"]).to(self.device)
         self.x = time.time()
@@ -140,6 +141,7 @@ class XDER(DER):
         self.cls_dict[class_name] = len(self.exposed_classes)
         self.exposed_classes.append(class_name)
         self.num_learned_class = len(self.exposed_classes)
+        print("update_learned_clsses", self.num_learned_class)
 
     def get_batch(self):
         batch = self.dataloader.get_batch()
@@ -148,6 +150,10 @@ class XDER(DER):
         return batch, scl_batch
 
     def online_step(self, sample, sample_num, n_worker):
+        self.fast_trained=False
+        if self.fast_model is not None:
+            self.fast_model = None
+        
         self.sample_num = sample_num
         if sample['klass'] not in self.exposed_classes:
             self.add_new_class(sample['klass'])
@@ -270,6 +276,137 @@ class XDER(DER):
                 '''
         self.update_counter = torch.zeros(self.memory_size).to(self.device)
 
+    def calculate_fast_adaptation(self, domain_name, sample_num, test_list, cls_dict, batch_size, n_worker):
+        if self.cur_task+1 == self.tasks:
+            next_task_cls = self.p_cls_list[self.cls_per_task[self.cur_task]:]
+        else:
+            next_task_cls = self.p_cls_list[self.cls_per_task[self.cur_task]:self.cls_per_task[self.cur_task+1]]
+        
+        test_df = pd.DataFrame(test_list)
+        exp_test_df = test_df[test_df['klass'].isin(next_task_cls)]
+        test_dataset = ImageDataset(
+            exp_test_df,
+            dataset=self.dataset,
+            transform=self.test_transform,
+            cls_list=next_task_cls,
+            data_dir=self.data_dir
+        )
+        test_loader = DataLoader(
+            test_dataset,
+            shuffle=False,
+            batch_size=batch_size,
+            num_workers=n_worker,
+        )
+        
+        if not self.fast_trained:
+            train_data = []
+            train_data_cnt = {}
+            for data in self.train_datalist:
+                if data["klass"] in next_task_cls:
+                    if data["klass"] not in list(train_data_cnt.keys()):
+                        train_data_cnt[data["klass"]] = 0
+                    if train_data_cnt[data["klass"]] < self.fast_adaptation_samples_per_class:
+                        train_data.append(data)
+                        train_data_cnt[data["klass"]] += 1
+            
+            train_df = pd.DataFrame(train_data)
+            train_dataset = ImageDataset(
+                train_df,
+                dataset=self.dataset,
+                transform=self.test_transform,
+                cls_list=next_task_cls,
+                data_dir=self.data_dir,
+                augmentation=self.train_transform
+            )
+            train_loader = DataLoader(
+                train_dataset,
+                shuffle=True,
+                batch_size=batch_size,
+                num_workers=n_worker,
+            )
+            
+            self.fast_trained=True
+            self.fast_model = copy.deepcopy(self.model)
+        
+            self.fast_optimizer = select_optimizer(self.opt_name, self.lr, self.fast_model)
+            self.fast_scheduler = select_scheduler(self.sched_name, self.fast_optimizer)
+            self.fast_model.train()
+            for ep in range(self.fast_epoch):
+                for i, data in enumerate(train_loader):
+                    x = data["image"].to(self.device)
+                    y = data["label"].to(self.device)
+                    x = transforms.Normalize(self.mean, self.std)(x)
+                    with torch.cuda.amp.autocast(self.use_amp):
+                        logit = self.fast_model(x)[:, :self.num_learned_class]
+                        loss = self.criterion(logit, y[:, :self.num_learned_class])
+                
+                    _, preds = logit.topk(self.topk, 1, True, True)
+
+                    if self.use_amp:
+                        self.scaler.scale(loss).backward()
+                        self.scaler.step(self.fast_optimizer)
+                        self.scaler.update()
+                    else:
+                        loss.backward()
+                        self.fast_optimizer.step()
+            
+        avg_acc = self.fast_evaluation(test_loader, self.criterion)
+        logger.info(f"{domain_name} ADAPTATION | Sample # {sample_num} | Task{self.cur_task} -> Task{self.cur_task+1} fast adaptation: {avg_acc:.3f}")
+        del test_loader
+    
+    def aoa_evaluation(self, image, label):
+        total_correct, total_num_data, total_loss = 0.0, 0.0, 0.0
+        self.saved_model.to(self.device)
+        self.saved_model.eval()
+        image, label = image[:self.temp_batch_size], label[:self.temp_batch_size]
+        with torch.no_grad():
+            image = transforms.Normalize(self.mean, self.std)(image)
+            logit = self.saved_model(image)
+            pred = torch.argmax(logit, dim=-1)
+            _, preds = logit.topk(self.topk, 1, True, True)
+
+            total_correct += torch.sum(preds == label.unsqueeze(1)).item()
+            total_num_data += label.size(0)
+        avg_acc = total_correct / total_num_data
+        logger.info(f"AOA | Sample # {self.sample_num} | Real Time Evaluation: {avg_acc:.3f}")
+        
+        self.saved_model = copy.deepcopy(self.model).cpu()
+    
+    def calculate_task_metric(self, domain_name, sample_num, test_list, cls_dict, batch_size, n_worker):
+        test_df = pd.DataFrame(test_list)
+        exp_test_df = test_df[test_df['klass'].isin(self.exposed_classes)]
+        test_dataset = ImageDataset(
+            exp_test_df,
+            dataset=self.dataset,
+            transform=self.test_transform,
+            cls_list=self.exposed_classes,
+            data_dir=self.data_dir
+        )
+        test_loader = DataLoader(
+            test_dataset,
+            shuffle=False,
+            batch_size=batch_size,
+            num_workers=n_worker,
+        )
+        preds = []
+        gts = []
+        self.model.eval()
+        with torch.no_grad():
+            for i, data in enumerate(test_loader):
+                x = data["image"]
+                y = data["label"]
+                x = x.to(self.device)
+                x = transforms.Normalize(self.mean, self.std)(x)
+                logit = self.model(x)
+                pred = torch.argmax(logit, dim=-1)
+                preds.append(pred.detach().cpu().numpy())
+                gts.append(y.detach().cpu().numpy())
+        self.preds = np.concatenate(preds)
+        gts = np.concatenate(gts)
+        self.gt_label = gts
+        self.calculate_task_acc(domain_name, sample_num)
+        del test_loader
+    
     def online_train(self, iterations=1):
         total_loss, correct, num_data = 0.0, 0.0, 0.0
         for i in range(iterations):
@@ -280,6 +417,10 @@ class XDER(DER):
             y = data["label"].to(self.device)
             not_aug_img = data["not_aug_img"].to(self.device)
             
+            if self.aoa_eval and i%(self.online_iter*self.temp_batch_size)==0:
+                aoa_x = not_aug_img
+                self.aoa_evaluation(aoa_x, y)
+            
             buf_na_inputsscl = scl_data["image"].to(self.device) if scl_data is not None else None
             buf_labelsscl = scl_data["label"].to(self.device) if scl_data is not None else None
                 
@@ -287,6 +428,7 @@ class XDER(DER):
             buf_idx = torch.Tensor(self.waiting_indices.pop(0)).to(self.device)
             if len(self.logit_num_to_get[0]) > 0:
                 #if self.model_name == "resnet18":
+                print("learned_clsses", self.num_learned_class)
                 y2, mask = self.memory.get_logit(self.logit_num_to_get[0], self.num_learned_class)
                 #elif self.model_name == "vit":
                 #    y2, mask = self.memory.get_logit(self.logit_num_to_get[0], self.num_learned_class)
@@ -334,11 +476,15 @@ class XDER(DER):
 
                     if chosen.any():
                         # to_transplant = self.update_logits(buf_logits[chosen], buf_outputs[chosen], buf_labels[chosen], self.task, self.tasks - self.task)
+                        for lo in logit:
+                            print("here", len(lo))
                         to_transplant = self.update_memory_logits(y[self.temp_batch_size:], y2, logit[self.temp_batch_size:].detach(), self.cur_task, n_tasks = self.tasks - self.cur_task)
                         '''
                         self.memory.logits[buf_idx[chosen], :] = to_transplant
                         self.memory.task_ids[buf_idx[chosen]] = self.cur_task
                         '''
+                        for to in to_transplant:
+                            print("here2", len(to))
                         self.memory.update_logits(buf_idx[chosen], to_transplant[chosen])
                         self.memory.update_task_ids(buf_idx[chosen], self.cur_task)
 
@@ -348,17 +494,17 @@ class XDER(DER):
                 return_logit = logit.detach().cpu()
         return total_loss / iterations, correct / num_data, return_logit
 
-    def reservoir_memory(self, sample):
-        self.seen += 1
-        if len(self.memory.images) >= self.memory_size:
-            j = np.random.randint(0, self.seen)
-            if j < self.memory_size:
-                logit_num = self.memory.replace_sample(sample, j)
-            else:
-                logit_num = None
-        else:
-            logit_num = self.memory.replace_sample(sample)
-        return logit_num
+    # def reservoir_memory(self, sample):
+    #     self.seen += 1
+    #     if len(self.memory.images) >= self.memory_size:
+    #         j = np.random.randint(0, self.seen)
+    #         if j < self.memory_size:
+    #             logit_num = self.memory.replace_sample(sample, j)
+    #         else:
+    #             logit_num = None
+    #     else:
+    #         logit_num = self.memory.replace_sample(sample)
+    #     return logit_num
 
     def reservoir_memory(self, sample):
         # self.seen += 1
@@ -429,6 +575,7 @@ class XDER(DER):
         old = torch.cat([old, torch.zeros(old.size(0), self.fake_num_class-old.size(1)).to(self.device)], dim=1)
         new = torch.cat([new, torch.zeros(new.size(0), self.fake_num_class-new.size(1)).to(self.device)], dim=1)
         transplant = new[:, cur_task * self.cpt : (cur_task + n_tasks) * self.cpt]
+        print("transplant", transplant.shape, len(transplant[0]))
         if transplant.size(1) == 0:
             return old
         gt_values = old[torch.arange(len(gt)), gt]
@@ -521,6 +668,7 @@ class XDERMemory(DERMemory):
         
     def update_logits(self, indices, new_logits):
         for new_logit, indice in zip(new_logits, indices) :
+            print("update_sample",len(new_logit))
             self.logits[indice] = new_logit.cpu()
             
     def update_task_ids(self, indices, new_task_id):
@@ -534,6 +682,8 @@ class XDERMemory(DERMemory):
             self.task_ids[idx] = task_id
 
     def replace_sample(self, sample, idx=None, logit=None):
+        if logit is not None:
+            print("replace_sample",len(logit))
         self.cls_count[self.cls_dict[sample['klass']]] += 1
         logit_num = len(self.logits)
         if idx is None:
