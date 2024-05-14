@@ -677,7 +677,7 @@ class CLManagerBase:
             test_df,
             dataset=self.dataset,
             transform=self.test_transform,
-            cls_list=list(cls_dict.keys()),
+            cls_list=list(self.cls_dict.keys()),
             data_dir=self.data_dir
         )
         test_loader = DataLoader(
