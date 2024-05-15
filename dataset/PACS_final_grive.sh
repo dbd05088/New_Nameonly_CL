@@ -342,7 +342,16 @@
 # rm PACS_final_dynamic_50prompts.tar
 # rm PACS_final_dynamic_50prompts_filtered.tar
 
-gdrive files download 1r1wx9fuSBKPrR2SLJKrWy-D2sQSLPcJq
-tar -xf PACS_final_clip_50prompts_filtered.tar
-mv PACS_final_clip_50prompts_filtered PACS_final/
-rm PACS_final_clip_50prompts_filtered.tar
+# gdrive files download 1r1wx9fuSBKPrR2SLJKrWy-D2sQSLPcJq
+# tar -xf PACS_final_clip_50prompts_filtered.tar
+# mv PACS_final_clip_50prompts_filtered PACS_final/
+# rm PACS_final_clip_50prompts_filtered.tar
+
+gdrive files download 1a4hnM7ODVE85IfpzROF_h1MEmRXSQ_Y_
+gdrive files download 1FUysw1aotHM9UNx2Llsvgfm7flv-zmo4
+tar -xf PACS_final_static_without_cot.tar
+tar -xf PACS_final_static_without_cot_filtered.tar
+mv PACS_final_static_without_cot PACS_final/
+mv PACS_final_static_without_cot_filtered PACS_final/
+rm PACS_final_static_without_cot.tar
+rm PACS_final_static_without_cot_filtered.tar
