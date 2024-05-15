@@ -333,7 +333,10 @@ class ImageDataset(Dataset):
             if self.transform:
                 image = self.transform(image)
             sample["image"] = image
-            sample["label"] = label+self.learned_classes
+            if self.learned_classes is not None:
+                sample["label"] = label+self.learned_classes
+            else:
+                sample["label"] = label
             sample["image_name"] = img_name
             return sample
 
