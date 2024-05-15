@@ -83,7 +83,7 @@ def main():
     cur_task=0
     
     for domain_name, test_datalist  in zip(test_domain_name, test_datalists):
-        sample_num, eval_dict = method.online_evaluate(domain_name, cur_task, test_datalist, samples_cnt, 32, args.n_worker, cls_dict)
+        sample_num, eval_dict = method.online_evaluate(domain_name, cur_task, test_datalist, samples_cnt, 32, args.n_worker)
 
     method.report_test("Total", sample_num, eval_dict['avg_loss'], eval_dict['avg_acc'])
     eval_results["test_acc"].append(eval_dict['avg_acc'])
