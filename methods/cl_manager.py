@@ -497,7 +497,6 @@ class CLManagerBase:
                 loss = criterion(logit, y)
                 pred = torch.argmax(logit, dim=-1)
                 _, preds = logit.topk(self.topk, 1, True, True)
-
                 total_correct += torch.sum(preds == y.unsqueeze(1)).item()
                 total_num_data += y.size(0)
 
@@ -544,7 +543,8 @@ class CLManagerBase:
             dataset=self.dataset,
             transform=self.test_transform,
             cls_list=next_task_cls,
-            data_dir=self.data_dir
+            data_dir=self.data_dir,
+            learned_classes=self.num_learned_class
         )
         test_loader = DataLoader(
             test_dataset,
