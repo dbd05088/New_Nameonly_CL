@@ -392,6 +392,144 @@ class ImageDataset(Dataset):
         data['label'] = torch.LongTensor(labels).to(self.device)
         return data
 
+class ImageTextDataset(Dataset):
+    def __init__(self, data_frame: pd.DataFrame, dataset: str, transform=None, cls_list=None, data_dir=None,
+                 prompt_cls_list=None, preload=False, device=None, transform_on_gpu=False, use_kornia=False, augmentation=None):
+        self.use_kornia = use_kornia
+        self.data_frame = data_frame
+        self.dataset = dataset
+        self.transform = transform
+        self.cls_list = cls_list
+        self.data_dir = data_dir
+        self.preload = preload
+        self.device = device
+        self.transform_on_gpu = transform_on_gpu
+        self.augmentation = augmentation
+        self.text_class_prompts = prompt_cls_list
+        if self.preload:
+            mean, std, n_classes, inp_size, _ = get_statistics(dataset=self.dataset)
+            self.preprocess = Preprocess(input_size=inp_size)
+            if self.transform_on_gpu:
+                self.transform_cpu = transforms.Compose(
+                    [
+                        transforms.Resize((inp_size, inp_size)),
+                        transforms.PILToTensor()
+                    ])
+                self.transform_gpu = self.transform
+            self.loaded_images = []
+            for idx in range(len(self.data_frame)):
+                sample = dict()
+                try:
+                    img_name = self.data_frame.iloc[idx]["file_name"]
+                except KeyError:
+                    img_name = self.data_frame.iloc[idx]["filepath"]
+                if self.cls_list is None:
+                    label = self.data_frame.iloc[idx].get("label", -1)
+                else:
+                    label = self.cls_list.index(self.data_frame.iloc[idx]["klass"])
+                if self.data_dir is None:
+                    img_path = os.path.join("dataset", self.dataset, img_name)
+                else:
+                    img_path = os.path.join(self.data_dir, img_name)
+                image = PIL.Image.open(img_path).convert("RGB")
+                if self.use_kornia:
+                    image = self.preprocess(PIL.Image.open(img_path).convert('RGB'))
+                elif self.transform_on_gpu:
+                    image = self.transform_cpu(PIL.Image.open(img_path).convert('RGB'))
+                elif self.transform:
+                    image = self.transform(image)
+                sample["image"] = image
+                if augmentation is not None:
+                    self.augmentation(image)
+                sample["label"] = label
+                sample["image_name"] = img_name
+                self.loaded_images.append(sample)
+
+    def __len__(self):
+        return len(self.data_frame)
+
+    def __getitem__(self, idx):
+        if self.preload:
+            return self.loaded_images[idx]
+        else:
+            sample = dict()
+            if torch.is_tensor(idx):
+                idx = idx.tolist()
+            img_name = self.data_frame.iloc[idx]["file_name"]
+            if self.cls_list is None:
+                label = self.data_frame.iloc[idx].get("label", -1)
+            else:
+                label = self.cls_list.index(self.data_frame.iloc[idx]["klass"])
+                text_prompt = self.text_class_prompts[label]
+            if self.data_dir is None:
+                img_path = os.path.join("dataset", self.dataset, img_name)
+            else:
+                img_path = os.path.join(self.data_dir, img_name)
+            image = PIL.Image.open(img_path).convert("RGB")
+            if self.transform:
+                image = self.transform(image)
+            sample["image"] = image
+            sample["label"] = label
+            sample["image_name"] = img_name
+            sample["text"] = text_prompt
+            return sample
+
+    def get_image_class(self, y):
+        return self.data_frame[self.data_frame["label"] == y]
+
+    def generate_idx(self, batch_size):
+        if self.preload:
+            arr = np.arange(len(self.loaded_images))
+        else:
+            arr = np.arange(len(self.data_frame))
+        np.random.shuffle(arr)
+        if batch_size >= len(arr):
+            return [arr]
+        else:
+            return np.split(arr, np.arange(batch_size, len(arr), batch_size))
+
+    def get_data_gpu(self, indices):
+        images = []
+        labels = []
+        data = {}
+        if self.use_kornia:
+            images = [self.loaded_images[i]["image"] for i in indices]
+            images = torch.stack(images).to(self.device)
+            images = self.transform_gpu(images)
+            data["image"] = images
+
+            for i in indices:
+            # labels
+                labels.append(self.loaded_images[i]["label"])
+        else:
+            for i in indices:
+                if self.preload:
+                    if self.transform_on_gpu:
+                        images.append(self.transform_gpu(self.loaded_images[i]["image"].to(self.device)))
+                    else:
+                        images.append(self.transform(self.loaded_images[i]["image"]).to(self.device))
+                    labels.append(self.loaded_images[i]["label"])
+                else:
+                    try:
+                        img_name = self.data_frame.iloc[i]["file_name"]
+                    except KeyError:
+                        img_name = self.data_frame.iloc[i]["filepath"]
+                    if self.cls_list is None:
+                        label = self.data_frame.iloc[i].get("label", -1)
+                    else:
+                        label = self.cls_list.index(self.data_frame.iloc[i]["klass"])
+                    if self.data_dir is None:
+                        img_path = os.path.join("dataset", self.dataset, img_name)
+                    else:
+                        img_path = os.path.join(self.data_dir, img_name)
+                    image = PIL.Image.open(img_path).convert("RGB")
+                    image = self.transform(image)
+                    images.append(image.to(self.device))
+                    labels.append(label)
+            data['image'] = torch.stack(images)
+        data['label'] = torch.LongTensor(labels).to(self.device)
+        return data
+
 
 class StreamDataset(Dataset):
     def __init__(self, datalist, dataset, transform, cls_list, data_dir=None, device=None, transform_on_gpu=False, use_kornia=True):
