@@ -571,7 +571,8 @@ class CLManagerBase:
                 transform=self.test_transform,
                 cls_list=next_task_cls,
                 data_dir=self.data_dir,
-                augmentation=self.train_transform
+                augmentation=self.train_transform,
+                learned_classes=self.num_learned_class
             )
             train_loader = DataLoader(
                 train_dataset,
