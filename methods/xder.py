@@ -335,8 +335,8 @@ class XDER(DER):
                     y = data["label"].to(self.device)
                     x = transforms.Normalize(self.mean, self.std)(x)
                     with torch.cuda.amp.autocast(self.use_amp):
-                        logit = self.fast_model(x)[:, :self.num_learned_class]
-                        loss = self.criterion(logit, y[:, :self.num_learned_class])
+                        logit = self.fast_model(x)[:, ]
+                        loss = self.criterion(logit, y)
                 
                     _, preds = logit.topk(self.topk, 1, True, True)
 
