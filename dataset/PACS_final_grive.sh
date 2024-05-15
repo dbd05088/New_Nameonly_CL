@@ -347,11 +347,20 @@
 # mv PACS_final_clip_50prompts_filtered PACS_final/
 # rm PACS_final_clip_50prompts_filtered.tar
 
-gdrive files download 1a4hnM7ODVE85IfpzROF_h1MEmRXSQ_Y_
-gdrive files download 1FUysw1aotHM9UNx2Llsvgfm7flv-zmo4
-tar -xf PACS_final_static_without_cot.tar
-tar -xf PACS_final_static_without_cot_filtered.tar
-mv PACS_final_static_without_cot PACS_final/
-mv PACS_final_static_without_cot_filtered PACS_final/
-rm PACS_final_static_without_cot.tar
-rm PACS_final_static_without_cot_filtered.tar
+# gdrive files download 1a4hnM7ODVE85IfpzROF_h1MEmRXSQ_Y_
+# gdrive files download 1FUysw1aotHM9UNx2Llsvgfm7flv-zmo4
+# tar -xf PACS_final_static_without_cot.tar
+# tar -xf PACS_final_static_without_cot_filtered.tar
+# mv PACS_final_static_without_cot PACS_final/
+# mv PACS_final_static_without_cot_filtered PACS_final/
+# rm PACS_final_static_without_cot.tar
+# rm PACS_final_static_without_cot_filtered.tar
+
+gdrive files download 1YQhtzeDSNDjX7mmOQ7jvVsa1zDS3TRXF
+gdrive files download 1iUvzO4AU1fJxFRZmMKC223bcKY-Iq-8n
+tar -xf PACS_final_static_clip_100_50.tar
+tar -xf PACS_final_static_clip_100_50_filtered.tar
+mv PACS_final_static_clip_100_50 PACS_final/
+mv PACS_final_static_clip_100_50_filtered PACS_final/
+rm PACS_final_static_clip_100_50.tar
+rm PACS_final_static_clip_100_50_filtered.tar
