@@ -325,19 +325,24 @@
 # mv PACS_final_sdxl_clip_50prompts.tar PACS_final
 # rm PACS_final_sdxl_clip_50prompts.tar
 
-gdrive files download 1WTLnVhYHi_Fga8dao-E-PonrBRcDwQOn
-gdrive files download 10wCuJT6HIIJ2gsqcr8VQ2ke3Hm0cMbk7
-gdrive files download 1IBcdwMpNNBbPK8uFrcK4VOttepwFGLID
-gdrive files download 1V0ixFCi_pc-SEThjAydDZ91hTKIE1kvx
-tar -xf PACS_final_static_50prompts.tar
-tar -xf PACS_final_static_50prompts_filtered.tar
-tar -xf PACS_final_dynamic_50prompts.tar
-tar -xf PACS_final_dynamic_50prompts_filtered.tar
-mv PACS_final_static_50prompts PACS_final/
-mv PACS_final_static_50prompts_filtered PACS_final/
-mv PACS_final_dynamic_50prompts PACS_final/
-mv PACS_final_dynamic_50prompts_filtered PACS_final/
-rm PACS_final_static_50prompts.tar
-rm PACS_final_static_50prompts_filtered.tar
-rm PACS_final_dynamic_50prompts.tar
-rm PACS_final_dynamic_50prompts_filtered.tar
+# gdrive files download 1WTLnVhYHi_Fga8dao-E-PonrBRcDwQOn
+# gdrive files download 10wCuJT6HIIJ2gsqcr8VQ2ke3Hm0cMbk7
+# gdrive files download 1IBcdwMpNNBbPK8uFrcK4VOttepwFGLID
+# gdrive files download 1V0ixFCi_pc-SEThjAydDZ91hTKIE1kvx
+# tar -xf PACS_final_static_50prompts.tar
+# tar -xf PACS_final_static_50prompts_filtered.tar
+# tar -xf PACS_final_dynamic_50prompts.tar
+# tar -xf PACS_final_dynamic_50prompts_filtered.tar
+# mv PACS_final_static_50prompts PACS_final/
+# mv PACS_final_static_50prompts_filtered PACS_final/
+# mv PACS_final_dynamic_50prompts PACS_final/
+# mv PACS_final_dynamic_50prompts_filtered PACS_final/
+# rm PACS_final_static_50prompts.tar
+# rm PACS_final_static_50prompts_filtered.tar
+# rm PACS_final_dynamic_50prompts.tar
+# rm PACS_final_dynamic_50prompts_filtered.tar
+
+gdrive files download 1r1wx9fuSBKPrR2SLJKrWy-D2sQSLPcJq
+tar -xf PACS_final_clip_50prompts_filtered.tar
+mv PACS_final_clip_50prompts_filtered PACS_final/
+rm PACS_final_clip_50prompts_filtered.tar
