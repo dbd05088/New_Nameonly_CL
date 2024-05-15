@@ -19,6 +19,8 @@ from utils.my_augment import Kornia_Randaugment
 from torchvision import transforms
 from tqdm import tqdm
 
+# from models.open_clip import create_model_and_transforms, trace_model, get_tokenizer, create_loss
+
 def cycle(iterable):
     # iterate with shuffling
     while True:
@@ -415,6 +417,13 @@ def select_model(model_name, dataset, num_classes=None, opt_dict=None, G=False, 
         else:
             model = timm.create_model('vit_base_patch16_224', pretrained=True)
             return ViTModel(model)
+    
+    elif model_name == "clip":
+        model, preprocess_train, preprocess_val = create_model_and_transforms(model_name, pretrained=pretrained_dataset)
+        tokenizer = get_tokenizer(model_name)
+        criterion = create_loss()
+        return model, preprocess_train, preprocess_val, tokenizer, criterion
+        
     
     model_imagenet = False
     opt = edict(
