@@ -258,7 +258,7 @@ class Preprocess(nn.Module):
 
 class ImageDataset(Dataset):
     def __init__(self, data_frame: pd.DataFrame, dataset: str, transform=None, cls_list=None, data_dir=None,
-                 preload=False, device=None, transform_on_gpu=False, use_kornia=False, augmentation=None):
+                 preload=False, device=None, transform_on_gpu=False, use_kornia=False, augmentation=None, learned_classes=None):
         self.use_kornia = use_kornia
         self.data_frame = data_frame
         self.dataset = dataset
@@ -269,6 +269,7 @@ class ImageDataset(Dataset):
         self.device = device
         self.transform_on_gpu = transform_on_gpu
         self.augmentation = augmentation
+        self.learned_classes = learned_classes
         if self.preload:
             mean, std, n_classes, inp_size, _ = get_statistics(dataset=self.dataset)
             self.preprocess = Preprocess(input_size=inp_size)
@@ -332,7 +333,7 @@ class ImageDataset(Dataset):
             if self.transform:
                 image = self.transform(image)
             sample["image"] = image
-            sample["label"] = label
+            sample["label"] = label+self.learned_classes
             sample["image_name"] = img_name
             return sample
 
