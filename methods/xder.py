@@ -33,7 +33,7 @@ class XDER(DER):
         self.simclr_lss = SupConLoss(temperature=5, base_temperature=5, reduction='sum')
         self.gpu_augmentation = strong_aug(inp_size, self.mean, self.std)
         self.simclr_temp = 5
-        self.simclr_batch_size = 1
+        self.simclr_batch_size = 64
         self.gamma = 0.85
             
         self.m = 0.2
