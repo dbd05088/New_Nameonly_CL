@@ -301,13 +301,13 @@ class MEMO(CLManagerBase):
         if 'reset' in self.sched_name:
             self.update_schedule(reset=True)
     
-    def get_forgetting(self, sample_num, test_list, cls_dict, batch_size, n_worker):
+    def get_forgetting(self, domain_name, sample_num, test_list, cls_dict, batch_size, n_worker):
         test_df = pd.DataFrame(test_list)
         test_dataset = ImageDataset(
             test_df,
             dataset=self.dataset,
             transform=self.test_transform,
-            cls_list=list(cls_dict.keys()),
+            cls_list=self.p_cls_list,
             data_dir=self.data_dir
         )
         test_loader = DataLoader(
@@ -324,22 +324,21 @@ class MEMO(CLManagerBase):
                 x = data["image"]
                 y = data["label"]
                 x = x.to(self.device)
-                logit, _ = self.model(x,test=True)
+                logit, _ = self.model(x, test=True)
                 pred = torch.argmax(logit, dim=-1)
                 preds.append(pred.detach().cpu().numpy())
                 gts.append(y.detach().cpu().numpy())
         preds = np.concatenate(preds)
-        if self.gt_label is None:
-            gts = np.concatenate(gts)
-            self.gt_label = gts
-        self.test_records.append(preds)
+        gts = np.concatenate(gts)
+        self.gt_label_forgetting = gts
+        self.test_records[domain_name].append(preds)
         self.n_model_cls.append(copy.deepcopy(self.num_learned_class))
-        if len(self.test_records) > 1:
-            klr, kgr, = self.calculate_online_forgetting(self.n_classes, self.gt_label, self.test_records[-2], self.test_records[-1], self.n_model_cls[-2], self.n_model_cls[-1])
+        if len(self.test_records[domain_name]) > 1:
+            klr, kgr = self.calculate_online_forgetting(self.n_classes, self.gt_label_forgetting, self.test_records[domain_name][-2], self.test_records[domain_name][-1], self.n_model_cls[-2], self.n_model_cls[-1])
             self.knowledge_loss_rate.append(klr)
             self.knowledge_gain_rate.append(kgr)
             self.forgetting_time.append(sample_num)
-            logger.info(f'KLR {klr} | KGR {kgr}')
+            logger.info(f'{domain_name} FORGETTING | KLR {klr} | KGR {kgr}')
             np.save(self.save_path + '_KLR.npy', self.knowledge_loss_rate)
             np.save(self.save_path + '_KGR.npy', self.knowledge_gain_rate)
             np.save(self.save_path + '_forgetting_time.npy', self.forgetting_time)
@@ -533,40 +532,6 @@ class MEMO(CLManagerBase):
         gts = np.concatenate(gts)
         self.gt_label = gts
         self.calculate_task_acc(domain_name, sample_num)
-    
-    def get_forgetting(self, sample_num, test_list, cls_dict, batch_size, n_worker):
-        test_df = pd.DataFrame(test_list)
-        test_dataset = ImageDataset(
-            test_df,
-            dataset=self.dataset,
-            transform=self.test_transform,
-            cls_list=list(cls_dict.keys()),
-            data_dir=self.data_dir
-        )
-        test_loader = DataLoader(
-            test_dataset,
-            shuffle=False,
-            batch_size=batch_size,
-            num_workers=n_worker,
-        )
-        preds = []
-        gts = []
-        self.model.eval()
-        with torch.no_grad():
-            for i, data in enumerate(test_loader):
-                x = data["image"]
-                y = data["label"]
-                x = x.to(self.device)
-                cls_pred, _ = self.model(x, test=True)
-                pred = torch.argmax(cls_pred, dim=-1)
-                preds.append(pred.detach().cpu().numpy())
-                gts.append(y.detach().cpu().numpy())
-        preds = np.concatenate(preds)
-        if self.gt_label is None:
-            gts = np.concatenate(gts)
-            self.gt_label = gts
-        self.test_records.append(preds)
-        self.n_model_cls.append(copy.deepcopy(self.num_learned_class))
 
 
 class MEMOResnet(nn.Module):
