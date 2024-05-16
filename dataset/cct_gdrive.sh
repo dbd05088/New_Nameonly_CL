@@ -98,19 +98,25 @@
 
 
 ### cct web 0514
-gdrive files download 1pxrZ0N5E7C-nPBOoOi6JVhyNxdgNL6fu
-gdrive files download 1bMeHe6ruALUxkEPTxqYFblhniPg02Baw
-gdrive files download 13_1kZB5yTsNABzhUF9mxhXrl6nzMW0GH
-gdrive files download 1o87z_qwlfmnAHUzqDS8jQrcS09ewCcua
-tar -xf cct_flickr_subsampled_filtered.tar
-tar -xf cct_web_newsample_rmd_equalweight.tar
-tar -xf cct_web_all_samples_temp_1.tar
-tar -xf cct_web_all_samples_temp_2.tar
-mv cct_flickr_subsampled_filtered cct/
-mv cct_web_newsample_rmd_equalweight cct/
-mv cct_web_all_samples_temp_1 cct/
-mv cct_web_all_samples_temp_2 cct/
-rm cct_flickr_subsampled_filtered.tar
-rm cct_web_newsample_rmd_equalweight.tar
-rm cct_web_all_samples_temp_1.tar
-rm cct_web_all_samples_temp_2.tar
+# gdrive files download 1pxrZ0N5E7C-nPBOoOi6JVhyNxdgNL6fu
+# gdrive files download 1bMeHe6ruALUxkEPTxqYFblhniPg02Baw
+# gdrive files download 13_1kZB5yTsNABzhUF9mxhXrl6nzMW0GH
+# gdrive files download 1o87z_qwlfmnAHUzqDS8jQrcS09ewCcua
+# tar -xf cct_flickr_subsampled_filtered.tar
+# tar -xf cct_web_newsample_rmd_equalweight.tar
+# tar -xf cct_web_all_samples_temp_1.tar
+# tar -xf cct_web_all_samples_temp_2.tar
+# mv cct_flickr_subsampled_filtered cct/
+# mv cct_web_newsample_rmd_equalweight cct/
+# mv cct_web_all_samples_temp_1 cct/
+# mv cct_web_all_samples_temp_2 cct/
+# rm cct_flickr_subsampled_filtered.tar
+# rm cct_web_newsample_rmd_equalweight.tar
+# rm cct_web_all_samples_temp_1.tar
+# rm cct_web_all_samples_temp_2.tar
+
+### cct static 50 prompts (0517)
+gdrive files download 16oYiWLkzeS_ir71x2N5yASiavSp8i_VK
+tar -cf cct_static_cot_50_filtered.tar
+mv cct_static_cot_50_filtered cct/
+rm cct_static_cot_50_filtered.tar
