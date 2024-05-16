@@ -398,7 +398,7 @@ class ImageDataset(Dataset):
 
 class ImageTextDataset(Dataset):
     def __init__(self, data_frame: pd.DataFrame, dataset: str, transform=None, cls_list=None, data_dir=None,
-                 prompt_cls_list=None, preload=False, device=None, transform_on_gpu=False, use_kornia=False, augmentation=None):
+                preload=False, device=None, transform_on_gpu=False, use_kornia=False, augmentation=None):
         self.use_kornia = use_kornia
         self.data_frame = data_frame
         self.dataset = dataset
@@ -409,7 +409,6 @@ class ImageTextDataset(Dataset):
         self.device = device
         self.transform_on_gpu = transform_on_gpu
         self.augmentation = augmentation
-        self.text_class_prompts = prompt_cls_list
         if self.preload:
             mean, std, n_classes, inp_size, _ = get_statistics(dataset=self.dataset)
             self.preprocess = Preprocess(input_size=inp_size)
@@ -464,7 +463,7 @@ class ImageTextDataset(Dataset):
                 label = self.data_frame.iloc[idx].get("label", -1)
             else:
                 label = self.cls_list.index(self.data_frame.iloc[idx]["klass"])
-                text_prompt = self.text_class_prompts[label]
+                # text_prompt = self.text_class_prompts[label]
             if self.data_dir is None:
                 img_path = os.path.join("dataset", self.dataset, img_name)
             else:
@@ -475,7 +474,7 @@ class ImageTextDataset(Dataset):
             sample["image"] = image
             sample["label"] = label
             sample["image_name"] = img_name
-            sample["text"] = text_prompt
+            # sample["text"] = text_prompt
             return sample
 
     def get_image_class(self, y):

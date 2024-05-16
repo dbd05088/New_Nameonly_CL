@@ -85,32 +85,32 @@ def main():
     for domain_name, test_datalist  in zip(test_domain_name, test_datalists):
         sample_num, eval_dict = method.online_evaluate(domain_name, cur_task, test_datalist, samples_cnt, 32, args.n_worker)
 
-    method.report_test("Total", sample_num, eval_dict['avg_loss'], eval_dict['avg_acc'])
-    eval_results["test_acc"].append(eval_dict['avg_acc'])
-    eval_results["percls_acc"].append(eval_dict['cls_acc'])
-    eval_results["data_cnt"].append(samples_cnt)
-    if samples_cnt in eval_point:
-        eval_results["avg_test_acc"].append(eval_dict['avg_acc'])
-        method.report_test("Task", sample_num, eval_dict['avg_loss'],eval_dict['avg_acc'])
-        cur_task+=1
+    # method.report_test("Total", sample_num, eval_dict['avg_acc'])
+    # eval_results["test_acc"].append(eval_dict['avg_acc'])
+    # # eval_results["percls_acc"].append(eval_dict['cls_acc'])
+    # eval_results["data_cnt"].append(samples_cnt)
+    # if samples_cnt in eval_point:
+    #     eval_results["avg_test_acc"].append(eval_dict['avg_acc'])
+    #     method.report_test("Task", sample_num, eval_dict['avg_loss'],eval_dict['avg_acc'])
+    #     cur_task+=1
 
-    A_last = eval_results["test_acc"][-1] #eval_dict['avg_acc']
+    # A_last = eval_results["test_acc"][-1] #eval_dict['avg_acc']
 
-    np.save(f'results/{args.dataset}/{args.note}/seed_{args.rnd_seed}_eval.npy', eval_results['test_acc'])
-    np.save(f'results/{args.dataset}/{args.note}/seed_{args.rnd_seed}_eval_per_cls.npy', eval_results['percls_acc'])
-    np.save(f'results/{args.dataset}/{args.note}/seed_{args.rnd_seed}_eval_time.npy', eval_results['data_cnt'])
+    # np.save(f'results/{args.dataset}/{args.note}/seed_{args.rnd_seed}_eval.npy', eval_results['test_acc'])
+    # np.save(f'results/{args.dataset}/{args.note}/seed_{args.rnd_seed}_eval_per_cls.npy', eval_results['percls_acc'])
+    # np.save(f'results/{args.dataset}/{args.note}/seed_{args.rnd_seed}_eval_time.npy', eval_results['data_cnt'])
 
-    # Accuracy (A)
-    A_auc = np.mean(eval_results["test_acc"])
-    A_avg = np.mean(eval_results["avg_test_acc"])
+    # # Accuracy (A)
+    # A_auc = np.mean(eval_results["test_acc"])
+    # A_avg = np.mean(eval_results["avg_test_acc"])
 
-    # KLR_avg = np.mean(method.knowledge_loss_rate[1:])
-    # KGR_avg = np.mean(method.knowledge_gain_rate)
-    KLR_avg = 0.0
-    KGR_avg = 0.0
+    # # KLR_avg = np.mean(method.knowledge_loss_rate[1:])
+    # # KGR_avg = np.mean(method.knowledge_gain_rate)
+    # KLR_avg = 0.0
+    # KGR_avg = 0.0
 
-    logger.info(f"======== Summary =======")
-    logger.info(f"A_auc {A_auc:6f} | A_last {A_last:6f} | A_avg {A_avg:6f} | KLR_avg {KLR_avg:6f} | KGR_avg {KGR_avg:6f} | Total FLOPs {method.total_flops:4f}")
+    # logger.info(f"======== Summary =======")
+    # logger.info(f"A_auc {A_auc:6f} | A_last {A_last:6f} | A_avg {A_avg:6f} | KLR_avg {KLR_avg:6f} | KGR_avg {KGR_avg:6f} | Total FLOPs {method.total_flops:4f}")
 
 if __name__ == "__main__":
     torch.multiprocessing.set_start_method('spawn')
