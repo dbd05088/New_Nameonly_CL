@@ -1,7 +1,7 @@
 # CIL CONFIG
 # NOTE="imagenet_sdp_sigma0_mem_10000_iter_0.125"
-NOTE="resnet18_er_PACS_final_4_12_iter2_mem200"
-MODE="er"
+NOTE="rebuttal3_vit_memo_DomainNet_iter2_mem200"
+MODE="memo"
 
 K_COEFF="4"
 TEMPERATURE="0.125"
@@ -10,15 +10,15 @@ TRANSFORM_ON_GPU="--transform_on_gpu"
 N_WORKER=4
 FUTURE_STEPS=8
 EVAL_N_WORKER=4
-EVAL_BATCH_SIZE=1000
+EVAL_BATCH_SIZE=500
 #USE_KORNIA="--use_kornia"
 USE_KORNIA=""
 UNFREEZE_RATE=0.5
-SEEDS="1"
+SEEDS="3"
 DATA_DIR=""
 
-GPUS=("0" "1" "2" "3" "4")
-DATASET="PACS_final" # cifar10, cifar100, tinyimagenet, imagenet
+GPUS=("7" "1" "2" "3" "4")
+DATASET="DomainNet" # cifar10, cifar100, tinyimagenet, imagenet
 SIGMA=0
 REPEAT=1
 INIT_CLS=100
@@ -191,10 +191,10 @@ elif [ "$DATASET" == "OfficeHome" ]; then
 
 elif [ "$DATASET" == "DomainNet" ]; then
     MEM_SIZE=8000
-    TYPES=("newsample_flickr" "newsample_equalweight")
+    TYPES=("newsample_equalweight") # "newsample_equalweight"
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
-    MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=1000
+    MODEL_NAME="vit" VAL_PERIOD=500 EVAL_PERIOD=4000
     BATCHSIZE=64; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
     BASEINIT_SAMPLES=30523 FEAT_DIM=14 FEAT_MEM_SIZE=168000
     SAMPLES_PER_TASK=2000
