@@ -424,7 +424,8 @@ class MEMO(CLManagerBase):
             dataset=self.dataset,
             transform=self.test_transform,
             cls_list=next_task_cls,
-            data_dir=self.data_dir
+            data_dir=self.data_dir,
+            learned_classes=self.num_learned_class
         )
         test_loader = DataLoader(
             test_dataset,
@@ -451,7 +452,8 @@ class MEMO(CLManagerBase):
                 transform=self.test_transform,
                 cls_list=next_task_cls,
                 data_dir=self.data_dir,
-                augmentation=self.train_transform
+                augmentation=self.train_transform,
+                learned_classes=self.num_learned_class
             )
             train_loader = DataLoader(
                 train_dataset,

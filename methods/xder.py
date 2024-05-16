@@ -287,7 +287,8 @@ class XDER(DER):
             dataset=self.dataset,
             transform=self.test_transform,
             cls_list=next_task_cls,
-            data_dir=self.data_dir
+            data_dir=self.data_dir,
+            learned_classes=self.num_learned_class
         )
         test_loader = DataLoader(
             test_dataset,
@@ -314,7 +315,8 @@ class XDER(DER):
                 transform=self.test_transform,
                 cls_list=next_task_cls,
                 data_dir=self.data_dir,
-                augmentation=self.train_transform
+                augmentation=self.train_transform,
+                learned_classes=self.num_learned_class
             )
             train_loader = DataLoader(
                 train_dataset,
