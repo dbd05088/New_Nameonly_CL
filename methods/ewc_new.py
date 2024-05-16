@@ -118,7 +118,7 @@ class EWCpp(ER):
 
             logit, loss = self.model_forward(x, y)
 
-            self.total_flops += (len(x) * self.backward_flops)
+            # self.total_flops += (len(x) * self.backward_flops)
             
             _, preds = logit.topk(self.topk, 1, True, True)
 

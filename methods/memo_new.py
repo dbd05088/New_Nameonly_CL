@@ -51,7 +51,7 @@ class MEMO(CLManagerBase):
         self.model.AdaptiveExtractors.append(copy.deepcopy(self.extractor.to(self.device)))
         for n, p in self.model.named_parameters():
             print(n)
-        self.get_flops_parameter(self.method_name)
+        # self.get_flops_parameter(self.method_name)
 
         
         self.optimizer = select_optimizer(self.opt_name, self.lr, self.model)
@@ -226,8 +226,8 @@ class MEMO(CLManagerBase):
             with torch.cuda.amp.autocast(self.use_amp):
                 cls_pred, aux_cls_pred = self.model(x)
                 
-                self.total_flops += len(x) * (self.forward_flops + self.backward_flops)
-                self.total_flops += len(x) * (self.F_forward_flops + self.F_backward_flops) * (len(self.model.AdaptiveExtractors) - 1)
+                # self.total_flops += len(x) * (self.forward_flops + self.backward_flops)
+                # self.total_flops += len(x) * (self.F_forward_flops + self.F_backward_flops) * (len(self.model.AdaptiveExtractors) - 1)
 
                 loss_clf = self.criterion(cls_pred, y)
                 loss = loss_clf
