@@ -19,6 +19,7 @@ from utils.my_augment import Kornia_Randaugment
 from torchvision import transforms
 from tqdm import tqdm
 
+from torchvision import models
 from models.open_clip import create_model_and_transforms, trace_model, get_tokenizer, create_loss
 
 def cycle(iterable):
@@ -418,11 +419,20 @@ def select_model(model_name, dataset, num_classes=None, opt_dict=None, G=False, 
             model = timm.create_model('vit_base_patch16_224', pretrained=True)
             return ViTModel(model)
     
-    elif model_name == "clip":
+    elif model_name == "clip_resnet":
         model, preprocess_train, preprocess_val = create_model_and_transforms('RN50', pretrained="yfcc15m")
         tokenizer = get_tokenizer('RN50')
         criterion = create_loss()
         return model, preprocess_train, preprocess_val, tokenizer, criterion
+    elif model_name == "clip_vit": 
+        model, preprocess_train, preprocess_val = create_model_and_transforms('ViT-B-32', pretrained="openai")
+        tokenizer = get_tokenizer('ViT-B-32')
+        criterion = create_loss()
+        return model, preprocess_train, preprocess_val, tokenizer, criterion
+
+    elif model_name == "resnet50":
+        model = models.resnet50(pretrained = True) 
+        return model
         
     
     model_imagenet = False

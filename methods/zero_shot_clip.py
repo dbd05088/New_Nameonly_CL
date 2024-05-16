@@ -187,12 +187,11 @@ class ZeroShotClip:
             f"ETA {datetime.timedelta(seconds=int((time.time() - self.start_time) * (self.total_samples-sample_num) / sample_num))}"
         )
 
-    def report_test(self, domain_name, sample_num, avg_loss, avg_TR1):
-        print(avg_TR1, sample_num, avg_loss)
-        writer.add_scalar(f"test/loss", avg_loss, sample_num)
-        writer.add_scalar(f"test/acc", "avg_TR1", avg_TR1, sample_num)
+    def report_test(self, domain_name, sample_num, avg_acc):
+        print(avg_acc, sample_num)
+        # writer.add_scalar(f"test/acc", "avg_TR1", avg_TR1, sample_num)
         logger.info(
-            f"{domain_name} Test | Sample # {sample_num} | test_loss {avg_loss:.4f} | test_acc_TR1 {avg_TR1:.4f} | test_acc_TR5 {avg_TR5:.4f} | TFLOPs {self.total_flops/1000:.2f}"
+            f"{domain_name} Test | Sample # {sample_num} | test_acc {avg_acc:.4f}"
         )
 
 
@@ -220,7 +219,7 @@ class ZeroShotClip:
             transform=self.test_transform,
             cls_list=self.exposed_classes,
             data_dir=self.data_dir,
-            prompt_cls_list=self.text_class_prompts
+            # prompt_cls_list=self.text_class_prompts
         )
         test_loader = DataLoader(
             test_dataset,
@@ -230,7 +229,7 @@ class ZeroShotClip:
         )
         eval_dict = self.evaluation(test_loader, self.criterion)
         
-        self.report_test(domain_name, sample_num, eval_dict["avg_loss"], eval_dict["avg_acc"])
+        self.report_test(domain_name, sample_num, eval_dict["avg_acc"])
             
         del test_loader
         return sample_num, eval_dict
@@ -252,18 +251,30 @@ class ZeroShotClip:
                 imgs = imgs.to(self.device)
                 labels = labels.to(self.device)
                 
-                text_tokens = self.tokenizer(data["text"]).to(self.device)
+                image_features = self.model.encode_image(imgs)
+                text_features = self.model.encode_text(self.text_class_tokens)
+                image_features /= image_features.norm(dim=-1, keepdim=True)
+                text_features /= text_features.norm(dim=-1, keepdim=True)
+                            
+                text_probs = (100.0 * image_features @ text_features.T).softmax(dim=-1)
+                top_probs, top_labels = text_probs.topk(1, dim=-1)
+                total_num_data += labels.size(0)
+                # print("top_probs", top_probs)
+                # print("top_labels", top_labels)
                 
-                ground_truth = torch.arange(len(labels)).view(-1, 1).to(self.device)
+                total_correct += torch.sum(top_labels == labels.unsqueeze(1)).item()
+                # self.text_class_tokens = self.tokenizer(self.text_class_prompts).to(self.device)
+                # print(text_probs)
+                # ground_truth = torch.arange(len(labels)).view(-1, 1).to(self.device)
 
                 # texts = self.tokenizer(texts).to(self.device)
-                image_features, text_features, logit_scale = self.model(imgs, text_tokens)
-                loss = self.criterion(image_features, text_features, logit_scale)
-                logits_per_image = (logit_scale * image_features @ text_features.t())
+                # image_features, text_features, logit_scale = self.model(imgs, self.text_class_tokens)
+                # loss = self.criterion(image_features, text_features, logit_scale)
+                # logits_per_image = (logit_scale * image_features @ text_features.t())
                 # logits_per_text = logits_per_image.t()
 
-                _, preds = logits_per_image.topk(self.topk, 1, True, True)
-                total_TR1 += torch.sum(preds == ground_truth).item() 
+                # _, preds = logits_per_image.topk(self.topk, 1, True, True)
+                # total_TR1 += torch.sum(preds == ground_truth).item() 
                 # _, preds = logits_per_image.topk(5, 1, True, True)
                 # total_TR5 += torch.sum(preds == ground_truth).item() 
                 
@@ -272,18 +283,18 @@ class ZeroShotClip:
                 # _, preds = logits_per_text.topk(5, 1, True, True)
                 # total_IR5 += torch.sum(preds == ground_truth).item() 
         
-                total_num_data += labels.size(0)
-                total_loss += loss.item()
-                label += labels.tolist()
+                # total_num_data += labels.size(0)
+                # total_loss += loss.item()
+                # label += labels.tolist()
 
 
-        avg_TR1 = total_TR1 / total_num_data
+        avg_acc = total_correct / total_num_data
         # avg_TR5 = total_TR5 / total_num_data
         # avg_IR1 = total_IR1 /total_num_data
         # avg_IR5 = total_IR5 / total_num_data
-        avg_loss = total_loss / len(test_loader)
+        # avg_loss = total_loss / len(test_loader)
 
-        ret = {"avg_loss": avg_loss, "avg_acc": avg_TR1}
+        ret = {"avg_acc": avg_acc}
 
         return ret
         
