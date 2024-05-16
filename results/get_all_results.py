@@ -83,9 +83,6 @@ def print_from_log(exp_name, in_dis, ood_dis, seeds=(1,2,3,4,5)):
                 dom =  line.split("|")[0].split(" ")[-3]
                 fast_adapt_dict[dom].append(adaptation)
             elif 'FORGETTING' in line:
-                print(line)
-                print(line.split("|")[-2].split(" "))
-                print(line.split("|")[-1].split(" "))
                 single_KLR = float(line.split("|")[-2].split(" ")[2])
                 single_KGR = float(line.split("|")[-1].split(" ")[2])
                 dom =  line.split("|")[0].split(" ")[-3]
@@ -126,7 +123,6 @@ def print_from_log(exp_name, in_dis, ood_dis, seeds=(1,2,3,4,5)):
         ood_adaptation = []
         ood_KGR, ood_KLR = [], []
         for i, dom in enumerate(list(backward_transfer.keys())):
-            print("here", KGR[dom])
             print(f'Exp:{exp_name} {dom} backward_transfer \t\t\t {np.mean(backward_transfer[dom])*100:.2f}/{sem(backward_transfer[dom])*100:.2f}')
             print(f'Exp:{exp_name} {dom} fast_adaptation \t\t\t {np.mean(fast_adapt_dict[dom])*100:.2f}/{sem(fast_adapt_dict[dom])*100:.2f}')
             print(f'Exp:{exp_name} {dom} KGR \t\t\t {np.mean(KGR[dom]):.2f}/{sem(KGR[dom]):.2f}')
