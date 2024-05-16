@@ -43,8 +43,8 @@ class CLManagerBase:
         if self.sched_name == "default":
             self.sched_name = 'const'
         self.lr = kwargs["lr"]
-        self.block_names = MODEL_BLOCK_DICT[self.model_name]
-        self.num_blocks = len(self.block_names) - 1
+        # self.block_names = MODEL_BLOCK_DICT[self.model_name]
+        # self.num_blocks = len(self.block_names) - 1
 
         assert kwargs["temp_batchsize"] <= kwargs["batchsize"]
         self.batch_size = kwargs["batchsize"]
@@ -125,7 +125,7 @@ class CLManagerBase:
 
         self.exposed_domains = []
         self.waiting_batch = []
-        self.get_flops_parameter()
+        # self.get_flops_parameter()
         self.initialize_future()
         self.total_flops = 0.0
         self.writer = SummaryWriter(f'tensorboard/{self.dataset}/{self.note}/seed_{self.rnd_seed}')
@@ -328,7 +328,7 @@ class CLManagerBase:
                 loss.backward()
                 self.optimizer.step()
 
-            self.total_flops += (len(y) * self.backward_flops)
+            # self.total_flops += (len(y) * self.backward_flops)
 
             self.after_model_update()
 
@@ -373,7 +373,7 @@ class CLManagerBase:
                 logit = self.model(x)
                 loss = self.criterion(logit, y)
 
-        self.total_flops += (len(y) * self.forward_flops)
+        # self.total_flops += (len(y) * self.forward_flops)
         return logit, loss
 
     def report_training(self, sample_num, train_loss, train_acc):

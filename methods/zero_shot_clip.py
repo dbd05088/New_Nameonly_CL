@@ -77,7 +77,7 @@ class ZeroShotClip:
         self.cls_dict = {}
         self.total_samples = len(self.train_datalist)
         self.type_name = kwargs["type_name"]
-        if self.model_name == 'vit':
+        if self.model_name == 'clip_vit':
             self.train_transform, self.test_transform, self.cpu_transform, self.n_classes = get_transform(self.dataset, self.transforms, self.method_name, self.type_name, self.transform_on_gpu, 224)
         else:
             self.train_transform, self.test_transform, self.cpu_transform, self.n_classes = get_transform(self.dataset, self.transforms, self.method_name, self.type_name, self.transform_on_gpu)
