@@ -254,7 +254,7 @@ class ZeroShotClip:
                 
                 text_tokens = self.tokenizer(data["text"]).to(self.device)
                 
-                # ground_truth = torch.arange(len(labels)).view(-1, 1).to(self.device)
+                ground_truth = torch.arange(len(labels)).view(-1, 1).to(self.device)
 
                 # texts = self.tokenizer(texts).to(self.device)
                 image_features, text_features, logit_scale = self.model(imgs, text_tokens)

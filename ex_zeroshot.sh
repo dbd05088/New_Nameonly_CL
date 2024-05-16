@@ -1,7 +1,7 @@
 # CIL CONFIG
 # NOTE="imagenet_sdp_sigma0_mem_10000_iter_0.125"
-NOTE="rebuttal2_resnet18_er_PACS_final_iter2_mem200"
-MODE="er"
+NOTE="rebuttal4_resnet50_clip_zeroshot_PACS_final_iter2_mem200"
+MODE="zs_clip"
 
 K_COEFF="4"
 TEMPERATURE="0.125"
@@ -17,7 +17,7 @@ UNFREEZE_RATE=0.5
 SEEDS="1"
 DATA_DIR=""
 
-GPUS=("0" "1" "2" "3" "4")
+GPUS=("7" "1" "2" "3" "4")
 DATASET="PACS_final" # cifar10, cifar100, tinyimagenet, imagenet
 SIGMA=0
 REPEAT=1
@@ -109,7 +109,7 @@ elif [ "$DATASET" == "PACS_final" ]; then
     TYPES=("train_ma") # web_RMD_temp_0_5_W web_inverse_temp_0_5_WF "web_RMD_temp_3" "inverseprob" "bottomk" "topk") #"sampling_4" "sampling_2" "sampling_0_5" "sampling_0_25" "sampling_0_125" #"equalweighted" "ensembled_RMD_0_5_modelwise" "ensembled_RMD_1_modelwise" "ensembled_RMD_3_modelwise" "ensembled_RMD_classwise_temp_0_5" "ensembled_RMD_classwise_temp_1" "PACS_final_ensembled_RMD_classwise_temp_3") #("ensembled_samplewise_RMD_0_5" "ensembled_samplewise_RMD_1" "ensembled_samplewise_RMD_3" "ensembled_samplewise_RMD_5") #("ensembled_RMD_temp1" "ensembled_RMD_temp2" "ensembled_RMD_temp5" "ensembled_RMD_temp10")
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
-    MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=100
+    MODEL_NAME="clip" VAL_PERIOD=500 EVAL_PERIOD=100
     BATCHSIZE=16; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
     BASEINIT_SAMPLES=1002 FEAT_DIM=14 FEAT_MEM_SIZE=4800
     SAMPLES_PER_TASK=2000
@@ -220,7 +220,7 @@ for RND_SEED in $SEEDS
 do
     for index in "${!TYPES[@]}"
     do
-        CUDA_VISIBLE_DEVICES=${GPUS[$index]} nohup python main_new.py --mode $MODE $DATA_DIR \
+        CUDA_VISIBLE_DEVICES=${GPUS[$index]} nohup python zero_shot_main.py --mode $MODE $DATA_DIR \
         --dataset $DATASET --unfreeze_rate $UNFREEZE_RATE $USE_KORNIA --k_coeff $K_COEFF --temperature $TEMPERATURE \
         --sigma $SIGMA --repeat $REPEAT --init_cls $INIT_CLS --samples_per_task $SAMPLES_PER_TASK \
         --rnd_seed $RND_SEED --val_memory_size $VAL_SIZE --type_name "${TYPES[$index]}" \
