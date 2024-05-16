@@ -365,11 +365,21 @@
 # rm PACS_final_static_clip_100_50.tar
 # rm PACS_final_static_clip_100_50_filtered.tar
 
-gdrive files download 1d0Ei3ZDOmYzIpvFupR6XPCLmBX9LLjA1
-gdrive files download 1EODNs-ejK0k3AK52pDuKoioigbsZlfYr
-tar -xf PACS_final_static_llama3_cot_50.tar
-tar -xf PACS_final_static_llama3_cot_50_filtered.tar
-mv PACS_final_static_llama3_cot_50 PACS_final/
-mv PACS_final_static_llama3_cot_50_filtered PACS_final/
-rm PACS_final_static_llama3_cot_50.tar
-rm PACS_final_static_llama3_cot_50_filtered.tar
+# gdrive files download 1d0Ei3ZDOmYzIpvFupR6XPCLmBX9LLjA1
+# gdrive files download 1EODNs-ejK0k3AK52pDuKoioigbsZlfYr
+# tar -xf PACS_final_static_llama3_cot_50.tar
+# tar -xf PACS_final_static_llama3_cot_50_filtered.tar
+# mv PACS_final_static_llama3_cot_50 PACS_final/
+# mv PACS_final_static_llama3_cot_50_filtered PACS_final/
+# rm PACS_final_static_llama3_cot_50.tar
+# rm PACS_final_static_llama3_cot_50_filtered.tar
+
+gdrive files download 1t4kSnkegYcP8WDB13M5qm5wtP-TFKy86
+gdrive files download 1ofwVnfpoJVXLE23nL18fMCGMF-p67ElF
+tar -xf PACS_final_static_gemini_cot_50.tar
+tar -xf PACS_final_static_gemini_cot_50_filtered.tar
+mv PACS_final_static_gemini_cot_50 PACS_final/
+mv PACS_final_static_gemini_cot_50_filtered PACS_final/
+rm PACS_final_static_gemini_cot_50.tar
+rm PACS_final_static_gemini_cot_50_filtered.tar
+
