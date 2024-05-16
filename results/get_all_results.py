@@ -30,7 +30,7 @@ exp_type_list = []
 exp_list = sorted([dir + '/' + exp for exp in os.listdir(dir)])
 for exp in exp_list:
     for exp_type in os.listdir(exp):
-        if os.path.isdir(os.path.join(exp, exp_type)) and "rebuttal" in os.path.join(exp, exp_type):
+        if os.path.isdir(os.path.join(exp, exp_type)) and "ewc" in os.path.join(exp, exp_type):
             exp_type_list.append(os.path.join(exp, exp_type))
 
 
@@ -47,6 +47,8 @@ def print_from_log(exp_name, in_dis, ood_dis, seeds=(1,2,3,4,5)):
     aoa_last = []
     backward_transfer = defaultdict(list)
     fast_adapt_dict = defaultdict(list)
+    KLR = defaultdict(list)
+    KGR = defaultdict(list)
     domain_list = in_dis+ood_dis
     for i in seeds:
         domain_task_accs = defaultdict(list)
@@ -80,6 +82,12 @@ def print_from_log(exp_name, in_dis, ood_dis, seeds=(1,2,3,4,5)):
                 adaptation = float(line.split("|")[-1][-5:])
                 dom =  line.split("|")[0].split(" ")[-3]
                 fast_adapt_dict[dom].append(adaptation)
+            elif 'FORGETTING' in line:
+                single_KLR = float(line.split("|")[-2].split(" ")[1])
+                single_KGR = float(line.split("|")[-1].split(" ")[1])
+                dom =  line.split("|")[0].split(" ")[-3]
+                KLR[dom].append(single_KLR)
+                KGR[dom].append(single_KGR)
             if 'Task Test' in line:
                 cur_task += 1
             if 'Total Test' in line:
@@ -113,14 +121,21 @@ def print_from_log(exp_name, in_dis, ood_dis, seeds=(1,2,3,4,5)):
         # print(f'Exp:{exp_name} fast_adaptation \t\t\t {np.mean(fast_adaptation):.2f}/{sem(fast_adaptation):.2f}')
         ood_backward = []
         ood_adaptation = []
+        ood_KGR, ood_KLR = [], []
         for i, dom in enumerate(list(backward_transfer.keys())):
             print(f'Exp:{exp_name} {dom} backward_transfer \t\t\t {np.mean(backward_transfer[dom])*100:.2f}/{sem(backward_transfer[dom])*100:.2f}')
             print(f'Exp:{exp_name} {dom} fast_adaptation \t\t\t {np.mean(fast_adapt_dict[dom])*100:.2f}/{sem(fast_adapt_dict[dom])*100:.2f}')
+            print(f'Exp:{exp_name} {dom} KGR \t\t\t {np.mean(KGR[dom])*100:.2f}/{sem(KGR[dom])*100:.2f}')
+            print(f'Exp:{exp_name} {dom} KLR \t\t\t {np.mean(KLR[dom])*100:.2f}/{sem(KLR[dom])*100:.2f}')
             if dom not in in_dis:
                 ood_backward.extend(backward_transfer[dom])
                 ood_adaptation.extend(fast_adapt_dict[dom])
+                ood_KGR.extend(KGR[dom])
+                ood_KLR.extend(KLR[dom])
         print(f'Exp:{exp_name} OOD backward_transfer \t\t\t {np.mean(ood_backward)*100:.2f}/{sem(ood_backward)*100:.2f}')
         print(f'Exp:{exp_name} OOD adpatation \t\t\t {np.mean(ood_adaptation)*100:.2f}/{sem(ood_adaptation)*100:.2f}')
+        print(f'Exp:{exp_name} OOD KGR \t\t\t {np.mean(ood_KGR)*100:.2f}/{sem(ood_KGR)*100:.2f}')
+        print(f'Exp:{exp_name} OOD KLR \t\t\t {np.mean(ood_KLR)*100:.2f}/{sem(ood_KLR)*100:.2f}')
             
                 
                 
