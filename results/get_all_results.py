@@ -125,8 +125,7 @@ def print_from_log(exp_name, in_dis, ood_dis, seeds=(1,2,3,4,5)):
         for i, dom in enumerate(list(backward_transfer.keys())):
             print(f'Exp:{exp_name} {dom} backward_transfer \t\t\t {np.mean(backward_transfer[dom])*100:.2f}/{sem(backward_transfer[dom])*100:.2f}')
             print(f'Exp:{exp_name} {dom} fast_adaptation \t\t\t {np.mean(fast_adapt_dict[dom])*100:.2f}/{sem(fast_adapt_dict[dom])*100:.2f}')
-            print(f'Exp:{exp_name} {dom} KGR \t\t\t {np.mean(KGR[dom]):.2f}/{sem(KGR[dom]):.2f}')
-            print(f'Exp:{exp_name} {dom} KLR \t\t\t {np.mean(KLR[dom]):.2f}/{sem(KLR[dom]):.2f}')
+            print(f'Exp:{exp_name} {dom} forgetting \t\t\t {np.mean(KGR[dom]):.2f}/{sem(KGR[dom]):.2f} / {np.mean(KLR[dom]):.2f}/{sem(KLR[dom]):.2f}')
             if dom not in in_dis:
                 ood_backward.extend(backward_transfer[dom])
                 ood_adaptation.extend(fast_adapt_dict[dom])
@@ -134,8 +133,7 @@ def print_from_log(exp_name, in_dis, ood_dis, seeds=(1,2,3,4,5)):
                 ood_KLR.extend(KLR[dom])
         print(f'Exp:{exp_name} OOD backward_transfer \t\t\t {np.mean(ood_backward)*100:.2f}/{sem(ood_backward)*100:.2f}')
         print(f'Exp:{exp_name} OOD adpatation \t\t\t {np.mean(ood_adaptation)*100:.2f}/{sem(ood_adaptation)*100:.2f}')
-        print(f'Exp:{exp_name} OOD KGR \t\t\t {np.mean(ood_KGR):.2f}/{sem(ood_KGR):.2f}')
-        print(f'Exp:{exp_name} OOD KLR \t\t\t {np.mean(ood_KLR):.2f}/{sem(ood_KLR):.2f}')
+        print(f'Exp:{exp_name} OOD forgetting \t\t\t {np.mean(ood_KGR):.2f}/{sem(ood_KGR):.2f} / {np.mean(ood_KLR):.2f}/{sem(ood_KLR):.2f}')
             
                 
                 
