@@ -19,6 +19,7 @@ from methods.xder_LiDER import XDER_LiDER
 from methods.mgi_dvc import MGI_DVC
 from methods.afec_new import AFEC
 from methods.co2l import CO2L
+from methods.zero_shot_clip import ZeroShotClip
 
 logger = logging.getLogger()
 
@@ -172,6 +173,13 @@ def select_method(args, train_datalist, test_datalist, device):
         )
     elif args.mode == "co2l":
         method = CO2L(
+            train_datalist=train_datalist,
+            test_datalist=test_datalist,
+            device=device,
+            **kwargs,
+        )
+    elif args.mode == "zs_clip":
+        method = ZeroShotClip(
             train_datalist=train_datalist,
             test_datalist=test_datalist,
             device=device,
