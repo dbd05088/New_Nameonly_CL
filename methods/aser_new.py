@@ -235,7 +235,7 @@ class ASER(CLManagerBase):
                 batch_x = total_x[sid: eid]
                 _, batch_deep_features_ = self.model(batch_x, get_feature=True)
                 
-                self.total_flops += (len(batch_x) * self.forward_flops)   
+                # self.total_flops += (len(batch_x) * self.forward_flops)   
                 deep_features_list.append(batch_deep_features_.reshape((batch_x.size(0), -1)))
                 sid = eid
                 
@@ -350,7 +350,7 @@ class ASER(CLManagerBase):
                 loss.backward()
                 self.optimizer.step()
 
-            self.total_flops += (len(y) * (self.forward_flops + self.backward_flops))
+            # self.total_flops += (len(y) * (self.forward_flops + self.backward_flops))
 
             self.after_model_update()
 

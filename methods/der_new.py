@@ -141,7 +141,7 @@ class DER(CLManagerBase):
                 loss.backward()
                 self.optimizer.step()
 
-            self.total_flops += (len(y) * self.backward_flops)
+            # self.total_flops += (len(y) * self.backward_flops)
 
             self.after_model_update()
 
@@ -169,34 +169,34 @@ class DER(CLManagerBase):
                     cls_logit = logit[:-distill_size]
                     cls_loss = lam * criterion(cls_logit, labels_a) + (1 - lam) * criterion(cls_logit, labels_b)
                     
-                    self.total_flops += ((len(cls_logit) * 4) / 10e9)
+                    # self.total_flops += ((len(cls_logit) * 4) / 10e9)
                     
                     loss = cls_loss[:self.temp_batch_size].mean() + alpha * cls_loss[self.temp_batch_size:].mean()
                     
-                    self.total_flops += (len(cls_loss)  / 10e9)
+                    # self.total_flops += (len(cls_loss)  / 10e9)
                     
                     distill_logit = logit[-distill_size:]
                     loss += beta * (mask * (y2 - distill_logit) ** 2).mean()
                     
-                    self.total_flops += ((distill_size * 4) / 10e9)
+                    # self.total_flops += ((distill_size * 4) / 10e9)
             else:
                 with torch.cuda.amp.autocast(self.use_amp):
                     logit = self.model(x)
                     cls_logit = logit[:-distill_size]
                     cls_loss = criterion(cls_logit, y)
                     
-                    self.total_flops += ((distill_size * 2) / 10e9)
+                    # self.total_flops += ((distill_size * 2) / 10e9)
                     
                     loss = cls_loss[:self.temp_batch_size].mean() + alpha * cls_loss[self.temp_batch_size:].mean()
                     
-                    self.total_flops += (len(cls_loss) / 10e9)
+                    # self.total_flops += (len(cls_loss) / 10e9)
                     
                     distill_logit = logit[-distill_size:]
                     loss += beta * (mask * (y2 - distill_logit) ** 2).mean()
                     
-                    self.total_flops += ((distill_size * 4)/10e9)
+                    # self.total_flops += ((distill_size * 4)/10e9)
 
-            self.total_flops += (len(x) * self.forward_flops)
+            # self.total_flops += (len(x) * self.forward_flops)
             return logit, loss
         else:
             return super().model_forward(x, y)
