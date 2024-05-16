@@ -117,6 +117,6 @@
 
 ### cct static 50 prompts (0517)
 gdrive files download 16oYiWLkzeS_ir71x2N5yASiavSp8i_VK
-tar -cf cct_static_cot_50_filtered.tar
+tar -xf cct_static_cot_50_filtered.tar
 mv cct_static_cot_50_filtered cct/
 rm cct_static_cot_50_filtered.tar
