@@ -30,7 +30,7 @@ exp_type_list = []
 exp_list = sorted([dir + '/' + exp for exp in os.listdir(dir)])
 for exp in exp_list:
     for exp_type in os.listdir(exp):
-        if os.path.isdir(os.path.join(exp, exp_type)) and "rebuttal3" in os.path.join(exp, exp_type):
+        if os.path.isdir(os.path.join(exp, exp_type)) and "rebuttal" in os.path.join(exp, exp_type):
             exp_type_list.append(os.path.join(exp, exp_type))
 
 
