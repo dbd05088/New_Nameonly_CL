@@ -320,7 +320,47 @@
 # rm PACS_final_sdxl_diversified_new.tar
 # rm PACS_final_sdxl_diversified_new_filtered.tar
 
-gdrive files download 1VH69J_570FfhJi3qKGYWx162UPFC2t4X
-tar -xf PACS_final_sdxl_clip_50prompts.tar
-mv PACS_final_sdxl_clip_50prompts.tar PACS_final
-rm PACS_final_sdxl_clip_50prompts.tar
+# gdrive files download 1VH69J_570FfhJi3qKGYWx162UPFC2t4X
+# tar -xf PACS_final_sdxl_clip_50prompts.tar
+# mv PACS_final_sdxl_clip_50prompts.tar PACS_final
+# rm PACS_final_sdxl_clip_50prompts.tar
+
+# gdrive files download 1WTLnVhYHi_Fga8dao-E-PonrBRcDwQOn
+# gdrive files download 10wCuJT6HIIJ2gsqcr8VQ2ke3Hm0cMbk7
+# gdrive files download 1IBcdwMpNNBbPK8uFrcK4VOttepwFGLID
+# gdrive files download 1V0ixFCi_pc-SEThjAydDZ91hTKIE1kvx
+# tar -xf PACS_final_static_50prompts.tar
+# tar -xf PACS_final_static_50prompts_filtered.tar
+# tar -xf PACS_final_dynamic_50prompts.tar
+# tar -xf PACS_final_dynamic_50prompts_filtered.tar
+# mv PACS_final_static_50prompts PACS_final/
+# mv PACS_final_static_50prompts_filtered PACS_final/
+# mv PACS_final_dynamic_50prompts PACS_final/
+# mv PACS_final_dynamic_50prompts_filtered PACS_final/
+# rm PACS_final_static_50prompts.tar
+# rm PACS_final_static_50prompts_filtered.tar
+# rm PACS_final_dynamic_50prompts.tar
+# rm PACS_final_dynamic_50prompts_filtered.tar
+
+# gdrive files download 1r1wx9fuSBKPrR2SLJKrWy-D2sQSLPcJq
+# tar -xf PACS_final_clip_50prompts_filtered.tar
+# mv PACS_final_clip_50prompts_filtered PACS_final/
+# rm PACS_final_clip_50prompts_filtered.tar
+
+# gdrive files download 1a4hnM7ODVE85IfpzROF_h1MEmRXSQ_Y_
+# gdrive files download 1FUysw1aotHM9UNx2Llsvgfm7flv-zmo4
+# tar -xf PACS_final_static_without_cot.tar
+# tar -xf PACS_final_static_without_cot_filtered.tar
+# mv PACS_final_static_without_cot PACS_final/
+# mv PACS_final_static_without_cot_filtered PACS_final/
+# rm PACS_final_static_without_cot.tar
+# rm PACS_final_static_without_cot_filtered.tar
+
+gdrive files download 1YQhtzeDSNDjX7mmOQ7jvVsa1zDS3TRXF
+gdrive files download 1iUvzO4AU1fJxFRZmMKC223bcKY-Iq-8n
+tar -xf PACS_final_static_clip_100_50.tar
+tar -xf PACS_final_static_clip_100_50_filtered.tar
+mv PACS_final_static_clip_100_50 PACS_final/
+mv PACS_final_static_clip_100_50_filtered PACS_final/
+rm PACS_final_static_clip_100_50.tar
+rm PACS_final_static_clip_100_50_filtered.tar

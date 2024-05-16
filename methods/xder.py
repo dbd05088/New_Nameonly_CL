@@ -33,7 +33,7 @@ class XDER(DER):
         self.simclr_lss = SupConLoss(temperature=5, base_temperature=5, reduction='sum')
         self.gpu_augmentation = strong_aug(inp_size, self.mean, self.std)
         self.simclr_temp = 5
-        self.simclr_batch_size = 1
+        self.simclr_batch_size = 64
         self.gamma = 0.85
             
         self.m = 0.2
@@ -287,7 +287,8 @@ class XDER(DER):
             dataset=self.dataset,
             transform=self.test_transform,
             cls_list=next_task_cls,
-            data_dir=self.data_dir
+            data_dir=self.data_dir,
+            learned_classes=self.num_learned_class
         )
         test_loader = DataLoader(
             test_dataset,
@@ -314,7 +315,8 @@ class XDER(DER):
                 transform=self.test_transform,
                 cls_list=next_task_cls,
                 data_dir=self.data_dir,
-                augmentation=self.train_transform
+                augmentation=self.train_transform,
+                learned_classes=self.num_learned_class
             )
             train_loader = DataLoader(
                 train_dataset,
@@ -335,8 +337,8 @@ class XDER(DER):
                     y = data["label"].to(self.device)
                     x = transforms.Normalize(self.mean, self.std)(x)
                     with torch.cuda.amp.autocast(self.use_amp):
-                        logit = self.fast_model(x)[:, :self.num_learned_class]
-                        loss = self.criterion(logit, y[:, :self.num_learned_class])
+                        logit = self.fast_model(x)[:, ]
+                        loss = self.criterion(logit, y)
                 
                     _, preds = logit.topk(self.topk, 1, True, True)
 
