@@ -136,3 +136,14 @@ tensorboard/
 dataset/*.tar
 dataset/DomainNet/
 nohup.out
+nameonly/datasets
+nameonly/datasets/generated_datasets
+nameonly/datasets/logs
+nameonly/crawling/urls
+nameonly/backup/datasets
+nameonly/generate_twostage/DomainNet_static_cot_50_cogview2
+nameonly/raw_datasets
+nameonly/PACS_final_for_rmd_check
+nameonly/vis
+nameonly/RMD_scores
+check

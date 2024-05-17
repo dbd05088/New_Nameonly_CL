@@ -1,0 +1,264 @@
+{
+    "metaprompts": [
+        {
+            "index": 0,
+            "metaprompt": "A photo of a [concept].",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A serene photo of a [concept]."
+                },
+                {
+                    "index": 1,
+                    "content": "A dramatic photo of an Abandoned [concept]."
+                },
+                {
+                    "index": 2,
+                    "content": "A vibrant photo of a [concept]."
+                },
+                {
+                    "index": 3,
+                    "content": "A warm photo of a [concept]."
+                },
+                {
+                    "index": 4,
+                    "content": "A moody photo of a [concept]."
+                }
+            ]
+        },
+        {
+            "index": 1,
+            "metaprompt": "A photo of [concept] in neutral tones",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A minimalist illustration of [concept] on a wooden floor."
+                },
+                {
+                    "index": 1,
+                    "content": "A subtle painting of [concept] amidst lush greenery."
+                },
+                {
+                    "index": 2,
+                    "content": "A serene photograph of [concept] in a cozy reading nook."
+                },
+                {
+                    "index": 3,
+                    "content": "A soft sketch of [concept] against a muted background."
+                },
+                {
+                    "index": 4,
+                    "content": "A delicate drawing of [concept] on a rustic tablecloth."
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "metaprompt": "A watercolor illustration of [concept].",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A whimsical, hand-drawn illustration of [concept]."
+                },
+                {
+                    "index": 1,
+                    "content": "A dreamy, digitally-painted portrait of [concept]."
+                },
+                {
+                    "index": 2,
+                    "content": "A vintage, ink-washed scene of [concept]."
+                },
+                {
+                    "index": 3,
+                    "content": "A warm, textured sketch of [concept]."
+                },
+                {
+                    "index": 4,
+                    "content": "A soft-focus, charcoal-drawn landscape of [concept]."
+                }
+            ]
+        },
+        {
+            "index": 3,
+            "metaprompt": "A minimalist line drawing of [concept].",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A whimsical illustration of [concept]."
+                },
+                {
+                    "index": 1,
+                    "content": "A vibrant cartoon of a futuristic [concept]."
+                },
+                {
+                    "index": 2,
+                    "content": "A warm, watercolor-inspired depiction of [concept]."
+                },
+                {
+                    "index": 3,
+                    "content": "A delicate, hand-painted rendering of [concept]."
+                },
+                {
+                    "index": 4,
+                    "content": "A dreamy, ethereal depiction of [concept]."
+                }
+            ]
+        },
+        {
+            "index": 4,
+            "metaprompt": "A digital painting of [concept] with textures.",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A whimsical illustration of [concept] amidst vibrant, swirling clouds."
+                },
+                {
+                    "index": 1,
+                    "content": "A mystical portrait of [concept] surrounded by wispy moonlit fog."
+                },
+                {
+                    "index": 2,
+                    "content": "A dreamy depiction of [concept] nestled within a tapestry of twinkling stars."
+                },
+                {
+                    "index": 3,
+                    "content": "A surreal landscape featuring [concept] amidst a tapestry of shimmering aurora borealis."
+                },
+                {
+                    "index": 4,
+                    "content": "A serene illustration of [concept] amidst undulating oceanic ripples."
+                }
+            ]
+        },
+        {
+            "index": 5,
+            "metaprompt": "A sculpture of [concept] in metallic finish.",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A watercolor painting of [concept] surrounded by lush greenery."
+                },
+                {
+                    "index": 1,
+                    "content": "A stained glass window depicting [concept] against a starry night sky."
+                },
+                {
+                    "index": 2,
+                    "content": "A hand-blown glass sculpture of [concept] with intricate silver filigree details."
+                },
+                {
+                    "index": 3,
+                    "content": "A wooden carving of [concept] on a weathered driftwood base."
+                },
+                {
+                    "index": 4,
+                    "content": "A bronze figurine of [concept] set against a subtle cityscape background."
+                }
+            ]
+        },
+        {
+            "index": 6,
+            "metaprompt": "A hand-drawn sketch of [concept].",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A whimsical illustration of a [concept] in a vintage, distressed setting."
+                },
+                {
+                    "index": 1,
+                    "content": "A fantastical depiction of [concept] amidst a swirl of misty moonlight."
+                },
+                {
+                    "index": 2,
+                    "content": "A dreamy portrait of [concept] amidst a tapestry of shimmering stars."
+                },
+                {
+                    "index": 3,
+                    "content": "A mystical map of [concept] etched on ancient parchment."
+                },
+                {
+                    "index": 4,
+                    "content": "A delicate watercolor of [concept] surrounded by wispy tendrils of fog."
+                }
+            ]
+        },
+        {
+            "index": 7,
+            "metaprompt": "A collage of [concept] in vintage paper textures.",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A whimsical illustration of [concept] amidst ancient book pages."
+                },
+                {
+                    "index": 1,
+                    "content": "A fantastical cityscape of [concept] within vintage travel posters."
+                },
+                {
+                    "index": 2,
+                    "content": "A mystical mandala of [concept] set amidst worn, ornate tapestries."
+                },
+                {
+                    "index": 3,
+                    "content": "A dreamy tableau of [concept] on intricately patterned antique ceramics."
+                },
+                {
+                    "index": 4,
+                    "content": "A surreal landscape of [concept] amidst antique topographic maps."
+                }
+            ]
+        },
+        {
+            "index": 8,
+            "metaprompt": "A neon-lit cityscape with [concept].",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A serene forest glade with [concept]."
+                },
+                {
+                    "index": 1,
+                    "content": "A vintage-inspired train station with [concept]."
+                },
+                {
+                    "index": 2,
+                    "content": "A futuristic underwater research facility with [concept]."
+                },
+                {
+                    "index": 3,
+                    "content": "A mystical, moonlit library with [concept]."
+                },
+                {
+                    "index": 4,
+                    "content": "A cozy, rustic bakery shop with [concept]."
+                }
+            ]
+        },
+        {
+            "index": 9,
+            "metaprompt": "A stained glass depiction of [concept].",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A whimsical illustration of [concept]."
+                },
+                {
+                    "index": 1,
+                    "content": "A vibrant mosaic portrait of [concept]."
+                },
+                {
+                    "index": 2,
+                    "content": "A luminous enamel painting of [concept]."
+                },
+                {
+                    "index": 3,
+                    "content": "A dreamy watercolor depiction of [concept]."
+                },
+                {
+                    "index": 4,
+                    "content": "A textured terracotta sculpture of [concept]."
+                }
+            ]
+        }
+    ]
+}
