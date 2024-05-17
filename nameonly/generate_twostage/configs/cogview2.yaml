@@ -1,0 +1,22 @@
+dataset: DomainNet
+image_dir: ./DomainNet_static_cot_50_cogview2
+generative_model: cogview2
+
+start_class: 110
+end_class: 119
+debug: False
+
+api_key: none # For Dalle2
+
+# prompt_dir: './prompts/clip_filtered_prompts.json'
+prompt_dir: '../prompt_generation/prompts/gpt_static_totalprompts_with_cot_50_with_cls_DomainNet.json'
+num_samples_path: none # txt file to run conveniently
+
+
+# If you want to manually set the number of samples of each class...
+increase_ratio: 1.2 # MA * increase_ratio
+# resume_prompt_idx: 1
+# num_samples_per_cls: 5 # Fix the number of samples per cls
+# num_samples:
+#   person: 100
+#   horse: 100

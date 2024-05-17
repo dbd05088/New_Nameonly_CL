@@ -1,0 +1,27 @@
+static: A photo of [concept] 로 생성
+dynamic: class name을 GPT에게 줌
+
+clip_filtered_prompts.json: static 50개 + dynamic 50개 한 뒤 top 50개만 뽑은 것
+
+처음에 dynamic만 썼을 때 망했다.
+static + dynamic -> filtering은 나름 괜찮았다.
+static 50은 나름 괜찮았다.
+
+이제 비교를 한다고, static 100에서 50개만 filtering한걸 돌려달라고 한다. (dynamic은 어차피 별로니까 그런듯?)
+
+gpt_static_totalprompts.json: CoT 하고 50개 생성한 것
+gpt_static_totalprompts_no_cot.json: static에서 CoT 안하고 그냥 50개 생성한 것 (static with CoT와 비교하기 위함)
+
+
+# Static 100개를 만든 후 50개를 생성해서 비교하기 위해서 새로운 실험
+./prompts/gpt_static_totalprompts_with_cot_100.json: static 100개를 cot 써서 만든 것
+
+./prompts/gpt_static_totalprompts_with_cot_100_with_cls_filtered_50.json: 100개에서 50개를 CLIP filtering해서 삭제한 것
+
+./prompts/gpt_static_totalprompts_with_cot_50: 가장 잘 나온 stastic totalprompt + cot로 50개 생성한 것
+
+
+# 0516 CoT + static prompt 50개가 가장 잘 되는 것으로 나옴. 따라서 without_cot, dynamic, mix 모두 유기
+# 이제는 static prompt 50개에서 GPT-4, Geminai, Llama3를 비교해야 함.
+
+# 0516 CaFo인가 거기에서 3개의 prompt를 주고, 그걸 바탕으로 diversify하는 method가 있음. 그거 구현해야 함.

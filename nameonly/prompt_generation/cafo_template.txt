@@ -1,0 +1,18 @@
+squirrel done
+skunk done
+rabbit done
+rodent done
+car done
+raccoon done
+bobcat done
+coyote done
+cat done
+opossum done
+bird done
+dog
+
+I need to create a prompt for generating images using a text-to-image model. The subject of the image is 'dog'. Please generate 17 answers starting with "A dog" to the following question: "What does a dog look like?" A good example for 'dog' could be "A dog typically has four legs, a tail, and pointy ears.".
+
+I need to create a prompt for generating images using a text-to-image model. The subject of the image is 'dog'. Please generate 17 answers starting with "A dog" to the following question: "How can you identify a dog?" A good example for 'dog' could be "A dog typically has four legs, a tail, and pointy ears.".
+
+I need to create a prompt for generating images using a text-to-image model. The subject of the image is 'dog'. Please generate 16 answers starting with "A dog" to the following question: "A caption of an image of a dog" A good example for 'dog' could be "A running furry dog.".
