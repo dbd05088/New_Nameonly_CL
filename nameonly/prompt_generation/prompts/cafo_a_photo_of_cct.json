@@ -1,0 +1,170 @@
+{
+    "squirrel": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "A photo of a squirrel.",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A photo of a squirrel."
+                    }
+                ]
+            }
+        ]
+    },
+    "skunk": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "A photo of a skunk.",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A photo of a skunk."
+                    }
+                ]
+            }
+        ]
+    },
+    "rabbit": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "A photo of a rabbit.",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A photo of a rabbit."
+                    }
+                ]
+            }
+        ]
+    },
+    "rodent": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "A photo of a rodent.",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A photo of a rodent."
+                    }
+                ]
+            }
+        ]
+    },
+    "car": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "A photo of a car.",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A photo of a car."
+                    }
+                ]
+            }
+        ]
+    },
+    "raccoon": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "A photo of a raccoon.",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A photo of a raccoon."
+                    }
+                ]
+            }
+        ]
+    },
+    "bobcat": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "A photo of a bobcat.",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A photo of a bobcat."
+                    }
+                ]
+            }
+        ]
+    },
+    "coyote": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "A photo of a coyote.",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A photo of a coyote."
+                    }
+                ]
+            }
+        ]
+    },
+    "cat": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "A photo of a cat.",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A photo of a cat."
+                    }
+                ]
+            }
+        ]
+    },
+    "opossum": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "A photo of a opossum.",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A photo of a opossum."
+                    }
+                ]
+            }
+        ]
+    },
+    "bird": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "A photo of a bird.",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A photo of a bird."
+                    }
+                ]
+            }
+        ]
+    },
+    "dog": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "A photo of a dog.",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A photo of a dog."
+                    }
+                ]
+            }
+        ]
+    }
+}

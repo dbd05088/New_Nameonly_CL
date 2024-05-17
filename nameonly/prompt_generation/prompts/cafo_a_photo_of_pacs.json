@@ -1,0 +1,100 @@
+{
+    "horse": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "A photo of a horse.",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A photo of a horse."
+                    }
+                ]
+            }
+        ]
+    },
+    "elephant": {
+        "metaprompts": [
+            {
+                "index": 1,
+                "metaprompt": "A photo of a elephant.",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A photo of a elephant."
+                    }
+                ]
+            }
+        ]
+    },
+    "person": {
+        "metaprompts": [
+            {
+                "index": 2,
+                "metaprompt": "A photo of a person.",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A photo of a person."
+                    }
+                ]
+            }
+        ]
+    },
+    "dog": {
+        "metaprompts": [
+            {
+                "index": 3,
+                "metaprompt": "A photo of a dog.",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A photo of a dog."
+                    }
+                ]
+            }
+        ]
+    },
+    "guitar": {
+        "metaprompts": [
+            {
+                "index": 4,
+                "metaprompt": "A photo of a guitar.",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A photo of a guitar."
+                    }
+                ]
+            }
+        ]
+    },
+    "giraffe": {
+        "metaprompts": [
+            {
+                "index": 5,
+                "metaprompt": "A photo of a giraffe.",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A photo of a giraffe."
+                    }
+                ]
+            }
+        ]
+    },
+    "house": {
+        "metaprompts": [
+            {
+                "index": 6,
+                "metaprompt": "A photo of a house.",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A photo of a house."
+                    }
+                ]
+            }
+        ]
+    }
+}
