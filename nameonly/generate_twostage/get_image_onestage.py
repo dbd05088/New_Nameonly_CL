@@ -9,6 +9,7 @@ import requests
 import yaml
 import json
 from PIL import Image
+from classes import *
 from diffusers import DiffusionPipeline
 # from kandinsky2 import get_kandinsky2
 from io import BytesIO
@@ -77,18 +78,18 @@ class FloydGenerator(ImageGenerator):
     def load_model(self):
         print(f"Loading Floyd model - stage 1")
         stage_1 = DiffusionPipeline.from_pretrained("DeepFloyd/IF-I-XL-v1.0", variant="fp16", torch_dtype=torch.float16)
-        stage_1.enable_xformers_memory_efficient_attention() # remove line if torch.__version__ >= 2.0.0
+        # stage_1.enable_xformers_memory_efficient_attention() # remove line if torch.__version__ >= 2.0.0
         stage_1.enable_model_cpu_offload()
         
         print(f"Loading Floyd model - stage 2")
         stage_2 = DiffusionPipeline.from_pretrained("DeepFloyd/IF-II-L-v1.0", text_encoder=None, variant="fp16", torch_dtype=torch.float16)
-        stage_2.enable_xformers_memory_efficient_attention() # remove line if torch.__version__ >= 2.0.0
+        # stage_2.enable_xformers_memory_efficient_attention() # remove line if torch.__version__ >= 2.0.0
         stage_2.enable_model_cpu_offload()
 
         print(f"Loading Floyd model - stage 3")
         safety_modules = {"feature_extractor": stage_1.feature_extractor, "safety_checker": stage_1.safety_checker, "watermarker": stage_1.watermarker}
         stage_3 = DiffusionPipeline.from_pretrained("stabilityai/stable-diffusion-x4-upscaler", **safety_modules, torch_dtype=torch.float16)
-        stage_3.enable_xformers_memory_efficient_attention() # remove line if torch.__version__ >= 2.0.0
+        # stage_3.enable_xformers_memory_efficient_attention() # remove line if torch.__version__ >= 2.0.0
         stage_3.enable_model_cpu_offload()
 
         self.stage_1 = stage_1; self.stage_2 = stage_2; self.stage_3 = stage_3
@@ -279,8 +280,9 @@ if __name__ == "__main__":
     debug = config['debug']
 
     # Load dataset dictionary
-    with open("dataset_dict.pkl", mode='rb') as f:
-        sample_num_dict = pickle.load(f)[config['dataset']]
+    # with open("dataset_dict.pkl", mode='rb') as f:
+    #     sample_num_dict = pickle.load(f)[config['dataset']]
+    sample_num_dict = count_dict[config['dataset']]
     classes = list(sample_num_dict.keys())
     if config.get('end_class'):
         classes = classes[config['start_class']:config['end_class'] + 1]
