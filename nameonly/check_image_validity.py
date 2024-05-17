@@ -16,9 +16,9 @@ def check_class_names(directory_path, class_names_dict):
         if cls not in class_names_dict.keys():
             print(f"Class {cls} not found in class names dictionary.")
             raise ValueError(f"Class {cls} not found in class names dictionary.")
-
+    print(set(class_names_dict.keys()) - set(class_names))
     assert len(class_names) == len(class_names_dict.keys()), "Number of classes in directory does not match number of classes in class names dictionary."
-
+    
 def check_image_size(image_path, size):
     image = cv2.imread(image_path)
     if image.shape[:2] != size:
@@ -60,7 +60,7 @@ dataset_mapping = {'DomainNet': DomainNet_count, 'officehome': officehome_count,
                    'food101': food101_count, 'cct': cct_count, 'pacs_sdxl': pacs_sdxl_count, 
                    'pacs_dalle2': pacs_dalle2_count, 'pacs_deepfloyd': pacs_deepfloyd_count,
                    'pacs_cogview2': pacs_cogview2_count, 'pacs_sdxl_new': pacs_sdxl_new_count,
-                   'pacs_dalle2_new': pacs_dalle2_new_count}
+                   'pacs_dalle2_new': pacs_dalle2_new_count, 'NICO': NICO_count}
 
 class_names_dict = dataset_mapping[args.dataset]
 

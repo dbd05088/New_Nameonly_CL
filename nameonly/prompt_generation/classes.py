@@ -51,5 +51,5 @@ pacs_cogview2_count = {'horse': 2, 'elephant': 4, 'person': 6, 'dog': 4, 'guitar
 
 pacs_sdxl_new_count = {'horse': 91, 'elephant': 92, 'person': 197, 'dog': 86, 'guitar': 85, 'giraffe': 83, 'house': 128}
 pacs_dalle2_new_count = {'horse': 68, 'elephant': 69, 'person': 148, 'dog': 65, 'guitar': 63, 'giraffe': 62, 'house': 96}
-
-count_dict = {'PACS': PACS_count, 'DomainNet': DomainNet_count, 'cifar10': cifar10_count, 'cct': cct_count}
+NICO_count = {'giraffe': 0, 'motorcycle': 0, 'clock': 0, 'hot air balloon': 0, 'pumpkin': 0, 'lion': 0, 'car': 0, 'helicopter': 0, 'fox': 0, 'tiger': 0, 'umbrella': 0, 'squirrel': 0, 'dog': 0, 'cow': 0, 'fishing rod': 0, 'frog': 0, 'gun': 0, 'goose': 0, 'bird': 0, 'ship': 0, 'airplane': 0, 'owl': 0, 'bear': 0, 'tortoise': 0, 'butterfly': 0, 'tent': 0, 'bus': 0, 'train': 0, 'cat': 0, 'monkey': 0, 'lizard': 0, 'hat': 0, 'sheep': 0, 'sailboat': 0, 'wolf': 0, 'flower': 0, 'wheat': 0, 'rabbit': 0, 'truck': 0, 'spider': 0, 'bicycle': 0, 'sunflower': 0, 'chair': 0, 'mailbox': 0, 'crab': 0, 'seal': 0, 'scooter': 0, 'corn': 0, 'horse': 0, 'cactus': 0, 'elephant': 0, 'racket': 0, 'crocodile': 0, 'kangaroo': 0, 'dolphin': 0, 'football': 0, 'pineapple': 0, 'ostrich': 0, 'shrimp': 0, 'lifeboat': 0}
+count_dict = {'PACS': PACS_count, 'DomainNet': DomainNet_count, 'cifar10': cifar10_count, 'cct': cct_count, 'NICO':NICO_count}
