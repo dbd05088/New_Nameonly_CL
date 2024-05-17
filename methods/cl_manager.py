@@ -493,7 +493,7 @@ class CLManagerBase:
                 x = x.to(self.device)
                 y = y.to(self.device)
                 logit = self.fast_model(x)
-
+                print("fast labels", y)
                 loss = criterion(logit, y)
                 pred = torch.argmax(logit, dim=-1)
                 _, preds = logit.topk(self.topk, 1, True, True)
@@ -592,6 +592,7 @@ class CLManagerBase:
             prev_weight = copy.deepcopy(model_fc.weight.data)
             prev_bias = copy.deepcopy(model_fc.bias.data)
             setattr(self.fast_model, fc_name, nn.Linear(model_fc.in_features, self.cls_per_task[self.cur_task+1]).to(self.device))
+            print("new fc", self.cls_per_task[self.cur_task+1])
             model_fc = getattr(self.fast_model, fc_name)
             with torch.no_grad():
                 model_fc.weight[:self.num_learned_class] = prev_weight
@@ -604,6 +605,7 @@ class CLManagerBase:
                 for i, data in enumerate(train_loader):
                     x = data["image"].to(self.device)
                     y = data["label"].to(self.device)
+
                     with torch.cuda.amp.autocast(self.use_amp):
                         logit = self.fast_model(x)
                         loss = self.criterion(logit, y)
