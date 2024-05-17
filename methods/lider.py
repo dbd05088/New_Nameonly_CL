@@ -5,12 +5,13 @@ import numpy as np
 
 # [참고] lip은 lipschitz를 의미합니다.
 class LiDER:
-    def __init__(self, model, device, forward_flops, backward_flops):
+    # def __init__(self, model, device, forward_flops, backward_flops):
+    def __init__(self, model, device):
         self.all_lips = []
         self.model = model
         self.device = device
-        self.forward_flops = forward_flops
-        self.backward_flops = backward_flops
+        # self.forward_flops = forward_flops
+        # self.backward_flops = backward_flops
         self.total_flops = 0
         self.alpha = .3
         self.beta = .1
@@ -19,7 +20,7 @@ class LiDER:
     def update_lip_values(self, stream_x, stream_y):
         self.model.eval()
         _, stream_features = self.model(stream_x, get_features=True, include_out_for_features=True)
-        self.total_flops += len(stream_x) * self.forward_flops
+        # self.total_flops += len(stream_x) * self.forward_flops
         lip_inputs = [stream_x] + stream_features[:-1]
 
         lip_values = self.get_feature_lip_coeffs(lip_inputs)
@@ -98,7 +99,7 @@ class LiDER:
         fm2 = fm2.view(fm2.size(0), fm2.size(1), -1).transpose(1, 2)
         b, n, p = fm1.shape
         b, p, m = fm2.shape
-        self.total_flops += (b*n*m*(2*p-1)) / 10e9
+        # self.total_flops += (b*n*m*(2*p-1)) / 10e9
         fsp = torch.bmm(fm1, fm2) / fm1.size(2)
         return fsp
 
@@ -107,7 +108,7 @@ class LiDER:
         # nm(2p−1)
         transition_matrix = self.transmitting_matrix(front, latter)
         b, n, p = transition_matrix.shape
-        self.total_flops += (b * n*n * (2*p-1)) / 10e9
+        # self.total_flops += (b * n*n * (2*p-1)) / 10e9
         return torch.bmm(transition_matrix, transition_matrix.transpose(2,1))
 
     # getting top eigenvalue of transition matrix
@@ -117,7 +118,7 @@ class LiDER:
         v = torch.rand(transition_matrix.shape[0], transition_matrix.shape[1], 1).to(transition_matrix.device, dtype=transition_matrix.dtype)
         for itt in range(n_power_iterations):
             with torch.set_grad_enabled(itt>=start_grad_it):
-                self.total_flops += (transition_matrix.shape[0] * transition_matrix.shape[1] * v.shape[2] * (2*transition_matrix.shape[2] - 1)) / 10e9
+                # self.total_flops += (transition_matrix.shape[0] * transition_matrix.shape[1] * v.shape[2] * (2*transition_matrix.shape[2] - 1)) / 10e9
                 m = torch.bmm(transition_matrix, v)
                 n = (torch.norm(m, dim=1).unsqueeze(1) + torch.finfo(torch.float32).eps)
                 v = m / n
@@ -140,7 +141,7 @@ class LiDER:
     def get_layer_lip_coeffs(self, features_a: torch.Tensor, features_b: torch.Tensor) -> torch.Tensor:
         features_a, features_b = features_a.double(), features_b.double()
         features_a, features_b = features_a / self.get_norm(features_a), features_b / self.get_norm(features_b)
-        self.total_flops += (features_a.shape.numel() + features_b.shape.numel()) / 10e9
+        # self.total_flops += (features_a.shape.numel() + features_b.shape.numel()) / 10e9
 
         transition_matrix = self.compute_transition_matrix(features_a, features_b)
         top_eigenvalue = self.top_eigenvalue(transition_matrix=transition_matrix)

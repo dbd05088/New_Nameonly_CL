@@ -27,7 +27,8 @@ writer = SummaryWriter("tensorboard")
 class XDER_LiDER(XDER):
     def __init__(self, train_datalist, test_datalist, device, **kwargs):
         super().__init__(train_datalist, test_datalist, device, **kwargs)
-        self.lider = LiDER(self.model, device, self.forward_flops, self.backward_flops)
+        # self.lider = LiDER(self.model, device, self.forward_flops, self.backward_flops)
+        self.lider = LiDER(self.model, device)
         print("XDER LiDER")
 
     def online_before_task(self, cur_iter):
@@ -83,7 +84,7 @@ class XDER_LiDER(XDER):
                 loss.backward()
                 self.optimizer.step()
 
-            self.total_flops += (len(y) * self.backward_flops)
+            # self.total_flops += (len(y) * self.backward_flops)
 
             self.after_model_update()
 
@@ -116,7 +117,7 @@ class XDER_LiDER(XDER):
                 return_logit = logit[:-len(y2)].detach().cpu()
             else:
                 return_logit = logit.detach().cpu()
-            self.total_flops += self.lider.total_flops
+            # self.total_flops += self.lider.total_flops
             self.lider.total_flops = 0
         return total_loss / iterations, correct / num_data, return_logit
 
@@ -139,27 +140,27 @@ class XDER_LiDER(XDER):
                     logit, features = self.model(x, get_features=True, get_features_detach=False, detached=False, include_out_for_features=True)
                     cls_logit = logit[:-distill_size]
                     cls_loss = lam * criterion(cls_logit, labels_a) + (1 - lam) * criterion(cls_logit, labels_b)
-                    self.total_flops += ((len(cls_logit) * 4) / 10e9)
+                    # self.total_flops += ((len(cls_logit) * 4) / 10e9)
                     
                     loss = cls_loss[:self.temp_batch_size].mean() + alpha * cls_loss[self.temp_batch_size:].mean()
-                    self.total_flops += (len(cls_loss)  / 10e9)
+                    # self.total_flops += (len(cls_loss)  / 10e9)
                     
                     distill_logit = logit[-distill_size:]
                     loss += beta * (mask * (y2 - distill_logit) ** 2).mean()
-                    self.total_flops += ((distill_size * 4) / 10e9)
+                    # self.total_flops += ((distill_size * 4) / 10e9)
             else:
                 with torch.cuda.amp.autocast(self.use_amp):
                     logit, features = self.model(x, get_features=True, get_features_detach=False, detached=False, include_out_for_features=True)
                     cls_logit = logit[:-distill_size]
                     cls_loss = criterion(cls_logit, y)
-                    self.total_flops += ((distill_size * 2) / 10e9)
+                    # self.total_flops += ((distill_size * 2) / 10e9)
                     loss = cls_loss[:self.temp_batch_size].mean() + alpha * cls_loss[self.temp_batch_size:].mean()
-                    self.total_flops += (len(cls_loss) / 10e9)
+                    # self.total_flops += (len(cls_loss) / 10e9)
                     distill_logit = logit[-distill_size:]
                     loss += beta * (mask * (y2 - distill_logit) ** 2).mean()
-                    self.total_flops += ((distill_size * 4)/10e9)
+                    # self.total_flops += ((distill_size * 4)/10e9)
 
-            self.total_flops += (len(y) * self.forward_flops)
+            # self.total_flops += (len(y) * self.forward_flops)
             
             if len(x) > self.temp_batch_size and self.task_id > 0:
                 input = x[self.temp_batch_size:]
@@ -193,5 +194,5 @@ class XDER_LiDER(XDER):
                     logit = self.model(x)
                     loss = self.criterion(logit, y)
 
-            self.total_flops += (len(y) * self.forward_flops)
+            # self.total_flops += (len(y) * self.forward_flops)
             return logit, loss
