@@ -19,7 +19,19 @@ for i in range(num_classes):
     cls_name = text_file[cls_index]
     print(f"Class: {cls_name}, prompt_start: {prompt_start_idx}, prompt_end: {prompt_end_idx}")
     prompts_list = text_file[prompt_start_idx:prompt_end_idx + 1]
-    json_dict[cls_name] = prompts_list
+
+    json_dict[cls_name] = {
+        'metaprompts': [
+                {
+                    'index': 0,
+                    'metaprompt': 'dummy',
+                    'prompts': []
+                }
+            ]
+    }
+    
+    for j, prompt in enumerate(prompts_list):
+        json_dict[cls_name]['metaprompts'][0]['prompts'].append({'index': j, 'content': prompt})
 
 with open(json_path, 'w') as f:
     json.dump(json_dict, f)

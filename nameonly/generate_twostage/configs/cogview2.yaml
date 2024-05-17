@@ -2,8 +2,8 @@ dataset: DomainNet
 image_dir: ./generated_datasets/DomainNet_static_cot_50_cogview2
 generative_model: cogview2
 
-start_class: 160
-end_class: 169
+start_class: 290
+end_class: 309
 debug: False
 
 api_key: none # For Dalle2

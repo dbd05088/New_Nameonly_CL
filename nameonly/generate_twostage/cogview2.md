@@ -17,4 +17,4 @@ python setup.py install
 # If error (cusolverDn.h) occurs, please include PATH to cuda and run again
 export PATH=/usr/local/cuda/bin:$PATH
 
-MASTER_PORT=12345 CUDA_VISIBLE_DEVICES=0 python get_image_onestage.py --config_path ./configs/cogview2.yaml > logs/cogview2_30_39.log 2>&1 &
+MASTER_PORT=12145 CUDA_VISIBLE_DEVICES=0 python get_image_onestage.py --config_path ./configs/cogview2.yaml > logs/cogview2_30_39.log 2>&1 &
