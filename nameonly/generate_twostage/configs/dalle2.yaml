@@ -1,5 +1,5 @@
 dataset: cct
-image_dir: ./CCT_cafo
+image_dir: ./generated_datasets/CCT_cafo
 generative_model: dalle2
 
 # start_class: 0

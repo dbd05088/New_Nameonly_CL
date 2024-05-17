@@ -1,9 +1,9 @@
 dataset: DomainNet
-image_dir: ./DomainNet_static_cot_50_cogview2
+image_dir: ./generated_datasets/DomainNet_static_cot_50_cogview2
 generative_model: cogview2
 
-start_class: 110
-end_class: 119
+start_class: 160
+end_class: 169
 debug: False
 
 api_key: none # For Dalle2
@@ -14,7 +14,7 @@ num_samples_path: none # txt file to run conveniently
 
 
 # If you want to manually set the number of samples of each class...
-increase_ratio: 1.2 # MA * increase_ratio
+increase_ratio: 0.6 # MA * increase_ratio
 # resume_prompt_idx: 1
 # num_samples_per_cls: 5 # Fix the number of samples per cls
 # num_samples:
