@@ -1,5 +1,5 @@
 dataset: PACS
-image_dir: ./PACS_static_gemini_cot_50
+image_dir: ./generated_datasets/PACS_static_gemini_cot_50
 generative_model: SDXL
 
 start_class: 3

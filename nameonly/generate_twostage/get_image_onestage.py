@@ -285,6 +285,7 @@ if __name__ == "__main__":
     if config.get('end_class'):
         classes = classes[config['start_class']:config['end_class'] + 1]
         print(f"Set classes to {classes}")
+        print(f"Class indices: {config['start_class']} ~ {config['end_class']}")
     
     # Load prompt file  
     with open(config['prompt_dir'], 'r') as f:
