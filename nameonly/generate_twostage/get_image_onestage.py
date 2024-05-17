@@ -285,6 +285,7 @@ if __name__ == "__main__":
     if config.get('end_class'):
         classes = classes[config['start_class']:config['end_class'] + 1]
         print(f"Set classes to {classes}")
+        print(f"Class indices: {config['start_class']} ~ {config['end_class']}")
     
     # Load prompt file  
     with open(config['prompt_dir'], 'r') as f:
@@ -316,7 +317,8 @@ if __name__ == "__main__":
     resume_prompt_idx = config.get('resume_prompt_idx')
     
     # Generate each class
-    for cls in classes:
+    for cls in tqdm(classes):
+        print(f"Start generating class {cls}...")
         num_samples_cls = class_num_samples_dict[cls]
         generate_single_class(
             model_name = config['generative_model'],
