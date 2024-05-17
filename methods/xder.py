@@ -104,34 +104,34 @@ class XDER(DER):
                     cls_logit = logit[:-distill_size]
                     cls_loss = lam * criterion(cls_logit, labels_a) + (1 - lam) * criterion(cls_logit, labels_b)
                     
-                    self.total_flops += ((len(cls_logit) * 4) / 10e9)
+                    # self.total_flops += ((len(cls_logit) * 4) / 10e9)
                     
                     loss = cls_loss[:self.temp_batch_size].mean() + alpha * cls_loss[self.temp_batch_size:].mean()
                     
-                    self.total_flops += (len(cls_loss)  / 10e9)
+                    # self.total_flops += (len(cls_loss)  / 10e9)
                     
                     distill_logit = logit[-distill_size:]
                     loss += beta * (mask * (y2 - distill_logit) ** 2).mean()
                     
-                    self.total_flops += ((distill_size * 4) / 10e9)
+                    # self.total_flops += ((distill_size * 4) / 10e9)
             else:
                 with torch.cuda.amp.autocast(self.use_amp):
                     logit = self.model(x)[:, :self.num_learned_class]
                     cls_logit = logit[:-distill_size]
                     cls_loss = criterion(cls_logit, y)
                     
-                    self.total_flops += ((distill_size * 2) / 10e9)
+                    # self.total_flops += ((distill_size * 2) / 10e9)
                     
                     loss = cls_loss[:self.temp_batch_size].mean() + alpha * cls_loss[self.temp_batch_size:].mean()
                     
-                    self.total_flops += (len(cls_loss) / 10e9)
+                    # self.total_flops += (len(cls_loss) / 10e9)
                     
                     distill_logit = logit[-distill_size:]
                     loss += beta * (mask * (y2 - distill_logit) ** 2).mean()
                     
-                    self.total_flops += ((distill_size * 4)/10e9)
+                    # self.total_flops += ((distill_size * 4)/10e9)
 
-            self.total_flops += (len(x) * self.forward_flops)
+            # self.total_flops += (len(x) * self.forward_flops)
             return logit, loss
         else:
             return CLManagerBase.model_forward(self, x, y)
@@ -244,7 +244,7 @@ class XDER(DER):
                     with torch.cuda.amp.autocast():
                         for images, labels, past_logits, indices in memory_loader:
                             logits = self.model(images).cpu()
-                            self.total_flops += len(images) * self.forward_flops
+                            # self.total_flops += len(images) * self.forward_flops
                             chosen = (labels // self.cpt) < self.cur_task
                             if chosen.any():
                                 to_transplant = self.update_memory_logits(labels[chosen], past_logits[chosen], logits[chosen], self.cur_task, self.tasks - self.cur_task)
@@ -454,7 +454,7 @@ class XDER(DER):
                 loss.backward()
                 self.optimizer.step()
 
-            self.total_flops += (len(y) * self.backward_flops)
+            # self.total_flops += (len(y) * self.backward_flops)
 
             self.after_model_update()
 
@@ -602,7 +602,7 @@ class XDER(DER):
             scl_outputs = self.model(scl_inputs).float()
             scl_outputs = torch.cat([scl_outputs, torch.zeros(scl_outputs.size(0), self.fake_num_class-scl_outputs.size(1)).to(self.device)], dim=1)
             
-            self.total_flops += len(scl_inputs) * self.forward_flops
+            # self.total_flops += len(scl_inputs) * self.forward_flops
 
             scl_featuresFull = scl_outputs.reshape(-1, self.simclr_num_aug, scl_outputs.shape[-1])  # [N, n_aug, 100]
 
