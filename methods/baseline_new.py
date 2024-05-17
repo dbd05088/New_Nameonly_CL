@@ -2,6 +2,7 @@
 import logging
 import numpy as np
 from methods.cl_manager import CLManagerBase
+import torch
 
 logger = logging.getLogger()
 #writer = SummaryWriter("tensorboard")
@@ -39,6 +40,9 @@ class BASELINE(CLManagerBase):
         return 0
 
     def online_step(self, sample, sample_num, n_worker):
+        self.fast_trained=False
+        if self.fast_model is not None:
+            self.fast_model = None
         if sample['klass'] not in self.exposed_classes:
             self.add_new_class(sample['klass'])
             self.writer.add_scalar(f"train/add_new_class", 1, sample_num)
@@ -51,6 +55,41 @@ class BASELINE(CLManagerBase):
             self.report_training(sample_num, train_loss, train_acc)
             self.num_updates -= int(self.num_updates)
             self.update_schedule()
+
+    def online_train(self, iterations=1):
+        total_loss, correct, num_data = 0.0, 0.0, 0.0
+
+        for i in range(iterations):
+            self.model.train()
+            data = self.get_batch()
+            x = data["image"].to(self.device)
+            y = data["label"].to(self.device)
+                
+            self.before_model_update()
+
+            self.optimizer.zero_grad()
+
+            logit, loss = self.model_forward(x,y)
+
+            _, preds = logit.topk(self.topk, 1, True, True)
+
+            if self.use_amp:
+                self.scaler.scale(loss).backward()
+                self.scaler.step(self.optimizer)
+                self.scaler.update()
+            else:
+                loss.backward()
+                self.optimizer.step()
+
+            # self.total_flops += (len(y) * self.backward_flops)
+
+            self.after_model_update()
+
+            total_loss += loss.item()
+            correct += torch.sum(preds == y.unsqueeze(1)).item()
+            num_data += y.size(0)
+
+        return total_loss / iterations, correct / num_data
 
     def generate_waiting_batch(self, iterations):
         for i in range(iterations):
