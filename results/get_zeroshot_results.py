@@ -12,6 +12,7 @@ if dir == 'NICO':
     
 
 domain_accs = defaultdict(list)
+domain_accs_last = defaultdict(list)
 def print_from_log(exp_name, seeds=(1, 2, 3, 4, 5)):
     A_auc = []
     A_last = []
@@ -26,12 +27,13 @@ def print_from_log(exp_name, seeds=(1, 2, 3, 4, 5)):
         lines = f.readlines()
 
         for line in lines:
-            if 'Sample # 12000' in line and 'Test' in line:
+            if 'Test' in line:
                 for domain in ood_domain:
                     if domain in line:
                         dom = line.split("|")[0].split(" ")[-3]
-                        print(dom, line.split("|")[-2].split(" ")[-2])
                         domain_accs[dom].append(float(line.split("|")[-2].split(" ")[-2]))
+                        if "Sample # 12000" in line:
+                            domain_accs_last[dom].append(float(line.split("|")[-2].split(" ")[-2]))
                 
             # if 'gdumb' in exp_name:
             #     if 'Test' in line:
@@ -48,10 +50,14 @@ def print_from_log(exp_name, seeds=(1, 2, 3, 4, 5)):
             #     FLOPS.append(float(list[-1])/100)
             #     break
     all_domain_accs = []
+    all_domain_accs_last = []
     for i, dom in enumerate(list(domain_accs.keys())):
+        # print("here", domain_accs[dom])
         print(f'Exp:{exp_name} {dom} acc \t\t\t {np.mean(domain_accs[dom])*100:.2f}/{sem(domain_accs[dom])*100:.2f}')
-        all_domain_accs.extend(np.mean(domain_accs[dom]))
-    print(f'Exp:{exp_name} Overall acc \t\t\t {np.mean(all_domain_accs)*100:.2f}/{sem(all_domain_accs)*100:.2f}')
+        all_domain_accs.append(np.mean(domain_accs[dom]))
+        all_domain_accs_last.append(np.mean(domain_accs_last[dom]))
+    print(f'Exp:{exp_name} Overall AUC / Last acc \t\t\t {np.mean(all_domain_accs_last)*100:.2f}/{sem(all_domain_accs_last)*100:.2f} \t {np.mean(all_domain_accs)*100:.2f}/{sem(all_domain_accs)*100:.2f}')
+    # print(f'Exp:{exp_name} Overall Last acc \t\t\t {np.mean(all_domain_accs)*100:.2f}/{sem(all_domain_accs)*100:.2f}')
     
     # if np.isnan(np.mean(A_auc)):
     #     pass

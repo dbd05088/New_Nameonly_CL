@@ -258,7 +258,11 @@ def generate_single_class(
     # Generate images according to the adjusted prompt
     for i, (prompt, prompt_type, image_name) in enumerate(tqdm(concatenated_prompt_list)):
         print(f"Generating image for {prompt_type} - {image_name} - {prompt}")
-        image = get_image(prompt, model)
+        try:
+            image = get_image(prompt, model)
+        except Exception as e:
+            print(e)
+            continue
         image = image.resize((224, 224))
 
         unique_image_name = generate_unique_filename(image_dir, image_name + ".jpg")
