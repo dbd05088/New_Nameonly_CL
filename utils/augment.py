@@ -510,7 +510,8 @@ def get_statistics(dataset: str, type_name:str):
         "aircraft", 
         "food101",
         "cct", 
-        "PACS_final"
+        "PACS_final",
+        "NICO"
     ]
 
     with open('./utils/data_statistics.json', 'r') as f:
