@@ -110,7 +110,7 @@ class CLManagerBase:
         self.gt_label = None
         self.gt_label_forgetting = None
         self.test_records = defaultdict(list)
-        self.n_model_cls = []
+        self.n_model_cls = defaultdict(list)
         self.knowledge_loss_rate = []
         self.knowledge_gain_rate = []
         self.forgetting_time = []
@@ -145,6 +145,9 @@ class CLManagerBase:
         elif 'cifar10' in self.dataset:
             self.tasks = 5
             self.cls_per_task = [2]*self.tasks
+        elif 'NICO' in self.dataset:
+            self.tasks = 5
+            self.cls_per_task = [12]*self.tasks
         
         total_cls=0
         for i in range(self.tasks):
@@ -710,9 +713,9 @@ class CLManagerBase:
         gts = np.concatenate(gts)
         self.gt_label_forgetting = gts
         self.test_records[domain_name].append(preds)
-        self.n_model_cls.append(copy.deepcopy(self.num_learned_class))
+        self.n_model_cls[domain_name].append(copy.deepcopy(self.num_learned_class))
         if len(self.test_records[domain_name]) > 1:
-            klr, kgr = self.calculate_online_forgetting(self.n_classes, self.gt_label_forgetting, self.test_records[domain_name][-2], self.test_records[domain_name][-1], self.n_model_cls[-2], self.n_model_cls[-1])
+            klr, kgr = self.calculate_online_forgetting(self.n_classes, self.gt_label_forgetting, self.test_records[domain_name][-2], self.test_records[domain_name][-1], self.n_model_cls[domain_name][-2], self.n_model_cls[domain_name][-1])
             self.knowledge_loss_rate.append(klr)
             self.knowledge_gain_rate.append(kgr)
             self.forgetting_time.append(sample_num)
