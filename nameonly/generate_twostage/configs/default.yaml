@@ -1,5 +1,5 @@
 dataset: cct
-image_dir: ./generated_datasets/sus_cct
+image_dir: ./generated_datasets/
 generative_model: SDXL
 
 start_class: 5

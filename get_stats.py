@@ -52,13 +52,14 @@ if __name__ == '__main__':
     
     last_part = os.path.basename(os.path.normpath(args.image_root_dir))
     
-    dataset_list = ["PACS_final", "DomainNet", "cct"]
+    dataset_list = ["PACS_final", "DomainNet", "cct", "NICO"]
     dataset_name = next((name for name in dataset_list if last_part.startswith(name)), None)
     type_name = last_part[len(dataset_name) + 1:]
 
-    if type_name in data_statistics['mean'][dataset_name]:
-        print(f"[WARNING... dataset {dataset_name} - type {type_name} already exist!")
-
+    if dataset_name not in data_statistics['mean']:
+        data_statistics['mean'][dataset_name] = {}
+        data_statistics['std'][dataset_name] = {}
+    
     data_statistics['mean'][dataset_name][type_name] = mean
     data_statistics['std'][dataset_name][type_name] = std
 
