@@ -526,7 +526,8 @@ def get_statistics(dataset: str, type_name:str):
         "birdsnap": 500,
         "aircraft": 100,
         "food101": 101,
-        "cct": 12
+        "cct": 12,
+        "NICO": 60
     }
 
     in_channels = 3
