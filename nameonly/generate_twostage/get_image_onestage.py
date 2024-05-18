@@ -88,7 +88,7 @@ class FloydGenerator(ImageGenerator):
 
         print(f"Loading Floyd model - stage 3")
         safety_modules = {"feature_extractor": stage_1.feature_extractor, "safety_checker": stage_1.safety_checker, "watermarker": stage_1.watermarker}
-        stage_3 = DiffusionPipeline.from_pretrained("stabilityai/stable-diffusion-x4-upscaler", safety_checker=None, torch_dtype=torch.float16)
+        stage_3 = DiffusionPipeline.from_pretrained("stabilityai/stable-diffusion-x4-upscaler", **safety_modules, torch_dtype=torch.float16)
         # stage_3.enable_xformers_memory_efficient_attention() # remove line if torch.__version__ >= 2.0.0
         stage_3.enable_model_cpu_offload()
 
@@ -258,7 +258,11 @@ def generate_single_class(
     # Generate images according to the adjusted prompt
     for i, (prompt, prompt_type, image_name) in enumerate(tqdm(concatenated_prompt_list)):
         print(f"Generating image for {prompt_type} - {image_name} - {prompt}")
-        image = get_image(prompt, model)
+        try:
+            image = get_image(prompt, model)
+        except Exception as e:
+            print(e)
+            continue
         image = image.resize((224, 224))
 
         unique_image_name = generate_unique_filename(image_dir, image_name + ".jpg")
