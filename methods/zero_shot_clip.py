@@ -178,15 +178,6 @@ class ZeroShotClip:
                 self.cls_dict_opp[label] = data["klass"]
                 label+=1
         
-    def report_training(self, sample_num, train_loss, train_acc):
-        writer.add_scalar(f"train/loss", train_loss, sample_num)
-        writer.add_scalar(f"train/acc", train_acc, sample_num)
-        logger.info(
-            f"Train | Sample # {sample_num} | train_loss {train_loss:.4f} | train_acc {train_acc:.4f} | TFLOPs {self.total_flops/1000:.2f} | "
-            f"running_time {datetime.timedelta(seconds=int(time.time() - self.start_time))} | "
-            f"ETA {datetime.timedelta(seconds=int((time.time() - self.start_time) * (self.total_samples-sample_num) / sample_num))}"
-        )
-
     def report_test(self, domain_name, sample_num, avg_acc):
         print(avg_acc, sample_num)
         # writer.add_scalar(f"test/acc", "avg_TR1", avg_TR1, sample_num)
@@ -194,25 +185,12 @@ class ZeroShotClip:
             f"{domain_name} Test | Sample # {sample_num} | test_acc {avg_acc:.4f}"
         )
 
-
-
     def online_evaluate(self, domain_name, cur_task, test_list, sample_num, batch_size, n_worker):
         self.cur_task = cur_task
         
         test_df = pd.DataFrame(test_list)
-        '''
-        if "clear" in self.dataset:
-            exp_test_df = test_df[test_df['time'] < self.exposed_domains[-1]]
-            if len(self.exposed_domains) == 0:
-                exp_test_df = test_df[test_df['klass'].isin(self.exposed_classes)]
-        else:
-            exp_test_df = test_df[test_df['klass'].isin(self.exposed_classes)]
-        '''
         exp_test_df = test_df[test_df['klass'].isin(self.exposed_classes)]
         
-        print("exposed_domains", self.exposed_domains)
-        print("exposed_classes", self.exposed_classes)
-        print("exp_test_df", len(exp_test_df))
         test_dataset = ImageTextDataset(
             exp_test_df,
             dataset=self.dataset,
@@ -259,63 +237,13 @@ class ZeroShotClip:
                 text_probs = (100.0 * image_features @ text_features.T).softmax(dim=-1)
                 top_probs, top_labels = text_probs.topk(1, dim=-1)
                 total_num_data += labels.size(0)
-                # print("top_probs", top_probs)
-                # print("top_labels", top_labels)
                 
                 total_correct += torch.sum(top_labels == labels.unsqueeze(1)).item()
-                # self.text_class_tokens = self.tokenizer(self.text_class_prompts).to(self.device)
-                # print(text_probs)
-                # ground_truth = torch.arange(len(labels)).view(-1, 1).to(self.device)
-
-                # texts = self.tokenizer(texts).to(self.device)
-                # image_features, text_features, logit_scale = self.model(imgs, self.text_class_tokens)
-                # loss = self.criterion(image_features, text_features, logit_scale)
-                # logits_per_image = (logit_scale * image_features @ text_features.t())
-                # logits_per_text = logits_per_image.t()
-
-                # _, preds = logits_per_image.topk(self.topk, 1, True, True)
-                # total_TR1 += torch.sum(preds == ground_truth).item() 
-                # _, preds = logits_per_image.topk(5, 1, True, True)
-                # total_TR5 += torch.sum(preds == ground_truth).item() 
-                
-                # _, preds = logits_per_text.topk(self.topk, 1, True, True)
-                # total_IR1 += torch.sum(preds == ground_truth).item() 
-                # _, preds = logits_per_text.topk(5, 1, True, True)
-                # total_IR5 += torch.sum(preds == ground_truth).item() 
-        
-                # total_num_data += labels.size(0)
-                # total_loss += loss.item()
-                # label += labels.tolist()
-
 
         avg_acc = total_correct / total_num_data
-        # avg_TR5 = total_TR5 / total_num_data
-        # avg_IR1 = total_IR1 /total_num_data
-        # avg_IR5 = total_IR5 / total_num_data
-        # avg_loss = total_loss / len(test_loader)
-
         ret = {"avg_acc": avg_acc}
 
         return ret
-        
 
-    def reset_opt(self):
-        self.optimizer = select_optimizer(self.opt_name, self.lr, self.model)
-        self.scheduler = select_scheduler(self.sched_name, self.optimizer)
-
-    def _interpret_pred(self, y, pred):
-        ret_num_data = torch.zeros(self.n_classes)
-        ret_corrects = torch.zeros(self.n_classes)
-
-        xlabel_cls, xlabel_cnt = y.unique(return_counts=True)
-        for cls_idx, cnt in zip(xlabel_cls, xlabel_cnt):
-            ret_num_data[cls_idx] = cnt
-
-        correct_xlabel = y.masked_select(y == pred)
-        correct_cls, correct_cnt = correct_xlabel.unique(return_counts=True)
-        for cls_idx, cnt in zip(correct_cls, correct_cnt):
-            ret_corrects[cls_idx] = cnt
-
-        return ret_num_data, ret_corrects
 
     
