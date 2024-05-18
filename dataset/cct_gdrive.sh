@@ -116,7 +116,13 @@
 # rm cct_web_all_samples_temp_2.tar
 
 ### cct static 50 prompts (0517)
-gdrive files download 16oYiWLkzeS_ir71x2N5yASiavSp8i_VK
-tar -xf cct_static_cot_50_filtered.tar
-mv cct_static_cot_50_filtered cct/
-rm cct_static_cot_50_filtered.tar
+# gdrive files download 16oYiWLkzeS_ir71x2N5yASiavSp8i_VK
+# tar -xf cct_static_cot_50_filtered.tar
+# mv cct_static_cot_50_filtered cct/
+# rm cct_static_cot_50_filtered.tar
+
+### cct glide
+gdrive files download 1yPGNGSrml6Zr3Lh8khDmk9JNZCd8KfCJ
+tar -xvf CCT_glide.tar
+mv CCT_glide cct/cct_glide
+rm CCT_glide.tar
