@@ -121,8 +121,8 @@
 # mv cct_static_cot_50_filtered cct/
 # rm cct_static_cot_50_filtered.tar
 
-### cct glide
-gdrive files download 1yPGNGSrml6Zr3Lh8khDmk9JNZCd8KfCJ
-tar -xvf CCT_glide.tar
-mv CCT_glide cct/cct_glide
-rm CCT_glide.tar
+### cct glide 1yPGNGSrml6Zr3Lh8khDmk9JNZCd8KfCJ
+gdrive files download 1oFTNvCqUkMUVxYnuvTxb56G5OICZVx-d
+tar -xvf cct_glide2.tar
+mv cct_glide2 cct
+rm cct_glide2.tar
