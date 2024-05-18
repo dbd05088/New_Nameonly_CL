@@ -13,17 +13,30 @@ def softmax_with_temperature(z, T) :
     y = exp_z / sum_exp_z
     return y
 
+# NORMALIZATION, CLIPPING
+normalize = True
+clip = True
+lower_percentile = 2.5
+upper_percentile = 97.5
 TopK = False
 BottomK = False
 
 INVERSE = False
-TEMPERATURE = 2
-count_dict = DomainNet_count
-rmd_pickle_path = './RMD_scores/cct_web_newsample_rmd.pkl'
+TEMPERATURE = 1
+count_dict = PACS_count
+rmd_pickle_path = './RMD_scores/PACS_final_generated_RMD.pkl'
 
 # PACS
 # target_path = './datasets/neurips/PACS/final/PACS_final_web_all_samples_prob_temp_0_5'
-target_path = './datasets/neurips/cct/cct_web_all_samples_temp_2'
+target_path = './datasets/neurips/new_generated/PACS/PACS_final_generated_RMD_w_normalize_clip_95'
+
+PATH_dict = {
+        'sdxl': './datasets/neurips/new_generated/PACS/PACS_final_static_cot_50_sdxl_subsampled_filtered',
+        'dalle2': './datasets/neurips/new_generated/PACS/PACS_final_static_cot_50_dalle2_subsampled_filtered',
+        'floyd': './datasets/neurips/new_generated/PACS/PACS_final_static_cot_50_floyd_subsampled_filtered',
+        'cogview2': './datasets/neurips/new_generated/PACS/PACS_final_static_cot_50_cogview2_subsampled',
+}
+
 # PATH_dict = {
 #         'flickr': './datasets/neurips/PACS/PACS_flickr_subsampled_filtered',
 #         'google': './datasets/neurips/PACS/PACS_google_subsampled_filtered',
@@ -36,11 +49,15 @@ target_path = './datasets/neurips/cct/cct_web_all_samples_temp_2'
 #     'floyd': './datasets/neurips/PACS/PACS_floyd_subsampled',
 #     'cogview2': './datasets/neurips/PACS/PACS_cogview2_subsampled',
 # }
-PATH_dict = {
-        'flickr': './datasets/neurips/cct/cct_flickr_subsampled_filtered',
-        'google': './datasets/neurips/cct/cct_google_subsampled_filtered',
-        'bing': './datasets/neurips/cct/cct_bing_subsampled_filtered',
-}
+# PATH_dict = {
+#         'flickr': './datasets/neurips/cct/cct_flickr_subsampled_filtered',
+#         'google': './datasets/neurips/cct/cct_google_subsampled_filtered',
+#         'bing': './datasets/neurips/cct/cct_bing_subsampled_filtered',
+# }
+
+# PATH_dict = {
+#     'flickr': './PACS_final_for_rmd_check'
+# }
 
 # Load the RMD scores
 with open(rmd_pickle_path, 'rb') as f:
@@ -70,14 +87,25 @@ for cls in tqdm(list(count_dict.keys())):
         if cls_ == cls:
             for image, score in images:
                 image_rmd_scores.append((model, image, score))
-    
+
     # Get sample_path -> score mapping
     sample_model_RMD_mapping = {}
     for sample in image_rmd_scores:
         sample_model_RMD_mapping[sample[1]] = sample[0], sample[2] # model, score
-
+    
+    # Normalize and clip RMD scores
     scores = np.array([score[1] for score in sample_model_RMD_mapping.values()])
-    probabilities = softmax_with_temperature(scores, TEMPERATURE)
+    mean = np.mean(scores); std = np.std(scores)
+
+    if normalize:
+        normalized_scores = (scores - mean) / std
+        lower_clip = np.percentile(normalized_scores, lower_percentile)
+        upper_clip = np.percentile(normalized_scores, upper_percentile)
+        if clip:
+            normalized_scores = np.clip(normalized_scores, lower_clip, upper_clip)
+    else:
+        normalized_scores = scores
+    probabilities = softmax_with_temperature(normalized_scores, TEMPERATURE)
 
     if INVERSE:
         # To get the inverse probabilities, first handle the numerical instability
