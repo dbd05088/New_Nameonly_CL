@@ -272,9 +272,17 @@ def generate_single_class(
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('-c', '--config_path', default='./configs/default.yaml')
+    parser.add_argument('-s', '--start_class', type=int, default=None)
+    parser.add_argument('-e', '--end_class', type=int, default=None)
     parser_config = parser.parse_args()
     
     config = get_config(config_path=parser_config.config_path)
+
+    # Override config if arguments are explicitly provided (start, end class)
+    if parser_config.start_class is not None:
+        config['start_class'] = parser_config.start_class
+        config['end_class'] = parser_config.end_class
+    
     model_name = config['generative_model']
     image_root_dir = config['image_dir']
     debug = config['debug']
