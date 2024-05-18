@@ -211,6 +211,18 @@ elif [ "$DATASET" == "DomainNet" ]; then
         EVAL_POINT="9918 20137 30290 40184 50273"
     fi
 
+elif [ "$DATASET" == "NICO" ]; then
+    MEM_SIZE=3000 #1500
+    TYPES=("sdxl") # "newsample_equalweight"
+    N_SMP_CLS="9" K="3" MIR_CANDS=50
+    CANDIDATE_SIZE=50 VAL_SIZE=5
+    MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=600
+    BATCHSIZE=32; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
+    BASEINIT_SAMPLES=30523 FEAT_DIM=14 FEAT_MEM_SIZE=168000
+    SAMPLES_PER_TASK=2400
+    ONLINE_ITER=3
+    EVAL_POINT="2400 4800 7200 9600 12000"
+
 else
     echo "Undefined setting"
     exit 1
