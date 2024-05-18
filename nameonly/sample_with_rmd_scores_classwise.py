@@ -1,3 +1,4 @@
+# 이제는 equalweight용
 import os, random, shutil
 import pickle
 import numpy as np
@@ -19,16 +20,17 @@ BottomK = False
 
 INVERSE = False
 TEMPERATURE = 2
-count_dict = DomainNet_count
-rmd_pickle_path = './RMD_scores/DomainNet_web_newsample_rmd.pkl'
+count_dict = PACS_count
+rmd_pickle_path = './RMD_scores/PACS_final_generated_RMD.pkl'
 
 # PACS
-target_path = './datasets/neurips/final/DomainNet/DomainNet_newsample_equalweight'
+target_path = './datasets/neurips/new_generated/PACS/PACS_final_generated_RMD_equalweight'
 
 PATH_dict = {
-        'flickr': './datasets/neurips/web/DomainNet/DomainNet_filckr_subsampled_filtered',
-        'google': './datasets/neurips/web/DomainNet/DomainNet_google_subsampled_filtered',
-        'bing': './datasets/neurips/web/DomainNet/DomainNet_bing_subsampled_filtered',
+        'sdxl': './datasets/neurips/new_generated/PACS/PACS_final_static_cot_50_sdxl_subsampled_filtered',
+        'dalle2': './datasets/neurips/new_generated/PACS/PACS_final_static_cot_50_dalle2_subsampled_filtered',
+        'floyd': './datasets/neurips/new_generated/PACS/PACS_final_static_cot_50_floyd_subsampled_filtered',
+        'cogview2': './datasets/neurips/new_generated/PACS/PACS_final_static_cot_50_cogview2_subsampled',
 }
 # PATH_dict = {
 #     'sdxl': './datasets/neurips/PACS/PACS_sdxl_diversified_subsampled',

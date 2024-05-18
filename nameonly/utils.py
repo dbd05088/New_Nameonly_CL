@@ -122,3 +122,18 @@ def get_topk_average(score_list, k):
     else:
         score_list = score_list[:k]
     return sum(score_list) / len(score_list)
+
+
+def normalize_and_clip_scores(scores):
+    # Z-score normalization
+    scores = np.array(scores)
+    mean = np.mean(scores)
+    std = np.std(scores)
+    normalized_scores = (scores - mean) / std
+
+    # Clipping at the 0.025% and 99.975% quantiles
+    lower_clip = np.percentile(normalized_scores, 0.025)
+    upper_clip = np.percentile(normalized_scores, 99.975)
+    clipped_scores = np.clip(normalized_scores, lower_clip, upper_clip)
+    
+    return clipped_scores

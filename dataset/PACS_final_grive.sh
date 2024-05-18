@@ -374,12 +374,32 @@
 # rm PACS_final_static_llama3_cot_50.tar
 # rm PACS_final_static_llama3_cot_50_filtered.tar
 
-gdrive files download 1t4kSnkegYcP8WDB13M5qm5wtP-TFKy86
-gdrive files download 1ofwVnfpoJVXLE23nL18fMCGMF-p67ElF
-tar -xf PACS_final_static_gemini_cot_50.tar
-tar -xf PACS_final_static_gemini_cot_50_filtered.tar
-mv PACS_final_static_gemini_cot_50 PACS_final/
-mv PACS_final_static_gemini_cot_50_filtered PACS_final/
-rm PACS_final_static_gemini_cot_50.tar
-rm PACS_final_static_gemini_cot_50_filtered.tar
+# gdrive files download 1t4kSnkegYcP8WDB13M5qm5wtP-TFKy86
+# gdrive files download 1ofwVnfpoJVXLE23nL18fMCGMF-p67ElF
+# tar -xf PACS_final_static_gemini_cot_50.tar
+# tar -xf PACS_final_static_gemini_cot_50_filtered.tar
+# mv PACS_final_static_gemini_cot_50 PACS_final/
+# mv PACS_final_static_gemini_cot_50_filtered PACS_final/
+# rm PACS_final_static_gemini_cot_50.tar
+# rm PACS_final_static_gemini_cot_50_filtered.tar
 
+gdrive files download 1L1yTIEVWj5WZ03hCqJG603FtvFKlxizY
+gdrive files download 11CmoopL-i0yJru2LrvTD_LY53Dd_u-nq
+gdrive files download 1N6jELNEuTs3ZPzXvW1WTxPifyY4lm1Kf
+gdrive files download 1I4wM-HzRh7ipjVvWWBF81ox9kR2GhQ9t
+gdrive files download 1jpuAOmMgTW-78D4rVSLOsk4kufTSdlgH
+tar -xf PACS_final_generated_RMD_equalweight.tar
+tar -xf PACS_final_generated_RMD_wo_normalize_temp2.tar
+tar -xf PACS_final_generated_RMD_w_normalize.tar
+tar -xf PACS_final_generated_RMD_w_normalize_clip_90.tar
+tar -xf PACS_final_generated_RMD_w_normalize_clip_95.tar
+mv PACS_final_generated_RMD_equalweight PACS_final/
+mv PACS_final_generated_RMD_wo_normalize_temp2 PACS_final/
+mv PACS_final_generated_RMD_w_normalize PACS_final/
+mv PACS_final_generated_RMD_w_normalize_clip_90 PACS_final/
+mv PACS_final_generated_RMD_w_normalize_clip_95 PACS_final/
+rm PACS_final_generated_RMD_equalweight.tar
+rm PACS_final_generated_RMD_wo_normalize_temp2.tar
+rm PACS_final_generated_RMD_w_normalize.tar
+rm PACS_final_generated_RMD_w_normalize_clip_90.tar
+rm PACS_final_generated_RMD_w_normalize_clip_95.tar
