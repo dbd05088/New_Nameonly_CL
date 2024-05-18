@@ -284,7 +284,7 @@ if __name__ == "__main__":
     #     sample_num_dict = pickle.load(f)[config['dataset']]
     sample_num_dict = count_dict[config['dataset']]
     classes = list(sample_num_dict.keys())
-    if config.get('end_class'):
+    if 'end_class' in config:
         classes = classes[config['start_class']:config['end_class'] + 1]
         print(f"Set classes to {classes}")
         print(f"Class indices: {config['start_class']} ~ {config['end_class']}")
