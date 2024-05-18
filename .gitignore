@@ -149,3 +149,4 @@ nameonly/RMD_scores
 check
 nameonly/generate_twostage/generated_datasets/*
 nameonly/generate_twostage/slurm-*
+dataset/NICO/

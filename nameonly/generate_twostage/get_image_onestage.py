@@ -11,7 +11,6 @@ import json
 from PIL import Image
 from classes import *
 from diffusers import DiffusionPipeline
-# from kandinsky2 import get_kandinsky2
 from io import BytesIO
 from parse_prompt import get_class_prompt_dict
 from tqdm import tqdm
@@ -62,6 +61,7 @@ class Kandinsky2Generator(ImageGenerator):
         assert self.batch_size == 1, "Currently only batch_size=1 is supported"
 
     def load_model(self):
+        from kandinsky2 import get_kandinsky2
         self.model = get_kandinsky2(self.device, task_type='text2img', model_version='2.2')
     
     def generate_one_image(self, prompt):
