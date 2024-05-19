@@ -121,8 +121,22 @@
 # mv cct_static_cot_50_filtered cct/
 # rm cct_static_cot_50_filtered.tar
 
-### cct glide 1yPGNGSrml6Zr3Lh8khDmk9JNZCd8KfCJ
-gdrive files download 1oFTNvCqUkMUVxYnuvTxb56G5OICZVx-d
-tar -xvf cct_glide2.tar
-mv cct_glide2 cct
-rm cct_glide2.tar
+# ### cct glide 1yPGNGSrml6Zr3Lh8khDmk9JNZCd8KfCJ
+# gdrive files download 1oFTNvCqUkMUVxYnuvTxb56G5OICZVx-d
+# tar -xvf cct_glide2.tar
+# mv cct_glide2 cct
+# rm cct_glide2.tar
+
+# ### cct generative ensemble 0520
+gdrive files download 1H7pLj5K-1wMAZyJ8NXhRH_I5_R725PHT
+gdrive files download 10qfUp2E27zz6gPXs0__9vTROi-raI_iK
+gdrive files download 1SQIRDfcMGXpfheFmzXqwdv2-RX-QZoPV
+tar -xf cct_generated_RMD_equalweight.tar
+tar -xf cct_generated_RMD_w_normalize_clip_90.tar
+tar -xf cct_generated_RMD_w_normalize_clip_95.tar
+mv cct_generated_RMD_equalweight cct/
+mv cct_generated_RMD_w_normalize_clip_90 cct/
+mv cct_generated_RMD_w_normalize_clip_95 cct/
+rm cct_generated_RMD_equalweight.tar
+rm cct_generated_RMD_w_normalize_clip_90.tar
+rm cct_generated_RMD_w_normalize_clip_95.tar
