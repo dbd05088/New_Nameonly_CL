@@ -1,0 +1,22 @@
+dataset: DomainNet
+image_dir: ./generated_datasets/DomainNet_static_cot_50_dalle2
+generative_model: dalle2
+
+start_class: 90
+end_class: 99
+debug: False
+
+api_key: sk-proj-b6mF6aJroOzev4yh1afBT3BlbkFJcgqlS8S3hrxASu62u3a6 # For Dalle2
+
+# prompt_dir: './prompts/clip_filtered_prompts.json'
+prompt_dir: '../prompt_generation/prompts/gpt_static_totalprompts_with_cot_50_with_cls_DomainNet.json'
+num_samples_path: none # txt file to run conveniently
+
+
+# If you want to manually set the number of samples of each class...
+increase_ratio: 1.12 # MA * increase_ratio
+# resume_prompt_idx: 1
+# num_samples_per_cls: 5 # Fix the number of samples per cls
+# num_samples:
+#   person: 100
+#   horse: 100
