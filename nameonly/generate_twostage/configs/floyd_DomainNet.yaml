@@ -1,15 +1,15 @@
-dataset: cct
-image_dir: ./generated_datasets/cct_static_cot_50_floyd
+dataset: DomainNet
+image_dir: ./generated_datasets/DomainNet_static_cot_50_floyd
 generative_model: floyd
 
-start_class: 6
-end_class: 7
+start_class: 170
+end_class: 174
 debug: False
 
 api_key: none # For Dalle2
 
 # prompt_dir: './prompts/clip_filtered_prompts.json'
-prompt_dir: '../prompt_generation/prompts/gpt_static_totalprompts_with_cot_50_with_cls_cct.json'
+prompt_dir: '../prompt_generation/prompts/gpt_static_totalprompts_with_cot_50_with_cls_DomainNet.json'
 num_samples_path: none # txt file to run conveniently
 
 
