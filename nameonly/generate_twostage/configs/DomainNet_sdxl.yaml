@@ -1,9 +1,9 @@
 dataset: DomainNet
-image_dir: ./generated_datasets/DomainNet_static_cot_50_floyd
-generative_model: floyd
+image_dir: ./generated_datasets/DomainNet_static_cot_50_sdxl
+generative_model: SDXL
 
-start_class: 170
-end_class: 174
+start_class: 342
+end_class: 344
 debug: False
 
 api_key: none # For Dalle2
