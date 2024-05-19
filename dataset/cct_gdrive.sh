@@ -128,34 +128,39 @@
 # rm cct_glide2.tar
 
 # ### cct generative ensemble 0520
-gdrive files download 1H7pLj5K-1wMAZyJ8NXhRH_I5_R725PHT
-gdrive files download 10qfUp2E27zz6gPXs0__9vTROi-raI_iK
-gdrive files download 1SQIRDfcMGXpfheFmzXqwdv2-RX-QZoPV
-gdrive files download 1lIzB24Og0T_2JbIwOdKD0Npe3ZWUuU70
-gdrive files download 1EhIFoAUH_d3TUkjrkbqtubyJbXIu_z_I
-gdrive files download 14K9qEE38WLQW4BbuTpK8wolHVfXkLdcw
-gdrive files download 1TypgQPZh8_DZg1rz_uUTQPjBj8Ncmox3
+# gdrive files download 1H7pLj5K-1wMAZyJ8NXhRH_I5_R725PHT
+# gdrive files download 10qfUp2E27zz6gPXs0__9vTROi-raI_iK
+# gdrive files download 1SQIRDfcMGXpfheFmzXqwdv2-RX-QZoPV
+# gdrive files download 1lIzB24Og0T_2JbIwOdKD0Npe3ZWUuU70
+# gdrive files download 1EhIFoAUH_d3TUkjrkbqtubyJbXIu_z_I
+# gdrive files download 14K9qEE38WLQW4BbuTpK8wolHVfXkLdcw
+# gdrive files download 1TypgQPZh8_DZg1rz_uUTQPjBj8Ncmox3
 
-tar -xf cct_generated_RMD_equalweight.tar
-tar -xf cct_generated_RMD_w_normalize_clip_90.tar
-tar -xf cct_generated_RMD_w_normalize_clip_95.tar
-tar -xf cct_generated_RMD_w_normalize_clip_90_temp_0_5.tar
-tar -xf cct_generated_RMD_w_normalize_clip_90_temp_2.tar
-tar -xf cct_generated_RMD_w_normalize_clip_95_temp_0_5.tar
-tar -xf cct_generated_RMD_w_normalize_clip_95_temp_2.tar
+# tar -xf cct_generated_RMD_equalweight.tar
+# tar -xf cct_generated_RMD_w_normalize_clip_90.tar
+# tar -xf cct_generated_RMD_w_normalize_clip_95.tar
+# tar -xf cct_generated_RMD_w_normalize_clip_90_temp_0_5.tar
+# tar -xf cct_generated_RMD_w_normalize_clip_90_temp_2.tar
+# tar -xf cct_generated_RMD_w_normalize_clip_95_temp_0_5.tar
+# tar -xf cct_generated_RMD_w_normalize_clip_95_temp_2.tar
 
-mv cct_generated_RMD_equalweight cct/
-mv cct_generated_RMD_w_normalize_clip_90 cct/
-mv cct_generated_RMD_w_normalize_clip_95 cct/
-mv cct_generated_RMD_w_normalize_clip_90_temp_0_5 cct/
-mv cct_generated_RMD_w_normalize_clip_90_temp_2 cct/
-mv cct_generated_RMD_w_normalize_clip_95_temp_0_5 cct/
-mv cct_generated_RMD_w_normalize_clip_95_temp_2 cct/
+# mv cct_generated_RMD_equalweight cct/
+# mv cct_generated_RMD_w_normalize_clip_90 cct/
+# mv cct_generated_RMD_w_normalize_clip_95 cct/
+# mv cct_generated_RMD_w_normalize_clip_90_temp_0_5 cct/
+# mv cct_generated_RMD_w_normalize_clip_90_temp_2 cct/
+# mv cct_generated_RMD_w_normalize_clip_95_temp_0_5 cct/
+# mv cct_generated_RMD_w_normalize_clip_95_temp_2 cct/
 
-rm cct_generated_RMD_equalweight.tar
-rm cct_generated_RMD_w_normalize_clip_90.tar
-rm cct_generated_RMD_w_normalize_clip_95.tar
-rm cct_generated_RMD_w_normalize_clip_90_temp_0_5.tar
-rm cct_generated_RMD_w_normalize_clip_90_temp_2.tar
-rm cct_generated_RMD_w_normalize_clip_95_temp_0_5.tar
-rm cct_generated_RMD_w_normalize_clip_95_temp_2.tar
+# rm cct_generated_RMD_equalweight.tar
+# rm cct_generated_RMD_w_normalize_clip_90.tar
+# rm cct_generated_RMD_w_normalize_clip_95.tar
+# rm cct_generated_RMD_w_normalize_clip_90_temp_0_5.tar
+# rm cct_generated_RMD_w_normalize_clip_90_temp_2.tar
+# rm cct_generated_RMD_w_normalize_clip_95_temp_0_5.tar
+# rm cct_generated_RMD_w_normalize_clip_95_temp_2.tar
+
+gdrive files download 1LIzxZGmElI_QS0b-gk2DYvC3PNnzXBqI
+tar -xf cct_generated_RMD_w_normalize_clip_90_temp_0_25.tar
+mv cct_generated_RMD_w_normalize_clip_90_temp_0_25 cct/
+rm cct_generated_RMD_w_normalize_clip_90_temp_0_25.tar
