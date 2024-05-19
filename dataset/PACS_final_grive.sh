@@ -418,19 +418,24 @@
 # rm -r PACS_final_web_RMD_w_normalize_clip_90.tar
 # rm -r PACS_final_web_RMD_w_normalize_clip_95.tar
 
-gdrive files download 1IoxBKh9ok_MBauPUoZmZM7ZxgkUoF9o7
-gdrive files download 1VZUNKyuDJDh3GlIDibDCW7x3TmaR2nGq
-gdrive files download 1fDXLfp-OZweL6MGDfeUuADQUFLv7xgF_
-gdrive files download 1I-AqbA4KAdDJgK-RVJnALyCgamnqxSDr
-tar -xf PACS_final_generated_RMD_w_normalize_clip_90_temp_0_5.tar
-tar -xf PACS_final_generated_RMD_w_normalize_clip_90_temp_2.tar
-tar -xf PACS_final_generated_RMD_w_normalize_clip_95_temp_0_5.tar
-tar -xf PACS_final_generated_RMD_w_normalize_clip_95_temp_2.tar
-mv PACS_final_generated_RMD_w_normalize_clip_90_temp_0_5 PACS_final/
-mv PACS_final_generated_RMD_w_normalize_clip_90_temp_2 PACS_final/
-mv PACS_final_generated_RMD_w_normalize_clip_95_temp_0_5 PACS_final/
-mv PACS_final_generated_RMD_w_normalize_clip_95_temp_2 PACS_final/
-rm PACS_final_generated_RMD_w_normalize_clip_90_temp_0_5.tar
-rm PACS_final_generated_RMD_w_normalize_clip_90_temp_2.tar
-rm PACS_final_generated_RMD_w_normalize_clip_95_temp_0_5.tar
-rm PACS_final_generated_RMD_w_normalize_clip_95_temp_2.tar
+# gdrive files download 1IoxBKh9ok_MBauPUoZmZM7ZxgkUoF9o7
+# gdrive files download 1VZUNKyuDJDh3GlIDibDCW7x3TmaR2nGq
+# gdrive files download 1fDXLfp-OZweL6MGDfeUuADQUFLv7xgF_
+# gdrive files download 1I-AqbA4KAdDJgK-RVJnALyCgamnqxSDr
+# tar -xf PACS_final_generated_RMD_w_normalize_clip_90_temp_0_5.tar
+# tar -xf PACS_final_generated_RMD_w_normalize_clip_90_temp_2.tar
+# tar -xf PACS_final_generated_RMD_w_normalize_clip_95_temp_0_5.tar
+# tar -xf PACS_final_generated_RMD_w_normalize_clip_95_temp_2.tar
+# mv PACS_final_generated_RMD_w_normalize_clip_90_temp_0_5 PACS_final/
+# mv PACS_final_generated_RMD_w_normalize_clip_90_temp_2 PACS_final/
+# mv PACS_final_generated_RMD_w_normalize_clip_95_temp_0_5 PACS_final/
+# mv PACS_final_generated_RMD_w_normalize_clip_95_temp_2 PACS_final/
+# rm PACS_final_generated_RMD_w_normalize_clip_90_temp_0_5.tar
+# rm PACS_final_generated_RMD_w_normalize_clip_90_temp_2.tar
+# rm PACS_final_generated_RMD_w_normalize_clip_95_temp_0_5.tar
+# rm PACS_final_generated_RMD_w_normalize_clip_95_temp_2.tar
+
+gdrive files download 1sjAteSteeir6-cg9fjAjpSMHNK-rIR3R
+tar -xf PACS_final_generated_RMD_w_normalize_clip_90_temp_0_25.tar 
+mv PACS_final_generated_RMD_w_normalize_clip_90_temp_0_25 PACS_final/
+rm PACS_final_generated_RMD_w_normalize_clip_90_temp_0_25.tar
