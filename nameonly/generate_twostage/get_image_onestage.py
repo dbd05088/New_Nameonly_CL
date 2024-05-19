@@ -15,6 +15,9 @@ from io import BytesIO
 from parse_prompt import get_class_prompt_dict
 from tqdm import tqdm
 
+gpu_number = os.environ.get('CUDA_VISIBLE_DEVICES', 'None')
+print(f"Using GPU: {gpu_number}")
+
 n_steps = 40
 high_noise_frac = 0.8
 
