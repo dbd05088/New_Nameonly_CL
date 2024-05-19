@@ -404,7 +404,17 @@
 # rm PACS_final_generated_RMD_w_normalize_clip_90.tar
 # rm PACS_final_generated_RMD_w_normalize_clip_95.tar
 
-gdrive files download 1Rcsxt6TBtvEq7lggy6C-CmMnWJmfsk-P
-tar -xf PACS_final_glide.tar
-mv PACS_final_glide PACS_final
-rm PACS_final_glide.tar
+# gdrive files download 1Rcsxt6TBtvEq7lggy6C-CmMnWJmfsk-P
+# tar -xf PACS_final_glide.tar
+# mv PACS_final_glide PACS_final
+# rm PACS_final_glide.tar
+
+gdrive files download 1ZVhbjYiGZGbGj41bNPQ804-V00UEASoy
+gdrive files download 1OqwOUWvcWw2JBAalMhAznS1j6UshXz9L
+tar -xf PACS_final_web_RMD_w_normalize_clip_90.tar
+tar -xf PACS_final_web_RMD_w_normalize_clip_95.tar
+mv PACS_final_web_RMD_w_normalize_clip_90 PACS_final/
+mv PACS_final_web_RMD_w_normalize_clip_95 PACS_final/
+rm -r PACS_final_web_RMD_w_normalize_clip_90.tar
+rm -r PACS_final_web_RMD_w_normalize_clip_95.tar
+

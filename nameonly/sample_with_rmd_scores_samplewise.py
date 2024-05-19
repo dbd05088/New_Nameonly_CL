@@ -16,32 +16,32 @@ def softmax_with_temperature(z, T) :
 # NORMALIZATION, CLIPPING
 normalize = True
 clip = True
-lower_percentile = 2.5
-upper_percentile = 97.5
+lower_percentile = 2.5 # 5.0
+upper_percentile = 97.5 # 95.0
 TopK = False
 BottomK = False
 
 INVERSE = False
 TEMPERATURE = 1
 count_dict = PACS_count
-rmd_pickle_path = './RMD_scores/PACS_final_generated_RMD.pkl'
+rmd_pickle_path = './RMD_scores/PACS_final_web_newsample_rmd.pkl'
 
 # PACS
 # target_path = './datasets/neurips/PACS/final/PACS_final_web_all_samples_prob_temp_0_5'
-target_path = './datasets/neurips/new_generated/PACS/PACS_final_generated_RMD_w_normalize_clip_95'
-
-PATH_dict = {
-        'sdxl': './datasets/neurips/new_generated/PACS/PACS_final_static_cot_50_sdxl_subsampled_filtered',
-        'dalle2': './datasets/neurips/new_generated/PACS/PACS_final_static_cot_50_dalle2_subsampled_filtered',
-        'floyd': './datasets/neurips/new_generated/PACS/PACS_final_static_cot_50_floyd_subsampled_filtered',
-        'cogview2': './datasets/neurips/new_generated/PACS/PACS_final_static_cot_50_cogview2_subsampled',
-}
+target_path = './datasets/neurips/new_generated/PACS/PACS_final_web_RMD_w_normalize_clip_95'
 
 # PATH_dict = {
-#         'flickr': './datasets/neurips/PACS/PACS_flickr_subsampled_filtered',
-#         'google': './datasets/neurips/PACS/PACS_google_subsampled_filtered',
-#         'bing': './datasets/neurips/PACS/PACS_bing_subsampled_filtered',
+#         'sdxl': './datasets/neurips/new_generated/PACS/PACS_final_static_cot_50_sdxl_subsampled_filtered',
+#         'dalle2': './datasets/neurips/new_generated/PACS/PACS_final_static_cot_50_dalle2_subsampled_filtered',
+#         'floyd': './datasets/neurips/new_generated/PACS/PACS_final_static_cot_50_floyd_subsampled_filtered',
+#         'cogview2': './datasets/neurips/new_generated/PACS/PACS_final_static_cot_50_cogview2_subsampled',
 # }
+
+PATH_dict = {
+        'flickr': './datasets/neurips/PACS/PACS_flickr_subsampled_filtered',
+        'google': './datasets/neurips/PACS/PACS_google_subsampled_filtered',
+        'bing': './datasets/neurips/PACS/PACS_bing_subsampled_filtered',
+}
 
 # PATH_dict = {
 #     'sdxl': './datasets/neurips/PACS/PACS_sdxl_diversified_subsampled',
@@ -95,17 +95,30 @@ for cls in tqdm(list(count_dict.keys())):
     
     # Normalize and clip RMD scores
     scores = np.array([score[1] for score in sample_model_RMD_mapping.values()])
-    mean = np.mean(scores); std = np.std(scores)
-
-    if normalize:
-        normalized_scores = (scores - mean) / std
-        lower_clip = np.percentile(normalized_scores, lower_percentile)
-        upper_clip = np.percentile(normalized_scores, upper_percentile)
-        if clip:
-            normalized_scores = np.clip(normalized_scores, lower_clip, upper_clip)
+    # mean = np.mean(scores); std = np.std(scores)
+    
+    if clip:
+        lower_clip = np.percentile(scores, lower_percentile)
+        upper_clip = np.percentile(scores, upper_percentile)
+        print(f"Lower clip: {lower_clip}, Upper clip: {upper_clip}")
+        clipped_scores = np.clip(scores, lower_clip, upper_clip)
+        if normalize:
+            mean = np.mean(clipped_scores); std = np.std(clipped_scores)
+            result_scores = (clipped_scores - mean) / std
+        else:
+            result_scores = clipped_scores
     else:
-        normalized_scores = scores
-    probabilities = softmax_with_temperature(normalized_scores, TEMPERATURE)
+        result_scores = scores
+        
+    # if normalize:
+    #     normalized_scores = (scores - mean) / std
+    #     lower_clip = np.percentile(normalized_scores, lower_percentile)
+    #     upper_clip = np.percentile(normalized_scores, upper_percentile)
+    #     if clip:
+    #         normalized_scores = np.clip(normalized_scores, lower_clip, upper_clip)
+    # else:
+    #     normalized_scores = scores
+    probabilities = softmax_with_temperature(result_scores, TEMPERATURE)
 
     if INVERSE:
         # To get the inverse probabilities, first handle the numerical instability
