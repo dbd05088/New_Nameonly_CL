@@ -2,8 +2,8 @@
 import json
 from classes import *
 
-txt_path = './prompts/sus_cct.txt'
-json_path = './prompts/sus_cct.json'
+txt_path = './prompts/sus_cct2.txt'
+json_path = './prompts/sus_cct2.json'
 
 num_classes = 12
 num_prompts_per_cls = 50
