@@ -87,7 +87,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--domain1', type=str)
     parser.add_argument('--domain2', type=str)
-    parser.add_argument('--model', type=str, default='clip')
+    parser.add_argument('--model', type=str, default='dino')
 
     args = parser.parse_args()
 
@@ -104,10 +104,12 @@ if __name__ == "__main__":
     
     cls_similariy_dict = {}
     for cls in tqdm(classes):
+        if cls.endswith('.json'):
+            continue
         domain1_cls_path = os.path.join(domain1_path, cls)
         domain2_cls_path = os.path.join(domain2_path, cls)
-        domain1_images = [os.path.join(domain1_cls_path, image_path) for image_path in os.listdir(domain1_cls_path)]
-        domain2_images = [os.path.join(domain2_cls_path, image_path) for image_path in os.listdir(domain2_cls_path)]
+        domain1_images = [os.path.join(domain1_cls_path, image_path) for image_path in os.listdir(domain1_cls_path) if not image_path.endswith('.json')]
+        domain2_images = [os.path.join(domain2_cls_path, image_path) for image_path in os.listdir(domain2_cls_path) if not image_path.endswith('.json')]
 
         if args.model == 'clip':
             domain1_features = calculate_features_CLIP(domain1_images, model, processor, device)
