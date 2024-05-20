@@ -266,6 +266,9 @@ def generate_single_class(
         except Exception as e:
             print(e)
             continue
+
+        if image is None:
+            continue
         image = image.resize((224, 224))
 
         unique_image_name = generate_unique_filename(image_dir, image_name + ".jpg")
