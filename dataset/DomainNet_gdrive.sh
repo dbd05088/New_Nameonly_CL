@@ -75,3 +75,9 @@ mv DomainNet_generated_RMD_equalweight DomainNet/
 mv DomainNet_generated_RMD_w_normalize_clip_90_temp_0_25 DomainNet/
 rm DomainNet_generated_RMD_equalweight.tar
 rm DomainNet_generated_RMD_w_normalize_clip_90_temp_0_25.tar
+
+# Fix: DomainNet temp 0.25 -> 0.5
+gdrive files download 1AkZUACpAgK3EMKqB7DMAZ7wwwVNqyGmX
+tar -xf DomainNet_generated_RMD_w_normalize_clip_90_temp_0_5.tar
+mv DomainNet_generated_RMD_w_normalize_clip_90_temp_0_5 DomainNet/
+rm DomainNet_generated_RMD_w_normalize_clip_90_temp_0_5.tar
