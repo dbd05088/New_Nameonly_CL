@@ -8,10 +8,12 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('-d', '--dataset', type=str, required=True)
 parser.add_argument('-s', '--source_path', type=str, required=True)
+parser.add_argument('-r', '--threshold_ratio', type=float)
 args = parser.parse_args()
 
 def check_class_names(directory_path, class_names_dict):
     class_names = os.listdir(directory_path)
+    class_names = [cls for cls in class_names if not cls.endswith('.json')]
     for cls in class_names:
         if cls not in class_names_dict.keys():
             print(f"Class {cls} not found in class names dictionary.")
@@ -64,7 +66,7 @@ dataset_mapping = {'DomainNet': DomainNet_count, 'officehome': officehome_count,
 
 class_names_dict = dataset_mapping[args.dataset]
 
-cls_count_dict = {cls: len(os.listdir(os.path.join(directory_path, cls))) for cls in os.listdir(directory_path)}
+cls_count_dict = {cls: len(os.listdir(os.path.join(directory_path, cls))) for cls in os.listdir(directory_path) if not cls.endswith('.json')}
 print(f"Total number of classes: {len(os.listdir(directory_path))}")
 print(f"Dictionary from classes.py: {class_names_dict}")
 print(f"Count dictionary from dir: {cls_count_dict}")
@@ -73,7 +75,8 @@ print(f"Key same: {class_names_dict.keys() == cls_count_dict.keys()}")
 check_class_names(directory_path, class_names_dict)
 
 # Choose all images in the first class
-class_name = os.listdir(directory_path)[0]
+class_names = [cls for cls in os.listdir(directory_path) if not cls.endswith('.json')]
+class_name = class_names[0]
 for image in os.listdir(os.path.join(directory_path, class_name)):
     if image.endswith('.jpg') or image.endswith('.jpeg') or image.endswith('.png'):
         # Check

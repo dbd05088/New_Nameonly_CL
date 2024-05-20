@@ -43,10 +43,17 @@ for cls in tqdm(classes):
     if not os.path.exists(target_class_path):
         os.makedirs(target_class_path)
 
-     # Choose the first subsample_num images
-    for i in range(subsample_num):
-        source_image = source_image_paths[i]
-        source_image_path = os.path.join(source_class_path, source_image)
-        target_image_path = os.path.join(target_class_path, source_image)
-        shutil.copy(source_image_path, target_image_path)
+    # Choose the first subsample_num images
+    try:
+        for i in range(subsample_num):
+            source_image = source_image_paths[i]
+            source_image_path = os.path.join(source_class_path, source_image)
+            target_image_path = os.path.join(target_class_path, source_image)
+            shutil.copy(source_image_path, target_image_path)
+    except Exception as e:
+        print(f"While processing class {cls}, error occured...")
+        print(f"Length from cls dict: {subsample_num}")
+        print(f"Length of dir: {len(source_image_paths)}")
+        print(e)
+        continue
 

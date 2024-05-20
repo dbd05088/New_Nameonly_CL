@@ -51,12 +51,33 @@
 # rm DomainNet_RMD_web_temp_2.tar
 # rm DomainNet_RMD_web_temp_3.tar
 
-mkdir -p DomainNet
-gdrive files download 1LRfSItkn8G-2zptq5JJjVrsVYaEFhb3Y
-gdrive files download 1w7ht9yY4gi9-mFFzFjwJ7YqeGP1RjZxA
-tar -xf DomainNet_newsample_flickr.tar
-tar -xf DomainNet_newsample_equalweight.tar
-mv DomainNet_newsample_flickr DomainNet/
-mv DomainNet_newsample_equalweight DomainNet/
-rm DomainNet_newsample_flickr.tar
-rm DomainNet_newsample_equalweight.tar
+# mkdir -p DomainNet
+# gdrive files download 1LRfSItkn8G-2zptq5JJjVrsVYaEFhb3Y
+# gdrive files download 1w7ht9yY4gi9-mFFzFjwJ7YqeGP1RjZxA
+# tar -xf DomainNet_newsample_flickr.tar
+# tar -xf DomainNet_newsample_equalweight.tar
+# mv DomainNet_newsample_flickr DomainNet/
+# mv DomainNet_newsample_equalweight DomainNet/
+# rm DomainNet_newsample_flickr.tar
+# rm DomainNet_newsample_equalweight.tar
+
+# gdrive files download 1-n5e24Rqep7bUpndsg_uZGB7M-_rNvoP
+# tar -xf DomainNet_static_cot_50_sdxl_filtered.tar
+# mv DomainNet_static_cot_50_sdxl_filtered DomainNet/
+# rm DomainNet_static_cot_50_sdxl_filtered.tar
+
+# DomainNet RMD - 0520
+gdrive files download 1WBqWhp2gifhm7nAId7otq3sTYkyGFNh_
+gdrive files download 14GrjceE3WJUhniyqTVJWa9IeGXKuE0Tj
+tar -xf DomainNet_generated_RMD_equalweight.tar
+tar -xf DomainNet_generated_RMD_w_normalize_clip_90_temp_0_25.tar
+mv DomainNet_generated_RMD_equalweight DomainNet/
+mv DomainNet_generated_RMD_w_normalize_clip_90_temp_0_25 DomainNet/
+rm DomainNet_generated_RMD_equalweight.tar
+rm DomainNet_generated_RMD_w_normalize_clip_90_temp_0_25.tar
+
+# Fix: DomainNet temp 0.25 -> 0.5
+gdrive files download 1AkZUACpAgK3EMKqB7DMAZ7wwwVNqyGmX
+tar -xf DomainNet_generated_RMD_w_normalize_clip_90_temp_0_5.tar
+mv DomainNet_generated_RMD_w_normalize_clip_90_temp_0_5 DomainNet/
+rm DomainNet_generated_RMD_w_normalize_clip_90_temp_0_5.tar
