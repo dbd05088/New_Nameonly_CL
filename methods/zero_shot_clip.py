@@ -188,7 +188,7 @@ class ZeroShotClip:
             f"{domain_name} Test | Sample # {sample_num} | test_acc {avg_acc:.4f}"
         )
 
-    def online_evaluate(self, domain_name, cur_task, test_list, sample_num, batch_size, n_worker):
+    def online_evaluate(self, domain_name, cur_task, test_list, sample_num, batch_size, n_worker, train_list=None):
         self.cur_task = cur_task
         
         test_df = pd.DataFrame(test_list)
