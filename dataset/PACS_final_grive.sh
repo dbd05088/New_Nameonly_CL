@@ -435,7 +435,12 @@
 # rm PACS_final_generated_RMD_w_normalize_clip_95_temp_0_5.tar
 # rm PACS_final_generated_RMD_w_normalize_clip_95_temp_2.tar
 
-gdrive files download 1sjAteSteeir6-cg9fjAjpSMHNK-rIR3R
-tar -xf PACS_final_generated_RMD_w_normalize_clip_90_temp_0_25.tar 
-mv PACS_final_generated_RMD_w_normalize_clip_90_temp_0_25 PACS_final/
-rm PACS_final_generated_RMD_w_normalize_clip_90_temp_0_25.tar
+# gdrive files download 1sjAteSteeir6-cg9fjAjpSMHNK-rIR3R
+# tar -xf PACS_final_generated_RMD_w_normalize_clip_90_temp_0_25.tar 
+# mv PACS_final_generated_RMD_w_normalize_clip_90_temp_0_25 PACS_final/
+# rm PACS_final_generated_RMD_w_normalize_clip_90_temp_0_25.tar
+
+gdrive files download 1Ug1547oBy43AHHx-5AfAXtIoSEMEUvwt
+tar -xf PACS_final_static_cot_50_palm2_filtered.tar
+mv PACS_final_static_cot_50_palm2_filtered PACS_final/
+rm PACS_final_static_cot_50_palm2_filtered.tar
