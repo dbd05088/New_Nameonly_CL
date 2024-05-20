@@ -6,13 +6,14 @@ import shutil
 import torch
 from tqdm import tqdm
 from classes import *
+from pathlib import Path
 
 # /workspace/home/user/seongwon/crawling/crawler/datasets/officehome_concatenated/
 # /workspace/home/user/seongwon/crawling/crawler/datasets/officehome_filtered/
 parser = argparse.ArgumentParser()
 parser.add_argument('-d', '--dataset', type=str)
 parser.add_argument('-s', '--image_root_dir', type=str)
-parser.add_argument('-t', '--output_dir', type=str)
+parser.add_argument('-t', '--output_prefix', type=str, default='_filtered')
 parser.add_argument('-p', '--image_prefix', type=str, default='')
 parser.add_argument('--start_class', type=int, default=0)
 parser.add_argument('--end_class', type=int)
@@ -37,8 +38,10 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 if args.end_class is None:
     args.end_class = len(os.listdir(args.image_root_dir)) - 1
 
-if not os.path.exists(args.output_dir):
-    os.makedirs(args.output_dir)
+source_path = Path(args.image_root_dir)
+output_dir = os.path.join(source_path.parent, f"{source_path.name}{args.output_prefix}")
+if not os.path.exists(output_dir):
+    os.makedirs(output_dir)
 
 
 # Load the images
@@ -72,37 +75,44 @@ for class_name, image_paths in tqdm(class_to_paths_dict.items()):
     else:
         # Just remove a certain ratio of images
         sample_num = len(image_paths) - int(len(image_paths) * args.remove_ratio)
-    prompt = f"A photo of {class_name}"
-    formatted_class_name = class_name.replace('_', ' ')
-    # Add article to prompt
-    if formatted_class_name[0] in ['a', 'e', 'i', 'o', 'u']:
-        prompt = f"A photo of an {formatted_class_name}"
-    else:
-        prompt = f"A photo of a {formatted_class_name}"
-
-    print(f"Filtering prompt: {prompt}")
-    if image_paths == []:
-        raise ValueError(f"No images found for class {class_name}")
-    image_text_similarity = get_text_image_similarity(prompt, image_paths, processor, model)
     
-    # Get top-k imag_paths
-    top_k_indices = image_text_similarity.argsort(descending=True)[:sample_num]
-    top_k_image_paths = [image_paths[i] for i in top_k_indices]
+    if len(image_paths) > sample_num:
+        prompt = f"A photo of {class_name}"
+        formatted_class_name = class_name.replace('_', ' ')
+        # Add article to prompt
+        if formatted_class_name[0] in ['a', 'e', 'i', 'o', 'u']:
+            prompt = f"A photo of an {formatted_class_name}"
+        else:
+            prompt = f"A photo of a {formatted_class_name}"
 
-    # Print the image path of the lowest similarity
-    lowest_samples = image_text_similarity.argsort()[:10]
-    if args.lowest_similarity_path != 'None':
-        print(f"Saving lowest similarity images to {args.lowest_similarity_path}")
-        if not os.path.exists(args.lowest_similarity_path):
-            os.makedirs(args.lowest_similarity_path)
-        for i, index in enumerate(lowest_samples):
-            image_path = image_paths[index]
-            image_name = os.path.basename(image_path)
-            output_image_path = os.path.join(args.lowest_similarity_path, f"{class_name}_{image_name}")
-            shutil.copy(image_path, output_image_path)
+        print(f"Filtering prompt: {prompt}")
+        if image_paths == []:
+            raise ValueError(f"No images found for class {class_name}")
+        
+        image_text_similarity = get_text_image_similarity(prompt, image_paths, processor, model)
+        
+        # Get top-k imag_paths
+        top_k_indices = image_text_similarity.argsort(descending=True)[:sample_num]
+        top_k_image_paths = [image_paths[i] for i in top_k_indices]
 
+        # Print the image path of the lowest similarity
+        lowest_samples = image_text_similarity.argsort()[:10]
+        if args.lowest_similarity_path != 'None':
+            print(f"Saving lowest similarity images to {args.lowest_similarity_path}")
+            if not os.path.exists(args.lowest_similarity_path):
+                os.makedirs(args.lowest_similarity_path)
+            for i, index in enumerate(lowest_samples):
+                image_path = image_paths[index]
+                image_name = os.path.basename(image_path)
+                output_image_path = os.path.join(args.lowest_similarity_path, f"{class_name}_{image_name}")
+                shutil.copy(image_path, output_image_path)
+    else:
+        # No filtering (only cp)
+        print(f"[WARNING] - sample num from dict: {sample_num}, from dir: {len(image_paths)}")
+        top_k_image_paths = image_paths
+    
     # Copy the top-k images to the output directory
-    output_class_dir = os.path.join(args.output_dir, class_name)
+    output_class_dir = os.path.join(output_dir, class_name)
     if not os.path.exists(output_class_dir):
         os.makedirs(output_class_dir)
 
