@@ -43,3 +43,4 @@ for cls, count in cls_not_generated:
     result_list.append((f"{index}-{cls}:{count}"))
 
 print(result_list)
+print(len(result_list))
