@@ -61,7 +61,17 @@
 # rm DomainNet_newsample_flickr.tar
 # rm DomainNet_newsample_equalweight.tar
 
-gdrive files download 1-n5e24Rqep7bUpndsg_uZGB7M-_rNvoP
-tar -xf DomainNet_static_cot_50_sdxl_filtered.tar
-mv DomainNet_static_cot_50_sdxl_filtered DomainNet/
-rm DomainNet_static_cot_50_sdxl_filtered.tar
+# gdrive files download 1-n5e24Rqep7bUpndsg_uZGB7M-_rNvoP
+# tar -xf DomainNet_static_cot_50_sdxl_filtered.tar
+# mv DomainNet_static_cot_50_sdxl_filtered DomainNet/
+# rm DomainNet_static_cot_50_sdxl_filtered.tar
+
+# DomainNet RMD - 0520
+gdrive files download 1WBqWhp2gifhm7nAId7otq3sTYkyGFNh_
+gdrive files download 14GrjceE3WJUhniyqTVJWa9IeGXKuE0Tj
+tar -xf DomainNet_generated_RMD_equalweight.tar
+tar -xf DomainNet_generated_RMD_w_normalize_clip_90_temp_0_25.tar
+mv DomainNet_generated_RMD_equalweight DomainNet/
+mv DomainNet_generated_RMD_w_normalize_clip_90_temp_0_25 DomainNet/
+rm DomainNet_generated_RMD_equalweight.tar
+rm DomainNet_generated_RMD_w_normalize_clip_90_temp_0_25.tar

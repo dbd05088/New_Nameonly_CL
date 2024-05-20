@@ -1,0 +1,264 @@
+{
+    "metaprompts": [
+        {
+            "index": 0,
+            "metaprompt": "A photo of a [concept].",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "[concept] in the middle of a forest "
+                },
+                {
+                    "index": 1,
+                    "content": "[concept] in a large field"
+                },
+                {
+                    "index": 2,
+                    "content": "[concept] in a glass of milk"
+                },
+                {
+                    "index": 3,
+                    "content": "[concept] on a blue background"
+                },
+                {
+                    "index": 4,
+                    "content": "[concept] in a garden"
+                }
+            ]
+        },
+        {
+            "index": 1,
+            "metaprompt": "A photo of a [concept] lying in a field",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "[concept] running through a grassy field"
+                },
+                {
+                    "index": 1,
+                    "content": "[concept] relaxing in the grass"
+                },
+                {
+                    "index": 2,
+                    "content": "[concept] in the snow"
+                },
+                {
+                    "index": 3,
+                    "content": "[concept] in a park"
+                },
+                {
+                    "index": 4,
+                    "content": "[concept] playing fetch in the park"
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "metaprompt": "[concept] in the snow",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "[concept] under a warm winter sun"
+                },
+                {
+                    "index": 1,
+                    "content": "[concept] surrounded by flowers"
+                },
+                {
+                    "index": 2,
+                    "content": "[concept] in the pouring rain"
+                },
+                {
+                    "index": 3,
+                    "content": "[concept] in a dark forest"
+                },
+                {
+                    "index": 4,
+                    "content": "[concept] at the beach"
+                }
+            ]
+        },
+        {
+            "index": 3,
+            "metaprompt": "a picture of a white [concept]",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "a picture of a white [concept]"
+                },
+                {
+                    "index": 1,
+                    "content": "a picture of a white [concept]"
+                },
+                {
+                    "index": 2,
+                    "content": "a picture of a white [concept]"
+                },
+                {
+                    "index": 3,
+                    "content": "a picture of a white [concept]"
+                },
+                {
+                    "index": 4,
+                    "content": "a picture of a white [concept]"
+                }
+            ]
+        },
+        {
+            "index": 4,
+            "metaprompt": "[concept] on a blue couch",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "[concept] in a red and white striped shirt"
+                },
+                {
+                    "index": 1,
+                    "content": "[concept] wearing a pink dress"
+                },
+                {
+                    "index": 2,
+                    "content": "[concept] in a brown leather jacket"
+                },
+                {
+                    "index": 3,
+                    "content": "[concept] in a white dress"
+                },
+                {
+                    "index": 4,
+                    "content": "[concept] wearing a black leather jacket"
+                }
+            ]
+        },
+        {
+            "index": 5,
+            "metaprompt": "A picture of a black [concept]",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A picture of a red [concept] that is a fruit"
+                },
+                {
+                    "index": 1,
+                    "content": "A picture of a [concept] on a plate"
+                },
+                {
+                    "index": 2,
+                    "content": "A picture of a [concept] in a bowl"
+                },
+                {
+                    "index": 3,
+                    "content": "A picture of a [concept] in a field"
+                },
+                {
+                    "index": 4,
+                    "content": "A picture of a [concept] in a jar"
+                }
+            ]
+        },
+        {
+            "index": 6,
+            "metaprompt": "a [concept] on a couch",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "a [concept] in a hammock"
+                },
+                {
+                    "index": 1,
+                    "content": "a [concept] swinging in a hammock"
+                },
+                {
+                    "index": 2,
+                    "content": "a [concept] sleeping on a couch"
+                },
+                {
+                    "index": 3,
+                    "content": "a [concept] in a park on a bench"
+                },
+                {
+                    "index": 4,
+                    "content": "a [concept] sitting in a chair"
+                }
+            ]
+        },
+        {
+            "index": 7,
+            "metaprompt": "[concept] wearing a shirt",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "[concept] wearing a shirt with a peace sign"
+                },
+                {
+                    "index": 1,
+                    "content": "[concept] wearing a shirt with a heart"
+                },
+                {
+                    "index": 2,
+                    "content": "[concept] wearing a shirt with a logo"
+                },
+                {
+                    "index": 3,
+                    "content": "[concept] wearing a red shirt"
+                },
+                {
+                    "index": 4,
+                    "content": "[concept] wearing a shirt with a flower pattern"
+                }
+            ]
+        },
+        {
+            "index": 8,
+            "metaprompt": "A [concept] in a bowl of soup",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "a [concept] in a bowl of ramen"
+                },
+                {
+                    "index": 1,
+                    "content": "[concept] floating in a bowl of hot chocolate"
+                },
+                {
+                    "index": 2,
+                    "content": "a [concept] in a bowl of gravy"
+                },
+                {
+                    "index": 3,
+                    "content": "[concept] in a bowl of tomato soup"
+                },
+                {
+                    "index": 4,
+                    "content": "A [concept] in a bowl of vanilla ice cream"
+                }
+            ]
+        },
+        {
+            "index": 9,
+            "metaprompt": "[concept] on a white background",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "[concept] and a t-shirt"
+                },
+                {
+                    "index": 1,
+                    "content": "[concept] in a blue shirt"
+                },
+                {
+                    "index": 2,
+                    "content": "[concept] standing on a mountain"
+                },
+                {
+                    "index": 3,
+                    "content": "[concept] on a blue background"
+                },
+                {
+                    "index": 4,
+                    "content": "[concept] on a red background"
+                }
+            ]
+        }
+    ]
+}

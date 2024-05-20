@@ -191,7 +191,7 @@ elif [ "$DATASET" == "OfficeHome" ]; then
 
 elif [ "$DATASET" == "DomainNet" ]; then
     MEM_SIZE=8000
-    TYPES=("static_cot_50_sdxl_filtered") # "newsample_equalweight"
+    TYPES=("generated_RMD_equalweight" "generated_RMD_w_normalize_clip_90_temp_0_25") # "newsample_equalweight"
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
     MODEL_NAME="vit" VAL_PERIOD=500 EVAL_PERIOD=4000
