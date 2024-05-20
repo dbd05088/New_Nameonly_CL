@@ -1,7 +1,7 @@
 # When we make a new one, we should inherit the Finetune class.
 import logging
 import copy
-
+import json
 import numpy as np
 import torch
 import torch.nn as nn
@@ -26,12 +26,12 @@ class CuPL(ZeroShotClip):
     def __init__(self,  train_datalist, test_datalist, device, **kwargs):
         # if kwargs["temp_batchsize"] is None:
         #     kwargs["temp_batchsize"] = kwargs["batchsize"]//2
-        self.dict = self.get_LLM_prompts()
+        self.get_LLM_prompts()
         super().__init__(train_datalist, test_datalist, device, **kwargs)
     
     def get_LLM_prompts(self):
-        f = open("/root/New_Nameonly_CL/cct_sus_metaprompt.txt", 'r')
-        return json.loads(f.readline())
+        with open(f"/home/user/mjlee/New_Nameonly_CL/ours_to_cupl_NICO.json") as fp:
+            self.dict = json.load(fp)
     
     def pre_tokenize(self, dict):
         zeroshot_weights=[]

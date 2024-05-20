@@ -160,7 +160,7 @@ class CLManagerBase:
         self.fast_adaptation_samples_per_class = 100
         self.fast_epoch = 10
         self.fast_trained = False
-        self.aoa_eval = True
+        self.aoa_eval = False
         self.saved_model = copy.deepcopy(self.model)
         self.fast_model = None
         
