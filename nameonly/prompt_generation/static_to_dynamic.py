@@ -6,9 +6,9 @@ from classes import *
 # static prompt는 class name이 없는데, image generation code는 class - prompt dict로
 # 되어 있기 때문에 이를 수정하는 부분.
 
-classes = list(PACS_count.keys())
-static_path = './prompts/palm2_static_totalprompts_with_cot_50.json'
-output_path = './prompts/palm2_static_totalprompts_with_cot_50_with_cls_PACS.json'
+classes = list(NICO_count.keys())
+static_path = './prompts/static_totalprompts_with_cot_50_photorealistic.json'
+output_path = './prompts/static_totalprompts_with_cot_50_photorealistic_with_cls_NICO.json'
 with open(static_path, 'r') as f:
     static_dict = json.load(f)
 
