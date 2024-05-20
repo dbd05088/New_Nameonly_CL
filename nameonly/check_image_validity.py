@@ -75,7 +75,8 @@ print(f"Key same: {class_names_dict.keys() == cls_count_dict.keys()}")
 check_class_names(directory_path, class_names_dict)
 
 # Choose all images in the first class
-class_name = os.listdir(directory_path)[0]
+class_names = [cls for cls in os.listdir(directory_path) if not cls.endswith('.json')]
+class_name = class_names[0]
 for image in os.listdir(os.path.join(directory_path, class_name)):
     if image.endswith('.jpg') or image.endswith('.jpeg') or image.endswith('.png'):
         # Check
