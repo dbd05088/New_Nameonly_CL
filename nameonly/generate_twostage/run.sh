@@ -9,4 +9,4 @@ ml purge
 
 conda init bash
 conda activate generate
-python get_image_onestage.py --config_path ./configs/DomainNet_sdxl.yaml --start_class 342 --end_class 344
+python get_image_onestage.py --config_path ./configs/PACS_palm2_sdxl.yaml --start_class 2 --end_class 2
