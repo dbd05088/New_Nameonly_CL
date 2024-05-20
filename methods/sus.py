@@ -26,49 +26,93 @@ class SUS(ZeroShotClip):
         #     kwargs["temp_batchsize"] = kwargs["batchsize"]//2
         super().__init__(train_datalist, test_datalist, device, **kwargs)
     
-    def online_evaluate(self, domain_name, cur_task, test_list, sample_num, batch_size, n_worker, val_list):
+    def online_evaluate(self, domain_name, cur_task, test_list, sample_num, batch_size, n_worker, train_list):
         self.cur_task = cur_task
         seen_classes = []
         seen_class_count = {}
         
-        
-        # for data in val_list:
+        #split_train_val_list
+        # val_cls_per_sample = 40
+        # val_list = []
+        # training_list = []
+        # for data in train_list:
         #     if data["klass"] not in seen_classes:
         #         seen_classes.append(data["klass"])
         #         seen_class_count[data["klass"]] = 0
-        #     if seen_class_count[data["klass"]] < k_shot:
+        #     if seen_class_count[data["klass"]] < val_cls_per_sample:
+        #         val_list.append(data)
+        #         seen_class_count[data["klass"]] += 1
+        #     else:
+        #         training_list.append(data)
+        # print("training_list", len(training_list))      
+        # print("val list", len(val_list))  
                 
-        #         self.cls_dict_opp[label] = data["klass"]
-        #         label+=1
-        # fewshot_list = 
-        
-        fewshot_dataset = datasets.ImageFolder(os.path.join('/home/user/mjlee/New_Nameonly_CL/sus_cct'), self.test_transform)
-        shot = 128
+
+        #SUS Method
+        fewshot_dataset = datasets.ImageFolder(os.path.join('/home/user/mjlee/New_Nameonly_CL/NICO_sdxl_subsampled_240'), self.test_transform)
+        shot = 200
         class_indices = {}
         selected_indices = []
-
+        unselected_indices = []
         for idx, (img, label) in enumerate(fewshot_dataset):
             if label not in class_indices:
                 class_indices[label] = []
             if len(class_indices[label]) < shot:
                 class_indices[label].append(idx)
                 selected_indices.append(idx)
+            else:
+                unselected_indices.append(idx)
         fewshot_d2 = Subset(fewshot_dataset, selected_indices)
+        print(len(selected_indices), len(unselected_indices))
         print("fewshot dataset", len(fewshot_d2))
-        fewshot_classnames = fewshot_dataset.classes
-        print("class_names", fewshot_classnames)
         fewshot_loader = DataLoader(
             fewshot_d2,
             shuffle=True,
             batch_size=batch_size,
             num_workers=n_worker,
         )
+        support_features, support_labels = self.get_features2_1(fewshot_loader)
+        fewshot_classnames = fewshot_dataset.classes
+        val_dataset = Subset(fewshot_dataset, unselected_indices)
+        val_loader = DataLoader(
+            val_dataset,
+            shuffle=True,
+            batch_size=batch_size,
+            num_workers=n_worker,
+        )
+        print("val dataset", len(val_loader))
+        '''
+        
+        #Our Method
+        fewshot_classnames = seen_classes
+        train_df = pd.DataFrame(training_list)
+        exp_train_df = train_df[train_df['klass'].isin(fewshot_classnames)]
+        train_dataset = ImageTextDataset(
+            exp_train_df,
+            dataset=self.dataset,
+            transform=self.test_transform,
+            cls_list=fewshot_classnames,
+            data_dir=self.data_dir,
+            # prompt_cls_list=self.text_class_prompts
+        )
+        train_loader = DataLoader(
+            train_dataset,
+            shuffle=True,
+            batch_size=batch_size,
+            num_workers=n_worker,
+        )
+        support_features, support_labels = self.get_features2_2(train_loader)
+        '''
+
         test_df = pd.DataFrame(test_list)
         # few_shot_df = pd.DataFrame(few_shot_list)
-        val_df = pd.DataFrame(val_list)
+        # val_df = pd.DataFrame(val_list)
+
+        print("class_names", fewshot_classnames)
+        
         exp_test_df = test_df[test_df['klass'].isin(fewshot_classnames)]
         # exp_few_shot_df = few_shot_df[few_shot_df['klass'].isin(self.exposed_classes)]
-        exp_val_df = val_df[val_df['klass'].isin(fewshot_classnames)]
+        # exp_val_df = val_df[val_df['klass'].isin(fewshot_classnames)]
         test_dataset = ImageTextDataset(
             exp_test_df,
             dataset=self.dataset,
@@ -99,27 +143,26 @@ class SUS(ZeroShotClip):
         #     num_workers=n_worker,
         # )
         
-        val_dataset = ImageTextDataset(
-            exp_val_df,
-            dataset=self.dataset,
-            transform=self.test_transform,
-            cls_list=fewshot_classnames,
-            data_dir=self.data_dir,
-            # prompt_cls_list=self.text_class_prompts
-        )
-        val_loader = DataLoader(
-            val_dataset,
-            shuffle=True,
-            batch_size=batch_size,
-            num_workers=n_worker,
-        )
+        # val_dataset = ImageTextDataset(
+        #     exp_val_df,
+        #     dataset=self.dataset,
+        #     transform=self.test_transform,
+        #     cls_list=fewshot_classnames,
+        #     data_dir=self.data_dir,
+        #     # prompt_cls_list=self.text_class_prompts
+        # )
+        # val_loader = DataLoader(
+        #     val_dataset,
+        #     shuffle=True,
+        #     batch_size=batch_size,
+        #     num_workers=n_worker,
+        # )
         self.text_class_prompts = [self.prompt_template+cla for cla in fewshot_classnames]
         self.text_class_tokens = self.tokenizer(self.text_class_prompts).to(self.device)
         
         
         test_features, test_labels = self.get_features(test_loader)
-        support_features, support_labels = self.get_features2(fewshot_loader)
-        val_features, val_labels = self.get_features(val_loader)
+        val_features, val_labels = self.get_features_val(val_loader)
         text_classifier_weights = self.get_text_classifier_weights()
         
         train_kl_divs_sims, test_kl_divs_sims, val_kl_divs_sims = self.get_kl_div_sims(test_features, val_features, support_features, text_classifier_weights)
@@ -146,7 +189,7 @@ class SUS(ZeroShotClip):
             zeroshot_weights = torch.stack(zeroshot_weights, dim=1).to(self.device)
         return zeroshot_weights
     
-    def get_features2(self, loader):
+    def get_features2_1(self, loader):
         train_images_targets = []
         train_images_features_agg = []
         
@@ -155,6 +198,42 @@ class SUS(ZeroShotClip):
             for augment_idx in range(10):
                 train_images_features = []
                 for imgs, labels in loader:
+                    imgs = imgs.to(self.device)
+                    
+                    image_features = self.model.encode_image(imgs)
+                    # image_features /= image_features.norm(dim=-1, keepdim=True)
+                    
+                    train_images_features.append(image_features)
+                    if augment_idx == 0:
+                        train_images_targets.append(labels.to(self.device))
+                
+                images_features_cat = torch.cat(train_images_features, dim=0).unsqueeze(0)
+                train_images_features_agg.append(images_features_cat)
+                # label_list = torch.cat(label_list)
+                
+            train_images_features_agg = torch.cat(train_images_features_agg, dim=0).mean(dim=0)
+            # L2 normalise image embeddings from few shot dataset -- dim NKxC
+            train_images_features_agg /= train_images_features_agg.norm(dim=-1, keepdim=True)
+            # dim CxNK
+            feature_list = train_images_features_agg.permute(1, 0)
+
+            # convert all image labels to one hot labels -- dim NKxN
+            label_list = F.one_hot(torch.cat(train_images_targets, dim=0)).half()
+        
+        return feature_list, label_list
+    
+    
+    def get_features2_2(self, loader):
+        train_images_targets = []
+        train_images_features_agg = []
+        
+        self.model.eval()
+        with torch.no_grad():
+            for augment_idx in range(10):
+                train_images_features = []
+                for data in loader:
+                    imgs = data["image"]
+                    labels = data["label"]
                     imgs = imgs.to(self.device)
                     
                     image_features = self.model.encode_image(imgs)
@@ -188,6 +267,26 @@ class SUS(ZeroShotClip):
             for data in loader:
                 imgs = data["image"]
                 labels = data["label"]
+                imgs = imgs.to(self.device)
+                
+                image_features = self.model.encode_image(imgs)
+                image_features /= image_features.norm(dim=-1, keepdim=True)
+                
+                feature_list.append(image_features)
+                label_list.append(labels.to(self.device))
+            
+            feature_list = torch.cat(feature_list)
+            label_list = torch.cat(label_list)
+        
+        return feature_list, label_list
+    
+    def get_features_val(self, loader):
+        feature_list = []
+        label_list = []
+        
+        self.model.eval()
+        with torch.no_grad():
+            for imgs, labels in loader:
                 imgs = imgs.to(self.device)
                 
                 image_features = self.model.encode_image(imgs)
