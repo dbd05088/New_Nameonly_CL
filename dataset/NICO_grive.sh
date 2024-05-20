@@ -14,7 +14,7 @@ mkdir -p NICO
 # mv NICO_glide NICO/
 # rm NICO_glide.tar
 
-gdrive files download 1W_oyePm3PkjN5HRIy7fqPCZwtTNkLRto
+gdrive files download 19sfE3iUNzcjftn8Ayo2hCyZKRPZy5lmi
 tar -xf NICO_sdxl_base_filtered.tar
 mv NICO_sdxl_base_filtered NICO/
 rm NICO_sdxl_base_filtered.tar

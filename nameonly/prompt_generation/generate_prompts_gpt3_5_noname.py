@@ -5,57 +5,60 @@ from openai import OpenAI
 from tqdm import tqdm
 from classes import *
 
-def generate_prompt_sus(client, concept_name):
-    message1 = f"""I need to create prompts for generating images using a text-to-image model. The subject of the image is '{concept_name}'. Please generate 10 answers starting with "A {concept_name}" to the following question: "Describe what a {concept_name} looks like" A good example for 'dog' could be "A dog typically has four legs, a tail, and pointy ears.". Please ensure the response format is strictly 'prompt: answer' (without number).\n"""
-    message2 = f"""I need to create prompts for generating images using a text-to-image model. The subject of the image is '{concept_name}'. Please generate 10 answers starting with "A {concept_name}" to the following question: "How can you identify {concept_name}?" A good example for 'dog' could be "A dog typically has four legs, a tail, and pointy ears.". Please ensure the response format is strictly 'prompt: answer' (without number).\n"""
-    message3 = f"""I need to create prompts for generating images using a text-to-image model. The subject of the image is '{concept_name}'. Please generate 10 answers starting with "A {concept_name}" to the following question: "What does {concept_name} look like?" A good example for 'dog' could be "prompt: A dog typically has four legs, a tail, and pointy ears.". Please ensure the response format is strictly 'prompt: answer' (without number).\n"""
-    message4 = f"""I need to create prompts for generating images using a text-to-image model. The subject of the image is '{concept_name}'. Please generate 10 answers starting with "A {concept_name}" to the following question: "Describe an image from the internet of a {concept_name}?" A good example for 'dog' could be "A dog typically has four legs, a tail, and pointy ears.". Please ensure the response format is strictly 'prompt: answer' (without number).\n"""
-    message5 = f"""I need to create prompts for generating images using a text-to-image model. The subject of the image is '{concept_name}'. Please generate 10 answers starting with "A {concept_name}" to the following question: "A caption of an image of {concept_name}?" A good example for 'dog' could be "A dog typically has four legs, a tail, and pointy ears.". Please ensure the response format is strictly 'prompt: answer' (without number).\n"""
-
-    messages = [message1, message2, message3, message4, message5]
-
-    responses = []
-    # Generate one prompt using GPT-4 API
+def generate_prompt_noname(client, concept_name):
+    message = f"""Q: What are useful visual features for distinguishing a lemur in a photo?
+    A: There are several useful visual features to tell there is a lemur in a photo:
+    - four-limbed primate
+    - black, grey, white, brown, or red-brown
+    - wet and hairless nose with curved nostrils
+    - long tail
+    - large eyes
+    - furry bodies
+    - clawed hands and feet
+    Q: What are useful visual features for distinguishing a television in a photo?
+    A: There are several useful visual features to tell there is a television in a photo:
+    - electronic device
+    - black or grey
+    - a large, rectangular screen
+    - a stand or mount to support the screen
+    - one or more speakers
+    - a power cord
+    - input ports for connecting to other devices
+    - a remote control
+    Q: What are useful features for distinguishing a {concept_name} in a photo?
+    A: There are several useful visual features to tell there is a {concept_name} in a photo:
+    - 
+    """
+    response = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[
+                {"role": "system", "content": "You are a helpful assistant."},
+                {"role": "user", "content": message},
+            ]
+    )
     while True:
-        total_response_results = []
-        for message in tqdm(messages):
-            response = client.chat.completions.create(
-            model="gpt-3.5-turbo",
-            messages=[
-                    {"role": "system", "content": "You are a helpful assistant."},
-                    {"role": "user", "content": message},
-                ]
-            )
+        response_content = response.choices[0].message.content
+        response_list = response_content.split('\n')
+        response_processed_list = [item.strip(' -') for item in response_list]
+        if len(response_processed_list) >= 3:
+            print(f"Response list: {response_processed_list}")
+            return response_processed_list
+        else:
+            print(f"Response too short")
+            print(f"Response: {response_processed_list}")
 
-            response_content = response.choices[0].message.content
-            pattern1 = rf"A {cls}.*?(?:\n|$)"; pattern2 = rf"An {cls}.*?(?:\n|$)"
-            matches1 = re.findall(pattern1, response_content); matches2 = re.findall(pattern2, response_content)
-            matches = matches1 if len(matches1) > len(matches2) else matches2
-            matches = [match.strip() for match in matches]
-
-            print(f"Length: {len(matches)}")
-            if len(matches) > 10:
-                matches = matches[:10]
-            elif len(matches) < 10:
-                print(f"Less than 10...")
-            total_response_results.extend(matches)
-        
-        if len(total_response_results) >= 50:
-            total_response_results = total_response_results[:50]
-            break
-    
-    return total_response_results
 
 cls_count_dict = NICO_count
-result_json_path = './prompts/sus_NICO.json'
+result_json_path = './prompts/noname_NICO.json'
 
 client = OpenAI(api_key="sk-proj-b6mF6aJroOzev4yh1afBT3BlbkFJcgqlS8S3hrxASu62u3a6")
 classes = list(cls_count_dict.keys())
 
 totalprompt_dict = {}
 for cls in tqdm(classes):
-    result_50_prompts = generate_prompt_sus(client, cls)
-    totalprompt_dict[cls] = result_50_prompts
+    responses = generate_prompt_noname(client, cls)
+    totalprompt_dict[cls] = responses
 
+breakpoint()
 with open(result_json_path, 'w') as f:
     json.dump(totalprompt_dict, f)
