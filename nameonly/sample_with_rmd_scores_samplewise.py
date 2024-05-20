@@ -16,20 +16,27 @@ def softmax_with_temperature(z, T) :
 # NORMALIZATION, CLIPPING
 normalize = True
 clip = True
-lower_percentile = 2.5 # 5.0
-upper_percentile = 97.5 # 95.0
+lower_percentile = 5.0 # 5.0
+# lower_percentile = 2.5 # 5.0
+upper_percentile = 95.0 # 95.0
+# upper_percentile = 97.5 # 95.0
 TopK = False
 BottomK = False
 
 INVERSE = False
-TEMPERATURE = 1
-count_dict = PACS_count
-rmd_pickle_path = './RMD_scores/PACS_final_web_newsample_rmd.pkl'
+TEMPERATURE = 0.5
+count_dict = DomainNet_count
+# rmd_pickle_path = './RMD_scores/PACS_final_generated_RMD.pkl'
+# rmd_pickle_path = './RMD_scores/cct_generated_RMD.pkl'
+rmd_pickle_path = './RMD_scores/DomainNet_generated_RMD.pkl'
 
-# PACS
+
 # target_path = './datasets/neurips/PACS/final/PACS_final_web_all_samples_prob_temp_0_5'
-target_path = './datasets/neurips/new_generated/PACS/PACS_final_web_RMD_w_normalize_clip_95'
+# target_path = '../dataset/PACS_final/PACS_final_generated_RMD_w_normalize_clip_90_temp_0_25'
+# target_path = '../dataset/cct/cct_generated_RMD_w_normalize_clip_90_temp_0_25'
+target_path = './datasets/neurips/new_generated/DomainNet/DomainNet_generated_RMD_w_normalize_clip_90_temp_0_5'
 
+# PACS_final generated
 # PATH_dict = {
 #         'sdxl': './datasets/neurips/new_generated/PACS/PACS_final_static_cot_50_sdxl_subsampled_filtered',
 #         'dalle2': './datasets/neurips/new_generated/PACS/PACS_final_static_cot_50_dalle2_subsampled_filtered',
@@ -37,11 +44,30 @@ target_path = './datasets/neurips/new_generated/PACS/PACS_final_web_RMD_w_normal
 #         'cogview2': './datasets/neurips/new_generated/PACS/PACS_final_static_cot_50_cogview2_subsampled',
 # }
 
+# DomainNet 
 PATH_dict = {
-        'flickr': './datasets/neurips/PACS/PACS_flickr_subsampled_filtered',
-        'google': './datasets/neurips/PACS/PACS_google_subsampled_filtered',
-        'bing': './datasets/neurips/PACS/PACS_bing_subsampled_filtered',
+    'sdxl': './datasets/neurips/new_generated/DomainNet/DomainNet_static_cot_50_sdxl_subsampled_filtered',
+    'dalle2': './datasets/neurips/new_generated/DomainNet/DomainNet_static_cot_50_dalle2_subsampled_filtered',
+    'floyd': './datasets/neurips/new_generated/DomainNet/DomainNet_static_cot_50_floyd_subsampled_filtered',
+    'cogview2': './datasets/neurips/new_generated/DomainNet/DomainNet_static_cot_50_cogview2_subsampled_filtered'
 }
+
+# # cct generated
+# PATH_dict = {
+#     'sdxl': './datasets/neurips/new_generated/cct/cct_static_cot_50_sdxl_subsampled_filtered',
+#     'dalle2': './datasets/neurips/new_generated/cct/cct_static_cot_50_dalle2_subsampled_filtered',
+#     'floyd': './datasets/neurips/new_generated/cct/cct_static_cot_50_floyd_subsampled_filtered',
+#     'cogview2': './datasets/neurips/new_generated/cct/cct_static_cot_50_cogview2_subsampled'
+# }
+
+
+# PATH_dict = {
+#         'flickr': './datasets/neurips/PACS/PACS_flickr_subsampled_filtered',
+#         'google': './datasets/neurips/PACS/PACS_google_subsampled_filtered',
+#         'bing': './datasets/neurips/PACS/PACS_bing_subsampled_filtered',
+# }
+
+
 
 # PATH_dict = {
 #     'sdxl': './datasets/neurips/PACS/PACS_sdxl_diversified_subsampled',
