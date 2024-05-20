@@ -150,3 +150,6 @@ check
 nameonly/generate_twostage/generated_datasets/*
 nameonly/generate_twostage/slurm-*
 dataset/NICO/
+nameonly/calculate_rmd_classwise.py
+
+nameonly/sample_with_rmd_scores_classwise.py
