@@ -21,24 +21,47 @@ from tqdm import tqdm
 from torch.utils.data import Subset
 import json
 
+
 class CuPL(ZeroShotClip):
     def __init__(self,  train_datalist, test_datalist, device, **kwargs):
         # if kwargs["temp_batchsize"] is None:
         #     kwargs["temp_batchsize"] = kwargs["batchsize"]//2
+        self.dict = self.get_LLM_prompts()
         super().__init__(train_datalist, test_datalist, device, **kwargs)
     
     def get_LLM_prompts(self):
         f = open("/root/New_Nameonly_CL/cct_sus_metaprompt.txt", 'r')
         return json.loads(f.readline())
     
+    def pre_tokenize(self, dict):
+        zeroshot_weights=[]
+        for cla in self.exposed_classes:
+            print("keys", list(self.dict.keys()))
+            print("class", cla)
+            cls_prompts = self.dict[cla]
+            print(cla, cls_prompts)
+            with torch.no_grad():
+                texts = self.tokenizer(cls_prompts).cuda()
+                class_embeddings = self.model.encode_text(texts)
+                class_embeddings /= class_embeddings.norm(dim=-1, keepdim=True)
+                class_embedding = class_embeddings.mean(dim=0)
+                class_embedding /= class_embedding.norm()
+                zeroshot_weights.append(class_embedding)
+        self.zeroshot_weights = torch.stack(zeroshot_weights, dim=1).cuda()
+                
+    
     def online_evaluate(self, domain_name, cur_task, test_list, sample_num, batch_size, n_worker):
-        llm_prompts = self.get_LLM_prompts()
-        print(type(llm_prompts))
+        # llm_prompts = self.get_LLM_prompts()
+        # print(type(self.dict))
+        
+        self.pre_tokenize(self.dict)
         
         self.cur_task = cur_task
         
         test_df = pd.DataFrame(test_list)
         exp_test_df = test_df[test_df['klass'].isin(self.exposed_classes)]
+        
+        
         
         test_dataset = ImageTextDataset(
             exp_test_df,
@@ -79,11 +102,13 @@ class CuPL(ZeroShotClip):
                 labels = labels.to(self.device)
                 
                 image_features = self.model.encode_image(imgs)
-                text_features = self.model.encode_text(self.text_class_tokens)
+                # text_features = self.model.encode_text(self.text_class_tokens)
+                
                 image_features /= image_features.norm(dim=-1, keepdim=True)
-                text_features /= text_features.norm(dim=-1, keepdim=True)
+                # text_features /= text_features.norm(dim=-1, keepdim=True)
+                
                             
-                text_probs = (100.0 * image_features @ text_features.T).softmax(dim=-1)
+                text_probs = (100.0 * image_features @ self.zeroshot_weights).softmax(dim=-1)
                 top_probs, top_labels = text_probs.topk(1, dim=-1)
                 total_num_data += labels.size(0)
                 
