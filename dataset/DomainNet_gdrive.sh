@@ -51,12 +51,17 @@
 # rm DomainNet_RMD_web_temp_2.tar
 # rm DomainNet_RMD_web_temp_3.tar
 
-mkdir -p DomainNet
-gdrive files download 1LRfSItkn8G-2zptq5JJjVrsVYaEFhb3Y
-gdrive files download 1w7ht9yY4gi9-mFFzFjwJ7YqeGP1RjZxA
-tar -xf DomainNet_newsample_flickr.tar
-tar -xf DomainNet_newsample_equalweight.tar
-mv DomainNet_newsample_flickr DomainNet/
-mv DomainNet_newsample_equalweight DomainNet/
-rm DomainNet_newsample_flickr.tar
-rm DomainNet_newsample_equalweight.tar
+# mkdir -p DomainNet
+# gdrive files download 1LRfSItkn8G-2zptq5JJjVrsVYaEFhb3Y
+# gdrive files download 1w7ht9yY4gi9-mFFzFjwJ7YqeGP1RjZxA
+# tar -xf DomainNet_newsample_flickr.tar
+# tar -xf DomainNet_newsample_equalweight.tar
+# mv DomainNet_newsample_flickr DomainNet/
+# mv DomainNet_newsample_equalweight DomainNet/
+# rm DomainNet_newsample_flickr.tar
+# rm DomainNet_newsample_equalweight.tar
+
+gdrive files download 1-n5e24Rqep7bUpndsg_uZGB7M-_rNvoP
+tar -xf DomainNet_static_cot_50_sdxl_filtered.tar
+mv DomainNet_static_cot_50_sdxl_filtered DomainNet/
+rm DomainNet_static_cot_50_sdxl_filtered.tar
