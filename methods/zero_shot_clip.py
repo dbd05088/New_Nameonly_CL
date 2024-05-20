@@ -145,6 +145,9 @@ class ZeroShotClip:
         elif 'cifar10' in self.dataset:
             self.tasks = 5
             self.cls_per_task = [2]*self.tasks
+        elif 'NICO' in self.dataset:
+            self.tasks = 5
+            self.cls_per_task = [12]*self.tasks
         
         total_cls=0
         for i in range(self.tasks):
