@@ -20,18 +20,37 @@ BottomK = False
 
 INVERSE = False
 TEMPERATURE = 2
-count_dict = PACS_count
-rmd_pickle_path = './RMD_scores/PACS_final_generated_RMD.pkl'
+count_dict = DomainNet_count
+rmd_pickle_path = './RMD_scores/DomainNet_generated_RMD.pkl'
 
 # PACS
-target_path = './datasets/neurips/new_generated/PACS/PACS_final_generated_RMD_equalweight'
+target_path = './datasets/neurips/new_generated/DomainNet/DomainNet_generated_RMD_equalweight'
 
+# DomainNet 
 PATH_dict = {
-        'sdxl': './datasets/neurips/new_generated/PACS/PACS_final_static_cot_50_sdxl_subsampled_filtered',
-        'dalle2': './datasets/neurips/new_generated/PACS/PACS_final_static_cot_50_dalle2_subsampled_filtered',
-        'floyd': './datasets/neurips/new_generated/PACS/PACS_final_static_cot_50_floyd_subsampled_filtered',
-        'cogview2': './datasets/neurips/new_generated/PACS/PACS_final_static_cot_50_cogview2_subsampled',
+    'sdxl': './datasets/neurips/new_generated/DomainNet/DomainNet_static_cot_50_sdxl_subsampled_filtered',
+    'dalle2': './datasets/neurips/new_generated/DomainNet/DomainNet_static_cot_50_dalle2_subsampled_filtered',
+    'floyd': './datasets/neurips/new_generated/DomainNet/DomainNet_static_cot_50_floyd_subsampled_filtered',
+    'cogview2': './datasets/neurips/new_generated/DomainNet/DomainNet_static_cot_50_cogview2_subsampled_filtered'
 }
+
+# PACS_final
+# PATH_dict = {
+#         'sdxl': './datasets/neurips/new_generated/PACS/PACS_final_static_cot_50_sdxl_subsampled_filtered',
+#         'dalle2': './datasets/neurips/new_generated/PACS/PACS_final_static_cot_50_dalle2_subsampled_filtered',
+#         'floyd': './datasets/neurips/new_generated/PACS/PACS_final_static_cot_50_floyd_subsampled_filtered',
+#         'cogview2': './datasets/neurips/new_generated/PACS/PACS_final_static_cot_50_cogview2_subsampled',
+# }
+
+# cct
+# PATH_dict = {
+#     'sdxl': './datasets/neurips/new_generated/cct/cct_static_cot_50_sdxl_subsampled_filtered',
+#     'dalle2': './datasets/neurips/new_generated/cct/cct_static_cot_50_dalle2_subsampled_filtered',
+#     'floyd': './datasets/neurips/new_generated/cct/cct_static_cot_50_floyd_subsampled_filtered',
+#     'cogview2': './datasets/neurips/new_generated/cct/cct_static_cot_50_cogview2_subsampled'
+# }
+
+# PACS before
 # PATH_dict = {
 #     'sdxl': './datasets/neurips/PACS/PACS_sdxl_diversified_subsampled',
 #     'dalle2': './datasets/neurips/PACS/PACS_dalle2_subsampled',
