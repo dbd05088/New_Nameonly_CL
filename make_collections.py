@@ -98,6 +98,14 @@ if __name__ == '__main__':
             4: {'helicopter': 0, 'mailbox': 1, 'sheep': 2, 'scooter': 3, 'crocodile': 4, 'fox': 5, 'pineapple': 6, 'gun': 7, 'ostrich': 8, 'cow': 9, 'football': 10, 'racket': 11, 'tiger': 12, 'motorcycle': 13, 'giraffe': 14, 'goose': 15, 'train': 16, 'flower': 17, 'lizard': 18, 'wolf': 19, 'horse': 20, 'car': 21, 'shrimp': 22, 'lion': 23, 'hot_air_balloon': 24, 'dolphin': 25, 'umbrella': 26, 'lifeboat': 27, 'wheat': 28, 'fishing_rod': 29, 'chair': 30, 'bird': 31, 'hat': 32, 'crab': 33, 'bus': 34, 'sunflower': 35, 'owl': 36, 'cactus': 37, 'bicycle': 38, 'ship': 39, 'truck': 40, 'sailboat': 41, 'spider': 42, 'corn': 43, 'tortoise': 44, 'squirrel': 45, 'dog': 46, 'bear': 47, 'seal': 48, 'rabbit': 49, 'airplane': 50, 'elephant': 51, 'tent': 52, 'frog': 53, 'butterfly': 54, 'kangaroo': 55, 'monkey': 56, 'pumpkin': 57, 'clock': 58, 'cat': 59},
             5: {'pineapple': 0, 'seal': 1, 'ostrich': 2, 'motorcycle': 3, 'scooter': 4, 'goose': 5, 'frog': 6, 'rabbit': 7, 'kangaroo': 8, 'hot_air_balloon': 9, 'truck': 10, 'lifeboat': 11, 'fishing_rod': 12, 'lion': 13, 'sheep': 14, 'bird': 15, 'sunflower': 16, 'bear': 17, 'gun': 18, 'squirrel': 19, 'shrimp': 20, 'clock': 21, 'elephant': 22, 'dolphin': 23, 'helicopter': 24, 'monkey': 25, 'crab': 26, 'train': 27, 'wheat': 28, 'horse': 29, 'tent': 30, 'sailboat': 31, 'cow': 32, 'cactus': 33, 'football': 34, 'umbrella': 35, 'giraffe': 36, 'pumpkin': 37, 'corn': 38, 'flower': 39, 'lizard': 40, 'butterfly': 41, 'spider': 42, 'wolf': 43, 'hat': 44, 'dog': 45, 'racket': 46, 'cat': 47, 'tiger': 48, 'airplane': 49, 'tortoise': 50, 'bus': 51, 'ship': 52, 'chair': 53, 'car': 54, 'owl': 55, 'crocodile': 56, 'mailbox': 57, 'bicycle': 58, 'fox': 59}
         }
+    elif args.dataset == "cifar10":
+        class_to_dict_mappings = {
+            1: {"ship": 0, "dog": 1, "frog": 2, "automobile": 3, "bird": 4, "horse": 5, "cat": 6, "truck": 7, "airplane": 8, "deer": 9},
+            2: {"automobile": 0, "cat": 1, "deer": 2, "bird": 3, "truck": 4, "ship": 5, "horse": 6, "frog": 7, "dog": 8, "airplane": 9},
+            3: {"deer": 0, "automobile": 1, "cat": 2, "ship": 3, "dog": 4, "frog": 5, "truck": 6, "bird": 7, "horse": 8, "airplane": 9},
+            4: {"horse": 0, "airplane": 1, "automobile": 2, "dog": 3, "ship": 4, "frog": 5, "bird": 6, "cat": 7, "deer": 8, "truck": 9},
+            5: {"dog": 0, "deer": 1, "ship": 2, "automobile": 3, "truck": 4, "cat": 5, "bird": 6, "airplane": 7, "frog": 8, "horse": 9}
+        }
     # if args.dataset == "PACS":
     #     if args.random_seed == 1:
     #         class_to_dict = {"dog": 0, "horse": 1, "house": 2, "person": 3, "giraffe": 4, "guitar": 5, "elephant": 6}
@@ -123,17 +131,7 @@ if __name__ == '__main__':
     #     elif args.random_seed == 5:
     #         class_to_dict = {'dog':0, 'horse':1, 'giraffe':2, 'guitar':3, 'elephant':4, 'house':5, 'person':6}
 
-    # elif args.dataset == "cifar10":
-    #     if args.random_seed == 1:
-    #         class_to_dict = {"ship": 0, "dog": 1, "frog": 2, "automobile": 3, "bird": 4, "horse": 5, "cat": 6, "truck": 7, "airplane": 8, "deer": 9}
-    #     elif args.random_seed == 2:
-    #         class_to_dict = {"automobile": 0, "cat": 1, "deer": 2, "bird": 3, "truck": 4, "ship": 5, "horse": 6, "frog": 7, "dog": 8, "airplane": 9}
-    #     elif args.random_seed == 3:
-    #         class_to_dict = {"deer": 0, "automobile": 1, "cat": 2, "ship": 3, "dog": 4, "frog": 5, "truck": 6, "bird": 7, "horse": 8, "airplane": 9}
-    #     elif args.random_seed == 4:
-    #         class_to_dict = {"horse": 0, "airplane": 1, "automobile": 2, "dog": 3, "ship": 4, "frog": 5, "bird": 6, "cat": 7, "deer": 8, "truck": 9}
-    #     elif args.random_seed == 5:
-    #         class_to_dict = {"dog": 0, "deer": 1, "ship": 2, "automobile": 3, "truck": 4, "cat": 5, "bird": 6, "airplane": 7, "frog": 8, "horse": 9}
+    
 
     for seed in seeds:
         result = make_collections(args.root_dir, seed, args.dataset, cls_to_tasks, class_to_dict = class_to_dict_mappings[seed])
