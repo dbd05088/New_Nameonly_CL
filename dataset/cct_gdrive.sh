@@ -165,7 +165,12 @@
 # mv cct_generated_RMD_w_normalize_clip_90_temp_0_25 cct/
 # rm cct_generated_RMD_w_normalize_clip_90_temp_0_25.tar
 
-gdrive files download 1aAuME6t1HJyDv_p2S2kL4UyGFHKAJqQX
-tar -xf cct_web_RMD_w_normalize_clip_90_temp_0_5.tar
-mv cct_web_RMD_w_normalize_clip_90_temp_0_5 cct/
-rm cct_web_RMD_w_normalize_clip_90_temp_0_5.tar
+# gdrive files download 1aAuME6t1HJyDv_p2S2kL4UyGFHKAJqQX
+# tar -xf cct_web_RMD_w_normalize_clip_90_temp_0_5.tar
+# mv cct_web_RMD_w_normalize_clip_90_temp_0_5 cct/
+# rm cct_web_RMD_w_normalize_clip_90_temp_0_5.tar
+
+gdrive files download 1fBq9k7LQgxlsBHA74KyXHj4ngDg3kRhF
+tar -xf cct_sdbp.tar
+mv cct_sdbp cct/
+rm cct_sdbp.tar

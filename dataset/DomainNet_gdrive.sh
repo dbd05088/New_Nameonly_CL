@@ -82,7 +82,12 @@
 # mv DomainNet_generated_RMD_w_normalize_clip_90_temp_0_5 DomainNet/
 # rm DomainNet_generated_RMD_w_normalize_clip_90_temp_0_5.tar
 
-gdrive files download 1-1fAiY2xIleQZrKzJ_uwdrtnVh1lkyk3
-tar -xf DomainNet_web_RMD_w_normalize_clip_90_temp_0_5.tar
-mv DomainNet_web_RMD_w_normalize_clip_90_temp_0_5 DomainNet/
-rm DomainNet_web_RMD_w_normalize_clip_90_temp_0_5.tar
+# gdrive files download 1-1fAiY2xIleQZrKzJ_uwdrtnVh1lkyk3
+# tar -xf DomainNet_web_RMD_w_normalize_clip_90_temp_0_5.tar
+# mv DomainNet_web_RMD_w_normalize_clip_90_temp_0_5 DomainNet/
+# rm DomainNet_web_RMD_w_normalize_clip_90_temp_0_5.tar
+
+gdrive files download 13icRhcAV4PX4AlBfXX7M-7salev9IDxO
+tar -xf DomainNet_sdbp.tar
+mv DomainNet_sdbp DomainNet/
+rm DomainNet_sdbp.tar
