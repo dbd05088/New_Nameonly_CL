@@ -213,7 +213,7 @@ elif [ "$DATASET" == "DomainNet" ]; then
 
 elif [ "$DATASET" == "NICO" ]; then
     MEM_SIZE=3000 #1500
-    TYPES=("sdxl_base_filtered.tar") # "newsample_equalweight"
+    TYPES=("sdxl_base_filtered" "glide") # "newsample_equalweight"
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
     MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=600

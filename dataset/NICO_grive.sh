@@ -9,10 +9,10 @@ mkdir -p NICO
 # mv NICO_sdxl NICO/
 # rm NICO_sdxl.tar
 
-# gdrive files download 1bJ9lnYYZqdxlOd9IFgEWXzxD6ON3EOht
-# tar -xf NICO_glide.tar
-# mv NICO_glide NICO/
-# rm NICO_glide.tar
+gdrive files download 1OCbaLGlTF1KNyMWgiXM3TsmLG54d-e1s
+tar -xf NICO_glide.tar
+mv NICO_glide NICO/
+rm NICO_glide.tar
 
 gdrive files download 1O-okwN3x6mFJvMuGSwQQOynSdOkRNyV7
 tar -xf NICO_sdxl_base_filtered.tar
