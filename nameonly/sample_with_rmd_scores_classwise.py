@@ -20,21 +20,27 @@ BottomK = False
 
 INVERSE = False
 TEMPERATURE = 2
-count_dict = PACS_count
-rmd_pickle_path = './RMD_scores/PACS_final_web_from_large.pkl'
 
-# # PACS
-# target_path = './datasets/neurips/new_generated/DomainNet/DomainNet_generated_RMD_equalweight'
-
-# PACS web from large
-target_path = './datasets/neurips/web/PACS/PACS_final_web_from_large_equalweight'
-
-# PACS web from large
+# NICO
+count_dict = NICO_count
+rmd_pickle_path = './RMD_scores/NICO_generated.pkl'
+target_path = './dataset/NICO/NICO_generated_equalweight'
 PATH_dict = {
-    'flickr': './datasets/neurips/web/PACS/PACS_flickr_from_large_filtered',
-    'google': './datasets/neurips/web/PACS/PACS_google_from_large_filtered',
-    'bing': './datasets/neurips/web/PACS/PACS_bing_from_large_filtered'
+    'sdxl': './datasets/neurips/new_generated/NICO/NICO_static_cot_50_sdxl_realistic_subsampled_filtered',
+    'dalle2': './datasets/neurips/new_generated/NICO/NICO_static_cot_50_dalle2_realistic_subsampled_filtered',
+    'floyd': './datasets/neurips/new_generated/NICO/NICO_static_cot_50_floyd_realistic_subsampled_filtered',
+    'cogview2': './datasets/neurips/new_generated/NICO/NICO_static_cot_50_cogview2_realistic_subsampled_filtered'
 }
+
+# # PACS web from large
+# count_dict = PACS_count
+# rmd_pickle_path = './RMD_scores/PACS_final_web_from_large2.pkl'
+# target_path = './datasets/neurips/web/PACS/PACS_final_web_from_large2_equalweight'
+# PATH_dict = {
+#     'flickr': './datasets/neurips/web/PACS/PACS_flickr_from_large2_filtered',
+#     'google': './datasets/neurips/web/PACS/PACS_google_from_large2_filtered',
+#     'bing': './datasets/neurips/web/PACS/PACS_bing_from_large2_filtered'
+# }
 
 # # DomainNet 
 # PATH_dict = {

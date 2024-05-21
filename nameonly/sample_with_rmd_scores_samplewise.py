@@ -25,28 +25,32 @@ BottomK = False
 
 INVERSE = False
 TEMPERATURE = 0.5
-# count_dict = PACS_count
-# rmd_pickle_path = './RMD_scores/PACS_final_generated_RMD.pkl'
-# rmd_pickle_path = './RMD_scores/cct_generated_RMD.pkl'
-# rmd_pickle_path = './RMD_scores/DomainNet_generated_RMD.pkl'
 
-
-# target_path = './datasets/neurips/PACS/final/PACS_final_web_all_samples_prob_temp_0_5'
-# target_path = '../dataset/PACS_final/PACS_final_generated_RMD_w_normalize_clip_90_temp_0_25'
-# target_path = '../dataset/cct/cct_generated_RMD_w_normalize_clip_90_temp_0_25'
-# target_path = './datasets/neurips/new_generated/DomainNet/DomainNet_generated_RMD_w_normalize_clip_90_temp_0_5'
-
-# PACS web from large
-count_dict = PACS_count
-rmd_pickle_path = './RMD_scores/PACS_final_web_from_large.pkl'
-target_path = './datasets/neurips/web/PACS/PACS_final_web_from_large_RMD_w_normalize_clip_90_temp_0_25'
+# NICO
+count_dict = NICO_count
+rmd_pickle_path = './RMD_scores/NICO_generated.pkl'
+target_path = './dataset/NICO/NICO_generated_RMD_w_normalize_clip_90_temp_0_5'
 PATH_dict = {
-    'flickr': './datasets/neurips/web/PACS/PACS_flickr_from_large_filtered',
-    'google': './datasets/neurips/web/PACS/PACS_google_from_large_filtered',
-    'bing': './datasets/neurips/web/PACS/PACS_bing_from_large_filtered'
+    'sdxl': './datasets/neurips/new_generated/NICO/NICO_static_cot_50_sdxl_realistic_subsampled_filtered',
+    'dalle2': './datasets/neurips/new_generated/NICO/NICO_static_cot_50_dalle2_realistic_subsampled_filtered',
+    'floyd': './datasets/neurips/new_generated/NICO/NICO_static_cot_50_floyd_realistic_subsampled_filtered',
+    'cogview2': './datasets/neurips/new_generated/NICO/NICO_static_cot_50_cogview2_realistic_subsampled_filtered'
 }
 
-# PACS_final generated
+# # PACS web from large
+# count_dict = PACS_count
+# rmd_pickle_path = './RMD_scores/PACS_final_web_from_large2.pkl'
+# target_path = './datasets/neurips/web/PACS/PACS_final_web_from_large2_RMD_w_normalize_clip_90_temp_0_5'
+# PATH_dict = {
+#     'flickr': './datasets/neurips/web/PACS/PACS_flickr_from_large2_filtered',
+#     'google': './datasets/neurips/web/PACS/PACS_google_from_large2_filtered',
+#     'bing': './datasets/neurips/web/PACS/PACS_bing_from_large2_filtered'
+# }
+
+# # PACS_final generated
+# count_dict = PACS_count
+# rmd_pickle_path = './RMD_scores/PACS_final_generated_RMD.pkl'
+# target_path = '../dataset/PACS_final/PACS_final_generated_RMD_bottomk'
 # PATH_dict = {
 #         'sdxl': './datasets/neurips/new_generated/PACS/PACS_final_static_cot_50_sdxl_subsampled_filtered',
 #         'dalle2': './datasets/neurips/new_generated/PACS/PACS_final_static_cot_50_dalle2_subsampled_filtered',
@@ -124,49 +128,47 @@ for cls in tqdm(list(count_dict.keys())):
             for image, score in images:
                 image_rmd_scores.append((model, image, score))
 
-    # Get sample_path -> score mapping
+    # Get sample_path -> (model, score) mapping
     sample_model_RMD_mapping = {}
     for sample in image_rmd_scores:
         sample_model_RMD_mapping[sample[1]] = sample[0], sample[2] # model, score
     
-    # Normalize and clip RMD scores
-    scores = np.array([score[1] for score in sample_model_RMD_mapping.values()])
-    # mean = np.mean(scores); std = np.std(scores)
-    
-    if clip:
-        lower_clip = np.percentile(scores, lower_percentile)
-        upper_clip = np.percentile(scores, upper_percentile)
-        print(f"Lower clip: {lower_clip}, Upper clip: {upper_clip}")
-        clipped_scores = np.clip(scores, lower_clip, upper_clip)
-        if normalize:
-            mean = np.mean(clipped_scores); std = np.std(clipped_scores)
-            result_scores = (clipped_scores - mean) / std
-        else:
-            result_scores = clipped_scores
+    if TopK:
+        sorted_data = sorted(sample_model_RMD_mapping.items(), key=lambda item: item[1][1], reverse=True)
+        chosen_samples = [sample[0] for sample in sorted_data[:count_dict[cls]]]
+    elif BottomK:
+        sorted_data = sorted(sample_model_RMD_mapping.items(), key=lambda item: item[1][1], reverse=False)
+        chosen_samples = [sample[0] for sample in sorted_data[:count_dict[cls]]]
     else:
-        result_scores = scores
+        # Normalize and clip RMD scores
+        scores = np.array([score[1] for score in sample_model_RMD_mapping.values()])
+        # mean = np.mean(scores); std = np.std(scores)
         
-    # if normalize:
-    #     normalized_scores = (scores - mean) / std
-    #     lower_clip = np.percentile(normalized_scores, lower_percentile)
-    #     upper_clip = np.percentile(normalized_scores, upper_percentile)
-    #     if clip:
-    #         normalized_scores = np.clip(normalized_scores, lower_clip, upper_clip)
-    # else:
-    #     normalized_scores = scores
-    probabilities = softmax_with_temperature(result_scores, TEMPERATURE)
+        if clip:
+            lower_clip = np.percentile(scores, lower_percentile)
+            upper_clip = np.percentile(scores, upper_percentile)
+            print(f"Lower clip: {lower_clip}, Upper clip: {upper_clip}")
+            clipped_scores = np.clip(scores, lower_clip, upper_clip)
+            if normalize:
+                mean = np.mean(clipped_scores); std = np.std(clipped_scores)
+                result_scores = (clipped_scores - mean) / std
+            else:
+                result_scores = clipped_scores
+        else:
+            result_scores = scores
+        
+        probabilities = softmax_with_temperature(result_scores, TEMPERATURE)
+        if INVERSE:
+            # To get the inverse probabilities, first handle the numerical instability
+            if np.min(probabilities) < 0:
+                probabilities -= np.min(probabilities)
+            # Handle devision by zero
+            if np.sum(probabilities) == 0:
+                raise ValueError("All probabilities are zero")
+            probabilities = 1 / probabilities
+            probabilities /= np.sum(probabilities) # Normalize the probabilities
 
-    if INVERSE:
-        # To get the inverse probabilities, first handle the numerical instability
-        if np.min(probabilities) < 0:
-            probabilities -= np.min(probabilities)
-        # Handle devision by zero
-        if np.sum(probabilities) == 0:
-            raise ValueError("All probabilities are zero")
-        probabilities = 1 / probabilities
-        probabilities /= np.sum(probabilities) # Normalize the probabilities
-
-    chosen_samples = np.random.choice(list(sample_model_RMD_mapping.keys()), size=count_dict[cls], replace=False, p=probabilities)
+        chosen_samples = np.random.choice(list(sample_model_RMD_mapping.keys()), size=count_dict[cls], replace=False, p=probabilities)
     
     # Update the result dictionary and counter
     for sample_path in chosen_samples:
