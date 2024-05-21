@@ -1,7 +1,7 @@
 import json
 
-input_path = './prompts/sus_NICO_before_process.json'
-output_path = 'sus_NICO.json'
+input_path = './prompts/sus_PACS_before_process.json'
+output_path = './prompts/sus_PACS.json'
 
 with open(input_path, 'r') as f:
     json_dict = json.load(f)

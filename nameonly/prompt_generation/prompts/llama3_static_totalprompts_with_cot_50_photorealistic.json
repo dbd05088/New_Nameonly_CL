@@ -1,0 +1,264 @@
+{
+    "metaprompts": [
+        {
+            "index": 0,
+            "metaprompt": "A photo of a [concept].",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A photo of a [concept] cityscape at sunset with neon lights."
+                },
+                {
+                    "index": 1,
+                    "content": "A photo of a [concept] glade at dawn with misty ambiance."
+                },
+                {
+                    "index": 2,
+                    "content": "A photo of a retro-futuristic [concept] with sleek metallic tones."
+                },
+                {
+                    "index": 3,
+                    "content": "A photo of a [concept] carnival at twilight with warm lanterns."
+                },
+                {
+                    "index": 4,
+                    "content": "A photo of a futuristic [concept] with industrial textures and soft, blue-green lighting."
+                }
+            ]
+        },
+        {
+            "index": 1,
+            "metaprompt": "A photo of an abandoned [concept].",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A photo of a futuristic cityscape at [concept]."
+                },
+                {
+                    "index": 1,
+                    "content": "A photo of a whimsical garden at sunset [concept]."
+                },
+                {
+                    "index": 2,
+                    "content": "A photo of a mystical forest at dawn [concept]."
+                },
+                {
+                    "index": 3,
+                    "content": "A photo of a steampunk carnival at dusk [concept]."
+                },
+                {
+                    "index": 4,
+                    "content": "A photo of a neon-lit underwater metropolis at [concept]."
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "metaprompt": "A photo of a futuristic [concept].",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A whimsical photo of a serene [concept]."
+                },
+                {
+                    "index": 1,
+                    "content": "A dreamy photo of a lush [concept]."
+                },
+                {
+                    "index": 2,
+                    "content": "A mystical photo of a misty [concept]."
+                },
+                {
+                    "index": 3,
+                    "content": "A vibrant photo of a futuristic [concept]."
+                },
+                {
+                    "index": 4,
+                    "content": "A luminous photo of an ethereal [concept]."
+                }
+            ]
+        },
+        {
+            "index": 3,
+            "metaprompt": "A photo of a whimsical [concept] in a vintage shop.",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A dreamy portrait of [concept] surrounded by blooming garden vines."
+                },
+                {
+                    "index": 1,
+                    "content": "A mystical [concept] amidst a cityscape at sunset, with neon lights."
+                },
+                {
+                    "index": 2,
+                    "content": "A surreal [concept] in a misty forest, surrounded by glowing mushrooms."
+                },
+                {
+                    "index": 3,
+                    "content": "A whimsical [concept] perched on a retro-futuristic spaceship's control panel."
+                },
+                {
+                    "index": 4,
+                    "content": "A futuristic  [concept] hovering amidst swirling clouds of iridescent mist."
+                }
+            ]
+        },
+        {
+            "index": 4,
+            "metaprompt": "A photo of a [concept] in a misty forest.",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A vibrant illustration of a [concept] amidst blooming cherry blossoms."
+                },
+                {
+                    "index": 1,
+                    "content": "A whimsical portrait of [concept] floating amidst a galaxy of twinkling stars."
+                },
+                {
+                    "index": 2,
+                    "content": "A warm, textured photograph of [concept] standing amidst a field of golden wheat."
+                },
+                {
+                    "index": 3,
+                    "content": "A dreamy still life of [concept] surrounded by wispy fog and twinkling streetlights."
+                },
+                {
+                    "index": 4,
+                    "content": "A soft, pastel-hued snapshot of [concept] perched on a vintage carousel at sunset."
+                }
+            ]
+        },
+        {
+            "index": 5,
+            "metaprompt": "A photo of a [concept] at a retro drive-in.",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A serene photo of a [concept] amidst a foggy city park."
+                },
+                {
+                    "index": 1,
+                    "content": "A dreamy portrait of [concept] within a vintage carnival's twinkling lights."
+                },
+                {
+                    "index": 2,
+                    "content": "A moody snapshot of [concept] on a misty, moonlit highway rest stop."
+                },
+                {
+                    "index": 3,
+                    "content": "A warm photo of [concept] surrounded by lush greenery in an old, rustic greenhouse."
+                },
+                {
+                    "index": 4,
+                    "content": "A surreal still life of [concept] amidst a Japanese tea house's tranquil courtyard."
+                }
+            ]
+        },
+        {
+            "index": 6,
+            "metaprompt": "A photo of a [concept] on a sunny beachside pier.",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A vintage-style illustration of a [concept] in a whimsical forest glade."
+                },
+                {
+                    "index": 1,
+                    "content": "A minimalist graphic of [concept] in a neon-lit city alleyway at midnight."
+                },
+                {
+                    "index": 2,
+                    "content": "A pastel-hued depiction of [concept] in a misty mountain meadow at dawn."
+                },
+                {
+                    "index": 3,
+                    "content": "A cinematic still of [concept] on a foggy, dimly-lit city rooftop at dusk."
+                },
+                {
+                    "index": 4,
+                    "content": "A moody, low-lit photograph of [concept] in a decaying, industrial waterway at night."
+                }
+            ]
+        },
+        {
+            "index": 7,
+            "metaprompt": "A photo of a [concept] in a steampunk laboratory.",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A whimsical illustration of a [concept] amidst a lush, tropical forest glade."
+                },
+                {
+                    "index": 1,
+                    "content": "A vibrant, neon-lit cityscape featuring [concept] on a retro-futuristic moonbase."
+                },
+                {
+                    "index": 2,
+                    "content": "A dreamy, watercolor portrait of [concept] in a vintage, seaside carousel."
+                },
+                {
+                    "index": 3,
+                    "content": "A stylized, holographic rendering of [concept] within a futuristic, underwater metropolis."
+                },
+                {
+                    "index": 4,
+                    "content": "A mystical, candlelit depiction of [concept] in a rustic, medieval apothecary."
+                }
+            ]
+        },
+        {
+            "index": 8,
+            "metaprompt": "A photo of a [concept] in a neon-lit alleyway.",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A vintage-style illustration of [concept] in a misty, candlelit courtyard."
+                },
+                {
+                    "index": 1,
+                    "content": "A dreamy painting of [concept] floating amidst fluffy white clouds."
+                },
+                {
+                    "index": 2,
+                    "content": "A minimalist graphic of [concept] set against a warm, gradient sunset."
+                },
+                {
+                    "index": 3,
+                    "content": "A watercolor depiction of [concept] in a whimsical, moonlit garden filled with blooming vines."
+                },
+                {
+                    "index": 4,
+                    "content": "A warm, textured photograph of [concept] on a rustic, wooden dock at sunrise."
+                }
+            ]
+        },
+        {
+            "index": 9,
+            "metaprompt": "A photo of [concept] in an ethereal, snow-globe-like environment.",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A photo of [concept] in a vintage, distressed, sepia-toned alleyway."
+                },
+                {
+                    "index": 1,
+                    "content": "A photo of [concept] in a futuristic, neon-lit, underwater cityscape."
+                },
+                {
+                    "index": 2,
+                    "content": "A photo of [concept] in a whimsical, moonlit, lavender-hued forest glade."
+                },
+                {
+                    "index": 3,
+                    "content": "A photo of [concept] in a mystical, misty, turquoise-tinged ancient temple courtyard."
+                },
+                {
+                    "index": 4,
+                    "content": "A photo of [concept] in a warm, golden-lit, Moroccan-inspired souk marketplace."
+                }
+            ]
+        }
+    ]
+}
