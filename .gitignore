@@ -132,6 +132,7 @@ dmypy.json
 dataset/PACS_final/
 web_dataset/
 dataset/cct/
+dataset/cifar10/
 tensorboard/
 dataset/*.tar
 dataset/DomainNet/
