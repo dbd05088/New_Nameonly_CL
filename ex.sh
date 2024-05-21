@@ -26,7 +26,7 @@ USE_AMP=""
 
 if [ "$DATASET" == "cifar10" ]; then
     MEM_SIZE=1000
-    TYPES=("web_newsample_rmd_temp_1" "web_newsample_rmd_temp_2" "web_newsample_rmd_equalweight" "web_flickr") #("web_10" "ma" "generated" "web" "web_10")
+    TYPES=("sdxl_base") #("web_10" "ma" "generated" "web" "web_10")
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
     MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=100
@@ -34,7 +34,7 @@ if [ "$DATASET" == "cifar10" ]; then
     BASEINIT_SAMPLES=6000 FEAT_DIM=14 FEAT_MEM_SIZE=24000
     SAMPLES_PER_TASK=20000 
     ONLINE_ITER=2
-    EVAL_POINT="2000 4000 6000 8000 10000"
+    EVAL_POINT="1000 2000 3000 4000 5000"
 
 elif [ "$DATASET" == "aircraft" ]; then
     MEM_SIZE=800
