@@ -52,7 +52,7 @@ if __name__ == '__main__':
     
     last_part = os.path.basename(os.path.normpath(args.image_root_dir))
     
-    dataset_list = ["PACS_final", "DomainNet", "cct", "NICO"]
+    dataset_list = ["PACS_final", "DomainNet", "cct", "NICO", "cifar10"]
     dataset_name = next((name for name in dataset_list if last_part.startswith(name)), None)
     type_name = last_part[len(dataset_name) + 1:]
 
