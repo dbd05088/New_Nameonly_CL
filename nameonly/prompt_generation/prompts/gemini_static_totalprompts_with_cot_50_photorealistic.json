@@ -1,0 +1,264 @@
+{
+    "metaprompts": [
+        {
+            "index": 0,
+            "metaprompt": "A photo of a [concept].",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A photo of a [concept] looking out at a vast mountainous terrain."
+                },
+                {
+                    "index": 1,
+                    "content": "A photo of a [concept] with a fireplace that is a portal to another world."
+                },
+                {
+                    "index": 2,
+                    "content": "A photo of a [concept] in space with Earth in the background."
+                },
+                {
+                    "index": 3,
+                    "content": "A photo of a [concept] in a vibrant neon-drenched landscape."
+                },
+                {
+                    "index": 4,
+                    "content": "A photo of a [concept] with a school of tropical fish swimming through coral reefs."
+                }
+            ]
+        },
+        {
+            "index": 1,
+            "metaprompt": "A photo of [concept] in neutral tones",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A photo of [concept] with a vibrant color palette"
+                },
+                {
+                    "index": 1,
+                    "content": "A photo of [concept] with muted colors and abstract patterns"
+                },
+                {
+                    "index": 2,
+                    "content": "A photo of [concept] with faded, pastel hues"
+                },
+                {
+                    "index": 3,
+                    "content": "A photo of [concept] composed of geometric shapes in vivid colors"
+                },
+                {
+                    "index": 4,
+                    "content": "A photo of [concept] bathed in ethereal, surreal light"
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "metaprompt": "Scenic photo of [concept]",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "Nostalgic painting of a [concept]"
+                },
+                {
+                    "index": 1,
+                    "content": "Photorealistic painting of a [concept] at night"
+                },
+                {
+                    "index": 2,
+                    "content": "Detailed collage of a [concept]"
+                },
+                {
+                    "index": 3,
+                    "content": "Vibrant and colorful photo of a [concept]"
+                },
+                {
+                    "index": 4,
+                    "content": "Dreamy watercolor painting of a [concept]"
+                }
+            ]
+        },
+        {
+            "index": 3,
+            "metaprompt": "Photorealistic portrait of [concept] in vivid colors",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "[concept] with tall, vibrant wildflowers against a pastel sky"
+                },
+                {
+                    "index": 1,
+                    "content": "Photorealistic painting of a [concept] in muted jewel tones"
+                },
+                {
+                    "index": 2,
+                    "content": "Photorealistic [concept] in the style of a vintage color negative"
+                },
+                {
+                    "index": 3,
+                    "content": "[concept] with radiant rainbow mushrooms"
+                },
+                {
+                    "index": 4,
+                    "content": "Prismatic sunrise over photorealistic [concept]"
+                }
+            ]
+        },
+        {
+            "index": 4,
+            "metaprompt": "Photorealistic [concept] with a neon color palette",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "Photorealistic [concept] with a muted pastel palette"
+                },
+                {
+                    "index": 1,
+                    "content": "Photorealistic [concept] with a limited color palette"
+                },
+                {
+                    "index": 2,
+                    "content": "Photorealistic [concept] with an almost monochrome palette"
+                },
+                {
+                    "index": 3,
+                    "content": "Photorealistic [concept] with a high-contrast color palette"
+                },
+                {
+                    "index": 4,
+                    "content": "Photorealistic [concept] with a hyper-realistic palette"
+                }
+            ]
+        },
+        {
+            "index": 5,
+            "metaprompt": "Vibrant landscape of [concept]",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "Surreal portrait of [concept] in a realm beyond reality"
+                },
+                {
+                    "index": 1,
+                    "content": "Enchanting seascape of [concept] adrift on ethereal waters"
+                },
+                {
+                    "index": 2,
+                    "content": "Majestic cityscape of [concept] under a celestial canvas"
+                },
+                {
+                    "index": 3,
+                    "content": "Luminous still life of [concept] under a prismatic sky"
+                },
+                {
+                    "index": 4,
+                    "content": "Radiant tapestry of [concept] woven in cosmic threads"
+                }
+            ]
+        },
+        {
+            "index": 6,
+            "metaprompt": "Surreal landscape of [concept]",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "Ethereal dreamscape of [concept]"
+                },
+                {
+                    "index": 1,
+                    "content": "Seussian dreamscape of [concept]"
+                },
+                {
+                    "index": 2,
+                    "content": "Dreamlike dreamscape of [concept]"
+                },
+                {
+                    "index": 3,
+                    "content": "Mesmerizing dreamscape of [concept]"
+                },
+                {
+                    "index": 4,
+                    "content": "Kaleidoscopic vision of [concept]"
+                }
+            ]
+        },
+        {
+            "index": 7,
+            "metaprompt": "Vivid landscape of [concept]",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "Glowing cityscape at night with rain puddles reflecting the neon lights of the city [concept]"
+                },
+                {
+                    "index": 1,
+                    "content": "Scenic mountain range with vibrant vegetation and a rushing river [concept]"
+                },
+                {
+                    "index": 2,
+                    "content": "Calming seascape with pink clouds and a faint sunset glow [concept]"
+                },
+                {
+                    "index": 3,
+                    "content": "Surreal desert landscape with vibrant, shifting colors [concept]"
+                },
+                {
+                    "index": 4,
+                    "content": "Tranquil forest with tall trees and sunlight filtering through the leaves [concept]"
+                }
+            ]
+        },
+        {
+            "index": 8,
+            "metaprompt": "Surreal lakeside of [concept]",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "Tranquil forest with a hint of moonlight [concept]"
+                },
+                {
+                    "index": 1,
+                    "content": "Ethereal meadow under a cosmic sunset [concept]"
+                },
+                {
+                    "index": 2,
+                    "content": "Nostalgic mountain peak overlooking a dreamscape [concept]"
+                },
+                {
+                    "index": 3,
+                    "content": "Surreal expanse of [concept] amidst an alien sky"
+                },
+                {
+                    "index": 4,
+                    "content": "Enchanted valley bathed in golden hour hues [concept]"
+                }
+            ]
+        },
+        {
+            "index": 9,
+            "metaprompt": "Cyberpunk cityscape of [concept]",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "Steampunk cityscape of [concept]"
+                },
+                {
+                    "index": 1,
+                    "content": "Surrealist cityscape of [concept]"
+                },
+                {
+                    "index": 2,
+                    "content": "Post-apocalyptic cityscape of [concept]"
+                },
+                {
+                    "index": 3,
+                    "content": "Fractal cityscape of [concept]"
+                },
+                {
+                    "index": 4,
+                    "content": "Geometric cityscape of [concept]"
+                }
+            ]
+        }
+    ]
+}
