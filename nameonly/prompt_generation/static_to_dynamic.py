@@ -7,8 +7,8 @@ from classes import *
 # 되어 있기 때문에 이를 수정하는 부분.
 
 classes = list(PACS_count.keys())
-static_path = './prompts/static_totalprompts_with_cot_50_photorealistic.json'
-output_path = './prompts/static_totalprompts_with_cot_50_photorealistic_with_cls_PACS.json'
+static_path = './prompts/static_totalprompts_wo_cot_wo_hierarchy.json'
+output_path = './prompts/static_totalprompts_wo_cot_wo_hierarchy_with_cls_PACS.json'
 with open(static_path, 'r') as f:
     static_dict = json.load(f)
 
@@ -20,8 +20,8 @@ for cls in classes:
 for k, v in static_to_dynamic_dict.items():
     metaprompt_list = v['metaprompts']
     for metaprompt_dict in metaprompt_list:
-        assert "[concept]" in metaprompt_dict['metaprompt'], f"No [concept] in {metaprompt_dict}"
-        metaprompt_dict['metaprompt'] = metaprompt_dict['metaprompt'].replace("[concept]", k)
+        if '[concept]' in metaprompt_dict['metaprompt']:
+            metaprompt_dict['metaprompt'] = metaprompt_dict['metaprompt'].replace("[concept]", k)
 
         for prompt_dict in metaprompt_dict['prompts']:
             assert "[concept]" in prompt_dict['content'], f"No [concept] in {prompt_dict}"

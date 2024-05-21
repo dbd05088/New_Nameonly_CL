@@ -66,18 +66,23 @@
 # mv DomainNet_static_cot_50_sdxl_filtered DomainNet/
 # rm DomainNet_static_cot_50_sdxl_filtered.tar
 
-# DomainNet RMD - 0520
-gdrive files download 1WBqWhp2gifhm7nAId7otq3sTYkyGFNh_
-gdrive files download 14GrjceE3WJUhniyqTVJWa9IeGXKuE0Tj
-tar -xf DomainNet_generated_RMD_equalweight.tar
-tar -xf DomainNet_generated_RMD_w_normalize_clip_90_temp_0_25.tar
-mv DomainNet_generated_RMD_equalweight DomainNet/
-mv DomainNet_generated_RMD_w_normalize_clip_90_temp_0_25 DomainNet/
-rm DomainNet_generated_RMD_equalweight.tar
-rm DomainNet_generated_RMD_w_normalize_clip_90_temp_0_25.tar
+# # DomainNet RMD - 0520
+# gdrive files download 1WBqWhp2gifhm7nAId7otq3sTYkyGFNh_
+# gdrive files download 14GrjceE3WJUhniyqTVJWa9IeGXKuE0Tj
+# tar -xf DomainNet_generated_RMD_equalweight.tar
+# tar -xf DomainNet_generated_RMD_w_normalize_clip_90_temp_0_25.tar
+# mv DomainNet_generated_RMD_equalweight DomainNet/
+# mv DomainNet_generated_RMD_w_normalize_clip_90_temp_0_25 DomainNet/
+# rm DomainNet_generated_RMD_equalweight.tar
+# rm DomainNet_generated_RMD_w_normalize_clip_90_temp_0_25.tar
 
-# Fix: DomainNet temp 0.25 -> 0.5
-gdrive files download 1AkZUACpAgK3EMKqB7DMAZ7wwwVNqyGmX
-tar -xf DomainNet_generated_RMD_w_normalize_clip_90_temp_0_5.tar
-mv DomainNet_generated_RMD_w_normalize_clip_90_temp_0_5 DomainNet/
-rm DomainNet_generated_RMD_w_normalize_clip_90_temp_0_5.tar
+# # Fix: DomainNet temp 0.25 -> 0.5
+# gdrive files download 1AkZUACpAgK3EMKqB7DMAZ7wwwVNqyGmX
+# tar -xf DomainNet_generated_RMD_w_normalize_clip_90_temp_0_5.tar
+# mv DomainNet_generated_RMD_w_normalize_clip_90_temp_0_5 DomainNet/
+# rm DomainNet_generated_RMD_w_normalize_clip_90_temp_0_5.tar
+
+gdrive files download 1-1fAiY2xIleQZrKzJ_uwdrtnVh1lkyk3
+tar -xf DomainNet_web_RMD_w_normalize_clip_90_temp_0_5.tar
+mv DomainNet_web_RMD_w_normalize_clip_90_temp_0_5 DomainNet/
+rm DomainNet_web_RMD_w_normalize_clip_90_temp_0_5.tar
