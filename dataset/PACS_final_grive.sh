@@ -485,15 +485,20 @@
 
 
 ## Prompt ablation
-gdrive files download 18GhnA5UcBdjpFeJ-ptmzivzYm3-XALC1
-gdrive files download 1xtTXKRQJ9IDQtmujQTcVrqffIAcT6sC4
-gdrive files download 1iq5t6nlnaeNNHJhQtt_gyUMHTNmESJJw
-tar -xf PACS_final_wo_cot.tar
-tar -xf PACS_final_wo_hierarchy.tar
-tar -xf PACS_final_wo_cot_wo_hierarchy.tar
-mv PACS_final_wo_cot PACS_final/
-mv PACS_final_wo_hierarchy PACS_final/
-mv PACS_final_wo_cot_wo_hierarchy PACS_final/
-rm PACS_final_wo_cot.tar
-rm PACS_final_wo_hierarchy.tar
-rm PACS_final_wo_cot_wo_hierarchy.tar
+# gdrive files download 18GhnA5UcBdjpFeJ-ptmzivzYm3-XALC1
+# gdrive files download 1xtTXKRQJ9IDQtmujQTcVrqffIAcT6sC4
+# gdrive files download 1iq5t6nlnaeNNHJhQtt_gyUMHTNmESJJw
+# tar -xf PACS_final_wo_cot.tar
+# tar -xf PACS_final_wo_hierarchy.tar
+# tar -xf PACS_final_wo_cot_wo_hierarchy.tar
+# mv PACS_final_wo_cot PACS_final/
+# mv PACS_final_wo_hierarchy PACS_final/
+# mv PACS_final_wo_cot_wo_hierarchy PACS_final/
+# rm PACS_final_wo_cot.tar
+# rm PACS_final_wo_hierarchy.tar
+# rm PACS_final_wo_cot_wo_hierarchy.tar
+
+gdrive files download 1hnGZkqlf7qo1xHEglbx-jpckdmy64xUa
+tar -xf PACS_final_sdbp.tar
+mv PACS_final_sdbp PACS_final/
+rm PACS_final_sdbp.tar
