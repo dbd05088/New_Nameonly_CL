@@ -496,7 +496,6 @@ class CLManagerBase:
                 x = x.to(self.device)
                 y = y.to(self.device)
                 logit = self.fast_model(x)
-                print("fast labels", y)
                 loss = criterion(logit, y)
                 pred = torch.argmax(logit, dim=-1)
                 _, preds = logit.topk(self.topk, 1, True, True)
@@ -595,7 +594,6 @@ class CLManagerBase:
             prev_weight = copy.deepcopy(model_fc.weight.data)
             prev_bias = copy.deepcopy(model_fc.bias.data)
             setattr(self.fast_model, fc_name, nn.Linear(model_fc.in_features, self.cls_per_task[self.cur_task+1]).to(self.device))
-            print("new fc", self.cls_per_task[self.cur_task+1])
             model_fc = getattr(self.fast_model, fc_name)
             with torch.no_grad():
                 model_fc.weight[:self.num_learned_class] = prev_weight
@@ -669,7 +667,6 @@ class CLManagerBase:
             if gt == self.preds[i]:
                 correct_cnt[gt] += 1
         correct_prob = correct_cnt/cls_cnt
-        print("overall_acc", sum(correct_cnt)/sum(cls_cnt))
         log = f'{domain_name} ACC_PER_TASK | Sample # {sample_num} | '
         task_acc=0
         task=0
