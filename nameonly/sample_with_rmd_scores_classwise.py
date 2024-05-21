@@ -20,19 +20,29 @@ BottomK = False
 
 INVERSE = False
 TEMPERATURE = 2
-count_dict = DomainNet_count
-rmd_pickle_path = './RMD_scores/DomainNet_generated_RMD.pkl'
+count_dict = PACS_count
+rmd_pickle_path = './RMD_scores/PACS_final_web_from_large.pkl'
 
-# PACS
-target_path = './datasets/neurips/new_generated/DomainNet/DomainNet_generated_RMD_equalweight'
+# # PACS
+# target_path = './datasets/neurips/new_generated/DomainNet/DomainNet_generated_RMD_equalweight'
 
-# DomainNet 
+# PACS web from large
+target_path = './datasets/neurips/web/PACS/PACS_final_web_from_large_equalweight'
+
+# PACS web from large
 PATH_dict = {
-    'sdxl': './datasets/neurips/new_generated/DomainNet/DomainNet_static_cot_50_sdxl_subsampled_filtered',
-    'dalle2': './datasets/neurips/new_generated/DomainNet/DomainNet_static_cot_50_dalle2_subsampled_filtered',
-    'floyd': './datasets/neurips/new_generated/DomainNet/DomainNet_static_cot_50_floyd_subsampled_filtered',
-    'cogview2': './datasets/neurips/new_generated/DomainNet/DomainNet_static_cot_50_cogview2_subsampled_filtered'
+    'flickr': './datasets/neurips/web/PACS/PACS_flickr_from_large_filtered',
+    'google': './datasets/neurips/web/PACS/PACS_google_from_large_filtered',
+    'bing': './datasets/neurips/web/PACS/PACS_bing_from_large_filtered'
 }
+
+# # DomainNet 
+# PATH_dict = {
+#     'sdxl': './datasets/neurips/new_generated/DomainNet/DomainNet_static_cot_50_sdxl_subsampled_filtered',
+#     'dalle2': './datasets/neurips/new_generated/DomainNet/DomainNet_static_cot_50_dalle2_subsampled_filtered',
+#     'floyd': './datasets/neurips/new_generated/DomainNet/DomainNet_static_cot_50_floyd_subsampled_filtered',
+#     'cogview2': './datasets/neurips/new_generated/DomainNet/DomainNet_static_cot_50_cogview2_subsampled_filtered'
+# }
 
 # PACS_final
 # PATH_dict = {
