@@ -2,8 +2,8 @@ dataset: NICO
 image_dir: ./generated_datasets/NICO_static_cot_50_cogview2_realistic
 generative_model: cogview2
 
-start_class: 0
-end_class: 29
+start_class: 30
+end_class: 59
 debug: False
 
 api_key: none # For Dalle2
