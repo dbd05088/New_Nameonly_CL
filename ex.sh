@@ -1,6 +1,6 @@
 # CIL CONFIG
 # NOTE="imagenet_sdp_sigma0_mem_10000_iter_0.125"
-NOTE="rebuttal4_vit_er_PACS_final_iter2_mem200"
+NOTE="rebuttal4_vit_er_cct_iter2_mem200"
 MODE="er"
 
 K_COEFF="4"
@@ -14,11 +14,11 @@ EVAL_BATCH_SIZE=500
 #USE_KORNIA="--use_kornia"
 USE_KORNIA=""
 UNFREEZE_RATE=0.5
-SEEDS="1"
+SEEDS="5"
 DATA_DIR=""
 
-GPUS=("0" "1" "2" "3" "4")
-DATASET="NICO" # cifar10, cifar100, tinyimagenet, imagenet
+GPUS=("4" "1" "2" "3" "4")
+DATASET="cct" # cifar10, cifar100, tinyimagenet, imagenet
 SIGMA=0
 REPEAT=1
 INIT_CLS=100
@@ -26,7 +26,7 @@ USE_AMP=""
 
 if [ "$DATASET" == "cifar10" ]; then
     MEM_SIZE=1000
-    TYPES=("web_newsample_rmd_temp_1" "web_newsample_rmd_temp_2" "web_newsample_rmd_equalweight" "web_flickr") #("web_10" "ma" "generated" "web" "web_10")
+    TYPES=("sdxl_base") #("web_10" "ma" "generated" "web" "web_10")
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
     MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=500
@@ -34,7 +34,7 @@ if [ "$DATASET" == "cifar10" ]; then
     BASEINIT_SAMPLES=6000 FEAT_DIM=14 FEAT_MEM_SIZE=24000
     SAMPLES_PER_TASK=20000 
     ONLINE_ITER=2
-    EVAL_POINT="2000 4000 6000 8000 10000"
+    EVAL_POINT="1000 2000 3000 4000 5000"
 
 elif [ "$DATASET" == "aircraft" ]; then
     MEM_SIZE=800
@@ -75,7 +75,7 @@ elif [ "$DATASET" == "cct" ]; then
     TYPES=("web_RMD_w_normalize_clip_90_temp_0_5") #"train_ma" "sdxl_diversified" "web" "generated" "sdxl_diversified_nofiltering" "RMD_classwise_temp_0_5" "RMD_classwise_temp_1" "RMD_classwise_temp_3"
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
-    MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=100
+    MODEL_NAME="vit" VAL_PERIOD=500 EVAL_PERIOD=100
     BATCHSIZE=16; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
     BASEINIT_SAMPLES=1002 FEAT_DIM=14 FEAT_MEM_SIZE=4800
     SAMPLES_PER_TASK=2000
@@ -106,7 +106,7 @@ elif [ "$DATASET" == "PACS" ]; then
 
 elif [ "$DATASET" == "PACS_final" ]; then
     MEM_SIZE=200
-    TYPES=("PACS_final_wo_cot" "PACS_final_wo_hierarchy" "PACS_final_wo_cot_wo_hierarchy") # web_RMD_temp_0_5_W web_inverse_temp_0_5_WF "web_RMD_temp_3" "inverseprob" "bottomk" "topk") #"sampling_4" "sampling_2" "sampling_0_5" "sampling_0_25" "sampling_0_125" #"equalweighted" "ensembled_RMD_0_5_modelwise" "ensembled_RMD_1_modelwise" "ensembled_RMD_3_modelwise" "ensembled_RMD_classwise_temp_0_5" "ensembled_RMD_classwise_temp_1" "PACS_final_ensembled_RMD_classwise_temp_3") #("ensembled_samplewise_RMD_0_5" "ensembled_samplewise_RMD_1" "ensembled_samplewise_RMD_3" "ensembled_samplewise_RMD_5") #("ensembled_RMD_temp1" "ensembled_RMD_temp2" "ensembled_RMD_temp5" "ensembled_RMD_temp10")
+    TYPES=("web_from_large2_equalweight" "web_from_large2_RMD_w_normalize_clip_90_temp_0_5") # web_RMD_temp_0_5_W web_inverse_temp_0_5_WF "web_RMD_temp_3" "inverseprob" "bottomk" "topk") #"sampling_4" "sampling_2" "sampling_0_5" "sampling_0_25" "sampling_0_125" #"equalweighted" "ensembled_RMD_0_5_modelwise" "ensembled_RMD_1_modelwise" "ensembled_RMD_3_modelwise" "ensembled_RMD_classwise_temp_0_5" "ensembled_RMD_classwise_temp_1" "PACS_final_ensembled_RMD_classwise_temp_3") #("ensembled_samplewise_RMD_0_5" "ensembled_samplewise_RMD_1" "ensembled_samplewise_RMD_3" "ensembled_samplewise_RMD_5") #("ensembled_RMD_temp1" "ensembled_RMD_temp2" "ensembled_RMD_temp5" "ensembled_RMD_temp10")
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
     MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=100
@@ -232,7 +232,7 @@ for RND_SEED in $SEEDS
 do
     for index in "${!TYPES[@]}"
     do
-        python main_new.py --mode $MODE $DATA_DIR \
+        CUDA_VISIBLE_DEVICES=${GPUS[$index]} nohup python main_new.py --mode $MODE $DATA_DIR \
         --dataset $DATASET --unfreeze_rate $UNFREEZE_RATE $USE_KORNIA --k_coeff $K_COEFF --temperature $TEMPERATURE \
         --sigma $SIGMA --repeat $REPEAT --init_cls $INIT_CLS --samples_per_task $SAMPLES_PER_TASK \
         --rnd_seed $RND_SEED --val_memory_size $VAL_SIZE --type_name "${TYPES[$index]}" \
@@ -240,6 +240,6 @@ do
         --lr $LR --batchsize $BATCHSIZE --mir_cands $MIR_CANDS --eval_point "${EVAL_POINT}" \
         --memory_size $MEM_SIZE $TRANSFORM_ON_GPU --online_iter $ONLINE_ITER \
         --note $NOTE --eval_period $EVAL_PERIOD --imp_update_period $IMP_UPDATE_PERIOD $USE_AMP --n_worker $N_WORKER --future_steps $FUTURE_STEPS --eval_n_worker $EVAL_N_WORKER --eval_batch_size $EVAL_BATCH_SIZE \
-        --baseinit_samples $BASEINIT_SAMPLES --spatial_feat_dim $FEAT_DIM --feat_memsize $FEAT_MEM_SIZE
+        --baseinit_samples $BASEINIT_SAMPLES --spatial_feat_dim $FEAT_DIM --feat_memsize $FEAT_MEM_SIZE &
     done
 done
