@@ -440,7 +440,21 @@
 # mv PACS_final_generated_RMD_w_normalize_clip_90_temp_0_25 PACS_final/
 # rm PACS_final_generated_RMD_w_normalize_clip_90_temp_0_25.tar
 
-gdrive files download 1Ug1547oBy43AHHx-5AfAXtIoSEMEUvwt
-tar -xf PACS_final_static_cot_50_palm2_filtered.tar
-mv PACS_final_static_cot_50_palm2_filtered PACS_final/
-rm PACS_final_static_cot_50_palm2_filtered.tar
+# gdrive files download 1Ug1547oBy43AHHx-5AfAXtIoSEMEUvwt
+# tar -xf PACS_final_static_cot_50_palm2_filtered.tar
+# mv PACS_final_static_cot_50_palm2_filtered PACS_final/
+# rm PACS_final_static_cot_50_palm2_filtered.tar
+
+# Web from large
+gdrive files download 1CtTYenNaoTNa07qL0HvmYFrhjAa-810y
+gdrive files download 16X-A3EGYMKaGnd_nHWkJzy3pL0bTOxPu
+gdrive files download 1QdzoKAd1rRTioV-Vj7tppF7eqkde8rci
+tar -xf PACS_final_flickr_from_large_filtered.tar
+tar -xf PACS_final_web_from_large_equalweight.tar
+tar -xf PACS_final_web_from_large_RMD_w_normalize_clip_90_temp_0_25.tar
+mv PACS_final_flickr_from_large_filtered PACS_final/
+mv PACS_final_web_from_large_equalweight PACS_final/
+mv PACS_final_web_from_large_RMD_w_normalize_clip_90_temp_0_25 PACS_final/
+rm PACS_final_flickr_from_large_filtered.tar
+rm PACS_final_web_from_large_equalweight.tar
+rm PACS_final_web_from_large_RMD_w_normalize_clip_90_temp_0_25.tar
