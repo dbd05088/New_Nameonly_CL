@@ -473,12 +473,27 @@
 # rm PACS_final_generated_RMD_topk.tar
 # rm PACS_final_generated_RMD_bottomk.tar
 
-# # Web from large 2
-gdrive files download 1wK8JJHN0q7hvy_8DzJfXUzQOio7J4IZj
-gdrive files download 1XIOAgTay3shxMDPJIR90uICmGTPYGTHu
-tar -xf PACS_final_web_from_large2_equalweight.tar
-tar -xf PACS_final_web_from_large2_RMD_w_normalize_clip_90_temp_0_5.tar
-mv PACS_final_web_from_large2_equalweight PACS_final/
-mv PACS_final_web_from_large2_RMD_w_normalize_clip_90_temp_0_5 PACS_final/
-rm PACS_final_web_from_large2_equalweight.tar
-rm PACS_final_web_from_large2_RMD_w_normalize_clip_90_temp_0_5.tar
+# # # Web from large 2
+# gdrive files download 1wK8JJHN0q7hvy_8DzJfXUzQOio7J4IZj
+# gdrive files download 1XIOAgTay3shxMDPJIR90uICmGTPYGTHu
+# tar -xf PACS_final_web_from_large2_equalweight.tar
+# tar -xf PACS_final_web_from_large2_RMD_w_normalize_clip_90_temp_0_5.tar
+# mv PACS_final_web_from_large2_equalweight PACS_final/
+# mv PACS_final_web_from_large2_RMD_w_normalize_clip_90_temp_0_5 PACS_final/
+# rm PACS_final_web_from_large2_equalweight.tar
+# rm PACS_final_web_from_large2_RMD_w_normalize_clip_90_temp_0_5.tar
+
+
+## Prompt ablation
+gdrive files download 18GhnA5UcBdjpFeJ-ptmzivzYm3-XALC1
+gdrive files download 1xtTXKRQJ9IDQtmujQTcVrqffIAcT6sC4
+gdrive files download 1iq5t6nlnaeNNHJhQtt_gyUMHTNmESJJw
+tar -xf PACS_final_wo_cot.tar
+tar -xf PACS_final_wo_hierarchy.tar
+tar -xf PACS_final_wo_cot_wo_hierarchy.tar
+mv PACS_final_wo_cot PACS_final/
+mv PACS_final_wo_hierarchy PACS_final/
+mv PACS_final_wo_cot_wo_hierarchy PACS_final/
+rm PACS_final_wo_cot.tar
+rm PACS_final_wo_hierarchy.tar
+rm PACS_final_wo_cot_wo_hierarchy.tar
