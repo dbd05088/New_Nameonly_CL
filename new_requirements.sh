@@ -9,5 +9,8 @@ pip install easydict
 pip install onedrivedownloader
 pip install timm
 pip install faiss-cpu==1.8.0
+pip install ftfy
+pip install regex
+pip install transformers
 
 apt install libgl1-mesa-glx
