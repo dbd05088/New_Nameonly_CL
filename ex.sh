@@ -1,6 +1,6 @@
 # CIL CONFIG
 # NOTE="imagenet_sdp_sigma0_mem_10000_iter_0.125"
-NOTE="rebuttal4_resnet18_er_NICO_iter2_mem200"
+NOTE="rebuttal4_vit_er_cct_iter2_mem200"
 MODE="er"
 
 K_COEFF="4"
@@ -14,11 +14,11 @@ EVAL_BATCH_SIZE=500
 #USE_KORNIA="--use_kornia"
 USE_KORNIA=""
 UNFREEZE_RATE=0.5
-SEEDS="1"
+SEEDS="5"
 DATA_DIR=""
 
-GPUS=("0" "1" "2" "3" "4")
-DATASET="NICO" # cifar10, cifar100, tinyimagenet, imagenet
+GPUS=("4" "1" "2" "3" "4")
+DATASET="cct" # cifar10, cifar100, tinyimagenet, imagenet
 SIGMA=0
 REPEAT=1
 INIT_CLS=100
@@ -29,7 +29,7 @@ if [ "$DATASET" == "cifar10" ]; then
     TYPES=("sdbp") #("web_10" "ma" "generated" "web" "web_10")
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
-    MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=100
+    MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=500
     BATCHSIZE=16; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
     BASEINIT_SAMPLES=6000 FEAT_DIM=14 FEAT_MEM_SIZE=24000
     SAMPLES_PER_TASK=20000 
@@ -75,7 +75,7 @@ elif [ "$DATASET" == "cct" ]; then
     TYPES=("web_RMD_w_normalize_clip_90_temp_0_5") #"train_ma" "sdxl_diversified" "web" "generated" "sdxl_diversified_nofiltering" "RMD_classwise_temp_0_5" "RMD_classwise_temp_1" "RMD_classwise_temp_3"
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
-    MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=100
+    MODEL_NAME="vit" VAL_PERIOD=500 EVAL_PERIOD=100
     BATCHSIZE=16; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
     BASEINIT_SAMPLES=1002 FEAT_DIM=14 FEAT_MEM_SIZE=4800
     SAMPLES_PER_TASK=2000
@@ -216,7 +216,7 @@ elif [ "$DATASET" == "NICO" ]; then
     TYPES=("sdbp") # "newsample_equalweight"
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
-    MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=200
+    MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=500
     BATCHSIZE=32; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
     BASEINIT_SAMPLES=30523 FEAT_DIM=14 FEAT_MEM_SIZE=168000
     SAMPLES_PER_TASK=960
