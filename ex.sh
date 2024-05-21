@@ -18,7 +18,7 @@ SEEDS="1"
 DATA_DIR=""
 
 GPUS=("0" "1" "2" "3" "4")
-DATASET="PACS_final" # cifar10, cifar100, tinyimagenet, imagenet
+DATASET="NICO" # cifar10, cifar100, tinyimagenet, imagenet
 SIGMA=0
 REPEAT=1
 INIT_CLS=100
@@ -72,7 +72,7 @@ elif [ "$DATASET" == "food101" ]; then
 
 elif [ "$DATASET" == "cct" ]; then
     MEM_SIZE=400
-    TYPES=("generated_RMD_w_normalize_clip_90_temp_0_25.tar") #"train_ma" "sdxl_diversified" "web" "generated" "sdxl_diversified_nofiltering" "RMD_classwise_temp_0_5" "RMD_classwise_temp_1" "RMD_classwise_temp_3"
+    TYPES=("web_RMD_w_normalize_clip_90_temp_0_5") #"train_ma" "sdxl_diversified" "web" "generated" "sdxl_diversified_nofiltering" "RMD_classwise_temp_0_5" "RMD_classwise_temp_1" "RMD_classwise_temp_3"
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
     MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=100
@@ -106,7 +106,7 @@ elif [ "$DATASET" == "PACS" ]; then
 
 elif [ "$DATASET" == "PACS_final" ]; then
     MEM_SIZE=200
-    TYPES=("" "web_from_large_equalweight" "web_from_large_RMD_w_normalize_clip_90_temp_0_25") # web_RMD_temp_0_5_W web_inverse_temp_0_5_WF "web_RMD_temp_3" "inverseprob" "bottomk" "topk") #"sampling_4" "sampling_2" "sampling_0_5" "sampling_0_25" "sampling_0_125" #"equalweighted" "ensembled_RMD_0_5_modelwise" "ensembled_RMD_1_modelwise" "ensembled_RMD_3_modelwise" "ensembled_RMD_classwise_temp_0_5" "ensembled_RMD_classwise_temp_1" "PACS_final_ensembled_RMD_classwise_temp_3") #("ensembled_samplewise_RMD_0_5" "ensembled_samplewise_RMD_1" "ensembled_samplewise_RMD_3" "ensembled_samplewise_RMD_5") #("ensembled_RMD_temp1" "ensembled_RMD_temp2" "ensembled_RMD_temp5" "ensembled_RMD_temp10")
+    TYPES=("PACS_final_wo_cot" "PACS_final_wo_hierarchy" "PACS_final_wo_cot_wo_hierarchy") # web_RMD_temp_0_5_W web_inverse_temp_0_5_WF "web_RMD_temp_3" "inverseprob" "bottomk" "topk") #"sampling_4" "sampling_2" "sampling_0_5" "sampling_0_25" "sampling_0_125" #"equalweighted" "ensembled_RMD_0_5_modelwise" "ensembled_RMD_1_modelwise" "ensembled_RMD_3_modelwise" "ensembled_RMD_classwise_temp_0_5" "ensembled_RMD_classwise_temp_1" "PACS_final_ensembled_RMD_classwise_temp_3") #("ensembled_samplewise_RMD_0_5" "ensembled_samplewise_RMD_1" "ensembled_samplewise_RMD_3" "ensembled_samplewise_RMD_5") #("ensembled_RMD_temp1" "ensembled_RMD_temp2" "ensembled_RMD_temp5" "ensembled_RMD_temp10")
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
     MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=100
@@ -191,7 +191,7 @@ elif [ "$DATASET" == "OfficeHome" ]; then
 
 elif [ "$DATASET" == "DomainNet" ]; then
     MEM_SIZE=8000
-    TYPES=("generated_RMD_equalweight" "generated_RMD_w_normalize_clip_90_temp_0_5") # "newsample_equalweight"
+    TYPES=("web_RMD_w_normalize_clip_90_temp_0_5") # "newsample_equalweight"
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
     MODEL_NAME="vit" VAL_PERIOD=500 EVAL_PERIOD=4000
@@ -213,7 +213,7 @@ elif [ "$DATASET" == "DomainNet" ]; then
 
 elif [ "$DATASET" == "NICO" ]; then
     MEM_SIZE=800 #1500
-    TYPES=("generated_RMD_w_normalize_clip_90_temp_0_5" "generated_equalweight" "sdxl") # "newsample_equalweight"
+    TYPES=("sdxl" "generated_equalweight" "generated_RMD_w_normalize_clip_90_temp_0_5") # "newsample_equalweight"
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
     MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=500

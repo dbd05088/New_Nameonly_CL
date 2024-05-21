@@ -26,16 +26,16 @@ BottomK = False
 INVERSE = False
 TEMPERATURE = 0.5
 
-# NICO
-count_dict = NICO_count
-rmd_pickle_path = './RMD_scores/NICO_generated.pkl'
-target_path = './dataset/NICO/NICO_generated_RMD_w_normalize_clip_90_temp_0_5'
-PATH_dict = {
-    'sdxl': './datasets/neurips/new_generated/NICO/NICO_static_cot_50_sdxl_realistic_subsampled_filtered',
-    'dalle2': './datasets/neurips/new_generated/NICO/NICO_static_cot_50_dalle2_realistic_subsampled_filtered',
-    'floyd': './datasets/neurips/new_generated/NICO/NICO_static_cot_50_floyd_realistic_subsampled_filtered',
-    'cogview2': './datasets/neurips/new_generated/NICO/NICO_static_cot_50_cogview2_realistic_subsampled_filtered'
-}
+# # NICO
+# count_dict = NICO_count
+# rmd_pickle_path = './RMD_scores/NICO_generated.pkl'
+# target_path = './dataset/NICO/NICO_generated_RMD_w_normalize_clip_90_temp_0_5'
+# PATH_dict = {
+#     'sdxl': './datasets/neurips/new_generated/NICO/NICO_static_cot_50_sdxl_realistic_subsampled_filtered',
+#     'dalle2': './datasets/neurips/new_generated/NICO/NICO_static_cot_50_dalle2_realistic_subsampled_filtered',
+#     'floyd': './datasets/neurips/new_generated/NICO/NICO_static_cot_50_floyd_realistic_subsampled_filtered',
+#     'cogview2': './datasets/neurips/new_generated/NICO/NICO_static_cot_50_cogview2_realistic_subsampled_filtered'
+# }
 
 # # PACS web from large
 # count_dict = PACS_count
@@ -58,6 +58,15 @@ PATH_dict = {
 #         'cogview2': './datasets/neurips/new_generated/PACS/PACS_final_static_cot_50_cogview2_subsampled',
 # }
 
+# CCT web newsample
+count_dict = cct_count
+rmd_pickle_path = './RMD_scores/cct_web_newsample_rmd.pkl'
+target_path = '../dataset/cct/cct_web_RMD_w_normalize_clip_90_temp_0_5'
+PATH_dict = {
+        'flickr': './datasets/neurips/cct/cct_flickr_subsampled_filtered',
+        'google': './datasets/neurips/cct/cct_google_subsampled_filtered',
+        'bing': './datasets/neurips/cct/cct_bing_subsampled_filtered',
+}
 # # DomainNet 
 # PATH_dict = {
 #     'sdxl': './datasets/neurips/new_generated/DomainNet/DomainNet_static_cot_50_sdxl_subsampled_filtered',
@@ -88,11 +97,6 @@ PATH_dict = {
 #     'dalle2': './datasets/neurips/PACS/PACS_dalle2_subsampled',
 #     'floyd': './datasets/neurips/PACS/PACS_floyd_subsampled',
 #     'cogview2': './datasets/neurips/PACS/PACS_cogview2_subsampled',
-# }
-# PATH_dict = {
-#         'flickr': './datasets/neurips/cct/cct_flickr_subsampled_filtered',
-#         'google': './datasets/neurips/cct/cct_google_subsampled_filtered',
-#         'bing': './datasets/neurips/cct/cct_bing_subsampled_filtered',
 # }
 
 # PATH_dict = {
