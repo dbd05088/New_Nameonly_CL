@@ -459,16 +459,26 @@
 # rm PACS_final_web_from_large_equalweight.tar
 # rm PACS_final_web_from_large_RMD_w_normalize_clip_90_temp_0_25.tar
 
-# PACS final inverse, topk, bottomk
-gdrive files download 18LZpP_z4Cl83Ie9aeelROccotXhQ143u
-gdrive files download 1qiSdox18FFkAUq8XAOjdkAshYfhDNcVU
-gdrive files download 1_BBN1ixlz7r1s64zDqziWcgBQGFYXvfM
-tar -xf PACS_final_generated_RMD_w_normalize_clip_90_temp_0_5_inverse.tar
-tar -xf PACS_final_generated_RMD_topk.tar
-tar -xf PACS_final_generated_RMD_bottomk.tar
-mv PACS_final_generated_RMD_w_normalize_clip_90_temp_0_5_inverse PACS_final/
-mv PACS_final_generated_RMD_topk PACS_final/
-mv PACS_final_generated_RMD_bottomk PACS_final/
-rm PACS_final_generated_RMD_w_normalize_clip_90_temp_0_5_inverse.tar
-rm PACS_final_generated_RMD_topk.tar
-rm PACS_final_generated_RMD_bottomk.tar
+# # PACS final inverse, topk, bottomk
+# gdrive files download 18LZpP_z4Cl83Ie9aeelROccotXhQ143u
+# gdrive files download 1qiSdox18FFkAUq8XAOjdkAshYfhDNcVU
+# gdrive files download 1_BBN1ixlz7r1s64zDqziWcgBQGFYXvfM
+# tar -xf PACS_final_generated_RMD_w_normalize_clip_90_temp_0_5_inverse.tar
+# tar -xf PACS_final_generated_RMD_topk.tar
+# tar -xf PACS_final_generated_RMD_bottomk.tar
+# mv PACS_final_generated_RMD_w_normalize_clip_90_temp_0_5_inverse PACS_final/
+# mv PACS_final_generated_RMD_topk PACS_final/
+# mv PACS_final_generated_RMD_bottomk PACS_final/
+# rm PACS_final_generated_RMD_w_normalize_clip_90_temp_0_5_inverse.tar
+# rm PACS_final_generated_RMD_topk.tar
+# rm PACS_final_generated_RMD_bottomk.tar
+
+# # Web from large 2
+gdrive files download 1wK8JJHN0q7hvy_8DzJfXUzQOio7J4IZj
+gdrive files download 1XIOAgTay3shxMDPJIR90uICmGTPYGTHu
+tar -xf PACS_final_web_from_large2_equalweight.tar
+tar -xf PACS_final_web_from_large2_RMD_w_normalize_clip_90_temp_0_5.tar
+mv PACS_final_web_from_large2_equalweight PACS_final/
+mv PACS_final_web_from_large2_RMD_w_normalize_clip_90_temp_0_5 PACS_final/
+rm PACS_final_web_from_large2_equalweight.tar
+rm PACS_final_web_from_large2_RMD_w_normalize_clip_90_temp_0_5.tar
