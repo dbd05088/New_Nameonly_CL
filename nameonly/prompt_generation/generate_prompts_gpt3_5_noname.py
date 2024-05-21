@@ -48,8 +48,8 @@ def generate_prompt_noname(client, concept_name):
             print(f"Response: {response_processed_list}")
 
 
-cls_count_dict = NICO_count
-result_json_path = './prompts/noname_NICO.json'
+cls_count_dict = PACS_count
+result_json_path = './prompts/noname_PACS.json'
 
 client = OpenAI(api_key="sk-proj-b6mF6aJroOzev4yh1afBT3BlbkFJcgqlS8S3hrxASu62u3a6")
 classes = list(cls_count_dict.keys())
@@ -59,6 +59,5 @@ for cls in tqdm(classes):
     responses = generate_prompt_noname(client, cls)
     totalprompt_dict[cls] = responses
 
-breakpoint()
 with open(result_json_path, 'w') as f:
     json.dump(totalprompt_dict, f)
