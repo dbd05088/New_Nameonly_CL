@@ -11,8 +11,8 @@ genai.configure(api_key=GOOGLE_API_KEY)
 model = genai.GenerativeModel('gemini-pro')
 
 def generate_prompt_stage1(previous_prompt_list):
-    base_message = f"To generate images using a text-to-image generation model, I need to create a prompt. Keep the domain realistic. Here is a list of prompts that I have previously generated. Please create a new prompt that does not overlap (style, color, etc.) with these for the sake of diversity."
-    end_message = f"\nPlease create one prompt sentence (under 10 words) that fits this description. Please ensure the response format is strictly 'prompt: answer' and include the word '[concept]', which denotes the class name.\n"
+    base_message = f"To generate images using a text-to-image generation model, I need to create a prompt. Keep the domain photorealistic and use different visual scenes and visual styles or different color profiles/ palettes. Here is a list of prompts that I have previously generated. Please create a new prompt that does not overlap with these for the sake of diversity."
+    end_message = f"\nPlease create one prompt sentence (under 10 words) that fits this description. Please ensure the response format is strictly 'prompt: answer' and include the word '[concept].\n"
     
     for prompt in previous_prompt_list:
         base_message += f"\nprompt: {prompt}"
@@ -28,9 +28,9 @@ def generate_prompt_stage1(previous_prompt_list):
 
 
 def generate_prompt_stage2(metaprompt, previous_prompt_list):
-    base_message = f"To generate images using a text-to-image generation model, I need to create a prompt. Keep the domain realistic. The prompt should be similar to '{metaprompt}' but slightly different. Here is a list of prompts that I have previously generated. Please create a new prompt that does not overlap (style, color, etc.) with these for the sake of diversity."
+    base_message = f"To generate images using a text-to-image generation model, I need to create a prompt. Keep the domain photorealistic and use different visual scenes and visual styles or different color profiles/ palettes. The prompt should be similar to '{metaprompt}' but slightly different. Here is a list of prompts that I have previously generated. Please create a new prompt that does not overlap with these for the sake of diversity."
     
-    end_message = f"\nPlease create one prompt sentence (under 15 words) that fits this description. Please ensure the response format is strictly 'prompt: answer' and include the word '[concept], which denotes the class name.\n"
+    end_message = f"\nPlease create one prompt sentence (under 15 words) that fits this description. Please ensure the response format is strictly 'prompt: answer' and include the word '[concept].\n"
     
     for prompt in previous_prompt_list:
         base_message += f"\nprompt: {prompt}"
@@ -44,16 +44,15 @@ def generate_prompt_stage2(metaprompt, previous_prompt_list):
     else:
         return response
 
-cls_count_dict = PACS_count
 metaprompt_json_path = './prompts/gemini_temp.json'
-totalprompt_json_path = './prompts/gemini_static_totalprompts_with_cot_50.json'
+totalprompt_json_path = './prompts/gemini_static_totalprompts_with_cot_50_photorealistic.json'
 
 num_metaprompts = 10
 num_prompts_per_metaprompt = 5
 
 
 
-# # Metaprompt generation
+# Metaprompt generation
 # metaprompts = ['A photo of a [concept].', 'A photo of [concept] in neutral tones']
 # for i in tqdm(range(num_metaprompts - 2)):
 #     try:

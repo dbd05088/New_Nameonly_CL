@@ -445,16 +445,30 @@
 # mv PACS_final_static_cot_50_palm2_filtered PACS_final/
 # rm PACS_final_static_cot_50_palm2_filtered.tar
 
-# Web from large
-gdrive files download 1CtTYenNaoTNa07qL0HvmYFrhjAa-810y
-gdrive files download 16X-A3EGYMKaGnd_nHWkJzy3pL0bTOxPu
-gdrive files download 1QdzoKAd1rRTioV-Vj7tppF7eqkde8rci
-tar -xf PACS_final_flickr_from_large_filtered.tar
-tar -xf PACS_final_web_from_large_equalweight.tar
-tar -xf PACS_final_web_from_large_RMD_w_normalize_clip_90_temp_0_25.tar
-mv PACS_final_flickr_from_large_filtered PACS_final/
-mv PACS_final_web_from_large_equalweight PACS_final/
-mv PACS_final_web_from_large_RMD_w_normalize_clip_90_temp_0_25 PACS_final/
-rm PACS_final_flickr_from_large_filtered.tar
-rm PACS_final_web_from_large_equalweight.tar
-rm PACS_final_web_from_large_RMD_w_normalize_clip_90_temp_0_25.tar
+# # Web from large
+# gdrive files download 1CtTYenNaoTNa07qL0HvmYFrhjAa-810y
+# gdrive files download 16X-A3EGYMKaGnd_nHWkJzy3pL0bTOxPu
+# gdrive files download 1QdzoKAd1rRTioV-Vj7tppF7eqkde8rci
+# tar -xf PACS_final_flickr_from_large_filtered.tar
+# tar -xf PACS_final_web_from_large_equalweight.tar
+# tar -xf PACS_final_web_from_large_RMD_w_normalize_clip_90_temp_0_25.tar
+# mv PACS_final_flickr_from_large_filtered PACS_final/
+# mv PACS_final_web_from_large_equalweight PACS_final/
+# mv PACS_final_web_from_large_RMD_w_normalize_clip_90_temp_0_25 PACS_final/
+# rm PACS_final_flickr_from_large_filtered.tar
+# rm PACS_final_web_from_large_equalweight.tar
+# rm PACS_final_web_from_large_RMD_w_normalize_clip_90_temp_0_25.tar
+
+# PACS final inverse, topk, bottomk
+gdrive files download 18LZpP_z4Cl83Ie9aeelROccotXhQ143u
+gdrive files download 1qiSdox18FFkAUq8XAOjdkAshYfhDNcVU
+gdrive files download 1_BBN1ixlz7r1s64zDqziWcgBQGFYXvfM
+tar -xf PACS_final_generated_RMD_w_normalize_clip_90_temp_0_5_inverse.tar
+tar -xf PACS_final_generated_RMD_topk.tar
+tar -xf PACS_final_generated_RMD_bottomk.tar
+mv PACS_final_generated_RMD_w_normalize_clip_90_temp_0_5_inverse PACS_final/
+mv PACS_final_generated_RMD_topk PACS_final/
+mv PACS_final_generated_RMD_bottomk PACS_final/
+rm PACS_final_generated_RMD_w_normalize_clip_90_temp_0_5_inverse.tar
+rm PACS_final_generated_RMD_topk.tar
+rm PACS_final_generated_RMD_bottomk.tar

@@ -47,7 +47,7 @@ def generate_prompt_sus(client, concept_name):
     return total_response_results
 
 cls_count_dict = PACS_count
-result_json_path = './prompts/sus_PACS.json'
+result_json_path = './prompts/sus_PACS_before_process.json'
 
 client = OpenAI(api_key="sk-proj-b6mF6aJroOzev4yh1afBT3BlbkFJcgqlS8S3hrxASu62u3a6")
 classes = list(cls_count_dict.keys())
