@@ -14,10 +14,10 @@ EVAL_BATCH_SIZE=500
 #USE_KORNIA="--use_kornia"
 USE_KORNIA=""
 UNFREEZE_RATE=0.5
-SEEDS="2"
+SEEDS="1"
 DATA_DIR=""
 
-GPUS=("5" "6" "2" "3" "4")
+GPUS=("0" "1" "2" "3" "4")
 DATASET="NICO" # cifar10, cifar100, tinyimagenet, imagenet
 SIGMA=0
 REPEAT=1
@@ -212,7 +212,7 @@ elif [ "$DATASET" == "DomainNet" ]; then
     fi
 
 elif [ "$DATASET" == "NICO" ]; then
-    MEM_SIZE=500 #1500
+    MEM_SIZE=800 #1500
     TYPES=("sdxl" "generated_equalweight" "generated_RMD_w_normalize_clip_90_temp_0_5") # "newsample_equalweight"
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
