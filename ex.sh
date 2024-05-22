@@ -26,7 +26,7 @@ USE_AMP=""
 
 if [ "$DATASET" == "cifar10" ]; then
     MEM_SIZE=1000
-    TYPES=("sdbp") #("web_10" "ma" "generated" "web" "web_10")
+    TYPES=("ma" "sdbp") #("web_10" "ma" "generated" "web" "web_10")
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
     MODEL_NAME="resnet18" VAL_PERIOD=500 EVAL_PERIOD=500
