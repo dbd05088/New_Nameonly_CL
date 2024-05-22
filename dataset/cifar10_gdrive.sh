@@ -55,17 +55,17 @@
 mkdir -p cifar10
 gdrive files download 1VxdSntW9y6tzzSD1aiG_YGaL3jzpJv4g #nc
 gdrive files download 16DTKBJjjzU4Z3jmiIYwgEPrXb4Hju3B4 #c
-gdrive files download 1JsokoJg1ws0Pbz2HMiosBSpPh4gq7KWL #ma
+gdrive files download 1jgqUvtGf7Ta1Uq-jMUm6vLmDgjaXzqzu #ma (updated - 0522)
 gdrive files download 1TdIXr9uwdCcjDPBmnD_VQ2qv30uNKyxQ #original test set
-tar -xvf cifar10_MA.tar
+tar -xvf cifar10_ma.tar
 tar -xvf cifar10_nc.tar
 tar -xvf cifar10_c.tar
 tar -xvf cifar10_original_test.tar
-mv cifar10_MA cifar10/
+mv cifar10_ma cifar10/
 mv cifar10_original_test cifar10/
 mv cifar10_nc cifar10/
 mv cifar10_c cifar10/
-rm cifar10_MA.tar
+rm cifar10_ma.tar
 rm cifar10_nc.tar
 rm cifar10_c.tar
 rm cifar10_original_test.tar
