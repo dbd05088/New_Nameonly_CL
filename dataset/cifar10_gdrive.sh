@@ -56,10 +56,10 @@
 
 # New (0521)
 mkdir -p cifar10
-gdrive files download 1VxdSntW9y6tzzSD1aiG_YGaL3jzpJv4g #nc
-gdrive files download 16DTKBJjjzU4Z3jmiIYwgEPrXb4Hju3B4 #c
-gdrive files download 1jgqUvtGf7Ta1Uq-jMUm6vLmDgjaXzqzu #ma (updated - 0522)
-gdrive files download 1TdIXr9uwdCcjDPBmnD_VQ2qv30uNKyxQ #original test set
+./gdrive files download 1VxdSntW9y6tzzSD1aiG_YGaL3jzpJv4g #nc
+./gdrive files download 16DTKBJjjzU4Z3jmiIYwgEPrXb4Hju3B4 #c
+./gdrive files download 1jgqUvtGf7Ta1Uq-jMUm6vLmDgjaXzqzu #ma (updated - 0522)
+./gdrive files download 1TdIXr9uwdCcjDPBmnD_VQ2qv30uNKyxQ #original test set
 tar -xvf cifar10_ma.tar
 tar -xvf cifar10_nc.tar
 tar -xvf cifar10_c.tar
