@@ -12,13 +12,12 @@
 # NOTE="imagenet_sdp_sigma0_mem_10000_iter_0.125"
 
 # --------------------------IMPORTANT-------------------------- #
-MODE="mir"
+MODE="xder_lider"
 MODEL_NAME="resnet18"
 DATASET="cifar10" # cifar10, cifar100, tinyimagenet, imagenet
-NOTE="iclr_${MODEL_NAME}_${DATASET}_${MODE}"
 TYPES=("ma") #  "static_cot_50_sdxl", "generated_equalweight")
 SEEDS="5"
-GPUS=("2" "1" "2" "3" "4")
+GPUS=("4" "1" "2" "3" "4")
 # --------------------------IMPORTANT-------------------------- #
 echo "MODE: $MODE"
 echo "MODEL_NAME: $MODEL_NAME"
@@ -135,6 +134,7 @@ do
     for index in "${!TYPES[@]}"
     do
     LOG_FILE="${LOG_DIR}/iclr_${MODEL_NAME}_${DATASET}_${MODE}_${TYPES[$index]}_sd${RND_SEED}.log"
+    NOTE="iclr_${MODEL_NAME}_${DATASET}_${MODE}_${TYPES[$index]}"
     echo "SEED: $RND_SEED"
         CUDA_VISIBLE_DEVICES=${GPUS[$index]} nohup python main_new.py --mode $MODE $DATA_DIR \
         --dataset $DATASET --unfreeze_rate $UNFREEZE_RATE $USE_KORNIA --k_coeff $K_COEFF --temperature $TEMPERATURE \
