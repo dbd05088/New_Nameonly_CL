@@ -12,13 +12,13 @@
 # NOTE="imagenet_sdp_sigma0_mem_10000_iter_0.125"
 
 # --------------------------IMPORTANT-------------------------- #
-MODE="er"
+MODE="mir"
 MODEL_NAME="resnet18"
-DATASET="cct" # cifar10, cifar100, tinyimagenet, imagenet
+DATASET="cifar10" # cifar10, cifar100, tinyimagenet, imagenet
 NOTE="iclr_${MODEL_NAME}_${DATASET}_${MODE}"
-TYPES=("ma" "static_cot_50_sdxl", "generated_equalweight")
+TYPES=("ma") #  "static_cot_50_sdxl", "generated_equalweight")
 SEEDS="5"
-GPUS=("4" "1" "2" "3" "4")
+GPUS=("2" "1" "2" "3" "4")
 # --------------------------IMPORTANT-------------------------- #
 echo "MODE: $MODE"
 echo "MODEL_NAME: $MODEL_NAME"
@@ -127,10 +127,15 @@ else
     exit 1
 fi
 
+LOG_DIR="logs"
+mkdir -p $LOG_DIR
+
 for RND_SEED in $SEEDS
 do
     for index in "${!TYPES[@]}"
     do
+    LOG_FILE="${LOG_DIR}/iclr_${MODEL_NAME}_${DATASET}_${MODE}_${TYPES[$index]}_sd${RND_SEED}.log"
+    echo "SEED: $RND_SEED"
         CUDA_VISIBLE_DEVICES=${GPUS[$index]} nohup python main_new.py --mode $MODE $DATA_DIR \
         --dataset $DATASET --unfreeze_rate $UNFREEZE_RATE $USE_KORNIA --k_coeff $K_COEFF --temperature $TEMPERATURE \
         --sigma $SIGMA --repeat $REPEAT --init_cls $INIT_CLS --samples_per_task $SAMPLES_PER_TASK \
@@ -139,6 +144,6 @@ do
         --lr $LR --batchsize $BATCHSIZE --mir_cands $MIR_CANDS --eval_point "${EVAL_POINT}" \
         --memory_size $MEM_SIZE $TRANSFORM_ON_GPU --online_iter $ONLINE_ITER \
         --note $NOTE --eval_period $EVAL_PERIOD --imp_update_period $IMP_UPDATE_PERIOD $USE_AMP --n_worker $N_WORKER --future_steps $FUTURE_STEPS --eval_n_worker $EVAL_N_WORKER --eval_batch_size $EVAL_BATCH_SIZE \
-        --baseinit_samples $BASEINIT_SAMPLES --spatial_feat_dim $FEAT_DIM --feat_memsize $FEAT_MEM_SIZE &
+        --baseinit_samples $BASEINIT_SAMPLES --spatial_feat_dim $FEAT_DIM --feat_memsize $FEAT_MEM_SIZE > $LOG_FILE 2>&1 &
     done
 done
