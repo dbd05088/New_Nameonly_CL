@@ -154,3 +154,4 @@ dataset/NICO/
 nameonly/calculate_rmd_classwise.py
 
 nameonly/sample_with_rmd_scores_classwise.py
+results/*
