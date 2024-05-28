@@ -3,14 +3,13 @@ import pickle
 import json
 from openai import OpenAI
 from tqdm import tqdm
-from classes import *
 import google.generativeai as palm 
 palm.configure(api_key='AIzaSyBFJXbGVaguzppf7qnnQvOlXmTywSfQRtM')
 
 models = [m for m in palm.list_models() if 'generateText' in m.supported_generation_methods]
 model = models[0].name
 
-def generate_prompt_stage1(client, previous_prompt_list):
+def generate_prompt_stage1(previous_prompt_list):
     base_message = f"To generate images using a text-to-image generation model, I need to create a prompt. Keep the domain photorealistic and use different visual scenes and visual styles or different color profiles/ palettes. Here is a list of prompts that I have previously generated. Please create a new prompt that does not overlap with these for the sake of diversity."
     end_message = f"\nPlease create one prompt sentence (under 10 words) that fits this description. Please ensure the response format is strictly 'prompt: answer' and include the word '[concept].\n"
     
@@ -33,7 +32,7 @@ def generate_prompt_stage1(client, previous_prompt_list):
     else:
         return response_content
 
-def generate_prompt_stage2(client, metaprompt, previous_prompt_list):
+def generate_prompt_stage2(metaprompt, previous_prompt_list):
     base_message = f"To generate images using a text-to-image generation model, I need to create a prompt. Keep the domain photorealistic and use different visual scenes and visual styles or different color profiles/ palettes. The prompt should be similar to '{metaprompt}' but slightly different. Here is a list of prompts that I have previously generated. Please create a new prompt that does not overlap with these for the sake of diversity."
     
     end_message = f"\nPlease create one prompt sentence (under 15 words) that fits this description. Please ensure the response format is strictly 'prompt: answer' and include the word '[concept].\n"
@@ -57,12 +56,9 @@ def generate_prompt_stage2(client, metaprompt, previous_prompt_list):
     else:
         return response_content
 
-cls_count_dict = PACS_count
 metaprompt_json_path = './prompts/palm2_temp.json'
 totalprompt_json_path = './prompts/palm2_static_totalprompts_with_cot_50_photorealistic.json'
 
-client = OpenAI(api_key="sk-proj-b6mF6aJroOzev4yh1afBT3BlbkFJcgqlS8S3hrxASu62u3a6")
-classes = list(cls_count_dict.keys())
 num_metaprompts = 10
 num_prompts_per_metaprompt = 5
 
@@ -70,7 +66,7 @@ num_prompts_per_metaprompt = 5
 # metaprompts = ['A photo of a [concept].']
 # for i in tqdm(range(num_metaprompts - 1)):
 #     try:
-#         prompt = generate_prompt_stage1(client, metaprompts)
+#         prompt = generate_prompt_stage1(metaprompts)
 #         print(f"Previous prompt list: {metaprompts}")
 #         print(f"Generated metaprompt for stage: {prompt}")
 #         metaprompts.append(prompt)
@@ -92,7 +88,7 @@ for i, metaprompt in enumerate(tqdm(metaprompt_list)):
     diversified_prompts = []
     for j in range(num_prompts_per_metaprompt):
         try:
-            prompt = generate_prompt_stage2(client, metaprompt, diversified_prompts)
+            prompt = generate_prompt_stage2(metaprompt, diversified_prompts)
             print(f"previous generated prompts: {diversified_prompts}")
             print(f"Generated prompt: {prompt}")
             diversified_prompts.append(prompt)

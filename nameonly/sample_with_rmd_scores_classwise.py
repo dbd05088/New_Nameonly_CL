@@ -22,14 +22,14 @@ INVERSE = False
 TEMPERATURE = 2
 
 # NICO
-count_dict = NICO_count
-rmd_pickle_path = './RMD_scores/NICO_generated.pkl'
-target_path = './dataset/NICO/NICO_generated_equalweight'
+count_dict = cifar10_count
+rmd_pickle_path = './RMD_scores/cifar10_generated.pkl'
+target_path = '/home/user/seongwon/New_Nameonly_CL/nameonly/datasets/neurips/new_generated/cifar10_generated_equalweight'
 PATH_dict = {
-    'sdxl': './datasets/neurips/new_generated/NICO/NICO_static_cot_50_sdxl_realistic_subsampled_filtered',
-    'dalle2': './datasets/neurips/new_generated/NICO/NICO_static_cot_50_dalle2_realistic_subsampled_filtered',
-    'floyd': './datasets/neurips/new_generated/NICO/NICO_static_cot_50_floyd_realistic_subsampled_filtered',
-    'cogview2': './datasets/neurips/new_generated/NICO/NICO_static_cot_50_cogview2_realistic_subsampled_filtered'
+    'sdxl': './datasets/neurips/new_generated/cifar10/cifar10_static_cot_50_sdxl_realistic_subsampled_filtered',
+    'dalle2': './datasets/neurips/new_generated/cifar10/cifar10_static_cot_50_dalle2_realistic_subsampled_filtered',
+    'floyd': './datasets/neurips/new_generated/cifar10/cifar10_static_cot_50_floyd_realistic_subsampled_filtered',
+    'cogview2': './datasets/neurips/new_generated/cifar10/cifar10_static_cot_50_cogview2_realistic_subsampled_filtered'
 }
 
 # # PACS web from large

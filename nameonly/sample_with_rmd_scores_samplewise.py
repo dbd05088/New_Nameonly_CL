@@ -58,15 +58,26 @@ TEMPERATURE = 0.5
 #         'cogview2': './datasets/neurips/new_generated/PACS/PACS_final_static_cot_50_cogview2_subsampled',
 # }
 
-# CCT web newsample
-count_dict = cct_count
-rmd_pickle_path = './RMD_scores/cct_web_newsample_rmd.pkl'
-target_path = '../dataset/cct/cct_web_RMD_w_normalize_clip_90_temp_0_5'
-PATH_dict = {
-        'flickr': './datasets/neurips/cct/cct_flickr_subsampled_filtered',
-        'google': './datasets/neurips/cct/cct_google_subsampled_filtered',
-        'bing': './datasets/neurips/cct/cct_bing_subsampled_filtered',
-}
+# # CCT web newsample
+# count_dict = cct_count
+# rmd_pickle_path = './RMD_scores/cct_web_newsample_rmd.pkl'
+# target_path = '../dataset/cct/cct_web_RMD_w_normalize_clip_90_temp_0_5'
+# PATH_dict = {
+#         'flickr': './datasets/neurips/cct/cct_flickr_subsampled_filtered',
+#         'google': './datasets/neurips/cct/cct_google_subsampled_filtered',
+#         'bing': './datasets/neurips/cct/cct_bing_subsampled_filtered',
+# }
+
+# # DomainNet web newsample
+# count_dict = DomainNet_count
+# rmd_pickle_path = './RMD_scores/DomainNet_web_newsample_rmd.pkl'
+# target_path = '../dataset/DomainNet/DomainNet_web_RMD_w_normalize_clip_90_temp_0_5'
+# PATH_dict = {
+#         'flickr': './datasets/neurips/web/DomainNet/DomainNet_filckr_subsampled_filtered',
+#         'google': './datasets/neurips/web/DomainNet/DomainNet_google_subsampled_filtered',
+#         'bing': './datasets/neurips/web/DomainNet/DomainNet_bing_subsampled_filtered',
+# }
+
 # # DomainNet 
 # PATH_dict = {
 #     'sdxl': './datasets/neurips/new_generated/DomainNet/DomainNet_static_cot_50_sdxl_subsampled_filtered',
