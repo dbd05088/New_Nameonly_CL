@@ -1,3 +1,13 @@
+# #!/bin/bash
+# #SBATCH --time=20:00:00
+# #SBATCH --gres=gpu:1
+# #SBATCH -c 64
+
+# source ~/.bashrc
+# ml purge
+# conda init bash
+# conda activate generate
+
 # CIL CONFIG
 # NOTE="imagenet_sdp_sigma0_mem_10000_iter_0.125"
 NOTE="rebuttal4_vit_er_cct_iter2_mem200"
