@@ -1,3 +1,6 @@
+./gdrive account remove dbd05088@naver.com
+./gdrive account import gdrive_export-dbd05088_naver_com.tar
+./gdrive account switch dbd05088@naver.com
 #nohup gdrive files download 179g6v9hOAwDKXrgQ7Gs3-5hifjVt0UAu #web_10
 # gdrive files download 1gTJP9ciBwg-bpqdtvlbSDWEjNBQ4x4bu #web
 # gdrive files download 1W6YRfL-u9ySIdXWkHiQ0Whq9m8EtzQhb #generated
@@ -83,8 +86,8 @@ rm cifar10_original_test.tar
 # rm cifar10_sdbp.tar
 
 # sdxl diversified and generated equalweight (0528)
-gdrive files download 1VpElBUOtlUK3KNkbrgkdS-VGFqx7k9ww # sdxl diversified
-gdrive files download 1GcVfh1r0WVkXZHtcGcULIzw7sll7YOnt # equalweight
+./gdrive files download 1VpElBUOtlUK3KNkbrgkdS-VGFqx7k9ww # sdxl diversified
+./gdrive files download 1GcVfh1r0WVkXZHtcGcULIzw7sll7YOnt # equalweight
 tar -xf cifar10_static_cot_50_sdxl.tar
 tar -xf cifar10_generated_equalweight.tar
 mv cifar10_static_cot_50_sdxl cifar10/
