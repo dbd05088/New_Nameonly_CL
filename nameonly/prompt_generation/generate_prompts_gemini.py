@@ -4,7 +4,6 @@ import json
 import google.generativeai as genai
 import time
 from tqdm import tqdm
-from classes import *
 
 GOOGLE_API_KEY="AIzaSyBFJXbGVaguzppf7qnnQvOlXmTywSfQRtM"
 genai.configure(api_key=GOOGLE_API_KEY)
@@ -53,8 +52,8 @@ num_prompts_per_metaprompt = 5
 
 
 # Metaprompt generation
-# metaprompts = ['A photo of a [concept].', 'A photo of [concept] in neutral tones']
-# for i in tqdm(range(num_metaprompts - 2)):
+# metaprompts = ['A photo of a [concept].']
+# for i in tqdm(range(num_metaprompts - 1)):
 #     try:
 #         prompt = generate_prompt_stage1(metaprompts)
 #         print(f"Previous prompt list: {metaprompts}")

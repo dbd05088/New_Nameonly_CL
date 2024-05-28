@@ -2,7 +2,6 @@ import re
 import pickle
 import json
 from tqdm import tqdm
-from classes import *
 import ollama
 
 
@@ -48,8 +47,7 @@ num_prompts_per_metaprompt = 5
 
 # -------------------------------------------------------------------
 # Metaprompt generation
-# metaprompts = ['A photo of a [concept].', 'A photo of [concept] in neutral tones']
-# metaprompts = ['A photo of a [concept].']
+# metaprompts = ['A photo of a [concept].'] # CoT start
 # for i in tqdm(range(num_metaprompts - 1)):
 #     try:
 #         prompt = generate_prompt_stage1(metaprompts)

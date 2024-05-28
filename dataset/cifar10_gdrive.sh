@@ -76,8 +76,18 @@ rm cifar10_original_test.tar
 # mv cifar10_sdxl_base cifar10/
 # rm cifar10_sdxl_base.tar
 
-# SDBP
-gdrive files download 1QpJ08Ci9f5PSTx96eF1P9geu1MR0hGsx
-tar -xf cifar10_sdbp.tar
-mv cifar10_sdbp cifar10/
-rm cifar10_sdbp.tar
+# # SDBP
+# gdrive files download 1QpJ08Ci9f5PSTx96eF1P9geu1MR0hGsx
+# tar -xf cifar10_sdbp.tar
+# mv cifar10_sdbp cifar10/
+# rm cifar10_sdbp.tar
+
+# sdxl diversified and generated equalweight (0528)
+gdrive files download 1VpElBUOtlUK3KNkbrgkdS-VGFqx7k9ww # sdxl diversified
+gdrive files download 1GcVfh1r0WVkXZHtcGcULIzw7sll7YOnt # equalweight
+tar -xf cifar10_static_cot_50_sdxl.tar
+tar -xf cifar10_generated_equalweight.tar
+mv cifar10_static_cot_50_sdxl cifar10/
+mv cifar10_generated_equalweight cifar10/
+rm cifar10_static_cot_50_sdxl.tar
+rm cifar10_generated_equalweight.tar

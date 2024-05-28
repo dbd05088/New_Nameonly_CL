@@ -184,8 +184,8 @@ if __name__ == "__main__":
     # Print the top 5 and bottom 5 RMD scores of each model
     concatenated_images = np.array(concatenated_images)
     for model in image_paths.keys():
-        top5_indices = RMD_each_model[model].argsort()[-100:]
-        bottom5_indices = RMD_each_model[model].argsort()[:100]
+        top5_indices = RMD_each_model[model].argsort()[-10:]
+        bottom5_indices = RMD_each_model[model].argsort()[:10]
         top5_image_paths = concatenated_images[top5_indices]
         bottom5_image_paths = concatenated_images[bottom5_indices]
         print(f"Top 10 RMD for {model}:")

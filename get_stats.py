@@ -1,3 +1,9 @@
+# How to add new dataset config
+# 1. get_stats.py -> automatically append mean, std to json file (for augmentation)
+# 2. upload dataset to gdrive & modify dataset sh file (PACS_final_grive.sh...)
+# 3. Create json (make_collections.py) & move all jsons files to collections/ dir
+# 4. modify ex.sh
+
 import os
 import cv2
 import numpy as np
