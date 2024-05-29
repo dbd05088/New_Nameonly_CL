@@ -134,6 +134,23 @@ def main():
     np.save(f'results/{args.dataset}/{args.note}/seed_{args.rnd_seed}_eval_per_cls.npy', eval_results['percls_acc'])
     np.save(f'results/{args.dataset}/{args.note}/seed_{args.rnd_seed}_eval_time.npy', eval_results['data_cnt'])
 
+    # Check if all seed are complete
+    eval_root = f'results/{args.dataset}/{args.note}'
+    seeds = (1, 2, 3, 4, 5)
+    seed_results = []
+    eval_npy_list = os.listdir(eval_root)
+    for seed in seeds:
+        if f"seed_{seed}_eval.npy" in eval_npy_list:
+            seed_results.append(True)
+        else:
+            seed_results.append(False)
+    if all(seed_results):
+        print("All seed evaluations are complete and successful.")
+        new_folder_name = f"complete_{os.path.basename(eval_root)}"
+        new_path = os.path.join(os.path.dirname(eval_root), new_folder_name)
+        os.rename(eval_root, new_path)
+        print(f"Directory renamed to {new_folder_name}")
+
     # Accuracy (A)
     A_auc = np.mean(eval_results["test_acc"])
     A_avg = np.mean(eval_results["avg_test_acc"])
