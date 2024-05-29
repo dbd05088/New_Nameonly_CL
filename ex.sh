@@ -1,8 +1,9 @@
 # #!/bin/bash
-# #SBATCH --time=20:00:00
+# #SBATCH --time=10:00:00
 # #SBATCH --gres=gpu:1
-# #SBATCH -c 64
+# ##SBATCH -c 64
 
+# ulimit -u 40000
 # source ~/.bashrc
 # ml purge
 # conda init bash
@@ -12,17 +13,16 @@
 # NOTE="imagenet_sdp_sigma0_mem_10000_iter_0.125"
 
 # --------------------------IMPORTANT-------------------------- #
-MODE="xder_lider"
+MODE="xder"
 MODEL_NAME="resnet18"
 DATASET="cifar10" # cifar10, cifar100, tinyimagenet, imagenet
-TYPES=("ma") #  "static_cot_50_sdxl", "generated_equalweight")
+TYPES=("generated_equalweight") #  "static_cot_50_sdxl", "generated_equalweight")
 SEEDS="5"
-GPUS=("4" "1" "2" "3" "4")
+GPUS=("7" "1" "2" "3" "4")
 # --------------------------IMPORTANT-------------------------- #
 echo "MODE: $MODE"
 echo "MODEL_NAME: $MODEL_NAME"
 echo "DATASET: $DATASET"
-echo "NOTE: $NOTE"
 
 TRANSFORM_ON_GPU="--transform_on_gpu"
 N_WORKER=4
@@ -136,6 +136,7 @@ do
     LOG_FILE="${LOG_DIR}/iclr_${MODEL_NAME}_${DATASET}_${MODE}_${TYPES[$index]}_sd${RND_SEED}.log"
     NOTE="iclr_${MODEL_NAME}_${DATASET}_${MODE}_${TYPES[$index]}"
     echo "SEED: $RND_SEED"
+    echo "NOTE: $NOTE"
         CUDA_VISIBLE_DEVICES=${GPUS[$index]} nohup python main_new.py --mode $MODE $DATA_DIR \
         --dataset $DATASET --unfreeze_rate $UNFREEZE_RATE $USE_KORNIA --k_coeff $K_COEFF --temperature $TEMPERATURE \
         --sigma $SIGMA --repeat $REPEAT --init_cls $INIT_CLS --samples_per_task $SAMPLES_PER_TASK \
