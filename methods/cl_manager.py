@@ -410,7 +410,7 @@ class CLManagerBase:
             self.calculate_task_metric(domain_name, sample_num, test_list, cls_dict, batch_size, n_worker)
             if self.cur_task < self.tasks-1:
                 self.calculate_fast_adaptation(domain_name, sample_num, test_list, cls_dict, batch_size, n_worker)
-            self.get_forgetting(domain_name, sample_num, test_list, cls_dict, batch_size, n_worker)
+            # self.get_forgetting(domain_name, sample_num, test_list, cls_dict, batch_size, n_worker)
         test_df = pd.DataFrame(test_list)
         '''
         if "clear" in self.dataset:
