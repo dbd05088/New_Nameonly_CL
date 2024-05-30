@@ -67,6 +67,8 @@ def print_from_log(exp_name, in_dis, ood_dis, seeds=(1,2,3,4,5)):
         cur_task = 0
         f = open(f'{exp_name}/seed_{i}.log', 'r')
         lines = f.readlines()
+        if 'Summary' not in lines[-2]:
+            return
         in_dis_acc = []
         ood_dis_acc = []
         in_acc, ood_acc = [], []
