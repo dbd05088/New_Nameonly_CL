@@ -1,31 +1,35 @@
-# gdrive files download 11zV8OnLYqQ9JQZVkxv_1OTWdtbscBsUn 
-# gdrive files download 1Q-leEeSjgWZNQUbapU1GmHKFr947_-K- # test_ma
-# gdrive files download 1pFiNMTBHV5KdDIX0eh7a6zy_afnIK2Rg
-# gdrive files download 1LfcRv1xFlLbT9Etx71JbpWzKSQiouxjO # PACS MA
-# gdrive files download 1bpMSWOmu59LksTThsDnVo2RE2l1epKAi # PACS_both_ensembled
-# gdrive files download 1zLPhg_Yg685fZbkNE_lZE0S4RUp9yC8n
-# gdrive files download 1j0QpNXPtrF-7eR8a8pwxHSKXeJQ_-OoJ
+./gdrive account remove dbd05088@naver.com
+./gdrive account import gdrive_export-dbd05088_naver_com.tar
+./gdrive account switch dbd05088@naver.com
 
-# tar -xvf PACS_final_train_ma.tar
+# ./gdrive files download 1Q-leEeSjgWZNQUbapU1GmHKFr947_-K- # test_ma
+# ./gdrive files download 1LfcRv1xFlLbT9Etx71JbpWzKSQiouxjO # PACS MA
+# ./gdrive files download 11zV8OnLYqQ9JQZVkxv_1OTWdtbscBsUn # final train ma
+# ./gdrive files download 1pFiNMTBHV5KdDIX0eh7a6zy_afnIK2Rg # sdxl diversified
+# ./gdrive files download 1bpMSWOmu59LksTThsDnVo2RE2l1epKAi # PACS_both_ensembled
+# ./gdrive files download 1zLPhg_Yg685fZbkNE_lZE0S4RUp9yC8n # generated
+# ./gdrive files download 1j0QpNXPtrF-7eR8a8pwxHSKXeJQ_-OoJ # web
+
 # tar -xvf PACS_final_test_ma.tar
-# tar -xvf PACS_final_web2.tar
 # tar -xvf PACS_MA.tar
+# tar -xvf PACS_final_train_ma.tar
+# tar -xvf PACS_final_web2.tar
 # tar -xvf PACS_final_sdxl_diversified.tar
 # tar -xvf PACS_both_ensembled.tar
 # tar -xvf PACS_generated.tar
 
-# mkdir PACS_final
+# mkdir -p PACS_final
+# mv PACS_final_test_ma PACS_final
 # mv PACS_MA PACS_final
 # mv PACS_final_train_ma PACS_final
-# mv PACS_final_test_ma PACS_final
 # mv PACS_final_web2 PACS_final
 # mv PACS_final_sdxl_diversified PACS_final
 # mv PACS_both_ensembled PACS_final
 # mv PACS_generated PACS_final
 
+# rm PACS_final_test_ma.tar
 # rm PACS_MA.tar
 # rm PACS_final_train_ma.tar
-# rm PACS_final_test_ma.tar
 # rm PACS_final_web2.tar
 # rm PACS_final_sdxl_diversified.tar
 # rm PACS_both_ensembled.tar
@@ -498,7 +502,7 @@
 # rm PACS_final_wo_hierarchy.tar
 # rm PACS_final_wo_cot_wo_hierarchy.tar
 
-gdrive files download 1RvMTXuMvXyWqTyOHVAY4RTI2d4bjr8kO
-tar -xf PACS_final_sdbp.tar
-mv PACS_final_sdbp PACS_final/
-rm PACS_final_sdbp.tar
+# gdrive files download 1RvMTXuMvXyWqTyOHVAY4RTI2d4bjr8kO
+# tar -xf PACS_final_sdbp.tar
+# mv PACS_final_sdbp PACS_final/
+# rm PACS_final_sdbp.tar
