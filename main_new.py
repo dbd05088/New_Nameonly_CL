@@ -134,22 +134,6 @@ def main():
     np.save(f'results/{args.dataset}/{args.note}/seed_{args.rnd_seed}_eval_per_cls.npy', eval_results['percls_acc'])
     np.save(f'results/{args.dataset}/{args.note}/seed_{args.rnd_seed}_eval_time.npy', eval_results['data_cnt'])
 
-    # Check if all seed are complete
-    eval_root = f'results/{args.dataset}/{args.note}'
-    seeds = (1, 2, 3, 4, 5)
-    seed_results = []
-    eval_npy_list = os.listdir(eval_root)
-    for seed in seeds:
-        if f"seed_{seed}_eval.npy" in eval_npy_list:
-            seed_results.append(True)
-        else:
-            seed_results.append(False)
-    if all(seed_results):
-        print("All seed evaluations are complete and successful.")
-        new_folder_name = f"complete_{os.path.basename(eval_root)}"
-        new_path = os.path.join(os.path.dirname(eval_root), new_folder_name)
-        os.rename(eval_root, new_path)
-        print(f"Directory renamed to {new_folder_name}")
 
     # Accuracy (A)
     A_auc = np.mean(eval_results["test_acc"])
@@ -162,6 +146,29 @@ def main():
 
     logger.info(f"======== Summary =======")
     logger.info(f"A_auc {A_auc:6f} | A_last {A_last:6f} | A_avg {A_avg:6f} | KLR_avg {KLR_avg:6f} | KGR_avg {KGR_avg:6f} | Total FLOPs {method.total_flops:4f}")
+
+    eval_root = f"results/{args.dataset}/{args.note}/{args.type_name}"
+    eval_log_list = os.listdir(eval_root)
+    seeds = (1, 2, 3, 4, 5)
+    seed_results = [f"seed_{seed}.log" in eval_log_list for seed in seeds] # [T, T, T, T, T]
+    if all(seed_results):
+        print(f"All seed logs are present")
+        summary_present_in_all = True
+
+        for seed in seeds:
+            log_path = os.path.join(eval_root, f"seed_{seed}.log")
+            with open(log_path, 'r') as file:
+                if 'Summary' not in file.read():
+                    summary_present_in_all = False
+                    print(f"'Summary' not found in seed_{seed}.log")
+                    break
+
+        if summary_present_in_all:
+            print("All seed evaluations are complete and successful.")
+            new_folder_name = f"complete_{os.path.basename(eval_root)}"
+            new_path = os.path.join(os.path.dirname(eval_root), new_folder_name)
+            os.rename(eval_root, new_path)
+            print(f"Directory renamed to {new_folder_name}")
 
 if __name__ == "__main__":
     torch.multiprocessing.set_start_method('spawn')
