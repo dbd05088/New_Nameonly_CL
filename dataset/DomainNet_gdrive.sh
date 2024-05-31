@@ -2,12 +2,12 @@
 ./gdrive account import gdrive_export-dbd05088_naver_com.tar
 ./gdrive account switch dbd05088@naver.com
 
-# ./gdrive files download 1eCHHO8eheuM-FT0t13LbmOoTGxM0e-jO
-# ./gdrive files download 1Gnqna2AjQk-wVIwogGWS04MCvYnTmkdi
-# ./gdrive files download 1VNIz2xPm6ICKzp8i7KhhyN2VYv4fkQZY
-# ./gdrive files download 1I5W7bL46cduMMrNq4gH5KsUOonLejMuZ
-# ./gdrive files download 1G_aILsxwKAhfFPwSuc2ecnuhE9JH1RH-
-# ./gdrive files download 1sZdh04o80X8xKNBSXsnOe1VBlhk1f1Oy
+# ./gdrive files download 1eCHHO8eheuM-FT0t13LbmOoTGxM0e-jO # train_ma
+# ./gdrive files download 1Gnqna2AjQk-wVIwogGWS04MCvYnTmkdi # test_ma
+# ./gdrive files download 1VNIz2xPm6ICKzp8i7KhhyN2VYv4fkQZY # sdxl_diversified
+# ./gdrive files download 1I5W7bL46cduMMrNq4gH5KsUOonLejMuZ # DomainNet_MA
+# ./gdrive files download 1G_aILsxwKAhfFPwSuc2ecnuhE9JH1RH- # DomainNet_generated
+# ./gdrive files download 1sZdh04o80X8xKNBSXsnOe1VBlhk1f1Oy # DomainNet_web2
 
 # tar -xvf DomainNet_train_ma.tar
 # tar -xvf DomainNet_test_ma.tar
@@ -16,7 +16,7 @@
 # tar -xvf DomainNet_MA.tar
 # tar -xvf DomainNet_generated.tar
 
-# mkdir DomainNet
+# mkdir -p DomainNet
 # mv DomainNet_MA DomainNet
 # mv DomainNet_train_ma DomainNet
 # mv DomainNet_test_ma DomainNet
@@ -87,11 +87,12 @@
 # rm DomainNet_generated_RMD_w_normalize_clip_90_temp_0_5.tar
 
 # ./gdrive files download 1-1fAiY2xIleQZrKzJ_uwdrtnVh1lkyk3
+# ./gdrive files download 1-1fAiY2xIleQZrKzJ_uwdrtnVh1lkyk3
 # tar -xf DomainNet_web_RMD_w_normalize_clip_90_temp_0_5.tar
 # mv DomainNet_web_RMD_w_normalize_clip_90_temp_0_5 DomainNet/
 # rm DomainNet_web_RMD_w_normalize_clip_90_temp_0_5.tar
 
-./gdrive files download 13icRhcAV4PX4AlBfXX7M-7salev9IDxO
-tar -xf DomainNet_sdbp.tar
-mv DomainNet_sdbp DomainNet/
-rm DomainNet_sdbp.tar
+# ./gdrive files download 13icRhcAV4PX4AlBfXX7M-7salev9IDxO
+# tar -xf DomainNet_sdbp.tar
+# mv DomainNet_sdbp DomainNet/
+# rm DomainNet_sdbp.tar
