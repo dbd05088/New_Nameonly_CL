@@ -1,3 +1,7 @@
+./gdrive account remove dbd05088@naver.com
+./gdrive account import gdrive_export-dbd05088_naver_com.tar
+./gdrive account switch dbd05088@naver.com
+
 # ./gdrive files download 1eCHHO8eheuM-FT0t13LbmOoTGxM0e-jO
 # ./gdrive files download 1Gnqna2AjQk-wVIwogGWS04MCvYnTmkdi
 # ./gdrive files download 1VNIz2xPm6ICKzp8i7KhhyN2VYv4fkQZY
