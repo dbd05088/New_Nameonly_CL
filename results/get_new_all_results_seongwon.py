@@ -5,7 +5,7 @@ from scipy.stats import sem
 from collections import defaultdict
 
 warnings.filterwarnings(action='ignore')
-dir = 'cifar10'
+dir = 'DomainNet'
 
 if 'PACS' in dir:
     in_dis = ['final_test_ma']
@@ -42,7 +42,7 @@ exp_list = [exp for exp in exp_list if os.path.isdir(exp)] # Filter only dirs
 
 for exp in exp_list:
     for exp_type in os.listdir(exp):
-        if os.path.isdir(os.path.join(exp, exp_type)) and "iclr" in os.path.join(exp, exp_type):
+        if os.path.isdir(os.path.join(exp, exp_type)) and "complete" in os.path.join(exp, exp_type):
             exp_type_list.append(os.path.join(exp, exp_type)) # iclr_resnet18_cifar10_xder/complete_ma
 
 
@@ -156,4 +156,5 @@ for exp in exp_type_list:
     try:
         print_from_log(exp, in_dis, ood_dis)
     except Exception as e:
+        print(e, exp)
         pass
