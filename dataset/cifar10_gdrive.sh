@@ -88,9 +88,13 @@ rm cifar10_original_test.tar
 # sdxl diversified and generated equalweight (0528)
 ./gdrive files download 1VpElBUOtlUK3KNkbrgkdS-VGFqx7k9ww # sdxl diversified
 ./gdrive files download 1GcVfh1r0WVkXZHtcGcULIzw7sll7YOnt # equalweight
+./gdrive files download 1dmWsy_9vMdJtBu8Kh9pCTeXQTNu-xGtt
 tar -xf cifar10_static_cot_50_sdxl.tar
 tar -xf cifar10_generated_equalweight.tar
+tar -xf CIFAR10_glide.tar
 mv cifar10_static_cot_50_sdxl cifar10/
 mv cifar10_generated_equalweight cifar10/
+mv CIFAR10_glide cifar10/cifar10_glide
 rm cifar10_static_cot_50_sdxl.tar
 rm cifar10_generated_equalweight.tar
+rm CIFAR10_glide.tar
