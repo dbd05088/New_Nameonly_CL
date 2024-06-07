@@ -3,7 +3,7 @@
 ./gdrive account switch dbd05088@naver.com
 
 # # Required
-# mkdir -p PACS_final
+mkdir -p PACS_final
 # ./gdrive files download 1Q-leEeSjgWZNQUbapU1GmHKFr947_-K- # test_ma
 # ./gdrive files download 1LfcRv1xFlLbT9Etx71JbpWzKSQiouxjO # PACS MA
 # ./gdrive files download 11zV8OnLYqQ9JQZVkxv_1OTWdtbscBsUn # final train ma
@@ -493,3 +493,8 @@
 # ./gdrive files download 1RvMTXuMvXyWqTyOHVAY4RTI2d4bjr8kO
 # tar -xf PACS_final_sdbp.tar -C PACS_final
 # rm PACS_final_sdbp.tar
+
+./gdrive files download 14fCp3EQ5VUR6USzVaeSazML2QMsxhtkX
+tar -xf PACS_final_glide_diversified.tar
+mv PACS_final_glide_diversified PACS_final
+rm PACS_final_glide_diversified.tar
