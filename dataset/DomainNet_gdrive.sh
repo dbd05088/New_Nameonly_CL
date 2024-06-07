@@ -8,6 +8,7 @@
 # ./gdrive files download 1I5W7bL46cduMMrNq4gH5KsUOonLejMuZ # DomainNet_MA
 # ./gdrive files download 1G_aILsxwKAhfFPwSuc2ecnuhE9JH1RH- # DomainNet_generated
 # ./gdrive files download 1sZdh04o80X8xKNBSXsnOe1VBlhk1f1Oy # DomainNet_web2
+./gdrive files download 1KSXL7_0Nf53EvmsfV-NrD7e_c7wUPHZn # DomainNet_glide
 
 # tar -xvf DomainNet_train_ma.tar
 # tar -xvf DomainNet_test_ma.tar
@@ -15,14 +16,16 @@
 # tar -xvf DomainNet_web2.tar
 # tar -xvf DomainNet_MA.tar
 # tar -xvf DomainNet_generated.tar
+tar -xvf DomainNet_glide.tar
 
-# mkdir -p DomainNet
+mkdir -p DomainNet
 # mv DomainNet_MA DomainNet
 # mv DomainNet_train_ma DomainNet
 # mv DomainNet_test_ma DomainNet
 # mv DomainNet_web2 DomainNet
 # mv DomainNet_sdxl_diversified DomainNet
 # mv DomainNet_generated DomainNet
+mv DomainNet_glide DomainNet
 
 # rm DomainNet_MA.tar
 # rm DomainNet_sdxl_diversified.tar
@@ -30,6 +33,7 @@
 # rm DomainNet_test_ma.tar
 # rm DomainNet_web2.tar
 # rm DomainNet_generated.tar
+rm DomainNet_glide.tar
 
 # ./gdrive files download 1xVSq77maFcHh089ina-gGMuu80yGP8CL
 # ./gdrive files download 16kV6FtqtHGyr12iUgfuhYndMw-IrLXl2
