@@ -13,12 +13,12 @@
 # NOTE="imagenet_sdp_sigma0_mem_10000_iter_0.125"
 
 # --------------------------IMPORTANT-------------------------- #
-MODE="xder"
+MODE="er"
 MODEL_NAME="resnet18"
-DATASET="cifar10" # cifar10, cifar100, tinyimagenet, imagenet
-TYPES=("generated_equalweight") #  "static_cot_50_sdxl", "generated_equalweight")
+DATASET="DomainNet" # cifar10, cifar100, tinyimagenet, imagenet
+TYPES=("glide") #  "static_cot_50_sdxl", "generated_equalweight")
 SEEDS="5"
-GPUS=("7" "1" "2" "3" "4")
+GPUS=("4" "1" "2" "3" "4")
 NOTE="iclr_${MODEL_NAME}_${DATASET}_${MODE}"
 # --------------------------IMPORTANT-------------------------- #
 echo "MODE: $MODE"
@@ -121,7 +121,7 @@ elif [ "$DATASET" == "NICO" ]; then
     BASEINIT_SAMPLES=30523 FEAT_DIM=14 FEAT_MEM_SIZE=168000
     SAMPLES_PER_TASK=960
     ONLINE_ITER=2
-    EVAL_POINT="960 1920 2880 3840 4800"
+    EVAL_POINT="6480 12960 19440 25920 32400"
 
 else
     echo "Undefined setting"
