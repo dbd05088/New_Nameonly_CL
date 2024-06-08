@@ -17,7 +17,7 @@ from methods.cl_manager import CLManagerBase, MemoryBase
 from utils.data_loader import MultiProcessLoader, cutmix_data, get_statistics, DistillationMemory
 
 logger = logging.getLogger()
-writer = SummaryWriter("tensorboard")
+# writer = SummaryWriter("tensorboard")
 
 class DER_LiDER(DER):
     def __init__(self, train_datalist, test_datalist, device, **kwargs):

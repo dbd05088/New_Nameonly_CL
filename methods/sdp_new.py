@@ -15,7 +15,7 @@ from utils.data_loader import ImageDataset, cutmix_data
 from utils.data_worker import load_data
 
 logger = logging.getLogger()
-writer = SummaryWriter("tensorboard")
+# writer = SummaryWriter("tensorboard")
 
 
 class SDP(CLManagerBase):

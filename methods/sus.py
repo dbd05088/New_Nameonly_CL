@@ -10,7 +10,7 @@ from torch.utils.tensorboard import SummaryWriter
 from methods.zero_shot_clip import ZeroShotClip
 import torch.nn.functional as F
 logger = logging.getLogger()
-writer = SummaryWriter("tensorboard")
+# writer = SummaryWriter("tensorboard")
 from torchvision import datasets
 from utils.data_loader import ImageTextDataset
 import os

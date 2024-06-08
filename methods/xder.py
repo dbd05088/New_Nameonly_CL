@@ -23,7 +23,7 @@ from methods.der_new import DER, DERMemory
 from utils.data_loader import ImageDataset, XDERLoader, cutmix_data, get_statistics, MemoryDataset
 
 logger = logging.getLogger()
-writer = SummaryWriter("tensorboard")
+# writer = SummaryWriter("tensorboard")
 
 
 class XDER(DER):

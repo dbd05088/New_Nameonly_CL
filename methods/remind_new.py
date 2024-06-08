@@ -20,7 +20,7 @@ from methods.er_new import ER
 # from models.cifar import ResNet_G, ResNet_F
 
 logger = logging.getLogger()
-writer = SummaryWriter("tensorboard")
+# writer = SummaryWriter("tensorboard")
 
 class REMIND(ER):
     def __init__(self,  train_datalist, test_datalist, device, **kwargs):

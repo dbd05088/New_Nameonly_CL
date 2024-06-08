@@ -20,7 +20,7 @@ from utils.data_loader import cutmix_data, get_statistics
 from utils.data_loader import MultiProcessLoader, XDERLoader
 
 logger = logging.getLogger()
-writer = SummaryWriter("tensorboard")
+# writer = SummaryWriter("tensorboard")
 
 
 class CO2L(CLManagerBase):

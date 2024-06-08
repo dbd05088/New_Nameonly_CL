@@ -11,7 +11,7 @@ from methods.cl_manager import CLManagerBase, MemoryBase
 from utils.data_loader import ImageDataset, StreamDataset, MemoryDataset, cutmix_data, MultiProcessLoader
 
 logger = logging.getLogger()
-writer = SummaryWriter("tensorboard")
+# writer = SummaryWriter("tensorboard")
 
 class ASER(CLManagerBase):
     

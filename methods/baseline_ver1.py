@@ -19,7 +19,7 @@ from utils.data_loader import ImageDataset, StreamDataset, MemoryDataset, cutmix
 from utils.train_utils import select_model, select_optimizer, select_scheduler
 from utils.focal_loss import FocalLoss
 logger = logging.getLogger()
-writer = SummaryWriter("tensorboard")
+# writer = SummaryWriter("tensorboard")
 
 
 def cycle(iterable):

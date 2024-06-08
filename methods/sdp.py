@@ -20,7 +20,7 @@ from utils.data_loader import ImageDataset, StreamDataset, MemoryDataset, cutmix
 from utils.train_utils import select_optimizer
 
 logger = logging.getLogger()
-writer = SummaryWriter("tensorboard")
+# writer = SummaryWriter("tensorboard")
 
 
 class SDP(ER):
@@ -271,9 +271,9 @@ class SDP_v2(SDP):
         return ret
 
     def report_test(self, sample_num, avg_loss, avg_acc, online_acc, message='Base'):
-        writer.add_scalar(f"test/loss", avg_loss, sample_num)
-        writer.add_scalar(f"test/acc", avg_acc, sample_num)
-        writer.add_scalar(f"test/online_acc", online_acc, sample_num)
+        # writer.add_scalar(f"test/loss", avg_loss, sample_num)
+        # writer.add_scalar(f"test/acc", avg_acc, sample_num)
+        # writer.add_scalar(f"test/online_acc", online_acc, sample_num)
         logger.info(
             f"Test | Sample # {sample_num} | {message} | test_loss {avg_loss:.4f} | test_acc {avg_acc:.4f} | online_acc {online_acc:.4f} "
         )

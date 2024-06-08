@@ -21,7 +21,7 @@ from utils.train_utils import select_model, select_optimizer, select_scheduler
 from utils.block_utils import MODEL_BLOCK_DICT, get_blockwise_flops
 
 logger = logging.getLogger()
-writer = SummaryWriter("tensorboard")
+# writer = SummaryWriter("tensorboard")
 
 class CLManagerBase:
     def __init__(self, train_datalist, test_datalist, device, **kwargs):
@@ -128,7 +128,7 @@ class CLManagerBase:
         # self.get_flops_parameter()
         self.initialize_future()
         self.total_flops = 0.0
-        self.writer = SummaryWriter(f'tensorboard/{self.dataset}/{self.note}/seed_{self.rnd_seed}')
+        # self.writer = SummaryWriter(f'tensorboard/{self.dataset}/{self.note}/seed_{self.rnd_seed}')
         
         eval_point = kwargs['eval_point']
         if 'clear' in self.dataset:
@@ -380,8 +380,8 @@ class CLManagerBase:
         return logit, loss
 
     def report_training(self, sample_num, train_loss, train_acc):
-        writer.add_scalar(f"train/loss", train_loss, sample_num)
-        writer.add_scalar(f"train/acc", train_acc, sample_num)
+        # writer.add_scalar(f"train/loss", train_loss, sample_num)
+        # writer.add_scalar(f"train/acc", train_acc, sample_num)
         logger.info(
             f"Train | Sample # {sample_num} | train_loss {train_loss:.4f} | train_acc {train_acc:.4f} | TFLOPs {self.total_flops/1000:.2f} | "
             f"running_time {datetime.timedelta(seconds=int(time.time() - self.start_time))} | "
@@ -389,8 +389,8 @@ class CLManagerBase:
         )
 
     def report_test(self, domain_name, sample_num, avg_loss, avg_acc):
-        writer.add_scalar(f"test/loss", avg_loss, sample_num)
-        writer.add_scalar(f"test/acc", avg_acc, sample_num)
+        # writer.add_scalar(f"test/loss", avg_loss, sample_num)
+        # writer.add_scalar(f"test/acc", avg_acc, sample_num)
         logger.info(
             f"{domain_name} Test | Sample # {sample_num} | test_loss {avg_loss:.4f} | test_acc {avg_acc:.4f} | TFLOPs {self.total_flops/1000:.2f}"
         )
