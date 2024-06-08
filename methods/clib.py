@@ -15,7 +15,7 @@ from methods.er_baseline import ER
 from utils.data_loader import cutmix_data, ImageDataset, StreamDataset, MemoryDataset
 
 logger = logging.getLogger()
-writer = SummaryWriter("tensorboard")
+# writer = SummaryWriter("tensorboard")
 
 class CLIB(ER):
     def __init__(self, criterion, device, train_transform, test_transform, n_classes, **kwargs):

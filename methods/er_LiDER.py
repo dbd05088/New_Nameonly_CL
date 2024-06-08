@@ -14,7 +14,7 @@ from methods.cl_manager import CLManagerBase
 from methods.er_new import ER
 
 logger = logging.getLogger()
-writer = SummaryWriter("tensorboard")
+# writer = SummaryWriter("tensorboard")
 
 
 class ER_LiDER(ER):

@@ -13,7 +13,7 @@ from utils.data_loader import cutmix_data, ImageDataset, StreamDataset
 from utils.train_utils import cycle
 
 logger = logging.getLogger()
-writer = SummaryWriter("tensorboard")
+# writer = SummaryWriter("tensorboard")
 
 import copy
 from utils.train_utils import select_optimizer, select_scheduler

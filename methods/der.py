@@ -15,7 +15,7 @@ from methods.er_baseline import ER
 from utils.data_loader import ImageDataset, StreamDataset, MemoryDataset, cutmix_data, get_statistics, DistillationMemory
 
 logger = logging.getLogger()
-writer = SummaryWriter("tensorboard")
+# writer = SummaryWriter("tensorboard")
 
 class DER(ER):
     def __init__(self, criterion, device, train_transform, test_transform, n_classes, **kwargs):

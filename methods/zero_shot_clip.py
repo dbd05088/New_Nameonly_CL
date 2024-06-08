@@ -21,7 +21,7 @@ from utils.train_utils import select_model, select_optimizer, select_scheduler
 from utils.block_utils import MODEL_BLOCK_DICT, get_blockwise_flops
 
 logger = logging.getLogger()
-writer = SummaryWriter("tensorboard")
+# writer = SummaryWriter("tensorboard")
 
 class ZeroShotClip:
     def __init__(self, train_datalist, test_datalist, device, **kwargs):
@@ -128,7 +128,7 @@ class ZeroShotClip:
         self.exposed_domains = []
         self.waiting_batch = []
         self.total_flops = 0.0
-        self.writer = SummaryWriter(f'tensorboard/{self.dataset}/{self.note}/seed_{self.rnd_seed}')
+        # self.writer = SummaryWriter(f'tensorboard/{self.dataset}/{self.note}/seed_{self.rnd_seed}')
         
         eval_point = kwargs['eval_point']
         if 'clear' in self.dataset:

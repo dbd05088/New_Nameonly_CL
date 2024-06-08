@@ -10,10 +10,7 @@ from torch.utils.tensorboard import SummaryWriter
 from methods.cl_manager import CLManagerBase
 
 logger = logging.getLogger()
-writer = SummaryWriter("tensorboard")
-
-
-
+# writer = SummaryWriter("tensorboard")
 
 class ER(CLManagerBase):
     def __init__(self,  train_datalist, test_datalist, device, **kwargs):

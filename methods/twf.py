@@ -19,7 +19,7 @@ from utils.train_utils import select_model, select_optimizer, select_scheduler, 
 from utils.afd import MultiTaskAFDAlternative
 from utils.data_loader import partial_distill_loss
 logger = logging.getLogger()
-writer = SummaryWriter("tensorboard")
+# writer = SummaryWriter("tensorboard")
 
 
 def cycle(iterable):
@@ -325,8 +325,8 @@ class TWF(ER):
             return logit, loss
 
     def report_training(self, sample_num, train_loss, train_acc):
-        writer.add_scalar(f"train/loss", train_loss, sample_num)
-        writer.add_scalar(f"train/acc", train_acc, sample_num)
+        # writer.add_scalar(f"train/loss", train_loss, sample_num)
+        # writer.add_scalar(f"train/acc", train_acc, sample_num)
         logger.info(
             f"Train | Sample # {sample_num} | train_loss {train_loss:.4f} | train_acc {train_acc:.4f} | "
             f"lr {self.optimizer.param_groups[0]['lr']:.6f} | "
@@ -335,9 +335,9 @@ class TWF(ER):
         )
 
     def report_test(self, sample_num, avg_loss, avg_acc, online_acc):
-        writer.add_scalar(f"test/loss", avg_loss, sample_num)
-        writer.add_scalar(f"test/acc", avg_acc, sample_num)
-        writer.add_scalar(f"test/online_acc", online_acc, sample_num)
+        # writer.add_scalar(f"test/loss", avg_loss, sample_num)
+        # writer.add_scalar(f"test/acc", avg_acc, sample_num)
+        # writer.add_scalar(f"test/online_acc", online_acc, sample_num)
         logger.info(
             f"Test | Sample # {sample_num} | test_loss {avg_loss:.4f} | test_acc {avg_acc:.4f} | online_acc {online_acc:.4f} "
         )

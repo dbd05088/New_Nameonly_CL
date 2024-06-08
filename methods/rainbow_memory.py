@@ -17,7 +17,7 @@ from utils.data_loader import cutmix_data, ImageDataset
 from utils.augment import Cutout, Invert, Solarize, select_autoaugment
 
 logger = logging.getLogger()
-writer = SummaryWriter("tensorboard")
+# writer = SummaryWriter("tensorboard")
 
 
 def cycle(iterable):

@@ -21,7 +21,7 @@ from utils.data_loader import XDERLoader, cutmix_data, get_statistics, MemoryDat
 from methods.xder import XDER
 
 logger = logging.getLogger()
-writer = SummaryWriter("tensorboard")
+# writer = SummaryWriter("tensorboard")
 
 
 class XDER_LiDER(XDER):
