@@ -1,1 +1,264 @@
-{"metaprompts": [{"index": 0, "metaprompt": "A photo of a [concept].", "prompts": [{"index": 0, "content": "An image illustrating [concept] with a vibrant, high-contrast color palette."}, {"index": 1, "content": "Capture an image of [concept] using a vintage filter."}, {"index": 2, "content": "Capture a realistic scene featuring [concept] under soft, pastel-colored lighting."}, {"index": 3, "content": "Capture an image of [concept] under a vibrant sunset palette."}, {"index": 4, "content": "Capture a realistic image of [concept] illuminated by sunset colors."}]}, {"index": 1, "metaprompt": "[concept] at sunset, vibrant orange and purple palette.", "prompts": [{"index": 0, "content": "[concept] at dawn, soft pastel blue and pink hues."}, {"index": 1, "content": "[concept] under moonlight, with a cool blue and silver color palette."}, {"index": 2, "content": "[concept] during sunrise, soft pink and blue hues, reflective water surface."}, {"index": 3, "content": "[concept] at dawn, soft blue and gentle pink palette."}, {"index": 4, "content": "[concept] during a misty dawn, using a soft blue and gray color palette."}]}, {"index": 2, "metaprompt": "[concept] depicted in a vibrant, surreal color palette.", "prompts": [{"index": 0, "content": "[concept] illustrated with a soft pastel color palette in a photorealistic style."}, {"index": 1, "content": "[concept] illustrated with a monochrome palette and hyper-realistic details."}, {"index": 2, "content": "[concept] illustrated with a moody, monochrome palette in a cinematic style."}, {"index": 3, "content": "[concept] portrayed in a dreamlike, pastel color scheme."}, {"index": 4, "content": "[concept] rendered with a soft, pastel color palette in a realistic setting."}]}, {"index": 3, "metaprompt": "Sunrise over [concept] in vivid watercolor tones.", "prompts": [{"index": 0, "content": "Sunset behind [concept] rendered in pastel oil paint hues."}, {"index": 1, "content": "Sunset behind [concept] captured in soft pastel hues."}, {"index": 2, "content": "Sunset behind [concept] in soft pastel hues."}, {"index": 3, "content": "Moonlit [concept] in pastel oil paint hues."}, {"index": 4, "content": "Sunset behind [concept] rendered in soft pastel hues."}]}, {"index": 4, "metaprompt": "Sunset over [concept] in vibrant watercolor hues.", "prompts": [{"index": 0, "content": "Dawn breaking over [concept] in soft pastel oil paints."}, {"index": 1, "content": "Dawn breaking over [concept] in soft pastel oil paint strokes."}, {"index": 2, "content": "Dawn breaking over [concept] in pastel oil paint strokes."}, {"index": 3, "content": "Dawn breaking over [concept] in soft pastel shades."}, {"index": 4, "content": "Dawn breaking over [concept] in soft pastel oil paint textures."}]}, {"index": 5, "metaprompt": "Sunrise over [concept] in pastel colors.", "prompts": [{"index": 0, "content": "Sunset behind [concept] depicted in vibrant, impressionistic colors."}, {"index": 1, "content": "Sunset behind [concept] rendered in vivid watercolor shades."}, {"index": 2, "content": "Sunset behind [concept] in vibrant watercolor shades."}, {"index": 3, "content": "Sunset behind [concept] depicted in vibrant, surreal colors."}, {"index": 4, "content": "Sunset behind [concept] in vivid watercolor shades."}]}, {"index": 6, "metaprompt": "Sunset over [concept] in pastel colors.", "prompts": [{"index": 0, "content": "Dawn breaking over [concept] in vibrant watercolor hues."}, {"index": 1, "content": "Dawn breaking over [concept] in vibrant watercolor hues."}, {"index": 2, "content": "Misty dawn at [concept] in vibrant watercolor shades."}, {"index": 3, "content": "Dawn breaking over [concept] in vibrant watercolor hues."}, {"index": 4, "content": "Dawn breaking over [concept] in muted watercolor hues."}]}, {"index": 7, "metaprompt": "Sunrise over [concept] in vibrant watercolor hues.", "prompts": [{"index": 0, "content": "Sunset behind [concept] in pastel oil paint textures."}, {"index": 1, "content": "Sunset behind [concept] in soft pastel oil paint strokes."}, {"index": 2, "content": "Sunset behind [concept] in soft pastel oil paint textures."}, {"index": 3, "content": "Sunset behind [concept] in soft pastel shades."}, {"index": 4, "content": "Sunset behind [concept] portrayed in soft pastel shades."}]}, {"index": 8, "metaprompt": "Misty sunrise over [concept], vibrant autumn colors.", "prompts": [{"index": 0, "content": "Foggy morning at [concept], with soft pastel hues and serene atmosphere."}, {"index": 1, "content": "Serene sunset behind [concept], with soft pastel hues."}, {"index": 2, "content": "Serene sunset at [concept], with soft pastel hues."}, {"index": 3, "content": "Serene sunset beside [concept], reflecting soft pastel hues."}, {"index": 4, "content": "Serene sunset behind [concept], bathed in soft pastel hues."}]}, {"index": 9, "metaprompt": "Serene [concept] landscape at sunset, vibrant color palette.", "prompts": [{"index": 0, "content": "Majestic [concept] mountains at dawn, soft pastel color palette."}, {"index": 1, "content": "Tranquil [concept] forest at dawn, soft pastel color palette."}, {"index": 2, "content": "Tranquil [concept] seascape at dawn, soft pastel color palette."}, {"index": 3, "content": "Misty [concept] mountains at dawn, soft pastel color palette."}, {"index": 4, "content": "Majestic [concept] cityscape at dawn, soft pastel color palette."}]}]}
+{
+    "metaprompts": [
+        {
+            "index": 0,
+            "metaprompt": "A photo of a [concept].",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "An image illustrating [concept] with a vibrant, high-contrast color palette."
+                },
+                {
+                    "index": 1,
+                    "content": "Capture an image of [concept] using a vintage filter."
+                },
+                {
+                    "index": 2,
+                    "content": "Capture a realistic scene featuring [concept] under soft, pastel-colored lighting."
+                },
+                {
+                    "index": 3,
+                    "content": "Capture an image of [concept] under a vibrant sunset palette."
+                },
+                {
+                    "index": 4,
+                    "content": "Capture a realistic image of [concept] illuminated by sunset colors."
+                }
+            ]
+        },
+        {
+            "index": 1,
+            "metaprompt": "[concept] at sunset, vibrant orange and purple palette.",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "[concept] at dawn, soft pastel blue and pink hues."
+                },
+                {
+                    "index": 1,
+                    "content": "[concept] under moonlight, with a cool blue and silver color palette."
+                },
+                {
+                    "index": 2,
+                    "content": "[concept] during sunrise, soft pink and blue hues, reflective water surface."
+                },
+                {
+                    "index": 3,
+                    "content": "[concept] at dawn, soft blue and gentle pink palette."
+                },
+                {
+                    "index": 4,
+                    "content": "[concept] during a misty dawn, using a soft blue and gray color palette."
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "metaprompt": "[concept] depicted in a vibrant, surreal color palette.",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "[concept] illustrated with a soft pastel color palette in a photorealistic style."
+                },
+                {
+                    "index": 1,
+                    "content": "[concept] illustrated with a monochrome palette and hyper-realistic details."
+                },
+                {
+                    "index": 2,
+                    "content": "[concept] illustrated with a moody, monochrome palette in a cinematic style."
+                },
+                {
+                    "index": 3,
+                    "content": "[concept] portrayed in a dreamlike, pastel color scheme."
+                },
+                {
+                    "index": 4,
+                    "content": "[concept] rendered with a soft, pastel color palette in a realistic setting."
+                }
+            ]
+        },
+        {
+            "index": 3,
+            "metaprompt": "Sunrise over [concept] in vivid watercolor tones.",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "Sunset behind [concept] rendered in pastel oil paint hues."
+                },
+                {
+                    "index": 1,
+                    "content": "Sunset behind [concept] captured in soft pastel hues."
+                },
+                {
+                    "index": 2,
+                    "content": "Sunset behind [concept] in soft pastel hues."
+                },
+                {
+                    "index": 3,
+                    "content": "Moonlit [concept] in pastel oil paint hues."
+                },
+                {
+                    "index": 4,
+                    "content": "Sunset behind [concept] rendered in soft pastel hues."
+                }
+            ]
+        },
+        {
+            "index": 4,
+            "metaprompt": "Sunset over [concept] in vibrant watercolor hues.",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "Dawn breaking over [concept] in soft pastel oil paints."
+                },
+                {
+                    "index": 1,
+                    "content": "Dawn breaking over [concept] in soft pastel oil paint strokes."
+                },
+                {
+                    "index": 2,
+                    "content": "Dawn breaking over [concept] in pastel oil paint strokes."
+                },
+                {
+                    "index": 3,
+                    "content": "Dawn breaking over [concept] in soft pastel shades."
+                },
+                {
+                    "index": 4,
+                    "content": "Dawn breaking over [concept] in soft pastel oil paint textures."
+                }
+            ]
+        },
+        {
+            "index": 5,
+            "metaprompt": "Sunrise over [concept] in pastel colors.",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "Sunset behind [concept] depicted in vibrant, impressionistic colors."
+                },
+                {
+                    "index": 1,
+                    "content": "Sunset behind [concept] rendered in vivid watercolor shades."
+                },
+                {
+                    "index": 2,
+                    "content": "Sunset behind [concept] in vibrant watercolor shades."
+                },
+                {
+                    "index": 3,
+                    "content": "Sunset behind [concept] depicted in vibrant, surreal colors."
+                },
+                {
+                    "index": 4,
+                    "content": "Sunset behind [concept] in vivid watercolor shades."
+                }
+            ]
+        },
+        {
+            "index": 6,
+            "metaprompt": "Sunset over [concept] in pastel colors.",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "Dawn breaking over [concept] in vibrant watercolor hues."
+                },
+                {
+                    "index": 1,
+                    "content": "Dawn breaking over [concept] in vibrant watercolor hues."
+                },
+                {
+                    "index": 2,
+                    "content": "Misty dawn at [concept] in vibrant watercolor shades."
+                },
+                {
+                    "index": 3,
+                    "content": "Dawn breaking over [concept] in vibrant watercolor hues."
+                },
+                {
+                    "index": 4,
+                    "content": "Dawn breaking over [concept] in muted watercolor hues."
+                }
+            ]
+        },
+        {
+            "index": 7,
+            "metaprompt": "Sunrise over [concept] in vibrant watercolor hues.",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "Sunset behind [concept] in pastel oil paint textures."
+                },
+                {
+                    "index": 1,
+                    "content": "Sunset behind [concept] in soft pastel oil paint strokes."
+                },
+                {
+                    "index": 2,
+                    "content": "Sunset behind [concept] in soft pastel oil paint textures."
+                },
+                {
+                    "index": 3,
+                    "content": "Sunset behind [concept] in soft pastel shades."
+                },
+                {
+                    "index": 4,
+                    "content": "Sunset behind [concept] portrayed in soft pastel shades."
+                }
+            ]
+        },
+        {
+            "index": 8,
+            "metaprompt": "Misty sunrise over [concept], vibrant autumn colors.",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "Foggy morning at [concept], with soft pastel hues and serene atmosphere."
+                },
+                {
+                    "index": 1,
+                    "content": "Serene sunset behind [concept], with soft pastel hues."
+                },
+                {
+                    "index": 2,
+                    "content": "Serene sunset at [concept], with soft pastel hues."
+                },
+                {
+                    "index": 3,
+                    "content": "Serene sunset beside [concept], reflecting soft pastel hues."
+                },
+                {
+                    "index": 4,
+                    "content": "Serene sunset behind [concept], bathed in soft pastel hues."
+                }
+            ]
+        },
+        {
+            "index": 9,
+            "metaprompt": "Serene [concept] landscape at sunset, vibrant color palette.",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "Majestic [concept] mountains at dawn, soft pastel color palette."
+                },
+                {
+                    "index": 1,
+                    "content": "Tranquil [concept] forest at dawn, soft pastel color palette."
+                },
+                {
+                    "index": 2,
+                    "content": "Tranquil [concept] seascape at dawn, soft pastel color palette."
+                },
+                {
+                    "index": 3,
+                    "content": "Misty [concept] mountains at dawn, soft pastel color palette."
+                },
+                {
+                    "index": 4,
+                    "content": "Majestic [concept] cityscape at dawn, soft pastel color palette."
+                }
+            ]
+        }
+    ]
+}
