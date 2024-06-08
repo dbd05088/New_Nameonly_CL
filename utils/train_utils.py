@@ -9,6 +9,7 @@ from onedrivedownloader import download as dn
 from torch.optim import SGD
 import timm
 import copy
+import requests
 
 from utils.data_loader import get_train_datalist, ImageDataset, StreamDataset, MemoryDataset, cutmix_data, get_statistics, get_test_datalist
 import torch.nn.functional as F
@@ -29,6 +30,19 @@ def cycle(iterable):
     while True:
         for i in iterable:
             yield i
+
+def send_message(url, message):
+    payload = {
+        'text': message
+    }
+    try:
+        response = requests.post(url, json=payload)
+        if response.status_code == 200:
+            print("Message post success")
+        else:
+            print("Fail to send message:", response.status_code)
+    except Exception as e:
+        print(e)
 
 class DataAugmentation(nn.Module):
 

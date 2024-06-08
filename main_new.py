@@ -10,8 +10,8 @@ from torch.utils.tensorboard import SummaryWriter
 from configuration import config
 from utils.data_loader import get_test_datalist
 from utils.data_loader import get_train_datalist
-
 from utils.method_manager_new import select_method
+from utils.train_utils import send_message
 
 
 def main():
@@ -146,8 +146,8 @@ def main():
 
     logger.info(f"======== Summary =======")
     logger.info(f"A_auc {A_auc:6f} | A_last {A_last:6f} | A_avg {A_avg:6f} | KLR_avg {KLR_avg:6f} | KGR_avg {KGR_avg:6f} | Total FLOPs {method.total_flops:4f}")
-
     eval_root = f"results/{args.dataset}/{args.note}/{args.type_name}"
+    send_message("https://hooks.slack.com/services/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", f"{eval_root}_seed_{args.rnd_seed} complete!")
     eval_log_list = os.listdir(eval_root)
     seeds = (1, 2, 3, 4, 5)
     seed_results = [f"seed_{seed}.log" in eval_log_list for seed in seeds] # [T, T, T, T, T]
@@ -165,6 +165,7 @@ def main():
 
         if summary_present_in_all:
             print("All seed evaluations are complete and successful.")
+            send_message("https://hooks.slack.com/services/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", f"{eval_root}_seed_{args.rnd_seed} - All seed evaluations are complete and successful.")
             new_folder_name = f"complete_{os.path.basename(eval_root)}"
             new_path = os.path.join(os.path.dirname(eval_root), new_folder_name)
             os.rename(eval_root, new_path)
