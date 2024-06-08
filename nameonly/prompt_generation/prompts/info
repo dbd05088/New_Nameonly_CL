@@ -25,3 +25,10 @@ gpt_static_totalprompts_no_cot.json: static에서 CoT 안하고 그냥 50개 생
 # 이제는 static prompt 50개에서 GPT-4, Geminai, Llama3를 비교해야 함.
 
 # 0516 CaFo인가 거기에서 3개의 prompt를 주고, 그걸 바탕으로 diversify하는 method가 있음. 그거 구현해야 함.
+
+# 0608
+NeurIPS 마지막 날에 급하게 ablation (w/o cot 등) 준비했는데 몇 개가 없어져서 다시 만듦. (DomainNet용)
+
+static_totalprompts_with_cot_50_wo_hierarchical_DomainNet - wo hierarchy
+static_totalprompts_with_cot_50_wo_cot_DomainNet - wo cot
+static_totalprompts_wo_cot_wo_hierarchy_DomainNet - wo cot, wo hierarchy

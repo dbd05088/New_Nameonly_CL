@@ -1,15 +1,15 @@
 dataset: DomainNet
-image_dir: ./generated_datasets/DomainNet_static_cot_50_sdxl
+image_dir: ./generated_datasets/DomainNet_wo_hierarchy
 generative_model: SDXL
 
-start_class: 342
-end_class: 344
-debug: False
+start_class: 0
+end_class: 1
+debug: True
 
 api_key: none # For Dalle2
 
 # prompt_dir: './prompts/clip_filtered_prompts.json'
-prompt_dir: '../prompt_generation/prompts/gpt_static_totalprompts_with_cot_50_with_cls_DomainNet.json'
+prompt_dir: '../prompt_generation/prompts/static_totalprompts_with_cot_50_wo_hierarchical_DomainNet.json'
 num_samples_path: none # txt file to run conveniently
 
 
