@@ -170,7 +170,13 @@
 # mv cct_web_RMD_w_normalize_clip_90_temp_0_5 cct/
 # rm cct_web_RMD_w_normalize_clip_90_temp_0_5.tar
 
-gdrive files download 1fBq9k7LQgxlsBHA74KyXHj4ngDg3kRhF
-tar -xf cct_sdbp.tar
-mv cct_sdbp cct/
-rm cct_sdbp.tar
+# gdrive files download 1fBq9k7LQgxlsBHA74KyXHj4ngDg3kRhF
+# tar -xf cct_sdbp.tar
+# mv cct_sdbp cct/
+# rm cct_sdbp.tar
+
+gdrive files download 1idAX3pKt82CrjtrEvAAjBIIK9fGiHx-v
+tar -xf cct_glide_diversified.tar
+mv cct_glide_diversified cct
+rm cct_glide_diversified.tar
+
