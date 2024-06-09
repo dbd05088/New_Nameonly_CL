@@ -14,7 +14,10 @@
 # rm DomainNet_train_ma.tar
 # rm DomainNet_test_ma.tar
 
-
+# # Generated
+# ./gdrive files download 1G_aILsxwKAhfFPwSuc2ecnuhE9JH1RH- # DomainNet_generated
+# tar -xf DomainNet_generated.tar -C DomainNet
+# rm DomainNet_generated.tar
 
 # # Temperature experiments
 # ./gdrive files download 1xVSq77maFcHh089ina-gGMuu80yGP8CL
