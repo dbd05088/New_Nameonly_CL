@@ -13,4 +13,6 @@ pip install ftfy
 pip install regex
 pip install transformers
 
-apt install libgl1-mesa-glx
+apt update
+apt install -y libgl1-mesa-glx
+apt install -y libglib2.0-0
