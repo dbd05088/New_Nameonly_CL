@@ -5,7 +5,7 @@ from scipy.stats import sem
 from collections import defaultdict
 
 warnings.filterwarnings(action='ignore')
-dir = 'cifar10'
+dir = 'DomainNet'
 
 if 'PACS' in dir:
     in_dis = ['final_test_ma']
@@ -40,7 +40,7 @@ exp_type_list = []
 exp_list = sorted([dir + '/' + exp for exp in os.listdir(dir)])
 for exp in exp_list:
     for exp_type in os.listdir(exp):
-        if os.path.isdir(os.path.join(exp, exp_type)) and "rebuttal" in os.path.join(exp, exp_type):
+        if os.path.isdir(os.path.join(exp, exp_type)) and "iclr" in os.path.join(exp, exp_type):
             exp_type_list.append(os.path.join(exp, exp_type))
 
 
@@ -83,7 +83,7 @@ def print_from_log(exp_name, in_dis, ood_dis, seeds=(1,2,3,4,5)):
                 dom =  line.split("|")[0].split(" ")[-3]
                 if cur_task+1 == n_tasks:
                     for n_t in range(n_tasks-1):
-                        backward_transfer[dom].append(float(acc_per_task[n_t].split(": ")[1])*cul_cls_per_task[cur_task]/cls_per_task[cur_task] - domain_task_accs[dom][n_t])
+                        backward_transfer[dom].append(float(acc_per_task[n_t].split(": ")[1])*cul_cls_per_task[n_t]/cls_per_task[n_t] - domain_task_accs[dom][n_t])
                 else:
                     domain_task_accs[dom].append(float(acc_per_task[cur_task].split(": ")[1])*cul_cls_per_task[cur_task]/cls_per_task[cur_task])
             elif 'AOA' in line:
