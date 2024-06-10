@@ -89,6 +89,14 @@
 
 
 # DomainNet glide (0607 - fixed size)
-./gdrive files download 11X-OPxul6dDX5c0qjt_77ScpPCsiTp0o
-tar -xf DomainNet_glide.tar -C DomainNet
-rm DomainNet_glide.tar
+# ./gdrive files download 11X-OPxul6dDX5c0qjt_77ScpPCsiTp0o
+# tar -xf DomainNet_glide.tar -C DomainNet
+# rm DomainNet_glide.tar
+
+
+
+# DomainNet glide diversified
+./gdrive files download 1JDySFohyrSGxmSkvw1W_Ir-_naKncZHK
+tar -xf DomainNet_glide_diversified.tar -C DomainNet
+rm DomainNet_glide_diversified.tar
+
