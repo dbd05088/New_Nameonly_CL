@@ -95,8 +95,18 @@
 
 
 
-# DomainNet glide diversified
-./gdrive files download 1JDySFohyrSGxmSkvw1W_Ir-_naKncZHK
-tar -xf DomainNet_glide_diversified.tar -C DomainNet
-rm DomainNet_glide_diversified.tar
+# # DomainNet glide diversified
+# ./gdrive files download 1JDySFohyrSGxmSkvw1W_Ir-_naKncZHK
+# tar -xf DomainNet_glide_diversified.tar -C DomainNet
+# rm DomainNet_glide_diversified.tar
 
+
+# DomainNet wo hierarchy
+./gdrive files download 1vRA8ysQhk9shBtEfOtXNk0V-K2Ckt3yQ
+tar -xf DomainNet_wo_hierarchy.tar -C DomainNet
+rm DomainNet_wo_hierarchy.tar
+
+# DomainNet wo cot
+./gdrive files download 1xJcgL5-p7CrEo6aeL5DbDkHEOIPPhQmp
+tar -xf DomainNet_wo_cot.tar -C DomainNet
+rm DomainNet_wo_cot.tar
