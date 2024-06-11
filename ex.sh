@@ -1,5 +1,6 @@
 # #!/bin/bash
 # #SBATCH --time=10:00:00
+# #SBATCH -p suma_rtx4090
 # #SBATCH --gres=gpu:1
 # ##SBATCH -c 64
 
@@ -15,10 +16,10 @@
 # --------------------------IMPORTANT-------------------------- #
 MODE="er"
 MODEL_NAME="resnet18"
-DATASET="PACS_final" # cifar10, cifar100, tinyimagenet, imagenet
-TYPES=("wo_cot") #  "static_cot_50_sdxl", "generated_equalweight")
+DATASET="DomainNet" # cifar10, cifar100, tinyimagenet, imagenet
+TYPES=("train_ma") #  "static_cot_50_sdxl", "generated_equalweight")
 SEEDS="1"
-GPUS=("1" "1" "2" "3" "4")
+GPUS=("0" "1" "2" "3" "4")
 NOTE="iclr_${MODEL_NAME}_${DATASET}_${MODE}"
 # --------------------------IMPORTANT-------------------------- #
 echo "MODE: $MODE"
@@ -94,8 +95,13 @@ elif [ "$DATASET" == "DomainNet" ]; then
     # TYPES=("sdbp") # "newsample_equalweight"
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
-    VAL_PERIOD=500 EVAL_PERIOD=4000
+    VAL_PERIOD=500 EVAL_PERIOD=2000
     BATCHSIZE=64; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
+    # Change vit learning rate (0611)
+    if [ "$MODEL_NAME" == "vit" ]; then
+        LR=1e-4
+        echo "Set vit learning rate 1e-4!!!"
+    fi
     BASEINIT_SAMPLES=30523 FEAT_DIM=14 FEAT_MEM_SIZE=168000
     SAMPLES_PER_TASK=2000
     ONLINE_ITER=3
