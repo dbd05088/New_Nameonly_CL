@@ -1,7 +1,7 @@
 import os
 import json
-source_path = '/home/user/seongwon/New_Nameonly_CL/dataset/NICO/NICO_MA/water'
-target_path = '/home/user/seongwon/New_Nameonly_CL/collections/NICO/test/NICO_water_sigma0_init100_seed1.json'
+source_path = '/home/user/seongwon/New_Nameonly_CL/dataset/DomainNet/DomainNet_MA/real'
+target_path = '/home/user/seongwon/New_Nameonly_CL/collections/DomainNet/test/DomainNet_test_ma_sigma0_repeat1_init100_seed1.json'
 
 if not os.path.exists(os.path.dirname(target_path)):
     os.makedirs(os.path.dirname(target_path), exist_ok=True)

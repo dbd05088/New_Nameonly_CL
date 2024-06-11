@@ -9,7 +9,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument('-d', '--dataset', type=str, required=True)
 parser.add_argument('-s', '--source_path', type=str, required=True)
 parser.add_argument('-t', '--target_path', type=str, required=True)
-parser.add_argument('-r', '--subsample_ratio', type=float, required=True)
+parser.add_argument('-r', '--subsample_ratio', type=float)
+parser.add_argument('-n', '--subsample_count', type=int)
 
 args = parser.parse_args()
 
@@ -25,13 +26,14 @@ source_path = args.source_path
 target_path = args.target_path
 count_dict = dataset_mapping[args.dataset]
 subsample_ratio = args.subsample_ratio
-subsample_count = None
+subsample_count = args.subsample_count
 
 classes = count_dict.keys()
 
 for cls in tqdm(classes):
-    subsample_num = int(count_dict[cls] * subsample_ratio)
-    if subsample_count is not None:
+    if subsample_ratio is not None:
+        subsample_num = int(count_dict[cls] * subsample_ratio)
+    elif subsample_count is not None:
         subsample_num = subsample_count
 
     source_class_path = os.path.join(source_path, cls)
