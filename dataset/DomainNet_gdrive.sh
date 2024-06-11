@@ -101,12 +101,17 @@
 # rm DomainNet_glide_diversified.tar
 
 
-# DomainNet wo hierarchy
-./gdrive files download 1vRA8ysQhk9shBtEfOtXNk0V-K2Ckt3yQ
-tar -xf DomainNet_wo_hierarchy.tar -C DomainNet
-rm DomainNet_wo_hierarchy.tar
+# # DomainNet wo hierarchy
+# ./gdrive files download 1vRA8ysQhk9shBtEfOtXNk0V-K2Ckt3yQ
+# tar -xf DomainNet_wo_hierarchy.tar -C DomainNet
+# rm DomainNet_wo_hierarchy.tar
 
-# DomainNet wo cot
-./gdrive files download 1xJcgL5-p7CrEo6aeL5DbDkHEOIPPhQmp
-tar -xf DomainNet_wo_cot.tar -C DomainNet
-rm DomainNet_wo_cot.tar
+# # DomainNet wo cot
+# ./gdrive files download 1xJcgL5-p7CrEo6aeL5DbDkHEOIPPhQmp
+# tar -xf DomainNet_wo_cot.tar -C DomainNet
+# rm DomainNet_wo_cot.tar
+
+# DomainNet wo cot & wo hierarchy
+./gdrive files download 1rzVpd6EMqhh9eA_OLBeWQlHYYu-BSvEu
+tar -xf DomainNet_wo_cot_wo_hierarchy.tar -C DomainNet
+rm DomainNet_wo_cot_wo_hierarchy.tar
