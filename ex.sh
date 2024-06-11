@@ -15,10 +15,10 @@
 # --------------------------IMPORTANT-------------------------- #
 MODE="er"
 MODEL_NAME="resnet18"
-DATASET="DomainNet" # cifar10, cifar100, tinyimagenet, imagenet
-TYPES=("glide") #  "static_cot_50_sdxl", "generated_equalweight")
-SEEDS="5"
-GPUS=("4" "1" "2" "3" "4")
+DATASET="PACS_final" # cifar10, cifar100, tinyimagenet, imagenet
+TYPES=("wo_cot") #  "static_cot_50_sdxl", "generated_equalweight")
+SEEDS="1"
+GPUS=("1" "1" "2" "3" "4")
 NOTE="iclr_${MODEL_NAME}_${DATASET}_${MODE}"
 # --------------------------IMPORTANT-------------------------- #
 echo "MODE: $MODE"
