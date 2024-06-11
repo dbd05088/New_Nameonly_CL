@@ -1,7 +1,9 @@
 import os
 import json
-source_path = '/home/user/seongwon/New_Nameonly_CL/dataset/DomainNet/DomainNet_MA/real'
-target_path = '/home/user/seongwon/New_Nameonly_CL/collections/DomainNet/test/DomainNet_test_ma_sigma0_repeat1_init100_seed1.json'
+
+type = 'sketch'
+source_path = f'/home/user/seongwon/New_Nameonly_CL/dataset/DomainNet/DomainNet_MA/{type}'
+target_path = f'/home/user/seongwon/New_Nameonly_CL/collections/DomainNet/test/DomainNet_{type}_sigma0_repeat1_init100_seed1.json'
 
 if not os.path.exists(os.path.dirname(target_path)):
     os.makedirs(os.path.dirname(target_path), exist_ok=True)
@@ -14,7 +16,7 @@ for cls in classes:
     images = os.listdir(cls_path)
     for image in images:
         image_dict = {
-            "file_name": os.path.join(base_path, image),
+            "file_name": os.path.join(base_path, cls, image),
             "klass": cls,
             "label": 0,
             "time": 0
