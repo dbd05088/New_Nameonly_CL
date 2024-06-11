@@ -4,7 +4,7 @@
 
 
 # # Required
-# ./gdrive files download 1I5W7bL46cduMMrNq4gH5KsUOonLejMuZ # DomainNet_MA
+# ./gdrive files download 144Vmht8QlAJ3eXoFHUWm8qg76I6XzrXj # DomainNet_MA (changed 0611)
 # ./gdrive files download 1eCHHO8eheuM-FT0t13LbmOoTGxM0e-jO # train_ma
 # ./gdrive files download 1Gnqna2AjQk-wVIwogGWS04MCvYnTmkdi # test_ma
 # tar -xf DomainNet_MA.tar -C DomainNet
@@ -111,7 +111,13 @@
 # tar -xf DomainNet_wo_cot.tar -C DomainNet
 # rm DomainNet_wo_cot.tar
 
-# DomainNet wo cot & wo hierarchy
-./gdrive files download 1rzVpd6EMqhh9eA_OLBeWQlHYYu-BSvEu
-tar -xf DomainNet_wo_cot_wo_hierarchy.tar -C DomainNet
-rm DomainNet_wo_cot_wo_hierarchy.tar
+# # DomainNet wo cot & wo hierarchy
+# ./gdrive files download 1rzVpd6EMqhh9eA_OLBeWQlHYYu-BSvEu
+# tar -xf DomainNet_wo_cot_wo_hierarchy.tar -C DomainNet
+# rm DomainNet_wo_cot_wo_hierarchy.tar
+
+# DomainNet MA changed
+rm -r DomainNet/DomainNet_MA
+./gdrive files download 144Vmht8QlAJ3eXoFHUWm8qg76I6XzrXj
+tar -xf DomainNet_MA.tar -C DomainNet
+rm DomainNet_MA.tar
