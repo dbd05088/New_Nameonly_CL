@@ -158,4 +158,4 @@ results/cifar10
 results/PACS_final
 *.out
 dataset/PACS_MA/
-results/DomainNet/
+results/DomainNet*
