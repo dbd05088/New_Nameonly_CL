@@ -488,8 +488,11 @@
 # rm PACS_final_wo_cot_wo_hierarchy.tar
 
 
-
 # PACS_final SDBP
 # ./gdrive files download 1RvMTXuMvXyWqTyOHVAY4RTI2d4bjr8kO
 # tar -xf PACS_final_sdbp.tar -C PACS_final
 # rm PACS_final_sdbp.tar
+
+./gdrive files download 14fCp3EQ5VUR6USzVaeSazML2QMsxhtkX
+tar -xf PACS_final_glide_diversified.tar -C PACS_final
+rm PACS_final_glide_diversified.tar
