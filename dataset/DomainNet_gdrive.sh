@@ -116,8 +116,13 @@
 # tar -xf DomainNet_wo_cot_wo_hierarchy.tar -C DomainNet
 # rm DomainNet_wo_cot_wo_hierarchy.tar
 
-# DomainNet MA changed
-rm -r DomainNet/DomainNet_MA
-./gdrive files download 144Vmht8QlAJ3eXoFHUWm8qg76I6XzrXj
-tar -xf DomainNet_MA.tar -C DomainNet
-rm DomainNet_MA.tar
+# # DomainNet MA changed
+# rm -r DomainNet/DomainNet_MA
+# ./gdrive files download 144Vmht8QlAJ3eXoFHUWm8qg76I6XzrXj
+# tar -xf DomainNet_MA.tar -C DomainNet
+# rm DomainNet_MA.tar
+
+# DomainNet static cot 50 (prompt ours, 0616)
+./gdrive files download 1w6Q9QHIFchFg5dlYN2T1qFLpPsvrYBh2
+tar -xf DomainNet_static_cot_50_sdxl.tar -C DomainNet
+rm DomainNet_static_cot_50_sdxl.tar
