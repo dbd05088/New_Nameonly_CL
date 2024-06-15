@@ -12,7 +12,7 @@ mkdir -p NICO
 # tar -xf NICO_sdxl.tar -C NICO
 # rm NICO_sdxl.tar
 
-gdrive files download 16lBV0ZZBJ0SpiC_vmoV_e9BtmJAdnFNB
+gdrive files download 12_EcUW2mZNZ8f3AFHNs_79ZMbUZigpdV
 tar -xf NICO_glide.tar
 mv NICO_glide NICO/
 rm NICO_glide.tar
@@ -37,16 +37,10 @@ rm NICO_glide.tar
 # rm NICO_generated_equalweight.tar
 # rm NICO_generated_RMD_w_normalize_clip_90_temp_0_5.tar
 
-<<<<<<< HEAD
 #gdrive files download 1Y4YEGyWt5dP6g77wif1t7_HKqMN8tlnj
 #tar -xf NICO_sdbp.tar
 #mv NICO_sdbp NICO/
 #rm NICO_sdbp.tar
 
-=======
 
 
-./gdrive files download 1Y4YEGyWt5dP6g77wif1t7_HKqMN8tlnj
-tar -xf NICO_sdbp.tar -C NICO
-rm NICO_sdbp.tar
->>>>>>> 82d2ef49b19f6d009c299cdaadf182ffacb00267
