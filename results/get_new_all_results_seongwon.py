@@ -1,6 +1,7 @@
 import os
 import numpy as np
 import warnings
+import pandas as pd
 from scipy.stats import sem
 from collections import defaultdict
 
@@ -120,14 +121,15 @@ def print_from_log(exp_name, in_dis, ood_dis, seeds=(1,2,3,4,5)):
         # aoa_last.append(round(aoa_seed[-1]*100,2))
         # fast_adaptation.append(round(sum(fa_seed)/len(fa_seed)*100,2))
         
-    # print(f'Exp:{exp_name} ')
-    # print("In", in_avg)
-    # print("In", in_last)
-    # print("ood", ood_avg)
-    # print("ood", ood_last)
+
+    # Create dataframe
+    df_dict = {}
+    
     if np.isnan(np.mean(in_avg)):
         pass
     else:
+        df_dict['id'] = f"{np.mean(in_avg):.2f}/{sem(in_avg):.2f} \t {np.mean(in_last):.2f}/{sem(in_last):.2f}"
+        df_dict['ood'] = f"{np.mean(ood_avg):.2f}/{sem(ood_avg):.2f} \t {np.mean(ood_last):.2f}/{sem(ood_last):.2f}"
         print(f'Exp:{exp_name} in-distribution \t\t\t {np.mean(in_avg):.2f}/{sem(in_avg):.2f} \t {np.mean(in_last):.2f}/{sem(in_last):.2f}')
         print(f'Exp:{exp_name} ood-distribution \t\t\t {np.mean(ood_avg):.2f}/{sem(ood_avg):.2f} \t {np.mean(ood_last):.2f}/{sem(ood_last):.2f}')
         print(f'Exp:{exp_name} overall \t\t\t {np.mean(overall_avg):.2f}/{sem(overall_avg):.2f} \t {np.mean(overall_last):.2f}/{sem(overall_last):.2f}')
@@ -137,6 +139,9 @@ def print_from_log(exp_name, in_dis, ood_dis, seeds=(1,2,3,4,5)):
         ood_adaptation = []
         ood_KGR, ood_KLR = [], []
         for i, dom in enumerate(list(backward_transfer.keys())):
+            if dom in in_dis:
+                df_dict['FA_ID'] = f"{np.mean(fast_adapt_dict[dom])*100:.2f}/{sem(fast_adapt_dict[dom])*100:.2f}"
+                df_dict['BWT_ID'] = f"{np.mean(backward_transfer[dom])*100:.2f}/{sem(backward_transfer[dom])*100:.2f}"
             print(f'Exp:{exp_name} {dom} backward_transfer \t\t\t {np.mean(backward_transfer[dom])*100:.2f}/{sem(backward_transfer[dom])*100:.2f}')
             print(f'Exp:{exp_name} {dom} fast_adaptation \t\t\t {np.mean(fast_adapt_dict[dom])*100:.2f}/{sem(fast_adapt_dict[dom])*100:.2f}')
             # print(f'Exp:{exp_name} {dom} forgetting \t\t\t {np.mean(KGR[dom]):.2f}/{sem(KGR[dom]):.2f} / {np.mean(KLR[dom]):.2f}/{sem(KLR[dom]):.2f}')
@@ -147,9 +152,15 @@ def print_from_log(exp_name, in_dis, ood_dis, seeds=(1,2,3,4,5)):
                 # ood_KLR.extend(KLR[dom])
         print(f'Exp:{exp_name} OOD backward_transfer \t\t\t {np.mean(ood_backward)*100:.2f}/{sem(ood_backward)*100:.2f}')
         print(f'Exp:{exp_name} OOD adpatation \t\t\t {np.mean(ood_adaptation)*100:.2f}/{sem(ood_adaptation)*100:.2f}')
+        df_dict["FA_OOD"] = f"{np.mean(ood_adaptation)*100:.2f}/{sem(ood_adaptation)*100:.2f}"
+        df_dict["BWT_OOD"] = f"{np.mean(ood_backward)*100:.2f}/{sem(ood_backward)*100:.2f}"
         # print(f'Exp:{exp_name} OOD forgetting \t\t\t {np.mean(ood_KGR):.2f}/{sem(ood_KGR):.2f} / {np.mean(ood_KLR):.2f}/{sem(ood_KLR):.2f}')
             
-                
+    order = ('id', 'ood', 'FA_ID', 'FA_OOD', 'BWT_ID', 'BWT_OOD')
+    result_df_dict = {k: df_dict[k] for k in order}
+    result_df = pd.DataFrame({k: [v] for k, v in result_df_dict.items()})
+    output_csv_path = f"{exp_name}.csv"
+    result_df.to_csv(output_csv_path,index=False)
                 
 
 for exp in exp_type_list:
