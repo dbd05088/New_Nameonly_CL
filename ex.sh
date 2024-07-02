@@ -14,12 +14,12 @@
 # NOTE="imagenet_sdp_sigma0_mem_10000_iter_0.125"
 
 # --------------------------IMPORTANT-------------------------- #
-MODE="er"
-MODEL_NAME="resnet18"
-DATASET="DomainNet" # cifar10, cifar100, tinyimagenet, imagenet
-TYPES=("train_ma") #  "static_cot_50_sdxl", "generated_equalweight")
-SEEDS="1"
-GPUS=("0" "1" "2" "3" "4")
+MODE="aser"
+MODEL_NAME="vit"
+DATASET="cct" # cifar10, cifar100, tinyimagenet, imagenet
+TYPES=("train_ma" "glide_diversified" "glide2" "sdbp" "web_RMD_w_normalize_clip_90_temp_0_5" "web_newsample_rmd_equalweight") # "train_ma" "glide_diversified" "glide2" "sdbp" "web_RMD_w_normalize_clip_90_temp_0_5" "web_newsample_rmd_equalweight"
+SEEDS="5"
+GPUS=("6" "7" "8" "9" "10" "11")
 NOTE="iclr_${MODEL_NAME}_${DATASET}_${MODE}"
 # --------------------------IMPORTANT-------------------------- #
 echo "MODE: $MODE"
@@ -50,6 +50,11 @@ if [ "$DATASET" == "cifar10" ]; then
     CANDIDATE_SIZE=50 VAL_SIZE=5
     VAL_PERIOD=500 EVAL_PERIOD=500
     BATCHSIZE=16; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
+    # Change vit learning rate (0611)
+    if [ "$MODEL_NAME" == "vit" ]; then
+        LR=1e-4
+        echo "Set vit learning rate 1e-4!!!"
+    fi
     BASEINIT_SAMPLES=6000 FEAT_DIM=14 FEAT_MEM_SIZE=24000
     SAMPLES_PER_TASK=20000 
     ONLINE_ITER=2
@@ -62,6 +67,11 @@ elif [ "$DATASET" == "PACS_final" ]; then
     CANDIDATE_SIZE=50 VAL_SIZE=5
     VAL_PERIOD=500 EVAL_PERIOD=100
     BATCHSIZE=16; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
+    # Change vit learning rate (0611)
+    if [ "$MODEL_NAME" == "vit" ]; then
+        LR=1e-4
+        echo "Set vit learning rate 1e-4!!!"
+    fi
     BASEINIT_SAMPLES=1002 FEAT_DIM=14 FEAT_MEM_SIZE=4800
     SAMPLES_PER_TASK=2000
     ONLINE_ITER=2
@@ -85,6 +95,11 @@ elif [ "$DATASET" == "cct" ]; then
     CANDIDATE_SIZE=50 VAL_SIZE=5
     VAL_PERIOD=500 EVAL_PERIOD=100
     BATCHSIZE=16; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
+    # Change vit learning rate (0611)
+    if [ "$MODEL_NAME" == "vit" ]; then
+        LR=1e-4
+        echo "Set vit learning rate 1e-4!!!"
+    fi
     BASEINIT_SAMPLES=1002 FEAT_DIM=14 FEAT_MEM_SIZE=4800
     SAMPLES_PER_TASK=2000
     ONLINE_ITER=2
@@ -118,16 +133,21 @@ elif [ "$DATASET" == "DomainNet" ]; then
     fi
 
 elif [ "$DATASET" == "NICO" ]; then
-    MEM_SIZE=800 #1500
+    MEM_SIZE=6000 #1500
     # TYPES=("sdbp") # "newsample_equalweight"
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
     VAL_PERIOD=500 EVAL_PERIOD=500
     BATCHSIZE=32; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
+    # Change vit learning rate (0611)
+    if [ "$MODEL_NAME" == "vit" ]; then
+        LR=1e-4
+        echo "Set vit learning rate 1e-4!!!"
+    fi
     BASEINIT_SAMPLES=30523 FEAT_DIM=14 FEAT_MEM_SIZE=168000
     SAMPLES_PER_TASK=960
-    ONLINE_ITER=2
-    EVAL_POINT="6480 12960 19440 25920 32400"
+    ONLINE_ITER=3
+    EVAL_POINT="9720 19440 29160 38880 48600"
 
 else
     echo "Undefined setting"
