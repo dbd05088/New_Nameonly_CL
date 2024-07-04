@@ -63,9 +63,6 @@ def main():
 
 
     eval_point = [int(point) for point in args.eval_point.split(" ")]
-    if "10" in args.type_name:
-        eval_point = [point*10 for point in eval_point]
-        args.baseinit_samples*=10
         
     print("eval_point")
     print(eval_point)
