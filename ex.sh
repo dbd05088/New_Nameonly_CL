@@ -14,12 +14,12 @@
 # NOTE="imagenet_sdp_sigma0_mem_10000_iter_0.125"
 
 # --------------------------IMPORTANT-------------------------- #
-MODE="aser"
+MODE="xder"
 MODEL_NAME="vit"
-DATASET="cct" # cifar10, cifar100, tinyimagenet, imagenet
-TYPES=("train_ma" "glide_diversified" "glide2" "sdbp" "web_RMD_w_normalize_clip_90_temp_0_5" "web_newsample_rmd_equalweight") # "train_ma" "glide_diversified" "glide2" "sdbp" "web_RMD_w_normalize_clip_90_temp_0_5" "web_newsample_rmd_equalweight"
-SEEDS="5"
-GPUS=("6" "7" "8" "9" "10" "11")
+DATASET="NICO" # cifar10, cifar100, tinyimagenet, imagenet
+TYPES=("glide") #  "static_cot_50_sdxl", "generated_equalweight") "web_from_large2_equalweight" "web_from_large2_RMD_w_normalize_clip_90_temp_0_5"
+SEEDS="4"
+GPUS=("5" "3" "2" "3" "4" "5")
 NOTE="iclr_${MODEL_NAME}_${DATASET}_${MODE}"
 # --------------------------IMPORTANT-------------------------- #
 echo "MODE: $MODE"
@@ -58,7 +58,7 @@ if [ "$DATASET" == "cifar10" ]; then
     BASEINIT_SAMPLES=6000 FEAT_DIM=14 FEAT_MEM_SIZE=24000
     SAMPLES_PER_TASK=20000 
     ONLINE_ITER=2
-    EVAL_POINT="2000 4000 6000 8000 10000"
+    EVAL_POINT="1000 2000 3000 4000 5000"
 
 elif [ "$DATASET" == "PACS_final" ]; then
     MEM_SIZE=200
