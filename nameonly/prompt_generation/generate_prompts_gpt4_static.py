@@ -14,7 +14,6 @@ def generate_prompt_stage1(client, previous_prompt_list):
         base_message += f"\nprompt: {prompt}"
     base_message += end_message
 
-    breakpoint()
     # Generate one prompt using GPT-4 API
     response = client.chat.completions.create(
     model="gpt-4-turbo",
