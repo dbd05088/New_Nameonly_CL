@@ -1,0 +1,264 @@
+{
+    "metaprompts": [
+        {
+            "index": 0,
+            "metaprompt": "A photo of [concept] in vibrant sunset hues.",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A photo of [concept] in warm twilight shades."
+                },
+                {
+                    "index": 1,
+                    "content": "A photo of [concept] with brilliant sunset colors."
+                },
+                {
+                    "index": 2,
+                    "content": "A photo of [concept] in glowing evening tones."
+                },
+                {
+                    "index": 3,
+                    "content": "A photo of [concept] under vivid dusk skies."
+                },
+                {
+                    "index": 4,
+                    "content": "A photo of [concept] in radiant sunset light."
+                }
+            ]
+        },
+        {
+            "index": 1,
+            "metaprompt": "A photo of [concept] in misty morning light.",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A photo of [concept] in soft dawn mist."
+                },
+                {
+                    "index": 1,
+                    "content": "A photo of [concept] in early morning fog."
+                },
+                {
+                    "index": 2,
+                    "content": "A photo of [concept] in hazy sunrise light."
+                },
+                {
+                    "index": 3,
+                    "content": "A photo of [concept] with gentle morning mist."
+                },
+                {
+                    "index": 4,
+                    "content": "A photo of [concept] in foggy dawn atmosphere."
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "metaprompt": "A photo of [concept] in monochrome palette.",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A photo of [concept] in black and white tones."
+                },
+                {
+                    "index": 1,
+                    "content": "A photo of [concept] with grayscale colors."
+                },
+                {
+                    "index": 2,
+                    "content": "A photo of [concept] in a monochromatic scheme."
+                },
+                {
+                    "index": 3,
+                    "content": "A photo of [concept] in shades of gray."
+                },
+                {
+                    "index": 4,
+                    "content": "A photo of [concept] in a black-and-white palette."
+                }
+            ]
+        },
+        {
+            "index": 3,
+            "metaprompt": "A photo of [concept] with neon city lights.",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A photo of [concept] under glowing neon signs."
+                },
+                {
+                    "index": 1,
+                    "content": "A photo of [concept] with vibrant city lights."
+                },
+                {
+                    "index": 2,
+                    "content": "A photo of [concept] in neon-lit streets."
+                },
+                {
+                    "index": 3,
+                    "content": "A photo of [concept] amidst colorful urban lights."
+                },
+                {
+                    "index": 4,
+                    "content": "A photo of [concept] with bright neon illumination."
+                }
+            ]
+        },
+        {
+            "index": 4,
+            "metaprompt": "A photo of [concept] in natural forest setting.",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A photo of [concept] in a lush woodland scene."
+                },
+                {
+                    "index": 1,
+                    "content": "A photo of [concept] in a dense forest landscape."
+                },
+                {
+                    "index": 2,
+                    "content": "A photo of [concept] surrounded by green forest."
+                },
+                {
+                    "index": 3,
+                    "content": "A photo of [concept] in a verdant woodland."
+                },
+                {
+                    "index": 4,
+                    "content": "A photo of [concept] within a natural forest backdrop."
+                }
+            ]
+        },
+        {
+            "index": 5,
+            "metaprompt": "A photo of [concept] in golden hour glow.",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A photo of [concept] bathed in golden hour light."
+                },
+                {
+                    "index": 1,
+                    "content": "A photo of [concept] during the golden hour."
+                },
+                {
+                    "index": 2,
+                    "content": "A photo of [concept] in warm sunset glow."
+                },
+                {
+                    "index": 3,
+                    "content": "A photo of [concept] under golden evening light."
+                },
+                {
+                    "index": 4,
+                    "content": "A photo of [concept] with golden hour illumination."
+                }
+            ]
+        },
+        {
+            "index": 6,
+            "metaprompt": "A photo of [concept] in a busy urban environment.",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A photo of [concept] in a bustling cityscape."
+                },
+                {
+                    "index": 1,
+                    "content": "A photo of [concept] amidst urban crowds."
+                },
+                {
+                    "index": 2,
+                    "content": "A photo of [concept] in a lively city setting."
+                },
+                {
+                    "index": 3,
+                    "content": "A photo of [concept] surrounded by urban hustle."
+                },
+                {
+                    "index": 4,
+                    "content": "A photo of [concept] in a crowded metropolitan area."
+                }
+            ]
+        },
+        {
+            "index": 7,
+            "metaprompt": "A photo of [concept] on a snowy mountain peak.",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A photo of [concept] on a snow-covered mountain summit."
+                },
+                {
+                    "index": 1,
+                    "content": "A photo of [concept] atop a snowy peak."
+                },
+                {
+                    "index": 2,
+                    "content": "A photo of [concept] on a frosty mountain top."
+                },
+                {
+                    "index": 3,
+                    "content": "A photo of [concept] at a snowy mountain crest."
+                },
+                {
+                    "index": 4,
+                    "content": "A photo of [concept] on an icy mountain peak."
+                }
+            ]
+        },
+        {
+            "index": 8,
+            "metaprompt": "A photo of [concept] in pastel beach tones.",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A photo of [concept] in soft pastel beach colors."
+                },
+                {
+                    "index": 1,
+                    "content": "A photo of [concept] with pastel seaside hues."
+                },
+                {
+                    "index": 2,
+                    "content": "A photo of [concept] in gentle beach pastels."
+                },
+                {
+                    "index": 3,
+                    "content": "A photo of [concept] with light pastel beach tones."
+                },
+                {
+                    "index": 4,
+                    "content": "A photo of [concept] in soft pastel coastal shades."
+                }
+            ]
+        },
+        {
+            "index": 9,
+            "metaprompt": "A photo of [concept] in rainy evening ambiance.",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A photo of [concept] in a rainy night setting."
+                },
+                {
+                    "index": 1,
+                    "content": "A photo of [concept] with evening rain atmosphere."
+                },
+                {
+                    "index": 2,
+                    "content": "A photo of [concept] in a wet evening scene."
+                },
+                {
+                    "index": 3,
+                    "content": "A photo of [concept] under rainy twilight skies."
+                },
+                {
+                    "index": 4,
+                    "content": "A photo of [concept] in a drizzly evening mood."
+                }
+            ]
+        }
+    ]
+}
