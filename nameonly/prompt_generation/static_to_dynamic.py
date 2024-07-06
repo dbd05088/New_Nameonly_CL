@@ -6,9 +6,9 @@ from classes import *
 # static prompt는 class name이 없는데, image generation code는 class - prompt dict로
 # 되어 있기 때문에 이를 수정하는 부분.
 
-classes = list(DomainNet_count.keys())
-static_path = './prompts/static_totalprompts_wo_cot_wo_hierarchy.json'
-output_path = './prompts/static_totalprompts_wo_cot_wo_hierarchy_DomainNet.json'
+classes = list(PACS_count.keys())
+static_path = './prompts/gpt4_wo_hierarchy_wo_cot.json'
+output_path = './prompts/gpt4_wo_hierarchy_wo_cot_PACS.json'
 
 with open(static_path, 'r') as f:
     static_dict = json.load(f)

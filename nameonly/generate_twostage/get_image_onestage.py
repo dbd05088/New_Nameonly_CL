@@ -5,12 +5,14 @@ import argparse
 import numpy as np
 import torch
 import pickle
+import random
 import requests
 import yaml
 import json
 from PIL import Image
 from classes import *
 from diffusers import DiffusionPipeline
+from diffusers import StableDiffusion3Pipeline
 from io import BytesIO
 from parse_prompt import get_class_prompt_dict
 from tqdm import tqdm
@@ -53,6 +55,18 @@ class SDXLGenerator(ImageGenerator):
         image = self.refiner(prompt=prompt, num_inference_steps=n_steps, denoising_start=high_noise_frac, image=image).images[0]
         return image
 
+class SD3Generator(ImageGenerator):
+    def __init__(self):
+        super().__init__("SD3")
+        self.load_model()
+    
+    def load_model(self):
+        self.pipe = StableDiffusion3Pipeline.from_pretrained("stabilityai/stable-diffusion-3-medium-diffusers", torch_dtype=torch.float16).to(self.device)
+
+    def generate_one_image(self, prompt):
+        image = self.pipe(prompt=prompt, negative_prompt="", num_inference_steps=28, height=1024, width=1024, guidance_scale=7.0).images[0]
+        return image
+    
 class Kandinsky2Generator(ImageGenerator):
     def __init__(self, decoder_steps=50, batch_size=1, h=256, w=256):
         super().__init__("kandinsky2")
@@ -115,8 +129,7 @@ def adjust_list_length(lst, length, resume_prompt_idx=None):
         return lst[:length]
     else:
         repeated_list = lst * (length // original_length)
-        remaining_part = lst[:length % original_length]
-    
+        remaining_part = random.sample(lst, length % original_length)
     return repeated_list + remaining_part
 
 class CogView2Generator(ImageGenerator):
@@ -135,6 +148,8 @@ class CogView2Generator(ImageGenerator):
 def model_selector(generative_model, API_KEY=None):
     if generative_model == "SDXL":
         return SDXLGenerator()
+    elif generative_model == "SD3":
+        return SD3Generator()
     elif generative_model == "kandinsky2":
         return Kandinsky2Generator()
     elif generative_model =="floyd":
@@ -224,6 +239,7 @@ def generate_unique_filename(directory, base_filename):
     return new_filename
 
 def generate_single_class(
+    class_name,
     model_name,
     model,
     image_dir,
@@ -247,12 +263,12 @@ def generate_single_class(
             prompt_info = (prompt_dict['content'], 'diversified', f"{metaprompt_idx}_{prompt_dict['index']}")
             concatenated_prompt_list.append(prompt_info)
 
-    # for meta_idx, (metaprompt, diversified_prompt) in enumerate(class_prompt_dict.items()):
-    #     diversified_prompt = [(prompt, 'diversified', f"{meta_idx}_{diversified_idx + 1}") for diversified_idx, prompt in enumerate(diversified_prompt)]
-    #     metaprompt = (metaprompt, 'meta', f"{meta_idx}_0")
-    #     diversified_prompt.insert(0, metaprompt) # Insert to index 0 -> total length: 6
-    #     concatenated_prompt_list.extend(diversified_prompt) # Length 120
-
+    # Replace the placeholder [concept] into class name
+    for i, prompt in enumerate(concatenated_prompt_list):
+        assert "[concept]" in prompt[0], f"[concept] not exists in {prompt}!"
+        prompt_with_cls = (prompt[0].replace('[concept]', class_name), prompt[1], prompt[2])
+        concatenated_prompt_list[i] = prompt_with_cls
+    
     concatenated_prompt_list = adjust_list_length(concatenated_prompt_list, num_samples, resume_prompt_idx=resume_prompt_idx)
 
     # Dictionary to store image info (metaprompt, diversified prompt)
@@ -261,6 +277,7 @@ def generate_single_class(
     # Generate images according to the adjusted prompt
     for i, (prompt, prompt_type, image_name) in enumerate(tqdm(concatenated_prompt_list)):
         print(f"Generating image for {prompt_type} - {image_name} - {prompt}")
+
         try:
             image = get_image(prompt, model)
         except Exception as e:
@@ -340,12 +357,14 @@ if __name__ == "__main__":
     for cls in tqdm(classes):
         print(f"Start generating class {cls}...")
         num_samples_cls = class_num_samples_dict[cls]
+
         generate_single_class(
-            model_name = config['generative_model'],
-            model = model,
+            class_name=cls,
+            model_name=config['generative_model'],
+            model=model,
             image_dir = os.path.join(image_root_dir, cls),
             num_samples = num_samples_cls,
-            class_prompt_dict=class_prompt_dict[cls],
+            class_prompt_dict=class_prompt_dict,
             API_KEY=config['api_key'],
             result_json_path=os.path.join(image_root_dir, f"{cls}.json"),
             resume_prompt_idx=resume_prompt_idx
