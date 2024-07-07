@@ -7,19 +7,12 @@
 # ./gdrive files download 1Q-leEeSjgWZNQUbapU1GmHKFr947_-K- # test_ma
 # ./gdrive files download 1LfcRv1xFlLbT9Etx71JbpWzKSQiouxjO # PACS MA
 # ./gdrive files download 11zV8OnLYqQ9JQZVkxv_1OTWdtbscBsUn # final train ma
-# ./gdrive files download 1zLPhg_Yg685fZbkNE_lZE0S4RUp9yC8n # generated
-# ./gdrive files download 1j0QpNXPtrF-7eR8a8pwxHSKXeJQ_-OoJ # web2
 # tar -xf PACS_final_test_ma.tar -C PACS_final
 # tar -xf PACS_MA.tar -C PACS_final
 # tar -xf PACS_final_train_ma.tar -C PACS_final
-# tar -xf PACS_generated.tar -C PACS_final
-# tar -xf PACS_final_web2.tar -C PACS_final
 # rm PACS_final_test_ma.tar
 # rm PACS_MA.tar
 # rm PACS_final_train_ma.tar
-# rm PACS_generated.tar
-# rm PACS_final_web2.tar
-
 
 ### temperature exp ###
 # ./gdrive files download 1mI5-cJY8ofwU6ZeiUBp9Ym_Q_kfQzzG-
@@ -498,10 +491,21 @@
 # rm PACS_final_glide_diversified.tar
 
 
-# PACS_final sd3
-./gdrive files download 1t80w99laMxGcOlFvAeXbgup3_LHcO1u_
-./gdrive files download 1M0DZbkrOhfEqCb3OfseV9Xid1zshl1de
-tar -xf PACS_final_sd3.tar -C PACS_final
-tar -xf PACS_final_sd3_filtered.tar -C PACS_final
-rm PACS_final_sd3.tar
-rm PACS_final_sd3_filtered.tar
+# # PACS_final sd3
+# ./gdrive files download 1t80w99laMxGcOlFvAeXbgup3_LHcO1u_
+# ./gdrive files download 1M0DZbkrOhfEqCb3OfseV9Xid1zshl1de
+# tar -xf PACS_final_sd3.tar -C PACS_final
+# tar -xf PACS_final_sd3_filtered.tar -C PACS_final
+# rm PACS_final_sd3.tar
+# rm PACS_final_sd3_filtered.tar
+
+# # PACS_final sd3 ablation (wo filtering)
+./gdrive files download 1EyL5IzkXM_pCvOVHhrUGVB3aD6d0-3K2
+./gdrive files download 1MhpeHjSEBFyRrMwCSQ_W7XTIebnWgoUV
+./gdrive files download 1wuCYLUEtDQQomyvH8nZQjtir2dw8Xj97
+tar -xf PACS_final_sd3_wo_hierarchy.tar -C PACS_final
+tar -xf PACS_final_sd3_wo_cot.tar -C PACS_final
+tar -xf PACS_final_sd3_wo_hierarchy_wo_cot.tar -C PACS_final
+rm PACS_final_sd3_wo_hierarchy.tar
+rm PACS_final_sd3_wo_cot.tar
+rm PACS_final_sd3_wo_hierarchy_wo_cot.tar
