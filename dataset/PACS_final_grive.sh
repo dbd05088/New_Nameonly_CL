@@ -499,13 +499,28 @@
 # rm PACS_final_sd3.tar
 # rm PACS_final_sd3_filtered.tar
 
-# # PACS_final sd3 ablation (wo filtering)
-./gdrive files download 1EyL5IzkXM_pCvOVHhrUGVB3aD6d0-3K2
-./gdrive files download 1MhpeHjSEBFyRrMwCSQ_W7XTIebnWgoUV
-./gdrive files download 1wuCYLUEtDQQomyvH8nZQjtir2dw8Xj97
-tar -xf PACS_final_sd3_wo_hierarchy.tar -C PACS_final
-tar -xf PACS_final_sd3_wo_cot.tar -C PACS_final
-tar -xf PACS_final_sd3_wo_hierarchy_wo_cot.tar -C PACS_final
-rm PACS_final_sd3_wo_hierarchy.tar
-rm PACS_final_sd3_wo_cot.tar
-rm PACS_final_sd3_wo_hierarchy_wo_cot.tar
+# # # PACS_final sd3 ablation (wo filtering)
+# ./gdrive files download 1EyL5IzkXM_pCvOVHhrUGVB3aD6d0-3K2
+# ./gdrive files download 1MhpeHjSEBFyRrMwCSQ_W7XTIebnWgoUV
+# ./gdrive files download 1wuCYLUEtDQQomyvH8nZQjtir2dw8Xj97
+# tar -xf PACS_final_sd3_wo_hierarchy.tar -C PACS_final
+# tar -xf PACS_final_sd3_wo_cot.tar -C PACS_final
+# tar -xf PACS_final_sd3_wo_hierarchy_wo_cot.tar -C PACS_final
+# rm PACS_final_sd3_wo_hierarchy.tar
+# rm PACS_final_sd3_wo_cot.tar
+# rm PACS_final_sd3_wo_hierarchy_wo_cot.tar
+
+
+# PACS_final sdxl ablation (wo filtering)
+./gdrive files download 1R54KSHjXGiGGMDwNc7sqpdxWnOGKfhFh
+./gdrive files download 1gR_1IM3Kp2YQHfV3AOb9gOoQaCpbUY9v
+./gdrive files download 1bCS72hFcYQ78waYH0jLpPjZEbHpS5t7A
+./gdrive files download 1F31Jtm9CVUHTEsd8n__5BGzkz2Rq6CjA
+tar -xf PACS_final_sdxl.tar -C PACS_final
+tar -xf PACS_final_sdxl_wo_hierarchy.tar -C PACS_final
+tar -xf PACS_final_sdxl_wo_cot.tar -C PACS_final
+tar -xf PACS_final_sdxl_wo_hierarchy_wo_cot.tar.tar -C PACS_final
+rm PACS_final_sdxl.tar
+rm PACS_final_sdxl_wo_hierarchy.tar
+rm PACS_final_sdxl_wo_cot.tar
+rm PACS_final_sdxl_wo_hierarchy_wo_cot.tar.tar
