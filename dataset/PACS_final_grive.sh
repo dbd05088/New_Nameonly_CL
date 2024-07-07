@@ -493,6 +493,15 @@
 # tar -xf PACS_final_sdbp.tar -C PACS_final
 # rm PACS_final_sdbp.tar
 
-./gdrive files download 14fCp3EQ5VUR6USzVaeSazML2QMsxhtkX
-tar -xf PACS_final_glide_diversified.tar -C PACS_final
-rm PACS_final_glide_diversified.tar
+# ./gdrive files download 14fCp3EQ5VUR6USzVaeSazML2QMsxhtkX
+# tar -xf PACS_final_glide_diversified.tar -C PACS_final
+# rm PACS_final_glide_diversified.tar
+
+
+# PACS_final sd3
+./gdrive files download 1t80w99laMxGcOlFvAeXbgup3_LHcO1u_
+./gdrive files download 1M0DZbkrOhfEqCb3OfseV9Xid1zshl1de
+tar -xf PACS_final_sd3.tar -C PACS_final
+tar -xf PACS_final_sd3_filtered.tar -C PACS_final
+rm PACS_final_sd3.tar
+rm PACS_final_sd3_filtered.tar
