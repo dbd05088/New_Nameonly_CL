@@ -511,16 +511,28 @@
 # rm PACS_final_sd3_wo_hierarchy_wo_cot.tar
 
 
-# PACS_final sdxl ablation (wo filtering)
-./gdrive files download 1R54KSHjXGiGGMDwNc7sqpdxWnOGKfhFh
-./gdrive files download 1gR_1IM3Kp2YQHfV3AOb9gOoQaCpbUY9v
-./gdrive files download 1bCS72hFcYQ78waYH0jLpPjZEbHpS5t7A
-./gdrive files download 1F31Jtm9CVUHTEsd8n__5BGzkz2Rq6CjA
-tar -xf PACS_final_sdxl.tar -C PACS_final
-tar -xf PACS_final_sdxl_wo_hierarchy.tar -C PACS_final
-tar -xf PACS_final_sdxl_wo_cot.tar -C PACS_final
-tar -xf PACS_final_sdxl_wo_hierarchy_wo_cot.tar.tar -C PACS_final
-rm PACS_final_sdxl.tar
-rm PACS_final_sdxl_wo_hierarchy.tar
-rm PACS_final_sdxl_wo_cot.tar
-rm PACS_final_sdxl_wo_hierarchy_wo_cot.tar.tar
+# # PACS_final sdxl ablation (wo filtering)
+# ./gdrive files download 1R54KSHjXGiGGMDwNc7sqpdxWnOGKfhFh
+# ./gdrive files download 1gR_1IM3Kp2YQHfV3AOb9gOoQaCpbUY9v
+# ./gdrive files download 1bCS72hFcYQ78waYH0jLpPjZEbHpS5t7A
+# ./gdrive files download 1F31Jtm9CVUHTEsd8n__5BGzkz2Rq6CjA
+# tar -xf PACS_final_sdxl.tar -C PACS_final
+# tar -xf PACS_final_sdxl_wo_hierarchy.tar -C PACS_final
+# tar -xf PACS_final_sdxl_wo_cot.tar -C PACS_final
+# tar -xf PACS_final_sdxl_wo_hierarchy_wo_cot.tar.tar -C PACS_final
+# rm PACS_final_sdxl.tar
+# rm PACS_final_sdxl_wo_hierarchy.tar
+# rm PACS_final_sdxl_wo_cot.tar
+# rm PACS_final_sdxl_wo_hierarchy_wo_cot.tar.tar
+
+
+# PACS_final sdxl grid search (for ablation)
+./gdrive files download 1WADZitzQlhF0Rg4SXQzec5M-UWy0TdLQ
+./gdrive files download 15_5pIHerbpBYqmT8tvUOqNvwjUUHlFBp
+./gdrive files download 13SucW1Ylqqvty4ymWcY2BL6UmhBbLh0N
+tar -xf PACS_final_sdxl_1.tar -C PACS_final
+tar -xf PACS_final_sdxl_2.tar -C PACS_final
+tar -xf PACS_final_sdxl_3.tar -C PACS_final
+rm PACS_final_sdxl_1.tar
+rm PACS_final_sdxl_2.tar
+rm PACS_final_sdxl_3.tar
