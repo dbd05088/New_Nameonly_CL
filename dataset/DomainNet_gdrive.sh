@@ -122,7 +122,12 @@
 # tar -xf DomainNet_MA.tar -C DomainNet
 # rm DomainNet_MA.tar
 
-# DomainNet static cot 50 (prompt ours, 0616)
-./gdrive files download 1w6Q9QHIFchFg5dlYN2T1qFLpPsvrYBh2
-tar -xf DomainNet_static_cot_50_sdxl.tar -C DomainNet
-rm DomainNet_static_cot_50_sdxl.tar
+# # DomainNet static cot 50 (prompt ours, 0616)
+# ./gdrive files download 1w6Q9QHIFchFg5dlYN2T1qFLpPsvrYBh2
+# tar -xf DomainNet_static_cot_50_sdxl.tar -C DomainNet
+# rm DomainNet_static_cot_50_sdxl.tar
+
+# DomainNet sdxl_1 (new prompt from PACS)
+./gdrive files download 1OoTs9e6ZlzTFDoR4xvLH316CZgfhFqVg
+tar -xf DomainNet_sdxl_1.tar -C DomainNet
+rm DomainNet_sdxl_1.tar
