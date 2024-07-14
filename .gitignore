@@ -159,3 +159,4 @@ results/PACS_final
 *.out
 dataset/PACS_MA/
 results/DomainNet*
+nameonly/prompt_generation/src/clip

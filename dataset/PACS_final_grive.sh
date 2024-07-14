@@ -526,13 +526,18 @@
 # rm PACS_final_sdxl_wo_hierarchy_wo_cot.tar.tar
 
 
-# PACS_final sdxl grid search (for ablation)
-./gdrive files download 1WADZitzQlhF0Rg4SXQzec5M-UWy0TdLQ
-./gdrive files download 15_5pIHerbpBYqmT8tvUOqNvwjUUHlFBp
-./gdrive files download 13SucW1Ylqqvty4ymWcY2BL6UmhBbLh0N
-tar -xf PACS_final_sdxl_1.tar -C PACS_final
-tar -xf PACS_final_sdxl_2.tar -C PACS_final
-tar -xf PACS_final_sdxl_3.tar -C PACS_final
-rm PACS_final_sdxl_1.tar
-rm PACS_final_sdxl_2.tar
-rm PACS_final_sdxl_3.tar
+# # PACS_final sdxl grid search (for ablation)
+# ./gdrive files download 1WADZitzQlhF0Rg4SXQzec5M-UWy0TdLQ
+# ./gdrive files download 15_5pIHerbpBYqmT8tvUOqNvwjUUHlFBp
+# ./gdrive files download 13SucW1Ylqqvty4ymWcY2BL6UmhBbLh0N
+# tar -xf PACS_final_sdxl_1.tar -C PACS_final
+# tar -xf PACS_final_sdxl_2.tar -C PACS_final
+# tar -xf PACS_final_sdxl_3.tar -C PACS_final
+# rm PACS_final_sdxl_1.tar
+# rm PACS_final_sdxl_2.tar
+# rm PACS_final_sdxl_3.tar
+
+# PACS_final sdxl_1 filtering (to watch the filtering difference)
+./gdrive files download 1s-GADySBoL_owVqfuykGp_xwCkT5x0Bi
+tar -xf PACS_final_sdxl_1_filtered.tar -C PACS_final
+rm PACS_final_sdxl_1_filtered.tar
