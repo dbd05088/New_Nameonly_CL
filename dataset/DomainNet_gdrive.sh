@@ -131,3 +131,8 @@
 ./gdrive files download 1OoTs9e6ZlzTFDoR4xvLH316CZgfhFqVg
 tar -xf DomainNet_sdxl_1.tar -C DomainNet
 rm DomainNet_sdxl_1.tar
+
+# DomainNet sdxl_1 filtered (check filtering performance)
+./gdrive files download 1wbRy_sZwOdnP3CSZgLUk-w1fcU7hwg9A
+tar -xf DomainNet_sdxl_1_filtered.tar -C DomainNet
+rm DomainNet_sdxl_1_filtered.tar
