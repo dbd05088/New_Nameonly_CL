@@ -9,6 +9,7 @@ import random
 import requests
 import yaml
 import json
+import socket
 from PIL import Image
 from classes import *
 from diffusers import DiffusionPipeline
@@ -23,6 +24,12 @@ print(f"Using GPU: {gpu_number}")
 n_steps = 40
 high_noise_frac = 0.8
 
+def find_free_port():
+    """Find a free port for distributed initialization."""
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.bind(('', 0))
+        return s.getsockname()[1]
+    
 def get_config(config_path="config.yaml"):
     with open(config_path, 'r') as file:
         config = yaml.safe_load(file)
@@ -155,6 +162,10 @@ def model_selector(generative_model, API_KEY=None):
     elif generative_model =="floyd":
         return FloydGenerator()
     elif generative_model == "cogview2":
+        # Set port number
+        free_port = find_free_port()
+        print(f"Set MASTER_PORT to {free_port}!")
+        os.environ["MASTER_PORT"] = str(free_port)
         return CogView2Generator()
     elif generative_model == "dalle2":
         return DALLE2Generator(api_key=API_KEY)
