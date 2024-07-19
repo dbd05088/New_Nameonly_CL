@@ -14,6 +14,8 @@ from PIL import Image
 from classes import *
 from diffusers import DiffusionPipeline
 from diffusers import StableDiffusion3Pipeline
+from diffusers import AutoPipelineForText2Image
+from diffusers import UnCLIPPipeline
 from io import BytesIO
 from parse_prompt import get_class_prompt_dict
 from tqdm import tqdm
@@ -48,7 +50,7 @@ class ImageGenerator:
 
 class SDXLGenerator(ImageGenerator):
     def __init__(self):
-        super().__init__("SDXL")
+        super().__init__("sdxl")
         self.load_model()
     
     def load_model(self):
@@ -62,9 +64,10 @@ class SDXLGenerator(ImageGenerator):
         image = self.refiner(prompt=prompt, num_inference_steps=n_steps, denoising_start=high_noise_frac, image=image).images[0]
         return image
 
+
 class SD3Generator(ImageGenerator):
     def __init__(self):
-        super().__init__("SD3")
+        super().__init__("sd3")
         self.load_model()
     
     def load_model(self):
@@ -91,7 +94,31 @@ class Kandinsky2Generator(ImageGenerator):
     def generate_one_image(self, prompt):
         image = self.model.generate_text2img(prompt, decoder_steps=self.decoder_steps, batch_size=self.batch_size, h=self.h, w=self.w)
         return image[0]
-        
+
+class KarloGenerator(ImageGenerator):
+    def __init__(self):
+        super().__init__("karlo")
+        self.load_model()
+    
+    def load_model(self):
+        self.pipe = UnCLIPPipeline.from_pretrained("kakaobrain/karlo-v1-alpha", torch_dtype=torch.float16).to(self.device)
+
+    def generate_one_image(self, prompt):
+        image = self.pipe([prompt]).images[0]
+        return image
+
+class SDTurboGenerator(ImageGenerator):
+    def __init__(self):
+        super().__init__("sdturbo")
+        self.load_model()
+    
+    def load_model(self):
+        self.pipe = AutoPipelineForText2Image.from_pretrained("stabilityai/sdxl-turbo", torch_dtype=torch.float16, variant="fp16").to(self.device)
+    
+    def generate_one_image(self, prompt):
+        image = self.pipe(prompt=prompt, guidance_scale=0.0, num_inference_steps=1).images[0]
+        return image
+    
 class FloydGenerator(ImageGenerator):
     def __init__(self):
         super().__init__("floyd")
@@ -153,9 +180,9 @@ class CogView2Generator(ImageGenerator):
         return image
 
 def model_selector(generative_model, API_KEY=None):
-    if generative_model == "SDXL":
+    if generative_model == "sdxl":
         return SDXLGenerator()
-    elif generative_model == "SD3":
+    elif generative_model == "sd3":
         return SD3Generator()
     elif generative_model == "kandinsky2":
         return Kandinsky2Generator()
@@ -169,6 +196,10 @@ def model_selector(generative_model, API_KEY=None):
         return CogView2Generator()
     elif generative_model == "dalle2":
         return DALLE2Generator(api_key=API_KEY)
+    elif generative_model == "karlo":
+        return KarloGenerator()
+    elif generative_model == "sdturbo":
+        return SDTurboGenerator()
     else:
         raise ValueError(f"Generative model {generative_model} is not supported")
 
