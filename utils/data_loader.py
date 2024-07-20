@@ -100,27 +100,6 @@ class MultiProcessLoader():
         else:
             return None
     
-    # @torch.no_grad()
-    # def get_batch(self):
-    #     data = dict()
-    #     images = []
-    #     labels = []
-    #     for i in range(self.n_workers):
-    #         loaded_samples = self.result_queues[i].get(timeout=3000.0)
-    #         # if loaded_samples is not None:
-    #         images.append(torch.rand(4, 3, 32, 32).to(self.device))
-    #         labels.append(torch.LongTensor([0, 0, 0, 0]).to(self.device))
-    #     if len(images) > 0:
-    #         images = torch.cat(images)
-    #         labels = torch.cat(labels)
-    #         if self.transform_on_gpu and not self.transform_on_worker:
-    #             images = self.transform(images.to(self.device))
-    #         data['image'] = images
-    #         data['label'] = labels
-    #         return data
-    #     else:
-    #         return None
-    
 
 class XDERLoader(MultiProcessLoader):
     def __init__(self, n_workers, cls_dict, transform, data_dir, transform_on_gpu=False, cpu_transform=None, device='cpu', use_kornia=False, transform_on_worker=True, test_transform=None, scl=False, init=True):

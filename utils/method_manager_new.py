@@ -22,11 +22,12 @@ from methods.co2l import CO2L
 from methods.zero_shot_clip import ZeroShotClip
 from methods.cupl import CuPL
 from methods.sus import SUS
+from methods.VLM import VLM
 
 logger = logging.getLogger()
 
 
-def select_method(args, train_datalist, test_datalist, device):
+def select_method(args, train_datalist, test_datalist, device, model_args = None, data_args = None, training_args = None, bnb_model_from_pretrained_args = None):
     kwargs = vars(args)
     if args.mode == "er":
         method = ER(
@@ -34,6 +35,16 @@ def select_method(args, train_datalist, test_datalist, device):
             test_datalist=test_datalist,
             device=device,
             **kwargs,
+        )
+    elif args.mode == "VLM":
+        method = VLM(
+            train_datalist=train_datalist,
+            test_datalist=test_datalist,
+            device=device,
+            model_args=model_args, 
+            data_args=data_args, 
+            args=args,
+            bnb_model_from_pretrained_args=bnb_model_from_pretrained_args
         )
     elif args.mode == "bic":
         method = BiasCorrection(
