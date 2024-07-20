@@ -4,6 +4,7 @@ import pickle
 import numpy as np
 from classes import *
 from tqdm import tqdm
+from pathlib import Path
 
 def softmax_with_temperature(z, T) : 
     z = np.array(z)
@@ -22,61 +23,29 @@ INVERSE = False
 TEMPERATURE = 2
 
 # NICO
-count_dict = cifar10_count
-rmd_pickle_path = './RMD_scores/cifar10_generated.pkl'
-target_path = '/home/user/seongwon/New_Nameonly_CL/nameonly/datasets/neurips/new_generated/cifar10_generated_equalweight'
-PATH_dict = {
-    'sdxl': './datasets/neurips/new_generated/cifar10/cifar10_static_cot_50_sdxl_realistic_subsampled_filtered',
-    'dalle2': './datasets/neurips/new_generated/cifar10/cifar10_static_cot_50_dalle2_realistic_subsampled_filtered',
-    'floyd': './datasets/neurips/new_generated/cifar10/cifar10_static_cot_50_floyd_realistic_subsampled_filtered',
-    'cogview2': './datasets/neurips/new_generated/cifar10/cifar10_static_cot_50_cogview2_realistic_subsampled_filtered'
-}
-
-# # PACS web from large
-# count_dict = PACS_count
-# rmd_pickle_path = './RMD_scores/PACS_final_web_from_large2.pkl'
-# target_path = './datasets/neurips/web/PACS/PACS_final_web_from_large2_equalweight'
-# PATH_dict = {
-#     'flickr': './datasets/neurips/web/PACS/PACS_flickr_from_large2_filtered',
-#     'google': './datasets/neurips/web/PACS/PACS_google_from_large2_filtered',
-#     'bing': './datasets/neurips/web/PACS/PACS_bing_from_large2_filtered'
-# }
-
-# # DomainNet 
-# PATH_dict = {
-#     'sdxl': './datasets/neurips/new_generated/DomainNet/DomainNet_static_cot_50_sdxl_subsampled_filtered',
-#     'dalle2': './datasets/neurips/new_generated/DomainNet/DomainNet_static_cot_50_dalle2_subsampled_filtered',
-#     'floyd': './datasets/neurips/new_generated/DomainNet/DomainNet_static_cot_50_floyd_subsampled_filtered',
-#     'cogview2': './datasets/neurips/new_generated/DomainNet/DomainNet_static_cot_50_cogview2_subsampled_filtered'
-# }
-
-# PACS_final
-# PATH_dict = {
-#         'sdxl': './datasets/neurips/new_generated/PACS/PACS_final_static_cot_50_sdxl_subsampled_filtered',
-#         'dalle2': './datasets/neurips/new_generated/PACS/PACS_final_static_cot_50_dalle2_subsampled_filtered',
-#         'floyd': './datasets/neurips/new_generated/PACS/PACS_final_static_cot_50_floyd_subsampled_filtered',
-#         'cogview2': './datasets/neurips/new_generated/PACS/PACS_final_static_cot_50_cogview2_subsampled',
-# }
-
-# cct
-# PATH_dict = {
-#     'sdxl': './datasets/neurips/new_generated/cct/cct_static_cot_50_sdxl_subsampled_filtered',
-#     'dalle2': './datasets/neurips/new_generated/cct/cct_static_cot_50_dalle2_subsampled_filtered',
-#     'floyd': './datasets/neurips/new_generated/cct/cct_static_cot_50_floyd_subsampled_filtered',
-#     'cogview2': './datasets/neurips/new_generated/cct/cct_static_cot_50_cogview2_subsampled'
-# }
-
-# PACS before
-# PATH_dict = {
-#     'sdxl': './datasets/neurips/PACS/PACS_sdxl_diversified_subsampled',
-#     'dalle2': './datasets/neurips/PACS/PACS_dalle2_subsampled',
-#     'floyd': './datasets/neurips/PACS/PACS_floyd_subsampled',
-#     'cogview2': './datasets/neurips/PACS/PACS_cogview2_subsampled',
-# }
+count_dict = PACS_count
+rmd_pickle_path = './RMD_scores/PACS_final_sdturbo.pkl'
+target_path = './raw_datasets/iclr_generated/PACS/PACS_sd3_equalweight'
 
 # Load the RMD scores
 with open(rmd_pickle_path, 'rb') as f:
     RMD_scores = pickle.load(f)
+
+# Parse RMD pickle file to get PATH dict
+models = list(set([key[0] for key in RMD_scores.keys()]))
+PATH_dict = {}
+for (model, cls), score_list in RMD_scores.items():
+    if model in PATH_dict:
+        continue
+    else:
+        PATH_dict[model] = str(Path(score_list[0][0]).parents[1])
+
+# PATH_dict = {
+#     'sdxl': './raw_datasets/iclr_generated/PACS/PACS_sdxl_subsampled_filtered',
+#     'floyd': './raw_datasets/iclr_generated/PACS/PACS_floyd_subsampled_filtered',
+#     'cogview2': './raw_datasets/iclr_generated/PACS/PACS_cogview2_subsampled_filtered',
+#     'sd3': './raw_datasets/iclr_generated/PACS/PACS_sd3_subsampled_filtered'
+# }
 
 # Load the images
 model_to_images_dict = {}
