@@ -28,7 +28,7 @@ for cls in tqdm(list_to_generate):
     if not os.path.exists(save_dir):
         os.makedirs(save_dir)
     print(f"Start generating {num_images} images.")
-    for i in range(num_images):
+    for i in tqdm(range(num_images)):
         print(f"Generating image for {cls}")
         image = model.generate_one_image(prompt)
         image_path = os.path.join(save_dir, str(i).zfill(6) + '.png')
