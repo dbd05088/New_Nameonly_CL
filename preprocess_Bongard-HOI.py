@@ -102,9 +102,9 @@ def save_dataset(dataset_name, input_folder, output_folder, subset_name, max_num
     print(f"Total samples: {len(all_samples)}")
 
 # User inputs
-num_per_set = [2,3,4]
+num_per_sets = [2,3,4]
 seeds = [1,2,3,4,5]
-types = "generated"
+types = "ma"
 
 for num_per_set in num_per_sets:
     for seed in seeds:
@@ -114,5 +114,5 @@ for num_per_set in num_per_sets:
         prompts = f'''Given {num_per_set} "positive" images and {num_per_set} "negative" images, where both "positive" and "negative" images share a "common" object, and only "positive" images share a "common" action whereas "negative" images have different actions compared to the "positive" images, the "common" action is exclusively depicted by the "positive" images. And then given 1 "query" image, please determine whether it belongs to "positive" or "negative".'''
 
         ### Only for MA ###
-        # save_dataset('Bongard-HOI', input_folder, output_folder, 'Bongard-HOI_test')
+        save_dataset('Bongard-HOI', input_folder, output_folder, 'Bongard-HOI_test')
         save_dataset('Bongard-HOI', input_folder, output_folder, f'Bongard-HOI_train_seed{seed}')
