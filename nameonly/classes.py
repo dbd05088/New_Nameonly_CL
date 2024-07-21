@@ -54,3 +54,11 @@ pacs_sdxl_new_count = {'horse': 91, 'elephant': 92, 'person': 197, 'dog': 86, 'g
 pacs_dalle2_new_count = {'horse': 68, 'elephant': 69, 'person': 148, 'dog': 65, 'guitar': 63, 'giraffe': 62, 'house': 96}
 NICO_count = {'football': 80, 'airplane': 80, 'dolphin': 80, 'dog': 80, 'elephant': 80, 'tent': 80, 'pumpkin': 80, 'wolf': 80, 'goose': 80, 'frog': 80, 'hat': 80, 'truck': 80, 'crab': 80, 'cactus': 80, 'squirrel': 80, 'cat': 80, 'bicycle': 80, 'sailboat': 80, 'bear': 80, 'clock': 80, 'fishing_rod': 80, 'shrimp': 80, 'crocodile': 80, 'spider': 80, 'flower': 80, 'kangaroo': 80, 'cow': 80, 'wheat': 80, 'helicopter': 80, 'tiger': 80, 'butterfly': 80, 'hot_air_balloon': 80, 'lion': 80, 'tortoise': 80, 'corn': 80, 'seal': 80, 'giraffe': 80, 'motorcycle': 80, 'sunflower': 80, 'fox': 80, 'umbrella': 80, 'bus': 80, 'lifeboat': 80, 'pineapple': 80, 'car': 80, 'sheep': 80, 'monkey': 80, 'mailbox': 80, 'horse': 80, 'scooter': 80, 'owl': 80, 'racket': 80, 'lizard': 80, 'chair': 80, 'ostrich': 80, 'rabbit': 80, 'gun': 80, 'ship': 80, 'bird': 80, 'train': 80}
 count_dict = {'PACS': PACS_count, 'DomainNet': DomainNet_count, 'cifar10': cifar10_count, 'cct': cct_count, 'NICO': NICO_count}
+
+def get_count_value_from_string(search_string):
+    search_string = search_string.lower()
+    for key in count_dict.keys():
+        if key.lower() in search_string:
+            return count_dict[key]
+    
+    raise ValueError(f"Search string - {search_string} doesn't match any of count dict!")
