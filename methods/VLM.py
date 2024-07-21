@@ -2,17 +2,20 @@ import os
 import time
 import datetime
 import logging
+import copy
 import pandas as pd
 import numpy as np
 import torch
 import tqdm
 import torch.nn as nn
 from torch.utils.data import DataLoader
+from collections import defaultdict
 # from torch.utils.tensorboard import SummaryWriter
 
 from utils.data_loader_VLM_base import MultiProcessLoader
 from utils.data_loader_VLM import LazySupervisedDataset, DataCollatorForSupervisedDataset, GenerationDataset
-from utils.train_utils import  get_VLMmodel, CustomStoppingCriteria
+from utils.train_utils_VLM import get_VLMmodel
+from utils.train_utils import CustomStoppingCriteria
 from peft.tuners.lora import LoraLayer
 import bitsandbytes
 
@@ -43,9 +46,6 @@ from collections.abc import Mapping
 
 from utils.eval_metrics import NLPEvaluator, matching_token_num
 
-OPTIMIZER_NAME = "optimizer.pt"
-SCHEDULER_NAME = "scheduler.pt"
-
 import json
 
 class VLM: # Client
@@ -60,6 +60,7 @@ class VLM: # Client
         bnb_model_from_pretrained_args=None,
     ):
         kwargs = vars(args)
+        self.previous_param = defaultdict(int)
         self.args = args
         self.data_args = data_args
         self.model_args = model_args
@@ -78,7 +79,8 @@ class VLM: # Client
         print("zero_shot", self.zero_shot)
         self.lr = kwargs["learning_rate"]
         self.mm_projector_lr = kwargs["mm_projector_lr"]
-
+        self.dataset = self.data_args.dataset
+        print("self.dataset", self.dataset)
         assert kwargs["temp_batchsize"] <= kwargs["per_gpu_train_batch_size"]
         self.batch_size = kwargs["per_gpu_train_batch_size"]
         self.temp_batch_size = kwargs["temp_batchsize"]
@@ -95,6 +97,7 @@ class VLM: # Client
 
         self.seen_action_classes = []
         self.seen_object_classes = []
+        self.seen_categories = []
         self.train_datalist = train_datalist
         self.test_datalist = test_datalist
         self.cls_dict = {}
@@ -123,11 +126,9 @@ class VLM: # Client
         self.exposed_domains = []
         self.waiting_batch = []
         self.initialize_future()
-        self.init_model()
+        # self.init_model()
         self.total_flops = 0.0
         self.state = {}
-
-
         self.watchdog = ManagerWatchdog()
         
         self.gradient_accumulation_steps = kwargs['gradient_accumulation_steps']
@@ -135,8 +136,7 @@ class VLM: # Client
         if self.gradient_checkpointing:
             gradient_checkpointing_kwargs = {'use_reentrant':False}
             self.model.gradient_checkpointing_enable(gradient_checkpointing_kwargs)
-        self.num_rounds = kwargs["num_rounds"]
-        
+                    
         # 576 for clip image encoder (llava)
         # 729 for siglip (bunny)
         if 'llava' in self.model_args.model_name_or_path.lower():
@@ -156,13 +156,13 @@ class VLM: # Client
         # self.create_scheduler(max_steps, optimizer=self.optimizer)
 
         # Activate gradient checkpointing if needed
-        if self.args.gradient_checkpointing: # default False
-            if self.args.gradient_checkpointing_kwargs is None:
-                gradient_checkpointing_kwargs = {}
-            else:
-                gradient_checkpointing_kwargs = self.args.gradient_checkpointing_kwargs
+        # if self.args.gradient_checkpointing: # default False
+        #     if self.args.gradient_checkpointing_kwargs is None:
+        #         gradient_checkpointing_kwargs = {}
+        #     else:
+        #         gradient_checkpointing_kwargs = self.args.gradient_checkpointing_kwargs
 
-            self.model.gradient_checkpointing_enable(gradient_checkpointing_kwargs=gradient_checkpointing_kwargs)
+        #     self.model.gradient_checkpointing_enable(gradient_checkpointing_kwargs=gradient_checkpointing_kwargs)
     
     # from llava_traininer
     def create_optimizer(self):
@@ -172,37 +172,57 @@ class VLM: # Client
         We provide a reasonable default that works well. If you want to use something else, you can pass a tuple in the
         Trainer's init through `optimizers`, or subclass and override this method in a subclass.
         """
-
-        opt_model = self.model
-
+        print("self.args.mm_projector_lr", self.args.mm_projector_lr, "self.lr", self.lr)
         if self.optimizer is None:
-            decay_parameters = get_parameter_names(opt_model, ALL_LAYERNORM_LAYERS)
+            decay_parameters = get_parameter_names(self.model, ALL_LAYERNORM_LAYERS)
             decay_parameters = [name for name in decay_parameters if "bias" not in name]
             if self.args.mm_projector_lr is not None:
-                projector_parameters = [name for name, _ in opt_model.named_parameters() if ("mm_projector" in name)]
+                projector_parameters = [name for name, _ in self.model.named_parameters() if ("mm_projector" in name)]
+                print("param1")
+                print([
+                        n for n, p in self.model.named_parameters() if (n in decay_parameters and n not in projector_parameters and p.requires_grad)
+                    ])
+                print()
+                print("param2")
+                print([
+                        n for n, p in self.model.named_parameters() if (n not in decay_parameters and n not in projector_parameters and p.requires_grad)
+                    ])
+                print()
+                print("param3")
+                print([
+                        n for n, p in self.model.named_parameters() if (n in decay_parameters and n in projector_parameters and p.requires_grad)
+                    ])
+                print()
+                print("param4")
+                print([
+                        n for n, p in self.model.named_parameters() if (n not in decay_parameters and n in projector_parameters and p.requires_grad)
+                    ])
+                print()
                 optimizer_grouped_parameters = [
                     {
                         "params": [
-                            p for n, p in opt_model.named_parameters() if (n in decay_parameters and n not in projector_parameters and p.requires_grad)
+                            p for n, p in self.model.named_parameters() if (n in decay_parameters and n not in projector_parameters and p.requires_grad)
                         ],
                         "weight_decay": self.args.weight_decay,
+                        "lr":self.lr
                     },
                     {
                         "params": [
-                            p for n, p in opt_model.named_parameters() if (n not in decay_parameters and n not in projector_parameters and p.requires_grad)
+                            p for n, p in self.model.named_parameters() if (n not in decay_parameters and n not in projector_parameters and p.requires_grad)
                         ],
                         "weight_decay": 0.0,
+                        "lr":self.lr
                     },
                     {
                         "params": [
-                            p for n, p in opt_model.named_parameters() if (n in decay_parameters and n in projector_parameters and p.requires_grad)
+                            p for n, p in self.model.named_parameters() if (n in decay_parameters and n in projector_parameters and p.requires_grad)
                         ],
                         "weight_decay": self.args.weight_decay,
                         "lr": self.args.mm_projector_lr,
                     },
                     {
                         "params": [
-                            p for n, p in opt_model.named_parameters() if (n not in decay_parameters and n in projector_parameters and p.requires_grad)
+                            p for n, p in self.model.named_parameters() if (n not in decay_parameters and n in projector_parameters and p.requires_grad)
                         ],
                         "weight_decay": 0.0,
                         "lr": self.args.mm_projector_lr,
@@ -212,13 +232,13 @@ class VLM: # Client
                 optimizer_grouped_parameters = [
                     {
                         "params": [
-                            p for n, p in opt_model.named_parameters() if (n in decay_parameters and p.requires_grad)
+                            p for n, p in self.model.named_parameters() if (n in decay_parameters and p.requires_grad)
                         ],
                         "weight_decay": self.args.weight_decay,
                     },
                     {
                         "params": [
-                            p for n, p in opt_model.named_parameters() if (n not in decay_parameters and p.requires_grad)
+                            p for n, p in self.model.named_parameters() if (n not in decay_parameters and p.requires_grad)
                         ],
                         "weight_decay": 0.0,
                     },
@@ -231,7 +251,7 @@ class VLM: # Client
                 manager = bitsandbytes.optim.GlobalOptimManager.get_instance()
 
                 skipped = 0
-                for module in opt_model.modules():
+                for module in self.model.modules():
                     if isinstance(module, nn.Embedding):
                         skipped += sum({p.data_ptr(): p.numel() for p in module.parameters()}.values())
                         print(f"skipped {module}: {skipped/2**20}M params")
@@ -282,7 +302,7 @@ class VLM: # Client
             if isinstance(module, LoraLayer):
                 module.reset_lora_parameters('default', True)
         print("self.model")
-        # print(self.model)
+        print(self.model)
         self.logger.info("done reset lora layers\n")
 
     # Memory 새로 정의 (not MemoryBase)
@@ -360,9 +380,13 @@ class VLM: # Client
 
     def online_step(self, sample, sample_num):
         self.sample_num = sample_num
-        if sample["object_class"] not in self.seen_object_classes and sample["action_class"] not in self.seen_action_classes:
-            self.seen_object_classes.append(sample["object_class"])
-            self.seen_action_classes.append(sample["action_class"])
+        if self.dataset == "Bongard-HOI":
+            if sample["object_class"] not in self.seen_object_classes and sample["action_class"] not in self.seen_action_classes:
+                self.seen_object_classes.append(sample["object_class"])
+                self.seen_action_classes.append(sample["action_class"])
+        elif self.dataset == "Bongard-Openworld":
+            if sample["commonSense"] not in self.seen_categories:
+                self.seen_categories.append(sample["commonSense"])
             
         self.temp_batch.append(sample)
         self.num_updates += self.online_iter
@@ -405,12 +429,46 @@ class VLM: # Client
         loss = outputs["loss"] if isinstance(outputs, dict) else outputs[0]
         return (loss, outputs) if return_outputs else loss
 
+
+    # def online_train(self, iterations=1):
+    #     total_loss, correct, num_data = 0.0, 0.0, 0.0
+    #     self.model.train()
+    #     self.optimizer.zero_grad()
+    #     for i in range(iterations):
+    #         self.iter += 1
+    #         data = self.get_batch()
+    #         data = self._prepare_inputs(data)
+    #         loss = self.compute_loss(self.model, data)
+    #         loss.backward()
+    #         for name, param in self.model.named_parameters():
+    #             if param.requires_grad:
+    #                 self.previous_param[name] = copy.deepcopy(param)
+            
+    #         # gradient check option      
+    #         # for param in self.model.parameters():
+    #         #     if param.requires_grad:
+    #         #         print(param.grad.view(-1))
+                         
+    #         self.optimizer.step()
+    #         self.optimizer.zero_grad()
+            
+    #         # for name, param in self.model.named_parameters():
+    #         #     if param.requires_grad:
+    #         #         check_tensor = self.previous_param[name] != param
+    #         #         if torch.sum(check_tensor.long()) > 0:
+    #         #             print(name, "check", torch.sum(check_tensor.long()))
+    #         #             self.previous_param[name] = param   
+
+    #         total_loss += loss.item()
+    #     return total_loss / iterations
+
+
     def online_train(self, iterations=1):
         total_loss, correct, num_data = 0.0, 0.0, 0.0
+        self.model.train()
         self.optimizer.zero_grad()
         for i in range(iterations):
             self.iter += 1
-            self.model.train()
             data = self.get_batch()
             data = self._prepare_inputs(data)
             loss = self.compute_loss(self.model, data)
@@ -418,24 +476,21 @@ class VLM: # Client
             loss.backward()
             
             if (self.iter) % self.gradient_accumulation_steps == 0:
-                self.before_optimizer_step()
+                # for name, param in self.model.named_parameters():
+                #     if param.requires_grad:
+                #         self.previous_param[name] = param   
                 self.optimizer.step()
-                # self.lr_scheduler.step()
-                self.after_optimizer_step()
                 self.optimizer.zero_grad()
+                # for name, param in self.model.named_parameters():
+                #     if param.requires_grad:
+                #         #if type(self.previous_param[name]) != int:
+                #         check_tensor = self.previous_param[name] != param
+                #         if torch.sum(check_tensor.long()) > 0:
+                #             print(name, "check", torch.sum(check_tensor.long()))
+                #         self.previous_param[name] = param   
 
-            # self.after_model_update()
             total_loss += loss.item()
         return total_loss / iterations
-
-    def before_optimizer_step(self):
-        pass
-
-    def before_model_update(self):
-        pass
-
-    def after_optimizer_step(self):
-        pass
 
     def report_training(self, sample_num, train_loss):
         self.logger.info(
@@ -447,11 +502,14 @@ class VLM: # Client
     def report_test(self, sample_num, scores, dataname):
         self.logger.info(
             f"Test | Sample # {sample_num} | Data {dataname} | precision {scores['precision']:.4f} | recall {scores['recall']:.4f} | Bleu_1 {scores['Bleu_1']} | Bleu_2 {scores['Bleu_2']} | Bleu_3 {scores['Bleu_3']} |Bleu_4 {scores['Bleu_4']} | METEOR {scores['METEOR']} | ROUGE_L {scores['ROUGE_L']} | CIDEr {scores['CIDEr']} |"
-        )
+        )      
 
     def online_evaluate(self, test_datalist, iteration):
         test_df = pd.DataFrame(test_datalist)
-        seen_test_df = test_df[(test_df['object_class'].isin(self.seen_object_classes)) & (test_df['object_class'].isin(self.seen_object_classes))]
+        if self.dataset == "Bongard-HOI":
+            seen_test_df = test_df[(test_df['action_class'].isin(self.seen_action_classes)) & (test_df['object_class'].isin(self.seen_object_classes))]
+        elif self.dataset == "Bongard-Openworld":
+            seen_test_df = test_df[test_df['commonSense'].isin(self.seen_categories)]
         print("eval set size", len(seen_test_df))
 
         seen_testdata_list = []
@@ -462,7 +520,7 @@ class VLM: # Client
             seen_testdata_list.append(dic)
 
         dataset = GenerationDataset(seen_testdata_list, self.tokenizer, self.data_args)
-        dataloader = DataLoader(dataset, batch_size=4, shuffle=False, pin_memory=True, num_workers=2, drop_last=False, collate_fn=DataCollatorForGenerationDataset(self.tokenizer))
+        dataloader = DataLoader(dataset, batch_size=2, shuffle=False, pin_memory=True, num_workers=2, drop_last=False, collate_fn=DataCollatorForGenerationDataset(self.tokenizer))
         
         if 'llava' in self.model_args.model_name_or_path.lower():
             conv = conversation_lib_llava.default_conversation
