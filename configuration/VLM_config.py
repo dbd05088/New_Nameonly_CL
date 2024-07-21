@@ -26,6 +26,8 @@ class DataArguments:
                            metadata={"help": "Path to the training data."})
     lazy_preprocess: bool = False
     is_multimodal: bool = False
+    num_set: int = "5"
+    data_type: str = "ma"
     dataset: str = field(default="bongard-HOI")
     image_folder: Optional[str] = field(default=None)
     image_aspect_ratio: str = 'pad'

@@ -5,9 +5,6 @@ from collections import defaultdict
 
 random.seed(42)
 
-num_per_set = 2
-prompts = f'''Given {num_per_set} "positive" images and {num_per_set} "negative" images, where both "positive" and "negative" images share a "common" object, and only "positive" images share a "common" action whereas "negative" images have different actions compared to the "positive" images, the "common" action is exclusively depicted by the "positive" images. And then given 1 "query" image, please determine whether it belongs to "positive" or "negative".'''
-
 def save_dataset(dataset_name, input_folder, output_folder, subset_name, max_num=None):
     # subset_folder = os.path.join(output_folder, subset_name)
     # if not os.path.exists(subset_folder):
@@ -64,6 +61,10 @@ def save_dataset(dataset_name, input_folder, output_folder, subset_name, max_num
             }
             positive_samples.append(positive_sample)
             
+            # Randomly reselect images for positive and negative sets
+            selected_positive = random.sample(positive_files, num_per_set)
+            selected_negative = random.sample(negative_files, num_per_set)
+                   
             # Create negative sample
             negative_sample = {
                 "id": f"{type_name}-{idx}-negative",
@@ -100,9 +101,18 @@ def save_dataset(dataset_name, input_folder, output_folder, subset_name, max_num
     
     print(f"Total samples: {len(all_samples)}")
 
-# Usage example
-input_folder = 'collections/Bongard-HOI/splits'
-output_folder = 'collections/Bongard-HOI'
+# User inputs
+num_per_set = [2,3,4]
+seeds = [1,2,3,4,5]
+types = "generated"
 
-save_dataset('Bongard-HOI', input_folder, output_folder, 'Bongard-HOI_test')
-save_dataset('Bongard-HOI', input_folder, output_folder, 'Bongard-HOI_train_seed1')
+for num_per_set in num_per_sets:
+    for seed in seeds:
+        input_folder = f'collections/Bongard-HOI/{types}_splits'
+        output_folder = f'collections/Bongard-HOI/{types}/{num_per_set*2+1}_set'
+        os.makedirs(output_folder, exist_ok=True)
+        prompts = f'''Given {num_per_set} "positive" images and {num_per_set} "negative" images, where both "positive" and "negative" images share a "common" object, and only "positive" images share a "common" action whereas "negative" images have different actions compared to the "positive" images, the "common" action is exclusively depicted by the "positive" images. And then given 1 "query" image, please determine whether it belongs to "positive" or "negative".'''
+
+        ### Only for MA ###
+        # save_dataset('Bongard-HOI', input_folder, output_folder, 'Bongard-HOI_test')
+        save_dataset('Bongard-HOI', input_folder, output_folder, f'Bongard-HOI_train_seed{seed}')

@@ -7,11 +7,12 @@ import random
 import os.path
 
 dataset = "Bongard-HOI"
-seed = 1
+types = "generated"
+seed = 5
 num_tasks = 5
-split_record_file_name = f"{dataset}_split_record.pkl"
+split_record_file_name = f"{dataset}_{types}_split_record.pkl"
 
-with open("train.json", "r") as data:
+with open(f"train_{types}.json", "r") as data:
     train_lists = json.load(data)
     
 with open("test.json", "r") as data:
@@ -75,11 +76,17 @@ print()
 
 intersection_pairs = np.array(list(set(list(train_count_dict.keys())).intersection(set(list(test_count_dict.keys()))) - set(["jump_motorcycle", "ride_motorcycle", "eat_at_dining_table", "hold_dog", "sit_on_bed", "ride_bicycle"])))
 intersection_pairs.sort()
-
 print("# of train-test intersection", len(intersection_pairs))
-np.random.seed(seed)
-np.random.shuffle(intersection_pairs)
-task_splits = np.split(intersection_pairs, num_tasks)
+
+### task split load/generate ### 
+if os.path.isfile(os.path.join("ma", split_record_file_name)):
+    with open(file=os.path.join("ma", split_record_file_name), mode='rb') as f:
+        task_splits=pickle.load(f)[seed]["task_splits"]
+else:
+    np.random.seed(seed)
+    np.random.shuffle(intersection_pairs)
+    task_splits = np.split(intersection_pairs, num_tasks)
+
 train_data_list = []
 test_data_list = []
 train_eval_point = []

@@ -1,22 +1,26 @@
 #/bin/bash
+sudo sysctl -w vm.max_map_count=262144
+
 # CIL CONFIG
-NOTE="stream_only_LLaVA_seed1_1e-5" # experiment name *****All the models are saved in client_states_$NOTE folder*******
+NOTE="bongard_openworld_5set_memonly_batch1_accum4_lr5e-5_iter1" # experiment name *****All the models are saved in client_states_$NOTE folder*******
 MODE="VLM" # method name
 MODEL_ARCH="llava" # llava bunny_3b bunny_8b
 RND_SEED=1
-DATASET="Bongard-HOI"
+DATASET="Bongard-Openworld"
 
 # CL args
 FUTURE_STEPS=1
+DATA_TYPE="ma" #ma, generaetd, web
+NUM_SET=5 # 5 - support set : 4 (2 positive, 2 negative) + 1 query, choice = [5, 7, 9]
 MEM_SIZE=500
 ONLINE_ITER=1
-BATCHSIZE=2
-TEMP_BATCHSIZE=2
-EVAL_PERIOD=1000
+BATCHSIZE=1
+TEMP_BATCHSIZE=0
+EVAL_PERIOD=100
 EVAL_POINT="600_1200_1800_2400"
 
-LR=1e-5
-MM_PROJECTOR_LR=1e-5
+LR=5e-5
+MM_PROJECTOR_LR=5e-5
 OPT_NAME="adamw_torch" # adam8bit_bnb adamw_torch
 SCHED_NAME="cosine_with_restarts" #cosine
 WARMUP_RATIO=0.03 # SHOULD BE 0.03 / NUM_ROUNDS
@@ -47,7 +51,7 @@ else
     exit 1
 fi
 
-CUDA_VISIBLE_DEVICES=5 nohup python main_new_llava.py \
+CUDA_VISIBLE_DEVICES=0 nohup python main_new_llava.py \
     --model_name_or_path $MODEL_NAME \
     --model_name_for_dataarg $MODEL_NAME \
     --model_type $MODEL_TYPE \
@@ -65,6 +69,8 @@ CUDA_VISIBLE_DEVICES=5 nohup python main_new_llava.py \
     --memory_size $MEM_SIZE \
     --seed $RND_SEED \
     --dataset $DATASET \
+    --num_set $NUM_SET \
+    --data_type $DATA_TYPE \
     --eval_point $EVAL_POINT \
     --optim $OPT_NAME --lr_scheduler_type $SCHED_NAME \
     --weight_decay 0. \

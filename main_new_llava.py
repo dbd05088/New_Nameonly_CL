@@ -1,6 +1,7 @@
 import logging.config
 import os
 import random
+import pickle
 import numpy as np
 import torch
 from configuration.VLM_config import ModelArguments, DataArguments, TrainingArguments
@@ -75,20 +76,24 @@ def main():
         device = torch.device("cpu")
     logger.info(f"Set the device ({device})")
 
-    # model, tokenizer, data_args = get_VLMmodel(model_args, training_args, bnb_model_from_pretrained_args, data_args)
-    with open(f"collections/{data_args.dataset}/{data_args.dataset}_train_seed{training_args.seed}.json") as fp:
+    ### Load Train & Test datalists ###
+    with open(f"collections/{data_args.dataset}/{data_args.data_type}/{data_args.num_set}_set/{data_args.dataset}_train_seed{training_args.seed}.json") as fp:
         train_datalists = json.load(fp)
 
-    with open(f"collections/{data_args.dataset}/{data_args.dataset}_test.json") as fp:
+    with open(f"collections/{data_args.dataset}/ma/{data_args.num_set}_set/{data_args.dataset}_test.json") as fp:
         test_datalists = json.load(fp)    
     
     print("num_train_samples", len(train_datalists), "num_test_samples", len(test_datalists)) #num_samples[args.dataset]
-    eval_point = [int(point) for point in training_args.eval_point.split("_")]
+    
+    ### Load Training Eval points ###
+    #eval_point = [int(point) for point in training_args.eval_point.split("_")]
+    with open(file=f'collections/{data_args.dataset}/splits/{data_args.dataset}_split_record.pkl', mode='rb') as f:
+        split_config = pickle.load(f)
+    eval_point = split_config[training_args.seed]["train_eval_point"]
     print("eval_point")
     print(eval_point)
 
     logger.info(f"Select a CIL method ({training_args.mode})")
-    # select_method(args, train_datalist, test_datalist, device, model_args = None, data_args = None, training_args = None, bnb_model_from_pretrained_args = None):
     method = select_method(training_args, train_datalists, test_datalists, device, model_args=model_args,data_args=data_args, bnb_model_from_pretrained_args=bnb_model_from_pretrained_args)
     eval_results = defaultdict(list)
 
@@ -104,7 +109,7 @@ def main():
         samples_cnt += 1
         method.online_step(data, samples_cnt)
 
-        if samples_cnt % training_args.eval_period == 0:
+        if samples_cnt in eval_point or samples_cnt % training_args.eval_period == 0:
             method.online_evaluate(test_datalists, samples_cnt)
 
     if eval_results["data_cnt"][-1] != samples_cnt:
