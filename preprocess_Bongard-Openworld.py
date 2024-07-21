@@ -12,19 +12,16 @@ import numpy as np
 np.random.seed(42)
 # random.seed(42)
 
-num_per_set = 2
-prompts = f'''Given {num_per_set} "positive" images and {num_per_set} "negative" images, where "positive" images share "common" visual concepts and "negative" images cannot, the "common" visual concepts exclusively depicted by the "positive" images. And then given 1 "query" image, please determine whether it belongs to "positive" or "negative".'''
-
 def save_dataset(dataset_name, input_folder, output_folder, subset_name, seed=None):
     subset_folder = os.path.join(input_folder, subset_name)
     if not os.path.exists(subset_folder):
         os.makedirs(subset_folder)
     
-    if subset_name == "test":
-        postfix = f"{dataset_name}_{subset_name}"
-    else:
-        postfix = f"{dataset_name}_{subset_name}_seed{seed}"
-    with open(f"{input_folder}/{postfix}.json") as fp:
+    # if subset_name == "test":
+    #     postfix = f"{dataset_name}_{subset_name}"
+    # else:
+    #     postfix = f"{dataset_name}_{subset_name}_seed{seed}"
+    with open(f"{input_folder}/{subset_name}.json") as fp:
         datalist = json.load(fp)
     json_data_list = []
     
@@ -92,15 +89,13 @@ def save_dataset(dataset_name, input_folder, output_folder, subset_name, seed=No
                 json_data_list.append(json_data)
                 
     # Save the JSON data list to a file
-    json_output_path = os.path.join(output_folder, postfix + ".json")
+    json_output_path = os.path.join(output_folder, subset_name + ".json")
     print(len(json_data_list))
     with open(json_output_path, 'w') as json_file:
         json.dump(json_data_list, json_file, indent=4)
 
 # Usage example
-input_folder = 'collections/Bongard-Openworld/splits'
-output_folder = 'collections/Bongard-Openworld'
-train_seed = 1
+
 # preprocess jsonl to json
 # train (combine train and val)
 # train_data = []
@@ -125,13 +120,20 @@ train_seed = 1
 #     json.dump(test_data, json_file, indent=4)
 
 # User inputs
-num_per_set = [2,3,4]
+num_per_sets = [2,3,4]
 seeds = [1,2,3,4,5]
-types = "generated"
+types = "ma"
+input_folder = f'collections/Bongard-Openworld/{types}'
+output_folder = 'collections/Bongard-Openworld'
+train_seed = 1
 
 for num_per_set in num_per_sets:
     for seed in seeds:
-        ### Only for MA ###
-        save_dataset('Bongard-Openworld', input_folder, output_folder, 'test')
-        save_dataset('Bongard-Openworld', input_folder, output_folder, 'train', seed = seed)
+        input_folder = f'collections/Bongard-Openworld/{types}_splits'
+        output_folder = f'collections/Bongard-Openworld/{types}/{num_per_set*2+1}_set'
+        os.makedirs(output_folder, exist_ok=True)
+        prompts = f'''Given {num_per_set} "positive" images and {num_per_set} "negative" images, where "positive" images share "common" visual concepts and "negative" images cannot, the "common" visual concepts exclusively depicted by the "positive" images. And then given 1 "query" image, please determine whether it belongs to "positive" or "negative".'''
 
+        ### Only for MA ###
+        save_dataset('Bongard-Openworld', input_folder, output_folder, 'Bongard-Openworld_test')
+        save_dataset('Bongard-Openworld', input_folder, output_folder, f'Bongard-Openworld_train_seed{seed}')
