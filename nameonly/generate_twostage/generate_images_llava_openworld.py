@@ -36,7 +36,7 @@ for line in tqdm(list_to_generate):
     save_dir = os.path.join(args.root_dir, uid)
     if not os.path.exists(save_dir):
         os.makedirs(save_dir)
-    for i in range(num_images):
+    for i in tqdm(range(num_images)):
         print(f"Generating image for uid:{uid}, caption:{caption}")
         image = model.generate_one_image(caption)
         image_name = f"{sanitize_filename(concept)}_{str(i).zfill(6)}"
