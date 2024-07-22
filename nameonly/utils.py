@@ -11,6 +11,15 @@ from tqdm import tqdm
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
+def softmax_with_temperature(z, T) : 
+    z = np.array(z)
+    z = z / T 
+    max_z = np.max(z) 
+    exp_z = np.exp(z-max_z) 
+    sum_exp_z = np.sum(exp_z)
+    y = exp_z / sum_exp_z
+    return y
+
 def date_to_unix(date_obj: datetime.date) -> int:
     datetime_obj = datetime(date_obj.year, date_obj.month, date_obj.day)
     return int(time.mktime(datetime_obj.timetuple()))
