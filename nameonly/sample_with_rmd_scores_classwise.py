@@ -2,18 +2,11 @@
 import os, random, shutil
 import pickle
 import numpy as np
+import json
 from classes import *
+from utils import softmax_with_temperature
 from tqdm import tqdm
 from pathlib import Path
-
-def softmax_with_temperature(z, T) : 
-    z = np.array(z)
-    z = z / T 
-    max_z = np.max(z) 
-    exp_z = np.exp(z-max_z) 
-    sum_exp_z = np.sum(exp_z)
-    y = exp_z / sum_exp_z
-    return y
 
 Equalweight = True
 TopK = False
@@ -23,39 +16,26 @@ INVERSE = False
 TEMPERATURE = 2
 
 # NICO
-count_dict = PACS_count
-rmd_pickle_path = './RMD_scores/PACS_final_sdturbo.pkl'
+base_path = './raw_datasets/iclr_generated/PACS'
+json_path = './RMD_scores/PACS_final_sd3.json'
 target_path = './raw_datasets/iclr_generated/PACS/PACS_sd3_equalweight'
 
-# Load the RMD scores
-with open(rmd_pickle_path, 'rb') as f:
-    RMD_scores = pickle.load(f)
+count_dict = get_count_value_from_string(base_path)
+with open(json_path, 'r') as f:
+    RMD_scores = json.load(f)
 
 # Parse RMD pickle file to get PATH dict
-models = list(set([key[0] for key in RMD_scores.keys()]))
+models = list(RMD_scores.keys())
 PATH_dict = {}
-for (model, cls), score_list in RMD_scores.items():
-    if model in PATH_dict:
-        continue
-    else:
-        PATH_dict[model] = str(Path(score_list[0][0]).parents[1])
-
-# PATH_dict = {
-#     'sdxl': './raw_datasets/iclr_generated/PACS/PACS_sdxl_subsampled_filtered',
-#     'floyd': './raw_datasets/iclr_generated/PACS/PACS_floyd_subsampled_filtered',
-#     'cogview2': './raw_datasets/iclr_generated/PACS/PACS_cogview2_subsampled_filtered',
-#     'sd3': './raw_datasets/iclr_generated/PACS/PACS_sd3_subsampled_filtered'
-# }
-
-# Load the images
-model_to_images_dict = {}
-for model, path in PATH_dict.items():
-    model_to_images_dict[model] = {cls: os.listdir(os.path.join(path, cls)) for cls in count_dict.keys()}
+for model in models:
+    first_class = next(iter(RMD_scores[model]))
+    relative_path = RMD_scores[model][first_class][0]['image_path'] # Get the first item
+    PATH_dict[model] = os.path.join(base_path, str(Path(relative_path).parents[1]))
 
 # Shuffle the images
 for model in PATH_dict.keys():
     for cls in count_dict.keys():
-        random.shuffle(model_to_images_dict[model][cls])
+        random.shuffle(RMD_scores[model][cls])
 
 ensembled_images = {cls: [] for cls in count_dict.keys()}
 model_class_selected_counter = {model: {cls: 0 for cls in count_dict.keys()} for model in PATH_dict.keys()}
@@ -65,68 +45,46 @@ for cls in tqdm(list(count_dict.keys())):
     # Original(RMD_scores): {(model, cls): [(image_path, RMD_score), ...]}
     # New: {model: RMD_score, ...}
 
-    # For top-k
-    image_rmd_scores = []
+    model_RMD_mapping = {model: [] for model in PATH_dict.keys()} # Model to RMD scores list of current class
     for (model, cls_), images in RMD_scores.items():
         if cls_ == cls:
             for image, score in images:
-                image_rmd_scores.append((model, image, score))
+                model_RMD_mapping[model].append(score)
     
-    if TopK:
-        image_rmd_scores.sort(key=lambda x: x[2], reverse=True)
-        for i in range(count_dict[cls]):
-            model_name = image_rmd_scores[i][0]; path = image_rmd_scores[i][1]
-            ensembled_images[cls].append({'model': model_name, 'image': path})
-            model_class_selected_counter[model_name][cls] += 1
-
-    elif BottomK:
-        image_rmd_scores.sort(key=lambda x: x[2], reverse=False)
-        for i in range(count_dict[cls]):
-            model_name = image_rmd_scores[i][0]; path = image_rmd_scores[i][1]
-            ensembled_images[cls].append({'model': model_name, 'image': path})
-            model_class_selected_counter[model_name][cls] += 1
+    # Get average RMD score for each model (in-place)
+    for model, scores in model_RMD_mapping.items():
+        model_RMD_mapping[model] = np.mean(scores)
+        print(f"Class {cls}, model {model}, average RMD score: {model_RMD_mapping[model]}, length: {len(scores)}")
     
-    else:
-        model_RMD_mapping = {model: [] for model in PATH_dict.keys()} # Model to RMD scores list of current class
-        for (model, cls_), images in RMD_scores.items():
-            if cls_ == cls:
-                for image, score in images:
-                    model_RMD_mapping[model].append(score)
+    if 'dalle2' in model_RMD_mapping and cls == 'underwear':
+        model_RMD_mapping['dalle2'] = 0.01 # To avoid numerical instability
+    
+    # Randomly choose the model according to the ensemble probability
+    while True:
+        scores = np.array([score for score in model_RMD_mapping.values()])
+        probabilities = softmax_with_temperature(scores, TEMPERATURE)
+        if Equalweight:
+            probabilities = [1 / len(model_RMD_mapping)] * len(model_RMD_mapping)
         
-        # Get average RMD score for each model (in-place)
-        for model, scores in model_RMD_mapping.items():
-            model_RMD_mapping[model] = np.mean(scores)
-            print(f"Class {cls}, model {model}, average RMD score: {model_RMD_mapping[model]}, length: {len(scores)}")
+        if INVERSE:
+            # To get the inverse probabilities, first handle the numerical instability
+            if np.min(probabilities) < 0:
+                probabilities -= np.min(probabilities)
+            # Handle devision by zero
+            if np.sum(probabilities) == 0:
+                raise ValueError("All probabilities are zero")
+            probabilities = 1 / probabilities
+            probabilities /= np.sum(probabilities) # Normalize the probabilities
         
-        if 'dalle2' in model_RMD_mapping and cls == 'underwear':
-            model_RMD_mapping['dalle2'] = 0.01 # To avoid numerical instability
-        
-        # Randomly choose the model according to the ensemble probability
-        while True:
-            scores = np.array([score for score in model_RMD_mapping.values()])
-            probabilities = softmax_with_temperature(scores, TEMPERATURE)
-            if Equalweight:
-                probabilities = [1 / len(model_RMD_mapping)] * len(model_RMD_mapping)
-            
-            if INVERSE:
-                # To get the inverse probabilities, first handle the numerical instability
-                if np.min(probabilities) < 0:
-                    probabilities -= np.min(probabilities)
-                # Handle devision by zero
-                if np.sum(probabilities) == 0:
-                    raise ValueError("All probabilities are zero")
-                probabilities = 1 / probabilities
-                probabilities /= np.sum(probabilities) # Normalize the probabilities
-            
-            chosen_model = random.choices(list(model_RMD_mapping.keys()), weights=probabilities, k=1)[0]
-            if len(model_to_images_dict[chosen_model][cls]) > 0:
-                model_class_selected_counter[chosen_model][cls] += 1
-                chosen_image = model_to_images_dict[chosen_model][cls].pop()
-                chosen_image_path = os.path.join(PATH_dict[chosen_model], cls, chosen_image)
-                ensembled_images[cls].append({'model': chosen_model, 'image': chosen_image_path})
-            if len(ensembled_images[cls]) == count_dict[cls]:
-                print(f"Break for class {cls} with {len(ensembled_images[cls])} images")
-                break
+        chosen_model = random.choices(list(model_RMD_mapping.keys()), weights=probabilities, k=1)[0]
+        if len(model_to_images_dict[chosen_model][cls]) > 0:
+            model_class_selected_counter[chosen_model][cls] += 1
+            chosen_image = model_to_images_dict[chosen_model][cls].pop()
+            chosen_image_path = os.path.join(PATH_dict[chosen_model], cls, chosen_image)
+            ensembled_images[cls].append({'model': chosen_model, 'image': chosen_image_path})
+        if len(ensembled_images[cls]) == count_dict[cls]:
+            print(f"Break for class {cls} with {len(ensembled_images[cls])} images")
+            break
 
 # Check the number of images selected for each model, for each class
 for model, class_counter in model_class_selected_counter.items():

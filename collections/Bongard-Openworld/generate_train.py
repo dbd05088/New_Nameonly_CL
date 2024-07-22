@@ -4,9 +4,10 @@ import random
 from collections import Counter
 from tqdm import tqdm
 
+NUM_IMAGES = 14
 json_path = './train.jsonl'
 output_path = './train_generated.jsonl'
-samples_path = '../dataset/Bongard-Openworld'
+base_path = './images/generated'
 
 # Process jsonl file
 data_list = []
@@ -15,35 +16,26 @@ with open(json_path, 'r') as f:
         json_object = json.loads(line)
         data_list.append(json_object)
 
-breakpoint()
-    
 result_list = []
-for data in tqdm(data_dict):
-    generated_dict = {}
-    generated_dict['id'] = data['id']
-    generated_dict['type'] = data['type']
-    generated_dict['image_files'] = []
-    generated_dict['object_class'] = data['object_class']
-    generated_dict['action_class'] = data['action_class']
+for data in data_list:
+    data_dict = {}
+    data_dict['uid'] = data['uid']
+    data_dict['commonSense'] = data['commonSense']
+    data_dict['concept'] = data['concept']
+    data_dict['caption'] = data['caption']
+    data_dict['imageFiles'] = []
+    data_dict['urls'] = ['dummy'] * NUM_IMAGES
     
-    # Count each images per action
-    action_count_dict = Counter(data['action_class'])
-    action_samples_dict = {}
+    # Get image paths
+    image_dir = os.path.join(base_path, data['uid'])
+    images = [os.path.join(image_dir, image) for image in os.listdir(image_dir)]
+    data_dict['imageFiles'] = images
+    assert len(images) == NUM_IMAGES, "Number of images must be 14!"
     
-    # Randomly sample images
-    object_class = data['object_class'][0]
-    for action, count in action_count_dict.items():
-        sample_path = os.path.join(samples_path, object_class, action)
-        samples_list = os.listdir(sample_path)
-        samples_list = [os.path.join(sample_path, sample) for sample in samples_list]
-        samples = random.sample(samples_list, count)
-        action_samples_dict[action] = samples
-    
-    # Assign each sample to each action
-    for action in generated_dict['action_class']:
-        generated_dict['image_files'].append(action_samples_dict[action].pop(0))
-    
-    result_list.append(generated_dict)
+    result_list.append(data_dict)
+
 
 with open(output_path, 'w') as f:
-    json.dump(result_list, f)
+    for json_object in result_list:
+        json_line = json.dumps(json_object)
+        f.write(json_line + '\n')
