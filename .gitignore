@@ -160,3 +160,4 @@ results/PACS_final
 dataset/PACS_MA/
 results/DomainNet*
 nameonly/prompt_generation/src/clip
+collections/Bongard-HOI/images
