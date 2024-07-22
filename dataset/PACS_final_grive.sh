@@ -537,7 +537,35 @@
 # rm PACS_final_sdxl_2.tar
 # rm PACS_final_sdxl_3.tar
 
-# PACS_final sdxl_1 filtering (to watch the filtering difference)
-./gdrive files download 1s-GADySBoL_owVqfuykGp_xwCkT5x0Bi
-tar -xf PACS_final_sdxl_1_filtered.tar -C PACS_final
-rm PACS_final_sdxl_1_filtered.tar
+# # PACS_final sdxl_1 filtering (to watch the filtering difference)
+# ./gdrive files download 1s-GADySBoL_owVqfuykGp_xwCkT5x0Bi
+# tar -xf PACS_final_sdxl_1_filtered.tar -C PACS_final
+# rm PACS_final_sdxl_1_filtered.tar
+
+
+# 0722 RMD experiment (dalle2 alternative)
+# Compare kandinsky2, karlo, sd3, sdturbo
+gdrive files download 1e8nK422czexVVdyLLpgkKWjpPLTJJWbW
+gdrive files download 1XOke56yV1YQavKN_6-9POPgB_7U4ZiVF
+gdrive files download 1HjCisHVDo85rI4nnEgrYU9ryU2z1lGTp
+gdrive files download 1_u7msLSSBr6UyqXpT7sSbNA2LI2KT_Ar
+gdrive files download 1-UG4f2S8_ZnHKTTkc0NQbP-Fxr6VX9ka
+gdrive files download 1UGtyYxgB0yZpRfZw2yGYustZwmRwbYm-
+gdrive files download 12daGuQTYjF5-g8kwzbWCGDEBvZAHyFc4
+gdrive files download 1lHbviYFmEBFxeJEY9d0mv0_Ayju4uAvT
+tar -xf PACS_final_kandinsky2_equalweight.tar -C PACS_final
+tar -xf PACS_final_kandinsky2_RMD.tar -C PACS_final
+tar -xf PACS_final_karlo_equalweight.tar -C PACS_final
+tar -xf PACS_final_karlo_RMD.tar -C PACS_final
+tar -xf PACS_final_sd3_equalweight.tar -C PACS_final
+tar -xf PACS_final_sd3_RMD.tar -C PACS_final
+tar -xf PACS_final_sdturbo_equalweight.tar -C PACS_final
+tar -xf PACS_final_sdturbo_RMD.tar -C PACS_final
+rm PACS_final_kandinsky2_equalweight.tar
+rm PACS_final_kandinsky2_RMD.tar
+rm PACS_final_karlo_equalweight.tar
+rm PACS_final_karlo_RMD.tar
+rm PACS_final_sd3_equalweight.tar
+rm PACS_final_sd3_RMD.tar
+rm PACS_final_sdturbo_equalweight.tar
+rm PACS_final_sdturbo_RMD.tar
