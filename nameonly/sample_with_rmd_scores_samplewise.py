@@ -1,85 +1,82 @@
 import os, random, shutil
+import json
 import pickle
 import numpy as np
 from classes import *
+from utils import softmax_with_temperature
 from tqdm import tqdm
 from pathlib import Path
 
-def softmax_with_temperature(z, T) : 
-    z = np.array(z)
-    z = z / T 
-    max_z = np.max(z) 
-    exp_z = np.exp(z-max_z) 
-    sum_exp_z = np.sum(exp_z)
-    y = exp_z / sum_exp_z
-    return y
-
 # NORMALIZATION, CLIPPING
-normalize = True
-clip = True
+normalize = True # Fix
+clip = True # Fix
 lower_percentile = 5.0 # 5.0
 # lower_percentile = 2.5 # 5.0
 upper_percentile = 95.0 # 95.0
 # upper_percentile = 97.5 # 95.0
+
+equalweight = True
 TopK = False
 BottomK = False
-
 INVERSE = False
 TEMPERATURE = 0.5
 
-count_dict = PACS_count
-rmd_pickle_path = './RMD_scores/PACS_final_sd3.pkl'
-target_path = './raw_datasets/iclr_generated/PACS/PACS_sd3_RMD'
+base_path = './raw_datasets/iclr_generated/PACS'
+json_path = './RMD_scores/PACS_final_sd3.json'
+target_path = './raw_datasets/iclr_generated/PACS/PACS_sd3_equalweight'
 
-# Load the RMD scores
-with open(rmd_pickle_path, 'rb') as f:
-    RMD_scores = pickle.load(f)
+count_dict = get_count_value_from_string(base_path)
+with open(json_path, 'r') as f:
+    RMD_scores = json.load(f)
 
 # Parse RMD pickle file to get PATH dict
-models = list(set([key[0] for key in RMD_scores.keys()]))
+models = list(RMD_scores.keys())
 PATH_dict = {}
-for (model, cls), score_list in RMD_scores.items():
-    if model in PATH_dict:
-        continue
-    else:
-        PATH_dict[model] = str(Path(score_list[0][0]).parents[1])
-
-# Load the images
-model_to_images_dict = {}
-for model, path in PATH_dict.items():
-    model_to_images_dict[model] = {cls: os.listdir(os.path.join(path, cls)) for cls in count_dict.keys()}
+for model in models:
+    first_class = next(iter(RMD_scores[model]))
+    relative_path = RMD_scores[model][first_class][0]['image_path'] # Get the first item
+    PATH_dict[model] = os.path.join(base_path, str(Path(relative_path).parents[1]))
 
 # Shuffle the images
 for model in PATH_dict.keys():
     for cls in count_dict.keys():
-        random.shuffle(model_to_images_dict[model][cls])
+        random.shuffle(RMD_scores[model][cls])
 
 ensembled_images = {cls: [] for cls in count_dict.keys()}
 model_class_selected_counter = {model: {cls: 0 for cls in count_dict.keys()} for model in PATH_dict.keys()}
 
 for cls in tqdm(list(count_dict.keys())):
-    # First convert the mapping
-    # Original(RMD_scores): {(model, cls): [(image_path, RMD_score), ...]}
-    # New: {model: RMD_score, ...}
-
-    # For top-k
+    # For top-k, get list of [(model, image_path, score), ...]
     image_rmd_scores = []
-    for (model, cls_), images in RMD_scores.items():
-        if cls_ == cls:
-            for image, score in images:
-                image_rmd_scores.append((model, image, score))
+    for model, cls_images_dict in RMD_scores.items():
+        cls_images = cls_images_dict[cls]
+        for image_dict in cls_images:
+            image_path = os.path.join(base_path, image_dict['image_path'])
+            image_rmd_scores.append((model, image_path, image_dict['score']))
 
     # Get sample_path -> (model, score) mapping
     sample_model_RMD_mapping = {}
     for sample in image_rmd_scores:
         sample_model_RMD_mapping[sample[1]] = sample[0], sample[2] # model, score
-    
+
     if TopK:
         sorted_data = sorted(sample_model_RMD_mapping.items(), key=lambda item: item[1][1], reverse=True)
         chosen_samples = [sample[0] for sample in sorted_data[:count_dict[cls]]]
     elif BottomK:
         sorted_data = sorted(sample_model_RMD_mapping.items(), key=lambda item: item[1][1], reverse=False)
         chosen_samples = [sample[0] for sample in sorted_data[:count_dict[cls]]]
+    elif equalweight:
+        probabilities = [1 / len(PATH_dict)] * len(PATH_dict)
+        chosen_samples = []
+        while True:
+            chosen_model = random.choices(models, weights=probabilities, k=1)[0]
+            if len(RMD_scores[chosen_model][cls]) > 0:
+                chosen_image = RMD_scores[chosen_model][cls].pop()
+                chosen_image_path = os.path.join(base_path, chosen_image['image_path'])
+                chosen_samples.append(chosen_image_path)
+            if len(chosen_samples) == count_dict[cls]:
+                print(f"Break for class {cls} with {len(ensembled_images[cls])} images")
+                break
     else:
         # Normalize and clip RMD scores
         scores = np.array([score[1] for score in sample_model_RMD_mapping.values()])
@@ -130,8 +127,7 @@ for cls, images in ensembled_images.items():
 # Copy all the images to the target path
 # Remove target path if already exists
 if os.path.exists(target_path):
-    print(f"[WARNING]: Removing already existing target path - {target_path}")
-    shutil.rmtree(target_path)
+    raise OSError(f"Target path already exists! - {target_path}")
 
 for cls, images in ensembled_images.items():
     image_counter = 0
