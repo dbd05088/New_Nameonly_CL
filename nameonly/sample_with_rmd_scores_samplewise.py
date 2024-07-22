@@ -15,15 +15,15 @@ lower_percentile = 5.0 # 5.0
 upper_percentile = 95.0 # 95.0
 # upper_percentile = 97.5 # 95.0
 
-equalweight = True
+equalweight = False
 TopK = False
 BottomK = False
 INVERSE = False
 TEMPERATURE = 0.5
 
 base_path = './raw_datasets/iclr_generated/PACS'
-json_path = './RMD_scores/PACS_final_sd3.json'
-target_path = './raw_datasets/iclr_generated/PACS/PACS_sd3_equalweight'
+json_path = './RMD_scores/PACS_final_sdturbo.json'
+target_path = './raw_datasets/iclr_generated/PACS/PACS_final_sdturbo_RMD'
 
 count_dict = get_count_value_from_string(base_path)
 with open(json_path, 'r') as f:
@@ -75,7 +75,7 @@ for cls in tqdm(list(count_dict.keys())):
                 chosen_image_path = os.path.join(base_path, chosen_image['image_path'])
                 chosen_samples.append(chosen_image_path)
             if len(chosen_samples) == count_dict[cls]:
-                print(f"Break for class {cls} with {len(ensembled_images[cls])} images")
+                print(f"Break for class {cls} with {len(chosen_samples)} images")
                 break
     else:
         # Normalize and clip RMD scores
