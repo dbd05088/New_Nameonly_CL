@@ -478,7 +478,7 @@ class VLM: # Client
             if (self.iter) % self.gradient_accumulation_steps == 0:
                 # for name, param in self.model.named_parameters():
                 #     if param.requires_grad:
-                #         self.previous_param[name] = param   
+                #         self.previous_param[name] = param
                 self.optimizer.step()
                 self.optimizer.zero_grad()
                 # for name, param in self.model.named_parameters():
@@ -488,7 +488,6 @@ class VLM: # Client
                 #         if torch.sum(check_tensor.long()) > 0:
                 #             print(name, "check", torch.sum(check_tensor.long()))
                 #         self.previous_param[name] = param   
-
             total_loss += loss.item()
         return total_loss / iterations
 

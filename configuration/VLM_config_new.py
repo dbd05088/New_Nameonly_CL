@@ -29,7 +29,9 @@ class DataArguments:
     image_folder: Optional[str] = field(default=None)
     image_aspect_ratio: str = 'pad'
     model_name_for_dataarg: Optional[str] = field(default=None)
-
+    num_set: int = "5"
+    data_type: str = "ma"
+    dataset: str = field(default="bongard-HOI")
 
 import torch
 import os
@@ -63,7 +65,7 @@ class TrainingArguments(transformers.TrainingArguments):
     num_clients: int = 5
     num_rounds: int = 20
     iter_per_round: int = 1
-    state_dir: str = field(default="./client_states")
+    state_dir: str = field(default="./checkpoints")
     final_lr: float = field(default=1e-6)
     mm_final_lr: float = field(default=1e-6)
     # prompt tuning args
