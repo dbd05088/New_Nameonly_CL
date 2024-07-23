@@ -256,7 +256,7 @@ def get_transform(dataset, transform_list, gpu_transform, use_kornia=True):
     return train_transform, test_transform
 
 def select_optimizer(opt_name, lr, model, kwargs=None):
-    if opt_name == "MLM_optimizer":
+    if opt_name in ["MLM_optimizer", "adam"]:
         if hasattr(model, 'fc'):
             fc_name = 'fc'
         elif hasattr(model, 'head'):
@@ -739,7 +739,7 @@ def get_VLMmodel(model_args, training_args, bnb_model_from_pretrained_args, data
                         module = module.to(torch.bfloat16)
     return model, tokenizer, data_args
 
-def select_model(model_name, num_classes=None, opt_dict=None, G=False, F=False, ver2=False, args=None):
+def select_model(model_name, dataset=None, num_classes=None, opt_dict=None, G=False, F=False, ver2=False, args=None):
     if model_name == 'vit':
         if G:
             model = timm.create_model('vit_base_patch16_224', pretrained=True)
