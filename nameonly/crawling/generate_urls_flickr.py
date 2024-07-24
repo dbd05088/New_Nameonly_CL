@@ -1,6 +1,8 @@
 import subprocess
 import time
+import os
 import logging
+import json
 from url_generator.flickr_generator import FlickrURLGenerator
 from classes import *
 from tqdm import tqdm
@@ -34,14 +36,29 @@ API_KEYS=(
     "41de4d7068eef7473921f778779256d5",# 22
 )
 
+save_dir = "urls/Bongard_flickr"
+
 flickr_generator = FlickrURLGenerator(
     api_key=API_KEYS[5],
-    save_dir="urls/officehome_flickr",
+    save_dir=save_dir,
     error_dir="error",
     max_page=5,
 )
 
-for cls in tqdm(officehome_count):
-    logger.info(f"Generating URL for {cls}")
-    result = flickr_generator.generate_url(keyword=cls, total_images=7000, images_per_date_range=4000)
-    
+# for cls in tqdm(PACS_count):
+#     logger.info(f"Generating URL for {cls}")
+#     result = flickr_generator.generate_url(keyword=cls, total_images=7000, images_per_date_range=4000)
+
+
+# Process jsonl file
+data_list = []
+with open('../generate_twostage/train.jsonl', 'r') as f:
+    for line in f:
+        json_object = json.loads(line)
+        data_list.append(json_object)
+
+for data in tqdm(data_list):
+    caption = data['caption']
+    uid = data['uid']
+    logger.info(f"Generating URL for uid {uid} - {caption}")
+    result = flickr_generator.generate_url(keyword=caption, total_images=100, images_per_date_range=100, filename=uid)

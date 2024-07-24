@@ -109,7 +109,10 @@ class BingURLGenerator(URLGenerator):
         self.driver.quit()
     
 
-    def generate_url(self, query: str, total_images: int = 10000):
+    def generate_url(self, query: str, total_images: int = 10000, filename=None):
+        if filename is None:
+            filename = query
+            
         self.url_list = []
         if self.use_color:
             for color in self.colors_list:
@@ -135,7 +138,7 @@ class BingURLGenerator(URLGenerator):
         # Remove urls not starting with 'http'
         self.url_list = [url for url in self.url_list if url.startswith('http')]
         logger.info(f"Total number of images (after removing urls not starting with 'http'): {len(self.url_list)}")
-        with open(os.path.join(self.save_dir, f'{query}.txt'), 'w') as f:
+        with open(os.path.join(self.save_dir, f'{filename}.txt'), 'w') as f:
             for url in self.url_list:
                 f.write(url + '\n')
         self.driver.quit()
