@@ -108,17 +108,19 @@ class FlickrURLGenerator(URLGenerator):
         return total_images
         
     
-    def generate_url(self, keyword: str, total_images: int = 10000, images_per_date_range: int = 5000):
+    def generate_url(self, keyword: str, total_images: int = 10000, images_per_date_range: int = 5000, filename=None, skip_range_check=True):
         date_ranges = self.get_datetime_range()
-        
+        if filename is None:
+            filename = keyword
         # Count the estimated total number of images for each date range
-        estimated_total_images = 0
-        for date_range in date_ranges:
-            estimated_total_images += self.check_total_images(keyword, date_range)
-        if estimated_total_images < total_images:
-            logger.warning("="*80)
-            logger.warning(f"Estimated total number of images: {estimated_total_images}, required total number of images: {total_images}")
-            logger.warning("="*80)
+        if not skip_range_check:
+            estimated_total_images = 0
+            for date_range in date_ranges:
+                estimated_total_images += self.check_total_images(keyword, date_range)
+            if estimated_total_images < total_images:
+                logger.warning("="*80)
+                logger.warning(f"Estimated total number of images: {estimated_total_images}, required total number of images: {total_images}")
+                logger.warning("="*80)
         
         # Fetch image URLs
         image_urls = []
@@ -134,7 +136,7 @@ class FlickrURLGenerator(URLGenerator):
         if not os.path.exists(self.save_dir):
             os.makedirs(self.save_dir)
         image_urls = list(set(image_urls))
-        with open(os.path.join(self.save_dir, f'{keyword}.txt'), 'w') as f:
+        with open(os.path.join(self.save_dir, f'{filename}.txt'), 'w') as f:
             for url in image_urls:
                 f.write(url + '\n')
         
