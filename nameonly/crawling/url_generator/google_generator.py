@@ -5,6 +5,7 @@ import time
 from typing import List
 from .base_generator import URLGenerator
 from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -15,11 +16,12 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s %(mess
 logger = logging.getLogger(__name__)
 
 class GoogleURLGenerator(URLGenerator):
-    def __init__(self, save_dir, mode='headless', use_color=False, max_scroll=10, sleep_time=3):
+    def __init__(self, save_dir, mode='headless', use_color=False, use_size=False, max_scroll=10, sleep_time=3):
         super().__init__()
         self.save_dir = save_dir
         self.options = Options()
         self.use_color = use_color
+        self.use_size = use_size
         self.max_scroll = max_scroll
         self.sleep_time = sleep_time
         self.url_list = None
@@ -61,44 +63,22 @@ class GoogleURLGenerator(URLGenerator):
                     break
             except:
                 pass
-
-
-    def crawl_specific_color(self, query: str, color: str, size: str):
-        self.driver = webdriver.Chrome(options=self.options)
-        self.driver.maximize_window()
-        URL = f"https://www.google.com/search?q={query}&tbm=isch&tbs=ic:specific%2Cisc:{color}%2Cisz:{size}&hl=en"
-        logger.info(f"URL: {URL}")
-        self.driver.get(URL)
-        try:
-            self.scroll_down()
-        except:
-            logger.info('Error in scrolling down')
-
-        soup = BeautifulSoup(self.driver.page_source, 'html.parser')
-        image_info_list = soup.find_all('img', class_='rg_i')
-
-        # Google image search result contains two types of image URLs: 'data-src' and 'src'
-        # 1. 'src' attribute
-        # 2. 'data-src' attribute
-        for i in range(len(image_info_list)):
-            if 'src' in image_info_list[i].attrs:
-                self.url_list.append(image_info_list[i]['src'])
-            elif 'data-src' in image_info_list[i].attrs:
-                self.url_list.append(image_info_list[i]['data-src'])
-        
-        logger.info(f'Number of images until color {color}: {len(self.url_list)}')
-
-        self.driver.quit()
     
-    def crawl_one_size(self, query: str, size: str, image_type=None):
+    def crawl_color_size(self, query: str, color=None, size=None):
         self.driver = webdriver.Chrome(options=self.options)
         self.driver.maximize_window()
-        if image_type == None:
-            URL = f"https://www.google.com/search?q={query}&tbm=isch&tbs=isz:{size}&hl=en"
+        if color is None:
+            if size is None:
+                URL = f"https://www.google.com/search?q={query}&tbm=isch&hl=en"
+            else:
+                URL = f"https://www.google.com/search?q={query}&tbm=isch&tbs=isz:{size}&hl=en"
         else:
-            URL = f"https://www.google.com/search?q={query}&tbm=isch&hl=en&tbs=itp:{image_type},isz:{size}"
-        logger.info(f"URL: {URL}")
+            if size is None:
+                URL = f"https://www.google.com/search?q={query}&tbm=isch&tbs=ic:specific%2Cisc:{color}&hl=en"
+            else:
+                URL = f"https://www.google.com/search?q={query}&tbm=isch&tbs=ic:specific%2Cisc:{color}%2Cisz:{size}&hl=en"
 
+        logger.info(f"URL: {URL}")
         self.driver.get(URL)
         try:
             self.scroll_down()
@@ -106,7 +86,7 @@ class GoogleURLGenerator(URLGenerator):
             logger.info('Error in scrolling down')
         
         soup = BeautifulSoup(self.driver.page_source, 'html.parser')
-        image_info_list = soup.find_all('img', class_='rg_i')
+        image_info_list = soup.find_all('img', class_='YQ4gaf')
 
         # Google image search result contains two types of image URLs: 'data-src' and 'src'
         # 1. 'src' attribute
@@ -128,17 +108,23 @@ class GoogleURLGenerator(URLGenerator):
         self.url_list = []
         if self.use_color:
             for color in self.colors_list:
+                if self.use_size:
+                    for size in self.size_list:
+                        self.crawl_color_size(query.replace('_', ' '), color=color, size=size)
+                        if len(set(self.url_list)) >= total_images:
+                            logger.info(f"Break the loop because the number of images is enough: {len(set(self.url_list))}")
+                            break
+                else:
+                    self.crawl_color_size(query.replace('_', ' '), color=color, size=None)
+        else:
+            if self.use_size:
                 for size in self.size_list:
-                    self.crawl_specific_color(query.replace('_', ' '), color, size)
+                    self.crawl_color_size(query.replace('_', ' '), color=None, size=size)
                     if len(set(self.url_list)) >= total_images:
                         logger.info(f"Break the loop because the number of images is enough: {len(set(self.url_list))}")
                         break
-        else:
-            for size in self.size_list:
-                self.crawl_one_size(query.replace('_', ' '), size, image_type=image_type)
-                if len(set(self.url_list)) >= total_images:
-                    logger.info(f"Break the loop because the number of images is enough: {len(set(self.url_list))}")
-                    break
+            else:
+                self.crawl_color_size(query.replace('_', ' '), color=None, size=None)
         
         # Save the image URLs
         logger.info(f"Total number of images (after removing duplicated urls): {len(set(self.url_list))}")
