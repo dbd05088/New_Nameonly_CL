@@ -11,4 +11,4 @@ ml purge
 
 conda init bash
 conda activate generate
-python generate_images_llava_openworld.py -r ./generated_datasets/llava_openworld -s 0 -e 5
+python generate_images_openworld.py -m sdxl -r ./generated_datasets/llava_openworld -s 0 -e 5
