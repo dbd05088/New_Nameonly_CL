@@ -165,3 +165,4 @@ dataset/Bongard-Openworld
 collections/Bongard-Openworld/images
 dataset/Bongard-Openworld_backup
 nameonly/prompt_generation/src/clip
+collections/Bongard-OpenWorld/images/*
