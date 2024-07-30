@@ -5,9 +5,9 @@ from collections import Counter
 from tqdm import tqdm
 
 NUM_IMAGES = 14
-json_path = './train.jsonl'
-output_path = './train_generated.jsonl'
-base_path = './images/generated'
+json_path = './train_ma.jsonl' # FIX THIS!
+output_path = './train_generated_RMD.jsonl'
+base_path = './images/generated_RMD'
 
 # Process jsonl file
 data_list = []
@@ -28,12 +28,14 @@ for data in data_list:
     
     # Get image paths
     image_dir = os.path.join(base_path, data['uid'])
-    images = [os.path.join(image_dir, image) for image in os.listdir(image_dir)]
-    data_dict['imageFiles'] = images
-    assert len(images) == NUM_IMAGES, "Number of images must be 14!"
+    pos_dir = os.path.join(image_dir, 'pos'); neg_dir = os.path.join(image_dir, 'neg')
+    pos_images = [os.path.join(pos_dir, image) for image in os.listdir(pos_dir)]
+    neg_images = [os.path.join(neg_dir, image) for image in os.listdir(neg_dir)]
+    
+    data_dict['imageFiles'] = pos_images + neg_images
+    assert len(data_dict['imageFiles']) == NUM_IMAGES, "Number of images must be 14!"
     
     result_list.append(data_dict)
-
 
 with open(output_path, 'w') as f:
     for json_object in result_list:
