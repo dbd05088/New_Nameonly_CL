@@ -115,7 +115,6 @@ def evaluate(dataset, dataname, round, model, tokenizer, device, model_args, tra
                 # print(pred_sentence)
                 predictions.append({"image_file":img_file, "input":prompt, "sentence":pred_sentence, "gt_sentence":gold.strip()})
                 
-                
                 n_word_total += n_word
                 n_generated_word_total += n_generated_word
                 n_word_correct += n_correct
@@ -186,7 +185,8 @@ def evaluate_choices(dataset, dataname, task, eval_task, model, tokenizer, devic
                 pred_sentence = pred_sentence.strip()
                 
                 choices = parse_choice_list(prompt)
-                
+                print()
+                print("gt", gold, "answer", pred_sentence)
                 pred_option = can_infer(pred_sentence, choices)
             
                 if isinstance(pred_option, str):
@@ -245,43 +245,54 @@ def parse_choice_list(input_string):
 
 def can_infer(answer, choices):
     answer = str(answer).lower()
-    
-    # Special case for ['Positive', 'Negative']
-    if set(choices) == {'Positive', 'Negative'}:
-        if 'yes' in answer or 'Yes' in answer:
-            return 'Positive'
-        elif 'no' in answer or 'No' in answer:
-            return 'Negative'
-    
+    # # Special case for ['Positive', 'Negative']
+    # if set(choices) == {'Positive', 'Negative'}:
+    #     if 'yes' in answer or 'Yes' in answer:
+    #         return 'Positive'
+    #     elif 'no' in answer or 'No' in answer:
+    #         return 'Negative'
+
     # First, look for exact matches if choices are not simple letters
     if not all(len(choice) == 1 and choice in string.ascii_uppercase for choice in choices):
+        possible_answer = []
         for choice in choices:
             if choice.lower() in answer or choice in answer:  # Allow for case-insensitive exact match
-                return choice
+                possible_answer.append(choice)
+        if len(possible_answer) == 1:
+            # print("one", possible_answer[0])
+            return possible_answer[0]
     
     # Then, look for simple letter matches (A, B, C, ...)
     letter_matches = re.findall(r'\b[A-Z]\b', answer.upper())
     for letter in letter_matches:
         index = string.ascii_uppercase.index(letter)
         if index < len(choices):
+            # print("two", choices[index])
             return choices[index]
     
     # If choices are simple letters, look for those
     if all(len(choice) == 1 and choice in string.ascii_uppercase for choice in choices):
         for choice in choices:
             if choice in answer.upper():
+                # print("three", choice)
                 return choice
             
     # remove underscore and try
     answer =  answer.strip().replace('_', ' ').lower()
     normalized_choices = [choice.replace('_', ' ').lower() for choice in choices]
     if answer in normalized_choices:
+        # print("four", choices[normalized_choices.index(answer)])
         return choices[normalized_choices.index(answer)]
+    
     # Check for partial matches
+    possible_answer = []
     for i, choice in enumerate(normalized_choices):
         if answer in choice or choice in answer:
-            return choices[i]
-    
+            possible_answer.append(choices[i])
+
+    if len(possible_answer) == 1:
+        # print("five", possible_answer[0])
+        return possible_answer[0]
     
     # If no match found, return False
     return False
@@ -337,15 +348,26 @@ def main():
     torch.backends.cudnn.benchmark = False
     np.random.seed(training_args.seed)
     random.seed(training_args.seed)
-
-    model, tokenizer, data_args = get_VLMmodel(model_args, training_args, bnb_model_from_pretrained_args, data_args)
-    test_datalists = get_datalists(data_args, training_args.seed)
     server_eval_key = []
     past_test_datalists = []
+    model, tokenizer, data_args = get_VLMmodel(model_args, training_args, bnb_model_from_pretrained_args, data_args)
+    if training_args.mode in ["VLM"]:
+        test_datalists = get_datalists(data_args, training_args.seed)
+    else:
+        if training_args.mode == "VLM_ood":
+            test_datalists = get_ood_datalists(data_args, training_args.seed, num_test = 5)
+        elif training_args.mode == "VLM_zeroshot":
+            test_datalists = get_ood_datalists(data_args, training_args.seed, num_test = 1)
+    
     for task_num, test_datalist in enumerate(test_datalists):
         past_test_datalists.append(test_datalist)
-        logger.info(f'load ./checkpoints_{training_args.note}/{training_args.note}_task{task_num+1}.pth')
-        server_state_dict = torch.load(f'./checkpoints_{training_args.note}/{training_args.note}_task{task_num+1}.pth', map_location='cpu')
+        
+        if training_args.mode == "VLM_zeroshot":
+            logger.info(f'./zeroshot.pth')
+            server_state_dict = torch.load(f'./zeroshot.pth', map_location='cpu')
+        else:
+            logger.info(f'load ./checkpoints_{training_args.note}/{training_args.note}_task{task_num+1}.pth')
+            server_state_dict = torch.load(f'./checkpoints_{training_args.note}/{training_args.note}_task{task_num+1}.pth', map_location='cpu')
         model.load_state_dict(server_state_dict, strict=False)
         
         for eval_task_num, past_test_datalist in enumerate(past_test_datalists):
@@ -362,9 +384,14 @@ def main():
 
 def get_datalists(data_args, seed = 1):
 
-    with open(f"collections/{data_args.dataset}/ma_splits/{data_args.dataset}_split_record.pkl", mode='rb') as f:
-        task_splits=pickle.load(f)[seed]["task_splits"]
+    if data_args.dataset == "Bongard-HOI":        
+        with open(f"seen_tasks/Bongard-HOI_seen_tasks.pkl", mode='rb') as f:
+            task_splits=pickle.load(f)[seed][data_args.num_set]
 
+    elif data_args.dataset == "Bongard-OpenWorld":    
+        with open(f"collections/{data_args.dataset}/ma_splits/{data_args.dataset}_split_record.pkl", mode='rb') as f:
+            task_splits=pickle.load(f)[seed]["task_splits"]   
+        
     with open(f"collections/{data_args.dataset}/ma/{data_args.num_set}_set/{data_args.dataset}_test.json") as fp:
         whole_test_datalists = json.load(fp)
         
@@ -375,7 +402,10 @@ def get_datalists(data_args, seed = 1):
         temp_curr_test_datalists = []
         curr_test_datalists = []
         for curr_task in task_split:
-            curr_test_datalist = test_df[test_df["commonSense"] == curr_task].values
+            if data_args.dataset == "Bongard-OpenWorld":
+                curr_test_datalist = test_df[test_df["commonSense"] == curr_task].values
+            elif data_args.dataset == "Bongard-HOI":
+                curr_test_datalist = test_df[(test_df['action_class'] == curr_task[0]) & (test_df['object_class'] == curr_task[1])].values
             temp_curr_test_datalists.extend(curr_test_datalist)
 
         for test_data in temp_curr_test_datalists:
@@ -384,51 +414,16 @@ def get_datalists(data_args, seed = 1):
                 test_dict[key] = element
             curr_test_datalists.append(test_dict)
 
-        # test_datalists.append({
-        #     "data_name": f"{data['dataset']}",
-        #     "type": data['type'] if 'type' in data else 'open-ended',
-        #     "data": curr_test_datalists})
-
         test_datalists.append(curr_test_datalists)
             
     return test_datalists
+
+def get_ood_datalists(data_args, seed = 1, num_test=1):
+
+    with open(f"collections/{data_args.dataset}/ma/{data_args.num_set}_set/{data_args.dataset}_test.json") as fp:
+        test_datalists = json.load(fp)
     
-    # test_datalists = {}
-    # rounds_per_task = args.num_rounds
-
-    # for task in range(4): # task_num = 4
-    #     test_datalist = []
-    #     eval_cnt = 0
-    #     train_cnt = 0
-    #     for data in client_data['datasets']:
-
-    #         random.shuffle(datalist)
-    #         samplenum_per_rounds = int(len(datalist) / rounds_per_task)
-    #         for i in range(rounds_per_task):
-    #             train_datalist.append(
-    #                 {'datalist':datalist[i*samplenum_per_rounds:(i+1)*samplenum_per_rounds],
-    #                  'train_cnt': train_cnt + samplenum_per_rounds})
-    #             train_cnt += samplenum_per_rounds
-    #         with open(f"./dataset/{data['dataset']}/test/dataset-{str(data['subset_id'])}.json") as fp:
-    #             datalist = json.load(fp)
-            
-    #         test_df = pd.DataFrame(test_datalist)
-    #         if self.dataset == "Bongard-HOI":
-    #             seen_test_df = test_df[(test_df['action_class'].isin(self.seen_action_classes)) & (test_df['object_class'].isin(self.seen_object_classes))]
-    #         elif self.dataset == "Bongard-Openworld":
-    #             seen_test_df = test_df[test_df['commonSense'].isin(self.seen_categories)]
-            
-    #         test_datalist.append({
-    #             "data_name": f"{data['dataset']}-{data['subset_id']}",
-    #             "type": data['type'] if 'type' in data else 'open-ended',
-    #             "data": datalist,
-    #             "eval_cnt": eval_cnt})
-    #         eval_cnt += len(datalist)
-            
-    #         #train_datalists[client_id] = train_datalist
-    #     #test_datalists[client_id] = test_datalist
-
-    # return test_datalist
+    return [test_datalists for _ in range(num_test)]
 
 if __name__ == "__main__":
     main()
