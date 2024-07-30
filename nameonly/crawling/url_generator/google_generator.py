@@ -2,6 +2,7 @@ import os
 import logging
 import requests
 import time
+import re
 from typing import List
 from .base_generator import URLGenerator
 from selenium import webdriver
@@ -16,9 +17,8 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s %(mess
 logger = logging.getLogger(__name__)
 
 class GoogleURLGenerator(URLGenerator):
-    def __init__(self, save_dir, mode='headless', use_color=False, use_size=False, max_scroll=10, sleep_time=3):
+    def __init__(self, mode='headless', use_color=False, use_size=False, max_scroll=10, sleep_time=3):
         super().__init__()
-        self.save_dir = save_dir
         self.options = Options()
         self.use_color = use_color
         self.use_size = use_size
@@ -34,9 +34,6 @@ class GoogleURLGenerator(URLGenerator):
         self.colors_list = ['red', 'orange', 'yellow', 'green', 'teal', 'blue', 'purple', 'pink', 'white', 'gray', 'black', 'brown']        
         self.size_list = ['l', 'm', 'i']
         # self.driver = webdriver.Chrome(options=self.options)
-
-        if not os.path.exists(save_dir):
-            os.makedirs(save_dir)
         
     
     def scroll_down(self):
@@ -128,14 +125,15 @@ class GoogleURLGenerator(URLGenerator):
         
         # Save the image URLs
         logger.info(f"Total number of images (after removing duplicated urls): {len(set(self.url_list))}")
-        if not os.path.exists(self.save_dir):
-            os.makedirs(self.save_dir)
-        
         self.url_list = list(set(self.url_list))
     
         # Remove urls not starting with 'http'
         self.url_list = [url for url in self.url_list if url.startswith('http')]
         logger.info(f"Total number of images (after removing urls not starting with 'http'): {len(self.url_list)}")
+        
+        # Remove favicons
+        favicon_pattern = re.compile(r'favicon', re.IGNORECASE)
+        self.url_list = [url for url in self.url_list if not favicon_pattern.search(url)]
         
         self.driver.quit()
         return self.url_list
