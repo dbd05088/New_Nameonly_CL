@@ -132,11 +132,14 @@ class GoogleURLGenerator(URLGenerator):
             os.makedirs(self.save_dir)
         
         self.url_list = list(set(self.url_list))
-
+    
         # Remove urls not starting with 'http'
         self.url_list = [url for url in self.url_list if url.startswith('http')]
         logger.info(f"Total number of images (after removing urls not starting with 'http'): {len(self.url_list)}")
-        with open(os.path.join(self.save_dir, f'{filename}.txt'), 'w') as f:
-            for url in self.url_list:
-                f.write(url + '\n')
+        
         self.driver.quit()
+        return self.url_list
+    
+        # with open(os.path.join(self.save_dir, f'{filename}.txt'), 'w') as f:
+        #     for url in self.url_list:
+        #         f.write(url + '\n')
