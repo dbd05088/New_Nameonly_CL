@@ -20,12 +20,19 @@ generator = GoogleURLGenerator(save_dir=save_dir, max_scroll=5, sleep_time=2, mo
 # For classification
 for cls in tqdm(food101_count):
     logger.info(f"Generating URL for {cls}")
-    result = generator.generate_url(query=cls, total_images=100, image_type='None')
+    url_list = generator.generate_url(query=cls, total_images=10, image_type='None')
+    breakpoint()    
+    
+    with open(os.path.join(save_dir, f'{filename}.txt'), 'w') as f:
+        for url in self.url_list:
+            f.write(url + '\n')
 
 # For Bongard-Openworld - positive 7, negative 7
 # Process jsonl file
 data_list = []
-with open('../generate_twostage/train.jsonl', 'r') as f:
-    for line in f:
-        json_object = json.loads(line)
-        data_list.append(json_object)
+with open('../prompt_generation/prompts/openworld_base.json', 'r') as f:
+    data_dict = json.load(f)
+
+for uid, pos_neg_dict in data_dict.keys():
+    logger.info(f"Generating URLs for uid - {uid}")
+    
