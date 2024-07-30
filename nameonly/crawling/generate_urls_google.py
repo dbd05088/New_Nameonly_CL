@@ -9,23 +9,22 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 logger = logging.getLogger(__name__)
 
 save_dir = './urls/bongard_openworld'
+error_file_path = './openworld_pos_error.txt'
 
-generator = GoogleURLGenerator(save_dir=save_dir, max_scroll=5, sleep_time=2, mode='headless')
+generator = GoogleURLGenerator(max_scroll=1, sleep_time=2, mode='headless')
 
 # # Check the save directory to remove already generated URLs
 # class_txt_files = os.listdir(save_dir)
 # class_txt_files = [f.split('.')[0] for f in class_txt_files]
 # domainnet = [cls for cls in domainnet if cls not in class_txt_files]
 
-# For classification
-for cls in tqdm(food101_count):
-    logger.info(f"Generating URL for {cls}")
-    url_list = generator.generate_url(query=cls, total_images=10, image_type='None')
-    breakpoint()    
-    
-    with open(os.path.join(save_dir, f'{filename}.txt'), 'w') as f:
-        for url in self.url_list:
-            f.write(url + '\n')
+# # For classification
+# for cls in tqdm(food101_count):
+#     logger.info(f"Generating URL for {cls}")
+#     url_list = generator.generate_url(query=cls, total_images=10, image_type='None')
+#     with open(os.path.join(save_dir, f'{cls}.txt'), 'w') as f:
+#         for url in url_list:
+#             f.write(url + '\n')
 
 # For Bongard-Openworld - positive 7, negative 7
 # Process jsonl file
@@ -33,6 +32,37 @@ data_list = []
 with open('../prompt_generation/prompts/openworld_base.json', 'r') as f:
     data_dict = json.load(f)
 
-for uid, pos_neg_dict in data_dict.keys():
+# # Crawl positive images
+# generator = GoogleURLGenerator(max_scroll=5, sleep_time=2, mode='headless')
+# for uid, pos_neg_dict in tqdm(data_dict.items()):
+#     logger.info(f"Generating URLs for uid - {uid}")
+#     pos_url_list = generator.generate_url(query=pos_neg_dict['positive_prompts'][0], total_images=100, image_type='None')
+#     if len(pos_url_list) < 10:
+#         with open(error_file_path, 'a') as error_file:
+#             error_file.write(f"uid: {uid}, List Length: {len(pos_url_list)}\n")
+#     pos_save_dir = os.path.join(save_dir, 'pos')
+#     os.makedirs(pos_save_dir, exist_ok=True)
+#     with open(os.path.join(pos_save_dir, f"{uid}.txt"), 'w') as f:
+#         for url in pos_url_list:
+#             f.write(url + '\n')
+
+# Crawl positive images
+generator = GoogleURLGenerator(max_scroll=1, sleep_time=2, mode='headless')
+for uid, pos_neg_dict in tqdm(data_dict.items()):
     logger.info(f"Generating URLs for uid - {uid}")
-    
+    neg_url_list = []
+    negative_prompts = pos_neg_dict['negative_prompts']
+    for neg_prompt in negative_prompts:
+        neg_urls = generator.generate_url(query=neg_prompt, total_images=15, image_type='None')
+        if len(neg_urls) > 15:
+            neg_urls = neg_urls[:15]
+        neg_url_list.extend(neg_urls)
+
+    if len(neg_url_list) < 10:
+        with open(error_file_path, 'a') as error_file:
+            error_file.write(f"uid: {uid}, List Length: {len(neg_url_list)}\n")
+    neg_save_dir = os.path.join(save_dir, 'neg')
+    os.makedirs(neg_save_dir, exist_ok=True)
+    with open(os.path.join(neg_save_dir, f"{uid}.txt"), 'w') as f:
+        for url in neg_url_list:
+            f.write(url + '\n')
