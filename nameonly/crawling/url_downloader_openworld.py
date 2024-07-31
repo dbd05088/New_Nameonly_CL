@@ -14,18 +14,20 @@ for url_file in tqdm(url_list_pos):
     output_dir = os.path.join('datasets', f"openworld", id, 'pos')
     print(f"Downloading {id} to {output_dir}")
     # Remove the directory if it exists
-    if os.path.exists(output_dir):
-        shutil.rmtree(output_dir)
-    elif not os.path.exists(output_dir):
-        os.makedirs(output_dir)
+    # if os.path.exists(output_dir):
+    #     shutil.rmtree(output_dir)
+    # elif not os.path.exists(output_dir):
+    #     os.makedirs(output_dir)
     
     url_file = os.path.join(url_path, 'pos', url_file)
-    download(
-        processes_count=1,
-        thread_count=1,
-        url_list=url_file,
-        # image_size=256,
-        resize_mode="keep_ratio",
-        output_folder=output_dir,
-        output_format="files",
-    )
+    
+    if __name__ == "__main__":
+        from img2dataset import download
+        download(
+            thread_count=64,
+            url_list=url_file,
+            # image_size=256,
+            resize_mode="keep_ratio",
+            output_folder=output_dir,
+            output_format="files",
+        )
