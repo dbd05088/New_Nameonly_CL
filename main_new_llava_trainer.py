@@ -81,6 +81,7 @@ def main():
     model, tokenizer, data_args = get_VLMmodel(model_args, training_args, bnb_model_from_pretrained_args, data_args)
 
     ### Load Train & Test datalists ###
+    print("!!", f"collections/{data_args.dataset}/{data_args.data_type}/{data_args.num_set}_set/{data_args.dataset}_train_seed{training_args.seed}.json")
     with open(f"collections/{data_args.dataset}/{data_args.data_type}/{data_args.num_set}_set/{data_args.dataset}_train_seed{training_args.seed}.json") as fp:
         train_datalists = json.load(fp)
 
@@ -94,7 +95,11 @@ def main():
     with open(file=f'collections/{data_args.dataset}/ma_splits/{data_args.dataset}_split_record.pkl', mode='rb') as f:
         split_config = pickle.load(f)
     eval_iter = split_config[training_args.seed]["train_eval_point"]
-    eval_point = np.array([sum(eval_iter[:i+1]) for i in range(len(eval_iter))]) * (12 // ((data_args.num_set - 1) // 2))
+    # 9 => (9 - 1) / 2 = 4, ceil(6 / 4) 
+    if data_args.dataset == "Bongard-HOI":
+        eval_point = np.array([sum(eval_iter[:i+1]) for i in range(len(eval_iter))]) * (int(np.ceil(6 / ((data_args.num_set - 1) // 2))))
+    elif data_args.dataset == "Bongard-OpenWorld":
+        eval_point = np.array([sum(eval_iter[:i+1]) for i in range(len(eval_iter))]) * 2 #(2 * int(np.ceil(6 / ((data_args.num_set - 1) // 2))))
     print("eval_point")
     print(eval_point)
     
@@ -122,7 +127,7 @@ def main():
     training_loss = []
     start_time = time.time()
     memory = []
-    memory_size = 50000
+    memory_size = 500
     num_iterations = training_args.num_iter
     total_batchsize = training_args.per_gpu_train_batch_size*training_args.world_size*training_args.gradient_accumulation_steps
     init_lr = training_args.learning_rate
@@ -171,16 +176,15 @@ def main():
         batch = (batch*mul)[:total_batchsize]
         datalists.extend(batch[:])
     
-    print("len(train_datalists)", len(train_datalists), "len(datalists)", len(datalists))
-    
     ### Stream Only ###
-    # datalists = sub_dataset[:num_iterations*total_batchsize]
+    # datalists = train_datalists[:training_args.num_iter*total_batchsize]
     # data_module = make_supervised_data_module(client_data=datalists, # sub_dataset
     #                                     tokenizer=tokenizer,
     #                                     data_args=copy.deepcopy(data_args))
+    print("len(train_datalists)", len(train_datalists), "len(datalists)", len(datalists))
     
     for curr_round in range(len(eval_point)):
-        datalist = get_dataset_this_round(datalists, curr_round, eval_point * total_batchsize)
+        datalist = get_dataset_this_round(datalists, curr_round, eval_point * total_batchsize, data_args.dataset)
         data_module = make_supervised_data_module(client_data=datalist, # sub_dataset
                                             tokenizer=tokenizer,
                                             data_args=copy.deepcopy(data_args))
@@ -233,19 +237,33 @@ def main():
         logger.info("total done\n")
 
 
-def get_dataset_this_round(train_datalists, curr_round, eval_points):
+def get_dataset_this_round(train_datalists, curr_round, eval_points, dataset):
+    
     if curr_round == 0:
         curr_train_datalists = train_datalists[:eval_points[curr_round]]
     else:
         curr_train_datalists = train_datalists[eval_points[curr_round-1]:eval_points[curr_round]]
     
-    seen_commonsenses = []
-    for data in curr_train_datalists:
-        if data["commonSense"] not in seen_commonsenses:
-            seen_commonsenses.append(data["commonSense"])
+    ### for checking ###
+    if dataset == "Bongard-OpenWorld":
+        seen_commonsenses = []
+        for data in curr_train_datalists:
+            if data["commonSense"] not in seen_commonsenses:
+                seen_commonsenses.append(data["commonSense"])
 
-    print("seen_commonsenses")
-    print(seen_commonsenses)
+        print("seen_commonsenses")
+        print(seen_commonsenses)
+        
+    if dataset == "Bongard-HOI":
+        for data in curr_train_datalists:
+            seen_action_object = []
+            for data in curr_train_datalists:
+                if (data["action_class"], data["object_class"]) not in seen_action_object:
+                    seen_action_object.append((data["action_class"], data["object_class"]))
+        print("len(curr_train_datalists)", len(curr_train_datalists))
+        print("seen_action_object", len(seen_action_object))
+        print(seen_action_object)
+    
     return curr_train_datalists
     
 
