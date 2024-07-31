@@ -2,8 +2,8 @@ import os
 import json
 from classes import *
 
-target_path = "./urls/bongard_openworld/pos"
-url_threshold = 15
+target_path = "./urls/bongard_openworld/neg"
+url_threshold = 30
 
 txt_list = [os.path.join(target_path, file) for file in os.listdir(target_path)]
 
