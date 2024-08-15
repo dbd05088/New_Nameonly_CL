@@ -370,17 +370,15 @@ def main():
             server_state_dict = torch.load(f'./checkpoints_{training_args.note}/{training_args.note}_task{task_num+1}.pth', map_location='cpu')
         model.load_state_dict(server_state_dict, strict=False)
         
-        for eval_task_num, past_test_datalist in enumerate(past_test_datalists):
-            dataset = GenerationDataset(past_test_datalist, tokenizer, data_args)
-            # if data_info['type'] == 'open-ended':
-            #     evaluate(dataset, data_info['data_name'], training_args.round_to_eval, model, tokenizer, device, model_args, training_args, logger, None)
-            # elif data_info['type'] == 'multi-choice':
-            #     evaluate_choices(dataset, data_info['data_name'], training_args.round_to_eval, model, tokenizer, device, model_args, training_args, logger, None)
-            # else:
-            evaluate_choices(dataset, data_args.dataset, task_num + 1, eval_task_num + 1, model, tokenizer, device, model_args, training_args, logger)
-            #evaluate(dataset, data_args.dataset, task_num + 1, eval_task_num + 1, model, tokenizer, device, model_args, training_args, logger)
-            server_eval_key.append(data_args.dataset)
-            # past_test_datalists += test_datalist
+        if training_args.mode == "VLM":
+            for eval_task_num, past_test_datalist in enumerate(past_test_datalists):
+                dataset = GenerationDataset(past_test_datalist, tokenizer, data_args)
+                evaluate_choices(dataset, data_args.dataset, task_num + 1, eval_task_num + 1, model, tokenizer, device, model_args, training_args, logger)
+                server_eval_key.append(data_args.dataset)
+        else:
+            dataset = GenerationDataset(past_test_datalists[0], tokenizer, data_args)
+            evaluate_choices(dataset, data_args.dataset, task_num + 1, task_num + 1, model, tokenizer, device, model_args, training_args, logger)
+            server_eval_key.append(data_args.dataset)    
 
 def get_datalists(data_args, seed = 1):
 

@@ -79,7 +79,9 @@ def main():
     random.seed(training_args.seed)
 
     model, tokenizer, data_args = get_VLMmodel(model_args, training_args, bnb_model_from_pretrained_args, data_args)
-
+    
+    print("model")
+    print(model)
     ### Load Train & Test datalists ###
     print("!!", f"collections/{data_args.dataset}/{data_args.data_type}/{data_args.num_set}_set/{data_args.dataset}_train_seed{training_args.seed}.json")
     with open(f"collections/{data_args.dataset}/{data_args.data_type}/{data_args.num_set}_set/{data_args.dataset}_train_seed{training_args.seed}.json") as fp:
@@ -99,7 +101,7 @@ def main():
     if data_args.dataset == "Bongard-HOI":
         eval_point = np.array([sum(eval_iter[:i+1]) for i in range(len(eval_iter))]) * (int(np.ceil(6 / ((data_args.num_set - 1) // 2))))
     elif data_args.dataset == "Bongard-OpenWorld":
-        eval_point = np.array([sum(eval_iter[:i+1]) for i in range(len(eval_iter))]) * 2 #(2 * int(np.ceil(6 / ((data_args.num_set - 1) // 2))))
+        eval_point = np.array([sum(eval_iter[:i+1]) for i in range(len(eval_iter))]) * 4 #(2 * int(np.ceil(6 / ((data_args.num_set - 1) // 2))))
     print("eval_point")
     print(eval_point)
     
@@ -184,7 +186,7 @@ def main():
     print("len(train_datalists)", len(train_datalists), "len(datalists)", len(datalists))
     
     for curr_round in range(len(eval_point)):
-        datalist = get_dataset_this_round(datalists, curr_round, eval_point * total_batchsize, data_args.dataset)
+        datalist = get_dataset_this_round(datalists, curr_round, eval_point * total_batchsize, data_args.dataset, num_iterations)
         data_module = make_supervised_data_module(client_data=datalist, # sub_dataset
                                             tokenizer=tokenizer,
                                             data_args=copy.deepcopy(data_args))
@@ -237,12 +239,12 @@ def main():
         logger.info("total done\n")
 
 
-def get_dataset_this_round(train_datalists, curr_round, eval_points, dataset):
+def get_dataset_this_round(train_datalists, curr_round, eval_points, dataset, num_iterations):
     
     if curr_round == 0:
-        curr_train_datalists = train_datalists[:eval_points[curr_round]]
+        curr_train_datalists = train_datalists[:int(eval_points[curr_round]*num_iterations)]
     else:
-        curr_train_datalists = train_datalists[eval_points[curr_round-1]:eval_points[curr_round]]
+        curr_train_datalists = train_datalists[int(eval_points[curr_round-1]*num_iterations):int(eval_points[curr_round]*num_iterations)]
     
     ### for checking ###
     if dataset == "Bongard-OpenWorld":
