@@ -42,7 +42,7 @@ class TrainingArguments(transformers.TrainingArguments):
     round_to_eval: int = None
     eval_temp: float = 0.2
     eval_server: bool = True
-    num_iter:int = field(default=100)
+    num_iter:float = field(default=100)
 
     # cl config
     future_steps:int = field(default=4)
