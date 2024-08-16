@@ -109,7 +109,7 @@ def main():
     #load_state_dict, create_trainer = select_method(training_args.mode)
     
     # create folder
-    training_args.state_dir = training_args.state_dir + '_' + training_args.note
+    training_args.state_dir = training_args.state_dir + '_' + training_args.note + "/seed" + str(training_args.seed)
     if not os.path.exists(training_args.state_dir):
         os.makedirs(training_args.state_dir)
     

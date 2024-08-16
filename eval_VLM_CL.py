@@ -324,8 +324,8 @@ def main():
     logging.config.fileConfig("./configuration/logging.conf")
     logger = logging.getLogger()
 
-    os.makedirs(f"eval_results/{training_args.mode}/{training_args.note}", exist_ok=True)
-    fileHandler = logging.FileHandler(f'eval_results/{training_args.mode}/{training_args.note}/round_{training_args.round_to_eval}.log', mode="w")
+    os.makedirs(f"eval_results/{training_args.mode}/{training_args.note}/seed{training_args.seed}", exist_ok=True)
+    fileHandler = logging.FileHandler(f'eval_results/{training_args.mode}/{training_args.note}/seed{training_args.seed}/round_{training_args.round_to_eval}.log', mode="w")
 
     # writer = SummaryWriter(f'tensorboard/{training_args.mode}/{training_args.note}/federated')
 
@@ -366,8 +366,8 @@ def main():
             logger.info(f'./zeroshot.pth')
             server_state_dict = torch.load(f'./zeroshot.pth', map_location='cpu')
         else:
-            logger.info(f'load ./checkpoints_{training_args.note}/{training_args.note}_task{task_num+1}.pth')
-            server_state_dict = torch.load(f'./checkpoints_{training_args.note}/{training_args.note}_task{task_num+1}.pth', map_location='cpu')
+            logger.info(f'load ./checkpoints_{training_args.note}/seed{training_args.seed}/{training_args.note}_task{task_num+1}.pth')
+            server_state_dict = torch.load(f'./checkpoints_{training_args.note}/seed{training_args.seed}/{training_args.note}_task{task_num+1}.pth', map_location='cpu')
         model.load_state_dict(server_state_dict, strict=False)
         
         if training_args.mode == "VLM":
