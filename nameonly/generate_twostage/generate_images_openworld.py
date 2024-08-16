@@ -22,7 +22,7 @@ if debug:
 else:
     model = model_selector(args.model_name)
 
-with open('../prompt_generation/prompts/openworld_base.json', 'r') as f:
+with open('../prompt_generation/prompts/openworld_diversified.json', 'r') as f:
     prompt_dict = json.load(f)
 
 uid_list = list(prompt_dict.keys())
