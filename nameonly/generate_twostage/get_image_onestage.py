@@ -127,6 +127,7 @@ class FloydGenerator(ImageGenerator):
         print(f"Make sure you have logged in to huggingface using `from huggingface_hub import login; login()`")
     
     def load_model(self):
+        from diffusers import DiffusionPipeline
         print(f"Loading Floyd model - stage 1")
         stage_1 = DiffusionPipeline.from_pretrained("DeepFloyd/IF-I-XL-v1.0", variant="fp16", torch_dtype=torch.float16)
         # stage_1.enable_xformers_memory_efficient_attention() # remove line if torch.__version__ >= 2.0.0
