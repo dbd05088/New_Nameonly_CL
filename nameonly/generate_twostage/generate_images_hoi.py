@@ -31,6 +31,12 @@ for cls in tqdm(list_to_generate):
     print(f"Start generating {num_images} images.")
     for i in tqdm(range(num_images)):
         print(f"Generating image for {cls}")
-        image = model.generate_one_image(prompt)
+        while True:
+            try:
+                image = model.generate_one_image(prompt)
+                break
+            except:
+                print(f"Error occurred. Retrying...")
+                continue
         image_path = os.path.join(save_dir, str(i).zfill(6) + '.png')
         image.save(image_path, "JPEG")

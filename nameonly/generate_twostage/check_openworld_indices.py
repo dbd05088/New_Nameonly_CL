@@ -29,7 +29,7 @@ for i, uid in enumerate(uid_list):
 
 # Visualize indices of classes that are not generated
 for i, (uid, pos_count, neg_count) in cls_dir_count_dict.items():
-    if pos_count < 7 or neg_count < 7:
+    if pos_count != 7 or neg_count != 7:
         print(f"{i}: {uid} - pos: {pos_count}, neg: {neg_count}")
         cls_not_generated.append(i)
 

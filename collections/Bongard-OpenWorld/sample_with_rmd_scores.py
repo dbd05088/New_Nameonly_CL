@@ -30,8 +30,8 @@ INVERSE = False
 TEMPERATURE = 0.5
 
 base_path = './'
-json_path = './RMD_scores/openworld.json'
-target_path = './images/generated_RMD'
+json_path = './RMD_scores/openworld_diversified.json'
+target_path = './images/generated_RMD_diversified'
 
 with open(json_path, 'r') as f:
     RMD_scores = json.load(f)

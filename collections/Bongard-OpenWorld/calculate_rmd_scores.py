@@ -112,12 +112,12 @@ def softmax_with_temperature(z, T):
 
 if __name__ == "__main__":
     image_paths = {
-        'sdxl': './images/generated_sdxl',
-        'floyd': './images/generated_floyd',
-        'cogview2': './images/generated_cogview2',
-        'sdturbo': './images/generated_sdturbo',
+        'sdxl': './images/generated_diversified_sdxl',
+        'floyd': './images/generated_diversified_floyd',
+        'cogview2': './images/generated_diversified_cogview2',
+        'sdturbo': './images/generated_diversified_sdturbo',
     }
-    json_save_path = './RMD_scores/openworld.json'
+    json_save_path = './RMD_scores/openworld_diversified.json'
     first_model = next(iter(image_paths)); first_path = image_paths[first_model]
     uids = os.listdir(first_path)
     
