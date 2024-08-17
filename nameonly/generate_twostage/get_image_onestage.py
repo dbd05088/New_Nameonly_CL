@@ -12,10 +12,6 @@ import json
 import socket
 from PIL import Image
 from classes import *
-from diffusers import DiffusionPipeline
-from diffusers import StableDiffusion3Pipeline
-from diffusers import AutoPipelineForText2Image
-from diffusers import UnCLIPPipeline
 from io import BytesIO
 from parse_prompt import get_class_prompt_dict
 from tqdm import tqdm
@@ -54,6 +50,7 @@ class SDXLGenerator(ImageGenerator):
         self.load_model()
     
     def load_model(self):
+        from diffusers import DiffusionPipeline
         self.pipe = DiffusionPipeline.from_pretrained("stabilityai/stable-diffusion-xl-base-1.0", torch_dtype=torch.float16,
                                                         variant="fp16", use_safetensors=True).to(self.device)
         self.refiner = DiffusionPipeline.from_pretrained("stabilityai/stable-diffusion-xl-refiner-1.0", text_encoder_2=self.pipe.text_encoder_2,
@@ -71,6 +68,7 @@ class SD3Generator(ImageGenerator):
         self.load_model()
     
     def load_model(self):
+        from diffusers import StableDiffusion3Pipeline
         self.pipe = StableDiffusion3Pipeline.from_pretrained("stabilityai/stable-diffusion-3-medium-diffusers", torch_dtype=torch.float16).to(self.device)
 
     def generate_one_image(self, prompt):
@@ -101,6 +99,7 @@ class KarloGenerator(ImageGenerator):
         self.load_model()
     
     def load_model(self):
+        from diffusers import UnCLIPPipeline
         self.pipe = UnCLIPPipeline.from_pretrained("kakaobrain/karlo-v1-alpha", torch_dtype=torch.float16).to(self.device)
 
     def generate_one_image(self, prompt):
@@ -113,6 +112,7 @@ class SDTurboGenerator(ImageGenerator):
         self.load_model()
     
     def load_model(self):
+        from diffusers import AutoPipelineForText2Image
         self.pipe = AutoPipelineForText2Image.from_pretrained("stabilityai/sdxl-turbo", torch_dtype=torch.float16, variant="fp16").to(self.device)
     
     def generate_one_image(self, prompt):
@@ -127,6 +127,7 @@ class FloydGenerator(ImageGenerator):
         print(f"Make sure you have logged in to huggingface using `from huggingface_hub import login; login()`")
     
     def load_model(self):
+        from diffusers import DiffusionPipeline
         print(f"Loading Floyd model - stage 1")
         stage_1 = DiffusionPipeline.from_pretrained("DeepFloyd/IF-I-XL-v1.0", variant="fp16", torch_dtype=torch.float16)
         # stage_1.enable_xformers_memory_efficient_attention() # remove line if torch.__version__ >= 2.0.0

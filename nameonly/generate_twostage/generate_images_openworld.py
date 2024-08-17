@@ -2,10 +2,11 @@ import os
 import json
 import argparse
 from get_image_onestage import model_selector
+from get_image_onestage import adjust_list_length
 from tqdm import tqdm
 from utils import sanitize_filename
 
-debug = True
+debug = False
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-m', '--model_name', type=str)
@@ -22,7 +23,7 @@ if debug:
 else:
     model = model_selector(args.model_name)
 
-with open('../prompt_generation/prompts/openworld_base.json', 'r') as f:
+with open('../prompt_generation/prompts/openworld_diversified.json', 'r') as f:
     prompt_dict = json.load(f)
 
 uid_list = list(prompt_dict.keys())
@@ -37,7 +38,9 @@ for uid in tqdm(uids_to_generate):
         os.makedirs(neg_save_dir)
     
     uid_prompts = prompt_dict[uid]
-    positive_prompts = uid_prompts['positive_prompts'] * num_images
+    
+    # Change here to support the variable number of positive prompts
+    positive_prompts = adjust_list_length(uid_prompts['positive_prompts'], num_images)
     negative_prompts = uid_prompts['negative_prompts']
     
     for i, pos_prompt in enumerate(positive_prompts):
