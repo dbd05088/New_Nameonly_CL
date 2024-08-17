@@ -45,14 +45,26 @@ for uid in tqdm(uids_to_generate):
     
     for i, pos_prompt in enumerate(positive_prompts):
         print(f"[POS] Generating image for uid:{uid}, prompt:{pos_prompt}")
-        image = model.generate_one_image(pos_prompt)
+        while True:
+            try:
+                image = model.generate_one_image(pos_prompt)
+                break
+            except:
+                print(f"Error occurred. Retrying...")
+                continue
         image_name = f"{sanitize_filename(pos_prompt)}_{str(i).zfill(6)}"
         image_path = os.path.join(pos_save_dir, image_name + '.png')
         image.save(image_path, "JPEG")
     
     for i, neg_prompt in enumerate(negative_prompts):
         print(f"[NEG] Generating image for uid:{uid}, prompt:{neg_prompt}")
-        image = model.generate_one_image(neg_prompt)
+        while True:
+            try:
+                image = model.generate_one_image(neg_prompt)
+                break
+            except:
+                print(f"Error occurred. Retrying...")
+                continue
         image_name = f"{sanitize_filename(neg_prompt)}_{str(i).zfill(6)}"
         image_path = os.path.join(neg_save_dir, image_name + '.png')
         image.save(image_path, "JPEG")
