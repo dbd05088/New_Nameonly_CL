@@ -2,6 +2,7 @@ import logging.config
 import os
 import random
 import pickle
+import itertools
 import numpy as np
 import torch
 from configuration.VLM_config_new import ModelArguments, DataArguments, TrainingArguments
@@ -101,7 +102,8 @@ def main():
     if data_args.dataset == "Bongard-HOI":
         eval_point = np.array([sum(eval_iter[:i+1]) for i in range(len(eval_iter))]) * (int(np.ceil(6 / ((data_args.num_set - 1) // 2))))
     elif data_args.dataset == "Bongard-OpenWorld":
-        eval_point = np.array([sum(eval_iter[:i+1]) for i in range(len(eval_iter))]) * 4 #(2 * int(np.ceil(6 / ((data_args.num_set - 1) // 2))))
+        nCr = len(list(itertools.combinations(np.arange(6), int((data_args.num_set-1)//2))))
+        eval_point = np.array([sum(eval_iter[:i+1]) for i in range(len(eval_iter))]) * 2 * nCr #(2 * int(np.ceil(6 / ((data_args.num_set - 1) // 2))))
     print("eval_point")
     print(eval_point)
     
