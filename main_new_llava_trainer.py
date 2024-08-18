@@ -134,7 +134,8 @@ def main():
     training_loss = []
     start_time = time.time()
     memory = []
-    memory_size = 1000
+    memory_size = training_args.memory_size
+    print("memory_size", memory_size)
     num_iterations = training_args.num_iter
     total_batchsize = training_args.per_gpu_train_batch_size*training_args.world_size*training_args.gradient_accumulation_steps
     init_lr = training_args.learning_rate

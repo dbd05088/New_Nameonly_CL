@@ -1,16 +1,17 @@
 #/bin/bash
 # CIL CONFIG
-# bongard_openworld_ma_num7_iter2
-NOTE="bongard_openworld_ma_num7_iter1" # Short description of the experiment. (WARNING: logs/results with the same note will be overwritten!)
+#bongard_openworld_ma_num9_iter1
+NOTE="Bongard_OpenWorld_generated_RMD_diversified_more_num7_iter1_meminf" # Short description of the experiment. (WARNING: logs/results with the same note will be overwritten!)
 MODE="VLM"
 MODEL_ARCH="llava" # llava bunny_3b bunny_8b
 RND_SEED=1
 
 # fed args
 DATASET="Bongard-OpenWorld"
-DATA_TYPE="ma" #ma, generaetd, web
+DATA_TYPE="generated_RMD_diversified_more" #ma, generaetd, web, generated_RMD, generated_diversified_sdxl_more, generated_RMD_diversified_more
 NUM_SET=7 # 5 - support set : 4 (2 positive, 2 negative) + 1 query, choice = [5, 7, 9]
 MODEL_MAX_LEN=10000
+MEMORY_SIZE=100000
 NUM_ITER=1
 BATCHSIZE=4
 LR=5e-5
@@ -43,8 +44,8 @@ else
     exit 1
 fi
 # --master_port 29500
-    nohup deepspeed --master_port 29600 \
-    --include localhost:0,1,2,3 \
+    nohup deepspeed --master_port 29610 \
+    --include localhost:4,5,6,7 \
     main_new_llava_trainer.py \
     --deepspeed ./deepspeed_script/zero2.json \
     --model_name_or_path $MODEL_NAME \
@@ -74,6 +75,7 @@ fi
     --logging_steps 2 \
     --num_iter $NUM_ITER \
     --note $NOTE \
+    --memory_size $MEMORY_SIZE \
     --output_dir "./results/test/" & # > ./nohup/fedavg_llava_sc12_lr5e-5_bs16_itr100_constant_nodist.log 2>&1 &
 
 # --eval_period $EVAL_PERIOD
