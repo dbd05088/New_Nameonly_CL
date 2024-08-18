@@ -103,7 +103,10 @@ def main():
         eval_point = np.array([sum(eval_iter[:i+1]) for i in range(len(eval_iter))]) * (int(np.ceil(6 / ((data_args.num_set - 1) // 2))))
     elif data_args.dataset == "Bongard-OpenWorld":
         nCr = len(list(itertools.combinations(np.arange(6), int((data_args.num_set-1)//2))))
-        eval_point = np.array([sum(eval_iter[:i+1]) for i in range(len(eval_iter))]) * 2 * nCr #(2 * int(np.ceil(6 / ((data_args.num_set - 1) // 2))))
+        if "more" in data_args.data_type:
+            eval_point = np.array([sum(eval_iter[:i+1]) for i in range(len(eval_iter))]) * 2 * nCr #(2 * int(np.ceil(6 / ((data_args.num_set - 1) // 2))))
+        else:
+            eval_point = np.array([sum(eval_iter[:i+1]) for i in range(len(eval_iter))]) * (2 * int(np.ceil(6 / ((data_args.num_set - 1) // 2))))
     print("eval_point")
     print(eval_point)
     
@@ -131,7 +134,7 @@ def main():
     training_loss = []
     start_time = time.time()
     memory = []
-    memory_size = 500
+    memory_size = 1000
     num_iterations = training_args.num_iter
     total_batchsize = training_args.per_gpu_train_batch_size*training_args.world_size*training_args.gradient_accumulation_steps
     init_lr = training_args.learning_rate
