@@ -128,7 +128,7 @@ def evaluate(dataset, dataname, round, model, tokenizer, device, model_args, tra
     #save predictions
 
     logger.info(f"Test Task{round} | Data {dataname} | precision {scores['precision']:.4f} | recall {scores['recall']:.4f} | Bleu_1 {scores['Bleu_1']} | Bleu_2 {scores['Bleu_2']} | Bleu_3 {scores['Bleu_3']} |Bleu_4 {scores['Bleu_4']} | METEOR {scores['METEOR']} | ROUGE_L {scores['ROUGE_L']} | CIDEr {scores['CIDEr']} |")
-    with open(f"./eval_results/{training_args.mode}/{training_args.note}/task{task}_evaltask{eval_task}_{dataname}.json", 'w') as fp:
+    with open(f"./eval_results/{training_args.mode}/{training_args.note}/seed{training_args.seed}/task{task}_evaltask{eval_task}_{dataname}.json", 'w') as fp:
         json.dump(predictions, fp, indent=4)
     torch.cuda.empty_cache()
 
@@ -206,7 +206,7 @@ def evaluate_choices(dataset, dataname, task, eval_task, model, tokenizer, devic
     predictions.append(scores)
     #save predictions
     logger.info(f"Test | Data {dataname} | curr_task {task} | eval_task {eval_task} | accuracy {scores['accuracy']} |")
-    with open(f"./eval_results/{training_args.mode}/{training_args.note}/task{task}_evaltask{eval_task}_{dataname}.json", 'w') as fp:
+    with open(f"./eval_results/{training_args.mode}/{training_args.note}/seed{training_args.seed}/task{task}_evaltask{eval_task}_{dataname}.json", 'w') as fp:
         json.dump(predictions, fp, indent=4)
     torch.cuda.empty_cache()
 
