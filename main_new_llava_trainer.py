@@ -102,7 +102,7 @@ def main():
     if data_args.dataset == "Bongard-HOI":
         eval_point = np.array([sum(eval_iter[:i+1]) for i in range(len(eval_iter))]) * (int(np.ceil(6 / ((data_args.num_set - 1) // 2))))
     elif data_args.dataset == "Bongard-OpenWorld":
-        nCr = len(list(itertools.combinations(np.arange(6), int((data_args.num_set-1)//2))))
+        nCr = len(list(itertools.combinations(np.arange(7), int((data_args.num_set-1)//2)+1)))
         if "more" in data_args.data_type:
             eval_point = np.array([sum(eval_iter[:i+1]) for i in range(len(eval_iter))]) * 2 * nCr #(2 * int(np.ceil(6 / ((data_args.num_set - 1) // 2))))
         else:
