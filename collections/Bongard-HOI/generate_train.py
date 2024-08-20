@@ -5,8 +5,8 @@ from collections import Counter
 from tqdm import tqdm
 
 json_path = './train.json'
-output_path = './train_generated.json'
-samples_path = './images/generated'
+output_path = './train_generated_RMD.json'
+samples_path = './images/generated_RMD'
 with open(json_path, 'r') as f:
     data_dict = json.load(f)
     
