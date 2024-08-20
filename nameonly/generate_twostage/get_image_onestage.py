@@ -118,7 +118,51 @@ class SDTurboGenerator(ImageGenerator):
     def generate_one_image(self, prompt):
         image = self.pipe(prompt=prompt, guidance_scale=0.0, num_inference_steps=1).images[0]
         return image
+
+class FluxGenerator(ImageGenerator):
+    def __init__(self):
+        super().__init__("flux")
+        self.load_model()
     
+    def load_model(self):
+        from diffusers import FluxPipeline
+        self.pipe = FluxPipeline.from_pretrained("black-forest-labs/FLUX.1-schnell", torch_dtype=torch.bfloat16)
+        self.pipe.enable_sequential_cpu_offload()
+        self.pipe.vae.enable_slicing()
+        self.pipe.vae.enable_tiling()
+        self.pipe.to(torch.float16)
+
+    def generate_one_image(self, prompt):
+        image = self.pipe(prompt=prompt, guidance_scale=0, num_inference_steps=4, max_sequence_length=256).images[0]
+        return image
+
+class KolorsGenerator(ImageGenerator):
+    def __init__(self):
+        super().__init__("kolors")
+        self.load_model()
+    
+    def load_model(self):
+        from diffusers import KolorsPipeline
+        self.pipe = KolorsPipeline.from_pretrained("Kwai-Kolors/Kolors-diffusers", torch_dtype=torch.float16, variant="fp16").to("cuda")
+
+    def generate_one_image(self, prompt):
+        image = self.pipe(prompt=prompt, negative_prompt="", guidance_scale=5.0, num_inference_steps=50).images[0]
+        return image
+
+class AuraFlowGenerator(ImageGenerator):
+    def __init__(self):
+        super().__init__("kolors")
+        self.load_model()
+    
+    def load_model(self):
+        from diffusers import AuraFlowPipeline
+        self.pipe = AuraFlowPipeline.from_pretrained("fal/AuraFlow-v0.3", torch_dtype=torch.float16, variant="fp16").to("cuda")
+
+    def generate_one_image(self, prompt):
+        breakpoint()
+        image = self.pipe(prompt=prompt, negative_prompt="", guidance_scale=3.5, num_inference_steps=50).images[0]
+        return image
+
 class FloydGenerator(ImageGenerator):
     def __init__(self):
         super().__init__("floyd")
@@ -201,6 +245,12 @@ def model_selector(generative_model, API_KEY=None):
         return KarloGenerator()
     elif generative_model == "sdturbo":
         return SDTurboGenerator()
+    elif generative_model == "flux":
+        return FluxGenerator()
+    elif generative_model == "kolors":
+        return KolorsGenerator()
+    elif generative_model == "auraflow":
+        return AuraFlowGenerator()
     else:
         raise ValueError(f"Generative model {generative_model} is not supported")
 
