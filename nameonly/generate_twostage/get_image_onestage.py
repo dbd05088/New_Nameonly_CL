@@ -156,11 +156,10 @@ class AuraFlowGenerator(ImageGenerator):
     
     def load_model(self):
         from diffusers import AuraFlowPipeline
-        self.pipe = AuraFlowPipeline.from_pretrained("fal/AuraFlow-v0.3", torch_dtype=torch.float16, variant="fp16").to("cuda")
+        self.pipe = AuraFlowPipeline.from_pretrained("fal/AuraFlow-v0.2", torch_dtype=torch.float16, variant="fp16").to("cuda")
 
     def generate_one_image(self, prompt):
-        breakpoint()
-        image = self.pipe(prompt=prompt, negative_prompt="", guidance_scale=3.5, num_inference_steps=50).images[0]
+        image = self.pipe(prompt=prompt, guidance_scale=3.5, num_inference_steps=50, height=1024, width=1024).images[0]
         return image
 
 class FloydGenerator(ImageGenerator):
