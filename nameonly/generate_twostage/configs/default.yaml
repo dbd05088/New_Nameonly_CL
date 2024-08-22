@@ -4,7 +4,7 @@ generative_model: auraflow
 
 start_class: 0
 end_class: 0
-debug: True
+debug: False
 
 api_key: none # For Dalle2
 
