@@ -22,8 +22,8 @@ INVERSE = False
 TEMPERATURE = 0.5
 
 base_path = './raw_datasets/iclr_generated/PACS'
-json_path = './RMD_scores/PACS_final_sdturbo.json'
-target_path = './raw_datasets/iclr_generated/PACS/PACS_final_sdturbo_RMD'
+json_path = './RMD_scores/PACS_final_new.json'
+target_path = './raw_datasets/iclr_generated/PACS/PACS_final_new'
 
 count_dict = get_count_value_from_string(base_path)
 with open(json_path, 'r') as f:

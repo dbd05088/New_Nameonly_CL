@@ -162,10 +162,11 @@ for uid in tqdm(uids):
         model_class_selected_counter[sample_model_RMD_mapping_neg[sample_path][0]][uid]['neg'] += 1
 
 
-# Check the number of images selected for each model, for each class
+# Check the number of images selected for each model
 for model, uid_counter in model_class_selected_counter.items():
-    print(f"Model {model} selected for each uid:")
-    print(uid_counter)
+    model_count = sum([count['pos'] + count['neg'] for count in uid_counter.values()])
+    print(f"Model {model} selected :")
+    print(model_count)
 
 # Sanity check the number of images for each class
 for uid, pos_neg_dict in ensembled_images.items():
