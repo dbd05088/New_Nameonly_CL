@@ -10,6 +10,7 @@ from transformers import CLIPProcessor, CLIPModel
 from PIL import Image
 from tqdm import tqdm
 from classes import *
+from pathlib import Path
 
 def calculate_features(image_paths, model):
     device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -181,8 +182,10 @@ if __name__ == "__main__":
             RMDs = RMD[indices]
             paths = np.array(concatenated_images)[indices]
             for i in range(len(RMDs)):
+                path = Path(paths[i])
+                path = str(Path(*path.parts[-3:]))
                 result_dict[model][cls].append({
-                    'image_path': paths[i],
+                    'image_path': path,
                     'score': RMDs[i]
                 })
 
