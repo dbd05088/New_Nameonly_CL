@@ -4,7 +4,7 @@ import os
 import natsort
 import random
 import numpy as np
-import pickle
+import json
 import argparse
 from transformers import CLIPProcessor, CLIPModel
 from PIL import Image
@@ -121,7 +121,7 @@ if __name__ == "__main__":
     
     dataset = config['dataset']
     dataset_dict = count_dict[dataset]
-    pickle_save_path = config['pickle_save_path']
+    json_save_path = config['json_save_path']
     image_paths = config['image_paths']
     classes = sorted(list(dataset_dict.keys()))
     images_dict = {model: {cls: [] for cls in classes} for model in image_paths.keys()}
@@ -169,17 +169,26 @@ if __name__ == "__main__":
         RMD_each_model[model] = RMD[model_labels == model]
     
     # Generate model - class - image_path - RMD dictionary
+    result_dict = {}
     model_class_image_RMD = {}
     for model in image_paths.keys():
+        if model not in result_dict:
+            result_dict[model] = {}
         for cls in classes:
+            if cls not in result_dict[model]:
+                result_dict[model][cls] = []
             indices = np.where((model_labels == model) & (class_labels == cls))[0]
             RMDs = RMD[indices]
             paths = np.array(concatenated_images)[indices]
-            model_class_image_RMD[(model, cls)] = list(zip(paths, RMDs))
+            for i in range(len(RMDs)):
+                result_dict[model][cls].append({
+                    'image_path': paths[i],
+                    'score': RMDs[i]
+                })
 
-    # Save the RMD scores as pickle
-    with open(pickle_save_path, 'wb') as f:
-        pickle.dump(model_class_image_RMD, f)
+    # Save the RMD scores as json file
+    with open(json_save_path, 'wb') as f:
+        json.dump(result_dict, f)
 
     # Print the top 5 and bottom 5 RMD scores of each model
     concatenated_images = np.array(concatenated_images)
