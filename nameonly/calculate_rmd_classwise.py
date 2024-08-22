@@ -187,7 +187,7 @@ if __name__ == "__main__":
                 })
 
     # Save the RMD scores as json file
-    with open(json_save_path, 'wb') as f:
+    with open(json_save_path, 'w') as f:
         json.dump(result_dict, f)
 
     # Print the top 5 and bottom 5 RMD scores of each model
