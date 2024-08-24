@@ -11,7 +11,15 @@
 
 source ~/.bashrc
 ml purge
-
 conda init bash
 conda activate generate
-python get_image_onestage.py --config_path ./configs/kandinsky2.yaml --start_class 0 --end_class 0
+
+DATASET="PACS" # PACS, DomainNet, cifar10, NICO
+IMAGE_DIR='./generated_datasets/PACS_sdxl'
+GENERATIVE_MODEL="sdxl" # sdxl, floyd, cogview2, sd3, sdturbo, flux, kolors, auraflow
+START_CLASS=0
+END_CLASS=0
+PROMPT_DIR='../prompt_generation/prompts/gpt4_hierarchy_cot_1.json'
+INCREASE_RATIO=1.2
+
+python get_image_onestage.py --config_path ./configs/default.yaml --dataset $DATASET --image_dir $IMAGE_DIR --generative_model $GENERATIVE_MODEL --start_class $START_CLASS --end_class $END_CLASS --prompt_dir $PROMPT_DIR --increase_ratio $INCREASE_RATIO

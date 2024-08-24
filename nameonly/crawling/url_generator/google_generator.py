@@ -138,6 +138,3 @@ class GoogleURLGenerator(URLGenerator):
         self.driver.quit()
         return self.url_list
     
-        # with open(os.path.join(self.save_dir, f'{filename}.txt'), 'w') as f:
-        #     for url in self.url_list:
-        #         f.write(url + '\n')

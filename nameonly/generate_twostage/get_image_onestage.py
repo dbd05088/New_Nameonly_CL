@@ -118,7 +118,50 @@ class SDTurboGenerator(ImageGenerator):
     def generate_one_image(self, prompt):
         image = self.pipe(prompt=prompt, guidance_scale=0.0, num_inference_steps=1).images[0]
         return image
+
+class FluxGenerator(ImageGenerator):
+    def __init__(self):
+        super().__init__("flux")
+        self.load_model()
     
+    def load_model(self):
+        from diffusers import FluxPipeline
+        self.pipe = FluxPipeline.from_pretrained("black-forest-labs/FLUX.1-schnell", torch_dtype=torch.bfloat16)
+        self.pipe.enable_sequential_cpu_offload()
+        self.pipe.vae.enable_slicing()
+        self.pipe.vae.enable_tiling()
+        self.pipe.to(torch.float16)
+
+    def generate_one_image(self, prompt):
+        image = self.pipe(prompt=prompt, guidance_scale=0, num_inference_steps=4, max_sequence_length=256).images[0]
+        return image
+
+class KolorsGenerator(ImageGenerator):
+    def __init__(self):
+        super().__init__("kolors")
+        self.load_model()
+    
+    def load_model(self):
+        from diffusers import KolorsPipeline
+        self.pipe = KolorsPipeline.from_pretrained("Kwai-Kolors/Kolors-diffusers", torch_dtype=torch.float16, variant="fp16").to("cuda")
+
+    def generate_one_image(self, prompt):
+        image = self.pipe(prompt=prompt, negative_prompt="", guidance_scale=5.0, num_inference_steps=50).images[0]
+        return image
+
+class AuraFlowGenerator(ImageGenerator):
+    def __init__(self):
+        super().__init__("kolors")
+        self.load_model()
+    
+    def load_model(self):
+        from diffusers import AuraFlowPipeline
+        self.pipe = AuraFlowPipeline.from_pretrained("fal/AuraFlow-v0.2", torch_dtype=torch.float16, variant="fp16").to("cuda")
+
+    def generate_one_image(self, prompt):
+        image = self.pipe(prompt=prompt, guidance_scale=3.5, num_inference_steps=50, height=1024, width=1024).images[0]
+        return image
+
 class FloydGenerator(ImageGenerator):
     def __init__(self):
         super().__init__("floyd")
@@ -201,6 +244,12 @@ def model_selector(generative_model, API_KEY=None):
         return KarloGenerator()
     elif generative_model == "sdturbo":
         return SDTurboGenerator()
+    elif generative_model == "flux":
+        return FluxGenerator()
+    elif generative_model == "kolors":
+        return KolorsGenerator()
+    elif generative_model == "auraflow":
+        return AuraFlowGenerator()
     else:
         raise ValueError(f"Generative model {generative_model} is not supported")
 
@@ -342,25 +391,40 @@ def generate_single_class(
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('-c', '--config_path', default='./configs/default.yaml')
-    parser.add_argument('-s', '--start_class', type=int, default=None)
-    parser.add_argument('-e', '--end_class', type=int, default=None)
-    parser_config = parser.parse_args()
+    parser.add_argument('--config_path', default='./configs/default.yaml')
+    parser.add_argument('--dataset', type=str, default=None)
+    parser.add_argument('--image_dir', type=str, default=None)
+    parser.add_argument('--generative_model', type=str, default=None)
+    parser.add_argument('--start_class', type=int, default=None)
+    parser.add_argument('--end_class', type=int, default=None)
+    parser.add_argument('--prompt_dir', type=str, default=None)
+    parser.add_argument('--increase_ratio', type=float, default=None)
     
-    config = get_config(config_path=parser_config.config_path)
+    parser_config = parser.parse_args()
 
+    config = get_config(config_path=parser_config.config_path)
+    
     # Override config if arguments are explicitly provided (start, end class)
+    if parser_config.dataset is not None:
+        config['dataset'] = parser_config.dataset
+    if parser_config.image_dir is not None:
+        config['image_dir'] = parser_config.image_dir
+    if parser_config.generative_model is not None:
+        config['generative_model'] = parser_config.generative_model
     if parser_config.start_class is not None:
         config['start_class'] = parser_config.start_class
         config['end_class'] = parser_config.end_class
+    if parser_config.prompt_dir is not None:
+        config['prompt_dir'] = parser_config.prompt_dir
+    if parser_config.increase_ratio is not None:
+        config['increase_ratio'] = parser_config.increase_ratio
+    
+    print(f"Config: {config}")
     
     model_name = config['generative_model']
     image_root_dir = config['image_dir']
     debug = config['debug']
 
-    # Load dataset dictionary
-    # with open("dataset_dict.pkl", mode='rb') as f:
-    #     sample_num_dict = pickle.load(f)[config['dataset']]
     sample_num_dict = count_dict[config['dataset']]
     classes = list(sample_num_dict.keys())
     if 'end_class' in config:
