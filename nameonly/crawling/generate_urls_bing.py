@@ -9,17 +9,17 @@ logger = logging.getLogger(__name__)
 
 save_dir = './urls/domainnet_urls_bing'
 
-generator = BingURLGenerator(save_dir=save_dir, max_scroll=5, sleep_time=2, mode='headless')
+generator = BingURLGenerator(mode='headless', use_color=False, use_size=False, scroll_patience=20)
 
 # # Check the save directory to remove already generated URLs
 # class_txt_files = os.listdir(save_dir)
 # class_txt_files = [f.split('.')[0] for f in class_txt_files]
 # domainnet = [cls for cls in domainnet if cls not in class_txt_files]
 
-for cls in tqdm(domainnet):
-    # if f"{cls}.txt" in os.listdir(save_dir):
-    #     logger.info(f"Skipping {cls} because it already exists")
-    #     continue
+# For classification
+for cls in tqdm(DomainNet_count):
     logger.info(f"Generating URL for {cls}")
-    result = generator.generate_url(query=cls, total_images=400)
-    
+    url_list = generator.generate_url(query=cls, total_images=10, image_type='None')
+    with open(os.path.join(save_dir, f'{cls}.txt'), 'w') as f:
+        for url in url_list:
+            f.write(url + '\n')
