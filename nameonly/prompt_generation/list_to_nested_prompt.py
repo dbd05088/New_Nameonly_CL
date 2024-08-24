@@ -1,7 +1,6 @@
 # Nested prompt structure -> list of prompts
 
 import json
-from classes import *
 
 prompt_path = './prompts/gpt4_wo_cot_wo_hierarchy.json'
 prompt_list = [

@@ -8,7 +8,7 @@ debug: False
 api_key: sk-proj-b6mF6aJroOzev4yh1afBT3BlbkFJcgqlS8S3hrxASu62u3a6 # For Dalle2
 
 # prompt_dir: './prompts/clip_filtered_prompts.json'
-prompt_dir: '../prompt_generation/prompts/gpt_static_totalprompts_with_cot_50_with_cls_PACS.json'
+prompt_dir: '../prompt_generation/prompts/gpt4_hierarchy_cot_1.json'
 num_samples_path: none # txt file to run conveniently
 
 

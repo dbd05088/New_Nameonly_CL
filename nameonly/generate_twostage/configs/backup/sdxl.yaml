@@ -8,8 +8,7 @@ debug: True
 
 api_key: none # For Dalle2
 
-# prompt_dir: './prompts/clip_filtered_prompts.json'
-prompt_dir: '../prompt_generation/prompts/static_totalprompts_with_cot_50_wo_hierarchical_DomainNet.json'
+prompt_dir: '../prompt_generation/prompts/gpt4_hierarchy_cot_1.json'
 num_samples_path: none # txt file to run conveniently
 
 
