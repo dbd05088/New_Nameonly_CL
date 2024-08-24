@@ -6,8 +6,8 @@ from tqdm import tqdm
 
 NUM_IMAGES = 14
 json_path = './train_ma.jsonl' # FIX THIS!
-output_path = './train_generated_diversified_sdxl.jsonl'
-base_path = './images/generated_diversified_sdxl'
+output_path = './train_generated_equalweight.jsonl'
+base_path = './images/generated_equalweight'
 
 # Process jsonl file
 data_list = []
