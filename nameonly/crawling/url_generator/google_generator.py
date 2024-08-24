@@ -51,9 +51,10 @@ class GoogleURLGenerator(URLGenerator):
                     load_more_button = self.driver.find_element(By.XPATH, '//*[@id="islmp"]/div/div/div/div/div[1]/div[2]/div[2]/input')
                     if load_more_button.is_displayed():
                         load_more_button.click()
+                        print(f"Successfully clicked on the load more button")
                         scroll_patience = 0
                     else:
-                        logger.info('No more load more button')
+                        logger.info('Tried to click on the load more button but it is not displayed')
                         scroll_patience += 1
                 except:
                     logger.info('No more load more button')
@@ -111,20 +112,28 @@ class GoogleURLGenerator(URLGenerator):
 
         if self.use_size:
             for size in self.size_list:
+                print(f"Size: {size}")
                 if self.use_color:
                     for color in self.colors_list:
+                        print(f"Color: {color}")
                         self.crawl_color_size(query.replace('_', ' '), color=color, size=size)
                         if len(set(self.url_list)) >= total_images:
                             logger.info(f"Break the loop because the number of images is enough: {len(set(self.url_list))}")
                             break
                 else:
+                    print(f"Color: None")
                     self.crawl_color_size(query.replace('_', ' '), color=None, size=size)
                     if len(set(self.url_list)) >= total_images:
                         logger.info(f"Break the loop because the number of images is enough: {len(set(self.url_list))}")
                         break
+                
+                if len(set(self.url_list)) >= total_images:
+                    logger.info(f"Break the loop because the number of images is enough: {len(set(self.url_list))}")
+                    break
         else:
             if self.use_color:
                 for color in self.colors_list:
+                    print(f"Color: {color}")
                     self.crawl_color_size(query.replace('_', ' '), color=color, size=None)
                     if len(set(self.url_list)) >= total_images:
                         logger.info(f"Break the loop because the number of images is enough: {len(set(self.url_list))}")
