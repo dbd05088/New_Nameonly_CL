@@ -1,0 +1,8 @@
+numpy
+torch
+Pillow
+transformers
+accelerate
+diffusers
+sentencepiece
+protobuf
