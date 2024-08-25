@@ -543,29 +543,52 @@
 # rm PACS_final_sdxl_1_filtered.tar
 
 
-# 0722 RMD experiment (dalle2 alternative)
-# Compare kandinsky2, karlo, sd3, sdturbo
-./gdrive files download 1e8nK422czexVVdyLLpgkKWjpPLTJJWbW
-./gdrive files download 1XOke56yV1YQavKN_6-9POPgB_7U4ZiVF
-./gdrive files download 1HjCisHVDo85rI4nnEgrYU9ryU2z1lGTp
-./gdrive files download 1_u7msLSSBr6UyqXpT7sSbNA2LI2KT_Ar
-./gdrive files download 1-UG4f2S8_ZnHKTTkc0NQbP-Fxr6VX9ka
-./gdrive files download 1UGtyYxgB0yZpRfZw2yGYustZwmRwbYm-
-./gdrive files download 12daGuQTYjF5-g8kwzbWCGDEBvZAHyFc4
-./gdrive files download 1lHbviYFmEBFxeJEY9d0mv0_Ayju4uAvT
-tar -xf PACS_final_kandinsky2_equalweight.tar -C PACS_final
-tar -xf PACS_final_kandinsky2_RMD.tar -C PACS_final
-tar -xf PACS_final_karlo_equalweight.tar -C PACS_final
-tar -xf PACS_final_karlo_RMD.tar -C PACS_final
-tar -xf PACS_final_sd3_equalweight.tar -C PACS_final
-tar -xf PACS_final_sd3_RMD.tar -C PACS_final
-tar -xf PACS_final_sdturbo_equalweight.tar -C PACS_final
-tar -xf PACS_final_sdturbo_RMD.tar -C PACS_final
-rm PACS_final_kandinsky2_equalweight.tar
-rm PACS_final_kandinsky2_RMD.tar
-rm PACS_final_karlo_equalweight.tar
-rm PACS_final_karlo_RMD.tar
-rm PACS_final_sd3_equalweight.tar
-rm PACS_final_sd3_RMD.tar
-rm PACS_final_sdturbo_equalweight.tar
-rm PACS_final_sdturbo_RMD.tar
+# # 0722 RMD experiment (dalle2 alternative)
+# # Compare kandinsky2, karlo, sd3, sdturbo
+# ./gdrive files download 1e8nK422czexVVdyLLpgkKWjpPLTJJWbW
+# ./gdrive files download 1XOke56yV1YQavKN_6-9POPgB_7U4ZiVF
+# ./gdrive files download 1HjCisHVDo85rI4nnEgrYU9ryU2z1lGTp
+# ./gdrive files download 1_u7msLSSBr6UyqXpT7sSbNA2LI2KT_Ar
+# ./gdrive files download 1-UG4f2S8_ZnHKTTkc0NQbP-Fxr6VX9ka
+# ./gdrive files download 1UGtyYxgB0yZpRfZw2yGYustZwmRwbYm-
+# ./gdrive files download 12daGuQTYjF5-g8kwzbWCGDEBvZAHyFc4
+# ./gdrive files download 1lHbviYFmEBFxeJEY9d0mv0_Ayju4uAvT
+# tar -xf PACS_final_kandinsky2_equalweight.tar -C PACS_final
+# tar -xf PACS_final_kandinsky2_RMD.tar -C PACS_final
+# tar -xf PACS_final_karlo_equalweight.tar -C PACS_final
+# tar -xf PACS_final_karlo_RMD.tar -C PACS_final
+# tar -xf PACS_final_sd3_equalweight.tar -C PACS_final
+# tar -xf PACS_final_sd3_RMD.tar -C PACS_final
+# tar -xf PACS_final_sdturbo_equalweight.tar -C PACS_final
+# tar -xf PACS_final_sdturbo_RMD.tar -C PACS_final
+# rm PACS_final_kandinsky2_equalweight.tar
+# rm PACS_final_kandinsky2_RMD.tar
+# rm PACS_final_karlo_equalweight.tar
+# rm PACS_final_karlo_RMD.tar
+# rm PACS_final_sd3_equalweight.tar
+# rm PACS_final_sd3_RMD.tar
+# rm PACS_final_sdturbo_equalweight.tar
+# rm PACS_final_sdturbo_RMD.tar
+
+# 0825 RMD check
+./gdrive files download 1AKEharuL1i7V6cn65pQ1czNlMqQeagWN # PACS_final_sdxl_floyd_cogview2_sd3.tar
+./gdrive files download 1aSg_xyyuH_XjSSPBxBu28h9oKsMoL_6o # PACS_final_sdxl_floyd_cogview2_sd3_flux.tar
+./gdrive files download 1tsdgpXJuTNqSy9LVZ-ZESYQXk-Rce7p1 # PACS_final_sdxl_floyd_cogview2_sd3_auraflow.tar
+./gdrive files download 1CVKBwq7VxgTC7ciNgHO4_NCCl0uz1OEx # PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors.tar
+./gdrive files download 1I9EqJYvRrs6edpsmUQSZtWmGRLxEI6Oy # PACS_final_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
+./gdrive files download 1xJNFyKGiU1ZLNTQlhdkrM4l118sGsYYH # PACS_final_sdxl_floyd_cogview2_sd3_kolors_auraflow.tar
+./gdrive files download 1JJlW6fsL1MBhN4vjk5cVQ5RIMLkopXJh # PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.tar
+tar -xf PACS_final_sdxl_floyd_cogview2_sd3.tar -C PACS_final
+tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux.tar -C PACS_final
+tar -xf PACS_final_sdxl_floyd_cogview2_sd3_auraflow.tar -C PACS_final
+tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors.tar -C PACS_final
+tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux_auraflow.tar -C PACS_final
+tar -xf PACS_final_sdxl_floyd_cogview2_sd3_kolors_auraflow.tar -C PACS_final
+tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.tar -C PACS_final
+rm PACS_final_sdxl_floyd_cogview2_sd3.tar
+rm PACS_final_sdxl_floyd_cogview2_sd3_flux.tar
+rm PACS_final_sdxl_floyd_cogview2_sd3_auraflow.tar
+rm PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors.tar
+rm PACS_final_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
+rm PACS_final_sdxl_floyd_cogview2_sd3_kolors_auraflow.tar
+rm PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.tar
