@@ -570,25 +570,48 @@
 # rm PACS_final_sdturbo_equalweight.tar
 # rm PACS_final_sdturbo_RMD.tar
 
-# 0825 RMD check
-./gdrive files download 1AKEharuL1i7V6cn65pQ1czNlMqQeagWN # PACS_final_sdxl_floyd_cogview2_sd3.tar
-./gdrive files download 1aSg_xyyuH_XjSSPBxBu28h9oKsMoL_6o # PACS_final_sdxl_floyd_cogview2_sd3_flux.tar
-./gdrive files download 1tsdgpXJuTNqSy9LVZ-ZESYQXk-Rce7p1 # PACS_final_sdxl_floyd_cogview2_sd3_auraflow.tar
-./gdrive files download 1CVKBwq7VxgTC7ciNgHO4_NCCl0uz1OEx # PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors.tar
-./gdrive files download 1I9EqJYvRrs6edpsmUQSZtWmGRLxEI6Oy # PACS_final_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
-./gdrive files download 1xJNFyKGiU1ZLNTQlhdkrM4l118sGsYYH # PACS_final_sdxl_floyd_cogview2_sd3_kolors_auraflow.tar
-./gdrive files download 1JJlW6fsL1MBhN4vjk5cVQ5RIMLkopXJh # PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.tar
-tar -xf PACS_final_sdxl_floyd_cogview2_sd3.tar -C PACS_final
-tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux.tar -C PACS_final
-tar -xf PACS_final_sdxl_floyd_cogview2_sd3_auraflow.tar -C PACS_final
-tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors.tar -C PACS_final
-tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux_auraflow.tar -C PACS_final
-tar -xf PACS_final_sdxl_floyd_cogview2_sd3_kolors_auraflow.tar -C PACS_final
-tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.tar -C PACS_final
-rm PACS_final_sdxl_floyd_cogview2_sd3.tar
-rm PACS_final_sdxl_floyd_cogview2_sd3_flux.tar
-rm PACS_final_sdxl_floyd_cogview2_sd3_auraflow.tar
-rm PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors.tar
-rm PACS_final_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
-rm PACS_final_sdxl_floyd_cogview2_sd3_kolors_auraflow.tar
-rm PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.tar
+# # 0825 RMD check
+# ./gdrive files download 1AKEharuL1i7V6cn65pQ1czNlMqQeagWN # PACS_final_sdxl_floyd_cogview2_sd3.tar
+# ./gdrive files download 1aSg_xyyuH_XjSSPBxBu28h9oKsMoL_6o # PACS_final_sdxl_floyd_cogview2_sd3_flux.tar
+# ./gdrive files download 1tsdgpXJuTNqSy9LVZ-ZESYQXk-Rce7p1 # PACS_final_sdxl_floyd_cogview2_sd3_auraflow.tar
+# ./gdrive files download 1CVKBwq7VxgTC7ciNgHO4_NCCl0uz1OEx # PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors.tar
+# ./gdrive files download 1I9EqJYvRrs6edpsmUQSZtWmGRLxEI6Oy # PACS_final_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
+# ./gdrive files download 1xJNFyKGiU1ZLNTQlhdkrM4l118sGsYYH # PACS_final_sdxl_floyd_cogview2_sd3_kolors_auraflow.tar
+# ./gdrive files download 1JJlW6fsL1MBhN4vjk5cVQ5RIMLkopXJh # PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.tar
+# tar -xf PACS_final_sdxl_floyd_cogview2_sd3.tar -C PACS_final
+# tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux.tar -C PACS_final
+# tar -xf PACS_final_sdxl_floyd_cogview2_sd3_auraflow.tar -C PACS_final
+# tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors.tar -C PACS_final
+# tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux_auraflow.tar -C PACS_final
+# tar -xf PACS_final_sdxl_floyd_cogview2_sd3_kolors_auraflow.tar -C PACS_final
+# tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.tar -C PACS_final
+# rm PACS_final_sdxl_floyd_cogview2_sd3.tar
+# rm PACS_final_sdxl_floyd_cogview2_sd3_flux.tar
+# rm PACS_final_sdxl_floyd_cogview2_sd3_auraflow.tar
+# rm PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors.tar
+# rm PACS_final_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
+# rm PACS_final_sdxl_floyd_cogview2_sd3_kolors_auraflow.tar
+# rm PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.tar
+
+# 0825 RMD check equalweight
+./gdrive files download 1t61yPBbJGkZX20olhBMap0xgNaiqx1NF # PACS_final_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar
+./gdrive files download 1Nku6TVVlPRHqdn_KQun5cLAEU4ljy6dp # PACS_final_sdxl_floyd_cogview2_sd3_equalweight.tar
+./gdrive files download 1mRprtAIj7AFM5YDDq6bkthE1WeSOdK8d # PACS_final_sdxl_floyd_cogview2_sd3_flux_auraflow_equalweight.tar
+./gdrive files download 1pjuh0xq6jUcsrjA8wFrFfAwCFzZAl_Ty # PACS_final_sdxl_floyd_cogview2_sd3_flux_equalweight.tar
+./gdrive files download 1Z-uNoF8KaShpn1dA82W4VewWLHqDj1C1 # PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_equalweight.tar
+./gdrive files download 1a2Nhx6hcNmgWGGMmC4qQN8cv8sxFAqY- # PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_equalweight.tar
+./gdrive files download 10UczXeaI7J9LXm-CaynBcTPaCmaTqNee # PACS_final_sdxl_floyd_cogview2_sd3_kolors_auraflow_equalweight.tar
+tar -xf PACS_final_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar -C PACS_final
+tar -xf PACS_final_sdxl_floyd_cogview2_sd3_equalweight.tar -C PACS_final
+tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux_auraflow_equalweight.tar -C PACS_final
+tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux_equalweight.tar -C PACS_final
+tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_equalweight.tar -C PACS_final
+tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_equalweight.tar -C PACS_final
+tar -xf PACS_final_sdxl_floyd_cogview2_sd3_kolors_auraflow_equalweight.tar -C PACS_final
+rm PACS_final_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar
+rm PACS_final_sdxl_floyd_cogview2_sd3_equalweight.tar
+rm PACS_final_sdxl_floyd_cogview2_sd3_flux_auraflow_equalweight.tar
+rm PACS_final_sdxl_floyd_cogview2_sd3_flux_equalweight.tar
+rm PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_equalweight.tar
+rm PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_equalweight.tar
+rm PACS_final_sdxl_floyd_cogview2_sd3_kolors_auraflow_equalweight.tar
