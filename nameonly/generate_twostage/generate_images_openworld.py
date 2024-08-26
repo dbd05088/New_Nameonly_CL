@@ -1,6 +1,7 @@
 import os
 import json
 import argparse
+import shutil
 from get_image_onestage import model_selector
 from get_image_onestage import adjust_list_length
 from tqdm import tqdm
@@ -31,6 +32,10 @@ print(f"Class indices to generate: {args.start_class} ~ {args.end_class}")
 uids_to_generate = uid_list[args.start_class:args.end_class+1]
 for uid in tqdm(uids_to_generate):
     save_dir = os.path.join(args.root_dir, uid)
+    # Remove existing directory
+    if os.path.exists(save_dir):
+        print(f"Removing existing directory: {save_dir}")
+        shutil.rmtree(save_dir)
     pos_save_dir = os.path.join(save_dir, 'pos'); neg_save_dir = os.path.join(save_dir, 'neg')
     if not os.path.exists(pos_save_dir):
         os.makedirs(pos_save_dir)
