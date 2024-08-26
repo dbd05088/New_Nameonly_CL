@@ -10,6 +10,7 @@ import requests
 import yaml
 import json
 import socket
+import shutil
 from PIL import Image
 from classes import *
 from io import BytesIO
@@ -341,6 +342,10 @@ def generate_single_class(
     API_KEY=None,
     resume_prompt_idx=None
 ):
+    # Remove existing images
+    if os.path.exists(image_dir):
+        print(f"Remove existing images in {image_dir}")
+        shutil.rmtree(image_dir)
     os.makedirs(os.path.join(image_dir), exist_ok=True)
     if class_num_samples_dict is not None:
         class_list = list(class_num_samples_dict.keys())

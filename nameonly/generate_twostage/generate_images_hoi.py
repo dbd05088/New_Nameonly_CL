@@ -25,6 +25,10 @@ list_to_generate = dataset_list[args.start_class:args.end_class+1]
 for cls in tqdm(list_to_generate):
     object_name, action_name, prompt, num_images = cls
     save_dir = os.path.join(args.root_dir, object_name, action_name)
+    # Remove existing directory
+    if os.path.exists(save_dir):
+        print(f"Removing existing directory: {save_dir}")
+        shutil.rmtree(save_dir)
     if not os.path.exists(save_dir):
         os.makedirs(save_dir)
     print(f"Start generating {num_images} images.")
