@@ -12,7 +12,7 @@ pip install faiss-cpu==1.8.0
 pip install ftfy
 pip install regex
 pip install transformers
-
+pip install peft
 apt update
 apt install -y libgl1-mesa-glx
 apt install -y libglib2.0-0
