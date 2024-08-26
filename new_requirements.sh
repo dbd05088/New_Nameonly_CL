@@ -14,6 +14,7 @@ pip install regex
 pip install transformers
 pip install peft
 pip install diffusers
+pip install scipy
 apt update
 apt install -y libgl1-mesa-glx
 apt install -y libglib2.0-0
