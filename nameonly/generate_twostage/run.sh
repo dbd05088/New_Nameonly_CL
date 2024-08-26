@@ -5,6 +5,9 @@
 # SDXL: 11/min, 0.0909min/1 image
 # sdturbo: fast
 # cogview2: 4/min, 0.25min/1 image
+# flux: 4/min, 0.25min/1 image
+# kolors: 8.57/min, 0.1166min/1 image
+# auraflow: 1.5/min, 0.6667min/1 image
 
 #SBATCH -p suma_rtx4090
 #SBATCH --gres=gpu:1
@@ -14,11 +17,11 @@ ml purge
 conda init bash
 conda activate generate
 
-DATASET="PACS" # PACS, DomainNet, cifar10, NICO
-IMAGE_DIR='./generated_datasets/PACS_sdxl'
-GENERATIVE_MODEL="sdxl" # sdxl, floyd, cogview2, sd3, sdturbo, flux, kolors, auraflow
+DATASET="DomainNet" # PACS, DomainNet, cifar10, NICO
+IMAGE_DIR='./generated_datasets/DomainNet_flux'
+GENERATIVE_MODEL="flux" # sdxl, floyd, cogview2, sd3, sdturbo, flux, kolors, auraflow
 START_CLASS=0
-END_CLASS=0
+END_CLASS=6
 PROMPT_DIR='../prompt_generation/prompts/gpt4_hierarchy_cot_1.json'
 INCREASE_RATIO=1.2
 
