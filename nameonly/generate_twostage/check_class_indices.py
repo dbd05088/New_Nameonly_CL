@@ -9,6 +9,7 @@ parser.add_argument('-s', '--start_idx', type=int)
 parser.add_argument('-e', '--end_idx', type=int)
 parser.add_argument('-t', '--threshold', type=int)
 parser.add_argument('--threshold_ratio', type=float)
+parser.add_argument('--num_devices', type=int, default=None)
 args = parser.parse_args()
 
 cls_num_dict = count_dict[args.dataset]
@@ -45,3 +46,19 @@ for cls, count in cls_not_generated:
 print(result_list)
 print(len(result_list))
 print([result.split('-')[0] for result in result_list])
+
+if args.num_devices is not None:
+    num_devices = args.num_devices
+    num_classes = len(result_list)
+
+    # Sort result_list by class index
+    sorted_result_list = sorted(result_list, key=lambda x: int(x.split('-')[0]))
+
+    num_classes_per_device = num_classes // num_devices
+    for i in range(num_devices):
+        start_idx = i * num_classes_per_device
+        end_idx = (i + 1) * num_classes_per_device
+        if i == num_devices - 1:
+            end_idx = num_classes
+        print(f"Device {i}:")
+        print([result.split('-')[0] for result in sorted_result_list[start_idx:end_idx]])
