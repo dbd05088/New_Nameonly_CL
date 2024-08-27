@@ -44,3 +44,4 @@ for cls, count in cls_not_generated:
 
 print(result_list)
 print(len(result_list))
+print([result.split('-')[0] for result in result_list])
