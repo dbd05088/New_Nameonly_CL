@@ -31,6 +31,3 @@ END_CLASS=0
 PROMPT_DIR='../prompt_generation/prompts/hoi_diversified.json'
 
 CUDA_HOME=/opt/ohpc/pub/apps/cuda/12.5 python generate_images_hoi_diversified.py -m $GENERATIVE_MODEL -r $IMAGE_DIR -s $START_CLASS -e $END_CLASS -p $PROMPT_DIR
-
-
-
