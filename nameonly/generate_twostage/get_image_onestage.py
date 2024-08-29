@@ -1,6 +1,6 @@
-# Prompt selection 50개를 하기 위해 일단 임시로 만들음
 import os
 import json
+import re
 import argparse
 import numpy as np
 import torch
@@ -33,6 +33,22 @@ def get_config(config_path="config.yaml"):
     with open(config_path, 'r') as file:
         config = yaml.safe_load(file)
     return config
+
+def extract_three_numbers(file_name):
+    parts = file_name.split('_')
+    if len(parts) >= 3:
+        try:
+            return int(parts[0]), int(parts[1]), int(parts[2])
+        except ValueError:
+            # Ignore if the file name does not contain three numbers
+            return None
+    elif len(parts) == 2:
+        try:
+            return int(parts[0]), int(parts[1]), 0
+        except ValueError:
+            # Ignore if the file name does not contain two numbers
+            return None
+    return None
 
 class ImageGenerator:
     def __init__(self, generative_model):
@@ -200,6 +216,7 @@ class FloydGenerator(ImageGenerator):
 
 def adjust_list_length(lst, length, resume_prompt_idx=None):
     if resume_prompt_idx is not None:
+        print(f"Start generating from the prompt index {resume_prompt_idx}")
         lst = lst[resume_prompt_idx:] + lst[:resume_prompt_idx]
     
     original_length = len(lst)
@@ -342,14 +359,35 @@ def generate_single_class(
     API_KEY=None,
     resume_prompt_idx=None
 ):
-    # Remove existing images
-    if os.path.exists(image_dir):
-        print(f"Remove existing images in {image_dir}")
-        shutil.rmtree(image_dir)
     os.makedirs(os.path.join(image_dir), exist_ok=True)
     if class_num_samples_dict is not None:
         class_list = list(class_num_samples_dict.keys())
         print(f"Set class_list as {class_list}")
+    
+    print(f"Generating images for class {class_name} ({num_samples} images)")
+    # Find the maximum prompt index already generated
+    if os.path.exists(image_dir) and len(os.listdir(image_dir)) > 0:
+        images = os.listdir(image_dir)
+        if len(images) == num_samples:
+            print(f"Images already exist in {image_dir} ({len(images)} images)")
+            return
+        
+        print(f"Images already exist in {image_dir} ({len(images)} images)")
+        image_prefixes = [image.split('.')[0] for image in images]
+        image_prefixes = [extract_three_numbers(prefix) for prefix in image_prefixes] # (metaprompt_idx, diversified_prompt_idx, iter)
+        image_prefixes = [prefix for prefix in image_prefixes if prefix is not None]
+        
+        # Find the maximum iteration
+        max_iter = max([prefix[2] for prefix in image_prefixes])
+        image_prefixes = [(prefix[0], prefix[1], prefix[2]) for prefix in image_prefixes if prefix[2] == max_iter]
+        max_prompt_indices = sorted(image_prefixes, reverse=True)[0]
+        print(f"Maximum prompt index - metaprompt: {max_prompt_indices[0]}, diversified: {max_prompt_indices[1]}, iter: {max_prompt_indices[2]}")
+        
+        # Find the number of samples to generate
+        num_samples = num_samples - len(os.listdir(image_dir))
+        print(f"Set the number of samples to generate to {num_samples}")
+    else:
+        max_prompt_indices = None
     
     # First adjust the number of iteration to generate enough images
     # 1. concat metaprompt and diversified prompts and label each index
@@ -365,6 +403,11 @@ def generate_single_class(
         assert "[concept]" in prompt[0], f"[concept] not exists in {prompt}!"
         prompt_with_cls = (prompt[0].replace('[concept]', class_name), prompt[1], prompt[2])
         concatenated_prompt_list[i] = prompt_with_cls
+    
+    # Find the prompt index to start generating images
+    if max_prompt_indices is not None:
+        resume_prompt_idx = next(i for i, v in enumerate(concatenated_prompt_list) if v[2] == f"{max_prompt_indices[0]}_{max_prompt_indices[1]}")
+        resume_prompt_idx += 1
     
     concatenated_prompt_list = adjust_list_length(concatenated_prompt_list, num_samples, resume_prompt_idx=resume_prompt_idx)
 
