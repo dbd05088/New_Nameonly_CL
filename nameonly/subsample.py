@@ -6,10 +6,10 @@ from tqdm import tqdm
 from classes import *
 
 parser = argparse.ArgumentParser()
-parser.add_argument('-d', '--dataset', type=str, required=True)
+parser.add_argument('-d', '--dataset', type=str, default=None)
 parser.add_argument('-s', '--source_path', type=str, required=True)
-parser.add_argument('-t', '--target_path', type=str, required=True)
-parser.add_argument('-r', '--subsample_ratio', type=float)
+parser.add_argument('-t', '--target_path', type=str, default=None)
+parser.add_argument('-r', '--subsample_ratio', type=float, default=1.1)
 parser.add_argument('-n', '--subsample_count', type=int)
 
 args = parser.parse_args()
@@ -21,15 +21,38 @@ dataset_mapping = {'DomainNet': DomainNet_count, 'officehome': officehome_count,
                    'pacs_cogview2': pacs_cogview2_count, 'pacs_sdxl_new': pacs_sdxl_new_count,
                    'pacs_dalle2_new': pacs_dalle2_new_count, 'NICO': NICO_count}
 
+# Define default configurations for datasets
+replacements = {
+    "PACS": "PACS",
+    "cct": "cct",
+    "DomainNet": "DomainNet",
+    "NICO": "NICO",
+    "cifar10": "cifar10",
+}
+
 # CHANGE THIS!!!
 source_path = args.source_path
-target_path = args.target_path
-count_dict = dataset_mapping[args.dataset]
 subsample_ratio = args.subsample_ratio
 subsample_count = args.subsample_count
 
-classes = count_dict.keys()
+# Find dataset name
+if args.dataset is None:
+    for pattern, replacement in replacements.items():
+        if pattern.lower() in source_path.lower():
+            print(f"Dataset not specified. Detected dataset: {replacement}")
+            args.dataset = replacement
+            break
+count_dict = dataset_mapping[args.dataset]
 
+# Set target directory name
+if args.target_path is None:
+    # Add suffix "_subsampled" to the source directory
+    target_path = os.path.normpath(source_path) + "_subsampled"
+    print(f"Target path not specified. Using default target path: {target_path}")
+else:
+    target_path = args.target_path
+
+classes = count_dict.keys()
 for cls in tqdm(classes):
     if subsample_ratio is not None:
         subsample_num = int(count_dict[cls] * subsample_ratio)
