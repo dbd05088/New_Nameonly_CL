@@ -129,8 +129,8 @@ for object in objects:
         
 # Check the number of images selected for each model, for each object, for each action
 for model, object_action_counter in model_object_action_selected_counter.items():
-    print(f"Model {model} selected for each object-action pair:")
-    print(object_action_counter)
+    model_count = sum([sum(action_counter.values()) for action_counter in object_action_counter.values()])
+    print(f"Model {model} has {model_count} images selected")
 
 # Sanity check the number of images for each object, for each action
 for object, action_dict in ensembled_images.items():

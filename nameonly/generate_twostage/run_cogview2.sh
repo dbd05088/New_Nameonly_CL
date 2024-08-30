@@ -17,4 +17,13 @@ conda activate cogview
 cd Image-Local-Attention
 CUDA_HOME=/opt/ohpc/pub/apps/cuda/12.5 python setup.py install
 cd ../
-CUDA_HOME=/opt/ohpc/pub/apps/cuda/12.5 python get_image_onestage.py --config_path ./configs/DomainNet_cogview2.yaml --start_class 320 --end_class 344
+
+DATASET="DomainNet" # PACS, DomainNet, cifar10, NICO
+IMAGE_DIR='./generated_datasets/DomainNet_cogview2'
+GENERATIVE_MODEL="cogview2" # sdxl, floyd, cogview2, sd3, sdturbo, flux, kolors, auraflow
+START_CLASS=0
+END_CLASS=0
+PROMPT_DIR='../prompt_generation/prompts/gpt4_hierarchy_cot_1.json'
+INCREASE_RATIO=1.2
+
+CUDA_HOME=/opt/ohpc/pub/apps/cuda/12.5 python get_image_onestage.py --config_path ./configs/default.yaml --dataset $DATASET --image_dir $IMAGE_DIR --generative_model $GENERATIVE_MODEL --start_class $START_CLASS --end_class $END_CLASS --prompt_dir $PROMPT_DIR --increase_ratio $INCREASE_RATIO
