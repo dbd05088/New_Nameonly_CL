@@ -6,10 +6,27 @@ from classes import *
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument('-d', '--dataset', type=str, required=True)
+parser.add_argument('-d', '--dataset', type=str, default=None)
 parser.add_argument('-s', '--source_path', type=str, required=True)
 parser.add_argument('-r', '--threshold_ratio', type=float)
 args = parser.parse_args()
+
+replacements = {
+    "PACS": "PACS",
+    "cct": "cct",
+    "DomainNet": "DomainNet",
+    "NICO": "NICO",
+    "cifar10": "cifar10",
+}
+
+# Find dataset name
+if args.dataset is None:
+    for pattern, replacement in replacements.items():
+        if pattern.lower() in args.source_path.lower():
+            print(f"Dataset not specified. Detected dataset: {replacement}")
+            args.dataset = replacement
+            break
+
 
 def check_class_names(directory_path, class_names_dict):
     class_names = os.listdir(directory_path)

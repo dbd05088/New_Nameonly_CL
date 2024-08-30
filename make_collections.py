@@ -52,19 +52,44 @@ def make_collections(dir, seed, dataset, cls_to_tasks, class_to_dict=None):
     print(task_streams_count)
     print([sum(task_streams_count[:idx+1]) for idx in range(len(task_streams_count))])
 
+# Define default configurations for datasets
+replacements = {
+    "PACS": "PACS_final",
+    "cct": "cct",
+    "DomainNet": "DomainNet",
+    "NICO": "NICO",
+    "cifar10": "cifar10",
+}
+
+cls_to_tasks = {
+    "PACS_final": [3, 2, 2],
+    "cct": [3, 3, 3, 3],
+    "DomainNet": [69, 69, 69, 69, 69],
+    "NICO": [12, 12, 12, 12, 12],
+    "cifar10": [2, 2, 2, 2, 2],
+}
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Get mean and std for images')
     parser.add_argument('-r', '--root_dir', type=str, help='Root directory of images')
-    parser.add_argument('-s', '--random_seed', help='random seed')
-    parser.add_argument('-d', '--dataset', type=str, help='name of the dataset')
-    parser.add_argument('-c', '--cls_to_tasks', type=str, help='number of classes per task')
+    parser.add_argument('-s', '--random_seed', help='random seed', default="1 2 3 4 5")
+    parser.add_argument('-d', '--dataset', type=str, help='name of the dataset', default=None)
+    parser.add_argument('-c', '--cls_to_tasks', type=str, help='number of classes per task', default=None)
     args = parser.parse_args()
-    cls_to_tasks = [int(num) for num in args.cls_to_tasks.split()]
     seeds = [int(s) for s in args.random_seed.split()]
+    
+    if args.dataset is None:
+        for pattern, replacement in replacements.items():
+            if pattern.lower() in args.root_dir.lower():
+                print(f"Dataset not specified. Detected dataset: {replacement}")
+                args.dataset = replacement
+                break
+    
+    if args.cls_to_tasks is None:
+        cls_to_tasks = cls_to_tasks[args.dataset]
+    else:
+        cls_to_tasks = [int(num) for num in args.cls_to_tasks.split()]
     print(cls_to_tasks)
-    print(f"Seeds: {seeds}")
-    class_to_dict = None
 
     if args.dataset == "PACS_final":
         class_to_dict_mappings = {

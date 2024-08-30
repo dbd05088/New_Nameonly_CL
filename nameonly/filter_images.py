@@ -8,10 +8,8 @@ from tqdm import tqdm
 from classes import *
 from pathlib import Path
 
-# /workspace/home/user/seongwon/crawling/crawler/datasets/officehome_concatenated/
-# /workspace/home/user/seongwon/crawling/crawler/datasets/officehome_filtered/
 parser = argparse.ArgumentParser()
-parser.add_argument('-d', '--dataset', type=str)
+parser.add_argument('-d', '--dataset', type=str, default=None)
 parser.add_argument('-s', '--image_root_dir', type=str)
 parser.add_argument('-t', '--output_prefix', type=str, default='_filtered')
 parser.add_argument('-p', '--image_prefix', type=str, default='')
@@ -23,12 +21,29 @@ parser.add_argument('--lowest_similarity_path', type=str, default='None')
 
 args = parser.parse_args()
 
+# Define default configurations for datasets
+replacements = {
+    "PACS": "PACS",
+    "cct": "cct",
+    "DomainNet": "DomainNet",
+    "NICO": "NICO",
+    "cifar10": "cifar10",
+}
+
 dataset_mapping = {'DomainNet': DomainNet_count, 'officehome': officehome_count, 'PACS': PACS_count, 
                    'birdsnap': birdsnap_count, 'cifar10': cifar10_count, 'aircraft': aircraft_count,
                    'food101': food101_count, 'cct': cct_count, 'pacs_sdxl': pacs_sdxl_count, 
                    'pacs_dalle2': pacs_dalle2_count, 'pacs_deepfloyd': pacs_deepfloyd_count,
                    'pacs_cogview2': pacs_cogview2_count, 'pacs_sdxl_new': pacs_sdxl_new_count,
                    'pacs_dalle2_new': pacs_dalle2_new_count, 'NICO': NICO_count}
+
+# Find dataset name
+if args.dataset is None:
+    for pattern, replacement in replacements.items():
+        if pattern.lower() in args.image_root_dir.lower():
+            print(f"Dataset not specified. Detected dataset: {replacement}")
+            args.dataset = replacement
+            break
 
 sample_num_dict = dataset_mapping[args.dataset]
 print(f"Sample num dict: {sample_num_dict}")
