@@ -1,10 +1,13 @@
 #!/bin/bash
-# 10개에 2시간 40분 -> 160분 -> 20개는 320분, 6시간 충분, 40개는 640분, 13시간 충분
-# 25개는 
 
-# Floyd: 1분에 2개정도 -> DomainNet 180개 -> 1시간 반, 5개 class 7시간 반
-# Cogview2: 72분에 class 1개, 1분에 3.57개, initialize는 7분정도 걸림.
-# 1개에 0.2784분 -> 1개 class에 30분 정도 걸린다고 보면 된다. 40개 class정도 생성하면 될듯.
+# 4090
+# Floyd: 2.2857/min, 0.4375min/1 image ? 2/min??
+# SDXL: 11/min, 0.0909min/1 image
+# sdturbo: fast
+# cogview2: 4/min, 0.25min/1 image
+# flux: 1.5/min???, 0.25min/1 image
+# kolors: 8.57/min, 0.1166min/1 image
+# auraflow: 1.5/min, 0.6667min/1 image
 
 #SBATCH -p suma_a6000
 #SBATCH --gres=gpu:1
@@ -18,12 +21,13 @@ cd Image-Local-Attention
 CUDA_HOME=/opt/ohpc/pub/apps/cuda/12.5 python setup.py install
 cd ../
 
-DATASET="DomainNet" # PACS, DomainNet, cifar10, NICO
-IMAGE_DIR='./generated_datasets/DomainNet_cogview2'
+DATASET="NICO" # PACS, DomainNet, cifar10, NICO
+IMAGE_DIR='./generated_datasets/NICO_cogview2'
 GENERATIVE_MODEL="cogview2" # sdxl, floyd, cogview2, sd3, sdturbo, flux, kolors, auraflow
 START_CLASS=0
 END_CLASS=0
 PROMPT_DIR='../prompt_generation/prompts/gpt4_hierarchy_cot_1.json'
 INCREASE_RATIO=1.2
 
+# python get_image_onestage.py --config_path ./configs/default.yaml --image_dir ./generated_datasets/temp --generative_model cogview2 --dataset DomainNet --start_class 0 --end_class 0 --prompt_dir ../prompt_generation/prompts/gpt4_hierarchy_cot_1.json --increase_ratio 1.2
 CUDA_HOME=/opt/ohpc/pub/apps/cuda/12.5 python get_image_onestage.py --config_path ./configs/default.yaml --dataset $DATASET --image_dir $IMAGE_DIR --generative_model $GENERATIVE_MODEL --start_class $START_CLASS --end_class $END_CLASS --prompt_dir $PROMPT_DIR --increase_ratio $INCREASE_RATIO
