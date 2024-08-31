@@ -20,6 +20,7 @@ dino_transform = transforms.Compose([
 
 
 def calculate_features_dino(image_paths, model):
+    # dino_vitb16, dino_vitb8, dino_vits16, dino_vits8
     device = "cuda" if torch.cuda.is_available() else "cpu"
     model = torch.hub.load('facebookresearch/dino:main', 'dino_vitb16').to(device)
     model.eval()
