@@ -1,5 +1,6 @@
 # PACS generated
 
+embedding_model: 'dino'
 dataset: 'PACS' # PACS, DomainNet, cifar10
 use_ma_size: False
 image_paths:
@@ -12,4 +13,4 @@ image_paths:
   kolors: './raw_datasets/iclr_generated/PACS/PACS_kolors_subsampled_filtered'
   auraflow: './raw_datasets/iclr_generated/PACS/PACS_auraflow_subsampled_filtered'
 
-json_save_path: './RMD_scores/PACS_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.json'
+json_save_path: './RMD_scores/PACS_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino.json'

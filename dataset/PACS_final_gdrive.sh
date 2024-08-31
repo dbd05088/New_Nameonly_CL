@@ -630,13 +630,18 @@
 # rm PACS_final_uncertainty_0_01.tar
 # rm PACS_final_uncertainty_0_001.tar 
 
-# moderate
-./gdrive files download 1LiJ5r1Jz_pdsHhpSpJlDkCp_uENXwsY3
-tar -xf PACS_final_moderate.tar -C PACS_final
-rm PACS_final_moderate.tar
+# # moderate
+# ./gdrive files download 1LiJ5r1Jz_pdsHhpSpJlDkCp_uENXwsY3
+# tar -xf PACS_final_moderate.tar -C PACS_final
+# rm PACS_final_moderate.tar
 
-# robustness
-./gdrive files download 1htI1WExpktTznQuWS2KRGTd3GWAGyqf6
-tar -xf PACS_final_robustness.tar -C PACS_final
-rm PACS_final_robustness.tar
+# # robustness
+# ./gdrive files download 1htI1WExpktTznQuWS2KRGTd3GWAGyqf6
+# tar -xf PACS_final_robustness.tar -C PACS_final
+# rm PACS_final_robustness.tar
+
+# RMD scores using DINO
+./gdrive files download 1RSIixqYuRiAGQQ7EEjhhQFICV69ppNoL
+tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino.tar -C PACS_final
+rm PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino.tar
 
