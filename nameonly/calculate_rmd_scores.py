@@ -7,12 +7,48 @@ import numpy as np
 import json
 import argparse
 from transformers import CLIPProcessor, CLIPModel
+from torchvision import transforms as transforms
 from PIL import Image
 from tqdm import tqdm
 from classes import *
 from pathlib import Path
 
-def calculate_features(image_paths, model):
+dino_transform = transforms.Compose([
+    transforms.ToTensor(),
+    transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225)),
+])
+
+
+def calculate_features_dino(image_paths, model):
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    model = torch.hub.load('facebookresearch/dino:main', 'dino_vitb16').to(device)
+    model.eval()
+
+    # Preprocess the images
+    image_features = []
+    for i, image_path in enumerate(tqdm(image_paths)):
+        try:
+            image = Image.open(image_path)
+        except Exception as e:
+            # append a dummy feature
+            print(f"Error in opening {image_path}: {e}, appending a dummy feature")
+            image_features.append(torch.zeros(1, 768).cpu())
+            continue
+        with torch.no_grad():
+            # Get image features
+            image = dino_transform(image).unsqueeze(0).to(device)
+            image_feature = model(image).cpu() # [1, 768]
+            image_features.append(image_feature)
+
+    # Normalize the features
+    image_features = torch.cat(image_features, dim=0) # [N, 768]
+    image_features = image_features / image_features.norm(dim=-1, keepdim=True) # dim=-1 -> torch.Size([N, 1]) -> Normalize each data
+
+    # Send the features to the cpu
+    image_features = image_features.cpu().detach().numpy()
+    return image_features
+
+def calculate_features_clip(image_paths, model):
     device = "cuda" if torch.cuda.is_available() else "cpu"
     processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
     model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32").to(device)
@@ -25,12 +61,12 @@ def calculate_features(image_paths, model):
         except Exception as e:
             # append a dummy feature
             print(f"Error in opening {image_path}: {e}, appending a dummy feature")
-            image_features.append(torch.zeros(1, 512).to(device))
+            image_features.append(torch.zeros(1, 512).cpu())
             continue
         with torch.no_grad():
             image_input = processor(images=image, return_tensors="pt").to(device)
             image_feature = model.get_image_features(**image_input) # [1, 512]
-            image_features.append(image_feature)
+            image_features.append(image_feature.cpu())
 
     # Normalize the features
     image_features = torch.cat(image_features, dim=0) # [N, 512]
@@ -120,6 +156,7 @@ if __name__ == "__main__":
     with open(args.config_path, 'r') as f:
         config = yaml.safe_load(f)
     
+    embedding_model = config['embedding_model']
     dataset = config['dataset']
     dataset_dict = count_dict[dataset]
     json_save_path = config['json_save_path']
@@ -153,7 +190,12 @@ if __name__ == "__main__":
     model_labels = np.array(model_labels)
 
     # Calculate the features
-    features = calculate_features(concatenated_images, model)
+    if embedding_model == 'clip':
+        features = calculate_features_clip(concatenated_images, model)
+    elif embedding_model == 'dino':
+        features = calculate_features_dino(concatenated_images, model)
+    else:
+        raise ValueError(f"Unknown model: {model}")
     mu_agnostic, cov_agnostic = compute_class_agnostic_params(features)
     mu_specific_dict, cov_specific = compute_class_specific_params(features, class_labels) # (C, 512), (C, 512, 512)
     
