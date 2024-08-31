@@ -14,12 +14,12 @@
 # NOTE="imagenet_sdp_sigma0_mem_10000_iter_0.125"
 
 # --------------------------IMPORTANT-------------------------- #
-MODE="xder"
-MODEL_NAME="vit"
+MODE="er"
+MODEL_NAME="resnet18"
 DATASET="NICO" # cifar10, cifar100, tinyimagenet, imagenet
-TYPES=("glide") #  "static_cot_50_sdxl", "generated_equalweight") "web_from_large2_equalweight" "web_from_large2_RMD_w_normalize_clip_90_temp_0_5"
-SEEDS="4"
-GPUS=("5" "3" "2" "3" "4" "5")
+TYPES=("sdxl_800" "sd3_800") #  "static_cot_50_sdxl", "generated_equalweight") "web_from_large2_equalweight" "web_from_large2_RMD_w_normalize_clip_90_temp_0_5"
+SEEDS="1"
+GPUS=("0" "1" "2" "3" "4" "5")
 NOTE="iclr_${MODEL_NAME}_${DATASET}_${MODE}"
 # --------------------------IMPORTANT-------------------------- #
 echo "MODE: $MODE"
@@ -133,8 +133,7 @@ elif [ "$DATASET" == "DomainNet" ]; then
     fi
 
 elif [ "$DATASET" == "NICO" ]; then
-    MEM_SIZE=6000 #1500
-    # TYPES=("sdbp") # "newsample_equalweight"
+    MEM_SIZE=8000 #1500
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
     VAL_PERIOD=500 EVAL_PERIOD=500
@@ -147,7 +146,7 @@ elif [ "$DATASET" == "NICO" ]; then
     BASEINIT_SAMPLES=30523 FEAT_DIM=14 FEAT_MEM_SIZE=168000
     SAMPLES_PER_TASK=960
     ONLINE_ITER=3
-    EVAL_POINT="9720 19440 29160 38880 48600"
+    EVAL_POINT="9600 19200 28800 38400 48000"
 
 else
     echo "Undefined setting"
