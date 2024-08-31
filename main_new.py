@@ -2,9 +2,10 @@ import logging.config
 import os
 import random
 from collections import defaultdict
-
 import numpy as np
 import torch
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
 from torch.utils.tensorboard import SummaryWriter
 
 from configuration import config
