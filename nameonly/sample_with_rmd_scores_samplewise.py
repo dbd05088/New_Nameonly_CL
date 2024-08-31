@@ -22,8 +22,8 @@ INVERSE = False
 TEMPERATURE = 0.5
 
 base_path = './raw_datasets/iclr_generated/PACS'
-json_path = './RMD_scores/PACS_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dinov2_base.json'
-target_path = './raw_datasets/iclr_generated/PACS/PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dinov2_base'
+json_path = './RMD_scores/PACS_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vits8_normalized.json'
+target_path = './raw_datasets/iclr_generated/PACS/PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vits8_normalized'
 
 count_dict = get_count_value_from_string(base_path)
 with open(json_path, 'r') as f:
