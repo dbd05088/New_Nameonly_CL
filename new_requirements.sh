@@ -16,6 +16,7 @@ pip install bitsandbytes
 pip install pycocoevalcap
 pip install peft
 pip install diffusers
+pip install sentencepiece
 pip install scipy
 # apt update
 # apt install -y libgl1-mesa-glx

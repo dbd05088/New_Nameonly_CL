@@ -649,9 +649,12 @@
 ./gdrive files download 1yYzm8jPzFf6YgAFgSuBoR9tGubkFSocY # dino vitb8
 ./gdrive files download 1h7TQ_HslIhqzZp53FKApi2kSVdtQd-Aa # dino vits16
 ./gdrive files download 1k_B1VklXIoPOGB3IqKOTK4jyVzqTiMUx # dino vits8
+./gdrive files download 1Xsfd02buhaurgURA6xkD-JRL07Rqvu4S # dinov2
 tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vitb8.tar -C PACS_final
 tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vits16.tar -C PACS_final
 tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vits8.tar -C PACS_final
+tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dinov2_base.tar -C PACS_final
 rm PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vitb8.tar
 rm PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vits16.tar
 rm PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vits8.tar
+rm PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dinov2_base.tar

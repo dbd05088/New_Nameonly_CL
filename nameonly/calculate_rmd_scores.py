@@ -3,20 +3,66 @@ import yaml
 import os
 import natsort
 import random
+import torch.nn as nn
 import numpy as np
 import json
 import argparse
-from transformers import CLIPProcessor, CLIPModel
+from transformers import CLIPProcessor, CLIPModel, AutoImageProcessor, AutoModel
 from torchvision import transforms as transforms
 from PIL import Image
 from tqdm import tqdm
 from classes import *
 from pathlib import Path
+from transformers import AutoImageProcessor, AutoModel
 
+# For DINO
 dino_transform = transforms.Compose([
     transforms.ToTensor(),
-    transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225)),
+    transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225)), # ImageNet
+    # transforms.Normalize((0.490, 0.441, 0.403), (0.263, 0.234, 0.230)), # PACS
 ])
+
+# For DINOv2
+dinov2_transform = transforms.Compose([
+    transforms.Resize(256, interpolation=transforms.InterpolationMode.BICUBIC),
+    transforms.CenterCrop(224),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225)), # ImageNet
+    # transforms.Normalize(mean=(0.490, 0.441, 0.403), std=(0.263, 0.234, 0.230)), # PACS
+])
+# model = torch.hub.load('facebookresearch/dinov2', 'dinov2_vitb14').to(device)
+
+def calculate_features_dinov2(image_paths, model):
+    # dino_vitb16, dino_vitb8, dino_vits16, dino_vits8
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    processor = AutoImageProcessor.from_pretrained('facebook/dinov2-base')
+    model = AutoModel.from_pretrained('facebook/dinov2-base').to(device)
+
+    # Preprocess the images
+    image_features = []
+    for i, image_path in enumerate(tqdm(image_paths)):
+        try:
+            image = Image.open(image_path)
+        except Exception as e:
+            # append a dummy feature
+            print(f"Error in opening {image_path}: {e}, appending a dummy feature")
+            image_features.append(torch.zeros(1, 768).cpu())
+            continue
+        with torch.no_grad():
+            # Get image features
+            inputs = processor(images=image, return_tensors="pt").to(device)
+            outputs = model(**inputs)
+            image_feature = outputs.last_hidden_state
+            image_feature = image_feature.mean(dim=1).cpu()
+            image_features.append(image_feature)
+
+    # Normalize the features
+    image_features = torch.cat(image_features, dim=0) # [N, 768]
+    image_features = image_features / image_features.norm(dim=-1, keepdim=True) # dim=-1 -> torch.Size([N, 1]) -> Normalize each data
+
+    # Send the features to the cpu
+    image_features = image_features.cpu().detach().numpy()
+    return image_features
 
 
 def calculate_features_dino(image_paths, model):
@@ -195,6 +241,8 @@ if __name__ == "__main__":
         features = calculate_features_clip(concatenated_images, model)
     elif embedding_model == 'dino':
         features = calculate_features_dino(concatenated_images, model)
+    elif embedding_model == 'dinov2':
+        features = calculate_features_dinov2(concatenated_images, model)
     else:
         raise ValueError(f"Unknown model: {model}")
     mu_agnostic, cov_agnostic = compute_class_agnostic_params(features)
