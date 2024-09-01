@@ -17,7 +17,6 @@ DATASET="NICO" # PACS_final, DomainNet, cifar10, NICO, cct
 TYPES=("sdxl_800" "sd3_800") # each type runs on each gpu
 SEEDS="1"
 GPUS=("0" "1" "2" "3" "4" "5" "6" "7") # each gpu runs each type
-NOTE="iclr_${MODEL_NAME}_${DATASET}_${MODE}"
 # --------------------------IMPORTANT-------------------------- #
 
 # If explicitly provided, use the provided arguments
@@ -30,6 +29,8 @@ fi
 if [ -n "$5" ]; then
     SEEDS="$5"
 fi
+NOTE="iclr_${MODEL_NAME}_${DATASET}_${MODE}"
+
 echo "MODE: $MODE"
 echo "MODEL_NAME: $MODEL_NAME"
 echo "DATASET: $DATASET"
