@@ -645,28 +645,66 @@
 # tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino.tar -C PACS_final
 # rm PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino.tar
 
-# RMD scores using DINO (compare patch size)
-./gdrive files download 1yYzm8jPzFf6YgAFgSuBoR9tGubkFSocY # dino vitb8
-./gdrive files download 1h7TQ_HslIhqzZp53FKApi2kSVdtQd-Aa # dino vits16
-./gdrive files download 1k_B1VklXIoPOGB3IqKOTK4jyVzqTiMUx # dino vits8
-./gdrive files download 1ruL-R-ngSkrmQn3JTScc6v7t1iV_WLg7 # dino vitb16 normalized
-./gdrive files download 1b7bz3qgmiI00fBMqZ3-UakgMl7CbPejy # dion vitb8 normalized
-./gdrive files download 1J_33KdtD8-aJK32Ms24F3TJJ8k1CDwL6 # dino vits16 normalized
-./gdrive files download 1rq6q7ef0BdOn6gYMt8OoGzWom08Vz79y # dino vits8 normalized
-./gdrive files download 1Xsfd02buhaurgURA6xkD-JRL07Rqvu4S # dinov2
-tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vitb8.tar -C PACS_final
-tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vits16.tar -C PACS_final
-tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vits8.tar -C PACS_final
-tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vitb16_normalized.tar -C PACS_final
-tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vitb8_normalized.tar -C PACS_final
-tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vits16_normalized.tar -C PACS_final
-tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vits8_normalized.tar -C PACS_final
-tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dinov2_base.tar -C PACS_final
-rm PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vitb8.tar
-rm PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vits16.tar
-rm PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vits8.tar
-rm PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vitb16_normalized.tar
-rm PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vitb8_normalized.tar
-rm PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vits16_normalized.tar
-rm PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vits8_normalized.tar
-rm PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dinov2_base.tar
+# # RMD scores using DINO (compare patch size)
+# ./gdrive files download 1yYzm8jPzFf6YgAFgSuBoR9tGubkFSocY # dino vitb8
+# ./gdrive files download 1h7TQ_HslIhqzZp53FKApi2kSVdtQd-Aa # dino vits16
+# ./gdrive files download 1k_B1VklXIoPOGB3IqKOTK4jyVzqTiMUx # dino vits8
+# ./gdrive files download 1ruL-R-ngSkrmQn3JTScc6v7t1iV_WLg7 # dino vitb16 normalized
+# ./gdrive files download 1b7bz3qgmiI00fBMqZ3-UakgMl7CbPejy # dion vitb8 normalized
+# ./gdrive files download 1J_33KdtD8-aJK32Ms24F3TJJ8k1CDwL6 # dino vits16 normalized
+# ./gdrive files download 1rq6q7ef0BdOn6gYMt8OoGzWom08Vz79y # dino vits8 normalized
+# ./gdrive files download 1Xsfd02buhaurgURA6xkD-JRL07Rqvu4S # dinov2
+# tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vitb8.tar -C PACS_final
+# tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vits16.tar -C PACS_final
+# tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vits8.tar -C PACS_final
+# tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vitb16_normalized.tar -C PACS_final
+# tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vitb8_normalized.tar -C PACS_final
+# tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vits16_normalized.tar -C PACS_final
+# tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vits8_normalized.tar -C PACS_final
+# tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dinov2_base.tar -C PACS_final
+# rm PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vitb8.tar
+# rm PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vits16.tar
+# rm PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vits8.tar
+# rm PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vitb16_normalized.tar
+# rm PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vitb8_normalized.tar
+# rm PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vits16_normalized.tar
+# rm PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vits8_normalized.tar
+# rm PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dinov2_base.tar
+
+# RMD baseline added
+./gdrive files download 1gi6MTVt8FklKM4X4z3tlAYb8_F4elOLw
+./gdrive files download 1LrmZIAFgJP-53d7V68M6UseSUYU9a6L9
+./gdrive files download 1MH70qM72RxN0ngB88AtmGlg2a9B_tjGh
+./gdrive files download 1xhSWq8TmKvuhmAyHfr7Gx3sKC43-PdEt
+./gdrive files download 1r8uO16OB84zCNOfTzDMKY5WSZFT0B3gF
+./gdrive files download 1IovY_YBbJMdrTSajZXu6Dgtk762DLA-3
+./gdrive files download 1xGePXLaVrsFkNVtl05owx4b0XYZwdujt
+./gdrive files download 1_PSISVHsrxCM3cyWGTivgSdrIH2P5bo-
+./gdrive files download 1Cgsu2TJNuG0RoIIleDWrVxN5ur3t_lLW
+./gdrive files download 1TmX5yYI22t-hm3oigoiyk4ICK_M2BNLt
+./gdrive files download 1oMZuB0KvqAYEvEIBHzJXm_yzpGC_-cif
+./gdrive files download 1v4ETA4qiLeM4QQ78u_G7RhqoHPJrn20T
+tar -xf PACS_final_CLIP_Uncertainty_50_0_0001.tar -C PACS_final
+tar -xf PACS_final_CLIP_Uncertainty_25_0_0001.tar -C PACS_final
+tar -xf PACS_final_CLIP_Uncertainty_10_0_0001.tar -C PACS_final
+tar -xf PACS_final_CLIP_GradMatch_50_0_0001.tar -C PACS_final
+tar -xf PACS_final_CLIP_GradMatch_25_0_0001.tar -C PACS_final
+tar -xf PACS_final_CLIP_GradMatch_10_0_0001.tar -C PACS_final
+tar -xf PACS_final_CLIP_Glister_50_0_0001.tar -C PACS_final
+tar -xf PACS_final_CLIP_Glister_25_0_0001.tar -C PACS_final
+tar -xf PACS_final_CLIP_Glister_10_0_0001.tar -C PACS_final
+tar -xf PACS_final_CLIP_CurvMatch_50_0_0001.tar -C PACS_final
+tar -xf PACS_final_CLIP_CurvMatch_25_0_0001.tar -C PACS_final
+tar -xf PACS_final_CLIP_CurvMatch_10_0_0001.tar -C PACS_final
+rm PACS_final_CLIP_Uncertainty_50_0_0001.tar
+rm PACS_final_CLIP_Uncertainty_25_0_0001.tar
+rm PACS_final_CLIP_Uncertainty_10_0_0001.tar
+rm PACS_final_CLIP_GradMatch_50_0_0001.tar
+rm PACS_final_CLIP_GradMatch_25_0_0001.tar
+rm PACS_final_CLIP_GradMatch_10_0_0001.tar
+rm PACS_final_CLIP_Glister_50_0_0001.tar
+rm PACS_final_CLIP_Glister_25_0_0001.tar
+rm PACS_final_CLIP_Glister_10_0_0001.tar
+rm PACS_final_CLIP_CurvMatch_50_0_0001.tar
+rm PACS_final_CLIP_CurvMatch_25_0_0001.tar
+rm PACS_final_CLIP_CurvMatch_10_0_0001.tar
