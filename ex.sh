@@ -1,8 +1,8 @@
 # #!/bin/bash
-# #SBATCH --time=10:00:00
 # #SBATCH -p suma_rtx4090
+# #SBATCH -q big_qos
 # #SBATCH --gres=gpu:1
-# ##SBATCH -c 64
+# ##SBATCH -c 32
 
 # ulimit -u 200000
 # source ~/.bashrc
@@ -10,22 +10,31 @@
 # conda init bash
 # conda activate generate
 
-# CIL CONFIG
-# NOTE="imagenet_sdp_sigma0_mem_10000_iter_0.125"
-
 # --------------------------IMPORTANT-------------------------- #
 MODE="er"
 MODEL_NAME="resnet18"
 DATASET="NICO" # cifar10, cifar100, tinyimagenet, imagenet
 TYPES=("sdxl_800" "sd3_800") #  "static_cot_50_sdxl", "generated_equalweight") "web_from_large2_equalweight" "web_from_large2_RMD_w_normalize_clip_90_temp_0_5"
 SEEDS="1"
-GPUS=("0" "1" "2" "3" "4" "5")
+GPUS=("0" "1" "2" "3" "4" "5" "6" "7")
 NOTE="iclr_${MODEL_NAME}_${DATASET}_${MODE}"
 # --------------------------IMPORTANT-------------------------- #
+
+# If explicitly provided, use the provided arguments
+MODE=${1:-$MODE}
+MODEL_NAME=${2:-$MODEL_NAME}
+DATASET=${3:-$DATASET}
+if [ -n "$4" ]; then
+    TYPES=("$4")
+fi
+if [ -n "$5" ]; then
+    SEEDS="$5"
+fi
 echo "MODE: $MODE"
 echo "MODEL_NAME: $MODEL_NAME"
 echo "DATASET: $DATASET"
-echo "NOTE: $NOTE"
+echo "TYPES: ${TYPES[@]}"
+echo "SEEDS: $SEEDS"
 
 TRANSFORM_ON_GPU="--transform_on_gpu"
 N_WORKER=4
