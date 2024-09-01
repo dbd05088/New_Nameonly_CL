@@ -18,8 +18,9 @@ from transformers import AutoImageProcessor, AutoModel
 # For DINO
 dino_transform = transforms.Compose([
     transforms.ToTensor(),
-    transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225)), # ImageNet
+    # transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225)), # ImageNet
     # transforms.Normalize((0.490, 0.441, 0.403), (0.263, 0.234, 0.230)), # PACS
+    transforms.Normalize(0.481, 0.442, 0.411), (0.252, 0.224, 0.220) # DomainNet
 ])
 
 # For DINOv2
