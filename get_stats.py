@@ -44,12 +44,6 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Get mean and std for images')
     parser.add_argument('-r', '--image_root_dir', type=str, help='Root directory of images')
     args = parser.parse_args()
-    result = get_stat(args.image_root_dir)
-
-    mean = (result['mean'][0], result['mean'][1], result['mean'][2])
-    std = (result['std'][0], result['std'][1], result['std'][2])
-    print(f"Mean: ({result['mean'][0]:.8f}, {result['mean'][1]:.8f}, {result['mean'][2]:.8f})")
-    print(f"Std: ({result['std'][0]:.8f}, {result['std'][1]:.8f}, {result['std'][2]:.8f})")
 
     # Write result stats to json file
     json_path = './utils/data_statistics.json'
@@ -61,7 +55,16 @@ if __name__ == '__main__':
     dataset_list = ["PACS_final", "DomainNet", "cct", "NICO", "cifar10"]
     dataset_name = next((name for name in dataset_list if last_part.startswith(name)), None)
     type_name = last_part[len(dataset_name) + 1:]
+    print(f"Detected dataset name: {dataset_name}, type name: {type_name}")
 
+    # Get mean and std
+    result = get_stat(args.image_root_dir)
+
+    mean = (result['mean'][0], result['mean'][1], result['mean'][2])
+    std = (result['std'][0], result['std'][1], result['std'][2])
+    print(f"Mean: ({result['mean'][0]:.8f}, {result['mean'][1]:.8f}, {result['mean'][2]:.8f})")
+    print(f"Std: ({result['std'][0]:.8f}, {result['std'][1]:.8f}, {result['std'][2]:.8f})")
+    
     if dataset_name not in data_statistics['mean']:
         data_statistics['mean'][dataset_name] = {}
         data_statistics['std'][dataset_name] = {}
@@ -69,6 +72,5 @@ if __name__ == '__main__':
     data_statistics['mean'][dataset_name][type_name] = mean
     data_statistics['std'][dataset_name][type_name] = std
 
-    print(f"Dataset name: {dataset_name}, type name: {type_name}")
     with open(json_path, 'w') as f:
         json.dump(data_statistics, f)
