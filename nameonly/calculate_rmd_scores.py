@@ -20,7 +20,7 @@ dino_transform = transforms.Compose([
     transforms.ToTensor(),
     # transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225)), # ImageNet
     # transforms.Normalize((0.490, 0.441, 0.403), (0.263, 0.234, 0.230)), # PACS
-    transforms.Normalize(0.481, 0.442, 0.411), (0.252, 0.224, 0.220) # DomainNet
+    transforms.Normalize((0.481, 0.442, 0.411), (0.252, 0.224, 0.220)) # DomainNet
 ])
 
 # For DINOv2
@@ -69,7 +69,7 @@ def calculate_features_dinov2(image_paths, model):
 def calculate_features_dino(image_paths, model):
     # dino_vitb16, dino_vitb8, dino_vits16, dino_vits8
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    model = torch.hub.load('facebookresearch/dino:main', 'dino_vitb16').to(device)
+    model = torch.hub.load('facebookresearch/dino:main', 'dino_vits8').to(device)
     model.eval()
 
     # Preprocess the images
