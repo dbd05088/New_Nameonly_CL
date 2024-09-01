@@ -1,26 +1,31 @@
 import os
 
 # Script file name
-script_file = "ex_auto.sh"
-
+script_file = "ex.sh"
 
 # Set variables
-MODE = "der"
+MODE = "er"
 MODEL_NAME = "resnet18"
 DATASET = "PACS_final"
+
 TYPES = [
-    "sdxl_floyd_cogview2_sd3_auraflow_equalweight",
-    # "sdxl_floyd_cogview2_sd3_equalweight",
-    # "sdxl_floyd_cogview2_sd3_flux_auraflow_equalweight",
-    # "sdxl_floyd_cogview2_sd3_flux_equalweight",
-    # "sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_equalweight",
-    # "sdxl_floyd_cogview2_sd3_flux_kolors_equalweight",
-    # "sdxl_floyd_cogview2_sd3_kolors_auraflow_equalweight",
+    "CLIP_CurvMatch_10_0_0001",
+    "CLIP_CurvMatch_25_0_0001",
+    "CLIP_CurvMatch_50_0_0001",
+    "CLIP_Glister_10_0_0001",
+    "CLIP_Glister_25_0_0001",
+    "CLIP_Glister_50_0_0001",
+    "CLIP_GradMatch_10_0_0001",
+    "CLIP_GradMatch_25_0_0001",
+    "CLIP_GradMatch_50_0_0001",
+    "CLIP_Uncertainty_10_0_0001",
+    "CLIP_Uncertainty_25_0_0001",
+    "CLIP_Uncertainty_50_0_0001",
 ]
 
 # Generate sbatch commands and submit jobs
-for seed in ['1', '2', '3', '4', '5']:
-    for type_name in TYPES:
-        sbatch_command = f"sbatch --export=ALL,MODE={MODE},MODEL_NAME={MODEL_NAME},DATASET={DATASET},TYPE={type_name},SEED={seed} {script_file}"
-        print(f"Submitting job with MODE={MODE}, MODEL_NAME={MODEL_NAME}, DATASET={DATASET}, TYPE={type_name}, SEED={seed}")
+for type_name in TYPES:
+    for seed in ['1', '2', '3', '4', '5']:
+        sbatch_command = f"sbatch {script_file} {MODE} {MODEL_NAME} {DATASET} {type_name} {seed}"
+        print(f"Submitting job with command: {sbatch_command}")
         os.system(sbatch_command)
