@@ -30,7 +30,7 @@ def make_collections(dir, seed, dataset, cls_to_tasks, class_to_dict=None):
                 dic["label"] = class_to_dict[cls]
                 dic["time"] = times[idx]
                 task_streams.append(dic)
-        print("task", idx, class_lists[start_idx:start_idx + num_cls], len(task_streams))
+        # print("task", idx, class_lists[start_idx:start_idx + num_cls], len(task_streams))
         task_streams_count.append(len(task_streams))
         random.shuffle(task_streams)
         sample_streams.extend(task_streams)
