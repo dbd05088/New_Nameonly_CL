@@ -127,10 +127,10 @@
 # tar -xf DomainNet_static_cot_50_sdxl.tar -C DomainNet
 # rm DomainNet_static_cot_50_sdxl.tar
 
-# DomainNet sdxl_1 (new prompt from PACS)
-./gdrive files download 1OoTs9e6ZlzTFDoR4xvLH316CZgfhFqVg
-tar -xf DomainNet_sdxl_1.tar -C DomainNet
-rm DomainNet_sdxl_1.tar
+# # DomainNet sdxl_1 (new prompt from PACS)
+# ./gdrive files download 1OoTs9e6ZlzTFDoR4xvLH316CZgfhFqVg
+# tar -xf DomainNet_sdxl_1.tar -C DomainNet
+# rm DomainNet_sdxl_1.tar
 
 # # DomainNet sdxl_1 filtered (check filtering performance)
 # ./gdrive files download 1wbRy_sZwOdnP3CSZgLUk-w1fcU7hwg9A
