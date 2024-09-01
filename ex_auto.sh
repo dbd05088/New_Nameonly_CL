@@ -1,7 +1,6 @@
 #!/bin/bash
-#SBATCH --time=10:00:00
 ##SBATCH -p suma_rtx4090
-#SBATCH -q big_qos
+##SBATCH -q big_qos
 #SBATCH --gres=gpu:1
 ##SBATCH -c 64
 
@@ -126,7 +125,7 @@ elif [ "$DATASET" == "DomainNet" ]; then
     fi
 
 elif [ "$DATASET" == "NICO" ]; then
-    MEM_SIZE=6000
+    MEM_SIZE=8000
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
     VAL_PERIOD=500 EVAL_PERIOD=500
@@ -138,7 +137,7 @@ elif [ "$DATASET" == "NICO" ]; then
     BASEINIT_SAMPLES=30523 FEAT_DIM=14 FEAT_MEM_SIZE=168000
     SAMPLES_PER_TASK=960
     ONLINE_ITER=3
-    EVAL_POINT="9720 19440 29160 38880 48600"
+    EVAL_POINT="9600 19200 28800 38400 48000"
 
 else
     echo "Undefined setting"
