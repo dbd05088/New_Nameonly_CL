@@ -9,7 +9,7 @@ os.system("./gdrive account switch dbd05088@naver.com")
 
 # Files to upload
 dataset = "PACS_final"
-create_tar = False
+create_tar = True
 files = [
     "PACS_final_DINO_small_moderate_filtered",
     "PACS_final_DINO_base_moderate_filtered",
@@ -47,7 +47,8 @@ files = [os.path.join(dataset, file) for file in files]
 if create_tar:
     for file in files:
         print(f"Creating tar file for {file}")
-        os.system(f"tar -cf {file}.tar {file}")
+        breakpoint()
+        os.system(f"tar -cf {file}.tar -C {dataset} {os.path.basename(file)}")
 
 # Upload files
 for file in tqdm(files):
