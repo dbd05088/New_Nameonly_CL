@@ -137,7 +137,18 @@ rm DomainNet_sdxl_1.tar
 # tar -xf DomainNet_sdxl_1_filtered.tar -C DomainNet
 # rm DomainNet_sdxl_1_filtered.tar
 
-# robustness
-./gdrive files download 11x0RwjWfI_w3P0GYZktGrd4aVn2Kiho5
-tar -xf DomainNet_robustness.tar -C DomainNet
-rm DomainNet_robustness.tar
+# # robustness
+# ./gdrive files download 11x0RwjWfI_w3P0GYZktGrd4aVn2Kiho5
+# tar -xf DomainNet_robustness.tar -C DomainNet
+# rm DomainNet_robustness.tar
+
+# ensemble experiments (0901)
+./gdrive files download 1Kle4nSTZXIPGnk1tm2BYt3ITs2DX89pn
+./gdrive files download 15qDhoCkb2RMzb-FZpR4_im8eC2qIluBs
+./gdrive files download 1VFvnUE68YRlBmaQJWWFhXap_QYJ9-qOF
+tar -xf DomainNet_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_clip.tar -C DomainNet
+tar -xf DomainNet_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vitb16_normalized.tar -C DomainNet
+tar -xf DomainNet_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vits8_normalized.tar -C DomainNet
+rm DomainNet_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_clip.tar
+rm DomainNet_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vitb16_normalized.tar
+rm DomainNet_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vits8_normalized.tar
