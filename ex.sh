@@ -143,8 +143,8 @@ elif [ "$DATASET" == "NICO" ]; then
     MEM_SIZE=8000 # (changed 0901 - after 10x increase)
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
-    VAL_PERIOD=500 EVAL_PERIOD=500
-    BATCHSIZE=32; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
+    VAL_PERIOD=500 EVAL_PERIOD=2000
+    BATCHSIZE=64; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
     # Change vit learning rate (0611)
     if [ "$MODEL_NAME" == "vit" ]; then
         LR=1e-4
