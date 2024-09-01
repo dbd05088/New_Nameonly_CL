@@ -35,7 +35,15 @@ def check_class_names(directory_path, class_names_dict):
         if cls not in class_names_dict.keys():
             print(f"Class {cls} not found in class names dictionary.")
             raise ValueError(f"Class {cls} not found in class names dictionary.")
-    print(set(class_names_dict.keys()) - set(class_names))
+    # Find classes in directory that are not in class names dictionary
+    not_exist = list(set(class_names_dict.keys()) - set(class_names))
+    
+    # Find indices of classes in directory that are not in class names dictionary
+    class_names_ordered = list(class_names_dict.keys())
+    not_exist_indices = sorted([class_names_ordered.index(cls) for cls in not_exist])
+    print(f"Not found classes: {not_exist}, corresponding indices: {not_exist_indices}")
+    print(f"Number of not found classes: {len(not_exist)}")
+    
     assert len(class_names) == len(class_names_dict.keys()), "Number of classes in directory does not match number of classes in class names dictionary."
     
 def check_image_size(image_path, size):
