@@ -11,33 +11,7 @@ os.system("./gdrive account switch dbd05088@naver.com")
 dataset = "PACS_final"
 create_tar = True
 files = [
-    "PACS_final_DINO_small_moderate_filtered",
-    "PACS_final_DINO_base_moderate_filtered",
-    "PACS_final_CLIP_moderate_filtered",
-    "PACS_final_DINO_base_CurvMatch_10_0_0001",
-    "PACS_final_DINO_base_CurvMatch_25_0_0001",
-    "PACS_final_DINO_base_CurvMatch_50_0_0001",
-    "PACS_final_DINO_base_Glister_10_0_0001",
-    "PACS_final_DINO_base_Glister_25_0_0001",
-    "PACS_final_DINO_base_Glister_50_0_0001",
-    "PACS_final_DINO_base_GradMatch_10_0_0001",
-    "PACS_final_DINO_base_GradMatch_25_0_0001",
-    "PACS_final_DINO_base_GradMatch_50_0_0001",
-    "PACS_final_DINO_base_Uncertainty_10_0_0001",
-    "PACS_final_DINO_base_Uncertainty_25_0_0001",
-    "PACS_final_DINO_base_Uncertainty_50_0_0001",
-    "PACS_final_DINO_small_CurvMatch_10_0_0001",
-    "PACS_final_DINO_small_CurvMatch_25_0_0001",
-    "PACS_final_DINO_small_CurvMatch_50_0_0001",
-    "PACS_final_DINO_small_Glister_10_0_0001",
-    "PACS_final_DINO_small_Glister_25_0_0001",
-    "PACS_final_DINO_small_Glister_50_0_0001",
-    "PACS_final_DINO_small_GradMatch_10_0_0001",
-    "PACS_final_DINO_small_GradMatch_25_0_0001",
-    "PACS_final_DINO_small_GradMatch_50_0_0001",
-    "PACS_final_DINO_small_Uncertainty_10_0_0001",
-    "PACS_final_DINO_small_Uncertainty_25_0_0001",
-    "PACS_final_DINO_small_Uncertainty_50_0_0001",
+    "PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_clip_16"
 ]
 
 # Change path
@@ -47,7 +21,6 @@ files = [os.path.join(dataset, file) for file in files]
 if create_tar:
     for file in files:
         print(f"Creating tar file for {file}")
-        breakpoint()
         os.system(f"tar -cf {file}.tar -C {dataset} {os.path.basename(file)}")
 
 # Upload files
