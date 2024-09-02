@@ -11,7 +11,7 @@ os.system("./gdrive account switch dbd05088@naver.com")
 dataset = "PACS_final"
 create_tar = True
 files = [
-    "PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_clip_16"
+    "PACS_final_CLIP_moderate"
 ]
 
 # Change path
