@@ -8,8 +8,8 @@ image_paths:
   floyd: './raw_datasets/iclr_generated/DomainNet/DomainNet_floyd_subsampled_filtered'
   cogview2: './raw_datasets/iclr_generated/DomainNet/DomainNet_cogview2_full_subsampled_filtered'
   sd3: './raw_datasets/iclr_generated/DomainNet/DomainNet_sd3_subsampled_filtered'
-  flux: './raw_datasets/iclr_generated/DomainNet/DomainNet_flux_subsampled_filtered'
-  kolors: './raw_datasets/iclr_generated/DomainNet/DomainNet_kolors_subsampled_filtered'
+  # flux: './raw_datasets/iclr_generated/DomainNet/DomainNet_flux_subsampled_filtered'
+  # kolors: './raw_datasets/iclr_generated/DomainNet/DomainNet_kolors_subsampled_filtered'
   auraflow: './raw_datasets/iclr_generated/DomainNet/DomainNet_auraflow_subsampled_filtered'
 
-json_save_path: './RMD_scores/DomainNet_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vits8_normalized.json'
+json_save_path: './RMD_scores/DomainNet_sdxl_floyd_cogview2_sd3_auraflow.json'
