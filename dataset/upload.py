@@ -8,12 +8,11 @@ os.system("./gdrive account import gdrive_export-dbd05088_naver_com.tar")
 os.system("./gdrive account switch dbd05088@naver.com")
 
 # Files to upload
-dataset = "PACS_final"
+dataset = "DomainNet"
 create_tar = True
 files = [
-    "PACS_final_karlo_equalweight2",
-    "PACS_final_karlo_equalweight3",
-    "PACS_final_karlo_equalweight4",
+    "DomainNet_sdxl_floyd_cogview2_sd3_flux_auraflow",
+    "DomainNet_sdxl_floyd_cogview2_sd3_auraflow",
 ]
 
 # Change path
@@ -35,6 +34,9 @@ for file in tqdm(files):
     with open('result.txt', 'a') as f:
         f.write(f"./gdrive files download {file_id} # {os.path.basename(file)}\n")
 
+# Remove a script text file if it exists
+if os.path.exists('result.txt'):
+    os.remove('result.txt')
 # Write a script to untar files
 for file in tqdm(files):
     with open('result.txt', 'a') as f:
@@ -44,3 +46,14 @@ for file in tqdm(files):
 for file in tqdm(files):
     with open('result.txt', 'a') as f:
         f.write(f"rm {os.path.basename(file)}.tar\n")
+        
+# Write a script to generate statistics
+with open('result.txt', 'a') as f:
+    # python get_stats.py -r ./dataset/DomainNet/DomainNet_sdxl_floyd_cogview2_sd3_flux_auraflow
+    for file in tqdm(files):
+        f.write(f"python get_stats.py -r ./dataset/{file}\n")
+
+# Write a script to generate json files
+with open('result.txt', 'a') as f:
+    for file in tqdm(files):
+        f.write(f"python make_collections.py -r ./dataset/{file}\n")

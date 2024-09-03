@@ -1,6 +1,6 @@
 # PACS generated
 
-embedding_model: 'dino'
+embedding_model: 'clip'
 dataset: 'DomainNet' # PACS, DomainNet, cifar10
 use_ma_size: False
 image_paths:
