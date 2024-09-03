@@ -12,11 +12,11 @@
 
 # --------------------------IMPORTANT-------------------------- #
 MODE="er" # er, der, mir, aser, ...
-MODEL_NAME="resnet18"
-DATASET="NICO" # PACS_final, DomainNet, cifar10, NICO, cct
-TYPES=("sdxl_800" "sd3_800") # each type runs on each gpu
+MODEL_NAME="resnet18" # vit
+DATASET="PACS_final" # PACS_final, DomainNet, cifar10, NICO, cct
+TYPES=("train_ma") # each type runs on each gpu
 SEEDS="1"
-GPUS=("0" "1" "2" "3" "4" "5" "6" "7") # each gpu runs each type
+GPUS=("0" "7" "2" "3" "4" "5" "6" "7") # each gpu runs each type
 # --------------------------IMPORTANT-------------------------- #
 
 # If explicitly provided, use the provided arguments
@@ -114,11 +114,11 @@ elif [ "$DATASET" == "cct" ]; then
     EVAL_POINT="600 1200 1800 2400"
 
 elif [ "$DATASET" == "DomainNet" ]; then
-    MEM_SIZE=8000
+    MEM_SIZE=10000
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
     VAL_PERIOD=500 EVAL_PERIOD=2000
-    BATCHSIZE=64; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
+    BATCHSIZE=128; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
     # Change vit learning rate (0611)
     if [ "$MODEL_NAME" == "vit" ]; then
         LR=1e-4
