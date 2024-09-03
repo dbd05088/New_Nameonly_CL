@@ -6,7 +6,7 @@ from scipy.stats import sem
 from collections import defaultdict
 
 warnings.filterwarnings(action='ignore')
-dir = 'DomainNet'
+dir = 'PACS_final'
 
 if 'PACS' in dir:
     in_dis = ['final_test_ma']

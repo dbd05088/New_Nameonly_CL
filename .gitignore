@@ -170,3 +170,4 @@ nameonly/crawling/datasets/*
 nameonly/prompt_generation/src/clip
 nameonly/generate_twostage/generated_images_datacenter_backup
 dataset/result.txt
+dataset/PACS_final_karlo_equalweight2/

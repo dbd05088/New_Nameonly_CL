@@ -11,7 +11,9 @@ os.system("./gdrive account switch dbd05088@naver.com")
 dataset = "PACS_final"
 create_tar = True
 files = [
-    "PACS_final_CLIP_moderate"
+    "PACS_final_karlo_equalweight2",
+    "PACS_final_karlo_equalweight3",
+    "PACS_final_karlo_equalweight4",
 ]
 
 # Change path
