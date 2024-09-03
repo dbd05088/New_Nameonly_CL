@@ -150,9 +150,10 @@ class CLManagerBase:
             self.cls_per_task = [12]*self.tasks
         
         total_cls=0
+        self.cul_cls_per_task = []
         for i in range(self.tasks):
             total_cls+=self.cls_per_task[i]
-            self.cls_per_task[i] = total_cls
+            self.cul_cls_per_task.append(total_cls)
             
         self.cur_task = 0
         self.eval_point = [int(point) for point in eval_point.split(" ")]
@@ -388,11 +389,11 @@ class CLManagerBase:
             f"ETA {datetime.timedelta(seconds=int((time.time() - self.start_time) * (self.total_samples-sample_num) / sample_num))}"
         )
 
-    def report_test(self, domain_name, sample_num, avg_loss, avg_acc):
+    def report_test(self, domain_name, sample_num, avg_loss, avg_acc, cls_acc):
         # writer.add_scalar(f"test/loss", avg_loss, sample_num)
         # writer.add_scalar(f"test/acc", avg_acc, sample_num)
         logger.info(
-            f"{domain_name} Test | Sample # {sample_num} | test_loss {avg_loss:.4f} | test_acc {avg_acc:.4f} | TFLOPs {self.total_flops/1000:.2f}"
+            f"{domain_name} Test | Sample # {sample_num} | test_loss {avg_loss:.4f} | test_acc {avg_acc:.4f} | cls_acc {cls_acc:.4f}"
         )
 
     def update_schedule(self, reset=False):
@@ -440,7 +441,7 @@ class CLManagerBase:
         )
         eval_dict = self.evaluation(test_loader, self.criterion)
         
-        self.report_test(domain_name, sample_num, eval_dict["avg_loss"], eval_dict["avg_acc"], )
+        self.report_test(domain_name, sample_num, eval_dict["avg_loss"], eval_dict["avg_acc"], eval_dict["cls_acc"])
             
         del test_loader
         return sample_num, eval_dict
@@ -478,8 +479,7 @@ class CLManagerBase:
         avg_acc = total_correct / total_num_data
         avg_loss = total_loss / len(test_loader)
         cls_acc = (correct_l / (num_data_l + 1e-5)).numpy().tolist()
-        ret = {"avg_loss": avg_loss, "avg_acc": avg_acc, "cls_acc": cls_acc}
-
+        ret = {"avg_loss": avg_loss, "avg_acc": avg_acc, "cls_acc": np.mean(cls_acc[:len(self.exposed_classes)])}
         return ret
     
     def fast_evaluation(self, test_loader, criterion):
@@ -508,9 +508,16 @@ class CLManagerBase:
 
                 total_loss += loss.item()
                 label += y.tolist()
-
+                
+        cls_acc = (correct_l / (num_data_l + 1e-5)).numpy().tolist()
         avg_acc = total_correct / total_num_data
-        return avg_acc
+        # logger.info(f"cls_acc: {cls_acc}")
+        print("cls_acc:", cls_acc, self.cul_cls_per_task[self.cur_task], self.cur_task)
+        if self.cur_task+1 == self.tasks:
+            cls_acc_avg = cls_acc[self.cul_cls_per_task[self.cur_task]:]
+        else:
+            cls_acc_avg = cls_acc[self.cul_cls_per_task[self.cur_task]:self.cul_cls_per_task[self.cur_task+1]]
+        return avg_acc, np.mean(cls_acc_avg)
         
 
     def reset_opt(self):
@@ -534,9 +541,9 @@ class CLManagerBase:
 
     def calculate_fast_adaptation(self, domain_name, sample_num, test_list, cls_dict, batch_size, n_worker):
         if self.cur_task+1 == self.tasks:
-            next_task_cls = self.p_cls_list[self.cls_per_task[self.cur_task]:]
+            next_task_cls = self.p_cls_list[self.cul_cls_per_task[self.cur_task]:]
         else:
-            next_task_cls = self.p_cls_list[self.cls_per_task[self.cur_task]:self.cls_per_task[self.cur_task+1]]
+            next_task_cls = self.p_cls_list[self.cul_cls_per_task[self.cur_task]:self.cul_cls_per_task[self.cur_task+1]]
         
         test_df = pd.DataFrame(test_list)
         exp_test_df = test_df[test_df['klass'].isin(next_task_cls)]
@@ -593,7 +600,7 @@ class CLManagerBase:
             model_fc = getattr(self.fast_model, fc_name)
             prev_weight = copy.deepcopy(model_fc.weight.data)
             prev_bias = copy.deepcopy(model_fc.bias.data)
-            setattr(self.fast_model, fc_name, nn.Linear(model_fc.in_features, self.cls_per_task[self.cur_task+1]).to(self.device))
+            setattr(self.fast_model, fc_name, nn.Linear(model_fc.in_features, self.cul_cls_per_task[self.cur_task+1]).to(self.device))
             model_fc = getattr(self.fast_model, fc_name)
             with torch.no_grad():
                 model_fc.weight[:self.num_learned_class] = prev_weight
@@ -621,8 +628,9 @@ class CLManagerBase:
                         loss.backward()
                         self.fast_optimizer.step()
             
-        avg_acc = self.fast_evaluation(test_loader, self.criterion)
+        avg_acc, cls_acc = self.fast_evaluation(test_loader, self.criterion)
         logger.info(f"{domain_name} ADAPTATION | Sample # {sample_num} | Task{self.cur_task} -> Task{self.cur_task+1} fast adaptation: {avg_acc:.3f}")
+        logger.info(f"{domain_name} IMBALANCE_ADAPT | Sample # {sample_num} | Task{self.cur_task} -> Task{self.cur_task+1} fast adaptation: {cls_acc:.3f}")
         del test_loader
 
     def calculate_task_metric(self, domain_name, sample_num, test_list, cls_dict, batch_size, n_worker):

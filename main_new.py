@@ -98,13 +98,13 @@ def main():
                 avg_acc.append(eval_dict['avg_acc'])
                 avg_loss.append(eval_dict['avg_loss'])
                 cls_acc.append(eval_dict['cls_acc'])
-            method.report_test("Total", sample_num, np.mean(avg_loss), np.mean(avg_acc))
+            method.report_test("Total", sample_num, np.mean(avg_loss), np.mean(avg_acc), np.mean(cls_acc))
             eval_results["test_acc"].append(np.mean(avg_acc))
             eval_results["percls_acc"].append(np.mean(cls_acc))
             eval_results["data_cnt"].append(samples_cnt)
             if samples_cnt in eval_point:
                 eval_results["avg_test_acc"].append(np.mean(avg_acc))
-                method.report_test("Task", sample_num, np.mean(avg_loss), np.mean(avg_acc))
+                method.report_test("Task", sample_num, np.mean(avg_loss), np.mean(avg_acc), np.mean(cls_acc))
                 cur_task+=1
         if samples_cnt in eval_point and (args.mode in ["memo", "xder", "afec"]) and samples_cnt != len(train_datalist):
             method.online_after_task()
@@ -115,13 +115,13 @@ def main():
             avg_acc.append(eval_dict['avg_acc'])
             avg_loss.append(eval_dict['avg_loss'])
             cls_acc.append(eval_dict['cls_acc'])
-        method.report_test("Total", sample_num, np.mean(avg_loss), np.mean(avg_acc))
+        method.report_test("Total", sample_num, np.mean(avg_loss), np.mean(avg_acc), np.mean(cls_acc))
         eval_results["test_acc"].append(np.mean(avg_acc))
         eval_results["percls_acc"].append(np.mean(cls_acc))
         eval_results["data_cnt"].append(samples_cnt)
         if samples_cnt in eval_point:
             eval_results["avg_test_acc"].append(np.mean(avg_acc))
-            method.report_test("Task", sample_num, np.mean(avg_loss), np.mean(avg_acc))
+            method.report_test("Task", sample_num, np.mean(avg_loss), np.mean(avg_acc), np.mean(cls_acc))
 
     A_last = eval_results["test_acc"][-1] #eval_dict['avg_acc']
 
