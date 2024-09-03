@@ -142,13 +142,21 @@
 # tar -xf DomainNet_robustness.tar -C DomainNet
 # rm DomainNet_robustness.tar
 
-# ensemble experiments (0901)
-./gdrive files download 1Kle4nSTZXIPGnk1tm2BYt3ITs2DX89pn
-./gdrive files download 15qDhoCkb2RMzb-FZpR4_im8eC2qIluBs
-./gdrive files download 1VFvnUE68YRlBmaQJWWFhXap_QYJ9-qOF
-tar -xf DomainNet_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_clip.tar -C DomainNet
-tar -xf DomainNet_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vitb16_normalized.tar -C DomainNet
-tar -xf DomainNet_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vits8_normalized.tar -C DomainNet
-rm DomainNet_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_clip.tar
-rm DomainNet_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vitb16_normalized.tar
-rm DomainNet_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vits8_normalized.tar
+# # ensemble experiments (0901)
+# ./gdrive files download 1Kle4nSTZXIPGnk1tm2BYt3ITs2DX89pn
+# ./gdrive files download 15qDhoCkb2RMzb-FZpR4_im8eC2qIluBs
+# ./gdrive files download 1VFvnUE68YRlBmaQJWWFhXap_QYJ9-qOF
+# tar -xf DomainNet_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_clip.tar -C DomainNet
+# tar -xf DomainNet_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vitb16_normalized.tar -C DomainNet
+# tar -xf DomainNet_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vits8_normalized.tar -C DomainNet
+# rm DomainNet_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_clip.tar
+# rm DomainNet_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vitb16_normalized.tar
+# rm DomainNet_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vits8_normalized.tar
+
+# DomainNet ensemble experiments (0903)
+./gdrive files download 1Jb4HimYcikh-ZG_AtGOVKNUqGCEgWOQ2 # DomainNet_sdxl_floyd_cogview2_sd3_flux_auraflow
+./gdrive files download 1t6nJLYJ9ceT91791RihiTMU7ih08c5sq # DomainNet_sdxl_floyd_cogview2_sd3_auraflow
+tar -xf DomainNet_sdxl_floyd_cogview2_sd3_flux_auraflow.tar -C DomainNet
+tar -xf DomainNet_sdxl_floyd_cogview2_sd3_auraflow.tar -C DomainNet
+rm DomainNet_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
+rm DomainNet_sdxl_floyd_cogview2_sd3_auraflow.tar
