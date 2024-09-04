@@ -44,11 +44,6 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Get mean and std for images')
     parser.add_argument('-r', '--image_root_dir', type=str, help='Root directory of images')
     args = parser.parse_args()
-
-    # Write result stats to json file
-    json_path = './utils/data_statistics.json'
-    with open(json_path, 'r') as f:
-        data_statistics = json.load(f)
     
     last_part = os.path.basename(os.path.normpath(args.image_root_dir))
     
@@ -59,6 +54,11 @@ if __name__ == '__main__':
 
     # Get mean and std
     result = get_stat(args.image_root_dir)
+    
+    # Write result stats to json file
+    json_path = './utils/data_statistics.json'
+    with open(json_path, 'r') as f:
+        data_statistics = json.load(f)
 
     mean = (result['mean'][0], result['mean'][1], result['mean'][2])
     std = (result['std'][0], result['std'][1], result['std'][2])
