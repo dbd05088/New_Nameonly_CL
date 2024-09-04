@@ -5,7 +5,7 @@ from scipy.stats import sem
 from collections import defaultdict
 
 warnings.filterwarnings(action='ignore')
-dir = 'PACS_final'
+dir = 'DomainNet'
 
 if 'PACS' in dir:
     in_dis = ['final_test_ma']
@@ -40,12 +40,12 @@ exp_type_list = []
 exp_list = sorted([dir + '/' + exp for exp in os.listdir(dir)])
 for exp in exp_list:
     for exp_type in os.listdir(exp):
-        if os.path.isdir(os.path.join(exp, exp_type)) and "debug3" in os.path.join(exp, exp_type):
+        if os.path.isdir(os.path.join(exp, exp_type)) and "iclr" in os.path.join(exp, exp_type):
             exp_type_list.append(os.path.join(exp, exp_type))
 
 
 print(exp_type_list)
-def print_from_log(exp_name, in_dis, ood_dis, seeds=[1]):
+def print_from_log(exp_name, in_dis, ood_dis, seeds=[1,2,3,4,5]):
     in_avg, imb_in_avg = [], []
     in_last, imb_in_last = [], []
     ood_avg, imb_ood_avg = [], []
@@ -124,7 +124,6 @@ def print_from_log(exp_name, in_dis, ood_dis, seeds=[1]):
                 imb_ood_dis_acc.append(np.mean(imb_ood_acc))
                 imb_all_acc.append(np.mean(imb_in_acc+imb_ood_acc))
                 imb_in_acc, imb_ood_acc = [], []
-                print("here", )
                 
         in_avg.append(round(sum(in_dis_acc)/len(in_dis_acc)*100,2))
         in_last.append(round(in_dis_acc[-1]*100,2))
@@ -182,7 +181,6 @@ def print_from_log(exp_name, in_dis, ood_dis, seeds=[1]):
             
                 
                 
-
 for exp in exp_type_list:
     try:
         print_from_log(exp, in_dis, ood_dis)
