@@ -7,6 +7,7 @@ from datetime import datetime
 from typing import List
 from PIL import Image
 from tqdm import tqdm
+from torch.utils.data import Dataset
 
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -146,3 +147,17 @@ def normalize_and_clip_scores(scores):
     clipped_scores = np.clip(normalized_scores, lower_clip, upper_clip)
     
     return clipped_scores
+
+# Dataset class to load images
+class ImageDataset(Dataset):
+    def __init__(self, image_paths, processor):
+        self.image_paths = image_paths
+        self.processor = processor
+
+    def __len__(self):
+        return len(self.image_paths)
+
+    def __getitem__(self, idx):
+        image_path = self.image_paths[idx]
+        image = Image.open(image_path)
+        return self.processor(images=image, return_tensors="pt")
