@@ -511,8 +511,6 @@ class CLManagerBase:
                 
         cls_acc = (correct_l / (num_data_l + 1e-5)).numpy().tolist()
         avg_acc = total_correct / total_num_data
-        # logger.info(f"cls_acc: {cls_acc}")
-        print("cls_acc:", cls_acc, self.cul_cls_per_task[self.cur_task], self.cur_task)
         if self.cur_task+1 == self.tasks:
             cls_acc_avg = cls_acc[self.cul_cls_per_task[self.cur_task]:]
         else:
@@ -680,7 +678,7 @@ class CLManagerBase:
         task=0
         for cls in range(self.n_classes):
             task_acc+=correct_prob[cls]
-            if cls+1 in self.cls_per_task:
+            if cls+1 in self.cul_cls_per_task:
                 log += f'Task {task}: {(task_acc/(self.cls_per_task[task])):.3f}, '
                 task+=1
                 task_acc=0
