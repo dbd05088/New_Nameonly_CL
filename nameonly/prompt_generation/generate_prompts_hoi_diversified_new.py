@@ -1,5 +1,6 @@
 # Use action selection when generating negative prompts
 import re
+import os
 import json
 import ast
 from openai import OpenAI
@@ -55,15 +56,29 @@ def select_action(object_class, action_set, positive_action):
 
 json_split_path = '../../collections/Bongard-HOI/ma_splits/Bongard-HOI_train_seed1.json'
 prompt_json_path = './prompts/hoi_diversified_new.json'
+temp_json_path = './prompts/hoi_diversified_new_temp.json'
 client = OpenAI(api_key="sk-proj-bPJxpKwauBBFBZJw7nEgT3BlbkFJePaQfARB48iyTbZfxSXg")
 
 
+if os.path.exists(temp_json_path):
+    with open(temp_json_path, 'r') as f:
+        results = json.load(f)
+else:
+    results = []
+
+# Load dataset
 with open(json_split_path, 'r') as f:
     dataset_list = json.load(f)
     
-results = []
+processed_ids = [result['id'] for result in results]
+
 for dataset in tqdm(dataset_list):
     id = dataset['id']
+    
+    if id in processed_ids:
+        print(f"Skipping id {id}")
+        continue
+    
     object_name = dataset['object_class'][0]; action_class_pos = dataset['action_class'][0]
     
     # Generate positive prompt
@@ -82,12 +97,15 @@ for dataset in tqdm(dataset_list):
     
     data_dict = {
         'id': id,
-        'object_name': object_name,
-        'positive_prompts': [positive_prompt],
+        'object_class': [object_name] * (NUM_POSITIVE * 2),
+        'action_class': [action_class_pos] * NUM_POSITIVE + negative_actions,
+        'positive_prompts': [positive_prompt] * NUM_POSITIVE,
         'negative_prompts': negative_prompts
     }
     
     results.append(data_dict)
-
+    with open(temp_json_path, 'w') as f:
+        json.dump(results, f)
+    
 with open(prompt_json_path, 'w') as f:
     json.dump(results, f)
