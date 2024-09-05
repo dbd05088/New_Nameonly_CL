@@ -49,7 +49,7 @@ for dataset_dict in tqdm(list_to_generate):
         image.save(image_path, "JPEG")
     
     # Generate negative images
-    neg_save_dir = os.path.join(save_dir, str(id), 'neg')
+    neg_save_dir = os.path.join(args.root_dir, str(id), 'neg')
     if os.path.exists(neg_save_dir):
         print(f"Removing existing directory: {neg_save_dir}")
         shutil.rmtree(neg_save_dir)
