@@ -359,6 +359,12 @@ def generate_single_class(
     API_KEY=None,
     resume_prompt_idx=None
 ):
+    if not 'metaprompts' in class_prompt_dict:
+        use_dynamic_prompt = True
+        class_prompt_dict = class_prompt_dict[class_name]
+    else:
+        use_dynamic_prompt = False
+    
     os.makedirs(os.path.join(image_dir), exist_ok=True)
     if class_num_samples_dict is not None:
         class_list = list(class_num_samples_dict.keys())
@@ -400,9 +406,12 @@ def generate_single_class(
 
     # Replace the placeholder [concept] into class name
     for i, prompt in enumerate(concatenated_prompt_list):
-        assert "[concept]" in prompt[0], f"[concept] not exists in {prompt}!"
-        prompt_with_cls = (prompt[0].replace('[concept]', class_name), prompt[1], prompt[2])
-        concatenated_prompt_list[i] = prompt_with_cls
+        if not use_dynamic_prompt:
+            assert "[concept]" in prompt[0], f"[concept] not exists in {prompt}!"
+            prompt_with_cls = (prompt[0].replace('[concept]', class_name), prompt[1], prompt[2])
+            concatenated_prompt_list[i] = prompt_with_cls
+        else:
+            concatenated_prompt_list[i] = (prompt[0], prompt[1], prompt[2])
     
     # Find the prompt index to start generating images
     if max_prompt_indices is not None:
