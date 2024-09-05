@@ -7,7 +7,7 @@ from openai import OpenAI
 from tqdm import tqdm
 nltk.download('wordnet')
 
-prompt_json_path = './prompts/fake_PACS.json'
+prompt_json_path = './prompts/fake_DomainNet.json'
 dataset_count = DomainNet_count
 
 totalprompt_dict = {}
