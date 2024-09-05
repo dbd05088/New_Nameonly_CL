@@ -792,10 +792,15 @@
 # rm PACS_final_DINO_small_Uncertainty_25_0_0001.tar
 # rm PACS_final_DINO_small_Uncertainty_50_0_0001.tar
 
-# RMD CLIP vit patch 32 -> 16, moderate new
-./gdrive files download 1qOL0lAKJkqBwcLjbdD8-Nf8GDR_0G85t # PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_clip_16
-./gdrive files download 1gjSGx-6hzeVIQiQDPEzvjZCQdsU9Er8U # PACS_final_CLIP_moderate
-tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_clip_16.tar -C PACS_final
-tar -xf PACS_final_CLIP_moderate.tar -C PACS_final
-rm PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_clip_16.tar
-rm PACS_final_CLIP_moderate.tar
+# # RMD CLIP vit patch 32 -> 16, moderate new
+# ./gdrive files download 1qOL0lAKJkqBwcLjbdD8-Nf8GDR_0G85t # PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_clip_16
+# ./gdrive files download 1gjSGx-6hzeVIQiQDPEzvjZCQdsU9Er8U # PACS_final_CLIP_moderate
+# tar -xf PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_clip_16.tar -C PACS_final
+# tar -xf PACS_final_CLIP_moderate.tar -C PACS_final
+# rm PACS_final_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_clip_16.tar
+# rm PACS_final_CLIP_moderate.tar
+
+
+./gdrive files download 1ltM_SRqnJfkHn-XO8yonsrfAjgZCLp96 # PACS_final_fake_sdxl
+tar -xf PACS_final_fake_sdxl.tar -C PACS_final
+rm PACS_final_fake_sdxl.tar
