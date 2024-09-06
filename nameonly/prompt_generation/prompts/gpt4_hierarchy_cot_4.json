@@ -1,0 +1,264 @@
+{
+    "metaprompts": [
+        {
+            "index": 0,
+            "metaprompt": "A photo of a [concept].",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "An image capturing [concept] in vivid, saturated colors."
+                },
+                {
+                    "index": 1,
+                    "content": "A realistic photograph depicting [concept] with high color saturation."
+                },
+                {
+                    "index": 2,
+                    "content": "A lifelike snapshot featuring [concept] rendered in intensely vibrant hues."
+                },
+                {
+                    "index": 3,
+                    "content": "A high-resolution photo showcasing [concept] with deep, rich color tones."
+                },
+                {
+                    "index": 4,
+                    "content": "A photorealistic depiction of [concept] with subtly muted color palette."
+                }
+            ]
+        },
+        {
+            "index": 1,
+            "metaprompt": "A photo of [concept] in vibrant colors.",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "An image of [concept] captured in vivid hues."
+                },
+                {
+                    "index": 1,
+                    "content": "A photograph of [concept] depicted with bright, saturated colors."
+                },
+                {
+                    "index": 2,
+                    "content": "A snapshot of [concept] rendered in rich, dynamic coloration."
+                },
+                {
+                    "index": 3,
+                    "content": "A picture of [concept] illustrated in intensely vibrant color palette."
+                },
+                {
+                    "index": 4,
+                    "content": "A depiction of [concept] showcased in deeply saturated, lively colors."
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "metaprompt": "A painting of [concept] in pastel colors.",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "An artwork of [concept] rendered in soft pastel hues."
+                },
+                {
+                    "index": 1,
+                    "content": "A depiction of [concept] illustrated with gentle pastel tones."
+                },
+                {
+                    "index": 2,
+                    "content": "A visual representation of [concept] crafted in subtle pastel shades."
+                },
+                {
+                    "index": 3,
+                    "content": "An artistic rendition of [concept] portrayed in delicate pastel colors."
+                },
+                {
+                    "index": 4,
+                    "content": "A canvas portrayal of [concept] in muted pastel palettes."
+                }
+            ]
+        },
+        {
+            "index": 3,
+            "metaprompt": "A photo of [concept] in monochrome.",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A realistic image of [concept] rendered in grayscale."
+                },
+                {
+                    "index": 1,
+                    "content": "A photorealistic depiction of [concept] in black and white tones."
+                },
+                {
+                    "index": 2,
+                    "content": "A lifelike portrayal of [concept] in single-color shades."
+                },
+                {
+                    "index": 3,
+                    "content": "An authentic photograph of [concept] showcased in monochrome."
+                },
+                {
+                    "index": 4,
+                    "content": "A true-to-life image of [concept] presented in monochrome."
+                }
+            ]
+        },
+        {
+            "index": 4,
+            "metaprompt": "A colorful vector clipart of [concept].",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A vibrant digital illustration depicting [concept]."
+                },
+                {
+                    "index": 1,
+                    "content": "A richly colored clipart representation of [concept]."
+                },
+                {
+                    "index": 2,
+                    "content": "A vivid vector-style artwork of [concept]."
+                },
+                {
+                    "index": 3,
+                    "content": "A brightly colored digital vector rendering of [concept]."
+                },
+                {
+                    "index": 4,
+                    "content": "A colorful digital clipart interpretation of [concept]."
+                }
+            ]
+        },
+        {
+            "index": 5,
+            "metaprompt": "A watercolor of [concept] in earthy tones.",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "An oil painting of [concept] using a palette of warm, earthy colors."
+                },
+                {
+                    "index": 1,
+                    "content": "A watercolor depiction of [concept] crafted with a palette of soft, earthy hues."
+                },
+                {
+                    "index": 2,
+                    "content": "A watercolor rendering of [concept] using muted, earth-toned colors."
+                },
+                {
+                    "index": 3,
+                    "content": "A watercolor illustration of [concept] with a spectrum of rich, earthy tones."
+                },
+                {
+                    "index": 4,
+                    "content": "A watercolor sketch of [concept] highlighted with natural, earthy shades."
+                }
+            ]
+        },
+        {
+            "index": 6,
+            "metaprompt": "A mosaic of [concept] in jewel tones.",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A collage of [concept] depicted in rich jewel hues."
+                },
+                {
+                    "index": 1,
+                    "content": "A tapestry of [concept] crafted in vibrant jewel colors."
+                },
+                {
+                    "index": 2,
+                    "content": "A mural of [concept] portrayed in deep jewel tones."
+                },
+                {
+                    "index": 3,
+                    "content": "A patchwork of [concept] illustrated in radiant jewel shades."
+                },
+                {
+                    "index": 4,
+                    "content": "An array of [concept] rendered in lustrous jewel tones."
+                }
+            ]
+        },
+        {
+            "index": 7,
+            "metaprompt": "A painting of [concept] in realistic style.",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A lifelike depiction of [concept] employing natural hues."
+                },
+                {
+                    "index": 1,
+                    "content": "A realistic portrayal of [concept] in vivid, true-to-life colors."
+                },
+                {
+                    "index": 2,
+                    "content": "An authentic representation of [concept] with a realistic color palette."
+                },
+                {
+                    "index": 3,
+                    "content": "A detailed rendering of [concept] featuring photorealistic shades."
+                },
+                {
+                    "index": 4,
+                    "content": "An accurate illustration of [concept] in high-definition, naturalistic colors."
+                }
+            ]
+        },
+        {
+            "index": 8,
+            "metaprompt": "A minimalist drawing of [concept] in grayscale.",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A simple sketch of [concept] using soft gray colors."
+                },
+                {
+                    "index": 1,
+                    "content": "A stark illustration of [concept] rendered in monochrome shades."
+                },
+                {
+                    "index": 2,
+                    "content": "A basic rendering of [concept] depicted in shades of gray."
+                },
+                {
+                    "index": 3,
+                    "content": "An understated depiction of [concept] in a grayscale color palette."
+                },
+                {
+                    "index": 4,
+                    "content": "A subtle portrayal of [concept] expressed in a minimalist grayscale style."
+                }
+            ]
+        },
+        {
+            "index": 9,
+            "metaprompt": "A photo of [concept] in cool tones.",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "An image of [concept] rendered in a palette of cool blues and grays."
+                },
+                {
+                    "index": 1,
+                    "content": "A realistic depiction of [concept] showcased in a cool color scheme of blues and whites."
+                },
+                {
+                    "index": 2,
+                    "content": "A photorealistic representation of [concept] highlighted with cool, bluish tones."
+                },
+                {
+                    "index": 3,
+                    "content": "A lifelike portrayal of [concept] in shades of cool, muted blues and silvers."
+                },
+                {
+                    "index": 4,
+                    "content": "A naturalistic image of [concept] depicted with a spectrum of icy blues and frosty whites."
+                }
+            ]
+        }
+    ]
+}
