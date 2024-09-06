@@ -43,10 +43,14 @@
 
 # NICO sdxl, sd3 800
 
-./gdrive files download 1_geagx9xe-CcKkCYRCKhSamJSNZdtTtd # NICO_sdxl_800.tar
-./gdrive files download 1d4cPeF07KcwwkfR1FQ6XgpvSG_Qd7qIW # NICO_sd3_800.tar
-tar -xf NICO_sdxl_800.tar -C NICO
-tar -xf NICO_sd3_800.tar -C NICO
-rm NICO_sdxl_800.tar
-rm NICO_sd3_800.tar
+# ./gdrive files download 1_geagx9xe-CcKkCYRCKhSamJSNZdtTtd # NICO_sdxl_800.tar
+# ./gdrive files download 1d4cPeF07KcwwkfR1FQ6XgpvSG_Qd7qIW # NICO_sd3_800.tar
+# tar -xf NICO_sdxl_800.tar -C NICO
+# tar -xf NICO_sd3_800.tar -C NICO
+# rm NICO_sdxl_800.tar
+# rm NICO_sd3_800.tar
+
+./gdrive files download 1e0XFCdWgwmKeHW2MxVV4rELWd_WQJRKA # NICO_sdxl
+tar -xf NICO_sdxl.tar -C NICO
+rm NICO_sdxl.tar
 
