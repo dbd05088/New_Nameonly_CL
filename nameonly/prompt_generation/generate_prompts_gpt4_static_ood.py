@@ -6,7 +6,7 @@ from tqdm import tqdm
 # Prompt format에 맞도록 수정해야 함 (0516)
 
 def generate_prompt_stage1(client, previous_prompt_list):
-    base_message = f"To generate images using a text-to-image generation model, I need to create a prompt. Keep the domain photorealistic and use different visual scenes and visual styles or different color profiles/ palettes. Here is a list of prompts that I have previously generated. Please create a new prompt that does not overlap with these."
+    base_message = f"To generate images using a text-to-image generation model, I need to create a prompt. Use various backgrounds, visual styles, or different color palettes. Here is a list of prompts that I have previously generated. Please create a new prompt that does not overlap with these."
     end_message = f"\nPlease create one prompt sentence (under 10 words) that fits this description. Please ensure the response format is strictly 'prompt: answer' and include the word '[concept].\n"
     
     # For CoT Prompting
@@ -33,7 +33,7 @@ def generate_prompt_stage1(client, previous_prompt_list):
         return response_content
 
 def generate_prompt_stage2(client, metaprompt, previous_prompt_list):
-    base_message = f"To generate images using a text-to-image generation model, I need to create a prompt. Keep the domain photorealistic and use different visual scenes and visual styles or different color profiles/ palettes. Rewrite '{metaprompt}' and the rewritten prompt should be similar but slightly different to '{metaprompt}'. Here is a list of prompts that I have previously generated. Please create a new prompt that does not overlap with these."
+    base_message = f"To generate images using a text-to-image generation model, I need to create a prompt. Keep the domain photorealistic and use various backgrounds, visual styles, or different color palettes. Rewrite '{metaprompt}' and the rewritten prompt should be similar but slightly different to '{metaprompt}'. Here is a list of prompts that I have previously generated. Please create a new prompt that does not overlap with these."
     
     end_message = f"\nPlease create one prompt sentence (under 15 words) that fits this description. Please ensure the response format is strictly 'prompt: answer' and include the word '[concept].\n"
     
@@ -59,8 +59,8 @@ def generate_prompt_stage2(client, metaprompt, previous_prompt_list):
     else:
         return response_content
 
-metaprompt_json_path = './prompts/temp_base_metaprompts.json' # First stage result
-totalprompt_json_path = './prompts/gpt4_hierarchy_cot_6.json' # Second stage result
+metaprompt_json_path = './prompts/temp_base_metaprompts_ood.json' # First stage result
+totalprompt_json_path = './prompts/gpt4_hierarchy_cot_5.json' # Second stage result
 
 client = OpenAI(api_key="sk-proj-bPJxpKwauBBFBZJw7nEgT3BlbkFJePaQfARB48iyTbZfxSXg")
 num_metaprompts = 10

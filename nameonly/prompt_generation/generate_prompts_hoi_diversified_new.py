@@ -29,7 +29,7 @@ def generate_prompt_from_pair(object_class, action_class):
     return prompt
 
 def select_action(object_class, action_set, positive_action):
-    base_message = f"To train a model that distinguishes between positive and negative images, you need to choose {NUM_POSITIVE} negative actions from the following negative action list. When choosing negative actions, you should consider the available actions from the object. For example, if the object is 'bird', possible actions are 'chase', 'feed', 'no_interaction', 'watch', etc. If the object is 'orange', possible actions are 'cut', 'hold', 'no_interaction', 'peel', etc. Therefore, you should choose hard negative actions that are clearly distinguishable from positive actions among the possible actions. \n- object: {object_class}\n- positive action: {positive_action}\n- negative action list: {action_set}\n\nPlease select a total of {NUM_POSITIVE} negative actions. The response format must be strictly result: ['negative_action1', 'negative_action2', ...].\n"
+    base_message = f"To train a model that distinguishes between positive and negative images, you need to choose {NUM_POSITIVE} negative actions from the following negative action list. When choosing negative actions, you should consider the available actions from the object. For example, if the object is 'bird', possible actions are 'chase', 'feed', 'no_interaction', 'watch', etc. If the object is 'orange', possible actions are 'cut', 'hold', 'no_interaction', 'peel', etc. Therefore, you should choose hard negative actions that are clearly distinguishable from positive actions among the possible actions. \n- object: {object_class}\n- positive action: {positive_action}\n- negative action list: {action_set}\n\nPlease select a total of {NUM_POSITIVE} negative actions. The response format must be strictly result: ['negative_action1', 'negative_action2', ...], and all negative actions must be included in the negative action list.\n "
     
     # Generate 7 negative actions
     while True:
@@ -45,18 +45,19 @@ def select_action(object_class, action_set, positive_action):
             result_list = ast.literal_eval(match.group())
         except Exception as e:
             print(e)
+            print(f"Wrong response content: {response_content}")
             continue
         
-        if len(result_list) == NUM_POSITIVE:
+        if len(result_list) == NUM_POSITIVE and all([action in action_set for action in result_list]):
             break
         else:
-            print(f"Length of result list: {len(result_list)}")
+            print(f"Invalid response: {result_list}, retrying...")
     
     return result_list
 
 json_split_path = '../../collections/Bongard-HOI/ma_splits/Bongard-HOI_train_seed1.json'
-prompt_json_path = './prompts/hoi_diversified_new.json'
-temp_json_path = './prompts/hoi_diversified_new_temp.json'
+prompt_json_path = './prompts/hoi_diversified_new2.json'
+temp_json_path = './prompts/hoi_diversified_new2_temp.json'
 client = OpenAI(api_key="sk-proj-bPJxpKwauBBFBZJw7nEgT3BlbkFJePaQfARB48iyTbZfxSXg")
 
 
