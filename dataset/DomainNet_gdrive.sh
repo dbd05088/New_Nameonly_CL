@@ -161,7 +161,12 @@
 # rm DomainNet_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
 # rm DomainNet_sdxl_floyd_cogview2_sd3_auraflow.tar
 
-# sdturbo (after) experiments (0906)
-./gdrive files download 1PRwyQWl9j5h_EdiEAdFuifUmtYxeb7VU  # DomainNet_sdxl_floyd_cogview2_sdturbo
-tar -xf DomainNet_sdxl_floyd_cogview2_sdturbo.tar -C DomainNet
-rm DomainNet_sdxl_floyd_cogview2_sdturbo.tar
+# # sdturbo (after) experiments (0906)
+# ./gdrive files download 1PRwyQWl9j5h_EdiEAdFuifUmtYxeb7VU  # DomainNet_sdxl_floyd_cogview2_sdturbo
+# tar -xf DomainNet_sdxl_floyd_cogview2_sdturbo.tar -C DomainNet
+# rm DomainNet_sdxl_floyd_cogview2_sdturbo.tar
+
+# DomainNet fake (d)
+./gdrive files download 1UauDhEa59Pg58PP6abnLh3BVEXaIr-qM # DomainNet_fake_d_sdxl
+tar -xf DomainNet_fake_d_sdxl.tar -C DomainNet
+rm DomainNet_fake_d_sdxl.tar
