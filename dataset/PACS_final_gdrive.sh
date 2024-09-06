@@ -801,6 +801,10 @@
 # rm PACS_final_CLIP_moderate.tar
 
 
-./gdrive files download 1ltM_SRqnJfkHn-XO8yonsrfAjgZCLp96 # PACS_final_fake_sdxl
-tar -xf PACS_final_fake_sdxl.tar -C PACS_final
-rm PACS_final_fake_sdxl.tar
+# ./gdrive files download 1ltM_SRqnJfkHn-XO8yonsrfAjgZCLp96 # PACS_final_fake_sdxl
+# tar -xf PACS_final_fake_sdxl.tar -C PACS_final
+# rm PACS_final_fake_sdxl.tar
+
+./gdrive files download 1v7qAxHHFeXFDhJdfsNcdLtbo-wj_NzXz # PACS_final_f_sdxl
+tar -xf PACS_final_f_sdxl.tar -C PACS_final
+rm PACS_final_f_sdxl.tar
