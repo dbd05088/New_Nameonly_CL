@@ -8,11 +8,10 @@ os.system("./gdrive account import gdrive_export-dbd05088_naver_com.tar")
 os.system("./gdrive account switch dbd05088@naver.com")
 
 # Files to upload
-dataset = "DomainNet"
+dataset = "PACS_final"
 create_tar = True
 files = [
-    "DomainNet_sdxl_floyd_cogview2_sd3_flux_auraflow",
-    "DomainNet_sdxl_floyd_cogview2_sd3_auraflow",
+    "PACS_final_f_sdxl"
 ]
 
 # Change path
@@ -24,6 +23,10 @@ if create_tar:
         print(f"Creating tar file for {file}")
         os.system(f"tar -cf {file}.tar -C {dataset} {os.path.basename(file)}")
 
+# Remove a script text file if it exists
+if os.path.exists('result.txt'):
+    os.remove('result.txt')
+    
 # Upload files
 for file in tqdm(files):
     print(f"Uploading {file}.tar")
@@ -33,10 +36,7 @@ for file in tqdm(files):
     # Append file id to result.txt file
     with open('result.txt', 'a') as f:
         f.write(f"./gdrive files download {file_id} # {os.path.basename(file)}\n")
-
-# Remove a script text file if it exists
-if os.path.exists('result.txt'):
-    os.remove('result.txt')
+        
 # Write a script to untar files
 for file in tqdm(files):
     with open('result.txt', 'a') as f:
