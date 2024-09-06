@@ -22,8 +22,8 @@ INVERSE = False
 TEMPERATURE = 0.5
 
 base_path = './raw_datasets/iclr_generated/DomainNet'
-json_path = './RMD_scores/DomainNet_sdxl_floyd_cogview2_sd3_flux_auraflow.json'
-target_path = './raw_datasets/iclr_generated/DomainNet/DomainNet_sdxl_floyd_cogview2_sd3_flux_auraflow'
+json_path = './RMD_scores/DomainNet_sdxl_floyd_cogview2_sdturbo.json'
+target_path = './raw_datasets/iclr_generated/DomainNet/DomainNet_sdxl_floyd_cogview2_sdturbo'
 
 count_dict = get_count_value_from_string(base_path)
 with open(json_path, 'r') as f:
@@ -138,3 +138,9 @@ for cls, images in ensembled_images.items():
         new_image_name = f"{model}_{str(image_counter).zfill(6)}.png"
         image_counter += 1
         shutil.copy(image_name, os.path.join(target_cls_path, new_image_name))
+
+# Print the number of images selected for each model
+for model, class_counter in model_class_selected_counter.items():
+    # Sum the number of images selected for each class
+    total_images = sum(class_counter.values())
+    print(f"Model {model} selected for each class: {total_images} images")
