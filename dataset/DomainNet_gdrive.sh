@@ -153,10 +153,15 @@
 # rm DomainNet_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vitb16_normalized.tar
 # rm DomainNet_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_dino_vits8_normalized.tar
 
-# DomainNet ensemble experiments (0903)
-./gdrive files download 1Jb4HimYcikh-ZG_AtGOVKNUqGCEgWOQ2 # DomainNet_sdxl_floyd_cogview2_sd3_flux_auraflow
-./gdrive files download 1t6nJLYJ9ceT91791RihiTMU7ih08c5sq # DomainNet_sdxl_floyd_cogview2_sd3_auraflow
-tar -xf DomainNet_sdxl_floyd_cogview2_sd3_flux_auraflow.tar -C DomainNet
-tar -xf DomainNet_sdxl_floyd_cogview2_sd3_auraflow.tar -C DomainNet
-rm DomainNet_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
-rm DomainNet_sdxl_floyd_cogview2_sd3_auraflow.tar
+# # DomainNet ensemble experiments (0903)
+# ./gdrive files download 1Jb4HimYcikh-ZG_AtGOVKNUqGCEgWOQ2 # DomainNet_sdxl_floyd_cogview2_sd3_flux_auraflow
+# ./gdrive files download 1t6nJLYJ9ceT91791RihiTMU7ih08c5sq # DomainNet_sdxl_floyd_cogview2_sd3_auraflow
+# tar -xf DomainNet_sdxl_floyd_cogview2_sd3_flux_auraflow.tar -C DomainNet
+# tar -xf DomainNet_sdxl_floyd_cogview2_sd3_auraflow.tar -C DomainNet
+# rm DomainNet_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
+# rm DomainNet_sdxl_floyd_cogview2_sd3_auraflow.tar
+
+# sdturbo (after) experiments (0906)
+./gdrive files download 1PRwyQWl9j5h_EdiEAdFuifUmtYxeb7VU  # DomainNet_sdxl_floyd_cogview2_sdturbo
+tar -xf DomainNet_sdxl_floyd_cogview2_sdturbo.tar -C DomainNet
+rm DomainNet_sdxl_floyd_cogview2_sdturbo.tar
