@@ -167,6 +167,11 @@
 # rm DomainNet_sdxl_floyd_cogview2_sdturbo.tar
 
 # DomainNet fake (d)
-./gdrive files download 1UauDhEa59Pg58PP6abnLh3BVEXaIr-qM # DomainNet_fake_d_sdxl
-tar -xf DomainNet_fake_d_sdxl.tar -C DomainNet
-rm DomainNet_fake_d_sdxl.tar
+# ./gdrive files download 1UauDhEa59Pg58PP6abnLh3BVEXaIr-qM # DomainNet_fake_d_sdxl
+# tar -xf DomainNet_fake_d_sdxl.tar -C DomainNet
+# rm DomainNet_fake_d_sdxl.tar
+
+# DomainNet sdxl with cot_2.json
+./gdrive files download 1UeAEhv_zAIreYD8_J934gGeKORrl1FF4 # DomainNet_sdxl_2
+tar -xf DomainNet_sdxl_2.tar -C DomainNet
+rm DomainNet_sdxl_2.tar
