@@ -19,7 +19,7 @@ places365_list_subsampled = random.sample(places365_list, 50)
 def generate_hypernym(client, cls):
     base_message = f"Find the hypernym of the following word. For example, if the class is pirate ship, the hypernym can be ship. Or if the class is papillon, the hypernym can be toy spaniel.\nclass: {cls}\nPlease make sure that the response format is in the form of hypernym: answer.\n"
     response = client.chat.completions.create(
-        model="gpt-3.5-turbo",
+        model="gpt-4o",
         messages=[
             {"role": "system", "content": "You are a helpful assistant."},
             {"role": "user", "content": base_message}

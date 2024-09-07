@@ -43,7 +43,7 @@ def generate_prompt_stage2(client, metaprompt, previous_prompt_list):
 
     # Generate one prompt using GPT-4 API
     response = client.chat.completions.create(
-    model="gpt-4-turbo",
+    model="gpt-4o",
     messages=[
             {"role": "system", "content": "You are a helpful assistant."},
             {"role": "user", "content": base_message},

@@ -38,7 +38,7 @@ def generate_prompt_negative(client, positive_prompt):
 
     # Generate one prompt using GPT-4 API
     response = client.chat.completions.create(
-    model="gpt-3.5-turbo",
+    model="gpt-4o",
     messages=[
             {"role": "system", "content": "You are a helpful assistant."},
             {"role": "user", "content": "To create an image using a text-to-image generation model, I want to create a prompt. Below, a prompt for a positive image will be provided, and the goal is to generate a prompt for a negative image. It is important that the negative prompt partially overlaps with the positive prompt and has slight differences. For example, if the positive prompt is 'Dogs are running', then 'Dogs are drinking water' would be the negative prompt.\nPlease create one 'negative' prompt sentence (under 5 words) that fits this description. Please ensure the response format is strictly 'prompt: answer'.\n Positive prompt: A duck toy\n"},
