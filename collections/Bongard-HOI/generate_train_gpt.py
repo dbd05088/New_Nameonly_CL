@@ -21,7 +21,7 @@ def select_action(action_set, positive_action):
     while True:
         try:
             response = client.chat.completions.create(
-            model="gpt-3.5-turbo",
+            model="gpt-4o",
             messages=[
                     {"role": "user", "content": base_message},
                 ]
@@ -63,7 +63,7 @@ for data in tqdm(data_dict):
     actions = os.listdir(os.path.join(samples_path, object_class))
     actions.remove(positive_action)
     
-    # Select 7 negative actions using GPT-3.5-turbo
+    # Select 7 negative actions using GPT-4o
     # negative_action_list = select_action(actions, positive_action)
     negative_action_list = random.choices(actions, k=7)
     

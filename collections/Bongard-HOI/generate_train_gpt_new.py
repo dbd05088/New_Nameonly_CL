@@ -63,7 +63,7 @@ for data in data_dict[400:]:
     actions = ['adjust', 'blow', 'board', 'buy', 'carry', 'catch', 'chase', 'check', 'clean', 'control', 'cook', 'cut', 'cut_with', 'drag', 'dribble', 'drink_with', 'drive', 'dry', 'eat', 'eat_at', 'eat_with', 'exit', 'feed', 'fill', 'flush', 'fly', 'hit', 'hold', 'hop_on', 'hug', 'hunt', 'inspect', 'jump', 'kick', 'kiss', 'lasso', 'lick', 'lick_or_sip', 'lie_on', 'load', 'make', 'move', 'no_interaction', 'open', 'pack', 'park', 'peel', 'peel_or_cut', 'pet', 'repair', 'ride', 'run', 'sail', 'set', 'sign', 'sip', 'sit_at', 'sit_on', 'sit_under', 'spin', 'squeeze', 'stab', 'stand_on', 'stand_under', 'stir', 'straddle', 'straddle,pet', 'teach', 'tie', 'type_on', 'walk', 'wash', 'watch', 'wave', 'wear']
     actions.remove(positive_action)
     
-    # Select 7 negative actions using GPT-3.5-turbo
+    # Select 7 negative actions using GPT-4o
     negative_action_list = select_action(object_class, actions, positive_action)
     # negative_action_list = random.choices(actions, k=7)
     
