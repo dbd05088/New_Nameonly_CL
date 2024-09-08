@@ -176,18 +176,26 @@
 # tar -xf DomainNet_sdxl_2.tar -C DomainNet
 # rm DomainNet_sdxl_2.tar
 
-# DomainNet sdxl with cot_3,4,5.json
-./gdrive files download 1yc5fAlkW874yuNlxJLmmXGxZXwtI2Xmx # DomainNet_sdxl_3
-./gdrive files download 1Gtep-A_eIdx6vUp7gJjZ-Yq5cEHrjWBM # DomainNet_sdxl_4
-./gdrive files download 1ZqWKjzhfRcCc63RoGnVROM-pGrj0IGz2 # DomainNet_sdxl_5
-tar -xf DomainNet_sdxl_3.tar -C DomainNet
-tar -xf DomainNet_sdxl_4.tar -C DomainNet
-tar -xf DomainNet_sdxl_5.tar -C DomainNet
-rm DomainNet_sdxl_3.tar
-rm DomainNet_sdxl_4.tar
-rm DomainNet_sdxl_5.tar
+# # DomainNet sdxl with cot_3,4,5.json
+# ./gdrive files download 1yc5fAlkW874yuNlxJLmmXGxZXwtI2Xmx # DomainNet_sdxl_3
+# ./gdrive files download 1Gtep-A_eIdx6vUp7gJjZ-Yq5cEHrjWBM # DomainNet_sdxl_4
+# ./gdrive files download 1ZqWKjzhfRcCc63RoGnVROM-pGrj0IGz2 # DomainNet_sdxl_5
+# tar -xf DomainNet_sdxl_3.tar -C DomainNet
+# tar -xf DomainNet_sdxl_4.tar -C DomainNet
+# tar -xf DomainNet_sdxl_5.tar -C DomainNet
+# rm DomainNet_sdxl_3.tar
+# rm DomainNet_sdxl_4.tar
+# rm DomainNet_sdxl_5.tar
 
-# DomainNet sdxl with cot_6.json
-./gdrive files download 1grRlyUHuBrQ2-XXYP9NeibGwBst27EDZ # DomainNet_sdxl_6
-tar -xf DomainNet_sdxl_6.tar -C DomainNet
-rm DomainNet_sdxl_6.tar
+# # DomainNet sdxl with cot_6.json
+# ./gdrive files download 1grRlyUHuBrQ2-XXYP9NeibGwBst27EDZ # DomainNet_sdxl_6
+# tar -xf DomainNet_sdxl_6.tar -C DomainNet
+# rm DomainNet_sdxl_6.tar
+
+# DomainNet synthclip, synclr
+./gdrive files download 1lXaMAB-Dv2sDw3ALZ3EqQCOW4BdygIoo # DomainNet_synclr
+./gdrive files download 1V9Lkmwm2MkspOtPgMHyQeQ1w1dZW-UE2 # DomainNet_synthclip
+tar -xf DomainNet_synclr.tar -C DomainNet
+tar -xf DomainNet_synthclip.tar -C DomainNet
+rm DomainNet_synclr.tar
+rm DomainNet_synthclip.tar
