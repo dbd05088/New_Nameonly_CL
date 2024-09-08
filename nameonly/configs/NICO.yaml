@@ -6,7 +6,7 @@ use_ma_size: False
 image_paths:
   sdxl: './raw_datasets/iclr_generated/NICO/NICO_sdxl_subsampled_filtered'
   floyd: './raw_datasets/iclr_generated/NICO/NICO_floyd_subsampled_filtered'
-  cogview2: './raw_datasets/iclr_generated/NICO/NICO_cogview2_full_subsampled_filtered'
+  cogview2: './raw_datasets/iclr_generated/NICO/NICO_cogview2_subsampled_filtered'
   sd3: './raw_datasets/iclr_generated/NICO/NICO_sd3_subsampled_filtered'
   flux: './raw_datasets/iclr_generated/NICO/NICO_flux_subsampled_filtered'
   kolors: './raw_datasets/iclr_generated/NICO/NICO_kolors_subsampled_filtered'
