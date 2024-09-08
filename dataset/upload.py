@@ -8,11 +8,10 @@ os.system("./gdrive account import gdrive_export-dbd05088_naver_com.tar")
 os.system("./gdrive account switch dbd05088@naver.com")
 
 # Files to upload
-dataset = "DomainNet"
+dataset = "NICO"
 create_tar = True
 files = [
-    "DomainNet_synclr",
-    "DomainNet_synthclip"
+    "NICO_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow",
 ]
 
 # Change path

@@ -50,7 +50,11 @@
 # rm NICO_sdxl_800.tar
 # rm NICO_sd3_800.tar
 
-./gdrive files download 1e0XFCdWgwmKeHW2MxVV4rELWd_WQJRKA # NICO_sdxl
-tar -xf NICO_sdxl.tar -C NICO
-rm NICO_sdxl.tar
+# ./gdrive files download 1e0XFCdWgwmKeHW2MxVV4rELWd_WQJRKA # NICO_sdxl
+# tar -xf NICO_sdxl.tar -C NICO
+# rm NICO_sdxl.tar
 
+# NICO ensemble (0908)
+./gdrive files download 1OmuMDMUZwdVS6WkXK9hwrivJSEyXxzNE # NICO_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow
+tar -xf NICO_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.tar -C NICO
+rm NICO_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.tar
