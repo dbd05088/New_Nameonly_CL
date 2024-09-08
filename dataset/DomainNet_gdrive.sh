@@ -171,7 +171,18 @@
 # tar -xf DomainNet_fake_d_sdxl.tar -C DomainNet
 # rm DomainNet_fake_d_sdxl.tar
 
-# DomainNet sdxl with cot_2.json
-./gdrive files download 1UeAEhv_zAIreYD8_J934gGeKORrl1FF4 # DomainNet_sdxl_2
-tar -xf DomainNet_sdxl_2.tar -C DomainNet
-rm DomainNet_sdxl_2.tar
+# # DomainNet sdxl with cot_2.json
+# ./gdrive files download 1UeAEhv_zAIreYD8_J934gGeKORrl1FF4 # DomainNet_sdxl_2
+# tar -xf DomainNet_sdxl_2.tar -C DomainNet
+# rm DomainNet_sdxl_2.tar
+
+# DomainNet sdxl with cot_3,4,5.json
+./gdrive files download 1yc5fAlkW874yuNlxJLmmXGxZXwtI2Xmx # DomainNet_sdxl_3
+./gdrive files download 1Gtep-A_eIdx6vUp7gJjZ-Yq5cEHrjWBM # DomainNet_sdxl_4
+./gdrive files download 1ZqWKjzhfRcCc63RoGnVROM-pGrj0IGz2 # DomainNet_sdxl_5
+tar -xf DomainNet_sdxl_3.tar -C DomainNet
+tar -xf DomainNet_sdxl_4.tar -C DomainNet
+tar -xf DomainNet_sdxl_5.tar -C DomainNet
+rm DomainNet_sdxl_3.tar
+rm DomainNet_sdxl_4.tar
+rm DomainNet_sdxl_5.tar
