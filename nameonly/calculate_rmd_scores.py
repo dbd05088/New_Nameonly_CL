@@ -113,9 +113,7 @@ def calculate_features_clip(image_paths, model):
             pixel_values = batch['pixel_values'].squeeze().to(device)
             image_feature = model.get_image_features(pixel_values=pixel_values)
             image_features.append(image_feature.cpu())
-            breakpoint()
-
-    breakpoint()
+    
     # Normalize the features
     image_features = torch.cat(image_features, dim=0) # [N, 512]
     image_features = image_features / image_features.norm(dim=-1, keepdim=True) # dim=-1 -> torch.Size([N, 1]) -> Normalize each data

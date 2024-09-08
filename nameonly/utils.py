@@ -1,15 +1,17 @@
+import os
 import time
 import torch
 import torch.nn.functional as F
 import numpy as np
 from transformers import CLIPProcessor, CLIPModel
+from torch.utils.data import DataLoader
 from datetime import datetime
 from typing import List
 from PIL import Image
 from tqdm import tqdm
 from torch.utils.data import Dataset
 
-
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 def softmax_with_temperature(z, T) : 
@@ -37,19 +39,29 @@ def get_text_image_similarity(text: str, image_paths: List[str], processor, mode
 
     # Preprocess the images
     image_features = []
-    for i, image_path in enumerate(tqdm(image_paths)):
-        try:
-            image = Image.open(image_path)
-        except Exception as e:
-            # append a dummy feature
-            print(f"Error in opening {image_path}: {e}, appending a dummy feature")
-            image_features.append(torch.zeros(1, 512).to(device))
-            continue
+    dataset = ImageDataset(image_paths, processor)
+    dataloader = DataLoader(dataset, batch_size=128, shuffle=False, num_workers=1)
+    for batch in tqdm(dataloader):
         with torch.no_grad():
-            image_input = processor(images=image, return_tensors="pt").to(device)
-            image_feature = model.get_image_features(**image_input) # [1, 512]
+            pixel_values = batch["pixel_values"].squeeze().to(device)
+            image_feature = model.get_image_features(pixel_values=pixel_values)
             image_features.append(image_feature)
     
+    # Previous code (not using batchwise processing)
+    # image_features = []
+    # for i, image_path in enumerate(tqdm(image_paths)):
+    #     try:
+    #         image = Image.open(image_path)
+    #     except Exception as e:
+    #         # append a dummy feature
+    #         print(f"Error in opening {image_path}: {e}, appending a dummy feature")
+    #         image_features.append(torch.zeros(1, 512).to(device))
+    #         continue
+    #     with torch.no_grad():
+    #         image_input = processor(images=image, return_tensors="pt").to(device)
+    #         image_feature = model.get_image_features(**image_input) # [1, 512]
+    #         image_features.append(image_feature)
+
     # Normalize the features
     text_features = text_features / text_features.norm(dim=-1, keepdim=True)
     image_features = torch.cat(image_features, dim=0)
