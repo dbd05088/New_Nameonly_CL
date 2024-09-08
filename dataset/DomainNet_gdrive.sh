@@ -186,3 +186,8 @@ tar -xf DomainNet_sdxl_5.tar -C DomainNet
 rm DomainNet_sdxl_3.tar
 rm DomainNet_sdxl_4.tar
 rm DomainNet_sdxl_5.tar
+
+# DomainNet sdxl with cot_6.json
+./gdrive files download 1grRlyUHuBrQ2-XXYP9NeibGwBst27EDZ # DomainNet_sdxl_6
+tar -xf DomainNet_sdxl_6.tar -C DomainNet
+rm DomainNet_sdxl_6.tar
