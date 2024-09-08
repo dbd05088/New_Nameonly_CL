@@ -1,5 +1,6 @@
 #/bin/bash
 
+pip install "numpy==1.26.1"
 pip install tensorboard
 pip install pandas
 pip install kornia==0.7.1
