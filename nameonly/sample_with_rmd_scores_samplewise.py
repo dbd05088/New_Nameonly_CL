@@ -21,9 +21,11 @@ BottomK = False
 INVERSE = False
 TEMPERATURE = 0.5
 
+# IMPORTANT
 base_path = './raw_datasets/iclr_generated/NICO'
 json_path = './RMD_scores/NICO_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.json'
 target_path = './raw_datasets/iclr_generated/NICO/NICO_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow'
+# IMPORTANT
 
 count_dict = get_count_value_from_string(base_path)
 with open(json_path, 'r') as f:
