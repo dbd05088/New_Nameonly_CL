@@ -100,7 +100,7 @@ def main():
     eval_iter = split_config[training_args.seed]["train_eval_point"]
     # 9 => (9 - 1) / 2 = 4, ceil(6 / 4) 
     if data_args.dataset == "Bongard-HOI":
-        eval_point = np.array([sum(eval_iter[:i+1]) for i in range(len(eval_iter))]) * (int(np.ceil(6 / ((data_args.num_set - 1) // 2))))
+        eval_point = np.array([2*sum(eval_iter[:i+1]) for i in range(len(eval_iter))])
     elif data_args.dataset == "Bongard-OpenWorld":
         nCr = len(list(itertools.combinations(np.arange(7), int((data_args.num_set-1)//2)+1)))
         if "more" in data_args.data_type:
@@ -177,7 +177,7 @@ def main():
                 batch = (batch*mul)[:total_batchsize]
                 datalists.extend(batch[:])
                 iteration -= 1
-    
+
     if len(datalists) < num_iterations*total_batchsize:
         batch = random.sample(memory, k=min(len(memory), total_batchsize))
         mul = (total_batchsize//len(batch)) + 1
