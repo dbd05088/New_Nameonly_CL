@@ -192,10 +192,15 @@
 # tar -xf DomainNet_sdxl_6.tar -C DomainNet
 # rm DomainNet_sdxl_6.tar
 
-# DomainNet synthclip, synclr
-./gdrive files download 1lXaMAB-Dv2sDw3ALZ3EqQCOW4BdygIoo # DomainNet_synclr
-./gdrive files download 1V9Lkmwm2MkspOtPgMHyQeQ1w1dZW-UE2 # DomainNet_synthclip
-tar -xf DomainNet_synclr.tar -C DomainNet
-tar -xf DomainNet_synthclip.tar -C DomainNet
-rm DomainNet_synclr.tar
-rm DomainNet_synthclip.tar
+# # DomainNet synthclip, synclr
+# ./gdrive files download 1lXaMAB-Dv2sDw3ALZ3EqQCOW4BdygIoo # DomainNet_synclr
+# ./gdrive files download 1V9Lkmwm2MkspOtPgMHyQeQ1w1dZW-UE2 # DomainNet_synthclip
+# tar -xf DomainNet_synclr.tar -C DomainNet
+# tar -xf DomainNet_synthclip.tar -C DomainNet
+# rm DomainNet_synclr.tar
+# rm DomainNet_synthclip.tar
+
+# DomainNet fake (f)
+./gdrive files download 1Rsjw1Nint6xgV_RcziELseQeEh-jG384 # DomainNet_fake_f
+tar -xf DomainNet_fake_f.tar -C DomainNet
+rm DomainNet_fake_f.tar

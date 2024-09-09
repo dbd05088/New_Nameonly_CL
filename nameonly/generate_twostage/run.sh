@@ -12,17 +12,17 @@
 #SBATCH -p suma_rtx4090
 #SBATCH --gres=gpu:1
 
-source ~/.bashrc
-ml purge
-conda init bash
-conda activate generate
+# source ~/.bashrc
+# ml purge
+# conda init bash
+# conda activate generate
 
 DATASET="DomainNet" # PACS, DomainNet, cifar10, NICO
-IMAGE_DIR='./generated_datasets/DomainNet_flux'
-GENERATIVE_MODEL="flux" # sdxl, floyd, cogview2, sd3, sdturbo, flux, kolors, auraflow
+IMAGE_DIR='./generated_datasets/DomainNet_kolors_4'
+GENERATIVE_MODEL="kolors" # sdxl, floyd, cogview2, sd3, sdturbo, flux, kolors, auraflow
 START_CLASS=0
-END_CLASS=6
-PROMPT_DIR='../prompt_generation/prompts/gpt4_hierarchy_cot_1.json'
+END_CLASS=344
+PROMPT_DIR='../prompt_generation/prompts/gpt4_hierarchy_cot_4.json'
 INCREASE_RATIO=1.2
 
 python get_image_onestage.py --config_path ./configs/default.yaml --dataset $DATASET --image_dir $IMAGE_DIR --generative_model $GENERATIVE_MODEL --start_class $START_CLASS --end_class $END_CLASS --prompt_dir $PROMPT_DIR --increase_ratio $INCREASE_RATIO

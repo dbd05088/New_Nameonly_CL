@@ -9,9 +9,34 @@ import cv2
 import numpy as np
 import argparse
 import json
+import torch
+from torch.utils.data import Dataset, DataLoader
+from torchvision import transforms
 from tqdm import tqdm
 
 image_exts = ['.jpg', '.jpeg', '.png', '.bmp']
+
+transform = transforms.Compose([
+    transforms.ToTensor()
+])
+
+class CustomDataset(Dataset):
+    def __init__(self, images, transform=None):
+        self.images = images
+        self.transform = transform
+
+    def __len__(self):
+        return len(self.images)
+
+    def __getitem__(self, idx):
+        image = cv2.imread(self.images[idx])
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+
+        # augmentations
+        if self.transform is not None:
+            image = self.transform(image)
+
+        return image
 
 def get_stat(image_root_dir):
     # Calculate mean and std for each channel
@@ -23,22 +48,34 @@ def get_stat(image_root_dir):
             if file.endswith(tuple(image_exts)):
                 images.append(os.path.join(root, file))
 
-    print(f"Found {len(images)} images")
+    dataset = CustomDataset(images)
+    image_loader = DataLoader(dataset, batch_size=256, shuffle=False, num_workers=4, pin_memory=True)
+    
+    print(f"Found {len(dataset)} images")
     # Calculate mean and std
-    means, stds = [], []
+    # placeholders
+    psum = torch.tensor([0.0, 0.0, 0.0])
+    psum_sq = torch.tensor([0.0, 0.0, 0.0])
+    
+    # loop through images
+    for inputs in tqdm(image_loader):
+        inputs = inputs.float() / 255
+        psum += inputs.sum(axis=[0, 1, 2])
+        psum_sq += (inputs**2).sum(axis=[0, 1, 2])
+    
+    # pixel count
+    count = len(dataset) * 224 * 224
 
-    # Read all images and calculate mean and std
-    for image in tqdm(images):
-        img = cv2.imread(image)
-        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        means.append(np.mean(img / 256, axis=(0, 1)))
-        stds.append(np.std(img / 256, axis=(0, 1)))
+    # mean and std
+    total_mean = psum / count
+    total_var = (psum_sq / count) - (total_mean**2)
+    total_std = torch.sqrt(total_var)
 
-    # Calculate mean and std for all images
-    mean = np.mean(means, axis=0)
-    std = np.mean(stds, axis=0)
+    # output
+    print("mean: " + str(total_mean))
+    print("std:  " + str(total_std))
 
-    return {'mean': mean, 'std': std}
+    return {'mean': total_mean.tolist(), 'std': total_std.tolist()}
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Get mean and std for images')
