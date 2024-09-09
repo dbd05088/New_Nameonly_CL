@@ -11,7 +11,7 @@ os.system("./gdrive account switch dbd05088@naver.com")
 dataset = "NICO"
 create_tar = True
 files = [
-    "NICO_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow",
+    "NICO_glide_800",
 ]
 
 # Change path
