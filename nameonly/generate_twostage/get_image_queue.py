@@ -524,7 +524,8 @@ if __name__ == "__main__":
     # Use queue to generate images for each class
     queue_name = Path(image_root_dir).name
     print(f"Set queue name as {queue_name}")
-    initialize_task_file(queue_name, 0, len(classes))
+    cls_initial_indices = [list(sample_num_dict.keys()).index(cls) for cls in classes] # For task file initialization
+    initialize_task_file(queue_name, 0, len(classes), cls_name=classes, indices=cls_initial_indices)
     
     while True:
         task_id = get_next_task(queue_name)

@@ -31,7 +31,7 @@ def write_and_unlock_file(file_path, content):
         f.truncate()
         fcntl.flock(f, fcntl.LOCK_UN)
 
-def initialize_task_file(queue_name, start_idx, end_idx):
+def initialize_task_file(queue_name, start_idx, end_idx, cls_name, indices):
     lock_file = "lock.lock"
     with open(lock_file, 'w') as lock_f:
         fcntl.flock(lock_f, fcntl.LOCK_EX)
@@ -40,7 +40,7 @@ def initialize_task_file(queue_name, start_idx, end_idx):
         if not Path(task_file).exists():
             with open(task_file, 'w') as f:
                 for i in range(start_idx, end_idx):
-                    f.write(f"{i} pending\n")
+                    f.write(f"{i} {cls_name[i]}({indices[i]}) pending\n")
         
         fcntl.flock(lock_f, fcntl.LOCK_UN)
 
@@ -51,7 +51,7 @@ def get_next_task(queue_name):
     
     for i in range(len(tasks)):
         try:
-            task_id, status = tasks[i].strip().split()
+            task_id, cls_info, status = tasks[i].strip().split()
             task_id = int(task_id)
         except ValueError:
             print(f"Invalid task line: {tasks[i]}")
@@ -59,7 +59,7 @@ def get_next_task(queue_name):
         
         if status == 'pending':
             next_task = task_id
-            tasks[i] = f"{task_id} in_progress\n"
+            tasks[i] = f"{task_id} {cls_info} in_progress\n"
             break
     
     write_and_unlock_file(task_file, tasks)
@@ -69,8 +69,8 @@ def mark_task_done(queue_name, task_id):
     task_file = f"{queue_name}_task.txt"
     tasks = read_and_lock_file(task_file)
     for i in range(len(tasks)):
-        task_line = tasks[i].strip()
-        if task_line.startswith(f"{task_id}"):
-            tasks[i] = f"{task_id} done\n"
+        task_idx, cls_info, status = tasks[i].strip().split()
+        if task_idx.startswith(f"{task_id}"):
+            tasks[i] = f"{task_id} {cls_info} done\n"
             break
     write_and_unlock_file(task_file, tasks)
