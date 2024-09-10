@@ -817,3 +817,7 @@
 # rm PACS_final_synclr.tar
 # rm PACS_final_synthclip.tar
 
+# LE diversified
+./gdrive files download 1gd7OgD2tJcKP4YPJufVxrkC_MJL3fUN9 # PACS_final_le_diversified
+tar -xf PACS_final_le_diversified.tar -C PACS_final
+rm PACS_final_le_diversified.tar
