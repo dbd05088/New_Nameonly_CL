@@ -70,7 +70,7 @@ for class_name in classes:
     class_dir = os.path.join(args.image_root_dir, class_name)
     for root, dirs, files in os.walk(class_dir):
         for file in files:
-            if file.endswith(tuple(image_extensions)) and '._' not in file:
+            if file.endswith(tuple(image_extensions)):
                 class_to_paths_dict[class_name].append(os.path.join(root, file))
     
 if args.end_class is None:
