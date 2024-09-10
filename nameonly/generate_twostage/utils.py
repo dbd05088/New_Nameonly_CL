@@ -18,18 +18,17 @@ def sanitize_filename(filename):
     return sanitized
 
 def read_and_lock_file(file_path):
-    with open(file_path, 'r+') as f:
-        fcntl.flock(f, fcntl.LOCK_EX)
-        content = f.readlines()
-        return content
+    f = open(file_path, 'r+')
+    fcntl.flock(f, fcntl.LOCK_EX)
+    content = f.readlines()
+    return content, f
 
-def write_and_unlock_file(file_path, content):
-    with open(file_path, 'r+') as f:
-        fcntl.flock(f, fcntl.LOCK_EX)
-        f.seek(0)
-        f.writelines(content)
-        f.truncate()
-        fcntl.flock(f, fcntl.LOCK_UN)
+def write_and_unlock_file(f, content):
+    f.seek(0)
+    f.writelines(content)
+    f.truncate()
+    fcntl.flock(f, fcntl.LOCK_UN)
+    f.close()
 
 def initialize_task_file(queue_name, start_idx, end_idx, cls_name, indices):
     lock_file = "lock.lock"
@@ -46,7 +45,7 @@ def initialize_task_file(queue_name, start_idx, end_idx, cls_name, indices):
 
 def get_next_task(queue_name):
     task_file = f"{queue_name}_task.txt"
-    tasks = read_and_lock_file(task_file)
+    tasks, f = read_and_lock_file(task_file)
     next_task = None
     
     for i in range(len(tasks)):
@@ -62,15 +61,15 @@ def get_next_task(queue_name):
             tasks[i] = f"{task_id} {cls_info} in_progress\n"
             break
     
-    write_and_unlock_file(task_file, tasks)
+    write_and_unlock_file(f, tasks)
     return next_task
 
 def mark_task_done(queue_name, task_id):
     task_file = f"{queue_name}_task.txt"
-    tasks = read_and_lock_file(task_file)
+    tasks, f = read_and_lock_file(task_file)
     for i in range(len(tasks)):
         task_idx, cls_info, status = tasks[i].strip().split()
         if task_idx.startswith(f"{task_id}"):
             tasks[i] = f"{task_id} {cls_info} done\n"
             break
-    write_and_unlock_file(task_file, tasks)
+    write_and_unlock_file(f, tasks)
