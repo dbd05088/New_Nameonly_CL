@@ -809,10 +809,11 @@
 # tar -xf PACS_final_f_sdxl.tar -C PACS_final
 # rm PACS_final_f_sdxl.tar
 
-# synclr, synthclip
-./gdrive files download 1Qty4rkNHglP2Hqn3DxC3BbXIj-LS9oQZ # PACS_final_synclr
-./gdrive files download 196EE_qt7GA_NFuicH8OqRpwpwbou2YfG # PACS_final_synthclip
-tar -xf PACS_final_synclr.tar -C PACS_final
-tar -xf PACS_final_synthclip.tar -C PACS_final
-rm PACS_final_synclr.tar
-rm PACS_final_synthclip.tar
+# # synclr, synthclip
+# ./gdrive files download 1Qty4rkNHglP2Hqn3DxC3BbXIj-LS9oQZ # PACS_final_synclr
+# ./gdrive files download 196EE_qt7GA_NFuicH8OqRpwpwbou2YfG # PACS_final_synthclip
+# tar -xf PACS_final_synclr.tar -C PACS_final
+# tar -xf PACS_final_synthclip.tar -C PACS_final
+# rm PACS_final_synclr.tar
+# rm PACS_final_synthclip.tar
+
