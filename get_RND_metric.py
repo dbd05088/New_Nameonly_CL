@@ -78,6 +78,9 @@ diversity = np.mean(std_list)
 # print("len", len(y_true), len(y_pred))
 recognizability = f1_score(y_true, y_pred, average='weighted')*100
 
+if not os.path.exists("results/RND"):
+    os.makedirs("results/RND")
+
 with open(f"results/RND/{model_name}_{dataset}_{type_name}.log", 'w') as rnd_file:
     rnd_file.write(f"Diversity: {diversity}\n")
     rnd_file.write(f"Recognizability: {recognizability}")
