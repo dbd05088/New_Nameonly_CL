@@ -30,3 +30,4 @@ PROMPT_DIR='../prompt_generation/prompts/generated_LLM_sdxl_ver3.json'
 
 CUDA_HOME=/opt/ohpc/pub/apps/cuda/12.5 python generate_images_hoi_diversified_new.py -m $GENERATIVE_MODEL -r $IMAGE_DIR -s $START_CLASS -e $END_CLASS -p $PROMPT_DIR
 
+# Non-slurm cluster: python generate_images_hoi_diversified_new.py -m cogview2 -r ./generated_datasets/generated_LLM_cogview2_ver3 -s 3400 -e 3603 -p ../prompt_generation/prompts/generated_LLM_sdxl_ver3.json
