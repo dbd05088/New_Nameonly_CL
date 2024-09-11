@@ -70,10 +70,27 @@
 # rm NICO_base_800.tar
 
 
-# NICO ensemble (0910)
-./gdrive files download 1TKsPHkBjy0VDJpBGZaGa5663ewSWHwo6 # NICO_sdxl_floyd_cogview2_sd3_flux_auraflow_clip
-./gdrive files download 1VnfbsWlUOMPHYVz8zRk4-3WkVx_2sKX0 # NICO_sdxl_floyd_cogview2_sd3_auraflow_clip
-tar -xf NICO_sdxl_floyd_cogview2_sd3_flux_auraflow_clip.tar -C NICO
-tar -xf NICO_sdxl_floyd_cogview2_sd3_auraflow_clip.tar -C NICO
-rm NICO_sdxl_floyd_cogview2_sd3_flux_auraflow_clip.tar
-rm NICO_sdxl_floyd_cogview2_sd3_auraflow_clip.tar
+# # NICO ensemble (0910)
+# ./gdrive files download 1TKsPHkBjy0VDJpBGZaGa5663ewSWHwo6 # NICO_sdxl_floyd_cogview2_sd3_flux_auraflow_clip
+# ./gdrive files download 1VnfbsWlUOMPHYVz8zRk4-3WkVx_2sKX0 # NICO_sdxl_floyd_cogview2_sd3_auraflow_clip
+# tar -xf NICO_sdxl_floyd_cogview2_sd3_flux_auraflow_clip.tar -C NICO
+# tar -xf NICO_sdxl_floyd_cogview2_sd3_auraflow_clip.tar -C NICO
+# rm NICO_sdxl_floyd_cogview2_sd3_flux_auraflow_clip.tar
+# rm NICO_sdxl_floyd_cogview2_sd3_auraflow_clip.tar
+
+# NICO with different prompts: 2~6 (0911)
+./gdrive files download 1aUakPoRaKfeyVqRkyIJPM99PLI8Lt3gU # NICO_sdxl_2
+./gdrive files download 1gKcOMK6DHodQCcc58tvLn902t0EuPfme # NICO_sdxl_3
+./gdrive files download 10iUxonJdSe6F1gjTLB53xhgczshyCY82 # NICO_sdxl_4
+./gdrive files download 1io4-UclALWB944azf6fBupR4gsum0BMf # NICO_sdxl_5
+./gdrive files download 1zieqJPOOGBO5zgt5RRy7buDVez0fJVjJ # NICO_sdxl_6
+tar -xf NICO_sdxl_2.tar -C NICO
+tar -xf NICO_sdxl_3.tar -C NICO
+tar -xf NICO_sdxl_4.tar -C NICO
+tar -xf NICO_sdxl_5.tar -C NICO
+tar -xf NICO_sdxl_6.tar -C NICO
+rm NICO_sdxl_2.tar
+rm NICO_sdxl_3.tar
+rm NICO_sdxl_4.tar
+rm NICO_sdxl_5.tar
+rm NICO_sdxl_6.tar
