@@ -17,6 +17,8 @@ parser.add_argument('-e', '--end_class', type=int)
 parser.add_argument('-p', '--prompt_dir')
 args = parser.parse_args()
 
+debug = False
+
 if debug:
     model = None
 else:
