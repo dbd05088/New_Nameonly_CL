@@ -817,7 +817,12 @@
 # rm PACS_final_synclr.tar
 # rm PACS_final_synthclip.tar
 
-# LE diversified
-./gdrive files download 1gd7OgD2tJcKP4YPJufVxrkC_MJL3fUN9 # PACS_final_le_diversified
-tar -xf PACS_final_le_diversified.tar -C PACS_final
-rm PACS_final_le_diversified.tar
+# # LE diversified
+# ./gdrive files download 1gd7OgD2tJcKP4YPJufVxrkC_MJL3fUN9 # PACS_final_le_diversified
+# tar -xf PACS_final_le_diversified.tar -C PACS_final
+# rm PACS_final_le_diversified.tar
+
+# Refined prompts
+./gdrive files download 1dA3u_b7bAS4NKHwuXbJn2zmNVDI375R2 # PACS_final_sdxl_1_refined
+tar -xf PACS_final_sdxl_1_refined.tar -C PACS_final
+rm PACS_final_sdxl_1_refined.tar

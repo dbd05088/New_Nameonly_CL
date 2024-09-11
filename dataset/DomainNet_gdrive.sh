@@ -204,3 +204,9 @@
 ./gdrive files download 1Rsjw1Nint6xgV_RcziELseQeEh-jG384 # DomainNet_fake_f
 tar -xf DomainNet_fake_f.tar -C DomainNet
 rm DomainNet_fake_f.tar
+
+# DomainNet refined
+./gdrive files download 1oaWsQgmCqeLA0CwzpU81KL-EYuN8Gh3J # DomainNet_sdxl_4_refined
+tar -xf DomainNet_sdxl_4_refined.tar -C DomainNet
+rm DomainNet_sdxl_4_refined.tar
+
