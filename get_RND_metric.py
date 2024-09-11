@@ -15,7 +15,7 @@ img_folder_dir = '/home/vision/mjlee/New_Nameonly_CL/dataset/cct/cct_train_ma'
 dataset = 'cct'
 type_name = 'train_ma'
 model_name = 'resnet18'   # resnet18 / vit
-ckpt_dir = 'dataset/RnD_ckpt'
+ckpt_dir = 'RnD_ckpt'
 ckpt_path = os.path.join(ckpt_dir, f'{model_name}_{dataset}.pth')
 batch_size = 128
 
