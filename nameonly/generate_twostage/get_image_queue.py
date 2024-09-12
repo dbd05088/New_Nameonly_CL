@@ -12,6 +12,7 @@ import json
 import socket
 import shutil
 import fcntl
+import signal
 from utils import *
 from pathlib import Path
 from PIL import Image
@@ -449,6 +450,30 @@ def generate_single_class(
     with open(result_json_path, 'w') as f:
         json.dump(info_dict, f)
 
+def signal_handler(sig, frame, queue_name, current_task_id):
+    # Read and lock the task file
+    task_file = f"{queue_name}_task.txt"
+    f = open(task_file, 'r+')
+    fcntl.flock(f, fcntl.LOCK_EX)
+    content = f.readlines()
+    
+    # Mark the current task as pending_sigkill
+    for i in range(len(content)):
+        task_id, cls_info, status = content[i].strip().split()
+        task_id = int(task_id)
+        if task_id == current_task_id:
+            content[i] = f"{task_id} {cls_info} pending_preempted_or_killed\n"
+            break
+    
+    # Write and unlock the task file
+    f.seek(0)
+    f.writelines(content)
+    f.truncate()
+    fcntl.flock(f, fcntl.LOCK_UN)
+    f.close()
+    
+    exit(0)
+    
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--config_path', default='./configs/default.yaml')
@@ -526,6 +551,11 @@ if __name__ == "__main__":
     print(f"Set queue name as {queue_name}")
     cls_initial_indices = [list(sample_num_dict.keys()).index(cls) for cls in classes] # For task file initialization
     initialize_task_file(queue_name, 0, len(classes), cls_name=classes, indices=cls_initial_indices)
+    
+    # Set signal handler
+    signal.signal(signal.SIGTERM, lambda sig, frame: signal_handler(sig, frame, queue_name, task_id))
+    signal.signal(signal.SIGINT, lambda sig, frame: signal_handler(sig, frame, queue_name, task_id))
+    signal.signal(signal.SIGUSR1, lambda sig, frame: signal_handler(sig, frame, queue_name, task_id))
     
     while True:
         task_id = get_next_task(queue_name)

@@ -18,11 +18,11 @@ ml purge
 conda init bash
 conda activate generate
 
-IMAGE_DIR='./generated_datasets/hoi_diversified_new_sdxl'
-GENERATIVE_MODEL="sdxl" # sdxl, floyd, cogview2, sd3, sdturbo, flux, kolors, auraflow
+IMAGE_DIR='./generated_datasets/generated_LLM_floyd_ver3'
+GENERATIVE_MODEL="floyd" # sdxl, floyd, cogview2, sd3, sdturbo, flux, kolors, auraflow
 START_CLASS=0
 END_CLASS=3603 # 3603
-PROMPT_DIR='../prompt_generation/prompts/hoi_diversified_new.json'
+PROMPT_DIR='../prompt_generation/prompts/generated_LLM_sdxl_ver3.json'
 
 python generate_images_hoi_diversified_new.py -m $GENERATIVE_MODEL -r $IMAGE_DIR -s $START_CLASS -e $END_CLASS -p $PROMPT_DIR
 
