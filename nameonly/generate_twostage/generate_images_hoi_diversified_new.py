@@ -79,40 +79,58 @@ while True:
     negative_prompts = dataset_dict['negative_prompts']
     
     # Generate positive images
+    regenrate_pos = False
     pos_save_dir = os.path.join(args.root_dir, str(id), 'pos')
     if os.path.exists(pos_save_dir):
-        print(f"Removing existing directory: {pos_save_dir}")
-        shutil.rmtree(pos_save_dir)
-    os.makedirs(pos_save_dir, exist_ok=True)
-    for i, positive_prompt in enumerate(positive_prompts):
-        print(f"Generating positive image for {id}, prompt: {positive_prompt}")
-        while True:
-            try:
-                image = model.generate_one_image(positive_prompt)
-                break
-            except:
-                print(f"Error occurred. Retrying...")
-                continue
-        image_path = os.path.join(pos_save_dir, str(i).zfill(6) + '.png')
-        image.save(image_path, "JPEG")
+        if len(os.listdir(pos_save_dir)) == len(positive_prompts):
+            print(f"Skipping existing directory: {pos_save_dir}")
+        else:
+            print(f"Removing existing directory as the number of images is different: {pos_save_dir}")
+            shutil.rmtree(pos_save_dir)
+            os.makedirs(pos_save_dir, exist_ok=True)
+            regenrate_pos = True
+    else:
+        os.makedirs(pos_save_dir, exist_ok=True)
+        regenrate_pos = True
+    if regenrate_pos:
+        for i, positive_prompt in enumerate(positive_prompts):
+            print(f"Generating positive image for {id}, prompt: {positive_prompt}")
+            while True:
+                try:
+                    image = model.generate_one_image(positive_prompt)
+                    break
+                except:
+                    print(f"Error occurred. Retrying...")
+                    continue
+            image_path = os.path.join(pos_save_dir, str(i).zfill(6) + '.png')
+            image.save(image_path, "JPEG")
     
     # Generate negative images
     neg_save_dir = os.path.join(args.root_dir, str(id), 'neg')
+    regenrate_neg = False
     if os.path.exists(neg_save_dir):
-        print(f"Removing existing directory: {neg_save_dir}")
-        shutil.rmtree(neg_save_dir)
-    os.makedirs(neg_save_dir, exist_ok=True)
-    for i, negative_prompt in enumerate(negative_prompts):
-        print(f"Generating negative image for {id}, prompt: {negative_prompt}")
-        while True:
-            try:
-                image = model.generate_one_image(negative_prompt)
-                break
-            except:
-                print(f"Error occurred. Retrying...")
-                continue
-        image_path = os.path.join(neg_save_dir, str(i).zfill(6) + '.png')
-        image.save(image_path, "JPEG")
+        if len(os.listdir(neg_save_dir)) == len(negative_prompts):
+            print(f"Skipping existing directory: {neg_save_dir}")
+        else:
+            print(f"Removing existing directory as the number of images is different: {neg_save_dir}")
+            shutil.rmtree(neg_save_dir)
+            os.makedirs(neg_save_dir, exist_ok=True)
+            regenrate_neg = True
+    else:
+        os.makedirs(neg_save_dir, exist_ok=True)
+        regenrate_neg = True
+    if regenrate_neg:
+        for i, negative_prompt in enumerate(negative_prompts):
+            print(f"Generating negative image for {id}, prompt: {negative_prompt}")
+            while True:
+                try:
+                    image = model.generate_one_image(negative_prompt)
+                    break
+                except:
+                    print(f"Error occurred. Retrying...")
+                    continue
+            image_path = os.path.join(neg_save_dir, str(i).zfill(6) + '.png')
+            image.save(image_path, "JPEG")
     
     # Mark the task as completed
     mark_task_done(queue_name, task_id)
