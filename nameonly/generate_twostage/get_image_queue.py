@@ -423,7 +423,6 @@ def generate_single_class(
         resume_prompt_idx += 1
     
     concatenated_prompt_list = adjust_list_length(concatenated_prompt_list, num_samples, resume_prompt_idx=resume_prompt_idx)
-
     # Dictionary to store image info (metaprompt, diversified prompt)
     info_dict = {}
 
@@ -486,6 +485,7 @@ if __name__ == "__main__":
     parser.add_argument('--end_class', type=int, default=None)
     parser.add_argument('--prompt_dir', type=str, default=None)
     parser.add_argument('--increase_ratio', type=float, default=None)
+    parser.add_argument('--num_samples_per_cls', type=int, default=None)
     
     parser_config = parser.parse_args()
 
@@ -505,13 +505,14 @@ if __name__ == "__main__":
         config['prompt_dir'] = parser_config.prompt_dir
     if parser_config.increase_ratio is not None:
         config['increase_ratio'] = parser_config.increase_ratio
+    if parser_config.num_samples_per_cls is not None:
+        config['num_samples_per_cls'] = parser_config.num_samples_per_cls
     
     print(f"Config: {config}")
     
     model_name = config['generative_model']
     image_root_dir = config['image_dir']
     debug = config['debug']
-
     sample_num_dict = count_dict[config['dataset']]
     classes = list(sample_num_dict.keys())
     if 'end_class' in config:
