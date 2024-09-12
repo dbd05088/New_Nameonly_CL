@@ -60,7 +60,8 @@ def signal_handler(sig, frame, queue_name, current_task_id):
     fcntl.flock(f, fcntl.LOCK_UN)
     f.close()
     
-    exit(0)
+    print(f"Received signal {sig}. Exiting...")
+    os._exit(0)
 
 # Set signal handler
 signal.signal(signal.SIGTERM, lambda sig, frame: signal_handler(sig, frame, queue_name, task_id))
