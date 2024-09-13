@@ -37,7 +37,7 @@ def initialize_task_file(queue_name, start_idx, end_idx, cls_name):
         task_file = f"{queue_name}_task.txt"
         if not Path(task_file).exists():
             with open(task_file, 'w') as f:
-                for i in range(start_idx, end_idx):
+                for i in range(start_idx, end_idx + 1):
                     f.write(f"{i} {cls_name[i - start_idx]} pending\n")
         fcntl.flock(lock_f, fcntl.LOCK_UN)
 
