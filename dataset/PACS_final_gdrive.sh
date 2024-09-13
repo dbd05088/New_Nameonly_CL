@@ -827,7 +827,12 @@
 # tar -xf PACS_final_sdxl_1_refined.tar -C PACS_final
 # rm PACS_final_sdxl_1_refined.tar
 
-# with new dynamic prompt (0913)
-./gdrive files download 1QHqh7J7uIPecoMfvrbHbi5Tyv0yv4ixV # PACS_final_dynamic_sdxl
-tar -xf PACS_final_dynamic_sdxl.tar -C PACS_final
-rm PACS_final_dynamic_sdxl.tar
+# # with new dynamic prompt (0913)
+# ./gdrive files download 1QHqh7J7uIPecoMfvrbHbi5Tyv0yv4ixV # PACS_final_dynamic_sdxl
+# tar -xf PACS_final_dynamic_sdxl.tar -C PACS_final
+# rm PACS_final_dynamic_sdxl.tar
+
+# static to dynamic
+./gdrive files download 1Tznceu3wKAo0WTvm85chWmJuf1Q4kFyp # PACS_static2dynamic
+tar -xf PACS_static2dynamic.tar -C PACS_final
+rm PACS_static2dynamic.tar
