@@ -54,13 +54,13 @@ def generate_prompt_stage2(client, previous_prompt_list):
     else:
         return response_content
 
-metaprompt_json_path = './prompts/temp_metaprompt_10.json' # First stage result
-totalprompt_json_path = './prompts/gpt4_hierarchy_cot_100.json' # Second stage result
+metaprompt_json_path = './prompts/temp_metaprompt_7.json' # First stage result
+totalprompt_json_path = './prompts/gpt4_hierarchy_cot_50.json' # Second stage result
 
 client = OpenAI(api_key="sk-proj-bPJxpKwauBBFBZJw7nEgT3BlbkFJePaQfARB48iyTbZfxSXg")
-num_metaprompts = 10
-num_prompts_per_metaprompt = 10
-max_prompts = 100
+num_metaprompts = 7
+num_prompts_per_metaprompt = 7
+max_prompts = 50
 
 
 # # For the first stage
@@ -86,14 +86,17 @@ with open(metaprompt_json_path, 'r') as f:
 prompt_list = []
 for i, metaprompt in enumerate(tqdm(metaprompt_list)):
     for j in range(1, num_prompts_per_metaprompt + 1):
-        try:
-            prompt = generate_prompt_stage2(client, prompt_list)
-            print(f"previous generated prompts: {prompt_list}")
-            print(f"Generated prompt: {prompt}")
-            prompt_list.append(prompt)
-        except Exception as e:
-            print(e)
-            pass
+        while True:
+            try:
+                prompt = generate_prompt_stage2(client, prompt_list)
+                print(f"previous generated prompts: {prompt_list}")
+                print(f"Generated prompt: {prompt}")
+                assert '[concept]' in prompt
+                prompt_list.append(prompt)
+                break
+            except Exception as e:
+                print(e)
+                pass
 
 # Concatenate metaprompts and prompts
 final_prompt_list = metaprompt_list + random.sample(prompt_list, max_prompts - num_metaprompts)
