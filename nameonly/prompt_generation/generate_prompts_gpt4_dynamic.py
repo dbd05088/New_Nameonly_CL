@@ -6,16 +6,15 @@ from classes import *
 import random
 
 # calculation for pricing
+# one stage: $ 0.0102 / class (171 input tokens in aver., 11 output tokens)
+# two stage: $ 0.052 / class (166 input tokens in aver., 14 output tokens)
 
-
-
-# end of calculation
-
+# total: $ 0.062 / class
 
 # two parts in this code!
 # important
 dataset_count = PACS_count
-metaprompt_json_path = './prompts/temp_base_metaprompts.json' # First stage result
+metaprompt_json_path = './prompts/temp_base_metaprompts_dynamic.json' # First stage result
 totalprompt_json_path = './prompts/gpt4_hierarchy_cot_dynamic_PACS.json' # Second stage result
 num_metaprompts = 10
 num_prompts_per_metaprompt = 5
@@ -100,20 +99,18 @@ client = OpenAI(api_key="sk-proj-bPJxpKwauBBFBZJw7nEgT3BlbkFJePaQfARB48iyTbZfxSX
 # with open(metaprompt_json_path,'w') as f:
 #     json.dump(metaprompt_dict, f)
 
-
-
-# # For the second stage: specfic prompts (uncomment below)
-# # Diversified prompt generation
+# For the second stage: specfic prompts (uncomment below)
+# Diversified prompt generation
 
 with open(metaprompt_json_path, 'r') as f:
-    metaprompt_list = json.load(f)
-
+    metaprompt_dict = json.load(f)
+    
 totalprompt_dict = {}
 for cls in tqdm(dataset_count):
     totalprompt_dict[cls] = {'metaprompts': []}
     class_prompt_list = []
     
-    metaprompts = metaprompt_list[cls]
+    metaprompts = metaprompt_dict[cls]
     
     cnt = 0
     for i, metaprompt in enumerate(metaprompts):
@@ -128,7 +125,7 @@ for cls in tqdm(dataset_count):
                 totalprompt_dict[cls]['metaprompts'].append(
             {
                 'index': cnt,
-                'metaprompt': 'dummy',
+                'metaprompt': metaprompt,
                 'prompts': [
                     {
                         'index': 0,
