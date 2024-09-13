@@ -832,7 +832,15 @@
 # tar -xf PACS_final_dynamic_sdxl.tar -C PACS_final
 # rm PACS_final_dynamic_sdxl.tar
 
-# static to dynamic
-./gdrive files download 1Tznceu3wKAo0WTvm85chWmJuf1Q4kFyp # PACS_static2dynamic
-tar -xf PACS_static2dynamic.tar -C PACS_final
-rm PACS_static2dynamic.tar
+# # static to dynamic
+# ./gdrive files download 1Tznceu3wKAo0WTvm85chWmJuf1Q4kFyp # PACS_static2dynamic
+# tar -xf PACS_static2dynamic.tar -C PACS_final
+# rm PACS_static2dynamic.tar
+
+# with 100 prompts (0914)
+./gdrive files download 1XkYsl6LttcLk3ddzVU87RLypg8A9FtcL # PACS_final_cot_100_sdxl
+./gdrive files download 1RfBigQphks82mmaJ7nVy74cjHSnpcH6h # PACS_final_glide_100_sdxl
+tar -xf PACS_final_cot_100_sdxl.tar -C PACS_final
+tar -xf PACS_final_glide_100_sdxl.tar -C PACS_final
+rm PACS_final_cot_100_sdxl.tar
+rm PACS_final_glide_100_sdxl.tar
