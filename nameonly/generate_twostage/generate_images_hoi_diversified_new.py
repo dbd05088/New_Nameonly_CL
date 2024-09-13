@@ -4,6 +4,7 @@ import argparse
 import signal
 import shutil
 import time
+import re
 from get_image_onestage import model_selector, adjust_list_length
 from tqdm import tqdm
 from utils import *
@@ -35,10 +36,10 @@ list_to_generate = dataset_list[args.start_class:args.end_class+1]
 queue_name = Path(args.root_dir).name
 print(f"Set queue name as {queue_name}")
 cls_initial_indices = list(range(args.start_class, args.end_class+1))
-classes = [list_to_generate[i]['id'] for i in range(len(list_to_generate))]
-initialize_task_file(queue_name, 0, len(list_to_generate), classes, cls_initial_indices)
+classes = [dataset_list[i]['id'] for i in cls_initial_indices]
+initialize_task_file(queue_name, args.start_class, args.end_class, classes)
 
-def signal_handler(sig, frame, queue_name, current_task_id):
+def signal_handler(sig, frame, queue_name, current_cls_id):
     # Read and lock the task file
     task_file = f"{queue_name}_task.txt"
     f = open(task_file, 'r+')
@@ -47,10 +48,10 @@ def signal_handler(sig, frame, queue_name, current_task_id):
     
     # Mark the current task as pending_sigkill
     for i in range(len(content)):
-        task_id, cls_info, status = content[i].strip().split()
-        task_id = int(task_id)
-        if task_id == current_task_id:
-            content[i] = f"{task_id} {cls_info} pending_preempted_or_killed\n"
+        cls_idx, cls_id, status = content[i].strip().split()
+        cls_idx = int(cls_idx)
+        if cls_idx == current_cls_id:
+            content[i] = f"{cls_idx} {cls_id} pending_preempted_or_killed\n"
             break
     
     # Write and unlock the task file
@@ -64,17 +65,17 @@ def signal_handler(sig, frame, queue_name, current_task_id):
     os._exit(0)
 
 # Set signal handler
-signal.signal(signal.SIGTERM, lambda sig, frame: signal_handler(sig, frame, queue_name, task_id))
-signal.signal(signal.SIGINT, lambda sig, frame: signal_handler(sig, frame, queue_name, task_id))
-signal.signal(signal.SIGUSR1, lambda sig, frame: signal_handler(sig, frame, queue_name, task_id))
+signal.signal(signal.SIGTERM, lambda sig, frame: signal_handler(sig, frame, queue_name, next_cls_idx))
+signal.signal(signal.SIGINT, lambda sig, frame: signal_handler(sig, frame, queue_name, next_cls_idx))
+signal.signal(signal.SIGUSR1, lambda sig, frame: signal_handler(sig, frame, queue_name, next_cls_idx))
 
 while True:
-    task_id = get_next_task(queue_name)
-    if task_id is None:
+    next_cls_idx = get_next_task(queue_name) # This is from 0 ~ len(dataset_list)
+    if next_cls_idx is None:
         print(f"Task is None. Exiting...")
         break
-    print(f"Task {task_id} is selected. Start generating images for id {list_to_generate[task_id]['id']}")
-    dataset_dict = list_to_generate[task_id]
+    print(f"Class num {next_cls_idx} is selected. Start generating images for id {dataset_list[next_cls_idx]['id']}")
+    dataset_dict = dataset_list[next_cls_idx]
     id = dataset_dict['id']
     positive_prompts = dataset_dict['positive_prompts']
     negative_prompts = dataset_dict['negative_prompts']
@@ -132,6 +133,5 @@ while True:
                     continue
             image_path = os.path.join(neg_save_dir, str(i).zfill(6) + '.png')
             image.save(image_path, "JPEG")
-    
     # Mark the task as completed
-    mark_task_done(queue_name, task_id)
+    mark_task_done(queue_name, next_cls_idx)
