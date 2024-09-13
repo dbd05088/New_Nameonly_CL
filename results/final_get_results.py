@@ -6,7 +6,7 @@ from scipy.stats import sem
 from collections import defaultdict
 
 warnings.filterwarnings(action='ignore')
-dir = 'PACS_final'
+dir = 'NICO'
 
 if 'PACS' in dir:
     in_dis = ['final_test_ma']
@@ -28,6 +28,11 @@ elif 'DomainNet' in dir:
     ood_dis = ['infograph', 'clipart', 'quickdraw', 'painting', 'sketch']
     n_samples, n_tasks = 3459, 5
     cls_per_task = [69]*n_tasks
+elif 'NICO' in dir:
+    in_dis = []
+    ood_dis = ['autumn', 'dim', 'grass', 'outdoor', 'rock', 'water']
+    n_samples, n_tasks = 12000, 5
+    cls_per_task = [12]*n_tasks
 
 total_cls=0
 cul_cls_per_task = []
@@ -121,24 +126,28 @@ def print_from_log(exp_name, in_dis, ood_dis, seeds=(1,2,3,4,5)):
             if 'Task Test' in line:
                 cur_task += 1
             if 'Total Test' in line:
-                in_dis_acc.append(np.mean(in_acc))
+                if len(in_acc)>0:
+                    in_dis_acc.append(np.mean(in_acc))
+                    imb_in_dis_acc.append(np.mean(imb_in_acc))
                 ood_dis_acc.append(np.mean(ood_acc))
-                in_acc, ood_acc = [], []
                 all_acc.append(float(line.split(" ")[-4]))
-                imb_in_dis_acc.append(np.mean(imb_in_acc))
                 imb_ood_dis_acc.append(np.mean(imb_ood_acc))
                 imb_all_acc.append(np.mean(imb_in_acc+imb_ood_acc))
-                imb_in_acc, imb_ood_acc = [], []
                 
-        in_avg.append(round(sum(in_dis_acc)/len(in_dis_acc)*100,2))
-        in_last.append(round(in_dis_acc[-1]*100,2))
+                in_acc, ood_acc = [], []
+                imb_in_acc, imb_ood_acc = [], []
+        
+        if len(in_dis_acc)>0:
+            in_avg.append(round(sum(in_dis_acc)/len(in_dis_acc)*100,2))
+            in_last.append(round(in_dis_acc[-1]*100,2))
+            imb_in_avg.append(round(sum(imb_in_dis_acc)/len(imb_in_dis_acc)*100,2))
+            imb_in_last.append(round(imb_in_dis_acc[-1]*100,2))
+            
         ood_avg.append(round(sum(ood_dis_acc)/len(ood_dis_acc)*100,2))
         ood_last.append(round(ood_dis_acc[-1]*100,2))
         overall_avg.append(round(sum(all_acc)/len(all_acc)*100,2))
         overall_last.append(round(all_acc[-1]*100,2))
         
-        imb_in_avg.append(round(sum(imb_in_dis_acc)/len(imb_in_dis_acc)*100,2))
-        imb_in_last.append(round(imb_in_dis_acc[-1]*100,2))
         imb_ood_avg.append(round(sum(imb_ood_dis_acc)/len(imb_ood_dis_acc)*100,2))
         imb_ood_last.append(round(imb_ood_dis_acc[-1]*100,2))
         imb_overall_avg.append(round(sum(imb_all_acc)/len(imb_all_acc)*100,2))
@@ -151,16 +160,18 @@ def print_from_log(exp_name, in_dis, ood_dis, seeds=(1,2,3,4,5)):
     # Create dataframe
     df_dict = {}
     
-    if np.isnan(np.mean(in_avg)):
+    if np.isnan(np.mean(ood_avg)):
         pass
     else:
-        df_dict['id'] = f"{np.mean(in_avg):.2f}/{sem(in_avg):.2f} \t {np.mean(in_last):.2f}/{sem(in_last):.2f}"
+        if len(in_avg)>0:
+            df_dict['id'] = f"{np.mean(in_avg):.2f}/{sem(in_avg):.2f} \t {np.mean(in_last):.2f}/{sem(in_last):.2f}"
+            print(f'Exp:{exp_name} in-distribution \t\t\t {np.mean(in_avg):.2f}/{sem(in_avg):.2f} \t {np.mean(in_last):.2f}/{sem(in_last):.2f}')
+            print(f'Exp:{exp_name} imb_in-distribution \t\t\t {np.mean(imb_in_avg):.2f}/{sem(imb_in_avg):.2f} \t {np.mean(imb_in_last):.2f}/{sem(imb_in_last):.2f}')
+            
         df_dict['ood'] = f"{np.mean(ood_avg):.2f}/{sem(ood_avg):.2f} \t {np.mean(ood_last):.2f}/{sem(ood_last):.2f}"
-        print(f'Exp:{exp_name} in-distribution \t\t\t {np.mean(in_avg):.2f}/{sem(in_avg):.2f} \t {np.mean(in_last):.2f}/{sem(in_last):.2f}')
         print(f'Exp:{exp_name} ood-distribution \t\t\t {np.mean(ood_avg):.2f}/{sem(ood_avg):.2f} \t {np.mean(ood_last):.2f}/{sem(ood_last):.2f}')
         print(f'Exp:{exp_name} overall \t\t\t {np.mean(overall_avg):.2f}/{sem(overall_avg):.2f} \t {np.mean(overall_last):.2f}/{sem(overall_last):.2f}')
-        
-        print(f'Exp:{exp_name} imb_in-distribution \t\t\t {np.mean(imb_in_avg):.2f}/{sem(imb_in_avg):.2f} \t {np.mean(imb_in_last):.2f}/{sem(imb_in_last):.2f}')
+
         print(f'Exp:{exp_name} imb_ood-distribution \t\t\t {np.mean(imb_ood_avg):.2f}/{sem(imb_ood_avg):.2f} \t {np.mean(imb_ood_last):.2f}/{sem(imb_ood_last):.2f}')
         print(f'Exp:{exp_name} imb_overall \t\t\t {np.mean(imb_overall_avg):.2f}/{sem(imb_overall_avg):.2f} \t {np.mean(imb_overall_last):.2f}/{sem(imb_overall_last):.2f}')
         # print(f'Exp:{exp_name} real_time_evaluation \t\t\t {np.mean(aoa_auc):.2f}/{sem(aoa_auc):.2f} \t {np.mean(aoa_last):.2f}/{sem(aoa_last):.2f}')

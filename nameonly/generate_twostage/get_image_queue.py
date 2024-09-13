@@ -423,7 +423,6 @@ def generate_single_class(
         resume_prompt_idx += 1
     
     concatenated_prompt_list = adjust_list_length(concatenated_prompt_list, num_samples, resume_prompt_idx=resume_prompt_idx)
-
     # Dictionary to store image info (metaprompt, diversified prompt)
     info_dict = {}
 
@@ -472,7 +471,9 @@ def signal_handler(sig, frame, queue_name, current_task_id):
     fcntl.flock(f, fcntl.LOCK_UN)
     f.close()
     
-    exit(0)
+    print(f"Received signal {sig}. Exiting...")
+    
+    os._exit(0)
     
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -484,6 +485,7 @@ if __name__ == "__main__":
     parser.add_argument('--end_class', type=int, default=None)
     parser.add_argument('--prompt_dir', type=str, default=None)
     parser.add_argument('--increase_ratio', type=float, default=None)
+    parser.add_argument('--num_samples_per_cls', type=int, default=None)
     
     parser_config = parser.parse_args()
 
@@ -503,13 +505,14 @@ if __name__ == "__main__":
         config['prompt_dir'] = parser_config.prompt_dir
     if parser_config.increase_ratio is not None:
         config['increase_ratio'] = parser_config.increase_ratio
+    if parser_config.num_samples_per_cls is not None:
+        config['num_samples_per_cls'] = parser_config.num_samples_per_cls
     
     print(f"Config: {config}")
     
     model_name = config['generative_model']
     image_root_dir = config['image_dir']
     debug = config['debug']
-
     sample_num_dict = count_dict[config['dataset']]
     classes = list(sample_num_dict.keys())
     if 'end_class' in config:
@@ -524,7 +527,7 @@ if __name__ == "__main__":
     # Set the number of samples (follow yaml if provided, else dataset_dict.pkl)
     if config.get('num_samples_per_cls'):
         print(f"WARNING: Set the number of all classes to {config['num_samples_per_cls']}")
-        class_num_samples_dict = {cls: config['num_samples_per_cls'] for cls in classes}
+        class_num_samples_dict = {cls: config['num_samples_per_cls'] for cls in sample_num_dict.keys()}
     elif config.get('num_samples'):
         print(f"WARNING: The number of samples of each class are manually provided")
         classes = config['num_samples'].keys()
@@ -532,10 +535,6 @@ if __name__ == "__main__":
     else:
         print(f"Generate the default (MA size * increase ratio ({config['increase_ratio']}))")
         class_num_samples_dict = {cls: int(num * config['increase_ratio']) for cls, num in sample_num_dict.items()}
-        class_num_samples_dict = {cls: class_num_samples_dict[cls] for cls in classes}
-
-    print(f"IMPORTANT: number of samples to generate for each class")
-    print(class_num_samples_dict)
 
     # Load model
     if debug:
@@ -549,33 +548,35 @@ if __name__ == "__main__":
     # Use queue to generate images for each class
     queue_name = Path(image_root_dir).name
     print(f"Set queue name as {queue_name}")
-    cls_initial_indices = [list(sample_num_dict.keys()).index(cls) for cls in classes] # For task file initialization
-    initialize_task_file(queue_name, 0, len(classes), cls_name=classes, indices=cls_initial_indices)
+    
+    original_class_indices = list(sample_num_dict.keys())
+    cls_initial_indices = [original_class_indices.index(cls) for cls in classes] # For task file initialization
+    initialize_task_file(queue_name, cls_initial_indices[0], cls_initial_indices[-1], cls_name=classes)
     
     # Set signal handler
-    signal.signal(signal.SIGTERM, lambda sig, frame: signal_handler(sig, frame, queue_name, task_id))
-    signal.signal(signal.SIGINT, lambda sig, frame: signal_handler(sig, frame, queue_name, task_id))
-    signal.signal(signal.SIGUSR1, lambda sig, frame: signal_handler(sig, frame, queue_name, task_id))
+    signal.signal(signal.SIGTERM, lambda sig, frame: signal_handler(sig, frame, queue_name, next_cls_idx))
+    signal.signal(signal.SIGINT, lambda sig, frame: signal_handler(sig, frame, queue_name, next_cls_idx))
+    signal.signal(signal.SIGUSR1, lambda sig, frame: signal_handler(sig, frame, queue_name, next_cls_idx))
     
     while True:
-        task_id = get_next_task(queue_name)
-        if task_id is None:
+        next_cls_idx = get_next_task(queue_name)
+        if next_cls_idx is None:
             print(f"Task is None. Finish the process.")
             break
         
-        print(f"Task {task_id}: Start generating images for class {classes[task_id]}")
-        num_samples_cls = class_num_samples_dict[classes[task_id]]
-            
+        print(f"Task {next_cls_idx}: Start generating images for class {original_class_indices[next_cls_idx]}")
+        num_samples_cls = class_num_samples_dict[original_class_indices[next_cls_idx]]
+        
         generate_single_class(
-            class_name=classes[task_id],
+            class_name=original_class_indices[next_cls_idx],
             model_name=config['generative_model'],
             model=model,
-            image_dir = os.path.join(image_root_dir, classes[task_id]),
+            image_dir = os.path.join(image_root_dir, original_class_indices[next_cls_idx]),
             num_samples = num_samples_cls,
             class_prompt_dict=class_prompt_dict,
             API_KEY=config['api_key'],
-            result_json_path=os.path.join(image_root_dir, f"{classes[task_id]}.json"),
+            result_json_path=os.path.join(image_root_dir, f"{original_class_indices[next_cls_idx]}.json"),
             resume_prompt_idx=resume_prompt_idx
         )
-        mark_task_done(queue_name, task_id)
+        mark_task_done(queue_name, next_cls_idx)
     
