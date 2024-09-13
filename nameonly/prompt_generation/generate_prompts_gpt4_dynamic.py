@@ -5,6 +5,14 @@ from tqdm import tqdm
 from classes import *
 import random
 
+# calculation for pricing
+
+
+
+# end of calculation
+
+
+# two parts in this code!
 # important
 dataset_count = PACS_count
 metaprompt_json_path = './prompts/temp_base_metaprompts.json' # First stage result
@@ -72,67 +80,67 @@ def generate_prompt_stage2(client, cls, metaprompt, previous_prompt_list):
 client = OpenAI(api_key="sk-proj-bPJxpKwauBBFBZJw7nEgT3BlbkFJePaQfARB48iyTbZfxSXg")
 
 
-# For the first stage: metaprompts
-metaprompt_dict = {}
-for cls in tqdm(dataset_count):
-    cls_tmp = cls.replace('_',' ')
-    metaprompts = [f'A photo of a {cls_tmp}.']
-    for i in tqdm(range(num_metaprompts-1)):
-        try:
-            prompt = generate_prompt_stage1(client, cls, metaprompts)
-            print(f"Previous prompt list: {metaprompts}")
-            print(f"Generated metaprompt for stage: {prompt}")
-            metaprompts.append(prompt)
-        except Exception as e:
-            print(e)
-            pass
+# # For the first stage: metaprompts
+# metaprompt_dict = {}
+# for cls in tqdm(dataset_count):
+#     cls_tmp = cls.replace('_',' ')
+#     metaprompts = [f'A photo of a {cls_tmp}.']
+#     for i in tqdm(range(num_metaprompts-1)):
+#         try:
+#             prompt = generate_prompt_stage1(client, cls, metaprompts)
+#             print(f"Previous prompt list: {metaprompts}")
+#             print(f"Generated metaprompt for stage: {prompt}")
+#             metaprompts.append(prompt)
+#         except Exception as e:
+#             print(e)
+#             pass
         
-    metaprompt_dict[cls]=metaprompts
+#     metaprompt_dict[cls]=metaprompts
 
-with open(metaprompt_json_path,'w') as f:
-    json.dump(metaprompt_dict, f)
+# with open(metaprompt_json_path,'w') as f:
+#     json.dump(metaprompt_dict, f)
 
 
 
 # # For the second stage: specfic prompts (uncomment below)
 # # Diversified prompt generation
 
-# with open(metaprompt_json_path, 'r') as f:
-#     metaprompt_list = json.load(f)
+with open(metaprompt_json_path, 'r') as f:
+    metaprompt_list = json.load(f)
 
-# totalprompt_dict = {}
-# for cls in tqdm(dataset_count):
-#     totalprompt_dict[cls] = {'metaprompts': []}
-#     class_prompt_list = []
+totalprompt_dict = {}
+for cls in tqdm(dataset_count):
+    totalprompt_dict[cls] = {'metaprompts': []}
+    class_prompt_list = []
     
-#     metaprompts = metaprompt_list[cls]
+    metaprompts = metaprompt_list[cls]
     
-#     for i, metaprompt in enumerate(metaprompts):
-#         cnt=0
-#         diversified_prompts=[]
-#         for j in range(num_prompts_per_metaprompt):
-#             try:
-#                 prompt = generate_prompt_stage2(client, cls, metaprompt, diversified_prompts)
-#                 print(f"previous generated prompts: {diversified_prompts}")
-#                 print(f"Generated prompt: {prompt}")
-#                 diversified_prompts.append(prompt)
+    cnt = 0
+    for i, metaprompt in enumerate(metaprompts):
+        diversified_prompts=[]
+        for j in range(num_prompts_per_metaprompt):
+            try:
+                prompt = generate_prompt_stage2(client, cls, metaprompt, diversified_prompts)
+                print(f"previous generated prompts: {diversified_prompts}")
+                print(f"Generated prompt: {prompt}")
+                diversified_prompts.append(prompt)
                 
-#                 totalprompt_dict[cls]['metaprompts'].append(
-#             {
-#                 'index': cnt,
-#                 'metaprompt': 'dummy',
-#                 'prompts': [
-#                     {
-#                         'index': 0,
-#                         'content': prompt
-#                     }
-#                 ]
-#             }
-#         )
-#                 cnt+=1
-#             except Exception as e:
-#                 print(e)
-#                 pass
+                totalprompt_dict[cls]['metaprompts'].append(
+            {
+                'index': cnt,
+                'metaprompt': 'dummy',
+                'prompts': [
+                    {
+                        'index': 0,
+                        'content': prompt
+                    }
+                ]
+            }
+        )
+                cnt+=1
+            except Exception as e:
+                print(e)
+                pass
 
-# with open(totalprompt_json_path, 'w') as f:
-#     json.dump(totalprompt_dict, f)
+with open(totalprompt_json_path, 'w') as f:
+    json.dump(totalprompt_dict, f)
