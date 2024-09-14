@@ -87,7 +87,6 @@ with open(metaprompt_json_path, 'w') as f:
 # prompt_list = []
 # for i, metaprompt in enumerate(tqdm(metaprompt_list)):
 #     cot_list = [metaprompt]
-#     prompt_list.append(metaprompt)
     
 #     tmp = [x for x in range(len(metaprompt_list)) if x!=i]
 #     sampled_numbers = random.sample(tmp,2)
