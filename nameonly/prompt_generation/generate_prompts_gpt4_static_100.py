@@ -84,13 +84,16 @@ with open(metaprompt_json_path, 'r') as f:
 
 prompt_list = []
 for i, metaprompt in enumerate(tqdm(metaprompt_list)):
+    cot_list = [metaprompt]
     for j in range(1, num_prompts_per_metaprompt + 1):
         while True:
             try:
-                prompt = generate_prompt_stage2(client, prompt_list)
-                print(f"previous generated prompts: {prompt_list}")
+                prompt = generate_prompt_stage2(client, cot_list)
+                print(f"previous generated prompts: {cot_list}")
                 print(f"Generated prompt: {prompt}")
                 assert '[concept]' in prompt
+                
+                cot_list.append(prompt)
                 prompt_list.append(prompt)
                 break
             except Exception as e:
