@@ -82,7 +82,6 @@ max_prompts = 50
 with open(metaprompt_json_path, 'r') as f:
     metaprompt_list = json.load(f)
 
-
 prompt_list = []
 for i, metaprompt in enumerate(tqdm(metaprompt_list)):
     for j in range(1, num_prompts_per_metaprompt + 1):
