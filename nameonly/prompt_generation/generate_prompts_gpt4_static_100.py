@@ -54,18 +54,20 @@ def generate_prompt_stage2(client, previous_prompt_list):
     else:
         return response_content
 
-metaprompt_json_path = './prompts/temp_metaprompt_7.json' # First stage result
-totalprompt_json_path = './prompts/gpt4_hierarchy_cot_50.json' # Second stage result
+metaprompt_json_path = './prompts/temp_base_metaprompts_10_3.json' # First stage result
+totalprompt_json_path = './prompts/gpt4_hierarchy_cot_100_3.json' # Second stage result
+num_metaprompts = 10
+num_prompts_per_metaprompt = 10
+max_prompts = 100
 
 client = OpenAI(api_key="sk-proj-bPJxpKwauBBFBZJw7nEgT3BlbkFJePaQfARB48iyTbZfxSXg")
-num_metaprompts = 7
-num_prompts_per_metaprompt = 7
-max_prompts = 50
-
 
 # # For the first stage
-# metaprompts = ['A photo of a [concept].']
-# for i in tqdm(range(num_metaprompts - 1)):
+
+# # you should choose 3 proper metaprompts!
+# metaprompts = ['A photo of a [concept].', 'A colorful vector clipart of [concept].','A simple sketch of [concept] with bold contrasts.']
+
+# for i in tqdm(range(num_metaprompts - 3)): # hard coded: 3 examples
 #     try:
 #         prompt = generate_prompt_stage1(client, metaprompts)
 #         print(f"Previous prompt list: {metaprompts}")
@@ -85,15 +87,20 @@ with open(metaprompt_json_path, 'r') as f:
 prompt_list = []
 for i, metaprompt in enumerate(tqdm(metaprompt_list)):
     cot_list = [metaprompt]
-    for j in range(1, num_prompts_per_metaprompt + 1):
+    
+    tmp = [x for x in range(len(metaprompt_list)) if x!=i]
+    sampled_numbers = random.sample(tmp,2)
+    
+    for n in sampled_numbers:
+        cot_list.append(metaprompt_list[n]) # only for cot_list, not prompt_list
+
+    for j in range(1, num_prompts_per_metaprompt + 1): # hard-coded: 3 examples
         while True:
             try:
                 prompt = generate_prompt_stage2(client, cot_list)
-                print(f"previous generated prompts: {cot_list}")
+                print(f"previous generated prompts: {prompt_list}")
                 print(f"Generated prompt: {prompt}")
                 assert '[concept]' in prompt
-                
-                cot_list.append(prompt)
                 prompt_list.append(prompt)
                 break
             except Exception as e:

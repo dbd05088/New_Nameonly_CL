@@ -1,0 +1,210 @@
+{
+    "metaprompts": [
+        {
+            "index": 0,
+            "metaprompt": "dummy",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A photo of a [concept]."
+                },
+                {
+                    "index": 1,
+                    "content": "A vivid, hyper-realistic depiction of [concept] with gold hues."
+                },
+                {
+                    "index": 2,
+                    "content": "A simple sketch of [concept] with bold contrasts."
+                },
+                {
+                    "index": 3,
+                    "content": "A photo of [concept] in natural light."
+                },
+                {
+                    "index": 4,
+                    "content": "A lifelike image of [concept] with a soft pastel palette."
+                },
+                {
+                    "index": 5,
+                    "content": "A realistic painting of [concept] in cool blue tones."
+                },
+                {
+                    "index": 6,
+                    "content": "A minimalist illustration of [concept]."
+                },
+                {
+                    "index": 7,
+                    "content": "A highly detailed photograph of [concept] with vibrant, warm colors."
+                },
+                {
+                    "index": 8,
+                    "content": "A high-resolution close-up of [concept] with a vibrant color palette."
+                },
+                {
+                    "index": 9,
+                    "content": "A photorealistic capture of [concept] at twilight with soft, muted colors."
+                },
+                {
+                    "index": 10,
+                    "content": "A photorealistic [concept] scene with vibrant sunset colors."
+                },
+                {
+                    "index": 11,
+                    "content": "A high-definition snapshot of [concept] in vibrant sunset hues."
+                },
+                {
+                    "index": 12,
+                    "content": "A cinematic shot of [concept] with dramatic shadows and deep blue tones."
+                },
+                {
+                    "index": 13,
+                    "content": "A high-resolution image of [concept] in warm autumn hues."
+                },
+                {
+                    "index": 14,
+                    "content": "A high-resolution image of [concept] with cool tones and intricate details."
+                },
+                {
+                    "index": 15,
+                    "content": "An ultra-realistic photo of [concept] during golden hour with warm, vibrant hues."
+                },
+                {
+                    "index": 16,
+                    "content": "An evening cityscape showing [concept] with cool blue and purple lighting."
+                },
+                {
+                    "index": 17,
+                    "content": "A sunset-lit photograph of [concept] with soft, warm tones."
+                },
+                {
+                    "index": 18,
+                    "content": "A lifelike depiction of [concept] with vibrant, warm hues."
+                },
+                {
+                    "index": 19,
+                    "content": "A hyper-realistic rendering of [concept] with vibrant, saturated colors."
+                },
+                {
+                    "index": 20,
+                    "content": "A high-resolution image of [concept] with a warm sunset glow."
+                },
+                {
+                    "index": 21,
+                    "content": "A photorealistic capture of [concept] at sunrise with warm golden light."
+                },
+                {
+                    "index": 22,
+                    "content": "A monochromatic portrait of [concept] with soft shadow highlights."
+                },
+                {
+                    "index": 23,
+                    "content": "A high-resolution image of [concept] in a misty morning setting."
+                },
+                {
+                    "index": 24,
+                    "content": "A high-definition photo of [concept] with a pastel color palette."
+                },
+                {
+                    "index": 25,
+                    "content": "A hyper-detailed photograph of [concept] in warm, golden-hour lighting."
+                },
+                {
+                    "index": 26,
+                    "content": "A vibrant sunset over [concept], captured in high resolution."
+                },
+                {
+                    "index": 27,
+                    "content": "A hyper-realistic depiction of [concept] bathed in golden hour light."
+                },
+                {
+                    "index": 28,
+                    "content": "A photorealistic image of [concept] with warm autumn colors."
+                },
+                {
+                    "index": 29,
+                    "content": "A detailed, photorealistic scene of [concept] at sunset with warm tones."
+                },
+                {
+                    "index": 30,
+                    "content": "A high-resolution image of [concept] with vibrant, contrasting colors."
+                },
+                {
+                    "index": 31,
+                    "content": "A [concept] captured at twilight with soft, pastel shades."
+                },
+                {
+                    "index": 32,
+                    "content": "A detailed photo of [concept] with vibrant colors and contrasting shadows."
+                },
+                {
+                    "index": 33,
+                    "content": "A hyper-realistic rendering of [concept] in a vibrant and bustling cityscape."
+                },
+                {
+                    "index": 34,
+                    "content": "A high-resolution image of [concept] at sunset with warm, golden hues."
+                },
+                {
+                    "index": 35,
+                    "content": "A vibrant street scene featuring [concept] with neon lights and reflections."
+                },
+                {
+                    "index": 36,
+                    "content": "A hyper-realistic photo of [concept] with vibrant, contrasting colors."
+                },
+                {
+                    "index": 37,
+                    "content": "A high-resolution image of [concept] at sunset with warm golden hues."
+                },
+                {
+                    "index": 38,
+                    "content": "A high-definition photo of [concept] with vibrant, warm color tones."
+                },
+                {
+                    "index": 39,
+                    "content": "A high-resolution image of [concept] in an urban night scene with neon lights."
+                },
+                {
+                    "index": 40,
+                    "content": "A detailed aerial photograph of [concept] with vibrant autumn foliage."
+                },
+                {
+                    "index": 41,
+                    "content": "A surreal, dream-like landscape featuring [concept] with pastel color tones."
+                },
+                {
+                    "index": 42,
+                    "content": "A photorealistic image of [concept] rendered in warm sunset glow."
+                },
+                {
+                    "index": 43,
+                    "content": "A tranquil waterscape featuring [concept] with soft pastel tones."
+                },
+                {
+                    "index": 44,
+                    "content": "A dynamic black-and-white photograph of [concept] with dramatic shadows."
+                },
+                {
+                    "index": 45,
+                    "content": "A lifelike photograph of [concept] in warm sunset lighting."
+                },
+                {
+                    "index": 46,
+                    "content": "A detailed photorealistic rendering of [concept] at sunset."
+                },
+                {
+                    "index": 47,
+                    "content": "A high-definition image of [concept] in vibrant autumn colors."
+                },
+                {
+                    "index": 48,
+                    "content": "A high-resolution photo of [concept] in warm golden hour lighting."
+                },
+                {
+                    "index": 49,
+                    "content": "A high-definition photo of [concept] in vibrant sunset hues."
+                }
+            ]
+        }
+    ]
+}
