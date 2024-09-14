@@ -837,10 +837,18 @@
 # tar -xf PACS_static2dynamic.tar -C PACS_final
 # rm PACS_static2dynamic.tar
 
-# with 100 prompts (0914)
-./gdrive files download 1XkYsl6LttcLk3ddzVU87RLypg8A9FtcL # PACS_final_cot_100_sdxl
-./gdrive files download 1RfBigQphks82mmaJ7nVy74cjHSnpcH6h # PACS_final_glide_100_sdxl
+# # with 100 prompts (0914)
+# ./gdrive files download 1XkYsl6LttcLk3ddzVU87RLypg8A9FtcL # PACS_final_cot_100_sdxl
+# ./gdrive files download 1RfBigQphks82mmaJ7nVy74cjHSnpcH6h # PACS_final_glide_100_sdxl
+# tar -xf PACS_final_cot_100_sdxl.tar -C PACS_final
+# tar -xf PACS_final_glide_100_sdxl.tar -C PACS_final
+# rm PACS_final_cot_100_sdxl.tar
+# rm PACS_final_glide_100_sdxl.tar
+
+# 50, 100 prompts (new)
+./gdrive files download 1S38W-kHC3bnEdluA6sHXr4WONd2-djMi # PACS_final_cot_50_sdxl
+./gdrive files download 11tw17SDQocf---cU_UZpiPudnIz3vaNc # PACS_final_cot_100_sdxl
+tar -xf PACS_final_cot_50_sdxl.tar -C PACS_final
 tar -xf PACS_final_cot_100_sdxl.tar -C PACS_final
-tar -xf PACS_final_glide_100_sdxl.tar -C PACS_final
+rm PACS_final_cot_50_sdxl.tar
 rm PACS_final_cot_100_sdxl.tar
-rm PACS_final_glide_100_sdxl.tar
