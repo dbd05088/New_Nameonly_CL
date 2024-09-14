@@ -2,10 +2,10 @@ import os
 import json
 from tqdm import tqdm
 
-prompt_path = '../prompt_generation/prompts/hoi_diversified_new.json'
-root_dir = './generated_datasets/hoi_diversified_new_sdxl'
+prompt_path = '../prompt_generation/prompts/generated_LLM_sdxl_ver3.json'
+root_dir = './generated_datasets/generated_LLM_auraflow_ver3'
 
-with open('../prompt_generation/prompts/hoi_diversified_new.json', 'r') as f:
+with open('../prompt_generation/prompts/generated_LLM_sdxl_ver3.json', 'r') as f:
     prompts = json.load(f)
 
 uid_list = [str(data['id']) for data in prompts]
