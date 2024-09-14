@@ -32,5 +32,6 @@ for i, (uid, pos_count, neg_count) in cls_dir_count_dict.items():
         print(f"{i}: {uid} - pos: {pos_count}, neg: {neg_count}")
         cls_not_generated.append(i)
 
-print(f"Total number of classes not generated: {len(cls_not_generated)}")
 print(cls_not_generated)
+print(f"Total number of classes not generated: {len(cls_not_generated)}")
+print(f"Number of classes generated: {len(uid_list) - len(cls_not_generated)}")
