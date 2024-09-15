@@ -8,7 +8,7 @@ from tqdm import tqdm
 
 def generate_prompt_stage1(client, previous_prompt_list):
     base_message = f"To generate images using a text-to-image generation model, I need to create a prompt. Keep the domain photorealistic and use different visual scenes and visual styles or different color profiles/ palettes. Here is a list of prompts that I have previously generated. Please create a new prompt that does not overlap with these."
-    end_message = f"\nPlease create one prompt sentence (under 10 words) that fits this description. Please ensure the response format is strictly 'prompt: answer' and include the word '[concept].\n"
+    end_message = f"\nPlease create one prompt sentence (under 10 words) that fits this description. Please ensure the response format is strictly 'prompt: answer' and include the word '[concept]'.\n"
     
     # For CoT Prompting
     for prompt in previous_prompt_list:
@@ -33,7 +33,7 @@ def generate_prompt_stage1(client, previous_prompt_list):
 def generate_prompt_stage2(client, previous_prompt_list):
     base_message = f"To generate images using a text-to-image generation model, I need to create a prompt. Keep the domain photorealistic and use different visual scenes and visual styles or different color profiles/ palettes. Here is a list of prompts that I have previously generated. Please create a new prompt that does not overlap with these."
     
-    end_message = f"\nPlease create one prompt sentence (under 15 words) that fits this description. Please ensure the response format is strictly 'prompt: answer' and include the word '[concept].\n"
+    end_message = f"\nPlease create one prompt sentence (under 15 words) that fits this description. Please ensure the response format is strictly 'prompt: answer' and include the word '[concept]'.\n"
     
     for prompt in previous_prompt_list:
         base_message += f"\nprompt: {prompt}"
