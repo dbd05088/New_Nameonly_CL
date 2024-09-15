@@ -221,7 +221,12 @@
 # rm DomainNet_sdxl_floyd_cogview2_sd3_flux_auraflow_4.tar
 # rm DomainNet_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_4.tar
 
-# LE diversifed (0914)
-./gdrive files download 1FVpuoG7MgY4lOHfMvw0YyOLnWtzCaBxO # DomainNet_LE_diversified
-tar -xf DomainNet_LE_diversified.tar -C DomainNet
-rm DomainNet_LE_diversified.tar
+# # LE diversifed (0914)
+# ./gdrive files download 1FVpuoG7MgY4lOHfMvw0YyOLnWtzCaBxO # DomainNet_LE_diversified
+# tar -xf DomainNet_LE_diversified.tar -C DomainNet
+# rm DomainNet_LE_diversified.tar
+
+# LE diversified with 100, sdxl (0915)
+./gdrive files download 1A1xQ7ECYq6R2_cws_xb9cxJEmh05d7gN # DomainNet_LE_diversified_100_sdxl
+tar -xf DomainNet_LE_diversified_100_sdxl.tar -C DomainNet
+rm DomainNet_LE_diversified_100_sdxl.tar
