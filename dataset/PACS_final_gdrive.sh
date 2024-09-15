@@ -881,10 +881,18 @@
 # rm PACS_final_LE_diversified_100_sdxl.tar
 # rm PACS_final_LE_diversified_100_glide.tar
 
-# synclr, synthclip with 100 (0915)
-./gdrive files download 1Vz1Nha_iznjfKNldqF6Qi5Kz442BDWsl # PACS_final_synclr_100_sdxl
-./gdrive files download 1n_BpvjePYb0O2l0kLLgao8iThwsne24M # PACS_final_synthclip_100_sdxl
-tar -xf PACS_final_synclr_100_sdxl.tar -C PACS_final
-tar -xf PACS_final_synthclip_100_sdxl.tar -C PACS_final
-rm PACS_final_synclr_100_sdxl.tar
-rm PACS_final_synthclip_100_sdxl.tar
+# # synclr, synthclip with 100 (0915)
+# ./gdrive files download 1Vz1Nha_iznjfKNldqF6Qi5Kz442BDWsl # PACS_final_synclr_100_sdxl
+# ./gdrive files download 1n_BpvjePYb0O2l0kLLgao8iThwsne24M # PACS_final_synthclip_100_sdxl
+# tar -xf PACS_final_synclr_100_sdxl.tar -C PACS_final
+# tar -xf PACS_final_synthclip_100_sdxl.tar -C PACS_final
+# rm PACS_final_synclr_100_sdxl.tar
+# rm PACS_final_synthclip_100_sdxl.tar
+
+# cot_50, 100_2 with refinement, sdxl 
+./gdrive files download 16ackcN1uJue3AnoKV6XVuvIRNkiuxoMz # PACS_final_cot_50_2_refined_sdxl
+./gdrive files download 1NTCqdTYzuiulT8G2NxK8u0qtCi_FXbIy # PACS_final_cot_100_2_refined_sdxl
+tar -xf PACS_final_cot_50_2_refined_sdxl.tar -C PACS_final
+tar -xf PACS_final_cot_100_2_refined_sdxl.tar -C PACS_final
+rm PACS_final_cot_50_2_refined_sdxl.tar
+rm PACS_final_cot_100_2_refined_sdxl.tar
