@@ -170,6 +170,7 @@ def main():
             new_path = os.path.join(os.path.dirname(eval_root), new_folder_name)
             os.rename(eval_root, new_path)
             print(f"Directory renamed to {new_folder_name}")
+            
 
 if __name__ == "__main__":
     torch.multiprocessing.set_start_method('spawn')
