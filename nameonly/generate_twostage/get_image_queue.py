@@ -248,6 +248,7 @@ class CogView2Generator(ImageGenerator):
 class GlideGenerator(ImageGenerator):
     def __init__(self):
         super().__init__("Glide")
+        self.load_model()
     
     def load_model(self):
         from Glide.glide_utils import Glide
