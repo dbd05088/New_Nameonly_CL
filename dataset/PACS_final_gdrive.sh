@@ -874,9 +874,9 @@
 # rm PACS_final_cot_100_3_sdxl.tar
 
 # LE_diversified_100_sdxl and glide (0915)
-./gdrive files download 149P9fyJJFjZWDoRTukaiN8hdTOxFAHx_ # PACS_final_LE_diversified_100_sdxl
-./gdrive files download 1rQqFbHH5wQ4ZH0hlk9J2XXFD8j_ALCYM # PACS_final_LE_diversified_glide_100_sdxl
+./gdrive files download 1Y628Qu852mt03H94I3ZMW2n_NBSPXbuh # PACS_final_LE_diversified_100_sdxl
+./gdrive files download 15jzY5ngnU459VWcmCYJdg11KNrwNfDzc # PACS_final_LE_diversified_100_glide
 tar -xf PACS_final_LE_diversified_100_sdxl.tar -C PACS_final
-tar -xf PACS_final_LE_diversified_glide_100_sdxl.tar -C PACS_final
+tar -xf PACS_final_LE_diversified_100_glide.tar -C PACS_final
 rm PACS_final_LE_diversified_100_sdxl.tar
-rm PACS_final_LE_diversified_glide_100_sdxl.tar
+rm PACS_final_LE_diversified_100_glide.tar
