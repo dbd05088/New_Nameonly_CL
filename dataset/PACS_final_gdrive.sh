@@ -853,22 +853,30 @@
 # rm PACS_final_cot_50_sdxl.tar
 # rm PACS_final_cot_100_sdxl.tar
 
-# PACS_final_cot_50_1~3, 100_1~3, sdxl (0914)
-./gdrive files download 1wJTdt0tBhoUbXY5v9TGBmhqzrZyX2vI7 # PACS_final_cot_50_1_sdxl
-./gdrive files download 1jGCyHZIYez9kzsqCxfgmRIQjpPBTBphK # PACS_final_cot_50_2_sdxl
-./gdrive files download 134qEyhb9LAqEuZxhE8ukiY50eNxulhB9 # PACS_final_cot_50_3_sdxl
-./gdrive files download 1pTyp5cavrwInVwf17kgJo9ASiWv_niky # PACS_final_cot_100_1_sdxl
-./gdrive files download 153iJc04PQUNFyQJ4_3KljGSXdRFCdmqw # PACS_final_cot_100_2_sdxl
-./gdrive files download 1IHUD5uIS1qweeimqJ_Kal2fA4smdmY9Q # PACS_final_cot_100_3_sdxl
-tar -xf PACS_final_cot_50_1_sdxl.tar -C PACS_final
-tar -xf PACS_final_cot_50_2_sdxl.tar -C PACS_final
-tar -xf PACS_final_cot_50_3_sdxl.tar -C PACS_final
-tar -xf PACS_final_cot_100_1_sdxl.tar -C PACS_final
-tar -xf PACS_final_cot_100_2_sdxl.tar -C PACS_final
-tar -xf PACS_final_cot_100_3_sdxl.tar -C PACS_final
-rm PACS_final_cot_50_1_sdxl.tar
-rm PACS_final_cot_50_2_sdxl.tar
-rm PACS_final_cot_50_3_sdxl.tar
-rm PACS_final_cot_100_1_sdxl.tar
-rm PACS_final_cot_100_2_sdxl.tar
-rm PACS_final_cot_100_3_sdxl.tar
+# # PACS_final_cot_50_1~3, 100_1~3, sdxl (0914)
+# ./gdrive files download 1wJTdt0tBhoUbXY5v9TGBmhqzrZyX2vI7 # PACS_final_cot_50_1_sdxl
+# ./gdrive files download 1jGCyHZIYez9kzsqCxfgmRIQjpPBTBphK # PACS_final_cot_50_2_sdxl
+# ./gdrive files download 134qEyhb9LAqEuZxhE8ukiY50eNxulhB9 # PACS_final_cot_50_3_sdxl
+# ./gdrive files download 1pTyp5cavrwInVwf17kgJo9ASiWv_niky # PACS_final_cot_100_1_sdxl
+# ./gdrive files download 153iJc04PQUNFyQJ4_3KljGSXdRFCdmqw # PACS_final_cot_100_2_sdxl
+# ./gdrive files download 1IHUD5uIS1qweeimqJ_Kal2fA4smdmY9Q # PACS_final_cot_100_3_sdxl
+# tar -xf PACS_final_cot_50_1_sdxl.tar -C PACS_final
+# tar -xf PACS_final_cot_50_2_sdxl.tar -C PACS_final
+# tar -xf PACS_final_cot_50_3_sdxl.tar -C PACS_final
+# tar -xf PACS_final_cot_100_1_sdxl.tar -C PACS_final
+# tar -xf PACS_final_cot_100_2_sdxl.tar -C PACS_final
+# tar -xf PACS_final_cot_100_3_sdxl.tar -C PACS_final
+# rm PACS_final_cot_50_1_sdxl.tar
+# rm PACS_final_cot_50_2_sdxl.tar
+# rm PACS_final_cot_50_3_sdxl.tar
+# rm PACS_final_cot_100_1_sdxl.tar
+# rm PACS_final_cot_100_2_sdxl.tar
+# rm PACS_final_cot_100_3_sdxl.tar
+
+# LE_diversified_100_sdxl and glide (0915)
+./gdrive files download 149P9fyJJFjZWDoRTukaiN8hdTOxFAHx_ # PACS_final_LE_diversified_100_sdxl
+./gdrive files download 1rQqFbHH5wQ4ZH0hlk9J2XXFD8j_ALCYM # PACS_final_LE_diversified_glide_100_sdxl
+tar -xf PACS_final_LE_diversified_100_sdxl.tar -C PACS_final
+tar -xf PACS_final_LE_diversified_glide_100_sdxl.tar -C PACS_final
+rm PACS_final_LE_diversified_100_sdxl.tar
+rm PACS_final_LE_diversified_glide_100_sdxl.tar
