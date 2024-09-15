@@ -881,10 +881,31 @@
 # rm PACS_final_LE_diversified_100_sdxl.tar
 # rm PACS_final_LE_diversified_100_glide.tar
 
-# synclr, synthclip with 100 (0915)
-./gdrive files download 1Vz1Nha_iznjfKNldqF6Qi5Kz442BDWsl # PACS_final_synclr_100_sdxl
-./gdrive files download 1n_BpvjePYb0O2l0kLLgao8iThwsne24M # PACS_final_synthclip_100_sdxl
-tar -xf PACS_final_synclr_100_sdxl.tar -C PACS_final
-tar -xf PACS_final_synthclip_100_sdxl.tar -C PACS_final
-rm PACS_final_synclr_100_sdxl.tar
-rm PACS_final_synthclip_100_sdxl.tar
+# # synclr, synthclip with 100 (0915)
+# ./gdrive files download 1Vz1Nha_iznjfKNldqF6Qi5Kz442BDWsl # PACS_final_synclr_100_sdxl
+# ./gdrive files download 1n_BpvjePYb0O2l0kLLgao8iThwsne24M # PACS_final_synthclip_100_sdxl
+# tar -xf PACS_final_synclr_100_sdxl.tar -C PACS_final
+# tar -xf PACS_final_synthclip_100_sdxl.tar -C PACS_final
+# rm PACS_final_synclr_100_sdxl.tar
+# rm PACS_final_synthclip_100_sdxl.tar
+
+
+# cot_50_2, 100_2 ensemble
+./gdrive files download 121G1RDtQojgUw8ivUKh1IBhqhKrY-FKL # PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow
+./gdrive files download 1JTIV4iiKmOq-lRabQOc9M7zIMAvDIlnr # PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_flux_auraflow
+./gdrive files download 1zfh94zruZ6Eqs3Lu8WmPc1Vp_7WyZBK7 # PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow
+./gdrive files download 17w3rV0A9hsUckxiD3hfjB8IsMOgN65ZU # PACS_final_cot_100_2_sdxl_floyd_cogview2_sd3_auraflow
+./gdrive files download 1A3r_z6EgzrIMZVyK1HoOXiE5-F8aqxdt # PACS_final_cot_100_2_sdxl_floyd_cogview2_sd3_flux_auraflow
+./gdrive files download 10hADk5SlsR1TbAr294RR65xaAJgut1Mw # PACS_final_cot_100_2_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow
+tar -xf PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow.tar -C PACS_final
+tar -xf PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_flux_auraflow.tar -C PACS_final
+tar -xf PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.tar -C PACS_final
+tar -xf PACS_final_cot_100_2_sdxl_floyd_cogview2_sd3_auraflow.tar -C PACS_final
+tar -xf PACS_final_cot_100_2_sdxl_floyd_cogview2_sd3_flux_auraflow.tar -C PACS_final
+tar -xf PACS_final_cot_100_2_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.tar -C PACS_final
+rm PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow.tar
+rm PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
+rm PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.tar
+rm PACS_final_cot_100_2_sdxl_floyd_cogview2_sd3_auraflow.tar
+rm PACS_final_cot_100_2_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
+rm PACS_final_cot_100_2_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.tar
