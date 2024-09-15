@@ -889,6 +889,24 @@
 # rm PACS_final_synclr_100_sdxl.tar
 # rm PACS_final_synthclip_100_sdxl.tar
 
+# # cot_50, 100_2 with refinement, sdxl 
+# ./gdrive files download 16ackcN1uJue3AnoKV6XVuvIRNkiuxoMz # PACS_final_cot_50_2_refined_sdxl
+# ./gdrive files download 1NTCqdTYzuiulT8G2NxK8u0qtCi_FXbIy # PACS_final_cot_100_2_refined_sdxl
+# tar -xf PACS_final_cot_50_2_refined_sdxl.tar -C PACS_final
+# tar -xf PACS_final_cot_100_2_refined_sdxl.tar -C PACS_final
+# rm PACS_final_cot_50_2_refined_sdxl.tar
+# rm PACS_final_cot_100_2_refined_sdxl.tar
+
+# ./gdrive files download 1c6SwO5uIQuwrfqQyUkFq_SPU33xtDOQ3 # PACS_final_cot_100_contrast
+# tar -xf PACS_final_cot_100_contrast.tar -C PACS_final
+# rm PACS_final_cot_100_contrast.tar
+
+# ./gdrive files download 1UMjkUApg6jldotL-MGMfbMLJ68U7rM-E # PACS_final_cot_50_dynamic_sdxl
+# ./gdrive files download 15ykU_9ITuKP50Y-4BWnsQuzyB6NtuaTi # PACS_final_cot_100_dynamic_sdxl
+# tar -xf PACS_final_cot_50_dynamic_sdxl.tar -C PACS_final
+# tar -xf PACS_final_cot_100_dynamic_sdxl.tar -C PACS_final
+# rm PACS_final_cot_50_dynamic_sdxl.tar
+# rm PACS_final_cot_100_dynamic_sdxl.tar
 
 # cot_50_2, 100_2 ensemble
 ./gdrive files download 121G1RDtQojgUw8ivUKh1IBhqhKrY-FKL # PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow
