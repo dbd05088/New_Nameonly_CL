@@ -873,10 +873,18 @@
 # rm PACS_final_cot_100_2_sdxl.tar
 # rm PACS_final_cot_100_3_sdxl.tar
 
-# LE_diversified_100_sdxl and glide (0915)
-./gdrive files download 1Y628Qu852mt03H94I3ZMW2n_NBSPXbuh # PACS_final_LE_diversified_100_sdxl
-./gdrive files download 15jzY5ngnU459VWcmCYJdg11KNrwNfDzc # PACS_final_LE_diversified_100_glide
-tar -xf PACS_final_LE_diversified_100_sdxl.tar -C PACS_final
-tar -xf PACS_final_LE_diversified_100_glide.tar -C PACS_final
-rm PACS_final_LE_diversified_100_sdxl.tar
-rm PACS_final_LE_diversified_100_glide.tar
+# # LE_diversified_100_sdxl and glide (0915)
+# ./gdrive files download 1Y628Qu852mt03H94I3ZMW2n_NBSPXbuh # PACS_final_LE_diversified_100_sdxl
+# ./gdrive files download 15jzY5ngnU459VWcmCYJdg11KNrwNfDzc # PACS_final_LE_diversified_100_glide
+# tar -xf PACS_final_LE_diversified_100_sdxl.tar -C PACS_final
+# tar -xf PACS_final_LE_diversified_100_glide.tar -C PACS_final
+# rm PACS_final_LE_diversified_100_sdxl.tar
+# rm PACS_final_LE_diversified_100_glide.tar
+
+# synclr, synthclip with 100 (0915)
+./gdrive files download 1Vz1Nha_iznjfKNldqF6Qi5Kz442BDWsl # PACS_final_synclr_100_sdxl
+./gdrive files download 1n_BpvjePYb0O2l0kLLgao8iThwsne24M # PACS_final_synthclip_100_sdxl
+tar -xf PACS_final_synclr_100_sdxl.tar -C PACS_final
+tar -xf PACS_final_synthclip_100_sdxl.tar -C PACS_final
+rm PACS_final_synclr_100_sdxl.tar
+rm PACS_final_synthclip_100_sdxl.tar
