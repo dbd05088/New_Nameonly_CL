@@ -102,6 +102,7 @@ for i, metaprompt in enumerate(tqdm(metaprompt_list)):
                 print(f"Generated prompt: {prompt}")
                 assert '[concept]' in prompt
                 prompt_list.append(prompt)
+                cot_list.append(prompt)
                 break
             except Exception as e:
                 print(e)
