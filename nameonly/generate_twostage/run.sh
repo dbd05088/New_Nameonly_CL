@@ -42,7 +42,6 @@ CUDA_VISIBLE_DEVICES=$GPU_ID nohup python get_image_queue.py --config_path ./con
 #     CUDA_HOME=/opt/ohpc/pub/apps/cuda/12.5 python get_image_queue.py --config_path ./configs/default.yaml --dataset $DATASET --image_dir $IMAGE_DIR \
 #     --generative_model $GENERATIVE_MODEL --start_class $START_CLASS --end_class $END_CLASS --prompt_dir $PROMPT_DIR \
 #     --increase_ratio $INCREASE_RATIO
-# fi
 # else
 #     python get_image_queue.py --config_path ./configs/default.yaml --dataset $DATASET --image_dir $IMAGE_DIR \
 #     --generative_model $GENERATIVE_MODEL --start_class $START_CLASS --end_class $END_CLASS --prompt_dir $PROMPT_DIR \
