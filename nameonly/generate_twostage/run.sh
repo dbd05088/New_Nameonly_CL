@@ -4,6 +4,8 @@
 #SBATCH -p suma_rtx4090
 #SBATCH --gres=gpu:1
 #SBATCH -q big_qos
+#SBATCH --job-name=50_2_refined_auraflow
+#SBATCH --output=logs/%x_%j.out
 ##SBATCH --exclude=node37
 
 ## Uncomment when running on datacenter
