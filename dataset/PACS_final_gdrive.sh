@@ -928,16 +928,36 @@
 # rm PACS_final_cot_100_2_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
 # rm PACS_final_cot_100_2_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.tar
 
-# cot_50_2, 100_2 refined with new1, new2 / sdxl (0916)
-./gdrive files download 1HHfuNcPEEXU2lbgUXYU6g7ojuv64c2r1 # PACS_final_cot_100_2_refined_new1
-./gdrive files download 1FFegMf8rjSRuOT5F8xXkCg2T8PEdVvF- # PACS_final_cot_100_2_refined_new2
-./gdrive files download 1uqQMSfzowL8Vz1OrQ75TkFZUZi2W1F20 # PACS_final_cot_50_2_refined_new1
-./gdrive files download 1YCwlCZs5dYyhesVr9aBScUsBab43kEbh # PACS_final_cot_50_2_refined_new2
-tar -xf PACS_final_cot_100_2_refined_new1.tar -C PACS_final
-tar -xf PACS_final_cot_100_2_refined_new2.tar -C PACS_final
-tar -xf PACS_final_cot_50_2_refined_new1.tar -C PACS_final
-tar -xf PACS_final_cot_50_2_refined_new2.tar -C PACS_final
-rm PACS_final_cot_100_2_refined_new1.tar
-rm PACS_final_cot_100_2_refined_new2.tar
-rm PACS_final_cot_50_2_refined_new1.tar
-rm PACS_final_cot_50_2_refined_new2.tar
+# # cot_50_2, 100_2 refined with new1, new2 / sdxl (0916)
+# ./gdrive files download 1HHfuNcPEEXU2lbgUXYU6g7ojuv64c2r1 # PACS_final_cot_100_2_refined_new1
+# ./gdrive files download 1FFegMf8rjSRuOT5F8xXkCg2T8PEdVvF- # PACS_final_cot_100_2_refined_new2
+# ./gdrive files download 1uqQMSfzowL8Vz1OrQ75TkFZUZi2W1F20 # PACS_final_cot_50_2_refined_new1
+# ./gdrive files download 1YCwlCZs5dYyhesVr9aBScUsBab43kEbh # PACS_final_cot_50_2_refined_new2
+# tar -xf PACS_final_cot_100_2_refined_new1.tar -C PACS_final
+# tar -xf PACS_final_cot_100_2_refined_new2.tar -C PACS_final
+# tar -xf PACS_final_cot_50_2_refined_new1.tar -C PACS_final
+# tar -xf PACS_final_cot_50_2_refined_new2.tar -C PACS_final
+# rm PACS_final_cot_100_2_refined_new1.tar
+# rm PACS_final_cot_100_2_refined_new2.tar
+# rm PACS_final_cot_50_2_refined_new1.tar
+# rm PACS_final_cot_50_2_refined_new2.tar
+
+# cot_50_2, 10_2 refined ensemble (0917)
+./gdrive files download 12U3UsxrzjrowCc-8dk2GOwVFopzTYqTp # PACS_final_cot_50_2_refined_sdxl_floyd_cogview2_sd3_auraflow
+./gdrive files download 1pLfTAQd4poa-b3NX69Fk8B2g818AowUA # PACS_final_cot_50_2_refined_sdxl_floyd_cogview2_sd3_flux_auraflow
+./gdrive files download 1GSDlUDj5zNXJCkJLb1OzikNjrMllGz_8 # PACS_final_cot_50_2_refined_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow
+./gdrive files download 1y_PQYilPd8LBpJOO5bWac4EGKr3aYw_g # PACS_final_cot_100_2_refined_sdxl_floyd_cogview2_sd3_auraflow
+./gdrive files download 1CQmyRabkjkqCKEerwOlw3TLfkFiwHVQi # PACS_final_cot_100_2_refined_sdxl_floyd_cogview2_sd3_flux_auraflow
+./gdrive files download 1Aamn4oOm1pka_z16d1Crs0RHt1VgBbG1 # PACS_final_cot_100_2_refined_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow
+tar -xf PACS_final_cot_50_2_refined_sdxl_floyd_cogview2_sd3_auraflow.tar -C PACS_final
+tar -xf PACS_final_cot_50_2_refined_sdxl_floyd_cogview2_sd3_flux_auraflow.tar -C PACS_final
+tar -xf PACS_final_cot_50_2_refined_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.tar -C PACS_final
+tar -xf PACS_final_cot_100_2_refined_sdxl_floyd_cogview2_sd3_auraflow.tar -C PACS_final
+tar -xf PACS_final_cot_100_2_refined_sdxl_floyd_cogview2_sd3_flux_auraflow.tar -C PACS_final
+tar -xf PACS_final_cot_100_2_refined_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.tar -C PACS_final
+rm PACS_final_cot_50_2_refined_sdxl_floyd_cogview2_sd3_auraflow.tar
+rm PACS_final_cot_50_2_refined_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
+rm PACS_final_cot_50_2_refined_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.tar
+rm PACS_final_cot_100_2_refined_sdxl_floyd_cogview2_sd3_auraflow.tar
+rm PACS_final_cot_100_2_refined_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
+rm PACS_final_cot_100_2_refined_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.tar
