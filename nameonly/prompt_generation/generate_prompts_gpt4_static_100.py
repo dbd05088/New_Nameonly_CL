@@ -98,7 +98,7 @@ for i, metaprompt in enumerate(tqdm(metaprompt_list)):
         while True:
             try:
                 prompt = generate_prompt_stage2(client, cot_list)
-                print(f"previous generated prompts: {prompt_list}")
+                print(f"previous generated prompts: {cot_list}")
                 print(f"Generated prompt: {prompt}")
                 assert '[concept]' in prompt
                 prompt_list.append(prompt)
