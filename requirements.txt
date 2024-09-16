@@ -53,3 +53,4 @@ torch-optimizer
 torchvision
 tqdm==4.66.5
 transformers==4.40.0
+diffusers
