@@ -8,7 +8,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('-d', '--dataset', type=str, default=None)
 parser.add_argument('-s', '--source_path', type=str, required=True)
-parser.add_argument('-r', '--threshold_ratio', type=float)
+parser.add_argument('-t', '--threshold_ratio', type=float, default=1.0)
 args = parser.parse_args()
 
 replacements = {
@@ -26,7 +26,6 @@ if args.dataset is None:
             print(f"Dataset not specified. Detected dataset: {replacement}")
             args.dataset = replacement
             break
-
 
 def check_class_names(directory_path, class_names_dict):
     class_names = os.listdir(directory_path)
@@ -90,15 +89,27 @@ dataset_mapping = {'DomainNet': DomainNet_count, 'officehome': officehome_count,
                    'pacs_dalle2_new': pacs_dalle2_new_count, 'NICO': NICO_count}
 
 class_names_dict = dataset_mapping[args.dataset]
+dir_cls_count_dict = {cls: len(os.listdir(os.path.join(directory_path, cls))) for cls in os.listdir(directory_path) if not cls.endswith('.json')}
 
-cls_count_dict = {cls: len(os.listdir(os.path.join(directory_path, cls))) for cls in os.listdir(directory_path) if not cls.endswith('.json')}
-print(f"Total number of classes: {len(os.listdir(directory_path))}")
-print(f"Dictionary from classes.py: {class_names_dict}")
-print(f"Count dictionary from dir: {cls_count_dict}")
-print(f"Size same: {class_names_dict == cls_count_dict}")
-print(f"Key same: {class_names_dict.keys() == cls_count_dict.keys()}")
-check_class_names(directory_path, class_names_dict)
+print(f"Current threshold ratio: {args.threshold_ratio}")
+# Step 1-1: Check class names
+for dir_cls in dir_cls_count_dict.keys():
+    if dir_cls not in class_names_dict.keys():
+        print(f"Class {dir_cls} not found in class names dictionary.")
+        raise ValueError(f"Class {dir_cls} not found in class names dictionary.")
 
+# Step 1-2: Check class count
+less_than_threshold = []
+for cls, count in class_names_dict.items():
+    if cls not in dir_cls_count_dict.keys():
+        less_than_threshold.append(cls)
+    elif dir_cls_count_dict[cls] < count * args.threshold_ratio:
+        less_than_threshold.append(cls)
+
+enough = len(less_than_threshold) == 0
+exact_match = dir_cls_count_dict == class_names_dict
+
+# Step 2: Check image size
 # Choose all images in the first class
 class_names = [cls for cls in os.listdir(directory_path) if not cls.endswith('.json')]
 class_name = class_names[0]
@@ -111,12 +122,14 @@ for image in os.listdir(os.path.join(directory_path, class_name)):
         if not image_size_correct:
             print(f"WARNING: Image {image_path} does not have the correct size.")
             break
+
+print(f"Count enough (over threshold): {enough}")
+print(f"Count exact match: {exact_match}")
 print(f"Image size correct: {image_size_correct}")
 
+if not enough:
+    print(f"Classes with less than threshold count: {less_than_threshold}")
+    raise ValueError(f"Classes with less than threshold count: {less_than_threshold}")
+
+# Step 3: Check image validity
 convert_correct = convert_images_in_directory(directory_path)
-
-if image_size_correct and convert_correct and {class_names_dict.keys() == cls_count_dict.keys()}:
-    print(f"SUCCESS: All images in {directory_path} are valid.")
-else:
-    print(f"!!!!!WARNING: Some images in {directory_path} are invalid.")
-
