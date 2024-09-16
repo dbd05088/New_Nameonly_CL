@@ -225,6 +225,9 @@ class ZeroShotClip:
         label = []
 
         self.model.eval()
+        list_img_features = []
+        list_text_features = []
+        gt_labels = []
         with torch.no_grad():
             for i, data in enumerate(test_loader):
                 imgs = data["image"]
@@ -234,14 +237,22 @@ class ZeroShotClip:
                 
                 image_features = self.model.encode_image(imgs)
                 text_features = self.model.encode_text(self.text_class_tokens)
-                image_features /= image_features.norm(dim=-1, keepdim=True)
-                text_features /= text_features.norm(dim=-1, keepdim=True)
-                            
-                text_probs = (100.0 * image_features @ text_features.T).softmax(dim=-1)
-                top_probs, top_labels = text_probs.topk(1, dim=-1)
-                total_num_data += labels.size(0)
                 
-                total_correct += torch.sum(top_labels == labels.unsqueeze(1)).item()
+                list_img_features.append(image_features.cpu())
+                list_text_features.append(text_features.cpu())
+                gt_labels.append(labels.cpu())
+        
+        gt_labels = torch.cat(gt_labels)
+        image_features = torch.cat(list_img_features)
+        text_features = torch.cat(list_text_features)        
+        image_features /= image_features.norm(dim=-1, keepdim=True)
+        text_features /= text_features.norm(dim=-1, keepdim=True)
+                    
+        text_probs = (100.0 * image_features @ text_features.T).softmax(dim=-1)
+        top_probs, top_labels = text_probs.topk(1, dim=-1)
+        total_num_data += gt_labels.size(0)
+        
+        total_correct += torch.sum(top_labels == gt_labels.unsqueeze(1)).item()
 
         avg_acc = total_correct / total_num_data
         ret = {"avg_acc": avg_acc}

@@ -5,7 +5,7 @@ import signal
 import shutil
 import time
 import re
-from get_image_onestage import model_selector, adjust_list_length
+from get_image_queue import model_selector, adjust_list_length
 from tqdm import tqdm
 from utils import *
 from pathlib import Path

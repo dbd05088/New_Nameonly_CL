@@ -1,0 +1,210 @@
+{
+    "metaprompts": [
+        {
+            "index": 0,
+            "metaprompt": "dummy",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A photo of a [concept]."
+                },
+                {
+                    "index": 1,
+                    "content": "A detailed sketch of [concept]."
+                },
+                {
+                    "index": 2,
+                    "content": "A minimalist illustration of [concept]."
+                },
+                {
+                    "index": 3,
+                    "content": "A vibrant oil painting of [concept]."
+                },
+                {
+                    "index": 4,
+                    "content": "A photo of [concept] with dramatic lighting."
+                },
+                {
+                    "index": 5,
+                    "content": "A colorful vector clipart of [concept]."
+                },
+                {
+                    "index": 6,
+                    "content": "A photo of [concept] in natural light."
+                },
+                {
+                    "index": 7,
+                    "content": "A high-resolution digital rendering of [concept]."
+                },
+                {
+                    "index": 8,
+                    "content": "A hyperrealistic digital rendering of [concept]."
+                },
+                {
+                    "index": 9,
+                    "content": "A photo of [concept] in sunset lighting."
+                },
+                {
+                    "index": 10,
+                    "content": "A high-resolution 3D render of [concept]."
+                },
+                {
+                    "index": 11,
+                    "content": "A high-definition image of [concept] in golden hour sunlight."
+                },
+                {
+                    "index": 12,
+                    "content": "A high-contrast black and white photograph of [concept]."
+                },
+                {
+                    "index": 13,
+                    "content": "A photorealistic image of [concept] with a vintage sepia tone."
+                },
+                {
+                    "index": 14,
+                    "content": "A high-definition digital rendering of [concept] in sunset lighting."
+                },
+                {
+                    "index": 15,
+                    "content": "A high-definition 3D render of [concept]."
+                },
+                {
+                    "index": 16,
+                    "content": "A sepia-toned photograph of [concept] in a vintage setting."
+                },
+                {
+                    "index": 17,
+                    "content": "A high-resolution portrait of [concept] in golden hour lighting."
+                },
+                {
+                    "index": 18,
+                    "content": "A high-resolution photorealistic image of [concept] in a vibrant urban setting."
+                },
+                {
+                    "index": 19,
+                    "content": "A photo of [concept] with a vibrant color palette."
+                },
+                {
+                    "index": 20,
+                    "content": "A photorealistic image of [concept] in a natural setting with vibrant colors."
+                },
+                {
+                    "index": 21,
+                    "content": "A vibrant photo of [concept] at sunset."
+                },
+                {
+                    "index": 22,
+                    "content": "A vintage postcard of [concept]."
+                },
+                {
+                    "index": 23,
+                    "content": "A moody black-and-white photograph of [concept]."
+                },
+                {
+                    "index": 24,
+                    "content": "A photo of [concept] at sunset with a warm color palette."
+                },
+                {
+                    "index": 25,
+                    "content": "A photo of [concept] in black and white."
+                },
+                {
+                    "index": 26,
+                    "content": "A vibrant photo of [concept] during sunrise with a warm color palette."
+                },
+                {
+                    "index": 27,
+                    "content": "A high-resolution macro shot of [concept] with vibrant colors."
+                },
+                {
+                    "index": 28,
+                    "content": "A photorealistic image of [concept] set against a vibrant sunset background."
+                },
+                {
+                    "index": 29,
+                    "content": "A high-resolution image of [concept] with a golden hour glow."
+                },
+                {
+                    "index": 30,
+                    "content": "A photo of [concept] in a vibrant sunset light."
+                },
+                {
+                    "index": 31,
+                    "content": "A black and white high-contrast photograph of [concept]."
+                },
+                {
+                    "index": 32,
+                    "content": "A hyper-realistic 3D render of [concept]."
+                },
+                {
+                    "index": 33,
+                    "content": "A cinematic shot of [concept] in golden hour lighting."
+                },
+                {
+                    "index": 34,
+                    "content": "A photo of [concept] with a vibrant color palette."
+                },
+                {
+                    "index": 35,
+                    "content": "A black and white photo of [concept] with intricate details."
+                },
+                {
+                    "index": 36,
+                    "content": "A photorealistic image of [concept] at sunset with vibrant hues."
+                },
+                {
+                    "index": 37,
+                    "content": "A high-definition drone shot of [concept] at sunset."
+                },
+                {
+                    "index": 38,
+                    "content": "A hyper-realistic 3D render of [concept]."
+                },
+                {
+                    "index": 39,
+                    "content": "A high-definition 3D render of [concept]."
+                },
+                {
+                    "index": 40,
+                    "content": "A high-definition portrait of [concept] in black and white."
+                },
+                {
+                    "index": 41,
+                    "content": "A high-resolution digital render of [concept]."
+                },
+                {
+                    "index": 42,
+                    "content": "A serene watercolor painting of [concept]."
+                },
+                {
+                    "index": 43,
+                    "content": "A cinematic wide-angle shot of [concept] at dusk."
+                },
+                {
+                    "index": 44,
+                    "content": "A hyperrealistic 3D render of [concept]."
+                },
+                {
+                    "index": 45,
+                    "content": "A vivid painting of [concept] using vibrant colors."
+                },
+                {
+                    "index": 46,
+                    "content": "A high-contrast black and white photograph of [concept]."
+                },
+                {
+                    "index": 47,
+                    "content": "A vivid oil painting of [concept] in a sunset color palette."
+                },
+                {
+                    "index": 48,
+                    "content": "A hyper-realistic 3D render of [concept] with dramatic lighting."
+                },
+                {
+                    "index": 49,
+                    "content": "A high-definition digital rendering of [concept]."
+                }
+            ]
+        }
+    ]
+}

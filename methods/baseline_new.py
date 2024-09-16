@@ -45,9 +45,9 @@ class BASELINE(CLManagerBase):
             self.fast_model = None
         if sample['klass'] not in self.exposed_classes:
             self.add_new_class(sample['klass'])
-            self.writer.add_scalar(f"train/add_new_class", 1, sample_num)
-        else:
-            self.writer.add_scalar(f"train/add_new_class", 0, sample_num)
+            # self.writer.add_scalar(f"train/add_new_class", 1, sample_num)
+        # else:
+            # self.writer.add_scalar(f"train/add_new_class", 0, sample_num)
         
         self.num_updates += self.online_iter
         if self.num_updates >= 1:

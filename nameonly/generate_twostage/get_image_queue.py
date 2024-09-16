@@ -239,10 +239,24 @@ class CogView2Generator(ImageGenerator):
     
     def load_model(self):
         from CogView2.generator import Cogview2
-        self.model = Cogview2(img_size=160, style='photo', batch_size=1, max_inference_batch_size=1)
+        self.model = Cogview2(img_size=224, style='photo', batch_size=1, max_inference_batch_size=1)
     
     def generate_one_image(self, prompt):
         image = self.model.generate_images(prompt)
+        return image
+
+class GlideGenerator(ImageGenerator):
+    def __init__(self):
+        super().__init__("Glide")
+        self.load_model()
+    
+    def load_model(self):
+        from Glide.glide_utils import Glide
+        self.model = Glide()
+        self.model.load_model()
+    
+    def generate_one_image(self, prompt):
+        image = self.model.text2image(prompt, 1)
         return image
 
 def model_selector(generative_model, API_KEY=None):
@@ -260,6 +274,8 @@ def model_selector(generative_model, API_KEY=None):
         print(f"Set MASTER_PORT to {free_port}!")
         os.environ["MASTER_PORT"] = str(free_port)
         return CogView2Generator()
+    elif generative_model == "glide":
+        return GlideGenerator()
     elif generative_model == "dalle2":
         return DALLE2Generator(api_key=API_KEY)
     elif generative_model == "karlo":

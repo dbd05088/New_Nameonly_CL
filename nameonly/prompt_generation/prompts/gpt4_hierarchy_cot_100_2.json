@@ -1,0 +1,410 @@
+{
+    "metaprompts": [
+        {
+            "index": 0,
+            "metaprompt": "dummy",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A photo of a [concept]."
+                },
+                {
+                    "index": 1,
+                    "content": "A detailed sketch of [concept]."
+                },
+                {
+                    "index": 2,
+                    "content": "A minimalist illustration of [concept]."
+                },
+                {
+                    "index": 3,
+                    "content": "A vivid landscape painting of [concept]."
+                },
+                {
+                    "index": 4,
+                    "content": "A high-contrast monochrome image of [concept]."
+                },
+                {
+                    "index": 5,
+                    "content": "A vibrant street scene of [concept]."
+                },
+                {
+                    "index": 6,
+                    "content": "A hyper-realistic portrait of [concept]."
+                },
+                {
+                    "index": 7,
+                    "content": "A soft-focus photograph of [concept]."
+                },
+                {
+                    "index": 8,
+                    "content": "A sepia-toned vintage photo of [concept]."
+                },
+                {
+                    "index": 9,
+                    "content": "A neon-lit night scene of [concept]."
+                },
+                {
+                    "index": 10,
+                    "content": "A vibrant, surreal landscape with [concept]."
+                },
+                {
+                    "index": 11,
+                    "content": "A high-contrast macro shot of [concept]."
+                },
+                {
+                    "index": 12,
+                    "content": "A vibrant, sunlit landscape photograph of [concept]."
+                },
+                {
+                    "index": 13,
+                    "content": "A hyper-realistic close-up shot of [concept] in vibrant colors."
+                },
+                {
+                    "index": 14,
+                    "content": "A golden hour cityscape with soft shadows and warm tones of [concept]."
+                },
+                {
+                    "index": 15,
+                    "content": "A high-contrast black and white image of [concept]."
+                },
+                {
+                    "index": 16,
+                    "content": "A serene sunrise over a foggy forest with [concept]."
+                },
+                {
+                    "index": 17,
+                    "content": "A serene sunset view showcasing [concept]."
+                },
+                {
+                    "index": 18,
+                    "content": "A vivid, full-spectrum color photograph of [concept]."
+                },
+                {
+                    "index": 19,
+                    "content": "A hyper-realistic HDR image of [concept]."
+                },
+                {
+                    "index": 20,
+                    "content": "A high-contrast, black and white photograph of [concept]."
+                },
+                {
+                    "index": 21,
+                    "content": "A high-resolution macro photograph of [concept]."
+                },
+                {
+                    "index": 22,
+                    "content": "A sunlit beach vista with serene waves of [concept]."
+                },
+                {
+                    "index": 23,
+                    "content": "An intricate close-up photo of [concept] with soft, natural lighting."
+                },
+                {
+                    "index": 24,
+                    "content": "A vibrant, high-contrast image of [concept]."
+                },
+                {
+                    "index": 25,
+                    "content": "A detailed macro photograph of [concept]."
+                },
+                {
+                    "index": 26,
+                    "content": "A serene dawn landscape capturing [concept] in soft pastel colors."
+                },
+                {
+                    "index": 27,
+                    "content": "A vibrant cinematic scene featuring [concept] at sunset."
+                },
+                {
+                    "index": 28,
+                    "content": "A serene sunset landscape featuring [concept]."
+                },
+                {
+                    "index": 29,
+                    "content": "A surreal underwater scene of [concept]."
+                },
+                {
+                    "index": 30,
+                    "content": "A sunrise landscape of [concept] in pastel hues."
+                },
+                {
+                    "index": 31,
+                    "content": "A high-contrast black and white photo of [concept]."
+                },
+                {
+                    "index": 32,
+                    "content": "A high-contrast, black and white photograph of [concept]."
+                },
+                {
+                    "index": 33,
+                    "content": "A sunlit golden hour photo of [concept]."
+                },
+                {
+                    "index": 34,
+                    "content": "A high-contrast monochrome image of [concept]."
+                },
+                {
+                    "index": 35,
+                    "content": "A picturesque twilight scene of [concept] with warm, glowing hues."
+                },
+                {
+                    "index": 36,
+                    "content": "A high-contrast black and white image of [concept]."
+                },
+                {
+                    "index": 37,
+                    "content": "A high-contrast, monochrome urban scene featuring [concept]."
+                },
+                {
+                    "index": 38,
+                    "content": "A vibrant, high-resolution depiction of [concept] in a natural setting."
+                },
+                {
+                    "index": 39,
+                    "content": "A dramatic twilight scene of [concept] with warm, ambient lighting."
+                },
+                {
+                    "index": 40,
+                    "content": "A high-contrast monochrome image of [concept]."
+                },
+                {
+                    "index": 41,
+                    "content": "A lifelike 3D rendering of [concept]."
+                },
+                {
+                    "index": 42,
+                    "content": "A high-contrast nighttime photo of [concept] under neon lights."
+                },
+                {
+                    "index": 43,
+                    "content": "A vivid, high-definition landscape shot of [concept] at golden hour."
+                },
+                {
+                    "index": 44,
+                    "content": "A soft focus pastel-toned photograph of [concept]."
+                },
+                {
+                    "index": 45,
+                    "content": "A hyper-realistic close-up of [concept]."
+                },
+                {
+                    "index": 46,
+                    "content": "A vibrant, high-saturation image of [concept] at sunset"
+                },
+                {
+                    "index": 47,
+                    "content": "A high-contrast black and white image of [concept]."
+                },
+                {
+                    "index": 48,
+                    "content": "A high-contrast black and white image of [concept]."
+                },
+                {
+                    "index": 49,
+                    "content": "A vivid painting of [concept]."
+                },
+                {
+                    "index": 50,
+                    "content": "A detailed macro shot of [concept] in natural lighting."
+                },
+                {
+                    "index": 51,
+                    "content": "A high-resolution macro shot of [concept]."
+                },
+                {
+                    "index": 52,
+                    "content": "A cinematic shot of [concept] in golden hour lighting."
+                },
+                {
+                    "index": 53,
+                    "content": "A high-resolution, cinematic frame of [concept]."
+                },
+                {
+                    "index": 54,
+                    "content": "A realistic painting of [concept] in vibrant colors."
+                },
+                {
+                    "index": 55,
+                    "content": "A photorealistic rendering of [concept] with vibrant colors."
+                },
+                {
+                    "index": 56,
+                    "content": "A serene golden hour landscape of [concept]."
+                },
+                {
+                    "index": 57,
+                    "content": "A high-resolution close-up shot of [concept]."
+                },
+                {
+                    "index": 58,
+                    "content": "A vibrant sunset scene with [concept] in the foreground."
+                },
+                {
+                    "index": 59,
+                    "content": "A high-contrast, black-and-white photo of [concept]."
+                },
+                {
+                    "index": 60,
+                    "content": "A high-contrast macro shot of [concept]."
+                },
+                {
+                    "index": 61,
+                    "content": "A vivid watercolor painting of [concept]."
+                },
+                {
+                    "index": 62,
+                    "content": "A dramatic sunset over [concept] captured in high resolution."
+                },
+                {
+                    "index": 63,
+                    "content": "A vibrant landscape painting of [concept]."
+                },
+                {
+                    "index": 64,
+                    "content": "A high-definition nighttime cityscape of [concept]."
+                },
+                {
+                    "index": 65,
+                    "content": "A high-resolution macro photograph of [concept]."
+                },
+                {
+                    "index": 66,
+                    "content": "A retro-style photo of [concept] with a sepia tone."
+                },
+                {
+                    "index": 67,
+                    "content": "A high-contrast urban skyline at sunset with [concept]."
+                },
+                {
+                    "index": 68,
+                    "content": "A stunning aerial view of [concept]."
+                },
+                {
+                    "index": 69,
+                    "content": "A vibrant surreal landscape featuring [concept]."
+                },
+                {
+                    "index": 70,
+                    "content": "A serene sunrise landscape of [concept]."
+                },
+                {
+                    "index": 71,
+                    "content": "A vibrant oil painting of [concept]."
+                },
+                {
+                    "index": 72,
+                    "content": "A warm sunset cityscape of [concept]."
+                },
+                {
+                    "index": 73,
+                    "content": "A sunset-drenched valley with [concept] in warm, golden tones."
+                },
+                {
+                    "index": 74,
+                    "content": "A high-contrast black and white shot of [concept]."
+                },
+                {
+                    "index": 75,
+                    "content": "A hyperrealistic rendering of [concept] with dynamic lighting."
+                },
+                {
+                    "index": 76,
+                    "content": "A dramatic black and white photo of [concept]."
+                },
+                {
+                    "index": 77,
+                    "content": "A cinematic shot of [concept] in golden hour lighting."
+                },
+                {
+                    "index": 78,
+                    "content": "A vibrant sunset scene with [concept] reflections on the water."
+                },
+                {
+                    "index": 79,
+                    "content": "A serene sunset landscape of [concept]."
+                },
+                {
+                    "index": 80,
+                    "content": "A serene forest landscape of [concept] at golden hour."
+                },
+                {
+                    "index": 81,
+                    "content": "A serene dawn scene with pastel hues of [concept]."
+                },
+                {
+                    "index": 82,
+                    "content": "A hyper-realistic oil painting of [concept]."
+                },
+                {
+                    "index": 83,
+                    "content": "A high-contrast black and white image of [concept]."
+                },
+                {
+                    "index": 84,
+                    "content": "A high-definition close-up of [concept] in natural light."
+                },
+                {
+                    "index": 85,
+                    "content": "A misty forest landscape of [concept] during sunrise."
+                },
+                {
+                    "index": 86,
+                    "content": "A high-contrast black and white image of [concept]."
+                },
+                {
+                    "index": 87,
+                    "content": "A vibrant sunset landscape featuring [concept] in vivid detail."
+                },
+                {
+                    "index": 88,
+                    "content": "A vibrant, panoramic landscape of [concept] at sunset."
+                },
+                {
+                    "index": 89,
+                    "content": "A vibrant street scene featuring [concept] at golden hour."
+                },
+                {
+                    "index": 90,
+                    "content": "A sunset beach scene with [concept] in warm, pastel colors."
+                },
+                {
+                    "index": 91,
+                    "content": "A hyper-realistic render of [concept] at sunrise."
+                },
+                {
+                    "index": 92,
+                    "content": "A vibrant, technicolor landscape of [concept]."
+                },
+                {
+                    "index": 93,
+                    "content": "A vibrant, high-contrast photograph of [concept] in a natural setting."
+                },
+                {
+                    "index": 94,
+                    "content": "A vibrant neon-lit cityscape of [concept]."
+                },
+                {
+                    "index": 95,
+                    "content": "A vibrant, surreal landscape of [concept] at golden hour."
+                },
+                {
+                    "index": 96,
+                    "content": "A vibrant, high-saturation landscape photograph of [concept]."
+                },
+                {
+                    "index": 97,
+                    "content": "A richly detailed, hyper-realistic painting of [concept]."
+                },
+                {
+                    "index": 98,
+                    "content": "A surreal underwater world featuring [concept] in pastel colors."
+                },
+                {
+                    "index": 99,
+                    "content": "A monochrome high-contrast image of [concept]."
+                }
+            ]
+        }
+    ]
+}

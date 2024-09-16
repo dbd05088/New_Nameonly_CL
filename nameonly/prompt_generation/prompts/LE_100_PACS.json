@@ -1,0 +1,2872 @@
+{
+    "horse": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "The horses are racing along the side of the road.."
+                    },
+                    {
+                        "index": 1,
+                        "content": "A horse on a train"
+                    },
+                    {
+                        "index": 2,
+                        "content": "horse with the stars on them"
+                    },
+                    {
+                        "index": 3,
+                        "content": "A red horse in the countryside looks swaying."
+                    },
+                    {
+                        "index": 4,
+                        "content": "A white horse is grazing in a pasture."
+                    },
+                    {
+                        "index": 5,
+                        "content": "A pair of white horses."
+                    },
+                    {
+                        "index": 6,
+                        "content": "A horse is going for a ride."
+                    },
+                    {
+                        "index": 7,
+                        "content": "Sheep and boar with one bull and one stooge."
+                    },
+                    {
+                        "index": 8,
+                        "content": "A couple of black horses on a horseshoe"
+                    },
+                    {
+                        "index": 9,
+                        "content": "The horse is on a stable."
+                    },
+                    {
+                        "index": 10,
+                        "content": "horses show their skills"
+                    },
+                    {
+                        "index": 11,
+                        "content": "A horse and a woman on the horse."
+                    },
+                    {
+                        "index": 12,
+                        "content": "A horse sits on a sloping back in the field."
+                    },
+                    {
+                        "index": 13,
+                        "content": "a horse in the park"
+                    },
+                    {
+                        "index": 14,
+                        "content": "Two teddy bears and a horse"
+                    },
+                    {
+                        "index": 15,
+                        "content": "a horse is at a barn"
+                    },
+                    {
+                        "index": 16,
+                        "content": "The horses are in the zoo and at the trail."
+                    },
+                    {
+                        "index": 17,
+                        "content": "A steward and a fellow man are riding their horses."
+                    },
+                    {
+                        "index": 18,
+                        "content": "Horse slings some blood and hay on the street"
+                    },
+                    {
+                        "index": 19,
+                        "content": "This man is jumping on two horses that are on the other side."
+                    },
+                    {
+                        "index": 20,
+                        "content": "black and green horse on a hill"
+                    },
+                    {
+                        "index": 21,
+                        "content": "A red horse as a boy and girl try to get everything done."
+                    },
+                    {
+                        "index": 22,
+                        "content": "A horse is resting in the hay while another horse rests."
+                    },
+                    {
+                        "index": 23,
+                        "content": "young lady with her horse on top of the fence"
+                    },
+                    {
+                        "index": 24,
+                        "content": "A horse with a horse hanging on a tack"
+                    },
+                    {
+                        "index": 25,
+                        "content": "A gray dog is grazing a horse."
+                    },
+                    {
+                        "index": 26,
+                        "content": "The horse is running around the yard a bit."
+                    },
+                    {
+                        "index": 27,
+                        "content": "horse in the desert"
+                    },
+                    {
+                        "index": 28,
+                        "content": "horse riding on the beach"
+                    },
+                    {
+                        "index": 29,
+                        "content": "these elongated horses are more like two birds than two..."
+                    },
+                    {
+                        "index": 30,
+                        "content": "a large large white horse with ears."
+                    },
+                    {
+                        "index": 31,
+                        "content": "horses and man were not looking for lonesome owners on the weekend"
+                    },
+                    {
+                        "index": 32,
+                        "content": "Two horses on a gravel road."
+                    },
+                    {
+                        "index": 33,
+                        "content": "two young girls playing outside with a horse"
+                    },
+                    {
+                        "index": 34,
+                        "content": "A few horses are showing a red helmet."
+                    },
+                    {
+                        "index": 35,
+                        "content": "there are horses in the field"
+                    },
+                    {
+                        "index": 36,
+                        "content": "horses in an open pasture"
+                    },
+                    {
+                        "index": 37,
+                        "content": "A young man and woman, with a red horse and a golden horn, are"
+                    },
+                    {
+                        "index": 38,
+                        "content": "some of the horses are showing it to you."
+                    },
+                    {
+                        "index": 39,
+                        "content": "A white horse on and two horses next to each other."
+                    },
+                    {
+                        "index": 40,
+                        "content": "The horse is ready to go riding."
+                    },
+                    {
+                        "index": 41,
+                        "content": "Two small horse is on the ground."
+                    },
+                    {
+                        "index": 42,
+                        "content": "a red horse and a pair of blue boots at a riding ranch"
+                    },
+                    {
+                        "index": 43,
+                        "content": "the boy will ride the horse."
+                    },
+                    {
+                        "index": 44,
+                        "content": "Two horses are seen running down a hill."
+                    },
+                    {
+                        "index": 45,
+                        "content": "The horse is about to leave the yard."
+                    },
+                    {
+                        "index": 46,
+                        "content": "There are horses on the hill."
+                    },
+                    {
+                        "index": 47,
+                        "content": "horses that are being inspected by tv programming company"
+                    },
+                    {
+                        "index": 48,
+                        "content": "Horses are grazing together under a tree"
+                    },
+                    {
+                        "index": 49,
+                        "content": "a green horse with black hair and fur is on a grassy paddock"
+                    },
+                    {
+                        "index": 50,
+                        "content": "Horse on the water."
+                    },
+                    {
+                        "index": 51,
+                        "content": "Three stallions of a horse with a saddle."
+                    },
+                    {
+                        "index": 52,
+                        "content": "a horse in a stall"
+                    },
+                    {
+                        "index": 53,
+                        "content": "A girl is helping a horse with a little girl."
+                    },
+                    {
+                        "index": 54,
+                        "content": "this horse could be bred to eat the grass"
+                    },
+                    {
+                        "index": 55,
+                        "content": "the horse is not so much a hunter but a friend of his"
+                    },
+                    {
+                        "index": 56,
+                        "content": "A horse mowing a field."
+                    },
+                    {
+                        "index": 57,
+                        "content": "horse in the arena"
+                    },
+                    {
+                        "index": 58,
+                        "content": "A man's horse appears to be resting on a wall"
+                    },
+                    {
+                        "index": 59,
+                        "content": "Horses are grazing and the hay is very hot"
+                    },
+                    {
+                        "index": 60,
+                        "content": "A large yellow horse atop a large pond."
+                    },
+                    {
+                        "index": 61,
+                        "content": "four horses in a stable and a horse in a haystack"
+                    },
+                    {
+                        "index": 62,
+                        "content": "The little girl will be on top of her pony."
+                    },
+                    {
+                        "index": 63,
+                        "content": "A horse is out walking."
+                    },
+                    {
+                        "index": 64,
+                        "content": "A horse playing with the ball, before making the turn."
+                    },
+                    {
+                        "index": 65,
+                        "content": "This is a small family horse in a haystack."
+                    },
+                    {
+                        "index": 66,
+                        "content": "horses graze on the rim"
+                    },
+                    {
+                        "index": 67,
+                        "content": "horse for sale at a farm"
+                    },
+                    {
+                        "index": 68,
+                        "content": "A group of horses are on the run."
+                    },
+                    {
+                        "index": 69,
+                        "content": "horse as an art gallery for artists and crafts"
+                    },
+                    {
+                        "index": 70,
+                        "content": "The horses are hunched up."
+                    },
+                    {
+                        "index": 71,
+                        "content": "A horse in an enclosure near some other horses."
+                    },
+                    {
+                        "index": 72,
+                        "content": "A horse is having fun with some bugs and they are trying to eat some of them."
+                    },
+                    {
+                        "index": 73,
+                        "content": "The horse is on a yellow fence."
+                    },
+                    {
+                        "index": 74,
+                        "content": "white horse and a man in a field"
+                    },
+                    {
+                        "index": 75,
+                        "content": "two horses have died and two are reported to have been hit by a falling horse."
+                    },
+                    {
+                        "index": 76,
+                        "content": "A man is showing a horse."
+                    },
+                    {
+                        "index": 77,
+                        "content": "Horses are shown on a white horse."
+                    },
+                    {
+                        "index": 78,
+                        "content": "a horse with a head over his shoulder"
+                    },
+                    {
+                        "index": 79,
+                        "content": "Two horses are seen in a public arena."
+                    },
+                    {
+                        "index": 80,
+                        "content": "the ring was painted on a horse after the war"
+                    },
+                    {
+                        "index": 81,
+                        "content": "Two horses are in a field where a man is sleeping."
+                    },
+                    {
+                        "index": 82,
+                        "content": "an elegantly dressed black horse looks good"
+                    },
+                    {
+                        "index": 83,
+                        "content": "a horse is seen riding"
+                    },
+                    {
+                        "index": 84,
+                        "content": "A horse coming out of a garden to eat."
+                    },
+                    {
+                        "index": 85,
+                        "content": "a young horse is seen on a road just beyond its usual limits."
+                    },
+                    {
+                        "index": 86,
+                        "content": "Horses are on the tracks."
+                    },
+                    {
+                        "index": 87,
+                        "content": "Two horses being spooked by people."
+                    },
+                    {
+                        "index": 88,
+                        "content": "two horses at work in a pasture"
+                    },
+                    {
+                        "index": 89,
+                        "content": "A group of horses hush around a green fenced area."
+                    },
+                    {
+                        "index": 90,
+                        "content": "A large horse is just like an orange flower on a table"
+                    },
+                    {
+                        "index": 91,
+                        "content": "A man is looking for the right horse."
+                    },
+                    {
+                        "index": 92,
+                        "content": "a reed is ridden by a horse."
+                    },
+                    {
+                        "index": 93,
+                        "content": "mule deer on a horse."
+                    },
+                    {
+                        "index": 94,
+                        "content": "horse in a hay bin at local market"
+                    },
+                    {
+                        "index": 95,
+                        "content": "Four riding horses, three men, one woman, and two men."
+                    },
+                    {
+                        "index": 96,
+                        "content": "A horse with a long white horn rubbing it into another horse's tail."
+                    },
+                    {
+                        "index": 97,
+                        "content": "Two horses on a farm with horse eat."
+                    },
+                    {
+                        "index": 98,
+                        "content": "horse saddling a horse in a park"
+                    },
+                    {
+                        "index": 99,
+                        "content": "A man is treating a group of horses."
+                    }
+                ]
+            }
+        ]
+    },
+    "elephant": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "An elephant by an endemic tree."
+                    },
+                    {
+                        "index": 1,
+                        "content": "An elephant at the zoo."
+                    },
+                    {
+                        "index": 2,
+                        "content": "A red elephant is going down the road."
+                    },
+                    {
+                        "index": 3,
+                        "content": "white elephant on a white elephants white elephants"
+                    },
+                    {
+                        "index": 4,
+                        "content": "A group of elephants are seen sitting on a grassy field."
+                    },
+                    {
+                        "index": 5,
+                        "content": "An elephant sitting and playing near a hay bale"
+                    },
+                    {
+                        "index": 6,
+                        "content": "There are also elephants."
+                    },
+                    {
+                        "index": 7,
+                        "content": "An elephant is feeding on some milk."
+                    },
+                    {
+                        "index": 8,
+                        "content": "Two elephants in a hotel dungaree."
+                    },
+                    {
+                        "index": 9,
+                        "content": "An elephant is swaying and moving."
+                    },
+                    {
+                        "index": 10,
+                        "content": "The elephants are very happy."
+                    },
+                    {
+                        "index": 11,
+                        "content": "An elephant is lying in a puddle by some people."
+                    },
+                    {
+                        "index": 12,
+                        "content": "A bald elephant scurrying behind a fence."
+                    },
+                    {
+                        "index": 13,
+                        "content": "Elephants are in the zoo."
+                    },
+                    {
+                        "index": 14,
+                        "content": "two elephants next to a swan in the park"
+                    },
+                    {
+                        "index": 15,
+                        "content": "elephant is walking in the park"
+                    },
+                    {
+                        "index": 16,
+                        "content": "An elephant in a park by a pond."
+                    },
+                    {
+                        "index": 17,
+                        "content": "This is a picture of two elephants by a wall mounted camera."
+                    },
+                    {
+                        "index": 18,
+                        "content": "An elephant has been grazing in a small hut and waiting to be fed."
+                    },
+                    {
+                        "index": 19,
+                        "content": "A man in a zoo and his elephants are sitting along."
+                    },
+                    {
+                        "index": 20,
+                        "content": "A pair of elephants are in a zoo."
+                    },
+                    {
+                        "index": 21,
+                        "content": "A group of elephants are eating at a tree."
+                    },
+                    {
+                        "index": 22,
+                        "content": "Two elephants on a field with hay"
+                    },
+                    {
+                        "index": 23,
+                        "content": "Five elephants inside elephant enclosures."
+                    },
+                    {
+                        "index": 24,
+                        "content": "a couple of elephants in a park on vacation"
+                    },
+                    {
+                        "index": 25,
+                        "content": "An elephant naps on a tarmac in the desert"
+                    },
+                    {
+                        "index": 26,
+                        "content": "An elephant is resting at an elephant enclosure."
+                    },
+                    {
+                        "index": 27,
+                        "content": "A female elephant near some people."
+                    },
+                    {
+                        "index": 28,
+                        "content": "There are two zebras near an elephant and a woman at his zo"
+                    },
+                    {
+                        "index": 29,
+                        "content": "A red elephant and a black and white photo of an elephant."
+                    },
+                    {
+                        "index": 30,
+                        "content": "A trio of elephants are sleeping in a small tent."
+                    },
+                    {
+                        "index": 31,
+                        "content": "A man and an elephant talking about the environment."
+                    },
+                    {
+                        "index": 32,
+                        "content": "A male elephant walked across the green grass."
+                    },
+                    {
+                        "index": 33,
+                        "content": "Three elephants are in the zoo, one is standing to yanking"
+                    },
+                    {
+                        "index": 34,
+                        "content": "Two elephants by a sea creature."
+                    },
+                    {
+                        "index": 35,
+                        "content": "Sheep and elephants are rubbing along on the grass."
+                    },
+                    {
+                        "index": 36,
+                        "content": "Three elephants squishing some air vents."
+                    },
+                    {
+                        "index": 37,
+                        "content": "A large elephant is on a farm and talking to people."
+                    },
+                    {
+                        "index": 38,
+                        "content": "This is a cute horse called an elephant that is on the move."
+                    },
+                    {
+                        "index": 39,
+                        "content": "Two elephants sit around a wooden fence."
+                    },
+                    {
+                        "index": 40,
+                        "content": "a pink elephant is near an old barn in the zoo"
+                    },
+                    {
+                        "index": 41,
+                        "content": "Two elephants are being raised around a fountain."
+                    },
+                    {
+                        "index": 42,
+                        "content": "Two elephants in a white enclosure."
+                    },
+                    {
+                        "index": 43,
+                        "content": "Two elephants grazing beside a large tree."
+                    },
+                    {
+                        "index": 44,
+                        "content": "The elephant is in a stall awaiting a meal."
+                    },
+                    {
+                        "index": 45,
+                        "content": "An elephant is grazing in his enclosure."
+                    },
+                    {
+                        "index": 46,
+                        "content": "A pair of elephants are in a large enclosure."
+                    },
+                    {
+                        "index": 47,
+                        "content": "The elephant is seen wandering."
+                    },
+                    {
+                        "index": 48,
+                        "content": "A man has a bucket of elephants in his face."
+                    },
+                    {
+                        "index": 49,
+                        "content": "An elephant ate a dinner while one other worked on a picnic."
+                    },
+                    {
+                        "index": 50,
+                        "content": "A baby elephant is near three humans."
+                    },
+                    {
+                        "index": 51,
+                        "content": "A group of elephants having fun before they are slaughtered."
+                    },
+                    {
+                        "index": 52,
+                        "content": "There are two elephants in a big zoo."
+                    },
+                    {
+                        "index": 53,
+                        "content": "An elephant is lying next to a train."
+                    },
+                    {
+                        "index": 54,
+                        "content": "An elephant that is moving fast."
+                    },
+                    {
+                        "index": 55,
+                        "content": "A pair of elephants graze on grass."
+                    },
+                    {
+                        "index": 56,
+                        "content": "A elephant in a zoo is in a zoo."
+                    },
+                    {
+                        "index": 57,
+                        "content": "An elephant is inside of an eggshell"
+                    },
+                    {
+                        "index": 58,
+                        "content": "A pair of elephants on a zebra that all but disappeared."
+                    },
+                    {
+                        "index": 59,
+                        "content": "An elephant in a park, holding a rake."
+                    },
+                    {
+                        "index": 60,
+                        "content": "Several elephants fending off the bugs."
+                    },
+                    {
+                        "index": 61,
+                        "content": "An elephant in a small enclosure with an umbrella."
+                    },
+                    {
+                        "index": 62,
+                        "content": "a giraffe stands over a sleeping elephant"
+                    },
+                    {
+                        "index": 63,
+                        "content": "A group of elephants are playing"
+                    },
+                    {
+                        "index": 64,
+                        "content": "Shearing elephants on a platform."
+                    },
+                    {
+                        "index": 65,
+                        "content": "The elephant is getting ready to play."
+                    },
+                    {
+                        "index": 66,
+                        "content": "An elephant walking along a zoo and putting on their tails."
+                    },
+                    {
+                        "index": 67,
+                        "content": "An elephant on a tree near a tree."
+                    },
+                    {
+                        "index": 68,
+                        "content": "Two elephants are at a feeder and are eating up."
+                    },
+                    {
+                        "index": 69,
+                        "content": "Two elephants are interacting with one another in a petting zoo."
+                    },
+                    {
+                        "index": 70,
+                        "content": "an elephant in the field"
+                    },
+                    {
+                        "index": 71,
+                        "content": "One of the many elephants inside his enclosure."
+                    },
+                    {
+                        "index": 72,
+                        "content": "The elephant is not showing its full body."
+                    },
+                    {
+                        "index": 73,
+                        "content": "A pair of elephants on a grassy field."
+                    },
+                    {
+                        "index": 74,
+                        "content": "A two man army including an elephant are on a platform."
+                    },
+                    {
+                        "index": 75,
+                        "content": "The elephants are at their side looking at each other."
+                    },
+                    {
+                        "index": 76,
+                        "content": "an elephant is being pushed around for some exercise"
+                    },
+                    {
+                        "index": 77,
+                        "content": "A couple of elephants are being fed by a bunch of buffaloes."
+                    },
+                    {
+                        "index": 78,
+                        "content": "The elephant is going to be on a land with no man for the rest of his life"
+                    },
+                    {
+                        "index": 79,
+                        "content": "cute elephants with head and eyes"
+                    },
+                    {
+                        "index": 80,
+                        "content": "Elephants in a zoo area."
+                    },
+                    {
+                        "index": 81,
+                        "content": "Three elephants atop the hill with white rope."
+                    },
+                    {
+                        "index": 82,
+                        "content": "An elephant is on a grassland waiting to pass by."
+                    },
+                    {
+                        "index": 83,
+                        "content": "White elephant on the back of a road."
+                    },
+                    {
+                        "index": 84,
+                        "content": "A group of elephants on a high ground with some flying."
+                    },
+                    {
+                        "index": 85,
+                        "content": "An elephant that is being crated with his head down."
+                    },
+                    {
+                        "index": 86,
+                        "content": "Two elephants with horns in the roosters."
+                    },
+                    {
+                        "index": 87,
+                        "content": "An elephant on some sort of a farm field."
+                    },
+                    {
+                        "index": 88,
+                        "content": "elephants and horse in a red dress"
+                    },
+                    {
+                        "index": 89,
+                        "content": "Elephants interacting with each other."
+                    },
+                    {
+                        "index": 90,
+                        "content": "Two red elephants that have crossed them."
+                    },
+                    {
+                        "index": 91,
+                        "content": "An elephant is just approaching a skeleton."
+                    },
+                    {
+                        "index": 92,
+                        "content": "An elephant is near some trees or trees."
+                    },
+                    {
+                        "index": 93,
+                        "content": "Two elephants with a raccoon inside a raccoon enclosure."
+                    },
+                    {
+                        "index": 94,
+                        "content": "Several elephants on troughs with small white spots, not in the distance."
+                    },
+                    {
+                        "index": 95,
+                        "content": "an elephant sitting in a sydney hotel room"
+                    },
+                    {
+                        "index": 96,
+                        "content": "a herd of eight elephants dragged the earth into the sunset."
+                    },
+                    {
+                        "index": 97,
+                        "content": "two elephants are traveling near each other"
+                    },
+                    {
+                        "index": 98,
+                        "content": "An elephant inside a park"
+                    },
+                    {
+                        "index": 99,
+                        "content": "Elephants ply their toes as they scurry about a water"
+                    }
+                ]
+            }
+        ]
+    },
+    "person": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "two people are seen at the expo as a guy and woman interact for a change"
+                    },
+                    {
+                        "index": 1,
+                        "content": "a couple is very smart and just a person in front of one."
+                    },
+                    {
+                        "index": 2,
+                        "content": "A single person and a baby are in a bathroom."
+                    },
+                    {
+                        "index": 3,
+                        "content": "The woman is talking with the person on their lap."
+                    },
+                    {
+                        "index": 4,
+                        "content": "a person will take his lunch from the shop"
+                    },
+                    {
+                        "index": 5,
+                        "content": "The person is talking with the other person."
+                    },
+                    {
+                        "index": 6,
+                        "content": "a person shows his wife how to move her baby daughter"
+                    },
+                    {
+                        "index": 7,
+                        "content": "a couple of person talking on the phone."
+                    },
+                    {
+                        "index": 8,
+                        "content": "showcasing the people who are all about the people with shoes in the group."
+                    },
+                    {
+                        "index": 9,
+                        "content": "the people of a city at sunrise are many hours away"
+                    },
+                    {
+                        "index": 10,
+                        "content": "People are laying out their plans to get some sort of wedding ring on a hot"
+                    },
+                    {
+                        "index": 11,
+                        "content": "one of the many people who joined to form the second organization"
+                    },
+                    {
+                        "index": 12,
+                        "content": "a person... with a scarf in the sky"
+                    },
+                    {
+                        "index": 13,
+                        "content": "woman telling a story of a young couple"
+                    },
+                    {
+                        "index": 14,
+                        "content": "person in a bus"
+                    },
+                    {
+                        "index": 15,
+                        "content": "a woman and a person"
+                    },
+                    {
+                        "index": 16,
+                        "content": "person being pushed away by a computer to find a better way around what he"
+                    },
+                    {
+                        "index": 17,
+                        "content": "a group of people are having a coffee."
+                    },
+                    {
+                        "index": 18,
+                        "content": "A young girl with a dog is asked to be a human being at the grocery store"
+                    },
+                    {
+                        "index": 19,
+                        "content": "A person is comparing two shirts."
+                    },
+                    {
+                        "index": 20,
+                        "content": "people meet a woman in an egress."
+                    },
+                    {
+                        "index": 21,
+                        "content": "the person who i believe became a favorite amongst my friends"
+                    },
+                    {
+                        "index": 22,
+                        "content": "three people are known to play an instrument in a meeting"
+                    },
+                    {
+                        "index": 23,
+                        "content": "many people use selfies at the beach as a way to be more comfortable"
+                    },
+                    {
+                        "index": 24,
+                        "content": "individual and a person"
+                    },
+                    {
+                        "index": 25,
+                        "content": "there is a good percentage of the population living with allergies"
+                    },
+                    {
+                        "index": 26,
+                        "content": "People on a cruise ship look at the weather."
+                    },
+                    {
+                        "index": 27,
+                        "content": "two persons at the hospital in person"
+                    },
+                    {
+                        "index": 28,
+                        "content": "a person calls a company during an event"
+                    },
+                    {
+                        "index": 29,
+                        "content": "a person walking a street without a driver"
+                    },
+                    {
+                        "index": 30,
+                        "content": "Some elderly people are talking to a doctor and his wife about things they can do."
+                    },
+                    {
+                        "index": 31,
+                        "content": "A small group of people are doing their homework together."
+                    },
+                    {
+                        "index": 32,
+                        "content": "person interacting with a robot"
+                    },
+                    {
+                        "index": 33,
+                        "content": "person who spent the holiday relaxing in beach"
+                    },
+                    {
+                        "index": 34,
+                        "content": "Some people are walking on a grassy patch with other people behind them."
+                    },
+                    {
+                        "index": 35,
+                        "content": "I met a very interesting person and wanted them to know they were cool"
+                    },
+                    {
+                        "index": 36,
+                        "content": "people on sunday with a camera on a mans face in a field"
+                    },
+                    {
+                        "index": 37,
+                        "content": "many people who live in a town that are less than a mile from the city"
+                    },
+                    {
+                        "index": 38,
+                        "content": "person shows up to a meeting at a park."
+                    },
+                    {
+                        "index": 39,
+                        "content": "a person who sees the results of their efforts"
+                    },
+                    {
+                        "index": 40,
+                        "content": "A man is using a computer to scan his emails."
+                    },
+                    {
+                        "index": 41,
+                        "content": "person i know makes someone feel safe from the weather"
+                    },
+                    {
+                        "index": 42,
+                        "content": "The person is talking about his favorite foods as he speaks."
+                    },
+                    {
+                        "index": 43,
+                        "content": "i could tell the person was walking up hill"
+                    },
+                    {
+                        "index": 44,
+                        "content": "person is a symbol of the soul"
+                    },
+                    {
+                        "index": 45,
+                        "content": "people being turned on during the last day of school."
+                    },
+                    {
+                        "index": 46,
+                        "content": "the man is such a friendly person"
+                    },
+                    {
+                        "index": 47,
+                        "content": "A person is trying to buy the car."
+                    },
+                    {
+                        "index": 48,
+                        "content": "person walking across a road."
+                    },
+                    {
+                        "index": 49,
+                        "content": "A person is seen drenching many innocents"
+                    },
+                    {
+                        "index": 50,
+                        "content": "a person gets the look she wants."
+                    },
+                    {
+                        "index": 51,
+                        "content": "person at a business meeting"
+                    },
+                    {
+                        "index": 52,
+                        "content": "the person of a man is being smuggled off on a sunny afternoon"
+                    },
+                    {
+                        "index": 53,
+                        "content": "A woman is pushing a person further toward someone and someone screams out his name"
+                    },
+                    {
+                        "index": 54,
+                        "content": "person at a wedding"
+                    },
+                    {
+                        "index": 55,
+                        "content": "men will be able to take the name of a people for years to make"
+                    },
+                    {
+                        "index": 56,
+                        "content": "person is most definitely a person of interest"
+                    },
+                    {
+                        "index": 57,
+                        "content": "i can tell you one of the many people i have been with for years."
+                    },
+                    {
+                        "index": 58,
+                        "content": "Some people are showing up for a conference after having a conference at home."
+                    },
+                    {
+                        "index": 59,
+                        "content": "A person gives a man some drinkers"
+                    },
+                    {
+                        "index": 60,
+                        "content": "a person flies for the skies with his brother."
+                    },
+                    {
+                        "index": 61,
+                        "content": "A group of people with hats and a helmet."
+                    },
+                    {
+                        "index": 62,
+                        "content": "An officer is speaking after being told the person is having a bad day."
+                    },
+                    {
+                        "index": 63,
+                        "content": "someone talks to a person on the phone"
+                    },
+                    {
+                        "index": 64,
+                        "content": "A man is walking beside a person at an outdoor launching pad."
+                    },
+                    {
+                        "index": 65,
+                        "content": "a number of people were left confused by the fact that they could go around without meeting"
+                    },
+                    {
+                        "index": 66,
+                        "content": "a person is a human being who lives in the forest"
+                    },
+                    {
+                        "index": 67,
+                        "content": "people like this in person"
+                    },
+                    {
+                        "index": 68,
+                        "content": "person with polar bear chin in the dark at sunrise"
+                    },
+                    {
+                        "index": 69,
+                        "content": "A person is playing basketball and a man is onboard."
+                    },
+                    {
+                        "index": 70,
+                        "content": "a person of the state a man and a woman"
+                    },
+                    {
+                        "index": 71,
+                        "content": "people want to be like her and they were the main people we spoke to."
+                    },
+                    {
+                        "index": 72,
+                        "content": "the person in person is surrounded by many types of trees"
+                    },
+                    {
+                        "index": 73,
+                        "content": "persons are more likely to live at home than the office in person."
+                    },
+                    {
+                        "index": 74,
+                        "content": "A person in their haired suit."
+                    },
+                    {
+                        "index": 75,
+                        "content": "An old man is going to a party with his family members."
+                    },
+                    {
+                        "index": 76,
+                        "content": "People at various stages are trying to find the right person to marry."
+                    },
+                    {
+                        "index": 77,
+                        "content": "people meet the man in person after his exit"
+                    },
+                    {
+                        "index": 78,
+                        "content": "person in a hotel room"
+                    },
+                    {
+                        "index": 79,
+                        "content": ". a person can not eat a meal"
+                    },
+                    {
+                        "index": 80,
+                        "content": "The people in the black dress were the first person to have taken notice of the move."
+                    },
+                    {
+                        "index": 81,
+                        "content": "a woman is among the members who have helped out of the depression."
+                    },
+                    {
+                        "index": 82,
+                        "content": "two individuals work together to see how they have similar feelings toward someone."
+                    },
+                    {
+                        "index": 83,
+                        "content": "a man is seen by several people as someone approaches her for lunch."
+                    },
+                    {
+                        "index": 84,
+                        "content": "young people have a little something in common."
+                    },
+                    {
+                        "index": 85,
+                        "content": "A crowded city full of people with bags on a plate."
+                    },
+                    {
+                        "index": 86,
+                        "content": "A woman is showing off an elephant and people are laughing and eating grass."
+                    },
+                    {
+                        "index": 87,
+                        "content": "The person with the hat is walking away because people are angry."
+                    },
+                    {
+                        "index": 88,
+                        "content": "a person goes to the cinema by his friend"
+                    },
+                    {
+                        "index": 89,
+                        "content": "person having a quiet time with his baby."
+                    },
+                    {
+                        "index": 90,
+                        "content": "a man with glasses pointing to a person"
+                    },
+                    {
+                        "index": 91,
+                        "content": "person meets people from under the lights."
+                    },
+                    {
+                        "index": 92,
+                        "content": "people in the hospital with a heart shaped person."
+                    },
+                    {
+                        "index": 93,
+                        "content": "it has never been better for a person to travel to work."
+                    },
+                    {
+                        "index": 94,
+                        "content": "a person who is in a rut has never danced"
+                    },
+                    {
+                        "index": 95,
+                        "content": "person who got in the habit of being a party organiser"
+                    },
+                    {
+                        "index": 96,
+                        "content": "This is how the person sees the world."
+                    },
+                    {
+                        "index": 97,
+                        "content": "A woman does not know if the person makes money from her family."
+                    },
+                    {
+                        "index": 98,
+                        "content": "a woman is talking to the man in the morning and looking around"
+                    },
+                    {
+                        "index": 99,
+                        "content": "people are compared to the same group of people in this movie"
+                    }
+                ]
+            }
+        ]
+    },
+    "dog": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A dog and two cats are behind the dog and he is doing his share of research"
+                    },
+                    {
+                        "index": 1,
+                        "content": "The dog is not barking as it is chasing it."
+                    },
+                    {
+                        "index": 2,
+                        "content": "A group of dogs are on a rope"
+                    },
+                    {
+                        "index": 3,
+                        "content": "a dog in my room"
+                    },
+                    {
+                        "index": 4,
+                        "content": "A dog is sleeping and going over some grass."
+                    },
+                    {
+                        "index": 5,
+                        "content": "A dog is licking its tail."
+                    },
+                    {
+                        "index": 6,
+                        "content": "A dog is going around on something with the same name."
+                    },
+                    {
+                        "index": 7,
+                        "content": "dog with a bow."
+                    },
+                    {
+                        "index": 8,
+                        "content": "A group of cats eat a bun out of a bowl."
+                    },
+                    {
+                        "index": 9,
+                        "content": "The dog is still on the couch and waiting for somebody to adopt her."
+                    },
+                    {
+                        "index": 10,
+                        "content": "The dog is doing tricks."
+                    },
+                    {
+                        "index": 11,
+                        "content": "A dog on an acorn."
+                    },
+                    {
+                        "index": 12,
+                        "content": "little dogs with headband for a walker"
+                    },
+                    {
+                        "index": 13,
+                        "content": "striped dog in an enclosure"
+                    },
+                    {
+                        "index": 14,
+                        "content": "Dog in a hut by a street."
+                    },
+                    {
+                        "index": 15,
+                        "content": "The dog swozzles up on the couch."
+                    },
+                    {
+                        "index": 16,
+                        "content": "A very sad looking dog is bitten down in the grass."
+                    },
+                    {
+                        "index": 17,
+                        "content": "A dog eating a green smoothie."
+                    },
+                    {
+                        "index": 18,
+                        "content": "dogs were a welcome surprise."
+                    },
+                    {
+                        "index": 19,
+                        "content": "dog on a wooden rack of food"
+                    },
+                    {
+                        "index": 20,
+                        "content": "a white dog with a black coat on it"
+                    },
+                    {
+                        "index": 21,
+                        "content": "Two dogs that are eating hay in the garden."
+                    },
+                    {
+                        "index": 22,
+                        "content": "A dog that has been abandoned."
+                    },
+                    {
+                        "index": 23,
+                        "content": "dogs on a fence"
+                    },
+                    {
+                        "index": 24,
+                        "content": "The dogs are all dogs."
+                    },
+                    {
+                        "index": 25,
+                        "content": "A ten year old dog and a man standing outside."
+                    },
+                    {
+                        "index": 26,
+                        "content": "black and white dog with green head with coat."
+                    },
+                    {
+                        "index": 27,
+                        "content": "A cute dog is on a rock in the park."
+                    },
+                    {
+                        "index": 28,
+                        "content": "A dog in a big blue cage."
+                    },
+                    {
+                        "index": 29,
+                        "content": "a dog in a tiger patch"
+                    },
+                    {
+                        "index": 30,
+                        "content": "how to raise a small dog for adoption"
+                    },
+                    {
+                        "index": 31,
+                        "content": "dog and the children were all happy"
+                    },
+                    {
+                        "index": 32,
+                        "content": "A red dog like a chicken is in its proper place to rest on an iron plate."
+                    },
+                    {
+                        "index": 33,
+                        "content": "A dog in a shelter with other dogs in it."
+                    },
+                    {
+                        "index": 34,
+                        "content": "A dog in a park in a city."
+                    },
+                    {
+                        "index": 35,
+                        "content": "a yellow dog is eating food"
+                    },
+                    {
+                        "index": 36,
+                        "content": "A dog tries to walk around the house and ask for water."
+                    },
+                    {
+                        "index": 37,
+                        "content": "A dog tries to make an escape."
+                    },
+                    {
+                        "index": 38,
+                        "content": "A dog is begging another dog to be brought in."
+                    },
+                    {
+                        "index": 39,
+                        "content": "The dog is up and ready to ride his bike!"
+                    },
+                    {
+                        "index": 40,
+                        "content": "Dogs are gagging their heads up."
+                    },
+                    {
+                        "index": 41,
+                        "content": "A white dog and a girl in a park."
+                    },
+                    {
+                        "index": 42,
+                        "content": "A dog in a crate playing with rocks."
+                    },
+                    {
+                        "index": 43,
+                        "content": "The dogs are quite happy with each other."
+                    },
+                    {
+                        "index": 44,
+                        "content": "A dog zipped by a wall with a blue and white envelope on it"
+                    },
+                    {
+                        "index": 45,
+                        "content": "People are out eating some meat and dog on a sunny day."
+                    },
+                    {
+                        "index": 46,
+                        "content": "A dog in an enclosure."
+                    },
+                    {
+                        "index": 47,
+                        "content": "The dog is about to be adopted by us."
+                    },
+                    {
+                        "index": 48,
+                        "content": "the dog is looking for someone"
+                    },
+                    {
+                        "index": 49,
+                        "content": "A dog is playing with a bird."
+                    },
+                    {
+                        "index": 50,
+                        "content": "a man and a cat outside in the countryside and a man interacting with them"
+                    },
+                    {
+                        "index": 51,
+                        "content": "two little girls playing with a friend's dog"
+                    },
+                    {
+                        "index": 52,
+                        "content": "dog eats fresh hay in the park"
+                    },
+                    {
+                        "index": 53,
+                        "content": "the dog is so cute"
+                    },
+                    {
+                        "index": 54,
+                        "content": "A gray dog with a turban in it."
+                    },
+                    {
+                        "index": 55,
+                        "content": "A white dog that is trying to make a good living."
+                    },
+                    {
+                        "index": 56,
+                        "content": "A dog is eating bananas"
+                    },
+                    {
+                        "index": 57,
+                        "content": "A cute little dog is in the park"
+                    },
+                    {
+                        "index": 58,
+                        "content": "A dog is not walking like a dog."
+                    },
+                    {
+                        "index": 59,
+                        "content": "The dog does not like to eat hay."
+                    },
+                    {
+                        "index": 60,
+                        "content": "A dog is in the dog park talking to another dog."
+                    },
+                    {
+                        "index": 61,
+                        "content": "the dogs of the past were all over the place in the city."
+                    },
+                    {
+                        "index": 62,
+                        "content": "These three dogs are on a treadmill."
+                    },
+                    {
+                        "index": 63,
+                        "content": "A dog is swooping along a wooden deck."
+                    },
+                    {
+                        "index": 64,
+                        "content": "dogs being seen at a dog show"
+                    },
+                    {
+                        "index": 65,
+                        "content": "A dog, man, and cat at a dog hut."
+                    },
+                    {
+                        "index": 66,
+                        "content": "A dog is on a train."
+                    },
+                    {
+                        "index": 67,
+                        "content": "A gray and black dog is eating cereal."
+                    },
+                    {
+                        "index": 68,
+                        "content": "A white dog with antlers and no teeth."
+                    },
+                    {
+                        "index": 69,
+                        "content": "An old dog is near a fence."
+                    },
+                    {
+                        "index": 70,
+                        "content": "a dog at a show"
+                    },
+                    {
+                        "index": 71,
+                        "content": "three big dogs are around each other"
+                    },
+                    {
+                        "index": 72,
+                        "content": "The dogs are straddling each other."
+                    },
+                    {
+                        "index": 73,
+                        "content": "A dog is swooping as the sun goes down."
+                    },
+                    {
+                        "index": 74,
+                        "content": "The dog is scared."
+                    },
+                    {
+                        "index": 75,
+                        "content": "A couple of dogs that have got pooped on top."
+                    },
+                    {
+                        "index": 76,
+                        "content": "A boy and girl playing with a dog."
+                    },
+                    {
+                        "index": 77,
+                        "content": "dogs who were born in slums can have a hard time breathing in this world"
+                    },
+                    {
+                        "index": 78,
+                        "content": "a dog cries out in front of a tv system and tries"
+                    },
+                    {
+                        "index": 79,
+                        "content": "an old friend with a dog on it"
+                    },
+                    {
+                        "index": 80,
+                        "content": "a dog in full furs hat in her zebra hair"
+                    },
+                    {
+                        "index": 81,
+                        "content": "Two men put a dog down from a roof above a field."
+                    },
+                    {
+                        "index": 82,
+                        "content": "dog snuggles next to a cat on a white couch"
+                    },
+                    {
+                        "index": 83,
+                        "content": "The dogs are still at home."
+                    },
+                    {
+                        "index": 84,
+                        "content": "A dog is begging a question."
+                    },
+                    {
+                        "index": 85,
+                        "content": "a dog on the curb"
+                    },
+                    {
+                        "index": 86,
+                        "content": "The dog is licking his mouth and biting his tongue."
+                    },
+                    {
+                        "index": 87,
+                        "content": "A dog and girl talking on a mat together."
+                    },
+                    {
+                        "index": 88,
+                        "content": "A dog on a hill in front of a fenced yard."
+                    },
+                    {
+                        "index": 89,
+                        "content": "white dog at a park"
+                    },
+                    {
+                        "index": 90,
+                        "content": "A black labrador Retriever is on his collar, and the dog is lying down on"
+                    },
+                    {
+                        "index": 91,
+                        "content": "a small dog with a lily like shape in her skin"
+                    },
+                    {
+                        "index": 92,
+                        "content": "A dog with a handle on it takes off."
+                    },
+                    {
+                        "index": 93,
+                        "content": "the dogs are not quite like each other."
+                    },
+                    {
+                        "index": 94,
+                        "content": "a dog plays fetch on a grassy patch"
+                    },
+                    {
+                        "index": 95,
+                        "content": "A large dog is in a pen and pawing his head"
+                    },
+                    {
+                        "index": 96,
+                        "content": "An adult dog lies on a tarp beside another dog."
+                    },
+                    {
+                        "index": 97,
+                        "content": "this is my favorite dog of all time."
+                    },
+                    {
+                        "index": 98,
+                        "content": "A dog is on the track."
+                    },
+                    {
+                        "index": 99,
+                        "content": "A dog is grazing"
+                    }
+                ]
+            }
+        ]
+    },
+    "guitar": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "The group of musicians is playing their guitars."
+                    },
+                    {
+                        "index": 1,
+                        "content": "Musicians are playing guitars in a home."
+                    },
+                    {
+                        "index": 2,
+                        "content": "A man plays a guitar."
+                    },
+                    {
+                        "index": 3,
+                        "content": "A boy played an electric guitar then went down to the woods and played solo."
+                    },
+                    {
+                        "index": 4,
+                        "content": "A woman plays an electric guitar."
+                    },
+                    {
+                        "index": 5,
+                        "content": "A boy is playing a guitar."
+                    },
+                    {
+                        "index": 6,
+                        "content": "A blue guitarist is playing on a metal guitar."
+                    },
+                    {
+                        "index": 7,
+                        "content": "Two people on guitars playing together."
+                    },
+                    {
+                        "index": 8,
+                        "content": "A guy who plays an 'organ guitar' is in a hut, rubbing"
+                    },
+                    {
+                        "index": 9,
+                        "content": "Someone pulls a guitar, then jibes and puts it on the player"
+                    },
+                    {
+                        "index": 10,
+                        "content": "Two people play the guitar, one sings while the other plays a bass."
+                    },
+                    {
+                        "index": 11,
+                        "content": "I think I hear more guitars from people because of a musical challenge"
+                    },
+                    {
+                        "index": 12,
+                        "content": "People play guitars while others play;"
+                    },
+                    {
+                        "index": 13,
+                        "content": "Another old guitar and a pair of other things."
+                    },
+                    {
+                        "index": 14,
+                        "content": "Two people play guitars and then sit and relax in the woods."
+                    },
+                    {
+                        "index": 15,
+                        "content": "The man plays the guitar on guitars during that event."
+                    },
+                    {
+                        "index": 16,
+                        "content": "A man playing the guitar, the other half doing the same thing."
+                    },
+                    {
+                        "index": 17,
+                        "content": "A man plays a guitar in a row."
+                    },
+                    {
+                        "index": 18,
+                        "content": "The girls are playing some guitars."
+                    },
+                    {
+                        "index": 19,
+                        "content": "Three men are playing guitar with two others at the same time"
+                    },
+                    {
+                        "index": 20,
+                        "content": "A man is playing a guitar."
+                    },
+                    {
+                        "index": 21,
+                        "content": "A young man plays a guitar."
+                    },
+                    {
+                        "index": 22,
+                        "content": "three young men play instruments together on a guitar."
+                    },
+                    {
+                        "index": 23,
+                        "content": "a man plays a guitar over his feet"
+                    },
+                    {
+                        "index": 24,
+                        "content": "A man plays a guitar while a man plays a drum"
+                    },
+                    {
+                        "index": 25,
+                        "content": "a young woman plays a blues guitar i recently purchased."
+                    },
+                    {
+                        "index": 26,
+                        "content": "A man plays a guitar in a public park."
+                    },
+                    {
+                        "index": 27,
+                        "content": "the guitar is being played by the family"
+                    },
+                    {
+                        "index": 28,
+                        "content": "A woman plays a piece of electronics before revealing it to her mother."
+                    },
+                    {
+                        "index": 29,
+                        "content": "a guitar playing a group of people"
+                    },
+                    {
+                        "index": 30,
+                        "content": "a young person is playing a guitar"
+                    },
+                    {
+                        "index": 31,
+                        "content": "A guitar plays with the rest of the bass."
+                    },
+                    {
+                        "index": 32,
+                        "content": "A man plays guitar while working."
+                    },
+                    {
+                        "index": 33,
+                        "content": "A woman is playing a guitar."
+                    },
+                    {
+                        "index": 34,
+                        "content": "The kiddo plays the guitar."
+                    },
+                    {
+                        "index": 35,
+                        "content": "She plays on her guitar, and a man keeps talking about it."
+                    },
+                    {
+                        "index": 36,
+                        "content": "A guy playing a guitar in a shop."
+                    },
+                    {
+                        "index": 37,
+                        "content": "This is a guitar and two other electric guitars."
+                    },
+                    {
+                        "index": 38,
+                        "content": "A young boy is bringing his electric guitar in a car to the garage."
+                    },
+                    {
+                        "index": 39,
+                        "content": "i want to do something with this guitar that is a little more difficult to take"
+                    },
+                    {
+                        "index": 40,
+                        "content": "guitar... it's so relaxing and easy to play"
+                    },
+                    {
+                        "index": 41,
+                        "content": "The girl is playing the guitar over the speakers."
+                    },
+                    {
+                        "index": 42,
+                        "content": "playing a guitar for a guest?"
+                    },
+                    {
+                        "index": 43,
+                        "content": "A woman playing guitar next to a man for a ride."
+                    },
+                    {
+                        "index": 44,
+                        "content": "People playing blues guitars."
+                    },
+                    {
+                        "index": 45,
+                        "content": "This is a female guitar in a suit with green leather straps."
+                    },
+                    {
+                        "index": 46,
+                        "content": "A man makes and plays his guitar."
+                    },
+                    {
+                        "index": 47,
+                        "content": "A man playing guitar with the guitar."
+                    },
+                    {
+                        "index": 48,
+                        "content": "Two men play the guitar."
+                    },
+                    {
+                        "index": 49,
+                        "content": "A man plays a guitar... as is playing the tunes"
+                    },
+                    {
+                        "index": 50,
+                        "content": "This is my guitar, it is a tenor, and I am the only female"
+                    },
+                    {
+                        "index": 51,
+                        "content": "Two men are playing the guitar together."
+                    },
+                    {
+                        "index": 52,
+                        "content": "One boy plays his guitar on someone else\u2019s wall."
+                    },
+                    {
+                        "index": 53,
+                        "content": "A man playing an electrical guitar."
+                    },
+                    {
+                        "index": 54,
+                        "content": "An older man has a guitar and the men know this."
+                    },
+                    {
+                        "index": 55,
+                        "content": "A man plays his guitar under the cover of an app."
+                    },
+                    {
+                        "index": 56,
+                        "content": "A guy with his guitar and two boots on, and a man behind, plays."
+                    },
+                    {
+                        "index": 57,
+                        "content": "A man plays a guitar while someone sits on a tree."
+                    },
+                    {
+                        "index": 58,
+                        "content": "A woman plays a guitar during a music session."
+                    },
+                    {
+                        "index": 59,
+                        "content": "A woman plays a guitar and the audience swoons."
+                    },
+                    {
+                        "index": 60,
+                        "content": "A man playing a guitar."
+                    },
+                    {
+                        "index": 61,
+                        "content": "He plays his guitar in the backyard."
+                    },
+                    {
+                        "index": 62,
+                        "content": "People are playing a guitar on the side of the lake."
+                    },
+                    {
+                        "index": 63,
+                        "content": "Three men play a guitar to a crowd over the radio."
+                    },
+                    {
+                        "index": 64,
+                        "content": "A man playing A band on his guitar."
+                    },
+                    {
+                        "index": 65,
+                        "content": "A lady strums a guitar over a dj."
+                    },
+                    {
+                        "index": 66,
+                        "content": "The male musician plays the guitar that he was playing."
+                    },
+                    {
+                        "index": 67,
+                        "content": "A guy played a guitar, then moved on the other side to play the other one."
+                    },
+                    {
+                        "index": 68,
+                        "content": "young lady having a birthday party on their guitar and playing a song"
+                    },
+                    {
+                        "index": 69,
+                        "content": "Two people play bluegrass guitars."
+                    },
+                    {
+                        "index": 70,
+                        "content": "The young man plays the guitar of a woman"
+                    },
+                    {
+                        "index": 71,
+                        "content": "A man with red and blue guitar plays the guitar, at a studio."
+                    },
+                    {
+                        "index": 72,
+                        "content": "A man demonstrates a different way to play a guitar"
+                    },
+                    {
+                        "index": 73,
+                        "content": "A female playing a guitar."
+                    },
+                    {
+                        "index": 74,
+                        "content": "The lady is playing her guitar."
+                    },
+                    {
+                        "index": 75,
+                        "content": "playing a guitar"
+                    },
+                    {
+                        "index": 76,
+                        "content": "These young boys are playing guitars on the apron."
+                    },
+                    {
+                        "index": 77,
+                        "content": "Two people play guitars after the other."
+                    },
+                    {
+                        "index": 78,
+                        "content": "The guy plays the guitar and other instruments while playing music."
+                    },
+                    {
+                        "index": 79,
+                        "content": "A man is playing a guitar"
+                    },
+                    {
+                        "index": 80,
+                        "content": "Three children are playing a guitar."
+                    },
+                    {
+                        "index": 81,
+                        "content": "A woman plays a guitar on a sunny day."
+                    },
+                    {
+                        "index": 82,
+                        "content": "guitar a fan"
+                    },
+                    {
+                        "index": 83,
+                        "content": "a live performance of a guitar."
+                    },
+                    {
+                        "index": 84,
+                        "content": "a man plays an electric guitar for a crowd"
+                    },
+                    {
+                        "index": 85,
+                        "content": "Someones guitar is playing."
+                    },
+                    {
+                        "index": 86,
+                        "content": "A man playing two guitars."
+                    },
+                    {
+                        "index": 87,
+                        "content": "The man plays guitar."
+                    },
+                    {
+                        "index": 88,
+                        "content": "A man plays a guitar"
+                    },
+                    {
+                        "index": 89,
+                        "content": "An old man is on his guitar practicing."
+                    },
+                    {
+                        "index": 90,
+                        "content": "a boy plays a guitar during holiday month"
+                    },
+                    {
+                        "index": 91,
+                        "content": "A man is playing guitar while the others are playing"
+                    },
+                    {
+                        "index": 92,
+                        "content": "A girl plays a guitar."
+                    },
+                    {
+                        "index": 93,
+                        "content": "A young woman plays guitar for her grandmother."
+                    },
+                    {
+                        "index": 94,
+                        "content": "A guitar a boy plays to get some extra attention."
+                    },
+                    {
+                        "index": 95,
+                        "content": "An older man is playing a guitar while a young man is playing."
+                    },
+                    {
+                        "index": 96,
+                        "content": "A man plays a piano, then a woman tries to play a guitar."
+                    },
+                    {
+                        "index": 97,
+                        "content": "Someone plays a guitar and there is no such thing."
+                    },
+                    {
+                        "index": 98,
+                        "content": "Two people play their guitars together."
+                    },
+                    {
+                        "index": 99,
+                        "content": "A man playing a guitar in a street."
+                    }
+                ]
+            }
+        ]
+    },
+    "giraffe": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "Two giraffes at a zoo table."
+                    },
+                    {
+                        "index": 1,
+                        "content": "A giraffe is resting on its tusked back with its own"
+                    },
+                    {
+                        "index": 2,
+                        "content": "A giraffe resting beside a hill in their grassy zoo"
+                    },
+                    {
+                        "index": 3,
+                        "content": "More and more giraffes in zoo."
+                    },
+                    {
+                        "index": 4,
+                        "content": "Two giraffes near each other among some trees."
+                    },
+                    {
+                        "index": 5,
+                        "content": "Three giraffes on a field with an umbrella."
+                    },
+                    {
+                        "index": 6,
+                        "content": "A giraffe in a grassy savanna looking at its eyes"
+                    },
+                    {
+                        "index": 7,
+                        "content": "Three giraffes on a grassy field with several giraffes"
+                    },
+                    {
+                        "index": 8,
+                        "content": "A group of giraffes in an enclosure"
+                    },
+                    {
+                        "index": 9,
+                        "content": "A giraffe is in a enclosure."
+                    },
+                    {
+                        "index": 10,
+                        "content": "A giraffe is in the grass."
+                    },
+                    {
+                        "index": 11,
+                        "content": "A giraffe and a man who is out on the ground."
+                    },
+                    {
+                        "index": 12,
+                        "content": "A giraffe grazing on water."
+                    },
+                    {
+                        "index": 13,
+                        "content": "A giraffe clings to an adult tree."
+                    },
+                    {
+                        "index": 14,
+                        "content": "A giraffe is in a field."
+                    },
+                    {
+                        "index": 15,
+                        "content": "There are five giraffes, with the other three doing theirs."
+                    },
+                    {
+                        "index": 16,
+                        "content": "A giraffe kicking its head and showing his teeth."
+                    },
+                    {
+                        "index": 17,
+                        "content": "A giraffe posing with another giraffe"
+                    },
+                    {
+                        "index": 18,
+                        "content": "Giraffes being fed by a zoo"
+                    },
+                    {
+                        "index": 19,
+                        "content": "A giraffe in a zoo enclosure."
+                    },
+                    {
+                        "index": 20,
+                        "content": "A giraffe holding a dandelion"
+                    },
+                    {
+                        "index": 21,
+                        "content": "Two giraffes and two zebras living near each other in warm weather"
+                    },
+                    {
+                        "index": 22,
+                        "content": "Giraffes are eating berries and other produce."
+                    },
+                    {
+                        "index": 23,
+                        "content": "A giraffe and a man in a zebra zoo"
+                    },
+                    {
+                        "index": 24,
+                        "content": "two giraffes grazing on a grassy field"
+                    },
+                    {
+                        "index": 25,
+                        "content": "Two giraffes gathered in a zoo enclosure to feed."
+                    },
+                    {
+                        "index": 26,
+                        "content": "Three giraffes are in the zoo, with one el"
+                    },
+                    {
+                        "index": 27,
+                        "content": "A giraffe in a zoo, a small child, and"
+                    },
+                    {
+                        "index": 28,
+                        "content": "Two giraffes, koi, and jigsaw puzzle"
+                    },
+                    {
+                        "index": 29,
+                        "content": "Sheep and giraffes grazing on an African desert."
+                    },
+                    {
+                        "index": 30,
+                        "content": "A giraffe eats leaves on a rocky ground."
+                    },
+                    {
+                        "index": 31,
+                        "content": "Five giraffes are in the stands."
+                    },
+                    {
+                        "index": 32,
+                        "content": "A giraffe sitting on a grassy area near some bushes"
+                    },
+                    {
+                        "index": 33,
+                        "content": "a small giraffe on the back of his zoo is still fighting"
+                    },
+                    {
+                        "index": 34,
+                        "content": "Two giraffes grazing on grass."
+                    },
+                    {
+                        "index": 35,
+                        "content": "Six giraffes are eating leaves and on a shady roof."
+                    },
+                    {
+                        "index": 36,
+                        "content": "A giraffe under a tree and a zebra under the hood"
+                    },
+                    {
+                        "index": 37,
+                        "content": "A giraffe is spotting young boys."
+                    },
+                    {
+                        "index": 38,
+                        "content": "Two giraffes are out of sight near the surface."
+                    },
+                    {
+                        "index": 39,
+                        "content": "Two giraffes inside a large green tent."
+                    },
+                    {
+                        "index": 40,
+                        "content": "A giraffe is on a grassy field with two zebras rest"
+                    },
+                    {
+                        "index": 41,
+                        "content": "The two giraffes are playing on the turf."
+                    },
+                    {
+                        "index": 42,
+                        "content": "A giraffe waiting for the milk to come in."
+                    },
+                    {
+                        "index": 43,
+                        "content": "A giraffe standing on an alley."
+                    },
+                    {
+                        "index": 44,
+                        "content": "A group of giraffes are grazing in the grass."
+                    },
+                    {
+                        "index": 45,
+                        "content": "A giraffe in an enclosure on a grassy field."
+                    },
+                    {
+                        "index": 46,
+                        "content": "Two people talking to a giraffe."
+                    },
+                    {
+                        "index": 47,
+                        "content": "a giraffe with the light bulbs is on"
+                    },
+                    {
+                        "index": 48,
+                        "content": "a giraffe is seen near the zoo"
+                    },
+                    {
+                        "index": 49,
+                        "content": "Three giraffe in some field with little or no access to grass."
+                    },
+                    {
+                        "index": 50,
+                        "content": "A group of giraffes laying on top of each other."
+                    },
+                    {
+                        "index": 51,
+                        "content": "Two giraffes playing in a zoo."
+                    },
+                    {
+                        "index": 52,
+                        "content": "A giraffe stands to eat grass in a small orchard."
+                    },
+                    {
+                        "index": 53,
+                        "content": "A giraffe showing its talons off a beach."
+                    },
+                    {
+                        "index": 54,
+                        "content": "Three giraffes with tan eyes that look like they are eating peanuts"
+                    },
+                    {
+                        "index": 55,
+                        "content": "a group of giraffes grazing in a zoo"
+                    },
+                    {
+                        "index": 56,
+                        "content": "The group of giraffe is playing chess on the pond."
+                    },
+                    {
+                        "index": 57,
+                        "content": "young giraffes grazing by the fire after extinction"
+                    },
+                    {
+                        "index": 58,
+                        "content": "A giraffe chasing its young into a zoo"
+                    },
+                    {
+                        "index": 59,
+                        "content": "Two giraffes are going with the ball."
+                    },
+                    {
+                        "index": 60,
+                        "content": "Three giraffes in the wild."
+                    },
+                    {
+                        "index": 61,
+                        "content": "A giraffe on a grassy field."
+                    },
+                    {
+                        "index": 62,
+                        "content": "A giraffe in a zoo enclosure in the wild."
+                    },
+                    {
+                        "index": 63,
+                        "content": "Two giraffes grazing next to each other during a spring break."
+                    },
+                    {
+                        "index": 64,
+                        "content": "A giraffe is standing next to a field."
+                    },
+                    {
+                        "index": 65,
+                        "content": "A giraffe in summer with the other giraffes nearby."
+                    },
+                    {
+                        "index": 66,
+                        "content": "A giraffe is frightened by a zoo gir"
+                    },
+                    {
+                        "index": 67,
+                        "content": "A female giraffe eating from your back as the giraffe runs past you"
+                    },
+                    {
+                        "index": 68,
+                        "content": "A large giraffe standing by its enclosure."
+                    },
+                    {
+                        "index": 69,
+                        "content": "A giraffe is circling over a twig"
+                    },
+                    {
+                        "index": 70,
+                        "content": "The male giraffes are eating grass and people."
+                    },
+                    {
+                        "index": 71,
+                        "content": "A giraffe on a beach with a fountain in between."
+                    },
+                    {
+                        "index": 72,
+                        "content": "A giraffe grazes in a zoo shelter after being"
+                    },
+                    {
+                        "index": 73,
+                        "content": "Two giraffes on a grassy field near a tree."
+                    },
+                    {
+                        "index": 74,
+                        "content": "A giraffe on a grassy field is shown."
+                    },
+                    {
+                        "index": 75,
+                        "content": "A giraffe on a grassy grassy field."
+                    },
+                    {
+                        "index": 76,
+                        "content": "A giraffe in a yellow enclosure is on the fence."
+                    },
+                    {
+                        "index": 77,
+                        "content": "A giraffe looks across a plain."
+                    },
+                    {
+                        "index": 78,
+                        "content": "A lion and a giraffe grazing by themselves."
+                    },
+                    {
+                        "index": 79,
+                        "content": "a giraffe is under some umbrellas"
+                    },
+                    {
+                        "index": 80,
+                        "content": "A giraffe with an open ear."
+                    },
+                    {
+                        "index": 81,
+                        "content": "Two giraffes are on a zoo bed."
+                    },
+                    {
+                        "index": 82,
+                        "content": "A giraffe is walking past a grassy area."
+                    },
+                    {
+                        "index": 83,
+                        "content": "some giraffes are in a zoo with turbans"
+                    },
+                    {
+                        "index": 84,
+                        "content": "There is a giraffe in the park with his ears up."
+                    },
+                    {
+                        "index": 85,
+                        "content": "A group of giraffes are playing around behind a lion."
+                    },
+                    {
+                        "index": 86,
+                        "content": "Three giraffes grazing by its hip under a tree on the"
+                    },
+                    {
+                        "index": 87,
+                        "content": "A group of giraffes lying down next to each other."
+                    },
+                    {
+                        "index": 88,
+                        "content": "The giraffe and the humans are playing with different species."
+                    },
+                    {
+                        "index": 89,
+                        "content": "Three giraffes are on a fence."
+                    },
+                    {
+                        "index": 90,
+                        "content": "a giraffe next to another giraffe"
+                    },
+                    {
+                        "index": 91,
+                        "content": "Two giraffes are trying to get food on the ground."
+                    },
+                    {
+                        "index": 92,
+                        "content": "A giraffe roaming through a field and then another giraffe."
+                    },
+                    {
+                        "index": 93,
+                        "content": "A giraffe tries to get their food out of the ground."
+                    },
+                    {
+                        "index": 94,
+                        "content": "two giraffes in a petting zoo"
+                    },
+                    {
+                        "index": 95,
+                        "content": "The giraffe in the zoo is squinting away from"
+                    },
+                    {
+                        "index": 96,
+                        "content": "A group of giraffes on a grassy green field."
+                    },
+                    {
+                        "index": 97,
+                        "content": "A giraffe that is eating some hay"
+                    },
+                    {
+                        "index": 98,
+                        "content": "Three giraffes with horns feeding in a zoo."
+                    },
+                    {
+                        "index": 99,
+                        "content": "A female giraffe at the grasslands near a tree."
+                    }
+                ]
+            }
+        ]
+    },
+    "house": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house with the stairs down"
+                    },
+                    {
+                        "index": 1,
+                        "content": "this is the smallest house"
+                    },
+                    {
+                        "index": 2,
+                        "content": "a white house with a pink balcony"
+                    },
+                    {
+                        "index": 3,
+                        "content": "people gathered to get into the house"
+                    },
+                    {
+                        "index": 4,
+                        "content": "the house is in a different building than what you see."
+                    },
+                    {
+                        "index": 5,
+                        "content": "the house is a classic model of life"
+                    },
+                    {
+                        "index": 6,
+                        "content": "there are some really old houses to go and explore here."
+                    },
+                    {
+                        "index": 7,
+                        "content": "one of the many traditional houses in the city."
+                    },
+                    {
+                        "index": 8,
+                        "content": "a house with a flowerpot above it"
+                    },
+                    {
+                        "index": 9,
+                        "content": "this is house with a lot of room and light"
+                    },
+                    {
+                        "index": 10,
+                        "content": "person with a pet has lived in a house for years"
+                    },
+                    {
+                        "index": 11,
+                        "content": "a blue moon shines through the windows of the house."
+                    },
+                    {
+                        "index": 12,
+                        "content": "this is an old house... you can see the garden"
+                    },
+                    {
+                        "index": 13,
+                        "content": "looking at a new home is an exciting time."
+                    },
+                    {
+                        "index": 14,
+                        "content": "home where the emperor was buried"
+                    },
+                    {
+                        "index": 15,
+                        "content": "i like the idea of a pool in a old house."
+                    },
+                    {
+                        "index": 16,
+                        "content": "a large family of sheep in a tree shed at a small house"
+                    },
+                    {
+                        "index": 17,
+                        "content": "A family of house with two of them in the main courtyard"
+                    },
+                    {
+                        "index": 18,
+                        "content": "a red brick and white house"
+                    },
+                    {
+                        "index": 19,
+                        "content": "houses of construction and their maintenance."
+                    },
+                    {
+                        "index": 20,
+                        "content": "the house of my grandparents"
+                    },
+                    {
+                        "index": 21,
+                        "content": "A man shows two different ways to decorate a house."
+                    },
+                    {
+                        "index": 22,
+                        "content": "There are houses in the subdivision where many people live."
+                    },
+                    {
+                        "index": 23,
+                        "content": "there is a beautiful house in the village."
+                    },
+                    {
+                        "index": 24,
+                        "content": "a man has lived in a house"
+                    },
+                    {
+                        "index": 25,
+                        "content": "a home constructed for the last century was a favourite amongst locals."
+                    },
+                    {
+                        "index": 26,
+                        "content": "The house is huge but the pool is a little rough."
+                    },
+                    {
+                        "index": 27,
+                        "content": "A couple of green houses together with a black cat on them"
+                    },
+                    {
+                        "index": 28,
+                        "content": "white and yellow glazed windows with a house in a white marble interior"
+                    },
+                    {
+                        "index": 29,
+                        "content": "i miss living in a house, but I do miss the place"
+                    },
+                    {
+                        "index": 30,
+                        "content": "a house where you can have breakfast or lunch as well as a cot"
+                    },
+                    {
+                        "index": 31,
+                        "content": "this is where a house is located."
+                    },
+                    {
+                        "index": 32,
+                        "content": "houses a few hundred metres from each other"
+                    },
+                    {
+                        "index": 33,
+                        "content": "close up of a house with old furniture and mirrors"
+                    },
+                    {
+                        "index": 34,
+                        "content": "the house i grew up in.."
+                    },
+                    {
+                        "index": 35,
+                        "content": "the place where my family and friends made this house."
+                    },
+                    {
+                        "index": 36,
+                        "content": "this posh black and white house is just outside the heart"
+                    },
+                    {
+                        "index": 37,
+                        "content": "a lot of houses like this go for rent"
+                    },
+                    {
+                        "index": 38,
+                        "content": "A couple of boys are out of the house in an evening with the wind."
+                    },
+                    {
+                        "index": 39,
+                        "content": "the house the man built."
+                    },
+                    {
+                        "index": 40,
+                        "content": "there was a huge amount of snow for the hut in the old house the one that"
+                    },
+                    {
+                        "index": 41,
+                        "content": "what do we think is the best house for children..."
+                    },
+                    {
+                        "index": 42,
+                        "content": "a young boy is getting ready to move the house once more"
+                    },
+                    {
+                        "index": 43,
+                        "content": "the house as well as its neighbors"
+                    },
+                    {
+                        "index": 44,
+                        "content": "the house is named during the carnival."
+                    },
+                    {
+                        "index": 45,
+                        "content": "a girl plays with kids in a house"
+                    },
+                    {
+                        "index": 46,
+                        "content": "a house in the heart with a ring on the roof"
+                    },
+                    {
+                        "index": 47,
+                        "content": "he had some of his own gardens outside of his house."
+                    },
+                    {
+                        "index": 48,
+                        "content": "an older man shows a house in the district."
+                    },
+                    {
+                        "index": 49,
+                        "content": "the house with a sun over the sea"
+                    },
+                    {
+                        "index": 50,
+                        "content": "this house is in a city and is completely rented out."
+                    },
+                    {
+                        "index": 51,
+                        "content": "a house with a fire and other features."
+                    },
+                    {
+                        "index": 52,
+                        "content": "there is certainly a family in the house and you should think about that."
+                    },
+                    {
+                        "index": 53,
+                        "content": "home next to a mansion that has been restored so far"
+                    },
+                    {
+                        "index": 54,
+                        "content": "a green house is the main entrance"
+                    },
+                    {
+                        "index": 55,
+                        "content": "this is a home we haven't seen in ages."
+                    },
+                    {
+                        "index": 56,
+                        "content": "a boy showing the house"
+                    },
+                    {
+                        "index": 57,
+                        "content": "home is a quaint little brown stone structure with no interior of white."
+                    },
+                    {
+                        "index": 58,
+                        "content": "this is a beautiful house with a pool"
+                    },
+                    {
+                        "index": 59,
+                        "content": "buildings on the roof of country house of a small village"
+                    },
+                    {
+                        "index": 60,
+                        "content": "The house is ready for the grand opening."
+                    },
+                    {
+                        "index": 61,
+                        "content": "house located in the city has a beautiful front yard."
+                    },
+                    {
+                        "index": 62,
+                        "content": "a tiny house for sale in the outskirts"
+                    },
+                    {
+                        "index": 63,
+                        "content": "this is a house i think i should buy."
+                    },
+                    {
+                        "index": 64,
+                        "content": "lone man living in the old house"
+                    },
+                    {
+                        "index": 65,
+                        "content": "this home is full of old brick house with old wood."
+                    },
+                    {
+                        "index": 66,
+                        "content": "the house is in the city"
+                    },
+                    {
+                        "index": 67,
+                        "content": "an old house has its fair share of problems"
+                    },
+                    {
+                        "index": 68,
+                        "content": "this is a quaint old brick house."
+                    },
+                    {
+                        "index": 69,
+                        "content": "The house is decorated in black and white."
+                    },
+                    {
+                        "index": 70,
+                        "content": "house in the countryside being built"
+                    },
+                    {
+                        "index": 71,
+                        "content": "many buildings are available including the one in the foreground of house and a church"
+                    },
+                    {
+                        "index": 72,
+                        "content": "the house has been well renovated but may take some time to do so"
+                    },
+                    {
+                        "index": 73,
+                        "content": "it appears that the house has never been completely repainted."
+                    },
+                    {
+                        "index": 74,
+                        "content": "A group of people inside a mansion in a city."
+                    },
+                    {
+                        "index": 75,
+                        "content": "a house like structure that has its own bar and a dining room"
+                    },
+                    {
+                        "index": 76,
+                        "content": "a small white house atop a church"
+                    },
+                    {
+                        "index": 77,
+                        "content": "all the houses are in a state of preservation."
+                    },
+                    {
+                        "index": 78,
+                        "content": "a man in black and white is visiting the house this summer"
+                    },
+                    {
+                        "index": 79,
+                        "content": "this one is a town and house all the apartments are in."
+                    },
+                    {
+                        "index": 80,
+                        "content": "the house which became a regular fixture has now come into production."
+                    },
+                    {
+                        "index": 81,
+                        "content": "the house at the foot of the road"
+                    },
+                    {
+                        "index": 82,
+                        "content": "house for sale"
+                    },
+                    {
+                        "index": 83,
+                        "content": "buildings around the house are shown."
+                    },
+                    {
+                        "index": 84,
+                        "content": "a man comes around the outside of the house to meet a child."
+                    },
+                    {
+                        "index": 85,
+                        "content": "A man is in an old house."
+                    },
+                    {
+                        "index": 86,
+                        "content": "this is an old house, but this one will be renovated"
+                    },
+                    {
+                        "index": 87,
+                        "content": "a house was abandoned over the weekend after it was sold."
+                    },
+                    {
+                        "index": 88,
+                        "content": "This is a cute little house and is always in the house for the girls to move to"
+                    },
+                    {
+                        "index": 89,
+                        "content": "the house in the far right bank."
+                    },
+                    {
+                        "index": 90,
+                        "content": "the house with wooden floors was unfinished."
+                    },
+                    {
+                        "index": 91,
+                        "content": "a home that is not in the area in the winter"
+                    },
+                    {
+                        "index": 92,
+                        "content": "we have a small room called a house and a few of the bedrooms are out"
+                    },
+                    {
+                        "index": 93,
+                        "content": "houses in the streets of the city."
+                    },
+                    {
+                        "index": 94,
+                        "content": "you can keep the house open during the rainy season."
+                    },
+                    {
+                        "index": 95,
+                        "content": "A green house with light from inside it."
+                    },
+                    {
+                        "index": 96,
+                        "content": "i really love the way they decorated their houses"
+                    },
+                    {
+                        "index": 97,
+                        "content": "the house is an old home from a small town."
+                    },
+                    {
+                        "index": 98,
+                        "content": "the tiny house was once the home of the founder of family"
+                    },
+                    {
+                        "index": 99,
+                        "content": "house is one of the smaller structures that will have no roof."
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -175,3 +175,7 @@ collections/Bongard-HOI/backup
 collections/Bongard-HOI/RMD_scores
 nameonly/generate_twostage/lock.lock
 nameonly/generate_twostage/*task.txt
+nameonly/generate_twostage/glide_model_cache/base.pt
+nameonly/generate_twostage/glide_model_cache/base.pt.lock
+nameonly/generate_twostage/glide_model_cache/upsample.pt
+nameonly/generate_twostage/glide_model_cache/upsample.pt.lock

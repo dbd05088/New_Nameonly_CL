@@ -210,13 +210,34 @@
 # tar -xf DomainNet_sdxl_4_refined.tar -C DomainNet
 # rm DomainNet_sdxl_4_refined.tar
 
-# DomainNet ensemble with cot_4 (0911)
-./gdrive files download 1rWEThnulsvYRnTgbs4yUST72zaThbVdm # DomainNet_sdxl_floyd_cogview2_sd3_auraflow_4
-./gdrive files download 1SEYPwXb3V3IkU47d8b3dukM7Qb_A7WtC # DomainNet_sdxl_floyd_cogview2_sd3_flux_auraflow_4
-./gdrive files download 1SC6YFr1Y7lIejWDiqFpaehBAd6kOXvLN # DomainNet_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_4
-tar -xf DomainNet_sdxl_floyd_cogview2_sd3_auraflow_4.tar -C DomainNet
-tar -xf DomainNet_sdxl_floyd_cogview2_sd3_flux_auraflow_4.tar -C DomainNet
-tar -xf DomainNet_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_4.tar -C DomainNet
-rm DomainNet_sdxl_floyd_cogview2_sd3_auraflow_4.tar
-rm DomainNet_sdxl_floyd_cogview2_sd3_flux_auraflow_4.tar
-rm DomainNet_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_4.tar
+# # DomainNet ensemble with cot_4 (0911)
+# ./gdrive files download 1rWEThnulsvYRnTgbs4yUST72zaThbVdm # DomainNet_sdxl_floyd_cogview2_sd3_auraflow_4
+# ./gdrive files download 1SEYPwXb3V3IkU47d8b3dukM7Qb_A7WtC # DomainNet_sdxl_floyd_cogview2_sd3_flux_auraflow_4
+# ./gdrive files download 1SC6YFr1Y7lIejWDiqFpaehBAd6kOXvLN # DomainNet_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_4
+# tar -xf DomainNet_sdxl_floyd_cogview2_sd3_auraflow_4.tar -C DomainNet
+# tar -xf DomainNet_sdxl_floyd_cogview2_sd3_flux_auraflow_4.tar -C DomainNet
+# tar -xf DomainNet_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_4.tar -C DomainNet
+# rm DomainNet_sdxl_floyd_cogview2_sd3_auraflow_4.tar
+# rm DomainNet_sdxl_floyd_cogview2_sd3_flux_auraflow_4.tar
+# rm DomainNet_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow_4.tar
+
+# # LE diversifed (0914)
+# ./gdrive files download 1FVpuoG7MgY4lOHfMvw0YyOLnWtzCaBxO # DomainNet_LE_diversified
+# tar -xf DomainNet_LE_diversified.tar -C DomainNet
+# rm DomainNet_LE_diversified.tar
+
+# # LE diversified with 100, sdxl (0915)
+# ./gdrive files download 1A1xQ7ECYq6R2_cws_xb9cxJEmh05d7gN # DomainNet_LE_diversified_100_sdxl
+# tar -xf DomainNet_LE_diversified_100_sdxl.tar -C DomainNet
+# rm DomainNet_LE_diversified_100_sdxl.tar
+
+# cot_100_2 ensemble (0916)
+./gdrive files download 1gG8ommB87RhaiakboSy93OFzrwKRWkfh # DomainNet_cot_100_2_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow
+./gdrive files download 1rWaxXaGYT11fYRXYbDo3QO0Kz1dZQKje # DomainNet_cot_100_2_sdxl_floyd_cogview2_sd3_flux_auraflow
+./gdrive files download 1HCxycLIT_WYkhGJinKeZw298NdJanLSA # DomainNet_cot_100_2_sdxl_floyd_cogview2_sd3_auraflow
+tar -xf DomainNet_cot_100_2_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.tar -C DomainNet
+tar -xf DomainNet_cot_100_2_sdxl_floyd_cogview2_sd3_flux_auraflow.tar -C DomainNet
+tar -xf DomainNet_cot_100_2_sdxl_floyd_cogview2_sd3_auraflow.tar -C DomainNet
+rm DomainNet_cot_100_2_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.tar
+rm DomainNet_cot_100_2_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
+rm DomainNet_cot_100_2_sdxl_floyd_cogview2_sd3_auraflow.tar

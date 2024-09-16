@@ -1,0 +1,210 @@
+{
+    "metaprompts": [
+        {
+            "index": 0,
+            "metaprompt": "dummy",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A photo of a [concept]."
+                },
+                {
+                    "index": 1,
+                    "content": "A colorful vector clipart of [concept]."
+                },
+                {
+                    "index": 2,
+                    "content": "A simple sketch of [concept] with bold contrasts."
+                },
+                {
+                    "index": 3,
+                    "content": "A photo of [concept] in natural light."
+                },
+                {
+                    "index": 4,
+                    "content": "A sunset silhouette of [concept] against vibrant sky colors."
+                },
+                {
+                    "index": 5,
+                    "content": "A minimalist illustration of [concept]."
+                },
+                {
+                    "index": 6,
+                    "content": "A photo of [concept] with dramatic lighting."
+                },
+                {
+                    "index": 7,
+                    "content": "A hyper-realistic image of [concept] in vibrant, saturated colors."
+                },
+                {
+                    "index": 8,
+                    "content": "A detailed HDR photograph of [concept] during golden hour."
+                },
+                {
+                    "index": 9,
+                    "content": "A hyper-detailed image of [concept] at sunset, vibrant colors and realistic textures."
+                },
+                {
+                    "index": 10,
+                    "content": "A macro shot of [concept] with fine details and shallow depth of field."
+                },
+                {
+                    "index": 11,
+                    "content": "A high-resolution image of [concept] in vibrant colors and fine details."
+                },
+                {
+                    "index": 12,
+                    "content": "A sepia-toned photograph of [concept] in an urban landscape."
+                },
+                {
+                    "index": 13,
+                    "content": "A photorealistic image of [concept] with a pastel color palette."
+                },
+                {
+                    "index": 14,
+                    "content": "A black-and-white photo of [concept]."
+                },
+                {
+                    "index": 15,
+                    "content": "A photorealistic image of [concept] with golden hour lighting and soft shadows."
+                },
+                {
+                    "index": 16,
+                    "content": "An aerial photo of [concept] at sunset with warm tones."
+                },
+                {
+                    "index": 17,
+                    "content": "A black and white portrait of [concept]."
+                },
+                {
+                    "index": 18,
+                    "content": "A high-contrast, sepia-toned photograph of [concept] in an urban setting."
+                },
+                {
+                    "index": 19,
+                    "content": "A high-resolution studio photograph of [concept] with dramatic lighting and shadows."
+                },
+                {
+                    "index": 20,
+                    "content": "A vibrant, high-contrast photo of [concept] at sunset."
+                },
+                {
+                    "index": 21,
+                    "content": "A black and white photo of [concept] with a vintage aesthetic."
+                },
+                {
+                    "index": 22,
+                    "content": "A high-resolution macro photo of [concept] with intricate details."
+                },
+                {
+                    "index": 23,
+                    "content": "A black and white film noir style image of [concept]."
+                },
+                {
+                    "index": 24,
+                    "content": "A photorealistic macro shot of [concept] with dramatic lighting and shallow depth of field."
+                },
+                {
+                    "index": 25,
+                    "content": "A photo of [concept] at sunset with warm, glowing colors."
+                },
+                {
+                    "index": 26,
+                    "content": "An ethereal misty morning of [concept] with soft pastel hues."
+                },
+                {
+                    "index": 27,
+                    "content": "A high-contrast black and white photograph of [concept]."
+                },
+                {
+                    "index": 28,
+                    "content": "A photo of [concept] in black and white."
+                },
+                {
+                    "index": 29,
+                    "content": "A black and white photo of [concept] in a vintage style."
+                },
+                {
+                    "index": 30,
+                    "content": "A close-up portrait of [concept] with a shallow depth of field."
+                },
+                {
+                    "index": 31,
+                    "content": "A cinematic shot of [concept] at golden hour."
+                },
+                {
+                    "index": 32,
+                    "content": "A black and white photograph of [concept] in a vintage style."
+                },
+                {
+                    "index": 33,
+                    "content": "An aerial view photo of [concept] during golden hour."
+                },
+                {
+                    "index": 34,
+                    "content": "A black and white portrait of [concept] with intense shadows."
+                },
+                {
+                    "index": 35,
+                    "content": "A black and white portrait of [concept] with high contrast lighting."
+                },
+                {
+                    "index": 36,
+                    "content": "A close-up shot of [concept] in natural daylight with soft shadows."
+                },
+                {
+                    "index": 37,
+                    "content": "A high-resolution macro photograph of [concept] with intense details and vibrant colors."
+                },
+                {
+                    "index": 38,
+                    "content": "A high-contrast, black and white photo of [concept] in an urban setting."
+                },
+                {
+                    "index": 39,
+                    "content": "A high-resolution image [concept] with intricate texture and fine details."
+                },
+                {
+                    "index": 40,
+                    "content": "A photorealistic image of [concept] in a vibrant, colorful urban setting."
+                },
+                {
+                    "index": 41,
+                    "content": "A hyper-realistic snapshot of [concept] in natural, earthy tones."
+                },
+                {
+                    "index": 42,
+                    "content": "A monochrome portrait of [concept] with dramatic lighting."
+                },
+                {
+                    "index": 43,
+                    "content": "A photo of [concept] at sunset with vibrant colors."
+                },
+                {
+                    "index": 44,
+                    "content": "A high-resolution image of [concept] featuring vibrant colors and realistic textures."
+                },
+                {
+                    "index": 45,
+                    "content": "A black-and-white portrait of [concept] in an urban setting."
+                },
+                {
+                    "index": 46,
+                    "content": "A photo of [concept] with vibrant neon colors in a cityscape at night."
+                },
+                {
+                    "index": 47,
+                    "content": "A photo of [concept] in a vibrant sunset background."
+                },
+                {
+                    "index": 48,
+                    "content": "A close-up macro shot of [concept] with intricate details and natural colors."
+                },
+                {
+                    "index": 49,
+                    "content": "A photorealistic scene of [concept] in misty, twilight hues with soft lighting."
+                }
+            ]
+        }
+    ]
+}

@@ -9,6 +9,7 @@ from torchvision import transforms, models
 from utils.joint_dataset import CustomDataset
 from utils.train_utils import select_model
 from tqdm import tqdm
+from utils.data_loader import ImageDataset, get_statistics
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--dataset', type=str, required=True)
@@ -38,7 +39,7 @@ elif args.dataset == 'DomainNet':
     }
 elif args.dataset == 'NICO':
     domain_dirs = {
-        'id': None,
+        # 'id': None,
         'autumn': './dataset/NICO/NICO_MA/autumn',
         'dim': './dataset/NICO/NICO_MA/dim',
         'grass': './dataset/NICO/NICO_MA/grass',
@@ -58,11 +59,18 @@ elif args.dataset == 'cifar10':
         'nc': './dataset/cifar10/cifar10_nc'
     }
 
+
+
 # Define the transform
+mean, std, n_classes, inp_size, _ = get_statistics(dataset=args.dataset, type_name=args.type)
 transform = transforms.Compose([
     transforms.Resize((224, 224)),
+    transforms.RandomCrop(size=(224, 224), padding=4),
+    transforms.RandomHorizontalFlip(),
+    transforms.RandAugment(),
+    # transforms.ConvertImageDtype(),
     transforms.ToTensor(),
-    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+    transforms.Normalize(mean=mean, std=std)
 ])
 train_root_dir = os.path.join('./dataset', args.dataset, f'{args.dataset}_{args.type}')
 train_dataset = CustomDataset(train_root_dir, transform=transform)
@@ -175,6 +183,12 @@ def main():
         'OOD': ood_average
     }, index=[0])
     df_average.to_csv(csv_path, mode='a', header=False, index=False)
+    
+    train_root_dir = os.path.join('./dataset', args.dataset, f'{args.dataset}_{args.type}')
+    torch.save({
+        'model_state_dict': model.state_dict(),
+        'exposed_classes': list(os.listdir(train_root_dir))
+        }, f'./real_ckpt/{args.model_name}_{args.dataset}.pth')
     
 if __name__ == '__main__':
     main()

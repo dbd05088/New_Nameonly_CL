@@ -1,6 +1,5 @@
 import re
 import json
-import nltk
 import random
 from classes import *
 from openai import OpenAI
@@ -9,8 +8,9 @@ from tqdm import tqdm
 random.seed(42)
 
 # DomainNet
-prompt_json_path = './prompts/synthclip_DomainNet.json'
-dataset_count = DomainNet_count
+prompt_json_path = './prompts/synthclip_PACS_100.json'
+dataset_count = PACS_count
+NUM_PROMPTS = 100
 
 def generate_img_caption(client, cls):
     cls_tmp = cls.replace('_',' ')
@@ -35,7 +35,7 @@ for cls in tqdm(dataset_count):
     totalprompt_dict[cls] = {'metaprompts': []}
     class_prompt_list = []
     
-    for i in range(50):
+    for i in range(NUM_PROMPTS):
         img_caption = generate_img_caption(client,cls)
         
         totalprompt_dict[cls]['metaprompts'].append(
