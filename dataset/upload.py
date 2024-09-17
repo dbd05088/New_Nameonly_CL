@@ -8,15 +8,14 @@ os.system("./gdrive account import gdrive_export-dbd05088_naver_com.tar")
 os.system("./gdrive account switch dbd05088@naver.com")
 
 # Files to upload
-dataset = "PACS_final"
+dataset = "DomainNet"
 create_tar = True
 files = [
-    "PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow",
-    "PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_flux_auraflow",
-    "PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow",
-    "PACS_final_cot_100_2_sdxl_floyd_cogview2_sd3_auraflow",
-    "PACS_final_cot_100_2_sdxl_floyd_cogview2_sd3_flux_auraflow",
-    "PACS_final_cot_100_2_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow"
+    "DomainNet_cot_50_2_sdxl",
+    "DomainNet_cot_100_2_sdxl",
+    "DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow",
+    "DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_flux_auraflow",
+    "DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow"
 ]
 
 # Change path
