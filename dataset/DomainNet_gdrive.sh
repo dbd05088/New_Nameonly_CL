@@ -260,3 +260,8 @@ tar -xf DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.tar -C D
 rm DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow.tar
 rm DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
 rm DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.tar
+
+# DomainNet cot_50_2 refined sdxl
+./gdrive files download 1wYqEb66Y3MkwWrHrfti0WAs7a2YLBENY # DomainNet_cot_50_2_refined_sdxl
+tar -xf DomainNet_cot_50_2_refined_sdxl.tar -C DomainNet
+rm DomainNet_cot_50_2_refined_sdxl.tar
