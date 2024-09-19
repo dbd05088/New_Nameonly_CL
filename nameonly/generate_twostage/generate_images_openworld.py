@@ -1,11 +1,13 @@
 import os
 import json
 import argparse
+import time
 import shutil
 from get_image_onestage import model_selector
 from get_image_onestage import adjust_list_length
 from tqdm import tqdm
-from utils import sanitize_filename
+from utils import *
+from pathlib import Path
 
 debug = False
 
@@ -28,9 +30,22 @@ with open('../prompt_generation/prompts/openworld_diversified.json', 'r') as f:
     prompt_dict = json.load(f)
 
 uid_list = list(prompt_dict.keys())
-print(f"Class indices to generate: {args.start_class} ~ {args.end_class}")
 uids_to_generate = uid_list[args.start_class:args.end_class+1]
-for uid in tqdm(uids_to_generate):
+
+# Use queue to generate images for each class
+queue_name = Path(args.root_dir).name
+print(f"Set queue name as {queue_name}")
+cls_initial_indices = list(range(args.start_class, args.end_class+1))
+classes = [uid_list[i] for i in cls_initial_indices]
+initialize_task_file(queue_name, args.start_class, args.end_class, classes)
+
+while True:
+    next_cls_idx = get_next_task(queue_name)
+    if next_cls_idx is None:
+        print(f"Task is done. Exiting...")
+        break
+    print(f"Class num {next_cls_idx} is selected. Start generating images for uid {uid_list[next_cls_idx]}")
+    uid = uid_list[next_cls_idx]
     save_dir = os.path.join(args.root_dir, uid)
     # Remove existing directory
     if os.path.exists(save_dir):
@@ -73,3 +88,5 @@ for uid in tqdm(uids_to_generate):
         image_name = f"{sanitize_filename(neg_prompt)}_{str(i).zfill(6)}"
         image_path = os.path.join(neg_save_dir, image_name + '.png')
         image.save(image_path, "JPEG")
+
+    mark_task_done(queue_name, next_cls_idx)
