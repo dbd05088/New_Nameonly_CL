@@ -1,0 +1,210 @@
+{
+    "metaprompts": [
+        {
+            "index": 0,
+            "metaprompt": "dummy",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A photo of a [concept]."
+                },
+                {
+                    "index": 1,
+                    "content": "A detailed sketch of [concept]."
+                },
+                {
+                    "index": 2,
+                    "content": "A dark photo of the [concept]."
+                },
+                {
+                    "index": 3,
+                    "content": "A vibrant oil painting of [concept]."
+                },
+                {
+                    "index": 4,
+                    "content": "A photo of a nice [concept]."
+                },
+                {
+                    "index": 5,
+                    "content": "A colorful vector clipart of [concept]."
+                },
+                {
+                    "index": 6,
+                    "content": "A photo of [concept] in natural light."
+                },
+                {
+                    "index": 7,
+                    "content": "A high-contrast black and white photo of [concept] in urban landscape."
+                },
+                {
+                    "index": 8,
+                    "content": "A black and white photo of a [concept]."
+                },
+                {
+                    "index": 9,
+                    "content": "A high-resolution image of [concept] framed by lush greenery in golden hour lighting."
+                },
+                {
+                    "index": 10,
+                    "content": "A high-definition image of [concept] at sunset with dramatic lighting."
+                },
+                {
+                    "index": 11,
+                    "content": "An overhead aerial photo of a [concept] in an urban setting."
+                },
+                {
+                    "index": 12,
+                    "content": "A macro shot of a [concept] with water droplets."
+                },
+                {
+                    "index": 13,
+                    "content": "A sunset-lit photo of a [concept] in a meadow."
+                },
+                {
+                    "index": 14,
+                    "content": "An aerial drone shot of [concept] in a lush green forest setting."
+                },
+                {
+                    "index": 15,
+                    "content": "A vibrant, sunset-lit photo of the [concept]."
+                },
+                {
+                    "index": 16,
+                    "content": "An aerial drone shot of [concept] during the golden hour."
+                },
+                {
+                    "index": 17,
+                    "content": "A high-contrast underwater photo of [concept] in vivid blues and greens."
+                },
+                {
+                    "index": 18,
+                    "content": "A high-contrast photo of the [concept] against a stormy sky."
+                },
+                {
+                    "index": 19,
+                    "content": "A high-resolution photo of [concept] illuminated by soft, early morning light."
+                },
+                {
+                    "index": 20,
+                    "content": "A serene sunset photo of [concept] with warm golden hues."
+                },
+                {
+                    "index": 21,
+                    "content": "A detailed photo of [concept] in soft, diffused morning light."
+                },
+                {
+                    "index": 22,
+                    "content": "A candid shot of [concept] in a bustling urban environment."
+                },
+                {
+                    "index": 23,
+                    "content": "A sepia-toned photo of the [concept] in a rustic countryside setting."
+                },
+                {
+                    "index": 24,
+                    "content": "A close-up, black-and-white portrait of [concept] with high contrast."
+                },
+                {
+                    "index": 25,
+                    "content": "A vivid photo of [concept] with a vibrant and dynamic color palette."
+                },
+                {
+                    "index": 26,
+                    "content": "A surreal, photorealistic scene of [concept] with neon lighting."
+                },
+                {
+                    "index": 27,
+                    "content": "A serene sunset photograph of [concept] by a tranquil lake."
+                },
+                {
+                    "index": 28,
+                    "content": "A close-up portrait of [concept] in soft pastel hues with shallow depth of field."
+                },
+                {
+                    "index": 29,
+                    "content": "A crisp, monochrome close-up photograph of [concept]."
+                },
+                {
+                    "index": 30,
+                    "content": "A vibrant street market with [concept] captured in bustling activity."
+                },
+                {
+                    "index": 31,
+                    "content": "A misty morning landscape featuring a [concept] by the river."
+                },
+                {
+                    "index": 32,
+                    "content": "A bright, colorful urban street photo of [concept] with dynamic lighting."
+                },
+                {
+                    "index": 33,
+                    "content": "A detailed macro photograph of [concept] with a vivid color palette."
+                },
+                {
+                    "index": 34,
+                    "content": "A hyper-detailed macro photograph of [concept] with vivid color contrasts."
+                },
+                {
+                    "index": 35,
+                    "content": "A sepia-toned portrait of a [concept]."
+                },
+                {
+                    "index": 36,
+                    "content": "A bright, HDR photo of [concept] with vivid colors and sharp details."
+                },
+                {
+                    "index": 37,
+                    "content": "A muted-tone, cinematic photograph of [concept] in early morning fog."
+                },
+                {
+                    "index": 38,
+                    "content": "A monochromatic photo of [concept] in low light."
+                },
+                {
+                    "index": 39,
+                    "content": "A cinematic photo of the [concept] during golden hour in a forest."
+                },
+                {
+                    "index": 40,
+                    "content": "A vintage sepia-toned photograph of [concept] capturing nostalgic charm and detail."
+                },
+                {
+                    "index": 41,
+                    "content": "A photo of the [concept] under cool blue and green night lighting."
+                },
+                {
+                    "index": 42,
+                    "content": "A twilight landscape photo of [concept] with a rich, purple and pink color palette."
+                },
+                {
+                    "index": 43,
+                    "content": "A misty morning forest scene with [concept] enveloped in soft, diffused light."
+                },
+                {
+                    "index": 44,
+                    "content": "A surreal landscape photo of [concept] in twilight blue tones."
+                },
+                {
+                    "index": 45,
+                    "content": "A vibrant, high-resolution photo of [concept] in golden hour lighting."
+                },
+                {
+                    "index": 46,
+                    "content": "A high-resolution image of [concept] in black and white."
+                },
+                {
+                    "index": 47,
+                    "content": "A misty morning forest photo of [concept] with soft, pastel tones."
+                },
+                {
+                    "index": 48,
+                    "content": "A mid-century modern styled room with [concept] in natural lighting."
+                },
+                {
+                    "index": 49,
+                    "content": "A crystal-clear close-up of [concept] with a neutral background."
+                }
+            ]
+        }
+    ]
+}

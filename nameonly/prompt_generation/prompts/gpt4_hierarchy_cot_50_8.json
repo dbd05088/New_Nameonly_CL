@@ -1,0 +1,210 @@
+{
+    "metaprompts": [
+        {
+            "index": 0,
+            "metaprompt": "dummy",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A photo of a [concept]."
+                },
+                {
+                    "index": 1,
+                    "content": "A minimalist, hand-drawn sketch of a [concept]."
+                },
+                {
+                    "index": 2,
+                    "content": "A dark photo of the [concept]."
+                },
+                {
+                    "index": 3,
+                    "content": "A vibrant oil painting of [concept]."
+                },
+                {
+                    "index": 4,
+                    "content": "A photo of a nice [concept]."
+                },
+                {
+                    "index": 5,
+                    "content": "A colorful vector clipart of [concept]."
+                },
+                {
+                    "index": 6,
+                    "content": "A bad photo of a [concept]."
+                },
+                {
+                    "index": 7,
+                    "content": "A macro shot of [concept] with shallow depth of field."
+                },
+                {
+                    "index": 8,
+                    "content": "A high-resolution image of [concept] at sunset."
+                },
+                {
+                    "index": 9,
+                    "content": "A cinematic shot of [concept]."
+                },
+                {
+                    "index": 10,
+                    "content": "A pastel-colored illustration of [concept]."
+                },
+                {
+                    "index": 11,
+                    "content": "A serene landscape with [concept] at dawn."
+                },
+                {
+                    "index": 12,
+                    "content": "A cinematic scene at twilight featuring a [concept]."
+                },
+                {
+                    "index": 13,
+                    "content": "A monochrome HDR image of [concept]."
+                },
+                {
+                    "index": 14,
+                    "content": "An underwater scene of [concept]."
+                },
+                {
+                    "index": 15,
+                    "content": "A foggy morning photo of the [concept]."
+                },
+                {
+                    "index": 16,
+                    "content": "A dynamic action shot of a [concept] in motion."
+                },
+                {
+                    "index": 17,
+                    "content": "A high-definition image of [concept]."
+                },
+                {
+                    "index": 18,
+                    "content": "A hyper-detailed, macro photograph of [concept]."
+                },
+                {
+                    "index": 19,
+                    "content": "A vibrant street scene with [concept]."
+                },
+                {
+                    "index": 20,
+                    "content": "A breathtaking macro shot of [concept]."
+                },
+                {
+                    "index": 21,
+                    "content": "An abstract, high-contrast black and white photo of a [concept]."
+                },
+                {
+                    "index": 22,
+                    "content": "A high-resolution, macro photo of a [concept]."
+                },
+                {
+                    "index": 23,
+                    "content": "A vibrant painting of a [concept]."
+                },
+                {
+                    "index": 24,
+                    "content": "A detailed black-and-white photograph of [concept]."
+                },
+                {
+                    "index": 25,
+                    "content": "A hyper-realistic painting of a beautiful [concept]."
+                },
+                {
+                    "index": 26,
+                    "content": "A sepia-toned vintage photo of the [concept]."
+                },
+                {
+                    "index": 27,
+                    "content": "A vibrant, street art mural featuring a [concept]."
+                },
+                {
+                    "index": 28,
+                    "content": "Dramatic sunset over [concept] in natural hues."
+                },
+                {
+                    "index": 29,
+                    "content": "A retro 80s VHS frame of [concept]."
+                },
+                {
+                    "index": 30,
+                    "content": "A high-definition image of a serene [concept]."
+                },
+                {
+                    "index": 31,
+                    "content": "A macro shot of [concept] with bokeh background."
+                },
+                {
+                    "index": 32,
+                    "content": "A vivid, neon-lit nighttime scene of [concept]."
+                },
+                {
+                    "index": 33,
+                    "content": "A sepia-toned snapshot of [concept]."
+                },
+                {
+                    "index": 34,
+                    "content": "A serene pastel illustration of [concept]."
+                },
+                {
+                    "index": 35,
+                    "content": "A black and white photograph of [concept]."
+                },
+                {
+                    "index": 36,
+                    "content": "A high-resolution close-up of [concept]."
+                },
+                {
+                    "index": 37,
+                    "content": "A vintage sepia-toned photograph of [concept]."
+                },
+                {
+                    "index": 38,
+                    "content": "A realistic watercolor painting of [concept]."
+                },
+                {
+                    "index": 39,
+                    "content": "A vivid photograph of detailed [concept]."
+                },
+                {
+                    "index": 40,
+                    "content": "A futuristic hologram projection of [concept]."
+                },
+                {
+                    "index": 41,
+                    "content": "A golden hour beach photo of the [concept]."
+                },
+                {
+                    "index": 42,
+                    "content": "A stunning HDR photograph of [concept]."
+                },
+                {
+                    "index": 43,
+                    "content": "A soft-focused, pastel-colored scene of a [concept]."
+                },
+                {
+                    "index": 44,
+                    "content": "A sunny landscape photo of the [concept]."
+                },
+                {
+                    "index": 45,
+                    "content": "A serene dawn landscape of [concept]."
+                },
+                {
+                    "index": 46,
+                    "content": "A serene, sunrise landscape with a [concept]."
+                },
+                {
+                    "index": 47,
+                    "content": "A surreal, dreamlike digital art of [concept]."
+                },
+                {
+                    "index": 48,
+                    "content": "A photo of the clean [concept]."
+                },
+                {
+                    "index": 49,
+                    "content": "A cropped photo of the [concept]."
+                }
+            ]
+        }
+    ]
+}

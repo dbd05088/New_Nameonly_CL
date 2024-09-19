@@ -11,7 +11,8 @@ os.system("./gdrive account switch dbd05088@naver.com")
 dataset = "DomainNet"
 create_tar = True
 files = [
-    "DomainNet_sdxl_4_refined",
+    "DomainNet_wo_cot_wo_hierarchy_50_sdxl",
+    "DomainNet_wo_hierarchy_50_sdxl"
 ]
 
 # Change path

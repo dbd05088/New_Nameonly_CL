@@ -1,1 +1,3530 @@
-{"horse": {"metaprompts": [{"index": 0, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside driveway"}]}, {"index": 1, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside aquarium"}]}, {"index": 2, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside roof garden"}]}, {"index": 3, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside escalator"}]}, {"index": 4, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside doorway"}]}, {"index": 5, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside bakery"}]}, {"index": 6, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside youth hostel"}]}, {"index": 7, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside army base"}]}, {"index": 8, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside subway station"}]}, {"index": 9, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside elevator shaft"}]}, {"index": 10, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside reception"}]}, {"index": 11, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside building facade"}]}, {"index": 12, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside campsite"}]}, {"index": 13, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside clean room"}]}, {"index": 14, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside home office"}]}, {"index": 15, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside forest road"}]}, {"index": 16, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside downtown"}]}, {"index": 17, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside dining hall"}]}, {"index": 18, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside car interior"}]}, {"index": 19, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside yard"}]}, {"index": 20, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside assembly line"}]}, {"index": 21, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside botanical garden"}]}, {"index": 22, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside house"}]}, {"index": 23, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside ballroom"}]}, {"index": 24, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside lobby"}]}, {"index": 25, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside desert"}]}, {"index": 26, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside ski slope"}]}, {"index": 27, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside restaurant"}]}, {"index": 28, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside kasbah"}]}, {"index": 29, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside slum"}]}, {"index": 30, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside snowfield"}]}, {"index": 31, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside recreation room"}]}, {"index": 32, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside racecourse"}]}, {"index": 33, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside watering hole"}]}, {"index": 34, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside viaduct"}]}, {"index": 35, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside butchers shop"}]}, {"index": 36, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside amusement park"}]}, {"index": 37, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside alcove"}]}, {"index": 38, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside market"}]}, {"index": 39, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside playroom"}]}, {"index": 40, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside boardwalk"}]}, {"index": 41, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside bank vault"}]}, {"index": 42, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside computer room"}]}, {"index": 43, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside corral"}]}, {"index": 44, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside bedchamber"}]}, {"index": 45, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside wave"}]}, {"index": 46, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside music studio"}]}, {"index": 47, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside pizzeria"}]}, {"index": 48, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside natural history museum"}]}, {"index": 49, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "horse, equine inside barndoor"}]}]}, "elephant": {"metaprompts": [{"index": 0, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside driveway"}]}, {"index": 1, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside aquarium"}]}, {"index": 2, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside roof garden"}]}, {"index": 3, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside escalator"}]}, {"index": 4, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside doorway"}]}, {"index": 5, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside bakery"}]}, {"index": 6, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside youth hostel"}]}, {"index": 7, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside army base"}]}, {"index": 8, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside subway station"}]}, {"index": 9, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside elevator shaft"}]}, {"index": 10, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside reception"}]}, {"index": 11, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside building facade"}]}, {"index": 12, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside campsite"}]}, {"index": 13, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside clean room"}]}, {"index": 14, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside home office"}]}, {"index": 15, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside forest road"}]}, {"index": 16, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside downtown"}]}, {"index": 17, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside dining hall"}]}, {"index": 18, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside car interior"}]}, {"index": 19, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside yard"}]}, {"index": 20, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside assembly line"}]}, {"index": 21, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside botanical garden"}]}, {"index": 22, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside house"}]}, {"index": 23, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside ballroom"}]}, {"index": 24, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside lobby"}]}, {"index": 25, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside desert"}]}, {"index": 26, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside ski slope"}]}, {"index": 27, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside restaurant"}]}, {"index": 28, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside kasbah"}]}, {"index": 29, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside slum"}]}, {"index": 30, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside snowfield"}]}, {"index": 31, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside recreation room"}]}, {"index": 32, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside racecourse"}]}, {"index": 33, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside watering hole"}]}, {"index": 34, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside viaduct"}]}, {"index": 35, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside butchers shop"}]}, {"index": 36, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside amusement park"}]}, {"index": 37, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside alcove"}]}, {"index": 38, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside market"}]}, {"index": 39, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside playroom"}]}, {"index": 40, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside boardwalk"}]}, {"index": 41, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside bank vault"}]}, {"index": 42, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside computer room"}]}, {"index": 43, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside corral"}]}, {"index": 44, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside bedchamber"}]}, {"index": 45, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside wave"}]}, {"index": 46, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside music studio"}]}, {"index": 47, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside pizzeria"}]}, {"index": 48, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside natural history museum"}]}, {"index": 49, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "elephant, proboscidean inside barndoor"}]}]}, "person": {"metaprompts": [{"index": 0, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside driveway"}]}, {"index": 1, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside aquarium"}]}, {"index": 2, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside roof garden"}]}, {"index": 3, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside escalator"}]}, {"index": 4, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside doorway"}]}, {"index": 5, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside bakery"}]}, {"index": 6, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside youth hostel"}]}, {"index": 7, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside army base"}]}, {"index": 8, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside subway station"}]}, {"index": 9, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside elevator shaft"}]}, {"index": 10, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside reception"}]}, {"index": 11, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside building facade"}]}, {"index": 12, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside campsite"}]}, {"index": 13, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside clean room"}]}, {"index": 14, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside home office"}]}, {"index": 15, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside forest road"}]}, {"index": 16, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside downtown"}]}, {"index": 17, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside dining hall"}]}, {"index": 18, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside car interior"}]}, {"index": 19, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside yard"}]}, {"index": 20, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside assembly line"}]}, {"index": 21, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside botanical garden"}]}, {"index": 22, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside house"}]}, {"index": 23, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside ballroom"}]}, {"index": 24, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside lobby"}]}, {"index": 25, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside desert"}]}, {"index": 26, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside ski slope"}]}, {"index": 27, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside restaurant"}]}, {"index": 28, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside kasbah"}]}, {"index": 29, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside slum"}]}, {"index": 30, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside snowfield"}]}, {"index": 31, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside recreation room"}]}, {"index": 32, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside racecourse"}]}, {"index": 33, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside watering hole"}]}, {"index": 34, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside viaduct"}]}, {"index": 35, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside butchers shop"}]}, {"index": 36, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside amusement park"}]}, {"index": 37, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside alcove"}]}, {"index": 38, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside market"}]}, {"index": 39, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside playroom"}]}, {"index": 40, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside boardwalk"}]}, {"index": 41, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside bank vault"}]}, {"index": 42, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside computer room"}]}, {"index": 43, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside corral"}]}, {"index": 44, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside bedchamber"}]}, {"index": 45, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside wave"}]}, {"index": 46, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside music studio"}]}, {"index": 47, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside pizzeria"}]}, {"index": 48, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside natural history museum"}]}, {"index": 49, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "person, organism inside barndoor"}]}]}, "dog": {"metaprompts": [{"index": 0, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside driveway"}]}, {"index": 1, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside aquarium"}]}, {"index": 2, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside roof garden"}]}, {"index": 3, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside escalator"}]}, {"index": 4, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside doorway"}]}, {"index": 5, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside bakery"}]}, {"index": 6, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside youth hostel"}]}, {"index": 7, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside army base"}]}, {"index": 8, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside subway station"}]}, {"index": 9, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside elevator shaft"}]}, {"index": 10, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside reception"}]}, {"index": 11, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside building facade"}]}, {"index": 12, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside campsite"}]}, {"index": 13, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside clean room"}]}, {"index": 14, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside home office"}]}, {"index": 15, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside forest road"}]}, {"index": 16, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside downtown"}]}, {"index": 17, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside dining hall"}]}, {"index": 18, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside car interior"}]}, {"index": 19, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside yard"}]}, {"index": 20, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside assembly line"}]}, {"index": 21, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside botanical garden"}]}, {"index": 22, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside house"}]}, {"index": 23, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside ballroom"}]}, {"index": 24, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside lobby"}]}, {"index": 25, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside desert"}]}, {"index": 26, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside ski slope"}]}, {"index": 27, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside restaurant"}]}, {"index": 28, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside kasbah"}]}, {"index": 29, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside slum"}]}, {"index": 30, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside snowfield"}]}, {"index": 31, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside recreation room"}]}, {"index": 32, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside racecourse"}]}, {"index": 33, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside watering hole"}]}, {"index": 34, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside viaduct"}]}, {"index": 35, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside butchers shop"}]}, {"index": 36, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside amusement park"}]}, {"index": 37, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside alcove"}]}, {"index": 38, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside market"}]}, {"index": 39, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside playroom"}]}, {"index": 40, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside boardwalk"}]}, {"index": 41, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside bank vault"}]}, {"index": 42, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside computer room"}]}, {"index": 43, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside corral"}]}, {"index": 44, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside bedchamber"}]}, {"index": 45, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside wave"}]}, {"index": 46, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside music studio"}]}, {"index": 47, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside pizzeria"}]}, {"index": 48, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside natural history museum"}]}, {"index": 49, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "dog, canine inside barndoor"}]}]}, "guitar": {"metaprompts": [{"index": 0, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside driveway"}]}, {"index": 1, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside aquarium"}]}, {"index": 2, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside roof garden"}]}, {"index": 3, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside escalator"}]}, {"index": 4, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside doorway"}]}, {"index": 5, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside bakery"}]}, {"index": 6, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside youth hostel"}]}, {"index": 7, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside army base"}]}, {"index": 8, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside subway station"}]}, {"index": 9, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside elevator shaft"}]}, {"index": 10, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside reception"}]}, {"index": 11, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside building facade"}]}, {"index": 12, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside campsite"}]}, {"index": 13, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside clean room"}]}, {"index": 14, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside home office"}]}, {"index": 15, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside forest road"}]}, {"index": 16, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside downtown"}]}, {"index": 17, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside dining hall"}]}, {"index": 18, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside car interior"}]}, {"index": 19, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside yard"}]}, {"index": 20, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside assembly line"}]}, {"index": 21, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside botanical garden"}]}, {"index": 22, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside house"}]}, {"index": 23, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside ballroom"}]}, {"index": 24, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside lobby"}]}, {"index": 25, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside desert"}]}, {"index": 26, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside ski slope"}]}, {"index": 27, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside restaurant"}]}, {"index": 28, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside kasbah"}]}, {"index": 29, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside slum"}]}, {"index": 30, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside snowfield"}]}, {"index": 31, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside recreation room"}]}, {"index": 32, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside racecourse"}]}, {"index": 33, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside watering hole"}]}, {"index": 34, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside viaduct"}]}, {"index": 35, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside butchers shop"}]}, {"index": 36, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside amusement park"}]}, {"index": 37, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside alcove"}]}, {"index": 38, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside market"}]}, {"index": 39, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside playroom"}]}, {"index": 40, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside boardwalk"}]}, {"index": 41, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside bank vault"}]}, {"index": 42, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside computer room"}]}, {"index": 43, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside corral"}]}, {"index": 44, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside bedchamber"}]}, {"index": 45, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside wave"}]}, {"index": 46, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside music studio"}]}, {"index": 47, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside pizzeria"}]}, {"index": 48, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside natural history museum"}]}, {"index": 49, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "guitar, stringed instrument inside barndoor"}]}]}, "giraffe": {"metaprompts": [{"index": 0, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside driveway"}]}, {"index": 1, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside aquarium"}]}, {"index": 2, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside roof garden"}]}, {"index": 3, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside escalator"}]}, {"index": 4, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside doorway"}]}, {"index": 5, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside bakery"}]}, {"index": 6, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside youth hostel"}]}, {"index": 7, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside army base"}]}, {"index": 8, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside subway station"}]}, {"index": 9, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside elevator shaft"}]}, {"index": 10, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside reception"}]}, {"index": 11, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside building facade"}]}, {"index": 12, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside campsite"}]}, {"index": 13, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside clean room"}]}, {"index": 14, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside home office"}]}, {"index": 15, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside forest road"}]}, {"index": 16, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside downtown"}]}, {"index": 17, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside dining hall"}]}, {"index": 18, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside car interior"}]}, {"index": 19, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside yard"}]}, {"index": 20, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside assembly line"}]}, {"index": 21, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside botanical garden"}]}, {"index": 22, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside house"}]}, {"index": 23, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside ballroom"}]}, {"index": 24, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside lobby"}]}, {"index": 25, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside desert"}]}, {"index": 26, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside ski slope"}]}, {"index": 27, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside restaurant"}]}, {"index": 28, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside kasbah"}]}, {"index": 29, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside slum"}]}, {"index": 30, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside snowfield"}]}, {"index": 31, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside recreation room"}]}, {"index": 32, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside racecourse"}]}, {"index": 33, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside watering hole"}]}, {"index": 34, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside viaduct"}]}, {"index": 35, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside butchers shop"}]}, {"index": 36, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside amusement park"}]}, {"index": 37, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside alcove"}]}, {"index": 38, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside market"}]}, {"index": 39, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside playroom"}]}, {"index": 40, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside boardwalk"}]}, {"index": 41, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside bank vault"}]}, {"index": 42, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside computer room"}]}, {"index": 43, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside corral"}]}, {"index": 44, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside bedchamber"}]}, {"index": 45, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside wave"}]}, {"index": 46, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside music studio"}]}, {"index": 47, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside pizzeria"}]}, {"index": 48, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside natural history museum"}]}, {"index": 49, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "giraffe, ruminant inside barndoor"}]}]}, "house": {"metaprompts": [{"index": 0, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside driveway"}]}, {"index": 1, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside aquarium"}]}, {"index": 2, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside roof garden"}]}, {"index": 3, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside escalator"}]}, {"index": 4, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside doorway"}]}, {"index": 5, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside bakery"}]}, {"index": 6, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside youth hostel"}]}, {"index": 7, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside army base"}]}, {"index": 8, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside subway station"}]}, {"index": 9, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside elevator shaft"}]}, {"index": 10, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside reception"}]}, {"index": 11, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside building facade"}]}, {"index": 12, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside campsite"}]}, {"index": 13, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside clean room"}]}, {"index": 14, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside home office"}]}, {"index": 15, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside forest road"}]}, {"index": 16, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside downtown"}]}, {"index": 17, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside dining hall"}]}, {"index": 18, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside car interior"}]}, {"index": 19, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside yard"}]}, {"index": 20, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside assembly line"}]}, {"index": 21, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside botanical garden"}]}, {"index": 22, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside house"}]}, {"index": 23, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside ballroom"}]}, {"index": 24, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside lobby"}]}, {"index": 25, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside desert"}]}, {"index": 26, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside ski slope"}]}, {"index": 27, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside restaurant"}]}, {"index": 28, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside kasbah"}]}, {"index": 29, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside slum"}]}, {"index": 30, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside snowfield"}]}, {"index": 31, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside recreation room"}]}, {"index": 32, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside racecourse"}]}, {"index": 33, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside watering hole"}]}, {"index": 34, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside viaduct"}]}, {"index": 35, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside butchers shop"}]}, {"index": 36, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside amusement park"}]}, {"index": 37, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside alcove"}]}, {"index": 38, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside market"}]}, {"index": 39, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside playroom"}]}, {"index": 40, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside boardwalk"}]}, {"index": 41, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside bank vault"}]}, {"index": 42, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside computer room"}]}, {"index": 43, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside corral"}]}, {"index": 44, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside bedchamber"}]}, {"index": 45, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside wave"}]}, {"index": 46, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside music studio"}]}, {"index": 47, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside pizzeria"}]}, {"index": 48, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside natural history museum"}]}, {"index": 49, "metaprompt": "dummy", "prompts": [{"index": 0, "content": "house, building inside barndoor"}]}]}}
+{
+    "horse": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside driveway"
+                    }
+                ]
+            },
+            {
+                "index": 1,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside aquarium"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside roof garden"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside escalator"
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside doorway"
+                    }
+                ]
+            },
+            {
+                "index": 5,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside bakery"
+                    }
+                ]
+            },
+            {
+                "index": 6,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside youth hostel"
+                    }
+                ]
+            },
+            {
+                "index": 7,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside army base"
+                    }
+                ]
+            },
+            {
+                "index": 8,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside subway station"
+                    }
+                ]
+            },
+            {
+                "index": 9,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside elevator shaft"
+                    }
+                ]
+            },
+            {
+                "index": 10,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside reception"
+                    }
+                ]
+            },
+            {
+                "index": 11,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside building facade"
+                    }
+                ]
+            },
+            {
+                "index": 12,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside campsite"
+                    }
+                ]
+            },
+            {
+                "index": 13,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside clean room"
+                    }
+                ]
+            },
+            {
+                "index": 14,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside home office"
+                    }
+                ]
+            },
+            {
+                "index": 15,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside forest road"
+                    }
+                ]
+            },
+            {
+                "index": 16,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside downtown"
+                    }
+                ]
+            },
+            {
+                "index": 17,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside dining hall"
+                    }
+                ]
+            },
+            {
+                "index": 18,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside car interior"
+                    }
+                ]
+            },
+            {
+                "index": 19,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside yard"
+                    }
+                ]
+            },
+            {
+                "index": 20,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside assembly line"
+                    }
+                ]
+            },
+            {
+                "index": 21,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside botanical garden"
+                    }
+                ]
+            },
+            {
+                "index": 22,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside house"
+                    }
+                ]
+            },
+            {
+                "index": 23,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside ballroom"
+                    }
+                ]
+            },
+            {
+                "index": 24,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside lobby"
+                    }
+                ]
+            },
+            {
+                "index": 25,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside desert"
+                    }
+                ]
+            },
+            {
+                "index": 26,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside ski slope"
+                    }
+                ]
+            },
+            {
+                "index": 27,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside restaurant"
+                    }
+                ]
+            },
+            {
+                "index": 28,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside kasbah"
+                    }
+                ]
+            },
+            {
+                "index": 29,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside slum"
+                    }
+                ]
+            },
+            {
+                "index": 30,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside snowfield"
+                    }
+                ]
+            },
+            {
+                "index": 31,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside recreation room"
+                    }
+                ]
+            },
+            {
+                "index": 32,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside racecourse"
+                    }
+                ]
+            },
+            {
+                "index": 33,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside watering hole"
+                    }
+                ]
+            },
+            {
+                "index": 34,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside viaduct"
+                    }
+                ]
+            },
+            {
+                "index": 35,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside butchers shop"
+                    }
+                ]
+            },
+            {
+                "index": 36,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside amusement park"
+                    }
+                ]
+            },
+            {
+                "index": 37,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside alcove"
+                    }
+                ]
+            },
+            {
+                "index": 38,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside market"
+                    }
+                ]
+            },
+            {
+                "index": 39,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside playroom"
+                    }
+                ]
+            },
+            {
+                "index": 40,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside boardwalk"
+                    }
+                ]
+            },
+            {
+                "index": 41,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside bank vault"
+                    }
+                ]
+            },
+            {
+                "index": 42,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside computer room"
+                    }
+                ]
+            },
+            {
+                "index": 43,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside corral"
+                    }
+                ]
+            },
+            {
+                "index": 44,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside bedchamber"
+                    }
+                ]
+            },
+            {
+                "index": 45,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside wave"
+                    }
+                ]
+            },
+            {
+                "index": 46,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside music studio"
+                    }
+                ]
+            },
+            {
+                "index": 47,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside pizzeria"
+                    }
+                ]
+            },
+            {
+                "index": 48,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside natural history museum"
+                    }
+                ]
+            },
+            {
+                "index": 49,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "horse, equine inside barndoor"
+                    }
+                ]
+            }
+        ]
+    },
+    "elephant": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside driveway"
+                    }
+                ]
+            },
+            {
+                "index": 1,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside aquarium"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside roof garden"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside escalator"
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside doorway"
+                    }
+                ]
+            },
+            {
+                "index": 5,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside bakery"
+                    }
+                ]
+            },
+            {
+                "index": 6,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside youth hostel"
+                    }
+                ]
+            },
+            {
+                "index": 7,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside army base"
+                    }
+                ]
+            },
+            {
+                "index": 8,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside subway station"
+                    }
+                ]
+            },
+            {
+                "index": 9,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside elevator shaft"
+                    }
+                ]
+            },
+            {
+                "index": 10,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside reception"
+                    }
+                ]
+            },
+            {
+                "index": 11,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside building facade"
+                    }
+                ]
+            },
+            {
+                "index": 12,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside campsite"
+                    }
+                ]
+            },
+            {
+                "index": 13,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside clean room"
+                    }
+                ]
+            },
+            {
+                "index": 14,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside home office"
+                    }
+                ]
+            },
+            {
+                "index": 15,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside forest road"
+                    }
+                ]
+            },
+            {
+                "index": 16,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside downtown"
+                    }
+                ]
+            },
+            {
+                "index": 17,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside dining hall"
+                    }
+                ]
+            },
+            {
+                "index": 18,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside car interior"
+                    }
+                ]
+            },
+            {
+                "index": 19,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside yard"
+                    }
+                ]
+            },
+            {
+                "index": 20,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside assembly line"
+                    }
+                ]
+            },
+            {
+                "index": 21,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside botanical garden"
+                    }
+                ]
+            },
+            {
+                "index": 22,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside house"
+                    }
+                ]
+            },
+            {
+                "index": 23,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside ballroom"
+                    }
+                ]
+            },
+            {
+                "index": 24,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside lobby"
+                    }
+                ]
+            },
+            {
+                "index": 25,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside desert"
+                    }
+                ]
+            },
+            {
+                "index": 26,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside ski slope"
+                    }
+                ]
+            },
+            {
+                "index": 27,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside restaurant"
+                    }
+                ]
+            },
+            {
+                "index": 28,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside kasbah"
+                    }
+                ]
+            },
+            {
+                "index": 29,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside slum"
+                    }
+                ]
+            },
+            {
+                "index": 30,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside snowfield"
+                    }
+                ]
+            },
+            {
+                "index": 31,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside recreation room"
+                    }
+                ]
+            },
+            {
+                "index": 32,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside racecourse"
+                    }
+                ]
+            },
+            {
+                "index": 33,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside watering hole"
+                    }
+                ]
+            },
+            {
+                "index": 34,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside viaduct"
+                    }
+                ]
+            },
+            {
+                "index": 35,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside butchers shop"
+                    }
+                ]
+            },
+            {
+                "index": 36,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside amusement park"
+                    }
+                ]
+            },
+            {
+                "index": 37,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside alcove"
+                    }
+                ]
+            },
+            {
+                "index": 38,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside market"
+                    }
+                ]
+            },
+            {
+                "index": 39,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside playroom"
+                    }
+                ]
+            },
+            {
+                "index": 40,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside boardwalk"
+                    }
+                ]
+            },
+            {
+                "index": 41,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside bank vault"
+                    }
+                ]
+            },
+            {
+                "index": 42,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside computer room"
+                    }
+                ]
+            },
+            {
+                "index": 43,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside corral"
+                    }
+                ]
+            },
+            {
+                "index": 44,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside bedchamber"
+                    }
+                ]
+            },
+            {
+                "index": 45,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside wave"
+                    }
+                ]
+            },
+            {
+                "index": 46,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside music studio"
+                    }
+                ]
+            },
+            {
+                "index": 47,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside pizzeria"
+                    }
+                ]
+            },
+            {
+                "index": 48,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside natural history museum"
+                    }
+                ]
+            },
+            {
+                "index": 49,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "elephant, proboscidean inside barndoor"
+                    }
+                ]
+            }
+        ]
+    },
+    "person": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside driveway"
+                    }
+                ]
+            },
+            {
+                "index": 1,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside aquarium"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside roof garden"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside escalator"
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside doorway"
+                    }
+                ]
+            },
+            {
+                "index": 5,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside bakery"
+                    }
+                ]
+            },
+            {
+                "index": 6,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside youth hostel"
+                    }
+                ]
+            },
+            {
+                "index": 7,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside army base"
+                    }
+                ]
+            },
+            {
+                "index": 8,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside subway station"
+                    }
+                ]
+            },
+            {
+                "index": 9,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside elevator shaft"
+                    }
+                ]
+            },
+            {
+                "index": 10,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside reception"
+                    }
+                ]
+            },
+            {
+                "index": 11,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside building facade"
+                    }
+                ]
+            },
+            {
+                "index": 12,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside campsite"
+                    }
+                ]
+            },
+            {
+                "index": 13,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside clean room"
+                    }
+                ]
+            },
+            {
+                "index": 14,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside home office"
+                    }
+                ]
+            },
+            {
+                "index": 15,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside forest road"
+                    }
+                ]
+            },
+            {
+                "index": 16,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside downtown"
+                    }
+                ]
+            },
+            {
+                "index": 17,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside dining hall"
+                    }
+                ]
+            },
+            {
+                "index": 18,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside car interior"
+                    }
+                ]
+            },
+            {
+                "index": 19,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside yard"
+                    }
+                ]
+            },
+            {
+                "index": 20,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside assembly line"
+                    }
+                ]
+            },
+            {
+                "index": 21,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside botanical garden"
+                    }
+                ]
+            },
+            {
+                "index": 22,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside house"
+                    }
+                ]
+            },
+            {
+                "index": 23,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside ballroom"
+                    }
+                ]
+            },
+            {
+                "index": 24,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside lobby"
+                    }
+                ]
+            },
+            {
+                "index": 25,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside desert"
+                    }
+                ]
+            },
+            {
+                "index": 26,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside ski slope"
+                    }
+                ]
+            },
+            {
+                "index": 27,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside restaurant"
+                    }
+                ]
+            },
+            {
+                "index": 28,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside kasbah"
+                    }
+                ]
+            },
+            {
+                "index": 29,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside slum"
+                    }
+                ]
+            },
+            {
+                "index": 30,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside snowfield"
+                    }
+                ]
+            },
+            {
+                "index": 31,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside recreation room"
+                    }
+                ]
+            },
+            {
+                "index": 32,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside racecourse"
+                    }
+                ]
+            },
+            {
+                "index": 33,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside watering hole"
+                    }
+                ]
+            },
+            {
+                "index": 34,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside viaduct"
+                    }
+                ]
+            },
+            {
+                "index": 35,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside butchers shop"
+                    }
+                ]
+            },
+            {
+                "index": 36,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside amusement park"
+                    }
+                ]
+            },
+            {
+                "index": 37,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside alcove"
+                    }
+                ]
+            },
+            {
+                "index": 38,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside market"
+                    }
+                ]
+            },
+            {
+                "index": 39,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside playroom"
+                    }
+                ]
+            },
+            {
+                "index": 40,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside boardwalk"
+                    }
+                ]
+            },
+            {
+                "index": 41,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside bank vault"
+                    }
+                ]
+            },
+            {
+                "index": 42,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside computer room"
+                    }
+                ]
+            },
+            {
+                "index": 43,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside corral"
+                    }
+                ]
+            },
+            {
+                "index": 44,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside bedchamber"
+                    }
+                ]
+            },
+            {
+                "index": 45,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside wave"
+                    }
+                ]
+            },
+            {
+                "index": 46,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside music studio"
+                    }
+                ]
+            },
+            {
+                "index": 47,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside pizzeria"
+                    }
+                ]
+            },
+            {
+                "index": 48,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside natural history museum"
+                    }
+                ]
+            },
+            {
+                "index": 49,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "person, organism inside barndoor"
+                    }
+                ]
+            }
+        ]
+    },
+    "dog": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside driveway"
+                    }
+                ]
+            },
+            {
+                "index": 1,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside aquarium"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside roof garden"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside escalator"
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside doorway"
+                    }
+                ]
+            },
+            {
+                "index": 5,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside bakery"
+                    }
+                ]
+            },
+            {
+                "index": 6,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside youth hostel"
+                    }
+                ]
+            },
+            {
+                "index": 7,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside army base"
+                    }
+                ]
+            },
+            {
+                "index": 8,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside subway station"
+                    }
+                ]
+            },
+            {
+                "index": 9,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside elevator shaft"
+                    }
+                ]
+            },
+            {
+                "index": 10,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside reception"
+                    }
+                ]
+            },
+            {
+                "index": 11,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside building facade"
+                    }
+                ]
+            },
+            {
+                "index": 12,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside campsite"
+                    }
+                ]
+            },
+            {
+                "index": 13,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside clean room"
+                    }
+                ]
+            },
+            {
+                "index": 14,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside home office"
+                    }
+                ]
+            },
+            {
+                "index": 15,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside forest road"
+                    }
+                ]
+            },
+            {
+                "index": 16,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside downtown"
+                    }
+                ]
+            },
+            {
+                "index": 17,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside dining hall"
+                    }
+                ]
+            },
+            {
+                "index": 18,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside car interior"
+                    }
+                ]
+            },
+            {
+                "index": 19,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside yard"
+                    }
+                ]
+            },
+            {
+                "index": 20,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside assembly line"
+                    }
+                ]
+            },
+            {
+                "index": 21,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside botanical garden"
+                    }
+                ]
+            },
+            {
+                "index": 22,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside house"
+                    }
+                ]
+            },
+            {
+                "index": 23,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside ballroom"
+                    }
+                ]
+            },
+            {
+                "index": 24,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside lobby"
+                    }
+                ]
+            },
+            {
+                "index": 25,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside desert"
+                    }
+                ]
+            },
+            {
+                "index": 26,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside ski slope"
+                    }
+                ]
+            },
+            {
+                "index": 27,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside restaurant"
+                    }
+                ]
+            },
+            {
+                "index": 28,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside kasbah"
+                    }
+                ]
+            },
+            {
+                "index": 29,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside slum"
+                    }
+                ]
+            },
+            {
+                "index": 30,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside snowfield"
+                    }
+                ]
+            },
+            {
+                "index": 31,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside recreation room"
+                    }
+                ]
+            },
+            {
+                "index": 32,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside racecourse"
+                    }
+                ]
+            },
+            {
+                "index": 33,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside watering hole"
+                    }
+                ]
+            },
+            {
+                "index": 34,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside viaduct"
+                    }
+                ]
+            },
+            {
+                "index": 35,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside butchers shop"
+                    }
+                ]
+            },
+            {
+                "index": 36,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside amusement park"
+                    }
+                ]
+            },
+            {
+                "index": 37,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside alcove"
+                    }
+                ]
+            },
+            {
+                "index": 38,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside market"
+                    }
+                ]
+            },
+            {
+                "index": 39,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside playroom"
+                    }
+                ]
+            },
+            {
+                "index": 40,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside boardwalk"
+                    }
+                ]
+            },
+            {
+                "index": 41,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside bank vault"
+                    }
+                ]
+            },
+            {
+                "index": 42,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside computer room"
+                    }
+                ]
+            },
+            {
+                "index": 43,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside corral"
+                    }
+                ]
+            },
+            {
+                "index": 44,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside bedchamber"
+                    }
+                ]
+            },
+            {
+                "index": 45,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside wave"
+                    }
+                ]
+            },
+            {
+                "index": 46,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside music studio"
+                    }
+                ]
+            },
+            {
+                "index": 47,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside pizzeria"
+                    }
+                ]
+            },
+            {
+                "index": 48,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside natural history museum"
+                    }
+                ]
+            },
+            {
+                "index": 49,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "dog, canine inside barndoor"
+                    }
+                ]
+            }
+        ]
+    },
+    "guitar": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside driveway"
+                    }
+                ]
+            },
+            {
+                "index": 1,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside aquarium"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside roof garden"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside escalator"
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside doorway"
+                    }
+                ]
+            },
+            {
+                "index": 5,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside bakery"
+                    }
+                ]
+            },
+            {
+                "index": 6,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside youth hostel"
+                    }
+                ]
+            },
+            {
+                "index": 7,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside army base"
+                    }
+                ]
+            },
+            {
+                "index": 8,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside subway station"
+                    }
+                ]
+            },
+            {
+                "index": 9,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside elevator shaft"
+                    }
+                ]
+            },
+            {
+                "index": 10,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside reception"
+                    }
+                ]
+            },
+            {
+                "index": 11,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside building facade"
+                    }
+                ]
+            },
+            {
+                "index": 12,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside campsite"
+                    }
+                ]
+            },
+            {
+                "index": 13,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside clean room"
+                    }
+                ]
+            },
+            {
+                "index": 14,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside home office"
+                    }
+                ]
+            },
+            {
+                "index": 15,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside forest road"
+                    }
+                ]
+            },
+            {
+                "index": 16,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside downtown"
+                    }
+                ]
+            },
+            {
+                "index": 17,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside dining hall"
+                    }
+                ]
+            },
+            {
+                "index": 18,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside car interior"
+                    }
+                ]
+            },
+            {
+                "index": 19,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside yard"
+                    }
+                ]
+            },
+            {
+                "index": 20,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside assembly line"
+                    }
+                ]
+            },
+            {
+                "index": 21,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside botanical garden"
+                    }
+                ]
+            },
+            {
+                "index": 22,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside house"
+                    }
+                ]
+            },
+            {
+                "index": 23,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside ballroom"
+                    }
+                ]
+            },
+            {
+                "index": 24,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside lobby"
+                    }
+                ]
+            },
+            {
+                "index": 25,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside desert"
+                    }
+                ]
+            },
+            {
+                "index": 26,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside ski slope"
+                    }
+                ]
+            },
+            {
+                "index": 27,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside restaurant"
+                    }
+                ]
+            },
+            {
+                "index": 28,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside kasbah"
+                    }
+                ]
+            },
+            {
+                "index": 29,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside slum"
+                    }
+                ]
+            },
+            {
+                "index": 30,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside snowfield"
+                    }
+                ]
+            },
+            {
+                "index": 31,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside recreation room"
+                    }
+                ]
+            },
+            {
+                "index": 32,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside racecourse"
+                    }
+                ]
+            },
+            {
+                "index": 33,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside watering hole"
+                    }
+                ]
+            },
+            {
+                "index": 34,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside viaduct"
+                    }
+                ]
+            },
+            {
+                "index": 35,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside butchers shop"
+                    }
+                ]
+            },
+            {
+                "index": 36,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside amusement park"
+                    }
+                ]
+            },
+            {
+                "index": 37,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside alcove"
+                    }
+                ]
+            },
+            {
+                "index": 38,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside market"
+                    }
+                ]
+            },
+            {
+                "index": 39,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside playroom"
+                    }
+                ]
+            },
+            {
+                "index": 40,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside boardwalk"
+                    }
+                ]
+            },
+            {
+                "index": 41,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside bank vault"
+                    }
+                ]
+            },
+            {
+                "index": 42,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside computer room"
+                    }
+                ]
+            },
+            {
+                "index": 43,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside corral"
+                    }
+                ]
+            },
+            {
+                "index": 44,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside bedchamber"
+                    }
+                ]
+            },
+            {
+                "index": 45,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside wave"
+                    }
+                ]
+            },
+            {
+                "index": 46,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside music studio"
+                    }
+                ]
+            },
+            {
+                "index": 47,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside pizzeria"
+                    }
+                ]
+            },
+            {
+                "index": 48,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside natural history museum"
+                    }
+                ]
+            },
+            {
+                "index": 49,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "guitar, stringed instrument inside barndoor"
+                    }
+                ]
+            }
+        ]
+    },
+    "giraffe": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside driveway"
+                    }
+                ]
+            },
+            {
+                "index": 1,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside aquarium"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside roof garden"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside escalator"
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside doorway"
+                    }
+                ]
+            },
+            {
+                "index": 5,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside bakery"
+                    }
+                ]
+            },
+            {
+                "index": 6,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside youth hostel"
+                    }
+                ]
+            },
+            {
+                "index": 7,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside army base"
+                    }
+                ]
+            },
+            {
+                "index": 8,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside subway station"
+                    }
+                ]
+            },
+            {
+                "index": 9,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside elevator shaft"
+                    }
+                ]
+            },
+            {
+                "index": 10,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside reception"
+                    }
+                ]
+            },
+            {
+                "index": 11,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside building facade"
+                    }
+                ]
+            },
+            {
+                "index": 12,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside campsite"
+                    }
+                ]
+            },
+            {
+                "index": 13,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside clean room"
+                    }
+                ]
+            },
+            {
+                "index": 14,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside home office"
+                    }
+                ]
+            },
+            {
+                "index": 15,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside forest road"
+                    }
+                ]
+            },
+            {
+                "index": 16,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside downtown"
+                    }
+                ]
+            },
+            {
+                "index": 17,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside dining hall"
+                    }
+                ]
+            },
+            {
+                "index": 18,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside car interior"
+                    }
+                ]
+            },
+            {
+                "index": 19,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside yard"
+                    }
+                ]
+            },
+            {
+                "index": 20,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside assembly line"
+                    }
+                ]
+            },
+            {
+                "index": 21,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside botanical garden"
+                    }
+                ]
+            },
+            {
+                "index": 22,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside house"
+                    }
+                ]
+            },
+            {
+                "index": 23,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside ballroom"
+                    }
+                ]
+            },
+            {
+                "index": 24,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside lobby"
+                    }
+                ]
+            },
+            {
+                "index": 25,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside desert"
+                    }
+                ]
+            },
+            {
+                "index": 26,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside ski slope"
+                    }
+                ]
+            },
+            {
+                "index": 27,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside restaurant"
+                    }
+                ]
+            },
+            {
+                "index": 28,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside kasbah"
+                    }
+                ]
+            },
+            {
+                "index": 29,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside slum"
+                    }
+                ]
+            },
+            {
+                "index": 30,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside snowfield"
+                    }
+                ]
+            },
+            {
+                "index": 31,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside recreation room"
+                    }
+                ]
+            },
+            {
+                "index": 32,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside racecourse"
+                    }
+                ]
+            },
+            {
+                "index": 33,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside watering hole"
+                    }
+                ]
+            },
+            {
+                "index": 34,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside viaduct"
+                    }
+                ]
+            },
+            {
+                "index": 35,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside butchers shop"
+                    }
+                ]
+            },
+            {
+                "index": 36,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside amusement park"
+                    }
+                ]
+            },
+            {
+                "index": 37,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside alcove"
+                    }
+                ]
+            },
+            {
+                "index": 38,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside market"
+                    }
+                ]
+            },
+            {
+                "index": 39,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside playroom"
+                    }
+                ]
+            },
+            {
+                "index": 40,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside boardwalk"
+                    }
+                ]
+            },
+            {
+                "index": 41,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside bank vault"
+                    }
+                ]
+            },
+            {
+                "index": 42,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside computer room"
+                    }
+                ]
+            },
+            {
+                "index": 43,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside corral"
+                    }
+                ]
+            },
+            {
+                "index": 44,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside bedchamber"
+                    }
+                ]
+            },
+            {
+                "index": 45,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside wave"
+                    }
+                ]
+            },
+            {
+                "index": 46,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside music studio"
+                    }
+                ]
+            },
+            {
+                "index": 47,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside pizzeria"
+                    }
+                ]
+            },
+            {
+                "index": 48,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside natural history museum"
+                    }
+                ]
+            },
+            {
+                "index": 49,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "giraffe, ruminant inside barndoor"
+                    }
+                ]
+            }
+        ]
+    },
+    "house": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside driveway"
+                    }
+                ]
+            },
+            {
+                "index": 1,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside aquarium"
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside roof garden"
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside escalator"
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside doorway"
+                    }
+                ]
+            },
+            {
+                "index": 5,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside bakery"
+                    }
+                ]
+            },
+            {
+                "index": 6,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside youth hostel"
+                    }
+                ]
+            },
+            {
+                "index": 7,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside army base"
+                    }
+                ]
+            },
+            {
+                "index": 8,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside subway station"
+                    }
+                ]
+            },
+            {
+                "index": 9,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside elevator shaft"
+                    }
+                ]
+            },
+            {
+                "index": 10,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside reception"
+                    }
+                ]
+            },
+            {
+                "index": 11,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside building facade"
+                    }
+                ]
+            },
+            {
+                "index": 12,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside campsite"
+                    }
+                ]
+            },
+            {
+                "index": 13,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside clean room"
+                    }
+                ]
+            },
+            {
+                "index": 14,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside home office"
+                    }
+                ]
+            },
+            {
+                "index": 15,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside forest road"
+                    }
+                ]
+            },
+            {
+                "index": 16,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside downtown"
+                    }
+                ]
+            },
+            {
+                "index": 17,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside dining hall"
+                    }
+                ]
+            },
+            {
+                "index": 18,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside car interior"
+                    }
+                ]
+            },
+            {
+                "index": 19,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside yard"
+                    }
+                ]
+            },
+            {
+                "index": 20,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside assembly line"
+                    }
+                ]
+            },
+            {
+                "index": 21,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside botanical garden"
+                    }
+                ]
+            },
+            {
+                "index": 22,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside house"
+                    }
+                ]
+            },
+            {
+                "index": 23,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside ballroom"
+                    }
+                ]
+            },
+            {
+                "index": 24,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside lobby"
+                    }
+                ]
+            },
+            {
+                "index": 25,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside desert"
+                    }
+                ]
+            },
+            {
+                "index": 26,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside ski slope"
+                    }
+                ]
+            },
+            {
+                "index": 27,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside restaurant"
+                    }
+                ]
+            },
+            {
+                "index": 28,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside kasbah"
+                    }
+                ]
+            },
+            {
+                "index": 29,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside slum"
+                    }
+                ]
+            },
+            {
+                "index": 30,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside snowfield"
+                    }
+                ]
+            },
+            {
+                "index": 31,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside recreation room"
+                    }
+                ]
+            },
+            {
+                "index": 32,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside racecourse"
+                    }
+                ]
+            },
+            {
+                "index": 33,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside watering hole"
+                    }
+                ]
+            },
+            {
+                "index": 34,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside viaduct"
+                    }
+                ]
+            },
+            {
+                "index": 35,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside butchers shop"
+                    }
+                ]
+            },
+            {
+                "index": 36,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside amusement park"
+                    }
+                ]
+            },
+            {
+                "index": 37,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside alcove"
+                    }
+                ]
+            },
+            {
+                "index": 38,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside market"
+                    }
+                ]
+            },
+            {
+                "index": 39,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside playroom"
+                    }
+                ]
+            },
+            {
+                "index": 40,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside boardwalk"
+                    }
+                ]
+            },
+            {
+                "index": 41,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside bank vault"
+                    }
+                ]
+            },
+            {
+                "index": 42,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside computer room"
+                    }
+                ]
+            },
+            {
+                "index": 43,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside corral"
+                    }
+                ]
+            },
+            {
+                "index": 44,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside bedchamber"
+                    }
+                ]
+            },
+            {
+                "index": 45,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside wave"
+                    }
+                ]
+            },
+            {
+                "index": 46,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside music studio"
+                    }
+                ]
+            },
+            {
+                "index": 47,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside pizzeria"
+                    }
+                ]
+            },
+            {
+                "index": 48,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside natural history museum"
+                    }
+                ]
+            },
+            {
+                "index": 49,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "house, building inside barndoor"
+                    }
+                ]
+            }
+        ]
+    }
+}

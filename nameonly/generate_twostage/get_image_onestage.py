@@ -235,7 +235,7 @@ class CogView2Generator(ImageGenerator):
     
     def load_model(self):
         from CogView2.generator import Cogview2
-        self.model = Cogview2(img_size=160, style='photo', batch_size=1, max_inference_batch_size=1)
+        self.model = Cogview2(img_size=224, style='photo', batch_size=1, max_inference_batch_size=1)
     
     def generate_one_image(self, prompt):
         image = self.model.generate_images(prompt)

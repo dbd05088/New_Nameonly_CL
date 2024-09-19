@@ -19,6 +19,7 @@ import numpy as np
 import pandas as pd
 from tqdm import tqdm
 from torch.utils.data import Subset
+from nameonly.prompt_generation.classes import *
 
 class SUS(ZeroShotClip):
     def __init__(self,  train_datalist, test_datalist, device, **kwargs):
@@ -31,26 +32,30 @@ class SUS(ZeroShotClip):
         seen_classes = []
         seen_class_count = {}
         
-        #split_train_val_list
-        # val_cls_per_sample = 40
-        # val_list = []
-        # training_list = []
-        # for data in train_list:
-        #     if data["klass"] not in seen_classes:
-        #         seen_classes.append(data["klass"])
-        #         seen_class_count[data["klass"]] = 0
-        #     if seen_class_count[data["klass"]] < val_cls_per_sample:
-        #         val_list.append(data)
-        #         seen_class_count[data["klass"]] += 1
-        #     else:
-        #         training_list.append(data)
-        # print("training_list", len(training_list))      
-        # print("val list", len(val_list))  
-                
-
+        target_classes = []
+        target_class_count = {}
+        for data in test_list:
+            if data["klass"] not in target_classes:
+                target_classes.append(data["klass"])
+                target_class_count[data["klass"]] = 0
+            target_class_count[data["klass"]] += 1
+        
+        #Create val dataset
+        val_list = []
+        for data in train_list:
+            if data["klass"] not in seen_classes:
+                seen_classes.append(data["klass"])
+                seen_class_count[data["klass"]] = 0
+            if seen_class_count[data["klass"]] < target_class_count[data["klass"]]:
+                val_list.append(data)
+                seen_class_count[data["klass"]] += 1
+        print("val list", len(val_list))
+        
+        # fewshot_dataset = datasets.ImageFolder(os.path.join('/home/vision/mjlee/New_Nameonly_CL/dataset/DomainNet/DomainNet_cupl_sdxl'), self.test_transform)
+        
         #SUS Method
-        fewshot_dataset = datasets.ImageFolder(os.path.join('/home/user/mjlee/New_Nameonly_CL/NICO_sdxl_subsampled_240'), self.test_transform)
-        shot = 200
+        fewshot_dataset = datasets.ImageFolder(os.path.join('/home/vision/mjlee/New_Nameonly_CL/dataset/NICO/NICO_cupl_sdxl'), self.test_transform)
+        shot = 40
         class_indices = {}
         selected_indices = []
         unselected_indices = []
@@ -63,7 +68,7 @@ class SUS(ZeroShotClip):
             else:
                 unselected_indices.append(idx)
         fewshot_d2 = Subset(fewshot_dataset, selected_indices)
-        print(len(selected_indices), len(unselected_indices))
+        # print(len(selected_indices), len(unselected_indices))
         print("fewshot dataset", len(fewshot_d2))
         fewshot_loader = DataLoader(
             fewshot_d2,
@@ -71,9 +76,27 @@ class SUS(ZeroShotClip):
             batch_size=batch_size,
             num_workers=n_worker,
         )
+        
+        
+        fewshot_loader = DataLoader(
+            fewshot_dataset,
+            shuffle=True,
+            batch_size=batch_size,
+            num_workers=n_worker,
+        )
         support_features, support_labels = self.get_features2_1(fewshot_loader)
         fewshot_classnames = fewshot_dataset.classes
-        val_dataset = Subset(fewshot_dataset, unselected_indices)
+        
+        val_df = pd.DataFrame(val_list)
+        exp_val_df = val_df[val_df['klass'].isin(fewshot_classnames)]
+        val_dataset = ImageTextDataset(
+            exp_val_df,
+            dataset=self.dataset,
+            transform=self.test_transform,
+            cls_list=fewshot_classnames,
+            data_dir=self.data_dir,
+            # prompt_cls_list=self.text_class_prompts
+        )
         val_loader = DataLoader(
             val_dataset,
             shuffle=True,
@@ -162,7 +185,7 @@ class SUS(ZeroShotClip):
         
         
         test_features, test_labels = self.get_features(test_loader)
-        val_features, val_labels = self.get_features_val(val_loader)
+        val_features, val_labels = self.get_features(val_loader)
         text_classifier_weights = self.get_text_classifier_weights()
         
         train_kl_divs_sims, test_kl_divs_sims, val_kl_divs_sims = self.get_kl_div_sims(test_features, val_features, support_features, text_classifier_weights)

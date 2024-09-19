@@ -1,0 +1,210 @@
+{
+    "metaprompts": [
+        {
+            "index": 0,
+            "metaprompt": "dummy",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A bright scene of a [concept] near a crystal-clear lake."
+                },
+                {
+                    "index": 1,
+                    "content": "A colorful view of a [concept] by the lakeside."
+                },
+                {
+                    "index": 2,
+                    "content": "A high-definition photo of a [concept] on a tropical beach."
+                },
+                {
+                    "index": 3,
+                    "content": "A photo of a [concept] on a rocky mountain top."
+                },
+                {
+                    "index": 4,
+                    "content": "A vivid shot of a [concept] under a sunset sky."
+                },
+                {
+                    "index": 5,
+                    "content": "A vibrant image of a [concept] surrounded by mountains."
+                },
+                {
+                    "index": 6,
+                    "content": "A stunning photo of a [concept] in the wilderness."
+                },
+                {
+                    "index": 7,
+                    "content": "A photorealistic close-up of a [concept] on a rainy street."
+                },
+                {
+                    "index": 8,
+                    "content": "A serene capture of a [concept] in an alpine village."
+                },
+                {
+                    "index": 9,
+                    "content": "A [concept] under the northern lights in the Arctic."
+                },
+                {
+                    "index": 10,
+                    "content": "A detailed photograph of a [concept] in an urban setting."
+                },
+                {
+                    "index": 11,
+                    "content": "A detailed shot of a [concept] in a vibrant sunflower field."
+                },
+                {
+                    "index": 12,
+                    "content": "A detailed view of a [concept] in the heart of a metropolis."
+                },
+                {
+                    "index": 13,
+                    "content": "A clear shot of a [concept] in a quaint village."
+                },
+                {
+                    "index": 14,
+                    "content": "A high-definition image of a [concept] in a serene orchard."
+                },
+                {
+                    "index": 15,
+                    "content": "A photorealistic image of a [concept] near a bonfire."
+                },
+                {
+                    "index": 16,
+                    "content": "A colorful scene of a [concept] in a tropical forest."
+                },
+                {
+                    "index": 17,
+                    "content": "A cinematic shot of a [concept] in an open-air market."
+                },
+                {
+                    "index": 18,
+                    "content": "A wide-angle view of a [concept] in a historic monument."
+                },
+                {
+                    "index": 19,
+                    "content": "A stunning photo of a [concept] in a flower field."
+                },
+                {
+                    "index": 20,
+                    "content": "A highly detailed image of a [concept] in an urban plaza."
+                },
+                {
+                    "index": 21,
+                    "content": "A highly detailed capture of a [concept] on a rocky beach."
+                },
+                {
+                    "index": 22,
+                    "content": "A detailed shot of a [concept] in an alpine landscape."
+                },
+                {
+                    "index": 23,
+                    "content": "A [concept] in a snow-covered village at dawn."
+                },
+                {
+                    "index": 24,
+                    "content": "A stunning scene of a [concept] on a bridge over a river."
+                },
+                {
+                    "index": 25,
+                    "content": "A high-definition image of a [concept] in a serene meadow."
+                },
+                {
+                    "index": 26,
+                    "content": "A high-resolution shot of a [concept] in a bamboo forest."
+                },
+                {
+                    "index": 27,
+                    "content": "A detailed close-up of a [concept] underwater."
+                },
+                {
+                    "index": 28,
+                    "content": "A vivid depiction of a [concept] in a rural village."
+                },
+                {
+                    "index": 29,
+                    "content": "A beautiful shot of a [concept] at a waterfall."
+                },
+                {
+                    "index": 30,
+                    "content": "A bright and colorful shot of a [concept] in a carnival."
+                },
+                {
+                    "index": 31,
+                    "content": "A vibrant photo of a [concept] in a sunlit meadow."
+                },
+                {
+                    "index": 32,
+                    "content": "A close-up of a [concept] in the rain."
+                },
+                {
+                    "index": 33,
+                    "content": "A photorealistic painting of a [concept] in the clouds."
+                },
+                {
+                    "index": 34,
+                    "content": "A colorful scene of a [concept] in a garden of roses."
+                },
+                {
+                    "index": 35,
+                    "content": "A [concept] in an open field under a dramatic sky."
+                },
+                {
+                    "index": 36,
+                    "content": "A peaceful view of a [concept] near a calm lake."
+                },
+                {
+                    "index": 37,
+                    "content": "A dynamic scene with a [concept] near the coastline."
+                },
+                {
+                    "index": 38,
+                    "content": "A [concept] in a futuristic cityscape."
+                },
+                {
+                    "index": 39,
+                    "content": "A colorful depiction of a [concept] at a beach sunset."
+                },
+                {
+                    "index": 40,
+                    "content": "A vibrant portrayal of a [concept] in an underwater cave."
+                },
+                {
+                    "index": 41,
+                    "content": "A dynamic image of a [concept] on a stormy day."
+                },
+                {
+                    "index": 42,
+                    "content": "A photorealistic view of a [concept] in the mountains at dusk."
+                },
+                {
+                    "index": 43,
+                    "content": "A dramatic photo of a [concept] under a stormy sky."
+                },
+                {
+                    "index": 44,
+                    "content": "A realistic shot of a [concept] in a foggy forest."
+                },
+                {
+                    "index": 45,
+                    "content": "A panoramic view of a [concept] in a valley at dusk."
+                },
+                {
+                    "index": 46,
+                    "content": "A photorealistic image of a [concept] in a lush jungle."
+                },
+                {
+                    "index": 47,
+                    "content": "A serene depiction of a [concept] on a calm river."
+                },
+                {
+                    "index": 48,
+                    "content": "A cinematic shot of a [concept] in a busy town square."
+                },
+                {
+                    "index": 49,
+                    "content": "A vibrant photo of a [concept] in a snowy pine forest."
+                }
+            ]
+        }
+    ]
+}
