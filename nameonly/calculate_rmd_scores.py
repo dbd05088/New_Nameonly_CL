@@ -244,7 +244,9 @@ if __name__ == "__main__":
         features = calculate_features_dinov2(concatenated_images, model)
     else:
         raise ValueError(f"Unknown model: {model}")
+    print(f"Calculating class-agnostic parameters...")
     mu_agnostic, cov_agnostic = compute_class_agnostic_params(features)
+    print(f"Calculating class-specific parameters...")
     mu_specific_dict, cov_specific = compute_class_specific_params(features, class_labels) # (C, 512), (C, 512, 512)
     
     # # Calcuate the mahalanobis_specific distance
@@ -252,6 +254,7 @@ if __name__ == "__main__":
     # distance_agnostic = mahalanobis_distance_agnostic(features, mu_agnostic, cov_agnostic)
 
     # RMD = distance_specific - distance_agnostic
+    print(f"Calculating RMD scores...")
     RMD = mahalanobis_distance_manually(features, mu_agnostic, cov_agnostic, mu_specific_dict, cov_specific, class_labels)
 
     # Split RMD scores using model labels

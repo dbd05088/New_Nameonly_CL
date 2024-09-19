@@ -6,6 +6,10 @@ import ast
 from tqdm import tqdm
 from pathlib import Path
 
+def extract_number(filename):
+    match = re.search(r'/(\d+)_', filename)
+    return int(match.group(1)) if match else 0
+
 def find_dict_by_id(data, target_id):
     for item in data:
         if 'id' in item and item['id'] == target_id:
@@ -15,8 +19,8 @@ def find_dict_by_id(data, target_id):
 seed = 5
 base_json_path = f'./ma_splits/Bongard-HOI_train_seed{str(seed)}.json'
 base_prompt_path = '../../nameonly/prompt_generation/prompts/generated_LLM_sdxl_ver2.json'
-generated_image_path = './images/generated_LLM_sdxl_ver2'
-output_path = f"./generated_LLM_sdxl_ver2_splits"
+generated_image_path = './images/generated_LLM_ver2_RMD'
+output_path = f"./generated_LLM_ver2_RMD_splits"
 if not os.path.exists(output_path):
     os.makedirs(output_path)
 
@@ -34,8 +38,9 @@ for base_data in tqdm(train_datalist):
     result_dict['object_class'] = base_data['object_class']
     image_path = os.path.join(generated_image_path, str(base_data['id']))
     pos_image_list = [os.path.join(image_path, 'pos', image) for image in os.listdir(os.path.join(image_path, 'pos'))]
+    pos_image_list = sorted(pos_image_list, key=extract_number)
     neg_image_list = [os.path.join(image_path, 'neg', image) for image in os.listdir(os.path.join(image_path, 'neg'))]
-    
+    neg_image_list = sorted(neg_image_list, key=extract_number)
     result_dict['image_files'].extend(pos_image_list + neg_image_list)
     
     # Find action class from prompt_dict
