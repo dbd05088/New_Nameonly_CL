@@ -289,6 +289,14 @@
 # rm DomainNet_cot_50_9_sdxl.tar
 # rm DomainNet_cot_50_10_sdxl.tar
 
-./gdrive files download 1Kdpi3KLtaR7ppQgdClWRIgPQ4b5-89sx # DomainNet_cot_50_11_sdxl
-tar -xf DomainNet_cot_50_11_sdxl.tar -C DomainNet
-rm DomainNet_cot_50_11_sdxl.tar
+# ./gdrive files download 1Kdpi3KLtaR7ppQgdClWRIgPQ4b5-89sx # DomainNet_cot_50_11_sdxl
+# tar -xf DomainNet_cot_50_11_sdxl.tar -C DomainNet
+# rm DomainNet_cot_50_11_sdxl.tar
+
+# DomainNet wo_hierarchy_50, wo_cot_wo_hierarchy_50 (from our prompt)
+./gdrive files download 1p74Pz2Xk92Ujm1mMhaLu05To4fkAEveF # DomainNet_wo_cot_wo_hierarchy_50_sdxl
+./gdrive files download 1BsnbWwzKdK3U2Xy_ZZAm8IK_MdQPyIpY # DomainNet_wo_hierarchy_50_sdxl
+tar -xf DomainNet_wo_cot_wo_hierarchy_50_sdxl.tar -C DomainNet
+tar -xf DomainNet_wo_hierarchy_50_sdxl.tar -C DomainNet
+rm DomainNet_wo_cot_wo_hierarchy_50_sdxl.tar
+rm DomainNet_wo_hierarchy_50_sdxl.tar
