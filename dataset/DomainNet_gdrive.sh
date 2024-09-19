@@ -242,26 +242,49 @@
 # rm DomainNet_cot_100_2_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
 # rm DomainNet_cot_100_2_sdxl_floyd_cogview2_sd3_auraflow.tar
 
-# cot_50_2 / cot_100_2 only sdxl (0917)
-./gdrive files download 1KydEiqUPMzoeXeMK_I6I2V6oDYy1Xlad # DomainNet_cot_50_2_sdxl
-./gdrive files download 15mGSETe5HOHjHByJlG77LG3zH29pGavo # DomainNet_cot_100_2_sdxl
-tar -xf DomainNet_cot_50_2_sdxl.tar -C DomainNet
-tar -xf DomainNet_cot_100_2_sdxl.tar -C DomainNet
-rm DomainNet_cot_50_2_sdxl.tar
-rm DomainNet_cot_100_2_sdxl.tar
+# # cot_50_2 / cot_100_2 only sdxl (0917)
+# ./gdrive files download 1KydEiqUPMzoeXeMK_I6I2V6oDYy1Xlad # DomainNet_cot_50_2_sdxl
+# ./gdrive files download 15mGSETe5HOHjHByJlG77LG3zH29pGavo # DomainNet_cot_100_2_sdxl
+# tar -xf DomainNet_cot_50_2_sdxl.tar -C DomainNet
+# tar -xf DomainNet_cot_100_2_sdxl.tar -C DomainNet
+# rm DomainNet_cot_50_2_sdxl.tar
+# rm DomainNet_cot_100_2_sdxl.tar
 
-# cot_50_2 ensemble
-./gdrive files download 1aOFzD41EuVRggrJ9drE81p08t4KOdvre # DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow
-./gdrive files download 1y835L-a6JwWxwq4-vlChgl0nDncSy_l_ # DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_flux_auraflow
-./gdrive files download 13fV-NghCWCXYWk8H7cb_hBYyRqTKCipV # DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow
-tar -xf DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow.tar -C DomainNet
-tar -xf DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_flux_auraflow.tar -C DomainNet
-tar -xf DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.tar -C DomainNet
-rm DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow.tar
-rm DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
-rm DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.tar
+# # cot_50_2 ensemble
+# ./gdrive files download 1aOFzD41EuVRggrJ9drE81p08t4KOdvre # DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow
+# ./gdrive files download 1y835L-a6JwWxwq4-vlChgl0nDncSy_l_ # DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_flux_auraflow
+# ./gdrive files download 13fV-NghCWCXYWk8H7cb_hBYyRqTKCipV # DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow
+# tar -xf DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow.tar -C DomainNet
+# tar -xf DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_flux_auraflow.tar -C DomainNet
+# tar -xf DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.tar -C DomainNet
+# rm DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow.tar
+# rm DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
+# rm DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.tar
 
-# DomainNet cot_50_2 refined sdxl
-./gdrive files download 1wYqEb66Y3MkwWrHrfti0WAs7a2YLBENY # DomainNet_cot_50_2_refined_sdxl
-tar -xf DomainNet_cot_50_2_refined_sdxl.tar -C DomainNet
-rm DomainNet_cot_50_2_refined_sdxl.tar
+# # DomainNet cot_50_2 refined sdxl
+# ./gdrive files download 1wYqEb66Y3MkwWrHrfti0WAs7a2YLBENY # DomainNet_cot_50_2_refined_sdxl
+# tar -xf DomainNet_cot_50_2_refined_sdxl.tar -C DomainNet
+# rm DomainNet_cot_50_2_refined_sdxl.tar
+
+# DomainNet_cot_50_4~10, sdxl
+./gdrive files download 1Sq5mjUsh680Vm-4wnHYwGIpNa4CCN2bW # DomainNet_cot_50_4_sdxl
+./gdrive files download 1_hdqBBGqRyWD_NDXad1-sO4kdJBYm30x # DomainNet_cot_50_5_sdxl
+./gdrive files download 1rmSiipiHvKdwyyA3vORZvCope8Q0OPLc # DomainNet_cot_50_6_sdxl
+./gdrive files download 1WNsZi_p-USs22vaGYBu1Elsa6hI6X2P1 # DomainNet_cot_50_7_sdxl
+./gdrive files download 1kpx7YkRCXIW659iQNKvzA3PPianmHDjj # DomainNet_cot_50_8_sdxl
+./gdrive files download 1BrwOnG3uLX4CGfIHJuZ15f5rcG0aEB1s # DomainNet_cot_50_9_sdxl
+./gdrive files download 1ICM4Zwq_0xsY9TCNLTjn3KxAugpTmTIj # DomainNet_cot_50_10_sdxl
+tar -xf DomainNet_cot_50_4_sdxl.tar -C DomainNet
+tar -xf DomainNet_cot_50_5_sdxl.tar -C DomainNet
+tar -xf DomainNet_cot_50_6_sdxl.tar -C DomainNet
+tar -xf DomainNet_cot_50_7_sdxl.tar -C DomainNet
+tar -xf DomainNet_cot_50_8_sdxl.tar -C DomainNet
+tar -xf DomainNet_cot_50_9_sdxl.tar -C DomainNet
+tar -xf DomainNet_cot_50_10_sdxl.tar -C DomainNet
+rm DomainNet_cot_50_4_sdxl.tar
+rm DomainNet_cot_50_5_sdxl.tar
+rm DomainNet_cot_50_6_sdxl.tar
+rm DomainNet_cot_50_7_sdxl.tar
+rm DomainNet_cot_50_8_sdxl.tar
+rm DomainNet_cot_50_9_sdxl.tar
+rm DomainNet_cot_50_10_sdxl.tar
