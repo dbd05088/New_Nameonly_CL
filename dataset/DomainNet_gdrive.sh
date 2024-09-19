@@ -266,25 +266,29 @@
 # tar -xf DomainNet_cot_50_2_refined_sdxl.tar -C DomainNet
 # rm DomainNet_cot_50_2_refined_sdxl.tar
 
-# DomainNet_cot_50_4~10, sdxl
-./gdrive files download 1Sq5mjUsh680Vm-4wnHYwGIpNa4CCN2bW # DomainNet_cot_50_4_sdxl
-./gdrive files download 1_hdqBBGqRyWD_NDXad1-sO4kdJBYm30x # DomainNet_cot_50_5_sdxl
-./gdrive files download 1rmSiipiHvKdwyyA3vORZvCope8Q0OPLc # DomainNet_cot_50_6_sdxl
-./gdrive files download 1WNsZi_p-USs22vaGYBu1Elsa6hI6X2P1 # DomainNet_cot_50_7_sdxl
-./gdrive files download 1kpx7YkRCXIW659iQNKvzA3PPianmHDjj # DomainNet_cot_50_8_sdxl
-./gdrive files download 1BrwOnG3uLX4CGfIHJuZ15f5rcG0aEB1s # DomainNet_cot_50_9_sdxl
-./gdrive files download 1ICM4Zwq_0xsY9TCNLTjn3KxAugpTmTIj # DomainNet_cot_50_10_sdxl
-tar -xf DomainNet_cot_50_4_sdxl.tar -C DomainNet
-tar -xf DomainNet_cot_50_5_sdxl.tar -C DomainNet
-tar -xf DomainNet_cot_50_6_sdxl.tar -C DomainNet
-tar -xf DomainNet_cot_50_7_sdxl.tar -C DomainNet
-tar -xf DomainNet_cot_50_8_sdxl.tar -C DomainNet
-tar -xf DomainNet_cot_50_9_sdxl.tar -C DomainNet
-tar -xf DomainNet_cot_50_10_sdxl.tar -C DomainNet
-rm DomainNet_cot_50_4_sdxl.tar
-rm DomainNet_cot_50_5_sdxl.tar
-rm DomainNet_cot_50_6_sdxl.tar
-rm DomainNet_cot_50_7_sdxl.tar
-rm DomainNet_cot_50_8_sdxl.tar
-rm DomainNet_cot_50_9_sdxl.tar
-rm DomainNet_cot_50_10_sdxl.tar
+# # DomainNet_cot_50_4~10, sdxl
+# ./gdrive files download 1Sq5mjUsh680Vm-4wnHYwGIpNa4CCN2bW # DomainNet_cot_50_4_sdxl
+# ./gdrive files download 1_hdqBBGqRyWD_NDXad1-sO4kdJBYm30x # DomainNet_cot_50_5_sdxl
+# ./gdrive files download 1rmSiipiHvKdwyyA3vORZvCope8Q0OPLc # DomainNet_cot_50_6_sdxl
+# ./gdrive files download 1WNsZi_p-USs22vaGYBu1Elsa6hI6X2P1 # DomainNet_cot_50_7_sdxl
+# ./gdrive files download 1kpx7YkRCXIW659iQNKvzA3PPianmHDjj # DomainNet_cot_50_8_sdxl
+# ./gdrive files download 1BrwOnG3uLX4CGfIHJuZ15f5rcG0aEB1s # DomainNet_cot_50_9_sdxl
+# ./gdrive files download 1ICM4Zwq_0xsY9TCNLTjn3KxAugpTmTIj # DomainNet_cot_50_10_sdxl
+# tar -xf DomainNet_cot_50_4_sdxl.tar -C DomainNet
+# tar -xf DomainNet_cot_50_5_sdxl.tar -C DomainNet
+# tar -xf DomainNet_cot_50_6_sdxl.tar -C DomainNet
+# tar -xf DomainNet_cot_50_7_sdxl.tar -C DomainNet
+# tar -xf DomainNet_cot_50_8_sdxl.tar -C DomainNet
+# tar -xf DomainNet_cot_50_9_sdxl.tar -C DomainNet
+# tar -xf DomainNet_cot_50_10_sdxl.tar -C DomainNet
+# rm DomainNet_cot_50_4_sdxl.tar
+# rm DomainNet_cot_50_5_sdxl.tar
+# rm DomainNet_cot_50_6_sdxl.tar
+# rm DomainNet_cot_50_7_sdxl.tar
+# rm DomainNet_cot_50_8_sdxl.tar
+# rm DomainNet_cot_50_9_sdxl.tar
+# rm DomainNet_cot_50_10_sdxl.tar
+
+./gdrive files download 1Kdpi3KLtaR7ppQgdClWRIgPQ4b5-89sx # DomainNet_cot_50_11_sdxl
+tar -xf DomainNet_cot_50_11_sdxl.tar -C DomainNet
+rm DomainNet_cot_50_11_sdxl.tar
