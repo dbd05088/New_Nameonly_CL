@@ -998,7 +998,12 @@
 # tar -xf PACS_final_base_sdxl.tar -C PACS_final
 # rm PACS_final_base_sdxl.tar
 
-# LE_diversified_50_sdxl
-./gdrive files download 1UyvSkbwfAnDKP9ZJUXTiOiB_4qfBKVlT # PACS_final_LE_diversified_50_sdxl
-tar -xf PACS_final_LE_diversified_50_sdxl.tar -C PACS_final
-rm PACS_final_LE_diversified_50_sdxl.tar
+# # LE_diversified_50_sdxl
+# ./gdrive files download 1UyvSkbwfAnDKP9ZJUXTiOiB_4qfBKVlT # PACS_final_LE_diversified_50_sdxl
+# tar -xf PACS_final_LE_diversified_50_sdxl.tar -C PACS_final
+# rm PACS_final_LE_diversified_50_sdxl.tar
+
+# LE_50_glide
+./gdrive files download 1BaRq2E6htBKQsWUOvZPw-Zf7-VEYOE9H # PACS_final_LE_diversified_50_glide
+tar -xf PACS_final_LE_diversified_50_glide.tar -C PACS_final
+rm PACS_final_LE_diversified_50_glide.tar
