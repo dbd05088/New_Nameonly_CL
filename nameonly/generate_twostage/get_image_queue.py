@@ -428,7 +428,8 @@ def generate_single_class(
     for i, prompt in enumerate(concatenated_prompt_list):
         if not use_dynamic_prompt:
             assert "[concept]" in prompt[0], f"[concept] not exists in {prompt}!"
-            prompt_with_cls = (prompt[0].replace('[concept]', class_name), prompt[1], prompt[2])
+            class_name_tmp = class_name.replace("_"," ") # remove underbar
+            prompt_with_cls = (prompt[0].replace('[concept]', class_name_tmp), prompt[1], prompt[2])
             concatenated_prompt_list[i] = prompt_with_cls
         else:
             concatenated_prompt_list[i] = (prompt[0], prompt[1], prompt[2])
