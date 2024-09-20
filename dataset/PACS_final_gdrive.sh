@@ -993,7 +993,12 @@
 # rm PACS_final_web_DINO_base_Submodular_30_0.0001.tar
 # rm PACS_final_web_DINO_base_Uncertainty_30_0.0001.tar
 
-# base_sdxl (0920)
-./gdrive files download 1NCJ-UYhwAvsEIfyZqCf6qd8867dnW7bH # PACS_final_base_sdxl
-tar -xf PACS_final_base_sdxl.tar -C PACS_final
-rm PACS_final_base_sdxl.tar
+# # base_sdxl (0920)
+# ./gdrive files download 1NCJ-UYhwAvsEIfyZqCf6qd8867dnW7bH # PACS_final_base_sdxl
+# tar -xf PACS_final_base_sdxl.tar -C PACS_final
+# rm PACS_final_base_sdxl.tar
+
+# LE_diversified_50_sdxl
+./gdrive files download 1UyvSkbwfAnDKP9ZJUXTiOiB_4qfBKVlT # PACS_final_LE_diversified_50_sdxl
+tar -xf PACS_final_LE_diversified_50_sdxl.tar -C PACS_final
+rm PACS_final_LE_diversified_50_sdxl.tar
