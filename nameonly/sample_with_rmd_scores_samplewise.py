@@ -22,9 +22,9 @@ INVERSE = False
 TEMPERATURE = 0.5
 
 # IMPORTANT
-base_path = './raw_datasets/iclr_generated/PACS'
-json_path = './RMD_scores/PACS_final_cot_100_2_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.json'
-target_path = './raw_datasets/iclr_generated/RMD_temp_results/PACS_final_cot_100_2_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow'
+base_path = './raw_datasets/iclr_generated/DomainNet'
+json_path = './RMD_scores/DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.json'
+target_path = './raw_datasets/iclr_generated/DomainNet/DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow'
 # IMPORTANT
 
 count_dict = get_count_value_from_string(base_path)
@@ -87,7 +87,7 @@ for cls in tqdm(list(count_dict.keys())):
         if clip:
             lower_clip = np.percentile(scores, lower_percentile)
             upper_clip = np.percentile(scores, upper_percentile)
-            print(f"Lower clip: {lower_clip}, Upper clip: {upper_clip}")
+            # print(f"Lower clip: {lower_clip}, Upper clip: {upper_clip}")
             clipped_scores = np.clip(scores, lower_clip, upper_clip)
             if normalize:
                 mean = np.mean(clipped_scores); std = np.std(clipped_scores)
@@ -116,10 +116,10 @@ for cls in tqdm(list(count_dict.keys())):
         model_class_selected_counter[sample_model_RMD_mapping[sample_path][0]][cls] += 1
 
 
-# Check the number of images selected for each model, for each class
-for model, class_counter in model_class_selected_counter.items():
-    print(f"Model {model} selected for each class:")
-    print(class_counter)
+# # Check the number of images selected for each model, for each class
+# for model, class_counter in model_class_selected_counter.items():
+#     print(f"Model {model} selected for each class:")
+#     print(class_counter)
 
 # Sanity check the number of images for each class
 for cls, images in ensembled_images.items():

@@ -928,16 +928,67 @@
 # rm PACS_final_cot_100_2_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
 # rm PACS_final_cot_100_2_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.tar
 
-# cot_50_2, 100_2 refined with new1, new2 / sdxl (0916)
-./gdrive files download 1HHfuNcPEEXU2lbgUXYU6g7ojuv64c2r1 # PACS_final_cot_100_2_refined_new1
-./gdrive files download 1FFegMf8rjSRuOT5F8xXkCg2T8PEdVvF- # PACS_final_cot_100_2_refined_new2
-./gdrive files download 1uqQMSfzowL8Vz1OrQ75TkFZUZi2W1F20 # PACS_final_cot_50_2_refined_new1
-./gdrive files download 1YCwlCZs5dYyhesVr9aBScUsBab43kEbh # PACS_final_cot_50_2_refined_new2
-tar -xf PACS_final_cot_100_2_refined_new1.tar -C PACS_final
-tar -xf PACS_final_cot_100_2_refined_new2.tar -C PACS_final
-tar -xf PACS_final_cot_50_2_refined_new1.tar -C PACS_final
-tar -xf PACS_final_cot_50_2_refined_new2.tar -C PACS_final
-rm PACS_final_cot_100_2_refined_new1.tar
-rm PACS_final_cot_100_2_refined_new2.tar
-rm PACS_final_cot_50_2_refined_new1.tar
-rm PACS_final_cot_50_2_refined_new2.tar
+# # cot_50_2, 100_2 refined with new1, new2 / sdxl (0916)
+# ./gdrive files download 1HHfuNcPEEXU2lbgUXYU6g7ojuv64c2r1 # PACS_final_cot_100_2_refined_new1
+# ./gdrive files download 1FFegMf8rjSRuOT5F8xXkCg2T8PEdVvF- # PACS_final_cot_100_2_refined_new2
+# ./gdrive files download 1uqQMSfzowL8Vz1OrQ75TkFZUZi2W1F20 # PACS_final_cot_50_2_refined_new1
+# ./gdrive files download 1YCwlCZs5dYyhesVr9aBScUsBab43kEbh # PACS_final_cot_50_2_refined_new2
+# tar -xf PACS_final_cot_100_2_refined_new1.tar -C PACS_final
+# tar -xf PACS_final_cot_100_2_refined_new2.tar -C PACS_final
+# tar -xf PACS_final_cot_50_2_refined_new1.tar -C PACS_final
+# tar -xf PACS_final_cot_50_2_refined_new2.tar -C PACS_final
+# rm PACS_final_cot_100_2_refined_new1.tar
+# rm PACS_final_cot_100_2_refined_new2.tar
+# rm PACS_final_cot_50_2_refined_new1.tar
+# rm PACS_final_cot_50_2_refined_new2.tar
+
+# # cot_50_2, 10_2 refined ensemble (0917)
+# ./gdrive files download 12U3UsxrzjrowCc-8dk2GOwVFopzTYqTp # PACS_final_cot_50_2_refined_sdxl_floyd_cogview2_sd3_auraflow
+# ./gdrive files download 1pLfTAQd4poa-b3NX69Fk8B2g818AowUA # PACS_final_cot_50_2_refined_sdxl_floyd_cogview2_sd3_flux_auraflow
+# ./gdrive files download 1GSDlUDj5zNXJCkJLb1OzikNjrMllGz_8 # PACS_final_cot_50_2_refined_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow
+# ./gdrive files download 1y_PQYilPd8LBpJOO5bWac4EGKr3aYw_g # PACS_final_cot_100_2_refined_sdxl_floyd_cogview2_sd3_auraflow
+# ./gdrive files download 1CQmyRabkjkqCKEerwOlw3TLfkFiwHVQi # PACS_final_cot_100_2_refined_sdxl_floyd_cogview2_sd3_flux_auraflow
+# ./gdrive files download 1Aamn4oOm1pka_z16d1Crs0RHt1VgBbG1 # PACS_final_cot_100_2_refined_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow
+# tar -xf PACS_final_cot_50_2_refined_sdxl_floyd_cogview2_sd3_auraflow.tar -C PACS_final
+# tar -xf PACS_final_cot_50_2_refined_sdxl_floyd_cogview2_sd3_flux_auraflow.tar -C PACS_final
+# tar -xf PACS_final_cot_50_2_refined_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.tar -C PACS_final
+# tar -xf PACS_final_cot_100_2_refined_sdxl_floyd_cogview2_sd3_auraflow.tar -C PACS_final
+# tar -xf PACS_final_cot_100_2_refined_sdxl_floyd_cogview2_sd3_flux_auraflow.tar -C PACS_final
+# tar -xf PACS_final_cot_100_2_refined_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.tar -C PACS_final
+# rm PACS_final_cot_50_2_refined_sdxl_floyd_cogview2_sd3_auraflow.tar
+# rm PACS_final_cot_50_2_refined_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
+# rm PACS_final_cot_50_2_refined_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.tar
+# rm PACS_final_cot_100_2_refined_sdxl_floyd_cogview2_sd3_auraflow.tar
+# rm PACS_final_cot_100_2_refined_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
+# rm PACS_final_cot_100_2_refined_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.tar
+
+# # wo_cot_wo_hierarchy_50 ensemble (0918)
+# ./gdrive files download 1F7lplnXy5X6xuuyO6yLnhULpLVJQSong # PACS_final_wo_cot_wo_hierarhcy_50_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow
+# ./gdrive files download 1maCdnCJNyz6Oe9PLyhJzvqNwzK_stmXR # PACS_final_wo_cot_wo_hierarhcy_50_sdxl_floyd_cogview2_sd3_flux_auraflow
+# ./gdrive files download 1CuP5KgGUCeSwuR-UpUPGDvhkXbHCFx0d # PACS_final_wo_cot_wo_hierarhcy_50_sdxl_floyd_cogview2_sd3_auraflow
+# tar -xf PACS_final_wo_cot_wo_hierarhcy_50_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.tar -C PACS_final
+# tar -xf PACS_final_wo_cot_wo_hierarhcy_50_sdxl_floyd_cogview2_sd3_flux_auraflow.tar -C PACS_final
+# tar -xf PACS_final_wo_cot_wo_hierarhcy_50_sdxl_floyd_cogview2_sd3_auraflow.tar -C PACS_final
+# rm PACS_final_wo_cot_wo_hierarhcy_50_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.tar
+# rm PACS_final_wo_cot_wo_hierarhcy_50_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
+# rm PACS_final_wo_cot_wo_hierarhcy_50_sdxl_floyd_cogview2_sd3_auraflow.tar
+
+# 6 web_DINO_base (0919)
+./gdrive files download 10JeVMxs-THLiTx5imPZqfoepXKuBFh01 # PACS_final_web_DINO_base_Adacore_30_0.0001
+./gdrive files download 19d_YV0awo9Ye3ZU76XuxPn5xojHGBRfM # PACS_final_web_DINO_base_CurvMatch_30_0.0001
+./gdrive files download 1Ud_w1HaZ-E-MQwztUcivo87p_WYdgDAy # PACS_final_web_DINO_base_Glister_30_0.0001
+./gdrive files download 1gk79XmbxZaqDSnln3FEBW2Ko4r5q7yLa # PACS_final_web_DINO_base_GradMatch_30_0.0001
+./gdrive files download 1R7r7fq8vfRwCVbWD5i7hkKDuS2zavB-E # PACS_final_web_DINO_base_Submodular_30_0.0001
+./gdrive files download 1q-RK9SOW-oc-IhzK0Ce7jeEY-apiijcL # PACS_final_web_DINO_base_Uncertainty_30_0.0001
+tar -xf PACS_final_web_DINO_base_Adacore_30_0.0001.tar -C PACS_final
+tar -xf PACS_final_web_DINO_base_CurvMatch_30_0.0001.tar -C PACS_final
+tar -xf PACS_final_web_DINO_base_Glister_30_0.0001.tar -C PACS_final
+tar -xf PACS_final_web_DINO_base_GradMatch_30_0.0001.tar -C PACS_final
+tar -xf PACS_final_web_DINO_base_Submodular_30_0.0001.tar -C PACS_final
+tar -xf PACS_final_web_DINO_base_Uncertainty_30_0.0001.tar -C PACS_final
+rm PACS_final_web_DINO_base_Adacore_30_0.0001.tar
+rm PACS_final_web_DINO_base_CurvMatch_30_0.0001.tar
+rm PACS_final_web_DINO_base_Glister_30_0.0001.tar
+rm PACS_final_web_DINO_base_GradMatch_30_0.0001.tar
+rm PACS_final_web_DINO_base_Submodular_30_0.0001.tar
+rm PACS_final_web_DINO_base_Uncertainty_30_0.0001.tar
