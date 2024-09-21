@@ -293,10 +293,21 @@
 # tar -xf DomainNet_cot_50_11_sdxl.tar -C DomainNet
 # rm DomainNet_cot_50_11_sdxl.tar
 
-# DomainNet wo_hierarchy_50, wo_cot_wo_hierarchy_50 (from our prompt)
-./gdrive files download 1p74Pz2Xk92Ujm1mMhaLu05To4fkAEveF # DomainNet_wo_cot_wo_hierarchy_50_sdxl
-./gdrive files download 1BsnbWwzKdK3U2Xy_ZZAm8IK_MdQPyIpY # DomainNet_wo_hierarchy_50_sdxl
-tar -xf DomainNet_wo_cot_wo_hierarchy_50_sdxl.tar -C DomainNet
-tar -xf DomainNet_wo_hierarchy_50_sdxl.tar -C DomainNet
-rm DomainNet_wo_cot_wo_hierarchy_50_sdxl.tar
-rm DomainNet_wo_hierarchy_50_sdxl.tar
+# # DomainNet wo_hierarchy_50, wo_cot_wo_hierarchy_50 (from our prompt)
+# ./gdrive files download 1p74Pz2Xk92Ujm1mMhaLu05To4fkAEveF # DomainNet_wo_cot_wo_hierarchy_50_sdxl
+# ./gdrive files download 1BsnbWwzKdK3U2Xy_ZZAm8IK_MdQPyIpY # DomainNet_wo_hierarchy_50_sdxl
+# tar -xf DomainNet_wo_cot_wo_hierarchy_50_sdxl.tar -C DomainNet
+# tar -xf DomainNet_wo_hierarchy_50_sdxl.tar -C DomainNet
+# rm DomainNet_wo_cot_wo_hierarchy_50_sdxl.tar
+# rm DomainNet_wo_hierarchy_50_sdxl.tar
+
+# LE_glide, sdxl, 50 / base_sdxl, 50 (0921)
+./gdrive files download 15ibNAab3NbaQ_JIOElyLaA8HQkYNgE4n # DomainNet_LE_diversified_50_glide
+./gdrive files download 1FnP9BE3HAFzIV1Z6-JppbggNCbs22S1t # DomainNet_LE_diversified_50_sdxl
+./gdrive files download 1RHD5Q72qlBplC87WRZjiUyoU0ZZD65lC # DomainNet_base_sdxl
+tar -xf DomainNet_LE_diversified_50_glide.tar -C DomainNet
+tar -xf DomainNet_LE_diversified_50_sdxl.tar -C DomainNet
+tar -xf DomainNet_base_sdxl.tar -C DomainNet
+rm DomainNet_LE_diversified_50_glide.tar
+rm DomainNet_LE_diversified_50_sdxl.tar
+rm DomainNet_base_sdxl.tar
