@@ -1008,16 +1008,66 @@
 # tar -xf PACS_final_LE_diversified_50_glide.tar -C PACS_final
 # rm PACS_final_LE_diversified_50_glide.tar
 
-# synclr, synthclip ensemble (0921)
-./gdrive files download 1crsLSf2Cd1lk1PbNRlxNxJuKKqthwYQ2 # PACS_final_synclr_sdxl_floyd_cogview2_sd3_auraflow
-./gdrive files download 1f8L36-wGDN-UOiz0dD2vIJndF-Py2zmD # PACS_final_synclr_sdxl_floyd_cogview2_sd3_flux_auraflow
-./gdrive files download 1aR-bugs4Us6f06zS6B7Zmy1xEVs1jr6u # PACS_final_synthclip_sdxl_floyd_cogview2_sd3_auraflow
-./gdrive files download 1nv0zsWF-zLua2WGITIRvMDz7hVw5tc1v # PACS_final_synthclip_sdxl_floyd_cogview2_sd3_flux_auraflow
-tar -xf PACS_final_synclr_sdxl_floyd_cogview2_sd3_auraflow.tar -C PACS_final
-tar -xf PACS_final_synclr_sdxl_floyd_cogview2_sd3_flux_auraflow.tar -C PACS_final
-tar -xf PACS_final_synthclip_sdxl_floyd_cogview2_sd3_auraflow.tar -C PACS_final
-tar -xf PACS_final_synthclip_sdxl_floyd_cogview2_sd3_flux_auraflow.tar -C PACS_final
-rm PACS_final_synclr_sdxl_floyd_cogview2_sd3_auraflow.tar
-rm PACS_final_synclr_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
-rm PACS_final_synthclip_sdxl_floyd_cogview2_sd3_auraflow.tar
-rm PACS_final_synthclip_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
+# # synclr, synthclip ensemble (0921)
+# ./gdrive files download 1crsLSf2Cd1lk1PbNRlxNxJuKKqthwYQ2 # PACS_final_synclr_sdxl_floyd_cogview2_sd3_auraflow
+# ./gdrive files download 1f8L36-wGDN-UOiz0dD2vIJndF-Py2zmD # PACS_final_synclr_sdxl_floyd_cogview2_sd3_flux_auraflow
+# ./gdrive files download 1aR-bugs4Us6f06zS6B7Zmy1xEVs1jr6u # PACS_final_synthclip_sdxl_floyd_cogview2_sd3_auraflow
+# ./gdrive files download 1nv0zsWF-zLua2WGITIRvMDz7hVw5tc1v # PACS_final_synthclip_sdxl_floyd_cogview2_sd3_flux_auraflow
+# tar -xf PACS_final_synclr_sdxl_floyd_cogview2_sd3_auraflow.tar -C PACS_final
+# tar -xf PACS_final_synclr_sdxl_floyd_cogview2_sd3_flux_auraflow.tar -C PACS_final
+# tar -xf PACS_final_synthclip_sdxl_floyd_cogview2_sd3_auraflow.tar -C PACS_final
+# tar -xf PACS_final_synthclip_sdxl_floyd_cogview2_sd3_flux_auraflow.tar -C PACS_final
+# rm PACS_final_synclr_sdxl_floyd_cogview2_sd3_auraflow.tar
+# rm PACS_final_synclr_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
+# rm PACS_final_synthclip_sdxl_floyd_cogview2_sd3_auraflow.tar
+# rm PACS_final_synthclip_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
+
+# 16 DINO base lp (0921)
+./gdrive files download 1rXvb0CzvCJdecOVq0VSm8I12nke1dvLW # PACS_final_DINO_base_Uncertainty_50_0.0001_lp
+./gdrive files download 1WqVbRPENyqXci37ytAzYEShEC_lqEw98 # PACS_final_DINO_base_Adacore_10_0.0001_lp
+./gdrive files download 1n3-vAHx2bKI_C7VqOyQE5S1_UvMj7oL8 # PACS_final_DINO_base_Adacore_30_0.0001_lp
+./gdrive files download 1O8jc5NeTBOhE1hwm8cDMFxUDqqVYIjAI # PACS_final_DINO_base_Adacore_50_0.0001_lp
+./gdrive files download 1EF48eJPmtXNfEvAxW-QR1KZAfktAXwbM # PACS_final_DINO_base_CurvMatch_10_0.0001_lp
+./gdrive files download 1BXCqex0VPGCE2fwYUGfmcWG7adn9Nuru # PACS_final_DINO_base_CurvMatch_30_0.0001_lp
+./gdrive files download 1PShcKqz8dG-YzXKTHFCTzgzKXC4eUf5R # PACS_final_DINO_base_CurvMatch_50_0.0001_lp
+./gdrive files download 1Kn697vQVZGQmjBj5dJUxQyg9XvlB4O8D # PACS_final_DINO_base_Glister_10_0.0001_lp
+./gdrive files download 1YVhdMjZnKboYvVtY5J0Bi2WGK1ByJPQg # PACS_final_DINO_base_Glister_30_0.0001_lp
+./gdrive files download 1O4kT-YvhPmK8LxH_zwzIt6OZj8za9epa # PACS_final_DINO_base_Glister_50_0.0001_lp
+./gdrive files download 1XbqUgmYa-So8x8JLzCeYJiy5zSe8sshJ # PACS_final_DINO_base_GradMatch_10_0.0001_lp
+./gdrive files download 19twg4sBkAy6PYdBDMyIwhqeCnRVtgFGX # PACS_final_DINO_base_GradMatch_30_0.0001_lp
+./gdrive files download 1Ag6MisBPPpcgafnlmn-H81phFqwmVFJ_ # PACS_final_DINO_base_GradMatch_50_0.0001_lp
+./gdrive files download 1Nk5Nzoy_Z4l7VhcY5rwg9avJmdFUewEL # PACS_final_DINO_base_Submodular_50_0.0001_lp
+./gdrive files download 1iwLQw8M8_CobirSdz-Z5SCBDfiJXiXhe # PACS_final_DINO_base_Uncertainty_10_0.0001_lp
+./gdrive files download 1tRPvaFpK8mIVA8EPn8lk_fNTa2YkXfNi # PACS_final_DINO_base_Uncertainty_30_0.0001_lp
+tar -xf PACS_final_DINO_base_Uncertainty_50_0.0001_lp.tar -C PACS_final
+tar -xf PACS_final_DINO_base_Adacore_10_0.0001_lp.tar -C PACS_final
+tar -xf PACS_final_DINO_base_Adacore_30_0.0001_lp.tar -C PACS_final
+tar -xf PACS_final_DINO_base_Adacore_50_0.0001_lp.tar -C PACS_final
+tar -xf PACS_final_DINO_base_CurvMatch_10_0.0001_lp.tar -C PACS_final
+tar -xf PACS_final_DINO_base_CurvMatch_30_0.0001_lp.tar -C PACS_final
+tar -xf PACS_final_DINO_base_CurvMatch_50_0.0001_lp.tar -C PACS_final
+tar -xf PACS_final_DINO_base_Glister_10_0.0001_lp.tar -C PACS_final
+tar -xf PACS_final_DINO_base_Glister_30_0.0001_lp.tar -C PACS_final
+tar -xf PACS_final_DINO_base_Glister_50_0.0001_lp.tar -C PACS_final
+tar -xf PACS_final_DINO_base_GradMatch_10_0.0001_lp.tar -C PACS_final
+tar -xf PACS_final_DINO_base_GradMatch_30_0.0001_lp.tar -C PACS_final
+tar -xf PACS_final_DINO_base_GradMatch_50_0.0001_lp.tar -C PACS_final
+tar -xf PACS_final_DINO_base_Submodular_50_0.0001_lp.tar -C PACS_final
+tar -xf PACS_final_DINO_base_Uncertainty_10_0.0001_lp.tar -C PACS_final
+tar -xf PACS_final_DINO_base_Uncertainty_30_0.0001_lp.tar -C PACS_final
+rm PACS_final_DINO_base_Uncertainty_50_0.0001_lp.tar
+rm PACS_final_DINO_base_Adacore_10_0.0001_lp.tar
+rm PACS_final_DINO_base_Adacore_30_0.0001_lp.tar
+rm PACS_final_DINO_base_Adacore_50_0.0001_lp.tar
+rm PACS_final_DINO_base_CurvMatch_10_0.0001_lp.tar
+rm PACS_final_DINO_base_CurvMatch_30_0.0001_lp.tar
+rm PACS_final_DINO_base_CurvMatch_50_0.0001_lp.tar
+rm PACS_final_DINO_base_Glister_10_0.0001_lp.tar
+rm PACS_final_DINO_base_Glister_30_0.0001_lp.tar
+rm PACS_final_DINO_base_Glister_50_0.0001_lp.tar
+rm PACS_final_DINO_base_GradMatch_10_0.0001_lp.tar
+rm PACS_final_DINO_base_GradMatch_30_0.0001_lp.tar
+rm PACS_final_DINO_base_GradMatch_50_0.0001_lp.tar
+rm PACS_final_DINO_base_Submodular_50_0.0001_lp.tar
+rm PACS_final_DINO_base_Uncertainty_10_0.0001_lp.tar
+rm PACS_final_DINO_base_Uncertainty_30_0.0001_lp.tar
