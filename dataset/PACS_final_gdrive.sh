@@ -1003,7 +1003,21 @@
 # tar -xf PACS_final_LE_diversified_50_sdxl.tar -C PACS_final
 # rm PACS_final_LE_diversified_50_sdxl.tar
 
-# LE_50_glide
-./gdrive files download 1BaRq2E6htBKQsWUOvZPw-Zf7-VEYOE9H # PACS_final_LE_diversified_50_glide
-tar -xf PACS_final_LE_diversified_50_glide.tar -C PACS_final
-rm PACS_final_LE_diversified_50_glide.tar
+# # LE_50_glide
+# ./gdrive files download 1BaRq2E6htBKQsWUOvZPw-Zf7-VEYOE9H # PACS_final_LE_diversified_50_glide
+# tar -xf PACS_final_LE_diversified_50_glide.tar -C PACS_final
+# rm PACS_final_LE_diversified_50_glide.tar
+
+# synclr, synthclip ensemble (0921)
+./gdrive files download 1crsLSf2Cd1lk1PbNRlxNxJuKKqthwYQ2 # PACS_final_synclr_sdxl_floyd_cogview2_sd3_auraflow
+./gdrive files download 1f8L36-wGDN-UOiz0dD2vIJndF-Py2zmD # PACS_final_synclr_sdxl_floyd_cogview2_sd3_flux_auraflow
+./gdrive files download 1aR-bugs4Us6f06zS6B7Zmy1xEVs1jr6u # PACS_final_synthclip_sdxl_floyd_cogview2_sd3_auraflow
+./gdrive files download 1nv0zsWF-zLua2WGITIRvMDz7hVw5tc1v # PACS_final_synthclip_sdxl_floyd_cogview2_sd3_flux_auraflow
+tar -xf PACS_final_synclr_sdxl_floyd_cogview2_sd3_auraflow.tar -C PACS_final
+tar -xf PACS_final_synclr_sdxl_floyd_cogview2_sd3_flux_auraflow.tar -C PACS_final
+tar -xf PACS_final_synthclip_sdxl_floyd_cogview2_sd3_auraflow.tar -C PACS_final
+tar -xf PACS_final_synthclip_sdxl_floyd_cogview2_sd3_flux_auraflow.tar -C PACS_final
+rm PACS_final_synclr_sdxl_floyd_cogview2_sd3_auraflow.tar
+rm PACS_final_synclr_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
+rm PACS_final_synthclip_sdxl_floyd_cogview2_sd3_auraflow.tar
+rm PACS_final_synthclip_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
