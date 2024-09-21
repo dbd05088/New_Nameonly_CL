@@ -2,8 +2,8 @@
 import json
 from classes import *
 
-prompt_path = './prompts/synthclip_DomainNet.json'
-output_path = './diversity_prompts/synthclip_DomainNet.json'
+prompt_path = './prompts/gpt4_hierarchy_cot_50_2.json'
+output_path = './diversity_prompts/gpt4_hierarchy_cot_50_2_DomainNet.json'
 count_dict = DomainNet_count
 
 with open(prompt_path, 'r') as f:
