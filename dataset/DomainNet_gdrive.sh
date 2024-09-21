@@ -293,10 +293,32 @@
 # tar -xf DomainNet_cot_50_11_sdxl.tar -C DomainNet
 # rm DomainNet_cot_50_11_sdxl.tar
 
-# DomainNet wo_hierarchy_50, wo_cot_wo_hierarchy_50 (from our prompt)
-./gdrive files download 1p74Pz2Xk92Ujm1mMhaLu05To4fkAEveF # DomainNet_wo_cot_wo_hierarchy_50_sdxl
-./gdrive files download 1BsnbWwzKdK3U2Xy_ZZAm8IK_MdQPyIpY # DomainNet_wo_hierarchy_50_sdxl
-tar -xf DomainNet_wo_cot_wo_hierarchy_50_sdxl.tar -C DomainNet
-tar -xf DomainNet_wo_hierarchy_50_sdxl.tar -C DomainNet
-rm DomainNet_wo_cot_wo_hierarchy_50_sdxl.tar
-rm DomainNet_wo_hierarchy_50_sdxl.tar
+# # DomainNet wo_hierarchy_50, wo_cot_wo_hierarchy_50 (from our prompt)
+# ./gdrive files download 1p74Pz2Xk92Ujm1mMhaLu05To4fkAEveF # DomainNet_wo_cot_wo_hierarchy_50_sdxl
+# ./gdrive files download 1BsnbWwzKdK3U2Xy_ZZAm8IK_MdQPyIpY # DomainNet_wo_hierarchy_50_sdxl
+# tar -xf DomainNet_wo_cot_wo_hierarchy_50_sdxl.tar -C DomainNet
+# tar -xf DomainNet_wo_hierarchy_50_sdxl.tar -C DomainNet
+# rm DomainNet_wo_cot_wo_hierarchy_50_sdxl.tar
+# rm DomainNet_wo_hierarchy_50_sdxl.tar
+
+# # LE_glide, sdxl, 50 / base_sdxl, 50 (0921)
+# ./gdrive files download 15ibNAab3NbaQ_JIOElyLaA8HQkYNgE4n # DomainNet_LE_diversified_50_glide
+# ./gdrive files download 1FnP9BE3HAFzIV1Z6-JppbggNCbs22S1t # DomainNet_LE_diversified_50_sdxl
+# ./gdrive files download 1RHD5Q72qlBplC87WRZjiUyoU0ZZD65lC # DomainNet_base_sdxl
+# tar -xf DomainNet_LE_diversified_50_glide.tar -C DomainNet
+# tar -xf DomainNet_LE_diversified_50_sdxl.tar -C DomainNet
+# tar -xf DomainNet_base_sdxl.tar -C DomainNet
+# rm DomainNet_LE_diversified_50_glide.tar
+# rm DomainNet_LE_diversified_50_sdxl.tar
+# rm DomainNet_base_sdxl.tar
+
+# RMD, wo_c_wo_h_50
+./gdrive files download 1nGwIkksDCAVkyNvcuJsvdwJnJXK9wK1H # DomainNet_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_auraflow
+./gdrive files download 161OpoXWiB3AeCWiYKgnQDKeMeZ50qO2t # DomainNet_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_flux_auraflow
+./gdrive files download 1oLWVMobYbKYEPO83acp06puoZvNY7Z5d # DomainNet_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow
+tar -xf DomainNet_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_auraflow.tar -C DomainNet
+tar -xf DomainNet_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_flux_auraflow.tar -C DomainNet
+tar -xf DomainNet_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.tar -C DomainNet
+rm DomainNet_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_auraflow.tar
+rm DomainNet_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
+rm DomainNet_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.tar
