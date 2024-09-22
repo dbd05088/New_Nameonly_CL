@@ -22,9 +22,9 @@ INVERSE = False
 TEMPERATURE = 0.5
 
 # IMPORTANT
-base_path = './raw_datasets/iclr_generated/DomainNet'
-json_path = './RMD_scores/DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.json'
-target_path = './raw_datasets/iclr_generated/DomainNet/DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow'
+base_path = './raw_datasets/iclr_generated/PACS'
+json_path = './RMD_scores/PACS_final_fake_f_sdxl_floyd_cogview2_sd3_flux_auraflow.json'
+target_path = './raw_datasets/iclr_generated/PACS/PACS_final_fake_f_sdxl_floyd_cogview2_sd3_flux_auraflow'
 # IMPORTANT
 
 count_dict = get_count_value_from_string(base_path)
