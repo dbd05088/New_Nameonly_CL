@@ -8,13 +8,21 @@ os.system("./gdrive account import gdrive_export-dbd05088_naver_com.tar")
 os.system("./gdrive account switch dbd05088@naver.com")
 
 # Files to upload
-dataset = "DomainNet"
+dataset = "PACS_final"
 create_tar = True
 files = [
-    "DomainNet_wo_cot_wo_hierarchy_50_sdxl",
-    "DomainNet_wo_hierarchy_50_sdxl"
+    "PACS_final_synclr_DINOv2_base_Adacore_100_1e-07",
+    "PACS_final_synclr_DINOv2_base_CurvMatch_100_1e-07",
+    "PACS_final_synclr_DINOv2_base_Glister_100_1e-07",
+    "PACS_final_synclr_DINOv2_base_GradMatch_100_1e-07",
+    "PACS_final_synclr_DINOv2_base_Submodular_100_1e-07",
+    "PACS_final_synclr_DINOv2_base_Uncertainty_100_1e-07",
+    "PACS_final_synthclip_DINOv2_base_Adacore_100_1e-07",
+    "PACS_final_synthclip_DINOv2_base_CurvMatch_100_1e-07",
+    "PACS_final_synthclip_DINOv2_base_GradMatch_100_1e-07",
+    "PACS_final_synthclip_DINOv2_base_Submodular_100_1e-07",
+    "PACS_final_synthclip_DINOv2_base_Uncertainty_100_1e-07",
 ]
-
 # Change path
 files = [os.path.join(dataset, file) for file in files]
 
