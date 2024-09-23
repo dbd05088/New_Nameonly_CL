@@ -331,7 +331,6 @@
 # rm DomainNet_synclr_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
 # rm DomainNet_synclr_sdxl_floyd_cogview2_sd3_auraflow.tar
 
-# fake_f ensemble
 ./gdrive files download 1izoRaJ1l1PZcUp8lmT46xiXqahRSNM9x # DomainNet_fake_f_sdxl_floyd_cogview2_sd3_flux_auraflow
 ./gdrive files download 1Z3ysx6J0M4xUFJeP49-7UZTogNNdIOH3 # DomainNet_fake_f_sdxl_floyd_cogview2_sd3_auraflow
 tar -xf DomainNet_fake_f_sdxl_floyd_cogview2_sd3_flux_auraflow.tar -C DomainNet
