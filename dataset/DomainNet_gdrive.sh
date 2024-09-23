@@ -331,9 +331,14 @@
 # rm DomainNet_synclr_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
 # rm DomainNet_synclr_sdxl_floyd_cogview2_sd3_auraflow.tar
 
-./gdrive files download 1izoRaJ1l1PZcUp8lmT46xiXqahRSNM9x # DomainNet_fake_f_sdxl_floyd_cogview2_sd3_flux_auraflow
-./gdrive files download 1Z3ysx6J0M4xUFJeP49-7UZTogNNdIOH3 # DomainNet_fake_f_sdxl_floyd_cogview2_sd3_auraflow
-tar -xf DomainNet_fake_f_sdxl_floyd_cogview2_sd3_flux_auraflow.tar -C DomainNet
-tar -xf DomainNet_fake_f_sdxl_floyd_cogview2_sd3_auraflow.tar -C DomainNet
-rm DomainNet_fake_f_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
-rm DomainNet_fake_f_sdxl_floyd_cogview2_sd3_auraflow.tar
+# ./gdrive files download 1izoRaJ1l1PZcUp8lmT46xiXqahRSNM9x # DomainNet_fake_f_sdxl_floyd_cogview2_sd3_flux_auraflow
+# ./gdrive files download 1Z3ysx6J0M4xUFJeP49-7UZTogNNdIOH3 # DomainNet_fake_f_sdxl_floyd_cogview2_sd3_auraflow
+# tar -xf DomainNet_fake_f_sdxl_floyd_cogview2_sd3_flux_auraflow.tar -C DomainNet
+# tar -xf DomainNet_fake_f_sdxl_floyd_cogview2_sd3_auraflow.tar -C DomainNet
+# rm DomainNet_fake_f_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
+# rm DomainNet_fake_f_sdxl_floyd_cogview2_sd3_auraflow.tar
+
+# DomainNet hcfr equalweight (wo flux)
+./gdrive files download 1F94zSKSxP_wwCioTHQ6zUJdgDLP0h7U5 # DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_equalweight
+tar -xf DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar -C DomainNet
+rm DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar
