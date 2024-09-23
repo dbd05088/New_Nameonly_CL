@@ -323,10 +323,18 @@
 # rm DomainNet_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
 # rm DomainNet_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.tar
 
-# synclr ensemble (0922)
-./gdrive files download 13-afAm5s9HCJ57IOKkQ-bpENODB8oHPR # DomainNet_synclr_sdxl_floyd_cogview2_sd3_flux_auraflow
-./gdrive files download 1OA5qCG16wsQwquHgXsx2cTg3qdxC3jVm # DomainNet_synclr_sdxl_floyd_cogview2_sd3_auraflow
-tar -xf DomainNet_synclr_sdxl_floyd_cogview2_sd3_flux_auraflow.tar -C DomainNet
-tar -xf DomainNet_synclr_sdxl_floyd_cogview2_sd3_auraflow.tar -C DomainNet
-rm DomainNet_synclr_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
-rm DomainNet_synclr_sdxl_floyd_cogview2_sd3_auraflow.tar
+# # synclr ensemble (0922)
+# ./gdrive files download 13-afAm5s9HCJ57IOKkQ-bpENODB8oHPR # DomainNet_synclr_sdxl_floyd_cogview2_sd3_flux_auraflow
+# ./gdrive files download 1OA5qCG16wsQwquHgXsx2cTg3qdxC3jVm # DomainNet_synclr_sdxl_floyd_cogview2_sd3_auraflow
+# tar -xf DomainNet_synclr_sdxl_floyd_cogview2_sd3_flux_auraflow.tar -C DomainNet
+# tar -xf DomainNet_synclr_sdxl_floyd_cogview2_sd3_auraflow.tar -C DomainNet
+# rm DomainNet_synclr_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
+# rm DomainNet_synclr_sdxl_floyd_cogview2_sd3_auraflow.tar
+
+# fake_f ensemble
+./gdrive files download 1izoRaJ1l1PZcUp8lmT46xiXqahRSNM9x # DomainNet_fake_f_sdxl_floyd_cogview2_sd3_flux_auraflow
+./gdrive files download 1Z3ysx6J0M4xUFJeP49-7UZTogNNdIOH3 # DomainNet_fake_f_sdxl_floyd_cogview2_sd3_auraflow
+tar -xf DomainNet_fake_f_sdxl_floyd_cogview2_sd3_flux_auraflow.tar -C DomainNet
+tar -xf DomainNet_fake_f_sdxl_floyd_cogview2_sd3_auraflow.tar -C DomainNet
+rm DomainNet_fake_f_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
+rm DomainNet_fake_f_sdxl_floyd_cogview2_sd3_auraflow.tar
