@@ -1347,13 +1347,18 @@
 # rm PACS_final_cot_50_2_wo_flux_DINO_base_Submodular_10_0.0001.tar
 # rm PACS_final_cot_50_2_wo_flux_DINO_base_Uncertainty_10_0.0001.tar
 
-# hcfr, synclr, synthclip moderate
-./gdrive files download 1Kkk3420TuVVYDqeJ-CdiC957AO_mt05E # PACS_final_hcfr_wo_flux_CLIP_moderate
-./gdrive files download 1giEKJzkp1Ry9JkWvDHjI5CKez7XGHbKG # PACS_final_synthclip_wo_flux_CLIP_moderate
-./gdrive files download 1nxSbdwDSewc2-W2B3P9B1ftRQVEQ1O9Y # PACS_final_synclr_wo_flux_CLIP_moderate
-tar -xf PACS_final_hcfr_wo_flux_CLIP_moderate.tar -C PACS_final
-tar -xf PACS_final_synthclip_wo_flux_CLIP_moderate.tar -C PACS_final
-tar -xf PACS_final_synclr_wo_flux_CLIP_moderate.tar -C PACS_final
-rm PACS_final_hcfr_wo_flux_CLIP_moderate.tar
-rm PACS_final_synthclip_wo_flux_CLIP_moderate.tar
-rm PACS_final_synclr_wo_flux_CLIP_moderate.tar
+# # hcfr, synclr, synthclip moderate
+# ./gdrive files download 1Kkk3420TuVVYDqeJ-CdiC957AO_mt05E # PACS_final_hcfr_wo_flux_CLIP_moderate
+# ./gdrive files download 1giEKJzkp1Ry9JkWvDHjI5CKez7XGHbKG # PACS_final_synthclip_wo_flux_CLIP_moderate
+# ./gdrive files download 1nxSbdwDSewc2-W2B3P9B1ftRQVEQ1O9Y # PACS_final_synclr_wo_flux_CLIP_moderate
+# tar -xf PACS_final_hcfr_wo_flux_CLIP_moderate.tar -C PACS_final
+# tar -xf PACS_final_synthclip_wo_flux_CLIP_moderate.tar -C PACS_final
+# tar -xf PACS_final_synclr_wo_flux_CLIP_moderate.tar -C PACS_final
+# rm PACS_final_hcfr_wo_flux_CLIP_moderate.tar
+# rm PACS_final_synthclip_wo_flux_CLIP_moderate.tar
+# rm PACS_final_synclr_wo_flux_CLIP_moderate.tar
+
+# HCFR equalweight
+./gdrive files download 1D4IYmnW5_lU9wlJv-X3GPJSRehHhBZUj # PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_equalweight
+tar -xf PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar -C PACS_final
+rm PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar

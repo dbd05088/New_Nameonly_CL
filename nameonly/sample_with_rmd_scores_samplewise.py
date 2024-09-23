@@ -15,7 +15,7 @@ lower_percentile = 5.0 # 5.0
 upper_percentile = 95.0 # 95.0
 # upper_percentile = 97.5 # 95.0
 
-equalweight = False
+equalweight = True
 TopK = False
 BottomK = False
 INVERSE = False
@@ -23,8 +23,8 @@ TEMPERATURE = 0.5
 
 # IMPORTANT
 base_path = './raw_datasets/iclr_generated/DomainNet'
-json_path = './RMD_scores/DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.json'
-target_path = './raw_datasets/iclr_generated/DomainNet/DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow'
+json_path = './RMD_scores/DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow.json'
+target_path = './raw_datasets/iclr_generated/DomainNet/DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_equalweight'
 # IMPORTANT
 
 count_dict = get_count_value_from_string(base_path)
