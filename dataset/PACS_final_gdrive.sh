@@ -1289,60 +1289,71 @@
 # tar -xf PACS_final_fake_f_sdxl_floyd_cogview2_sd3_flux_auraflow.tar -C PACS_final
 # rm PACS_final_fake_f_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
 
-# PACS_final coreset wo flux
-./gdrive files download 1A6n2Q3IlEnaQVNP7Y_KNDFU_j8mzAwxc # PACS_final_synclr_wo_flux_DINO_base_Adacore_10_0.0001
-./gdrive files download 1Hev_2GTfMoiOncCLua17JG7dNfqPOFKp # PACS_final_synclr_wo_flux_DINO_base_CurvMatch_10_0.0001
-./gdrive files download 14jFxv73fJrlgZ2zOoJhfESK_Yucwqcec # PACS_final_synclr_wo_flux_DINO_base_Glister_10_0.0001
-./gdrive files download 1gjmRiR7Wl-Xg2m4pa_XtHkxocso5mfMY # PACS_final_synclr_wo_flux_DINO_base_GradMatch_10_0.0001
-./gdrive files download 1qDRNZudP3MAv420IZvAOxaP2GUK6JGTe # PACS_final_synclr_wo_flux_DINO_base_Submodular_10_0.0001
-./gdrive files download 1pyyJbI0wnJjbobsFiDYv0eY-s-1f_uK0 # PACS_final_synclr_wo_flux_DINO_base_Uncertainty_10_0.0001
-./gdrive files download 1k65TS812WBu-YbYMQ3PRSzytCQHQskiQ # PACS_final_synthclip_wo_flux_DINO_base_Adacore_10_0.0001
-./gdrive files download 1NvgA8OCNfGBZataHFlZjLizkCfmni8lI # PACS_final_synthclip_wo_flux_DINO_base_CurvMatch_10_0.0001
-./gdrive files download 1-IuZky_8iaLs0CkYQaSfSuc5Ipb8rPT2 # PACS_final_synthclip_wo_flux_DINO_base_Glister_10_0.0001
-./gdrive files download 1dmE_ba_HqTXxvwLA3JpYOITsT_Swaob5 # PACS_final_synthclip_wo_flux_DINO_base_GradMatch_10_0.0001
-./gdrive files download 1kZo4rlooPgHeGwsacPoX9-Jk5UOgkSqm # PACS_final_synthclip_wo_flux_DINO_base_Submodular_10_0.0001
-./gdrive files download 1rbzyRkkaC1H0KzafyovLSF3md9_FxGI9 # PACS_final_synthclip_wo_flux_DINO_base_Uncertainty_10_0.0001
-tar -xf PACS_final_synclr_wo_flux_DINO_base_Adacore_10_0.0001.tar -C PACS_final
-tar -xf PACS_final_synclr_wo_flux_DINO_base_CurvMatch_10_0.0001.tar -C PACS_final
-tar -xf PACS_final_synclr_wo_flux_DINO_base_Glister_10_0.0001.tar -C PACS_final
-tar -xf PACS_final_synclr_wo_flux_DINO_base_GradMatch_10_0.0001.tar -C PACS_final
-tar -xf PACS_final_synclr_wo_flux_DINO_base_Submodular_10_0.0001.tar -C PACS_final
-tar -xf PACS_final_synclr_wo_flux_DINO_base_Uncertainty_10_0.0001.tar -C PACS_final
-tar -xf PACS_final_synthclip_wo_flux_DINO_base_Adacore_10_0.0001.tar -C PACS_final
-tar -xf PACS_final_synthclip_wo_flux_DINO_base_CurvMatch_10_0.0001.tar -C PACS_final
-tar -xf PACS_final_synthclip_wo_flux_DINO_base_Glister_10_0.0001.tar -C PACS_final
-tar -xf PACS_final_synthclip_wo_flux_DINO_base_GradMatch_10_0.0001.tar -C PACS_final
-tar -xf PACS_final_synthclip_wo_flux_DINO_base_Submodular_10_0.0001.tar -C PACS_final
-tar -xf PACS_final_synthclip_wo_flux_DINO_base_Uncertainty_10_0.0001.tar -C PACS_final
-rm PACS_final_synclr_wo_flux_DINO_base_Adacore_10_0.0001.tar
-rm PACS_final_synclr_wo_flux_DINO_base_CurvMatch_10_0.0001.tar
-rm PACS_final_synclr_wo_flux_DINO_base_Glister_10_0.0001.tar
-rm PACS_final_synclr_wo_flux_DINO_base_GradMatch_10_0.0001.tar
-rm PACS_final_synclr_wo_flux_DINO_base_Submodular_10_0.0001.tar
-rm PACS_final_synclr_wo_flux_DINO_base_Uncertainty_10_0.0001.tar
-rm PACS_final_synthclip_wo_flux_DINO_base_Adacore_10_0.0001.tar
-rm PACS_final_synthclip_wo_flux_DINO_base_CurvMatch_10_0.0001.tar
-rm PACS_final_synthclip_wo_flux_DINO_base_Glister_10_0.0001.tar
-rm PACS_final_synthclip_wo_flux_DINO_base_GradMatch_10_0.0001.tar
-rm PACS_final_synthclip_wo_flux_DINO_base_Submodular_10_0.0001.tar
-rm PACS_final_synthclip_wo_flux_DINO_base_Uncertainty_10_0.0001.tar
+# # PACS_final coreset wo flux
+# ./gdrive files download 1A6n2Q3IlEnaQVNP7Y_KNDFU_j8mzAwxc # PACS_final_synclr_wo_flux_DINO_base_Adacore_10_0.0001
+# ./gdrive files download 1Hev_2GTfMoiOncCLua17JG7dNfqPOFKp # PACS_final_synclr_wo_flux_DINO_base_CurvMatch_10_0.0001
+# ./gdrive files download 14jFxv73fJrlgZ2zOoJhfESK_Yucwqcec # PACS_final_synclr_wo_flux_DINO_base_Glister_10_0.0001
+# ./gdrive files download 1gjmRiR7Wl-Xg2m4pa_XtHkxocso5mfMY # PACS_final_synclr_wo_flux_DINO_base_GradMatch_10_0.0001
+# ./gdrive files download 1qDRNZudP3MAv420IZvAOxaP2GUK6JGTe # PACS_final_synclr_wo_flux_DINO_base_Submodular_10_0.0001
+# ./gdrive files download 1pyyJbI0wnJjbobsFiDYv0eY-s-1f_uK0 # PACS_final_synclr_wo_flux_DINO_base_Uncertainty_10_0.0001
+# ./gdrive files download 1k65TS812WBu-YbYMQ3PRSzytCQHQskiQ # PACS_final_synthclip_wo_flux_DINO_base_Adacore_10_0.0001
+# ./gdrive files download 1NvgA8OCNfGBZataHFlZjLizkCfmni8lI # PACS_final_synthclip_wo_flux_DINO_base_CurvMatch_10_0.0001
+# ./gdrive files download 1-IuZky_8iaLs0CkYQaSfSuc5Ipb8rPT2 # PACS_final_synthclip_wo_flux_DINO_base_Glister_10_0.0001
+# ./gdrive files download 1dmE_ba_HqTXxvwLA3JpYOITsT_Swaob5 # PACS_final_synthclip_wo_flux_DINO_base_GradMatch_10_0.0001
+# ./gdrive files download 1kZo4rlooPgHeGwsacPoX9-Jk5UOgkSqm # PACS_final_synthclip_wo_flux_DINO_base_Submodular_10_0.0001
+# ./gdrive files download 1rbzyRkkaC1H0KzafyovLSF3md9_FxGI9 # PACS_final_synthclip_wo_flux_DINO_base_Uncertainty_10_0.0001
+# tar -xf PACS_final_synclr_wo_flux_DINO_base_Adacore_10_0.0001.tar -C PACS_final
+# tar -xf PACS_final_synclr_wo_flux_DINO_base_CurvMatch_10_0.0001.tar -C PACS_final
+# tar -xf PACS_final_synclr_wo_flux_DINO_base_Glister_10_0.0001.tar -C PACS_final
+# tar -xf PACS_final_synclr_wo_flux_DINO_base_GradMatch_10_0.0001.tar -C PACS_final
+# tar -xf PACS_final_synclr_wo_flux_DINO_base_Submodular_10_0.0001.tar -C PACS_final
+# tar -xf PACS_final_synclr_wo_flux_DINO_base_Uncertainty_10_0.0001.tar -C PACS_final
+# tar -xf PACS_final_synthclip_wo_flux_DINO_base_Adacore_10_0.0001.tar -C PACS_final
+# tar -xf PACS_final_synthclip_wo_flux_DINO_base_CurvMatch_10_0.0001.tar -C PACS_final
+# tar -xf PACS_final_synthclip_wo_flux_DINO_base_Glister_10_0.0001.tar -C PACS_final
+# tar -xf PACS_final_synthclip_wo_flux_DINO_base_GradMatch_10_0.0001.tar -C PACS_final
+# tar -xf PACS_final_synthclip_wo_flux_DINO_base_Submodular_10_0.0001.tar -C PACS_final
+# tar -xf PACS_final_synthclip_wo_flux_DINO_base_Uncertainty_10_0.0001.tar -C PACS_final
+# rm PACS_final_synclr_wo_flux_DINO_base_Adacore_10_0.0001.tar
+# rm PACS_final_synclr_wo_flux_DINO_base_CurvMatch_10_0.0001.tar
+# rm PACS_final_synclr_wo_flux_DINO_base_Glister_10_0.0001.tar
+# rm PACS_final_synclr_wo_flux_DINO_base_GradMatch_10_0.0001.tar
+# rm PACS_final_synclr_wo_flux_DINO_base_Submodular_10_0.0001.tar
+# rm PACS_final_synclr_wo_flux_DINO_base_Uncertainty_10_0.0001.tar
+# rm PACS_final_synthclip_wo_flux_DINO_base_Adacore_10_0.0001.tar
+# rm PACS_final_synthclip_wo_flux_DINO_base_CurvMatch_10_0.0001.tar
+# rm PACS_final_synthclip_wo_flux_DINO_base_Glister_10_0.0001.tar
+# rm PACS_final_synthclip_wo_flux_DINO_base_GradMatch_10_0.0001.tar
+# rm PACS_final_synthclip_wo_flux_DINO_base_Submodular_10_0.0001.tar
+# rm PACS_final_synthclip_wo_flux_DINO_base_Uncertainty_10_0.0001.tar
 
-# HCFR coreset
-./gdrive files download 1JNdC369T4fIuezPtk9i8MqYYLn8uLrei # PACS_final_cot_50_2_wo_flux_DINO_base_Adacore_10_0.0001
-./gdrive files download 1WkcIUXSnHrnO_OKqwlWQAOiVbzNY3spA # PACS_final_cot_50_2_wo_flux_DINO_base_CurvMatch_10_0.0001
-./gdrive files download 1kxdnX0pWOJJMMGAK8oM0wQZKtfyhgC5c # PACS_final_cot_50_2_wo_flux_DINO_base_Glister_10_0.0001
-./gdrive files download 1cRMRnNJ3ZjnovvVLz09M-5_xSK-6M0Ns # PACS_final_cot_50_2_wo_flux_DINO_base_GradMatch_10_0.0001
-./gdrive files download 1fcKN-4ejZCEGWk-rPT93aJ3tMePpMiI3 # PACS_final_cot_50_2_wo_flux_DINO_base_Submodular_10_0.0001
-./gdrive files download 1NL309wqGB-mYtX3a-eMpzD4yMs2sVkdq # PACS_final_cot_50_2_wo_flux_DINO_base_Uncertainty_10_0.0001
-tar -xf PACS_final_cot_50_2_wo_flux_DINO_base_Adacore_10_0.0001.tar -C PACS_final
-tar -xf PACS_final_cot_50_2_wo_flux_DINO_base_CurvMatch_10_0.0001.tar -C PACS_final
-tar -xf PACS_final_cot_50_2_wo_flux_DINO_base_Glister_10_0.0001.tar -C PACS_final
-tar -xf PACS_final_cot_50_2_wo_flux_DINO_base_GradMatch_10_0.0001.tar -C PACS_final
-tar -xf PACS_final_cot_50_2_wo_flux_DINO_base_Submodular_10_0.0001.tar -C PACS_final
-tar -xf PACS_final_cot_50_2_wo_flux_DINO_base_Uncertainty_10_0.0001.tar -C PACS_final
-rm PACS_final_cot_50_2_wo_flux_DINO_base_Adacore_10_0.0001.tar
-rm PACS_final_cot_50_2_wo_flux_DINO_base_CurvMatch_10_0.0001.tar
-rm PACS_final_cot_50_2_wo_flux_DINO_base_Glister_10_0.0001.tar
-rm PACS_final_cot_50_2_wo_flux_DINO_base_GradMatch_10_0.0001.tar
-rm PACS_final_cot_50_2_wo_flux_DINO_base_Submodular_10_0.0001.tar
-rm PACS_final_cot_50_2_wo_flux_DINO_base_Uncertainty_10_0.0001.tar
+# # HCFR coreset
+# ./gdrive files download 1JNdC369T4fIuezPtk9i8MqYYLn8uLrei # PACS_final_cot_50_2_wo_flux_DINO_base_Adacore_10_0.0001
+# ./gdrive files download 1WkcIUXSnHrnO_OKqwlWQAOiVbzNY3spA # PACS_final_cot_50_2_wo_flux_DINO_base_CurvMatch_10_0.0001
+# ./gdrive files download 1kxdnX0pWOJJMMGAK8oM0wQZKtfyhgC5c # PACS_final_cot_50_2_wo_flux_DINO_base_Glister_10_0.0001
+# ./gdrive files download 1cRMRnNJ3ZjnovvVLz09M-5_xSK-6M0Ns # PACS_final_cot_50_2_wo_flux_DINO_base_GradMatch_10_0.0001
+# ./gdrive files download 1fcKN-4ejZCEGWk-rPT93aJ3tMePpMiI3 # PACS_final_cot_50_2_wo_flux_DINO_base_Submodular_10_0.0001
+# ./gdrive files download 1NL309wqGB-mYtX3a-eMpzD4yMs2sVkdq # PACS_final_cot_50_2_wo_flux_DINO_base_Uncertainty_10_0.0001
+# tar -xf PACS_final_cot_50_2_wo_flux_DINO_base_Adacore_10_0.0001.tar -C PACS_final
+# tar -xf PACS_final_cot_50_2_wo_flux_DINO_base_CurvMatch_10_0.0001.tar -C PACS_final
+# tar -xf PACS_final_cot_50_2_wo_flux_DINO_base_Glister_10_0.0001.tar -C PACS_final
+# tar -xf PACS_final_cot_50_2_wo_flux_DINO_base_GradMatch_10_0.0001.tar -C PACS_final
+# tar -xf PACS_final_cot_50_2_wo_flux_DINO_base_Submodular_10_0.0001.tar -C PACS_final
+# tar -xf PACS_final_cot_50_2_wo_flux_DINO_base_Uncertainty_10_0.0001.tar -C PACS_final
+# rm PACS_final_cot_50_2_wo_flux_DINO_base_Adacore_10_0.0001.tar
+# rm PACS_final_cot_50_2_wo_flux_DINO_base_CurvMatch_10_0.0001.tar
+# rm PACS_final_cot_50_2_wo_flux_DINO_base_Glister_10_0.0001.tar
+# rm PACS_final_cot_50_2_wo_flux_DINO_base_GradMatch_10_0.0001.tar
+# rm PACS_final_cot_50_2_wo_flux_DINO_base_Submodular_10_0.0001.tar
+# rm PACS_final_cot_50_2_wo_flux_DINO_base_Uncertainty_10_0.0001.tar
+
+# hcfr, synclr, synthclip moderate
+./gdrive files download 1Kkk3420TuVVYDqeJ-CdiC957AO_mt05E # PACS_final_hcfr_wo_flux_CLIP_moderate
+./gdrive files download 1giEKJzkp1Ry9JkWvDHjI5CKez7XGHbKG # PACS_final_synthclip_wo_flux_CLIP_moderate
+./gdrive files download 1nxSbdwDSewc2-W2B3P9B1ftRQVEQ1O9Y # PACS_final_synclr_wo_flux_CLIP_moderate
+tar -xf PACS_final_hcfr_wo_flux_CLIP_moderate.tar -C PACS_final
+tar -xf PACS_final_synthclip_wo_flux_CLIP_moderate.tar -C PACS_final
+tar -xf PACS_final_synclr_wo_flux_CLIP_moderate.tar -C PACS_final
+rm PACS_final_hcfr_wo_flux_CLIP_moderate.tar
+rm PACS_final_synthclip_wo_flux_CLIP_moderate.tar
+rm PACS_final_synclr_wo_flux_CLIP_moderate.tar
