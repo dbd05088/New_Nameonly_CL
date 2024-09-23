@@ -11,18 +11,9 @@ os.system("./gdrive account switch dbd05088@naver.com")
 dataset = "PACS_final"
 create_tar = True
 files = [
-    "PACS_final_synclr_wo_flux_DINO_base_Adacore_10_0.0001",
-    "PACS_final_synclr_wo_flux_DINO_base_CurvMatch_10_0.0001",
-    "PACS_final_synclr_wo_flux_DINO_base_Glister_10_0.0001",
-    "PACS_final_synclr_wo_flux_DINO_base_GradMatch_10_0.0001",
-    "PACS_final_synclr_wo_flux_DINO_base_Submodular_10_0.0001",
-    "PACS_final_synclr_wo_flux_DINO_base_Uncertainty_10_0.0001",
-    "PACS_final_synthclip_wo_flux_DINO_base_Adacore_10_0.0001",
-    "PACS_final_synthclip_wo_flux_DINO_base_CurvMatch_10_0.0001",
-    "PACS_final_synthclip_wo_flux_DINO_base_Glister_10_0.0001",
-    "PACS_final_synthclip_wo_flux_DINO_base_GradMatch_10_0.0001",
-    "PACS_final_synthclip_wo_flux_DINO_base_Submodular_10_0.0001",
-    "PACS_final_synthclip_wo_flux_DINO_base_Uncertainty_10_0.0001"
+    "PACS_final_hcfr_wo_flux_CLIP_moderate",
+    "PACS_final_synthclip_wo_flux_CLIP_moderate",
+    "PACS_final_synclr_wo_flux_CLIP_moderate"
 ]
 # Change path
 files = [os.path.join(dataset, file) for file in files]
