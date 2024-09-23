@@ -11,17 +11,18 @@ os.system("./gdrive account switch dbd05088@naver.com")
 dataset = "PACS_final"
 create_tar = True
 files = [
-    "PACS_final_synclr_DINOv2_base_Adacore_100_1e-07",
-    "PACS_final_synclr_DINOv2_base_CurvMatch_100_1e-07",
-    "PACS_final_synclr_DINOv2_base_Glister_100_1e-07",
-    "PACS_final_synclr_DINOv2_base_GradMatch_100_1e-07",
-    "PACS_final_synclr_DINOv2_base_Submodular_100_1e-07",
-    "PACS_final_synclr_DINOv2_base_Uncertainty_100_1e-07",
-    "PACS_final_synthclip_DINOv2_base_Adacore_100_1e-07",
-    "PACS_final_synthclip_DINOv2_base_CurvMatch_100_1e-07",
-    "PACS_final_synthclip_DINOv2_base_GradMatch_100_1e-07",
-    "PACS_final_synthclip_DINOv2_base_Submodular_100_1e-07",
-    "PACS_final_synthclip_DINOv2_base_Uncertainty_100_1e-07",
+    "PACS_final_synclr_wo_flux_DINO_base_Adacore_10_0.0001",
+    "PACS_final_synclr_wo_flux_DINO_base_CurvMatch_10_0.0001",
+    "PACS_final_synclr_wo_flux_DINO_base_Glister_10_0.0001",
+    "PACS_final_synclr_wo_flux_DINO_base_GradMatch_10_0.0001",
+    "PACS_final_synclr_wo_flux_DINO_base_Submodular_10_0.0001",
+    "PACS_final_synclr_wo_flux_DINO_base_Uncertainty_10_0.0001",
+    "PACS_final_synthclip_wo_flux_DINO_base_Adacore_10_0.0001",
+    "PACS_final_synthclip_wo_flux_DINO_base_CurvMatch_10_0.0001",
+    "PACS_final_synthclip_wo_flux_DINO_base_Glister_10_0.0001",
+    "PACS_final_synthclip_wo_flux_DINO_base_GradMatch_10_0.0001",
+    "PACS_final_synthclip_wo_flux_DINO_base_Submodular_10_0.0001",
+    "PACS_final_synthclip_wo_flux_DINO_base_Uncertainty_10_0.0001"
 ]
 # Change path
 files = [os.path.join(dataset, file) for file in files]
