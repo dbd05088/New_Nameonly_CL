@@ -1358,7 +1358,21 @@
 # rm PACS_final_synthclip_wo_flux_CLIP_moderate.tar
 # rm PACS_final_synclr_wo_flux_CLIP_moderate.tar
 
-# HCFR equalweight
-./gdrive files download 1D4IYmnW5_lU9wlJv-X3GPJSRehHhBZUj # PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_equalweight
-tar -xf PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar -C PACS_final
-rm PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar
+# # HCFR equalweight
+# ./gdrive files download 1D4IYmnW5_lU9wlJv-X3GPJSRehHhBZUj # PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_equalweight
+# tar -xf PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar -C PACS_final
+# rm PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar
+
+# LE, sdbp with or wo equalweight
+./gdrive files download 1N3wpajXxW2HV5sxkRvgKY-46xYLXIZII # PACS_final_LE_sdxl_floyd_cogview2_sd3_auraflow
+./gdrive files download 1Lspq6-bXcV0VcJQgYydr-zyHv_Z2EpO7 # PACS_final_LE_sdxl_floyd_cogview2_sd3_auraflow_equalweight
+./gdrive files download 1lMte9uMfAgL0QDShG1F7MBp-agNbW_vD # PACS_final_sdbp_sdxl_floyd_cogview2_sd3_auraflow
+./gdrive files download 1Q7UpWPRiTkEUJRmmEMShIdXgZ5maqjEb # PACS_final_sdbp_sdxl_floyd_cogview2_sd3_auraflow_equalweight
+tar -xf PACS_final_LE_sdxl_floyd_cogview2_sd3_auraflow.tar -C PACS_final
+tar -xf PACS_final_LE_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar -C PACS_final
+tar -xf PACS_final_sdbp_sdxl_floyd_cogview2_sd3_auraflow.tar -C PACS_final
+tar -xf PACS_final_sdbp_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar -C PACS_final
+rm PACS_final_LE_sdxl_floyd_cogview2_sd3_auraflow.tar
+rm PACS_final_LE_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar
+rm PACS_final_sdbp_sdxl_floyd_cogview2_sd3_auraflow.tar
+rm PACS_final_sdbp_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar
