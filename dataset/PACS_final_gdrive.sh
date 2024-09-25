@@ -1377,67 +1377,72 @@
 # rm PACS_final_sdbp_sdxl_floyd_cogview2_sd3_auraflow.tar
 # rm PACS_final_sdbp_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar
 
-# PACS_final LE, fake_f, sdbp wo_flux coresets
-./gdrive files download 1XqPB5jj-sZe9oX-0qd48-HpcE66l9__7 # PACS_final_sdbp_CLIP_moderate
-./gdrive files download 1rTzjGnUTDjmbmwiUR8bmBhOEADxBimYM # PACS_final_sdbp_DINO_base_Adacore_10_0.0001
-./gdrive files download 1oUQC62hij4r5JDXMmLA2vgvwDofF5Ecc # PACS_final_sdbp_DINO_base_CurvMatch_10_0.0001
-./gdrive files download 1e0OuALhoIoOQUBrMbMNh0i719-ToomlD # PACS_final_sdbp_DINO_base_Glister_10_0.0001
-./gdrive files download 1ajCssP-szUeC5TnLjyIJZF7PaFJm4uJ3 # PACS_final_sdbp_DINO_base_GradMatch_10_0.0001
-./gdrive files download 1AQwVUvZR0bGJOaW1zK62_etTGd63QF2j # PACS_final_sdbp_DINO_base_Submodular_10_0.0001
-./gdrive files download 1buk_UGso4AWANjv2simbcuEcnlK_fDhT # PACS_final_sdbp_DINO_base_Uncertainty_10_0.0001
-./gdrive files download 1id8oHEgkhBsolBfSZonAPqA_3_FCujqY # PACS_final_LE_CLIP_moderate
-./gdrive files download 1uPzbkY9vnOBh-5RcGEbf65Qz8U364PrA # PACS_final_LE_DINO_base_Adacore_10_0.0001
-./gdrive files download 1ziXaSaq39DNBmIiD7_GhuyR7YjtLrqxQ # PACS_final_LE_DINO_base_CurvMatch_10_0.0001
-./gdrive files download 1lldY1UdHV9ORi4Qwuaqtj64BSQ-c2FzC # PACS_final_LE_DINO_base_Glister_10_0.0001
-./gdrive files download 1PPr6oLvvjp_GTXWUwB9W9Yf5JuKOdON1 # PACS_final_LE_DINO_base_GradMatch_10_0.0001
-./gdrive files download 1tMhqHtXlqeYHamUMfBUMmFW-8xP6QfJt # PACS_final_LE_DINO_base_Submodular_10_0.0001
-./gdrive files download 1meb5e08IL2o0Ocl0ed5HqUPLwQcxcMPS # PACS_final_LE_DINO_base_Uncertainty_10_0.0001
-./gdrive files download 15xDzx6IKTkbBZVdohhtb57jI33AHklbf # PACS_final_fake_f_CLIP_moderate
-./gdrive files download 17edlFWUkXm1LezQHLRCb-O1iSHxru7qY # PACS_final_fake_f_DINO_base_Adacore_10_0.0001
-./gdrive files download 1lws0ETzN-zuvieiHSQ8OB8II7tyAyBFE # PACS_final_fake_f_DINO_base_CurvMatch_10_0.0001
-./gdrive files download 1HfFUaKx-hTS_qEsYnbQVInCR-q-dgS3_ # PACS_final_fake_f_DINO_base_Glister_10_0.0001
-./gdrive files download 12nEd4mJpFXALHvQ_VzbhhrRi4bADl5NR # PACS_final_fake_f_DINO_base_GradMatch_10_0.0001
-./gdrive files download 170fQMMdspFPrxEgnbjl4dQr-7x7kLZPs # PACS_final_fake_f_DINO_base_Submodular_10_0.0001
-./gdrive files download 1LNi3qyaGEcpmIRHXwLsgExENj_8n_WYf # PACS_final_fake_f_DINO_base_Uncertainty_10_0.0001
-tar -xf PACS_final_sdbp_CLIP_moderate.tar -C PACS_final
-tar -xf PACS_final_sdbp_DINO_base_Adacore_10_0.0001.tar -C PACS_final
-tar -xf PACS_final_sdbp_DINO_base_CurvMatch_10_0.0001.tar -C PACS_final
-tar -xf PACS_final_sdbp_DINO_base_Glister_10_0.0001.tar -C PACS_final
-tar -xf PACS_final_sdbp_DINO_base_GradMatch_10_0.0001.tar -C PACS_final
-tar -xf PACS_final_sdbp_DINO_base_Submodular_10_0.0001.tar -C PACS_final
-tar -xf PACS_final_sdbp_DINO_base_Uncertainty_10_0.0001.tar -C PACS_final
-tar -xf PACS_final_LE_CLIP_moderate.tar -C PACS_final
-tar -xf PACS_final_LE_DINO_base_Adacore_10_0.0001.tar -C PACS_final
-tar -xf PACS_final_LE_DINO_base_CurvMatch_10_0.0001.tar -C PACS_final
-tar -xf PACS_final_LE_DINO_base_Glister_10_0.0001.tar -C PACS_final
-tar -xf PACS_final_LE_DINO_base_GradMatch_10_0.0001.tar -C PACS_final
-tar -xf PACS_final_LE_DINO_base_Submodular_10_0.0001.tar -C PACS_final
-tar -xf PACS_final_LE_DINO_base_Uncertainty_10_0.0001.tar -C PACS_final
-tar -xf PACS_final_fake_f_CLIP_moderate.tar -C PACS_final
-tar -xf PACS_final_fake_f_DINO_base_Adacore_10_0.0001.tar -C PACS_final
-tar -xf PACS_final_fake_f_DINO_base_CurvMatch_10_0.0001.tar -C PACS_final
-tar -xf PACS_final_fake_f_DINO_base_Glister_10_0.0001.tar -C PACS_final
-tar -xf PACS_final_fake_f_DINO_base_GradMatch_10_0.0001.tar -C PACS_final
-tar -xf PACS_final_fake_f_DINO_base_Submodular_10_0.0001.tar -C PACS_final
-tar -xf PACS_final_fake_f_DINO_base_Uncertainty_10_0.0001.tar -C PACS_final
-rm PACS_final_sdbp_CLIP_moderate.tar
-rm PACS_final_sdbp_DINO_base_Adacore_10_0.0001.tar
-rm PACS_final_sdbp_DINO_base_CurvMatch_10_0.0001.tar
-rm PACS_final_sdbp_DINO_base_Glister_10_0.0001.tar
-rm PACS_final_sdbp_DINO_base_GradMatch_10_0.0001.tar
-rm PACS_final_sdbp_DINO_base_Submodular_10_0.0001.tar
-rm PACS_final_sdbp_DINO_base_Uncertainty_10_0.0001.tar
-rm PACS_final_LE_CLIP_moderate.tar
-rm PACS_final_LE_DINO_base_Adacore_10_0.0001.tar
-rm PACS_final_LE_DINO_base_CurvMatch_10_0.0001.tar
-rm PACS_final_LE_DINO_base_Glister_10_0.0001.tar
-rm PACS_final_LE_DINO_base_GradMatch_10_0.0001.tar
-rm PACS_final_LE_DINO_base_Submodular_10_0.0001.tar
-rm PACS_final_LE_DINO_base_Uncertainty_10_0.0001.tar
-rm PACS_final_fake_f_CLIP_moderate.tar
-rm PACS_final_fake_f_DINO_base_Adacore_10_0.0001.tar
-rm PACS_final_fake_f_DINO_base_CurvMatch_10_0.0001.tar
-rm PACS_final_fake_f_DINO_base_Glister_10_0.0001.tar
-rm PACS_final_fake_f_DINO_base_GradMatch_10_0.0001.tar
-rm PACS_final_fake_f_DINO_base_Submodular_10_0.0001.tar
-rm PACS_final_fake_f_DINO_base_Uncertainty_10_0.0001.tar
+# # PACS_final LE, fake_f, sdbp wo_flux coresets
+# ./gdrive files download 1XqPB5jj-sZe9oX-0qd48-HpcE66l9__7 # PACS_final_sdbp_CLIP_moderate
+# ./gdrive files download 1rTzjGnUTDjmbmwiUR8bmBhOEADxBimYM # PACS_final_sdbp_DINO_base_Adacore_10_0.0001
+# ./gdrive files download 1oUQC62hij4r5JDXMmLA2vgvwDofF5Ecc # PACS_final_sdbp_DINO_base_CurvMatch_10_0.0001
+# ./gdrive files download 1e0OuALhoIoOQUBrMbMNh0i719-ToomlD # PACS_final_sdbp_DINO_base_Glister_10_0.0001
+# ./gdrive files download 1ajCssP-szUeC5TnLjyIJZF7PaFJm4uJ3 # PACS_final_sdbp_DINO_base_GradMatch_10_0.0001
+# ./gdrive files download 1AQwVUvZR0bGJOaW1zK62_etTGd63QF2j # PACS_final_sdbp_DINO_base_Submodular_10_0.0001
+# ./gdrive files download 1buk_UGso4AWANjv2simbcuEcnlK_fDhT # PACS_final_sdbp_DINO_base_Uncertainty_10_0.0001
+# ./gdrive files download 1id8oHEgkhBsolBfSZonAPqA_3_FCujqY # PACS_final_LE_CLIP_moderate
+# ./gdrive files download 1uPzbkY9vnOBh-5RcGEbf65Qz8U364PrA # PACS_final_LE_DINO_base_Adacore_10_0.0001
+# ./gdrive files download 1ziXaSaq39DNBmIiD7_GhuyR7YjtLrqxQ # PACS_final_LE_DINO_base_CurvMatch_10_0.0001
+# ./gdrive files download 1lldY1UdHV9ORi4Qwuaqtj64BSQ-c2FzC # PACS_final_LE_DINO_base_Glister_10_0.0001
+# ./gdrive files download 1PPr6oLvvjp_GTXWUwB9W9Yf5JuKOdON1 # PACS_final_LE_DINO_base_GradMatch_10_0.0001
+# ./gdrive files download 1tMhqHtXlqeYHamUMfBUMmFW-8xP6QfJt # PACS_final_LE_DINO_base_Submodular_10_0.0001
+# ./gdrive files download 1meb5e08IL2o0Ocl0ed5HqUPLwQcxcMPS # PACS_final_LE_DINO_base_Uncertainty_10_0.0001
+# ./gdrive files download 15xDzx6IKTkbBZVdohhtb57jI33AHklbf # PACS_final_fake_f_CLIP_moderate
+# ./gdrive files download 17edlFWUkXm1LezQHLRCb-O1iSHxru7qY # PACS_final_fake_f_DINO_base_Adacore_10_0.0001
+# ./gdrive files download 1lws0ETzN-zuvieiHSQ8OB8II7tyAyBFE # PACS_final_fake_f_DINO_base_CurvMatch_10_0.0001
+# ./gdrive files download 1HfFUaKx-hTS_qEsYnbQVInCR-q-dgS3_ # PACS_final_fake_f_DINO_base_Glister_10_0.0001
+# ./gdrive files download 12nEd4mJpFXALHvQ_VzbhhrRi4bADl5NR # PACS_final_fake_f_DINO_base_GradMatch_10_0.0001
+# ./gdrive files download 170fQMMdspFPrxEgnbjl4dQr-7x7kLZPs # PACS_final_fake_f_DINO_base_Submodular_10_0.0001
+# ./gdrive files download 1LNi3qyaGEcpmIRHXwLsgExENj_8n_WYf # PACS_final_fake_f_DINO_base_Uncertainty_10_0.0001
+# tar -xf PACS_final_sdbp_CLIP_moderate.tar -C PACS_final
+# tar -xf PACS_final_sdbp_DINO_base_Adacore_10_0.0001.tar -C PACS_final
+# tar -xf PACS_final_sdbp_DINO_base_CurvMatch_10_0.0001.tar -C PACS_final
+# tar -xf PACS_final_sdbp_DINO_base_Glister_10_0.0001.tar -C PACS_final
+# tar -xf PACS_final_sdbp_DINO_base_GradMatch_10_0.0001.tar -C PACS_final
+# tar -xf PACS_final_sdbp_DINO_base_Submodular_10_0.0001.tar -C PACS_final
+# tar -xf PACS_final_sdbp_DINO_base_Uncertainty_10_0.0001.tar -C PACS_final
+# tar -xf PACS_final_LE_CLIP_moderate.tar -C PACS_final
+# tar -xf PACS_final_LE_DINO_base_Adacore_10_0.0001.tar -C PACS_final
+# tar -xf PACS_final_LE_DINO_base_CurvMatch_10_0.0001.tar -C PACS_final
+# tar -xf PACS_final_LE_DINO_base_Glister_10_0.0001.tar -C PACS_final
+# tar -xf PACS_final_LE_DINO_base_GradMatch_10_0.0001.tar -C PACS_final
+# tar -xf PACS_final_LE_DINO_base_Submodular_10_0.0001.tar -C PACS_final
+# tar -xf PACS_final_LE_DINO_base_Uncertainty_10_0.0001.tar -C PACS_final
+# tar -xf PACS_final_fake_f_CLIP_moderate.tar -C PACS_final
+# tar -xf PACS_final_fake_f_DINO_base_Adacore_10_0.0001.tar -C PACS_final
+# tar -xf PACS_final_fake_f_DINO_base_CurvMatch_10_0.0001.tar -C PACS_final
+# tar -xf PACS_final_fake_f_DINO_base_Glister_10_0.0001.tar -C PACS_final
+# tar -xf PACS_final_fake_f_DINO_base_GradMatch_10_0.0001.tar -C PACS_final
+# tar -xf PACS_final_fake_f_DINO_base_Submodular_10_0.0001.tar -C PACS_final
+# tar -xf PACS_final_fake_f_DINO_base_Uncertainty_10_0.0001.tar -C PACS_final
+# rm PACS_final_sdbp_CLIP_moderate.tar
+# rm PACS_final_sdbp_DINO_base_Adacore_10_0.0001.tar
+# rm PACS_final_sdbp_DINO_base_CurvMatch_10_0.0001.tar
+# rm PACS_final_sdbp_DINO_base_Glister_10_0.0001.tar
+# rm PACS_final_sdbp_DINO_base_GradMatch_10_0.0001.tar
+# rm PACS_final_sdbp_DINO_base_Submodular_10_0.0001.tar
+# rm PACS_final_sdbp_DINO_base_Uncertainty_10_0.0001.tar
+# rm PACS_final_LE_CLIP_moderate.tar
+# rm PACS_final_LE_DINO_base_Adacore_10_0.0001.tar
+# rm PACS_final_LE_DINO_base_CurvMatch_10_0.0001.tar
+# rm PACS_final_LE_DINO_base_Glister_10_0.0001.tar
+# rm PACS_final_LE_DINO_base_GradMatch_10_0.0001.tar
+# rm PACS_final_LE_DINO_base_Submodular_10_0.0001.tar
+# rm PACS_final_LE_DINO_base_Uncertainty_10_0.0001.tar
+# rm PACS_final_fake_f_CLIP_moderate.tar
+# rm PACS_final_fake_f_DINO_base_Adacore_10_0.0001.tar
+# rm PACS_final_fake_f_DINO_base_CurvMatch_10_0.0001.tar
+# rm PACS_final_fake_f_DINO_base_Glister_10_0.0001.tar
+# rm PACS_final_fake_f_DINO_base_GradMatch_10_0.0001.tar
+# rm PACS_final_fake_f_DINO_base_Submodular_10_0.0001.tar
+# rm PACS_final_fake_f_DINO_base_Uncertainty_10_0.0001.tar
+
+# fake_f_RMD_wo_flux
+./gdrive files download 1dhUw6a-u5rhULgln41T2uRysSMPpCzsG # PACS_final_fake_f_sdxl_floyd_cogview2_sd3_auraflow
+tar -xf PACS_final_fake_f_sdxl_floyd_cogview2_sd3_auraflow.tar -C PACS_final
+rm PACS_final_fake_f_sdxl_floyd_cogview2_sd3_auraflow.tar
