@@ -15,7 +15,7 @@ lower_percentile = 5.0 # 5.0
 upper_percentile = 95.0 # 95.0
 # upper_percentile = 97.5 # 95.0
 
-equalweight = True
+equalweight = False
 TopK = False
 BottomK = False
 INVERSE = False
