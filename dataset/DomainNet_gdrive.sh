@@ -351,12 +351,12 @@
 # rm DomainNet_synthclip_sdxl_floyd_cogview2_sd3_auraflow.tar
 # rm DomainNet_synthclip_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
 
-# DomainNet sdbp HIWING (only sdxl)
+# DomainNet sdbp (only sdxl)
 ./gdrive files download 1JZbLGdXtZf3WOSs1SwlWM4lp5g17_vEH # DomainNet_sdbp_sdxl
 tar -xf DomainNet_sdbp_sdxl.tar -C DomainNet
 rm DomainNet_sdbp_sdxl.tar
 
-# DomainNet sdbp HIWING + CONAN
+# DomainNet sdbp + CONAN
 ./gdrive files download 15bEK1JQcIxw9BVM-sksTo-2wk4tWQAcr # DomainNet_sdbp_sdxl_floyd_cogview2_sd3_auraflow
 tar -xf DomainNet_sdbp_sdxl_floyd_cogview2_sd3_auraflow.tar -C DomainNet
 rm DomainNet_sdbp_sdxl_floyd_cogview2_sd3_auraflow.tar
