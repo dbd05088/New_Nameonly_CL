@@ -4,6 +4,7 @@
 
 
 # # Required
+# mkdir -p DomainNet
 # ./gdrive files download 144Vmht8QlAJ3eXoFHUWm8qg76I6XzrXj # DomainNet_MA (changed 0611)
 # ./gdrive files download 1eCHHO8eheuM-FT0t13LbmOoTGxM0e-jO # train_ma
 # ./gdrive files download 1Gnqna2AjQk-wVIwogGWS04MCvYnTmkdi # test_ma
@@ -343,9 +344,14 @@
 # tar -xf DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar -C DomainNet
 # rm DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar
 
-./gdrive files download 1cEpzz51wFKgGHS4t4akpI12MvOK0lHu2 # DomainNet_synthclip_sdxl_floyd_cogview2_sd3_auraflow
-./gdrive files download 1_bBxwKuEZaD3tbAQcl365DBMna3rkMLs # DomainNet_synthclip_sdxl_floyd_cogview2_sd3_flux_auraflow
-tar -xf DomainNet_synthclip_sdxl_floyd_cogview2_sd3_auraflow.tar -C DomainNet
-tar -xf DomainNet_synthclip_sdxl_floyd_cogview2_sd3_flux_auraflow.tar -C DomainNet
-rm DomainNet_synthclip_sdxl_floyd_cogview2_sd3_auraflow.tar
-rm DomainNet_synthclip_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
+# ./gdrive files download 1cEpzz51wFKgGHS4t4akpI12MvOK0lHu2 # DomainNet_synthclip_sdxl_floyd_cogview2_sd3_auraflow
+# ./gdrive files download 1_bBxwKuEZaD3tbAQcl365DBMna3rkMLs # DomainNet_synthclip_sdxl_floyd_cogview2_sd3_flux_auraflow
+# tar -xf DomainNet_synthclip_sdxl_floyd_cogview2_sd3_auraflow.tar -C DomainNet
+# tar -xf DomainNet_synthclip_sdxl_floyd_cogview2_sd3_flux_auraflow.tar -C DomainNet
+# rm DomainNet_synthclip_sdxl_floyd_cogview2_sd3_auraflow.tar
+# rm DomainNet_synthclip_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
+
+# DomainNet sdbp HIWING (only sdxl)
+./gdrive files download 1JZbLGdXtZf3WOSs1SwlWM4lp5g17_vEH # DomainNet_sdbp_sdxl
+tar -xf DomainNet_sdbp_sdxl.tar -C DomainNet
+rm DomainNet_sdbp_sdxl.tar
