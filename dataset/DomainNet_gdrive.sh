@@ -351,12 +351,35 @@
 # rm DomainNet_synthclip_sdxl_floyd_cogview2_sd3_auraflow.tar
 # rm DomainNet_synthclip_sdxl_floyd_cogview2_sd3_flux_auraflow.tar
 
-# DomainNet sdbp (only sdxl)
-./gdrive files download 1JZbLGdXtZf3WOSs1SwlWM4lp5g17_vEH # DomainNet_sdbp_sdxl
-tar -xf DomainNet_sdbp_sdxl.tar -C DomainNet
-rm DomainNet_sdbp_sdxl.tar
+# # DomainNet sdbp (only sdxl)
+# ./gdrive files download 1JZbLGdXtZf3WOSs1SwlWM4lp5g17_vEH # DomainNet_sdbp_sdxl
+# tar -xf DomainNet_sdbp_sdxl.tar -C DomainNet
+# rm DomainNet_sdbp_sdxl.tar
 
-# DomainNet sdbp + CONAN
-./gdrive files download 15bEK1JQcIxw9BVM-sksTo-2wk4tWQAcr # DomainNet_sdbp_sdxl_floyd_cogview2_sd3_auraflow
-tar -xf DomainNet_sdbp_sdxl_floyd_cogview2_sd3_auraflow.tar -C DomainNet
-rm DomainNet_sdbp_sdxl_floyd_cogview2_sd3_auraflow.tar
+# # DomainNet sdbp + CONAN
+# ./gdrive files download 15bEK1JQcIxw9BVM-sksTo-2wk4tWQAcr # DomainNet_sdbp_sdxl_floyd_cogview2_sd3_auraflow
+# tar -xf DomainNet_sdbp_sdxl_floyd_cogview2_sd3_auraflow.tar -C DomainNet
+# rm DomainNet_sdbp_sdxl_floyd_cogview2_sd3_auraflow.tar
+
+# DomainNet fake_f coreset
+./gdrive files download 1X_9VeSsI9Yv_wnKMeDDtKgTDcB-J02JW # DomainNet_fake_f_wo_flux_CLIP_moderate
+./gdrive files download 1hOTtKU_0UfjoLZmgrBbqA2mt_oba4QDB # DomainNet_fake_f_wo_flux_DINO_base_Adacore_10_0.0001
+./gdrive files download 1cjjsbXBnpg9OFn-A0J6th2lk71r-8pdr # DomainNet_fake_f_wo_flux_DINO_base_CurvMatch_10_0.0001
+./gdrive files download 1GQTPRLopF3PJBVesZxG2mOESBNXSBDhJ # DomainNet_fake_f_wo_flux_DINO_base_Glister_10_0.0001
+./gdrive files download 1kZNxCv7rfhHmQUAfx_VTOeV1fCgKNvQT # DomainNet_fake_f_wo_flux_DINO_base_GradMatch_10_0.0001
+./gdrive files download 1bAlzREXsTCJVJiqkAx73PCOUP7zEbfd3 # DomainNet_fake_f_wo_flux_DINO_base_Submodular_10_0.0001
+./gdrive files download 1qUrqHKKdmAebLq2ff3te-hLj4aQaLhYs # DomainNet_fake_f_wo_flux_DINO_base_Uncertainty_10_0.0001
+tar -xf DomainNet_fake_f_wo_flux_CLIP_moderate.tar -C DomainNet
+tar -xf DomainNet_fake_f_wo_flux_DINO_base_Adacore_10_0.0001.tar -C DomainNet
+tar -xf DomainNet_fake_f_wo_flux_DINO_base_CurvMatch_10_0.0001.tar -C DomainNet
+tar -xf DomainNet_fake_f_wo_flux_DINO_base_Glister_10_0.0001.tar -C DomainNet
+tar -xf DomainNet_fake_f_wo_flux_DINO_base_GradMatch_10_0.0001.tar -C DomainNet
+tar -xf DomainNet_fake_f_wo_flux_DINO_base_Submodular_10_0.0001.tar -C DomainNet
+tar -xf DomainNet_fake_f_wo_flux_DINO_base_Uncertainty_10_0.0001.tar -C DomainNet
+rm DomainNet_fake_f_wo_flux_CLIP_moderate.tar
+rm DomainNet_fake_f_wo_flux_DINO_base_Adacore_10_0.0001.tar
+rm DomainNet_fake_f_wo_flux_DINO_base_CurvMatch_10_0.0001.tar
+rm DomainNet_fake_f_wo_flux_DINO_base_Glister_10_0.0001.tar
+rm DomainNet_fake_f_wo_flux_DINO_base_GradMatch_10_0.0001.tar
+rm DomainNet_fake_f_wo_flux_DINO_base_Submodular_10_0.0001.tar
+rm DomainNet_fake_f_wo_flux_DINO_base_Uncertainty_10_0.0001.tar
