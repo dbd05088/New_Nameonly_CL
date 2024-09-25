@@ -56,91 +56,91 @@ def generate_prompt_stage2(client, cls, previous_prompt_list):
     else:
         return response_content
 
-metaprompt_json_path = './prompts/temp_base_metaprompts_dynamic_10.json' # First stage result
-totalprompt_json_path = './prompts/gpt4_hierarchy_cot_dynamic_100.json' # Second stage result
-num_metaprompts = 10
-num_prompts_per_metaprompt = 10
-max_prompts = 100
-dataset_count = PACS_count
+metaprompt_json_path = './prompts/temp_base_metaprompts_dynamic_7_DomainNet.json' # First stage result
+totalprompt_json_path = './prompts/gpt4_hierarchy_cot_dynamic_50_DomainNet.json' # Second stage result
+num_metaprompts = 7
+num_prompts_per_metaprompt = 7
+max_prompts = 50
+dataset_count = DomainNet_count
 
 client = OpenAI(api_key="sk-proj-bPJxpKwauBBFBZJw7nEgT3BlbkFJePaQfARB48iyTbZfxSXg")
 
-# # For the first stage
-# metaprompt_dict = {}
-# for cls in tqdm(dataset_count):
-#     cls_tmp = cls.replace('_',' ')
-    
-#     # use template of 2nd version (50_2, 100_2)
-#     metaprompts = [f'A photo of a {cls_tmp}.',f'A detailed sketch of {cls_tmp}.', f'A minimalist illustration of {cls_tmp}.']
-#     for i in tqdm(range(num_metaprompts-3)):
-#         try:
-#             prompt = generate_prompt_stage1(client, cls, metaprompts)
-#             print(f"Previous prompt list: {metaprompts}")
-#             print(f"Generated metaprompt for stage: {prompt}")
-#             metaprompts.append(prompt)
-#         except Exception as e:
-#             print(e)
-#             pass
-#     metaprompt_dict[cls] = metaprompts
-
-# with open(metaprompt_json_path, 'w') as f:
-#     json.dump(metaprompt_dict, f)
-
-
-# For the second stage (uncomment below)
-with open(metaprompt_json_path, 'r') as f:
-    metaprompt_dict = json.load(f)
-    
-totalprompt_dict = {}
+# For the first stage
+metaprompt_dict = {}
 for cls in tqdm(dataset_count):
     cls_tmp = cls.replace('_',' ')
-    prompt_list_tmp = []
-    totalprompt_dict[cls] = {'metaprompts': []}
     
-    metaprompt_list = metaprompt_dict[cls] 
-    
-    for i, metaprompt in enumerate(tqdm(metaprompt_list)):
-        cot_list = [metaprompt]
-        
-        tmp = [x for x in range(len(metaprompt_list)) if x!=i]
-        sampled_numbers = random.sample(tmp,2)
-        
-        for n in sampled_numbers:
-            cot_list.append(metaprompt_list[n]) # only append at cot_list
-            
-        for j in range(1, num_prompts_per_metaprompt+1):
-            while True:
-                try:
-                    prompt = generate_prompt_stage2(client,cls,cot_list)
-                    print(f"previous generated prompts: {cot_list}")
-                    print(f"Generated prompt: {prompt}")
-                    prompt_list_tmp.append(prompt)
-                    cot_list.append(prompt)
-                    break
-                except Exception as e:
-                    print(e)
-                    pass
-                
-    final_prompt_list = metaprompt_list + random.sample(prompt_list_tmp, max_prompts - num_metaprompts)
-    
-    for i in range(max_prompts):
+    # use template of 2nd version (50_2, 100_2)
+    metaprompts = [f'A photo of a {cls_tmp}.',f'A detailed sketch of {cls_tmp}.', f'A minimalist illustration of {cls_tmp}.']
+    for i in tqdm(range(num_metaprompts-3)):
         try:
-            totalprompt_dict[cls]['metaprompts'].append(
-            {
-                'index': i,
-                'metaprompt': 'dummy',
-                'prompts': [
-                    {
-                        'index': 0,
-                        'content': final_prompt_list[i]
-                    }
-                ]
-            }
-        )
-            
+            prompt = generate_prompt_stage1(client, cls, metaprompts)
+            print(f"Previous prompt list: {metaprompts}")
+            print(f"Generated metaprompt for stage: {prompt}")
+            metaprompts.append(prompt)
         except Exception as e:
             print(e)
             pass
+    metaprompt_dict[cls] = metaprompts
+
+with open(metaprompt_json_path, 'w') as f:
+    json.dump(metaprompt_dict, f)
+
+
+# # For the second stage (uncomment below)
+# with open(metaprompt_json_path, 'r') as f:
+#     metaprompt_dict = json.load(f)
+    
+# totalprompt_dict = {}
+# for cls in tqdm(dataset_count):
+#     cls_tmp = cls.replace('_',' ')
+#     prompt_list_tmp = []
+#     totalprompt_dict[cls] = {'metaprompts': []}
+    
+#     metaprompt_list = metaprompt_dict[cls] 
+    
+#     for i, metaprompt in enumerate(tqdm(metaprompt_list)):
+#         cot_list = [metaprompt]
         
-with open(totalprompt_json_path,'w') as f:
-    json.dump(totalprompt_dict,f)
+#         tmp = [x for x in range(len(metaprompt_list)) if x!=i]
+#         sampled_numbers = random.sample(tmp,2)
+        
+#         for n in sampled_numbers:
+#             cot_list.append(metaprompt_list[n]) # only append at cot_list
+            
+#         for j in range(1, num_prompts_per_metaprompt+1):
+#             while True:
+#                 try:
+#                     prompt = generate_prompt_stage2(client,cls,cot_list)
+#                     print(f"previous generated prompts: {cot_list}")
+#                     print(f"Generated prompt: {prompt}")
+#                     prompt_list_tmp.append(prompt)
+#                     cot_list.append(prompt)
+#                     break
+#                 except Exception as e:
+#                     print(e)
+#                     pass
+                
+#     final_prompt_list = metaprompt_list + random.sample(prompt_list_tmp, max_prompts - num_metaprompts)
+    
+#     for i in range(max_prompts):
+#         try:
+#             totalprompt_dict[cls]['metaprompts'].append(
+#             {
+#                 'index': i,
+#                 'metaprompt': 'dummy',
+#                 'prompts': [
+#                     {
+#                         'index': 0,
+#                         'content': final_prompt_list[i]
+#                     }
+#                 ]
+#             }
+#         )
+            
+#         except Exception as e:
+#             print(e)
+#             pass
+        
+# with open(totalprompt_json_path,'w') as f:
+#     json.dump(totalprompt_dict,f)
