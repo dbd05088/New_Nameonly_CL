@@ -87,60 +87,66 @@ with open(metaprompt_json_path, 'w') as f:
     json.dump(metaprompt_dict, f)
 
 
-# # For the second stage (uncomment below)
-# with open(metaprompt_json_path, 'r') as f:
-#     metaprompt_dict = json.load(f)
+# For the second stage (uncomment below)
+with open(metaprompt_json_path, 'r') as f:
+    metaprompt_dict = json.load(f)
+
+if os.path.exists(totalprompt_json_path):
+    with open(totalprompt_json_path, 'r') as f:
+        totalprompt_dict = json.load(f)
+else:
+    totalprompt_dict = {}
+
+for cls in tqdm(dataset_count):
+    cls_tmp = cls.replace('_',' ')
+    prompt_list_tmp = []
+    totalprompt_dict[cls] = {'metaprompts': []}
     
-# totalprompt_dict = {}
-# for cls in tqdm(dataset_count):
-#     cls_tmp = cls.replace('_',' ')
-#     prompt_list_tmp = []
-#     totalprompt_dict[cls] = {'metaprompts': []}
+    metaprompt_list = metaprompt_dict[cls] 
     
-#     metaprompt_list = metaprompt_dict[cls] 
-    
-#     for i, metaprompt in enumerate(tqdm(metaprompt_list)):
-#         cot_list = [metaprompt]
+    for i, metaprompt in enumerate(tqdm(metaprompt_list)):
+        cot_list = [metaprompt]
         
-#         tmp = [x for x in range(len(metaprompt_list)) if x!=i]
-#         sampled_numbers = random.sample(tmp,2)
+        tmp = [x for x in range(len(metaprompt_list)) if x!=i]
+        sampled_numbers = random.sample(tmp,2)
         
-#         for n in sampled_numbers:
-#             cot_list.append(metaprompt_list[n]) # only append at cot_list
+        for n in sampled_numbers:
+            cot_list.append(metaprompt_list[n]) # only append at cot_list
             
-#         for j in range(1, num_prompts_per_metaprompt+1):
-#             while True:
-#                 try:
-#                     prompt = generate_prompt_stage2(client,cls,cot_list)
-#                     print(f"previous generated prompts: {cot_list}")
-#                     print(f"Generated prompt: {prompt}")
-#                     prompt_list_tmp.append(prompt)
-#                     cot_list.append(prompt)
-#                     break
-#                 except Exception as e:
-#                     print(e)
-#                     pass
+        for j in range(1, num_prompts_per_metaprompt+1):
+            while True:
+                try:
+                    prompt = generate_prompt_stage2(client,cls,cot_list)
+                    print(f"previous generated prompts: {cot_list}")
+                    print(f"Generated prompt: {prompt}")
+                    prompt_list_tmp.append(prompt)
+                    cot_list.append(prompt)
+                    break
+                except Exception as e:
+                    print(e)
+                    pass
                 
-#     final_prompt_list = metaprompt_list + random.sample(prompt_list_tmp, max_prompts - num_metaprompts)
+    final_prompt_list = metaprompt_list + random.sample(prompt_list_tmp, max_prompts - num_metaprompts)
     
-#     for i in range(max_prompts):
-#         try:
-#             totalprompt_dict[cls]['metaprompts'].append(
-#             {
-#                 'index': i,
-#                 'metaprompt': 'dummy',
-#                 'prompts': [
-#                     {
-#                         'index': 0,
-#                         'content': final_prompt_list[i]
-#                     }
-#                 ]
-#             }
-#         )
+    for i in range(max_prompts):
+        try:
+            totalprompt_dict[cls]['metaprompts'].append(
+            {
+                'index': i,
+                'metaprompt': 'dummy',
+                'prompts': [
+                    {
+                        'index': 0,
+                        'content': final_prompt_list[i]
+                    }
+                ]
+            }
+        )
             
-#         except Exception as e:
-#             print(e)
-#             pass
+        except Exception as e:
+            print(e)
+            pass
+    
+    with open(totalprompt_json_path, 'w') as f:
+        json.dump(totalprompt_dict, f)
         
-# with open(totalprompt_json_path,'w') as f:
-#     json.dump(totalprompt_dict,f)
