@@ -4,6 +4,7 @@ import random
 from openai import OpenAI
 from tqdm import tqdm
 from classes import *
+import os
 
 # dynamic, class-specific
 def generate_prompt_stage1(client, cls, previous_prompt_list):
@@ -65,26 +66,26 @@ dataset_count = DomainNet_count
 
 client = OpenAI(api_key="sk-proj-bPJxpKwauBBFBZJw7nEgT3BlbkFJePaQfARB48iyTbZfxSXg")
 
-# For the first stage
-metaprompt_dict = {}
-for cls in tqdm(dataset_count):
-    cls_tmp = cls.replace('_',' ')
+# # For the first stage
+# metaprompt_dict = {}
+# for cls in tqdm(dataset_count):
+#     cls_tmp = cls.replace('_',' ')
     
-    # use template of 2nd version (50_2, 100_2)
-    metaprompts = [f'A photo of a {cls_tmp}.',f'A detailed sketch of {cls_tmp}.', f'A minimalist illustration of {cls_tmp}.']
-    for i in tqdm(range(num_metaprompts-3)):
-        try:
-            prompt = generate_prompt_stage1(client, cls, metaprompts)
-            print(f"Previous prompt list: {metaprompts}")
-            print(f"Generated metaprompt for stage: {prompt}")
-            metaprompts.append(prompt)
-        except Exception as e:
-            print(e)
-            pass
-    metaprompt_dict[cls] = metaprompts
+#     # use template of 2nd version (50_2, 100_2)
+#     metaprompts = [f'A photo of a {cls_tmp}.',f'A detailed sketch of {cls_tmp}.', f'A minimalist illustration of {cls_tmp}.']
+#     for i in tqdm(range(num_metaprompts-3)):
+#         try:
+#             prompt = generate_prompt_stage1(client, cls, metaprompts)
+#             print(f"Previous prompt list: {metaprompts}")
+#             print(f"Generated metaprompt for stage: {prompt}")
+#             metaprompts.append(prompt)
+#         except Exception as e:
+#             print(e)
+#             pass
+#     metaprompt_dict[cls] = metaprompts
 
-with open(metaprompt_json_path, 'w') as f:
-    json.dump(metaprompt_dict, f)
+# with open(metaprompt_json_path, 'w') as f:
+#     json.dump(metaprompt_dict, f)
 
 
 # For the second stage (uncomment below)
@@ -98,6 +99,9 @@ else:
     totalprompt_dict = {}
 
 for cls in tqdm(dataset_count):
+    if cls in totalprompt_dict:
+        print(f"Pass: {cls}")
+        continue
     cls_tmp = cls.replace('_',' ')
     prompt_list_tmp = []
     totalprompt_dict[cls] = {'metaprompts': []}
