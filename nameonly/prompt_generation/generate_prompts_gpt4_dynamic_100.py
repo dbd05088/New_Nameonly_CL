@@ -57,12 +57,12 @@ def generate_prompt_stage2(client, cls, previous_prompt_list):
     else:
         return response_content
 
-metaprompt_json_path = './prompts/temp_base_metaprompts_dynamic_7_DomainNet.json' # First stage result
-totalprompt_json_path = './prompts/gpt4_hierarchy_cot_dynamic_50_DomainNet.json' # Second stage result
+metaprompt_json_path = './prompts/temp_base_metaprompts_dynamic_7_PACS.json' # First stage result
+totalprompt_json_path = './prompts/gpt4_hierarchy_cot_dynamic_50_new_PACS.json' # Second stage result
 num_metaprompts = 7
 num_prompts_per_metaprompt = 7
 max_prompts = 50
-dataset_count = DomainNet_count
+dataset_count = PACS_count
 
 client = OpenAI(api_key="sk-proj-bPJxpKwauBBFBZJw7nEgT3BlbkFJePaQfARB48iyTbZfxSXg")
 
