@@ -1,1 +1,65 @@
-{"horse": ["A photo of a horse.", "A detailed sketch of horse.", "A minimalist illustration of horse.", "A horse in a vibrant autumn forest.", "A horse by a serene lakeside at twilight.", "A horse running on a snowy mountain.", "A horse in a bustling city street at night."], "elephant": ["A photo of a elephant.", "A detailed sketch of elephant.", "A minimalist illustration of elephant.", "A vibrant oil painting of an elephant at sunset.", "A sepia-toned photograph of an elephant in the wild.", "A neon-colored abstract art of an elephant.", "A watercolor painting of an elephant in a rainforest."], "person": ["A photo of a person.", "A detailed sketch of person.", "A minimalist illustration of person.", "A cinematic nighttime portrait of a person.", "A hyperrealistic painting of a person in nature.", "A black and white candid street photo of person.", "A vintage-style postcard with a person on the beach."], "dog": ["A photo of a dog.", "A detailed sketch of dog.", "A minimalist illustration of dog.", "A vibrant watercolor painting of a dog.", "A black-and-white photograph of a dog in a park.", "Retro-style poster of a dog with sunglasses.", "A vintage sepia photograph of a dog with a hat."], "guitar": ["A photo of a guitar.", "A detailed sketch of guitar.", "A minimalist illustration of guitar.", "A vintage guitar in sepia tones.", "A guitar on a sandy beach at sunset.", "A neon-lit guitar in an urban nightscape.", "A guitar surrounded by autumn leaves."], "giraffe": ["A photo of a giraffe.", "A detailed sketch of giraffe.", "A minimalist illustration of giraffe.", "A night safari photo of a giraffe.", "A vibrant watercolor painting of a giraffe.", "A sepia-toned vintage photograph of a giraffe.", "A sunset silhouette of a giraffe."], "house": ["A photo of a house.", "A detailed sketch of house.", "A minimalist illustration of house.", "Sunset photograph of modern house.", "Nighttime aerial view of illuminated house.", "Vintage sepia-tone photograph of suburban house", "Aerial drone shot of house surrounded by autumn trees."]}
+{
+    "horse": [
+        "A photo of a horse.",
+        "A detailed sketch of horse.",
+        "A minimalist illustration of horse.",
+        "A sunset photo with a horse in the foreground.",
+        "A horse in a dense forest at dawn.",
+        "A horse running on a beach at twilight.",
+        "A horse drinking water from a clear mountain stream."
+    ],
+    "elephant": [
+        "A photo of a elephant.",
+        "A detailed sketch of elephant.",
+        "A minimalist illustration of elephant.",
+        "A vibrant surreal painting of an elephant.",
+        "A sepia-toned vintage photograph of an elephant.",
+        "A hyper-realistic underwater image of an elephant.",
+        "A neon-lit cyberpunk city scene with an elephant."
+    ],
+    "person": [
+        "A photo of a person.",
+        "A detailed sketch of person.",
+        "A minimalist illustration of person.",
+        "A vibrant street art mural of person.",
+        "A monochromatic photo of a person.",
+        "A sepia-toned vintage portrait of a person.",
+        "A photorealistic person in a lush green forest."
+    ],
+    "dog": [
+        "A photo of a dog.",
+        "A detailed sketch of dog.",
+        "A minimalist illustration of dog.",
+        "A vibrant surreal painting of a dog",
+        "A monochrome portrait of a dog in a studio",
+        "A vintage sepia-toned photograph of a dog",
+        "A hyper-realistic oil painting of a dog outdoors"
+    ],
+    "guitar": [
+        "A photo of a guitar.",
+        "A detailed sketch of guitar.",
+        "A minimalist illustration of guitar.",
+        "A vintage sepia-toned photograph of guitar.",
+        "A vibrant abstract painting of guitar.",
+        "A high-resolution black and white photo of guitar.",
+        "A surreal underwater scene with a guitar"
+    ],
+    "giraffe": [
+        "A photo of a giraffe.",
+        "A detailed sketch of giraffe.",
+        "A minimalist illustration of giraffe.",
+        "A vibrant oil painting of a giraffe.",
+        "A sepia-toned vintage photograph of a giraffe.",
+        "A nighttime scene with a silhouette of a giraffe.",
+        "Giraffe reflection in a serene water lake."
+    ],
+    "house": [
+        "A photo of a house.",
+        "A detailed sketch of house.",
+        "A minimalist illustration of house.",
+        "A night-time cityscape with a modern house.",
+        "A vibrant sunrise over a coastal house.",
+        "A snowy forest house in golden hour lighting.",
+        "A house amidst a lush green countryside."
+    ]
+}
