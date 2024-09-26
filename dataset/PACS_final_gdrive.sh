@@ -1469,3 +1469,9 @@ rm PACS_final_cot_50_2_wflux_DINO_base_Glister_10_0.0001.tar
 rm PACS_final_cot_50_2_wflux_DINO_base_GradMatch_10_0.0001.tar
 rm PACS_final_cot_50_2_wflux_DINO_base_Submodular_10_0.0001.tar
 rm PACS_final_cot_50_2_wflux_DINO_base_Uncertainty_10_0.0001.tar
+
+
+# dynamic 50 prompts new
+./gdrive files download 1aKj7gdh5Bxvc0cKBZ6OHkyGZC2UPWHJe # PACS_final_dynamic_50_new
+tar -xf PACS_final_dynamic_50_new.tar -C PACS_final
+rm PACS_final_dynamic_50_new.tar
