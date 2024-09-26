@@ -1442,7 +1442,30 @@
 # rm PACS_final_fake_f_DINO_base_Submodular_10_0.0001.tar
 # rm PACS_final_fake_f_DINO_base_Uncertainty_10_0.0001.tar
 
-# fake_f_RMD_wo_flux
-./gdrive files download 1dhUw6a-u5rhULgln41T2uRysSMPpCzsG # PACS_final_fake_f_sdxl_floyd_cogview2_sd3_auraflow
-tar -xf PACS_final_fake_f_sdxl_floyd_cogview2_sd3_auraflow.tar -C PACS_final
-rm PACS_final_fake_f_sdxl_floyd_cogview2_sd3_auraflow.tar
+# # fake_f_RMD_wo_flux
+# ./gdrive files download 1dhUw6a-u5rhULgln41T2uRysSMPpCzsG # PACS_final_fake_f_sdxl_floyd_cogview2_sd3_auraflow
+# tar -xf PACS_final_fake_f_sdxl_floyd_cogview2_sd3_auraflow.tar -C PACS_final
+# rm PACS_final_fake_f_sdxl_floyd_cogview2_sd3_auraflow.tar
+
+# PACS wflux new coresets
+./gdrive files download 1tBNGIH5hDP1IWHU2ZSDXwP6y06oR6L-w # PACS_final_cot_50_2_wflux_CLIP_moderate
+./gdrive files download 1sNRucWhUp4RGfz65v6w38BQfdzdWZDi0 # PACS_final_cot_50_2_wflux_DINO_base_Adacore_10_0.0001
+./gdrive files download 18OfhWjxffsLc_6YIzMSrq7KaYlEWKAL6 # PACS_final_cot_50_2_wflux_DINO_base_CurvMatch_10_0.0001
+./gdrive files download 1y-Z3cKmvVFdtSC5YVCDxRYsLDn_fJjxt # PACS_final_cot_50_2_wflux_DINO_base_Glister_10_0.0001
+./gdrive files download 1L8qpPyrADRZDsg5uZ7iucf6Bw2RI9MhT # PACS_final_cot_50_2_wflux_DINO_base_GradMatch_10_0.0001
+./gdrive files download 129_524YzV2x2ywf9L0qzHo5WDieh2Txz # PACS_final_cot_50_2_wflux_DINO_base_Submodular_10_0.0001
+./gdrive files download 1ZG2yCwf3p3kLjqUaTfy6lAIe4qokKrt- # PACS_final_cot_50_2_wflux_DINO_base_Uncertainty_10_0.0001
+tar -xf PACS_final_cot_50_2_wflux_CLIP_moderate.tar -C PACS_final
+tar -xf PACS_final_cot_50_2_wflux_DINO_base_Adacore_10_0.0001.tar -C PACS_final
+tar -xf PACS_final_cot_50_2_wflux_DINO_base_CurvMatch_10_0.0001.tar -C PACS_final
+tar -xf PACS_final_cot_50_2_wflux_DINO_base_Glister_10_0.0001.tar -C PACS_final
+tar -xf PACS_final_cot_50_2_wflux_DINO_base_GradMatch_10_0.0001.tar -C PACS_final
+tar -xf PACS_final_cot_50_2_wflux_DINO_base_Submodular_10_0.0001.tar -C PACS_final
+tar -xf PACS_final_cot_50_2_wflux_DINO_base_Uncertainty_10_0.0001.tar -C PACS_final
+rm PACS_final_cot_50_2_wflux_CLIP_moderate.tar
+rm PACS_final_cot_50_2_wflux_DINO_base_Adacore_10_0.0001.tar
+rm PACS_final_cot_50_2_wflux_DINO_base_CurvMatch_10_0.0001.tar
+rm PACS_final_cot_50_2_wflux_DINO_base_Glister_10_0.0001.tar
+rm PACS_final_cot_50_2_wflux_DINO_base_GradMatch_10_0.0001.tar
+rm PACS_final_cot_50_2_wflux_DINO_base_Submodular_10_0.0001.tar
+rm PACS_final_cot_50_2_wflux_DINO_base_Uncertainty_10_0.0001.tar
