@@ -1,0 +1,60 @@
+# synthclip_PACS.json
+
+# horse
+# 'majestic' used for 49 sentences, except for 1 sentence
+# 'sunlit' used for 40 sentences, except for 10 sentences
+# 'meadow' used for 46 sentences, except for 4 sentences
+# 'gallops' used for 35 sentences, except for 15 sentences
+
+<Group1>
+0: "A majestic brown horse gallops freely through a sunlit meadow of wildflowers."
+4: "A majestic brown horse gallops through a sunlit meadow filled with vibrant wildflowers."
+7: "A majestic brown horse gallops freely across a sunlit, grassy meadow surrounded by blooming wildflowers."
+15: "A majestic brown horse gallops freely through a sunlit meadow covered in vibrant wildflowers."
+20: "A majestic horse gallops through a sunlit meadow with wildflowers swaying in the breeze."
+30: "A majestic brown horse gallops through a sunlit meadow dotted with wildflowers and tall grass."
+48: "A majestic brown horse gallops through a lush, sunlit meadow with vibrant wildflowers."
+
+<Group2>
+45: "A majestic brown horse grazes peacefully in a sunlit meadow surrounded by vibrant wildflowers."
+46: "A majestic brown horse grazes peacefully in a sunlit meadow surrounded by wildflowers."
+
+# dog
+# 'golden retreiver' used for 48 sentences, except 2 sentence (maybe reset doesn't work?)
+
+<Group1>
+2: A golden retriever joyfully chases a frisbee in a sunlit, grassy park.
+10: A golden retriever joyfully chases a frisbee in a sunlit, grassy park.
+12: A playful golden retriever joyfully chases a frisbee across a sunlit, grassy park.
+13: A golden retriever joyfully chases a frisbee across a sunlit, grassy park.
+15: A fluffy golden retriever joyfully chases a frisbee in a sunlit park.
+16: A golden retriever joyfully chases a frisbee across a lush green park under a clear sky.
+17: A golden retriever joyfully chases a colorful frisbee through a sunlit park.
+23: A golden retriever joyfully chases a frisbee in a sunlit park, tail wagging wildly.
+26: A golden retriever joyfully chases a bright red frisbee through a sunlit, grassy park.
+27: A playful golden retriever fetches a brightly colored frisbee in a sunlit park.
+28: A golden retriever joyfully chases a frisbee in a sunlit, green park.
+40: A golden retriever joyfully chases a frisbee in a sunny, green park.
+41: A golden retriever joyfully chases a frisbee in a lush, green park on a sunny day.
+42: A golden retriever joyfully chases a frisbee in a sunlit, grassy park on a bright day.
+44: A playful golden retriever joyfully chases a frisbee in a sunlit green park.
+49: A golden retriever joyfully chases a frisbee across a sunlit, grassy park.
+
+-------------------------------------------------------------------------------------
+
+# synclr_PACS.json -> less diversity!
+
+# horse
+'majestic' used for 46 sentences, except for 4
+
+# elephant
+'majestic' or 'majestically' use for 45 sentences, except for 5
+
+# dog
+'playful' used for 25 sentences'
+
+# guitar
+'acoustic' used for 32 sentences, except for 18
+
+# house
+'charming' used for 34 sentences, except for 16
