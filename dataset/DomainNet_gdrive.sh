@@ -429,25 +429,94 @@
 # rm DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_equalweight_ver3.tar
 # rm DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_equalweight_ver2.tar
 
-# DomainNet LE coresets wo flux
-./gdrive files download 1XyPTgbNkKSxyiHjSLWMmxc6SDqHb4sLq # DomainNet_LE_wo_flux_CLIP_moderate
-./gdrive files download 1dGwPfn_RJHYly9bs6sR0QmuldqnFE4MX # DomainNet_LE_wo_flux_DINO_base_Adacore_10_0.0001
-./gdrive files download 1e_VeCUVwuE9yAIonFb6MR4xYHUsQ9j5T # DomainNet_LE_wo_flux_DINO_base_CurvMatch_10_0.0001
-./gdrive files download 1OxH13omXKn2nARWdZiqS7SPRTnIdn8Wc # DomainNet_LE_wo_flux_DINO_base_Glister_10_0.0001
-./gdrive files download 1z9sVtLfyKSpAplb0G5cteQPuFQ2o3q0r # DomainNet_LE_wo_flux_DINO_base_GradMatch_10_0.0001
-./gdrive files download 1tdeGa4CbCjUJZ9MickyBiDPoyJjQfta1 # DomainNet_LE_wo_flux_DINO_base_Submodular_10_0.0001
-./gdrive files download 1i4qsSA-RamTVgz3EHrL_G_d2CFuGrIKg # DomainNet_LE_wo_flux_DINO_base_Uncertainty_10_0.0001
-tar -xf DomainNet_LE_wo_flux_CLIP_moderate.tar -C DomainNet
-tar -xf DomainNet_LE_wo_flux_DINO_base_Adacore_10_0.0001.tar -C DomainNet
-tar -xf DomainNet_LE_wo_flux_DINO_base_CurvMatch_10_0.0001.tar -C DomainNet
-tar -xf DomainNet_LE_wo_flux_DINO_base_Glister_10_0.0001.tar -C DomainNet
-tar -xf DomainNet_LE_wo_flux_DINO_base_GradMatch_10_0.0001.tar -C DomainNet
-tar -xf DomainNet_LE_wo_flux_DINO_base_Submodular_10_0.0001.tar -C DomainNet
-tar -xf DomainNet_LE_wo_flux_DINO_base_Uncertainty_10_0.0001.tar -C DomainNet
-rm DomainNet_LE_wo_flux_CLIP_moderate.tar
-rm DomainNet_LE_wo_flux_DINO_base_Adacore_10_0.0001.tar
-rm DomainNet_LE_wo_flux_DINO_base_CurvMatch_10_0.0001.tar
-rm DomainNet_LE_wo_flux_DINO_base_Glister_10_0.0001.tar
-rm DomainNet_LE_wo_flux_DINO_base_GradMatch_10_0.0001.tar
-rm DomainNet_LE_wo_flux_DINO_base_Submodular_10_0.0001.tar
-rm DomainNet_LE_wo_flux_DINO_base_Uncertainty_10_0.0001.tar
+# # DomainNet LE coresets wo flux
+# ./gdrive files download 1XyPTgbNkKSxyiHjSLWMmxc6SDqHb4sLq # DomainNet_LE_wo_flux_CLIP_moderate
+# ./gdrive files download 1dGwPfn_RJHYly9bs6sR0QmuldqnFE4MX # DomainNet_LE_wo_flux_DINO_base_Adacore_10_0.0001
+# ./gdrive files download 1e_VeCUVwuE9yAIonFb6MR4xYHUsQ9j5T # DomainNet_LE_wo_flux_DINO_base_CurvMatch_10_0.0001
+# ./gdrive files download 1OxH13omXKn2nARWdZiqS7SPRTnIdn8Wc # DomainNet_LE_wo_flux_DINO_base_Glister_10_0.0001
+# ./gdrive files download 1z9sVtLfyKSpAplb0G5cteQPuFQ2o3q0r # DomainNet_LE_wo_flux_DINO_base_GradMatch_10_0.0001
+# ./gdrive files download 1tdeGa4CbCjUJZ9MickyBiDPoyJjQfta1 # DomainNet_LE_wo_flux_DINO_base_Submodular_10_0.0001
+# ./gdrive files download 1i4qsSA-RamTVgz3EHrL_G_d2CFuGrIKg # DomainNet_LE_wo_flux_DINO_base_Uncertainty_10_0.0001
+# tar -xf DomainNet_LE_wo_flux_CLIP_moderate.tar -C DomainNet
+# tar -xf DomainNet_LE_wo_flux_DINO_base_Adacore_10_0.0001.tar -C DomainNet
+# tar -xf DomainNet_LE_wo_flux_DINO_base_CurvMatch_10_0.0001.tar -C DomainNet
+# tar -xf DomainNet_LE_wo_flux_DINO_base_Glister_10_0.0001.tar -C DomainNet
+# tar -xf DomainNet_LE_wo_flux_DINO_base_GradMatch_10_0.0001.tar -C DomainNet
+# tar -xf DomainNet_LE_wo_flux_DINO_base_Submodular_10_0.0001.tar -C DomainNet
+# tar -xf DomainNet_LE_wo_flux_DINO_base_Uncertainty_10_0.0001.tar -C DomainNet
+# rm DomainNet_LE_wo_flux_CLIP_moderate.tar
+# rm DomainNet_LE_wo_flux_DINO_base_Adacore_10_0.0001.tar
+# rm DomainNet_LE_wo_flux_DINO_base_CurvMatch_10_0.0001.tar
+# rm DomainNet_LE_wo_flux_DINO_base_Glister_10_0.0001.tar
+# rm DomainNet_LE_wo_flux_DINO_base_GradMatch_10_0.0001.tar
+# rm DomainNet_LE_wo_flux_DINO_base_Submodular_10_0.0001.tar
+# rm DomainNet_LE_wo_flux_DINO_base_Uncertainty_10_0.0001.tar
+
+# DomainNet synclr wo flux
+./gdrive files download 1w6sKlS3TO2JRQC8Rsb4naOnzisiw9Oqa # DomainNet_synclr_wo_flux_DINO_base_Adacore_10_0.0001
+./gdrive files download 11l5ydbAYqJ7vPpVzzD8PIPIKhl3rNRr3 # DomainNet_synclr_wo_flux_DINO_base_CurvMatch_10_0.0001
+./gdrive files download 1LOCIoc53dN1CABCx78Ak93JD3dsdcKca # DomainNet_synclr_wo_flux_DINO_base_Glister_10_0.0001
+./gdrive files download 1fqN069OhNVE2wxdINqft89g9sYzwbDmM # DomainNet_synclr_wo_flux_DINO_base_GradMatch_10_0.0001
+./gdrive files download 1glN4kz9joTQoKbFclmgkzloNZgvOmp3Q # DomainNet_synclr_wo_flux_DINO_base_Submodular_10_0.0001
+./gdrive files download 1AqiGTFyNMPoZg4xVqAPW2jYEsuMkkmlw # DomainNet_synclr_wo_flux_DINO_base_Uncertainty_10_0.0001
+./gdrive files download 1gta7Tz7c31FAutgAEO1GHgXOAV6cNY-y # DomainNet_synclr_wo_flux_CLIP_moderate
+tar -xf DomainNet_synclr_wo_flux_DINO_base_Adacore_10_0.0001.tar -C DomainNet
+tar -xf DomainNet_synclr_wo_flux_DINO_base_CurvMatch_10_0.0001.tar -C DomainNet
+tar -xf DomainNet_synclr_wo_flux_DINO_base_Glister_10_0.0001.tar -C DomainNet
+tar -xf DomainNet_synclr_wo_flux_DINO_base_GradMatch_10_0.0001.tar -C DomainNet
+tar -xf DomainNet_synclr_wo_flux_DINO_base_Submodular_10_0.0001.tar -C DomainNet
+tar -xf DomainNet_synclr_wo_flux_DINO_base_Uncertainty_10_0.0001.tar -C DomainNet
+tar -xf DomainNet_synclr_wo_flux_CLIP_moderate.tar -C DomainNet
+rm DomainNet_synclr_wo_flux_DINO_base_Adacore_10_0.0001.tar
+rm DomainNet_synclr_wo_flux_DINO_base_CurvMatch_10_0.0001.tar
+rm DomainNet_synclr_wo_flux_DINO_base_Glister_10_0.0001.tar
+rm DomainNet_synclr_wo_flux_DINO_base_GradMatch_10_0.0001.tar
+rm DomainNet_synclr_wo_flux_DINO_base_Submodular_10_0.0001.tar
+rm DomainNet_synclr_wo_flux_DINO_base_Uncertainty_10_0.0001.tar
+rm DomainNet_synclr_wo_flux_CLIP_moderate.tar
+
+# DomainNet synthclip wo flux
+./gdrive files download 1WZrHnL5Amx7ZNhIA5uFl04DGZasOukHb # DomainNet_synthclip_wo_flux_DINO_base_Adacore_10_0.0001
+./gdrive files download 1j_8Aoua69J0OVHuicpJcwuNMj_1-fckz # DomainNet_synthclip_wo_flux_DINO_base_CurvMatch_10_0.0001
+./gdrive files download 1XSQt-prdNYN8WZBt4Fh8ApQ-I4kxNa5l # DomainNet_synthclip_wo_flux_DINO_base_Glister_10_0.0001
+./gdrive files download 1GBXg3lVoaptMVgVtkcQ09jyq1kotsMHX # DomainNet_synthclip_wo_flux_DINO_base_GradMatch_10_0.0001
+./gdrive files download 1R2CLXK0DvcW5Wgs3M7s5aeVNYLhPLN-J # DomainNet_synthclip_wo_flux_DINO_base_Submodular_10_0.0001
+./gdrive files download 1SM5eZr9wBCfhtTL3sOVEvfr9WR1P4lvK # DomainNet_synthclip_wo_flux_DINO_base_Uncertainty_10_0.0001
+./gdrive files download 1Kytptg3Puhwxewa4u09h-NBcwoRquYKf # DomainNet_synthclip_wo_flux_CLIP_moderate
+tar -xf DomainNet_synthclip_wo_flux_DINO_base_Adacore_10_0.0001.tar -C DomainNet
+tar -xf DomainNet_synthclip_wo_flux_DINO_base_CurvMatch_10_0.0001.tar -C DomainNet
+tar -xf DomainNet_synthclip_wo_flux_DINO_base_Glister_10_0.0001.tar -C DomainNet
+tar -xf DomainNet_synthclip_wo_flux_DINO_base_GradMatch_10_0.0001.tar -C DomainNet
+tar -xf DomainNet_synthclip_wo_flux_DINO_base_Submodular_10_0.0001.tar -C DomainNet
+tar -xf DomainNet_synthclip_wo_flux_DINO_base_Uncertainty_10_0.0001.tar -C DomainNet
+tar -xf DomainNet_synthclip_wo_flux_CLIP_moderate.tar -C DomainNet
+rm DomainNet_synthclip_wo_flux_DINO_base_Adacore_10_0.0001.tar
+rm DomainNet_synthclip_wo_flux_DINO_base_CurvMatch_10_0.0001.tar
+rm DomainNet_synthclip_wo_flux_DINO_base_Glister_10_0.0001.tar
+rm DomainNet_synthclip_wo_flux_DINO_base_GradMatch_10_0.0001.tar
+rm DomainNet_synthclip_wo_flux_DINO_base_Submodular_10_0.0001.tar
+rm DomainNet_synthclip_wo_flux_DINO_base_Uncertainty_10_0.0001.tar
+rm DomainNet_synthclip_wo_flux_CLIP_moderate.tar
+
+# DomainNet sdbp wo flux
+./gdrive files download 1qvsQ6kKTd1rO6SucJaibpglFyC1WI-2- # DomainNet_sdbp_wo_flux_DINO_base_Adacore_10_0.0001
+./gdrive files download 1_3a8SuDw7HX9uvpEJmpwp-s0O-GmXWJY # DomainNet_sdbp_wo_flux_DINO_base_CurvMatch_10_0.0001
+./gdrive files download 1fkE1a6i0SiY2FgeR6gSYLDgd3v11q9sd # DomainNet_sdbp_wo_flux_DINO_base_Glister_10_0.0001
+./gdrive files download 16iI9Yk0E-2_vIf8Yi5Y7WIPiinUgsHtM # DomainNet_sdbp_wo_flux_DINO_base_GradMatch_10_0.0001
+./gdrive files download 1VZY5bSOj_DYnUf6u-soC4b709QpnamnY # DomainNet_sdbp_wo_flux_DINO_base_Submodular_10_0.0001
+./gdrive files download 1akf8ogbj4tJ5v-hsHY2MFggIiacFKgy5 # DomainNet_sdbp_wo_flux_DINO_base_Uncertainty_10_0.0001
+./gdrive files download 1hQcQwlTFMNWDqkHcjuJXE1fBlIb-NSHy # DomainNet_sdbp_wo_flux_CLIP_moderate
+tar -xf DomainNet_sdbp_wo_flux_DINO_base_Adacore_10_0.0001.tar -C DomainNet
+tar -xf DomainNet_sdbp_wo_flux_DINO_base_CurvMatch_10_0.0001.tar -C DomainNet
+tar -xf DomainNet_sdbp_wo_flux_DINO_base_Glister_10_0.0001.tar -C DomainNet
+tar -xf DomainNet_sdbp_wo_flux_DINO_base_GradMatch_10_0.0001.tar -C DomainNet
+tar -xf DomainNet_sdbp_wo_flux_DINO_base_Submodular_10_0.0001.tar -C DomainNet
+tar -xf DomainNet_sdbp_wo_flux_DINO_base_Uncertainty_10_0.0001.tar -C DomainNet
+tar -xf DomainNet_sdbp_wo_flux_CLIP_moderate.tar -C DomainNet
+rm DomainNet_sdbp_wo_flux_DINO_base_Adacore_10_0.0001.tar
+rm DomainNet_sdbp_wo_flux_DINO_base_CurvMatch_10_0.0001.tar
+rm DomainNet_sdbp_wo_flux_DINO_base_Glister_10_0.0001.tar
+rm DomainNet_sdbp_wo_flux_DINO_base_GradMatch_10_0.0001.tar
+rm DomainNet_sdbp_wo_flux_DINO_base_Submodular_10_0.0001.tar
+rm DomainNet_sdbp_wo_flux_DINO_base_Uncertainty_10_0.0001.tar
+rm DomainNet_sdbp_wo_flux_CLIP_moderate.tar
