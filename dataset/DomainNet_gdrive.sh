@@ -392,25 +392,39 @@
 # rm DomainNet_LE_sdxl_floyd_cogview2_sd3_auraflow.tar
 # rm DomainNet_LE_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar
 
-# HIWING coreset
-./gdrive files download 1wXx6jZDNfUIsV2Xb9L2EZPgtcTg75nXY # DomainNet_cot_50_2_wo_flux_CLIP_moderate
-./gdrive files download 1fHymODeMufoXG6yoxqDa41wBClUysotq # DomainNet_cot_50_2_wo_flux_DINO_base_Adacore_10_0.0001
-./gdrive files download 1nrNBpHlxtxz9Te_VPeA01E3RuMP-lpKt # DomainNet_cot_50_2_wo_flux_DINO_base_CurvMatch_10_0.0001
-./gdrive files download 1GC5Xbrcg5kEBivbqdHPPm1u_9faD0bsl # DomainNet_cot_50_2_wo_flux_DINO_base_Glister_10_0.0001
-./gdrive files download 1VPmg4p5mUkZPZhvilm931Xql8UxRWoUK # DomainNet_cot_50_2_wo_flux_DINO_base_GradMatch_10_0.0001
-./gdrive files download 1hhy-QrS3kRrNoNsCZWUOH8O0jCH7daUK # DomainNet_cot_50_2_wo_flux_DINO_base_Submodular_10_0.0001
-./gdrive files download 1QL76aDzEa5fkP9a3IU9GIdgFpJMj26AS # DomainNet_cot_50_2_wo_flux_DINO_base_Uncertainty_10_0.0001
-tar -xf DomainNet_cot_50_2_wo_flux_CLIP_moderate.tar -C DomainNet
-tar -xf DomainNet_cot_50_2_wo_flux_DINO_base_Adacore_10_0.0001.tar -C DomainNet
-tar -xf DomainNet_cot_50_2_wo_flux_DINO_base_CurvMatch_10_0.0001.tar -C DomainNet
-tar -xf DomainNet_cot_50_2_wo_flux_DINO_base_Glister_10_0.0001.tar -C DomainNet
-tar -xf DomainNet_cot_50_2_wo_flux_DINO_base_GradMatch_10_0.0001.tar -C DomainNet
-tar -xf DomainNet_cot_50_2_wo_flux_DINO_base_Submodular_10_0.0001.tar -C DomainNet
-tar -xf DomainNet_cot_50_2_wo_flux_DINO_base_Uncertainty_10_0.0001.tar -C DomainNet
-rm DomainNet_cot_50_2_wo_flux_CLIP_moderate.tar
-rm DomainNet_cot_50_2_wo_flux_DINO_base_Adacore_10_0.0001.tar
-rm DomainNet_cot_50_2_wo_flux_DINO_base_CurvMatch_10_0.0001.tar
-rm DomainNet_cot_50_2_wo_flux_DINO_base_Glister_10_0.0001.tar
-rm DomainNet_cot_50_2_wo_flux_DINO_base_GradMatch_10_0.0001.tar
-rm DomainNet_cot_50_2_wo_flux_DINO_base_Submodular_10_0.0001.tar
-rm DomainNet_cot_50_2_wo_flux_DINO_base_Uncertainty_10_0.0001.tar
+# # HIWING coreset
+# ./gdrive files download 1wXx6jZDNfUIsV2Xb9L2EZPgtcTg75nXY # DomainNet_cot_50_2_wo_flux_CLIP_moderate
+# ./gdrive files download 1fHymODeMufoXG6yoxqDa41wBClUysotq # DomainNet_cot_50_2_wo_flux_DINO_base_Adacore_10_0.0001
+# ./gdrive files download 1nrNBpHlxtxz9Te_VPeA01E3RuMP-lpKt # DomainNet_cot_50_2_wo_flux_DINO_base_CurvMatch_10_0.0001
+# ./gdrive files download 1GC5Xbrcg5kEBivbqdHPPm1u_9faD0bsl # DomainNet_cot_50_2_wo_flux_DINO_base_Glister_10_0.0001
+# ./gdrive files download 1VPmg4p5mUkZPZhvilm931Xql8UxRWoUK # DomainNet_cot_50_2_wo_flux_DINO_base_GradMatch_10_0.0001
+# ./gdrive files download 1hhy-QrS3kRrNoNsCZWUOH8O0jCH7daUK # DomainNet_cot_50_2_wo_flux_DINO_base_Submodular_10_0.0001
+# ./gdrive files download 1QL76aDzEa5fkP9a3IU9GIdgFpJMj26AS # DomainNet_cot_50_2_wo_flux_DINO_base_Uncertainty_10_0.0001
+# tar -xf DomainNet_cot_50_2_wo_flux_CLIP_moderate.tar -C DomainNet
+# tar -xf DomainNet_cot_50_2_wo_flux_DINO_base_Adacore_10_0.0001.tar -C DomainNet
+# tar -xf DomainNet_cot_50_2_wo_flux_DINO_base_CurvMatch_10_0.0001.tar -C DomainNet
+# tar -xf DomainNet_cot_50_2_wo_flux_DINO_base_Glister_10_0.0001.tar -C DomainNet
+# tar -xf DomainNet_cot_50_2_wo_flux_DINO_base_GradMatch_10_0.0001.tar -C DomainNet
+# tar -xf DomainNet_cot_50_2_wo_flux_DINO_base_Submodular_10_0.0001.tar -C DomainNet
+# tar -xf DomainNet_cot_50_2_wo_flux_DINO_base_Uncertainty_10_0.0001.tar -C DomainNet
+# rm DomainNet_cot_50_2_wo_flux_CLIP_moderate.tar
+# rm DomainNet_cot_50_2_wo_flux_DINO_base_Adacore_10_0.0001.tar
+# rm DomainNet_cot_50_2_wo_flux_DINO_base_CurvMatch_10_0.0001.tar
+# rm DomainNet_cot_50_2_wo_flux_DINO_base_Glister_10_0.0001.tar
+# rm DomainNet_cot_50_2_wo_flux_DINO_base_GradMatch_10_0.0001.tar
+# rm DomainNet_cot_50_2_wo_flux_DINO_base_Submodular_10_0.0001.tar
+# rm DomainNet_cot_50_2_wo_flux_DINO_base_Uncertainty_10_0.0001.tar
+
+# DomainNet HIWING equalweight experiments
+./gdrive files download 1lZ8KL7RSKOXBseFkrx9jxSc0EestcfsX # DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_equalweight_ver5
+./gdrive files download 12emIyFsOmiZeZt1-oPYCjHVbegsN13Y_ # DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_equalweight_ver4
+./gdrive files download 16T0aXHy-n6WAFraDaNAlaJaAZUj4sDA5 # DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_equalweight_ver3
+./gdrive files download 1r0geQypHA2phVSqkQVzz7CaIsz7M7liQ # DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_equalweight_ver2
+tar -xf DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_equalweight_ver5.tar -C DomainNet
+tar -xf DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_equalweight_ver4.tar -C DomainNet
+tar -xf DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_equalweight_ver3.tar -C DomainNet
+tar -xf DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_equalweight_ver2.tar -C DomainNet
+rm DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_equalweight_ver5.tar
+rm DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_equalweight_ver4.tar
+rm DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_equalweight_ver3.tar
+rm DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_equalweight_ver2.tar
