@@ -2,7 +2,7 @@
 ./gdrive account import gdrive_export-dbd05088_naver_com.tar
 ./gdrive account switch dbd05088@naver.com
 
-# Required
+# # Required
 # mkdir -p NICO
 # ./gdrive files download 1eU5Nh4UrMXGYTCFS1y56K2ZFqV4-BX8g
 # tar -xf NICO_MA.tar -C NICO
