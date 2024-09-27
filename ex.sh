@@ -1,8 +1,11 @@
-# #!/bin/bash
-# #SBATCH -p suma_rtx4090
-# #SBATCH -q big_qos
-# #SBATCH --gres=gpu:1
-# ##SBATCH -c 32
+#!/bin/bash
+#SBATCH -p suma_rtx4090
+##SBATCH -q big_qos
+#SBATCH --job-name=P_v_50_2_eq
+#SBATCH --output=logs/%x_%j.out
+#SBATCH --gres=gpu:1
+#SBATCH --exclude=node37
+##SBATCH -c 32
 
 # ulimit -u 200000
 # source ~/.bashrc
