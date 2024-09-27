@@ -8,10 +8,12 @@ os.system("./gdrive account import gdrive_export-dbd05088_naver_com.tar")
 os.system("./gdrive account switch dbd05088@naver.com")
 
 # Files to upload
-dataset = "PACS_final"
+dataset = "NICO"
 create_tar = True
 files = [
-    "PACS_final_dynamic_50_new"
+    "NICO_50_2_sdxl",
+    "NICO_50_3_sdxl",
+    "NICO_50_4_sdxl",
 ]
 # Change path
 files = [os.path.join(dataset, file) for file in files]

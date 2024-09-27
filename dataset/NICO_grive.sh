@@ -95,7 +95,17 @@
 # rm NICO_sdxl_5.tar
 # rm NICO_sdxl_6.tar
 
-# NICO LE diversified (0914)
-./gdrive files download 1Zvlnecm_7RvgCUC3e5jQna7BgRRVlP9X # NICO_LE_diversified
-tar -xf NICO_LE_diversified.tar -C NICO
-rm NICO_LE_diversified.tar
+# # NICO LE diversified (0914)
+# ./gdrive files download 1Zvlnecm_7RvgCUC3e5jQna7BgRRVlP9X # NICO_LE_diversified
+# tar -xf NICO_LE_diversified.tar -C NICO
+# rm NICO_LE_diversified.tar
+
+./gdrive files download 1Z1gCCg4eU8-QmsDacDWfFn57tULTgbwt # NICO_50_2_sdxl
+./gdrive files download 1xAhIE2wlohg9gAqQ5a52XDuaELjHUkOt # NICO_50_3_sdxl
+./gdrive files download 1yp_g2V-J8-ARNbxj8rNlsZ2PXMSepsUE # NICO_50_4_sdxl
+tar -xf NICO_50_2_sdxl.tar -C NICO
+tar -xf NICO_50_3_sdxl.tar -C NICO
+tar -xf NICO_50_4_sdxl.tar -C NICO
+rm NICO_50_2_sdxl.tar
+rm NICO_50_3_sdxl.tar
+rm NICO_50_4_sdxl.tar
