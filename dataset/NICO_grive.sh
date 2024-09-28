@@ -111,19 +111,30 @@
 # rm NICO_50_3_sdxl.tar
 # rm NICO_50_4_sdxl.tar
 
-# NICO prompt diversification (synclr, synthclip, fake_f, LE, sdbp)
-./gdrive files download 1Lc31gXUgr5mgmJZcbFp_D3QA5khxHI5m # NICO_synclr_sdxl
-./gdrive files download 1QVHNpAt2X9AfchiwRMYtnovuYtIkPVk2 # NICO_synthclip_sdxl
-./gdrive files download 1Y63gWXwOpeCM4XHVKqd60z2V-mFTLQzh # NICO_fake_f_sdxl
-./gdrive files download 1ZNb5kUWUqikqvVadZ4_MEGNR_NOTSk-- # NICO_LE_sdxl
-./gdrive files download 1ol88XfZWbPGy5bj3VwUqngrSTwvlPLet # NICO_sdbp_sdxl
-tar -xf NICO_synclr_sdxl.tar -C NICO
-tar -xf NICO_synthclip_sdxl.tar -C NICO
-tar -xf NICO_fake_f_sdxl.tar -C NICO
-tar -xf NICO_LE_sdxl.tar -C NICO
-tar -xf NICO_sdbp_sdxl.tar -C NICO
-rm NICO_synclr_sdxl.tar
-rm NICO_synthclip_sdxl.tar
-rm NICO_fake_f_sdxl.tar
-rm NICO_LE_sdxl.tar
-rm NICO_sdbp_sdxl.tar
+# # NICO prompt diversification (synclr, synthclip, fake_f, LE, sdbp)
+# ./gdrive files download 1Lc31gXUgr5mgmJZcbFp_D3QA5khxHI5m # NICO_synclr_sdxl
+# ./gdrive files download 1QVHNpAt2X9AfchiwRMYtnovuYtIkPVk2 # NICO_synthclip_sdxl
+# ./gdrive files download 1Y63gWXwOpeCM4XHVKqd60z2V-mFTLQzh # NICO_fake_f_sdxl
+# ./gdrive files download 1ZNb5kUWUqikqvVadZ4_MEGNR_NOTSk-- # NICO_LE_sdxl
+# ./gdrive files download 1ol88XfZWbPGy5bj3VwUqngrSTwvlPLet # NICO_sdbp_sdxl
+# tar -xf NICO_synclr_sdxl.tar -C NICO
+# tar -xf NICO_synthclip_sdxl.tar -C NICO
+# tar -xf NICO_fake_f_sdxl.tar -C NICO
+# tar -xf NICO_LE_sdxl.tar -C NICO
+# tar -xf NICO_sdbp_sdxl.tar -C NICO
+# rm NICO_synclr_sdxl.tar
+# rm NICO_synthclip_sdxl.tar
+# rm NICO_fake_f_sdxl.tar
+# rm NICO_LE_sdxl.tar
+# rm NICO_sdbp_sdxl.tar
+
+# NICO RMD, fake_f, synclr, synthclip
+./gdrive files download 1zshsy2TLYyg1OqbUQJDHghJwFDLf1u5q # NICO_fake_f_sdxl_floyd_cogview2_sd3_auraflow
+./gdrive files download 1d7DvxBTlEgpwZry3CC0E0lVZfRZR9xDj # NICO_synclr_sdxl_floyd_cogview2_sd3_auraflow
+./gdrive files download 1A8LWAdmndyWu8bbgHCYu19ZF5CGK98q2 # NICO_synthclip_sdxl_floyd_cogview2_sd3_auraflow
+tar -xf NICO_fake_f_sdxl_floyd_cogview2_sd3_auraflow.tar -C NICO
+tar -xf NICO_synclr_sdxl_floyd_cogview2_sd3_auraflow.tar -C NICO
+tar -xf NICO_synthclip_sdxl_floyd_cogview2_sd3_auraflow.tar -C NICO
+rm NICO_fake_f_sdxl_floyd_cogview2_sd3_auraflow.tar
+rm NICO_synclr_sdxl_floyd_cogview2_sd3_auraflow.tar
+rm NICO_synthclip_sdxl_floyd_cogview2_sd3_auraflow.tar
