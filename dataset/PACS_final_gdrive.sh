@@ -1484,40 +1484,78 @@
 # rm PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_95.tar
 # rm PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_flux_auraflow_95.tar
 
-# wflux, woflux 20epoch
-./gdrive files download 1OZtaA3PC_6IUcGK25DhnpuRdfAzH7SaV # PACS_final_cot_50_2_wflux_DINO_base_Uncertainty_20_0.0001
-./gdrive files download 18uh7JlsZHRjuLKqia542uVlixkMcM6vD # PACS_final_cot_50_2_wflux_DINO_base_Submodular_20_0.0001
-./gdrive files download 110Fo_noCs2f425lmwmAaC8tlkLbEbeLI # PACS_final_cot_50_2_wflux_DINO_base_GradMatch_20_0.0001
-./gdrive files download 1ZeOEY1TaAwksLfMGRcAhqatl5Z3tnHvd # PACS_final_cot_50_2_wflux_DINO_base_Glister_20_0.0001
-./gdrive files download 1ujBKpdczpdNWVeqDUja-o9T3-K9b1KrT # PACS_final_cot_50_2_wflux_DINO_base_CurvMatch_20_0.0001
-./gdrive files download 1Ap5DkrY_x_9YY0jBuhWhyVd8VjfmcZD8 # PACS_final_cot_50_2_wflux_DINO_base_Adacore_20_0.0001
-./gdrive files download 11LQ5kJ-fgSc2EJeNj2cUdW68KKvkyK_l # PACS_final_cot_50_2_woflux_DINO_base_Uncertainty_20_0.0001
-./gdrive files download 190T74dj-cPDzo_hvXa1eyKFLnl6ss13y # PACS_final_cot_50_2_woflux_DINO_base_Submodular_20_0.0001
-./gdrive files download 1Oc5jjPvaqt_OEkvpPc10zdyW6y8_m4lS # PACS_final_cot_50_2_woflux_DINO_base_GradMatch_20_0.0001
-./gdrive files download 1LjqOxucVOiCvJjDkYL7unxC_9kFpgs7T # PACS_final_cot_50_2_woflux_DINO_base_Glister_20_0.0001
-./gdrive files download 1ffFqEdDOoPAiY9QFzAPASLs78kmrfg-e # PACS_final_cot_50_2_woflux_DINO_base_CurvMatch_20_0.0001
-./gdrive files download 1B4gJsj32lAYLK1ahkFsZ5c8EalJ34KK0 # PACS_final_cot_50_2_woflux_DINO_base_Adacore_20_0.0001
-tar -xf PACS_final_cot_50_2_wflux_DINO_base_Uncertainty_20_0.0001.tar -C PACS_final
-tar -xf PACS_final_cot_50_2_wflux_DINO_base_Submodular_20_0.0001.tar -C PACS_final
-tar -xf PACS_final_cot_50_2_wflux_DINO_base_GradMatch_20_0.0001.tar -C PACS_final
-tar -xf PACS_final_cot_50_2_wflux_DINO_base_Glister_20_0.0001.tar -C PACS_final
-tar -xf PACS_final_cot_50_2_wflux_DINO_base_CurvMatch_20_0.0001.tar -C PACS_final
-tar -xf PACS_final_cot_50_2_wflux_DINO_base_Adacore_20_0.0001.tar -C PACS_final
-tar -xf PACS_final_cot_50_2_woflux_DINO_base_Uncertainty_20_0.0001.tar -C PACS_final
-tar -xf PACS_final_cot_50_2_woflux_DINO_base_Submodular_20_0.0001.tar -C PACS_final
-tar -xf PACS_final_cot_50_2_woflux_DINO_base_GradMatch_20_0.0001.tar -C PACS_final
-tar -xf PACS_final_cot_50_2_woflux_DINO_base_Glister_20_0.0001.tar -C PACS_final
-tar -xf PACS_final_cot_50_2_woflux_DINO_base_CurvMatch_20_0.0001.tar -C PACS_final
-tar -xf PACS_final_cot_50_2_woflux_DINO_base_Adacore_20_0.0001.tar -C PACS_final
-rm PACS_final_cot_50_2_wflux_DINO_base_Uncertainty_20_0.0001.tar
-rm PACS_final_cot_50_2_wflux_DINO_base_Submodular_20_0.0001.tar
-rm PACS_final_cot_50_2_wflux_DINO_base_GradMatch_20_0.0001.tar
-rm PACS_final_cot_50_2_wflux_DINO_base_Glister_20_0.0001.tar
-rm PACS_final_cot_50_2_wflux_DINO_base_CurvMatch_20_0.0001.tar
-rm PACS_final_cot_50_2_wflux_DINO_base_Adacore_20_0.0001.tar
-rm PACS_final_cot_50_2_woflux_DINO_base_Uncertainty_20_0.0001.tar
-rm PACS_final_cot_50_2_woflux_DINO_base_Submodular_20_0.0001.tar
-rm PACS_final_cot_50_2_woflux_DINO_base_GradMatch_20_0.0001.tar
-rm PACS_final_cot_50_2_woflux_DINO_base_Glister_20_0.0001.tar
-rm PACS_final_cot_50_2_woflux_DINO_base_CurvMatch_20_0.0001.tar
-rm PACS_final_cot_50_2_woflux_DINO_base_Adacore_20_0.0001.tar
+# # wflux, woflux 20epoch
+# ./gdrive files download 1OZtaA3PC_6IUcGK25DhnpuRdfAzH7SaV # PACS_final_cot_50_2_wflux_DINO_base_Uncertainty_20_0.0001
+# ./gdrive files download 18uh7JlsZHRjuLKqia542uVlixkMcM6vD # PACS_final_cot_50_2_wflux_DINO_base_Submodular_20_0.0001
+# ./gdrive files download 110Fo_noCs2f425lmwmAaC8tlkLbEbeLI # PACS_final_cot_50_2_wflux_DINO_base_GradMatch_20_0.0001
+# ./gdrive files download 1ZeOEY1TaAwksLfMGRcAhqatl5Z3tnHvd # PACS_final_cot_50_2_wflux_DINO_base_Glister_20_0.0001
+# ./gdrive files download 1ujBKpdczpdNWVeqDUja-o9T3-K9b1KrT # PACS_final_cot_50_2_wflux_DINO_base_CurvMatch_20_0.0001
+# ./gdrive files download 1Ap5DkrY_x_9YY0jBuhWhyVd8VjfmcZD8 # PACS_final_cot_50_2_wflux_DINO_base_Adacore_20_0.0001
+# ./gdrive files download 11LQ5kJ-fgSc2EJeNj2cUdW68KKvkyK_l # PACS_final_cot_50_2_woflux_DINO_base_Uncertainty_20_0.0001
+# ./gdrive files download 190T74dj-cPDzo_hvXa1eyKFLnl6ss13y # PACS_final_cot_50_2_woflux_DINO_base_Submodular_20_0.0001
+# ./gdrive files download 1Oc5jjPvaqt_OEkvpPc10zdyW6y8_m4lS # PACS_final_cot_50_2_woflux_DINO_base_GradMatch_20_0.0001
+# ./gdrive files download 1LjqOxucVOiCvJjDkYL7unxC_9kFpgs7T # PACS_final_cot_50_2_woflux_DINO_base_Glister_20_0.0001
+# ./gdrive files download 1ffFqEdDOoPAiY9QFzAPASLs78kmrfg-e # PACS_final_cot_50_2_woflux_DINO_base_CurvMatch_20_0.0001
+# ./gdrive files download 1B4gJsj32lAYLK1ahkFsZ5c8EalJ34KK0 # PACS_final_cot_50_2_woflux_DINO_base_Adacore_20_0.0001
+# tar -xf PACS_final_cot_50_2_wflux_DINO_base_Uncertainty_20_0.0001.tar -C PACS_final
+# tar -xf PACS_final_cot_50_2_wflux_DINO_base_Submodular_20_0.0001.tar -C PACS_final
+# tar -xf PACS_final_cot_50_2_wflux_DINO_base_GradMatch_20_0.0001.tar -C PACS_final
+# tar -xf PACS_final_cot_50_2_wflux_DINO_base_Glister_20_0.0001.tar -C PACS_final
+# tar -xf PACS_final_cot_50_2_wflux_DINO_base_CurvMatch_20_0.0001.tar -C PACS_final
+# tar -xf PACS_final_cot_50_2_wflux_DINO_base_Adacore_20_0.0001.tar -C PACS_final
+# tar -xf PACS_final_cot_50_2_woflux_DINO_base_Uncertainty_20_0.0001.tar -C PACS_final
+# tar -xf PACS_final_cot_50_2_woflux_DINO_base_Submodular_20_0.0001.tar -C PACS_final
+# tar -xf PACS_final_cot_50_2_woflux_DINO_base_GradMatch_20_0.0001.tar -C PACS_final
+# tar -xf PACS_final_cot_50_2_woflux_DINO_base_Glister_20_0.0001.tar -C PACS_final
+# tar -xf PACS_final_cot_50_2_woflux_DINO_base_CurvMatch_20_0.0001.tar -C PACS_final
+# tar -xf PACS_final_cot_50_2_woflux_DINO_base_Adacore_20_0.0001.tar -C PACS_final
+# rm PACS_final_cot_50_2_wflux_DINO_base_Uncertainty_20_0.0001.tar
+# rm PACS_final_cot_50_2_wflux_DINO_base_Submodular_20_0.0001.tar
+# rm PACS_final_cot_50_2_wflux_DINO_base_GradMatch_20_0.0001.tar
+# rm PACS_final_cot_50_2_wflux_DINO_base_Glister_20_0.0001.tar
+# rm PACS_final_cot_50_2_wflux_DINO_base_CurvMatch_20_0.0001.tar
+# rm PACS_final_cot_50_2_wflux_DINO_base_Adacore_20_0.0001.tar
+# rm PACS_final_cot_50_2_woflux_DINO_base_Uncertainty_20_0.0001.tar
+# rm PACS_final_cot_50_2_woflux_DINO_base_Submodular_20_0.0001.tar
+# rm PACS_final_cot_50_2_woflux_DINO_base_GradMatch_20_0.0001.tar
+# rm PACS_final_cot_50_2_woflux_DINO_base_Glister_20_0.0001.tar
+# rm PACS_final_cot_50_2_woflux_DINO_base_CurvMatch_20_0.0001.tar
+# rm PACS_final_cot_50_2_woflux_DINO_base_Adacore_20_0.0001.tar
+
+# Web new
+./gdrive files download 1O65R1A5Mj7GetXDpx3XudPUHP6og6ysn # PACS_final_bing_large_wofilter
+./gdrive files download 1OMmbCKiTOn6dlcxaDsX2kN5SD9npvI00 # PACS_final_bing_wofilter
+./gdrive files download 1_v22fW7m-fGKG_5c--S_ulwGQG7evIF0 # PACS_final_flickr_large_wofilter
+./gdrive files download 1xz49D-B90dVfDu_CPI0OpPIX-I5wZ-Ac # PACS_final_flickr_wofilter
+./gdrive files download 1_4B2Ww38vnzPUmqbRPUlCVrIfQ9OaTIx # PACS_final_google_large_wofilter
+./gdrive files download 1HgdrD8nISKkQketyHRs9MhxwKYuL3btt # PACS_final_google_wofilter
+./gdrive files download 18XBjEHSKZmgv_uOl4sS0-yc481wJN4vA # PACS_final_bing_large_wfilter
+./gdrive files download 1qoLRcGTK8tiibhHjlmd9gTrBRRJfetAk # PACS_final_bing_wfilter
+./gdrive files download 15NyPX7bbIglQwWNqkHKrLNGY08N7QjLc # PACS_final_flickr_large_wfilter
+./gdrive files download 1UDQ68hGjmyTAFInrYovPHaDTa5E-gH9a # PACS_final_flickr_wfilter
+./gdrive files download 1FbVB5GefoxvZWqsyG5h55cZ13jIFAckI # PACS_final_google_large_wfilter
+./gdrive files download 18T5JdBrqgxDP9HObO85tdKCddPNx9BtL # PACS_final_google_wfilter
+tar -xf PACS_final_bing_large_wofilter.tar -C PACS_final
+tar -xf PACS_final_bing_wofilter.tar -C PACS_final
+tar -xf PACS_final_flickr_large_wofilter.tar -C PACS_final
+tar -xf PACS_final_flickr_wofilter.tar -C PACS_final
+tar -xf PACS_final_google_large_wofilter.tar -C PACS_final
+tar -xf PACS_final_google_wofilter.tar -C PACS_final
+tar -xf PACS_final_bing_large_wfilter.tar -C PACS_final
+tar -xf PACS_final_bing_wfilter.tar -C PACS_final
+tar -xf PACS_final_flickr_large_wfilter.tar -C PACS_final
+tar -xf PACS_final_flickr_wfilter.tar -C PACS_final
+tar -xf PACS_final_google_large_wfilter.tar -C PACS_final
+tar -xf PACS_final_google_wfilter.tar -C PACS_final
+rm PACS_final_bing_large_wofilter.tar
+rm PACS_final_bing_wofilter.tar
+rm PACS_final_flickr_large_wofilter.tar
+rm PACS_final_flickr_wofilter.tar
+rm PACS_final_google_large_wofilter.tar
+rm PACS_final_google_wofilter.tar
+rm PACS_final_bing_large_wfilter.tar
+rm PACS_final_bing_wfilter.tar
+rm PACS_final_flickr_large_wfilter.tar
+rm PACS_final_flickr_wfilter.tar
+rm PACS_final_google_large_wfilter.tar
+rm PACS_final_google_wfilter.tar
