@@ -30,10 +30,10 @@ BottomK = False
 INVERSE = False
 TEMPERATURE = 0.5
 
-prompt_json_path = '../../nameonly/prompt_generation/prompts/generated_LLM_sdxl_ver2.json'
+prompt_json_path = '../../nameonly/prompt_generation/prompts/generated_LE_ver1.json'
 base_path = './'
-json_path = './RMD_scores/generated_LLM_sdxl_ver2_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.json'
-target_path = './images/generated_LLM_ver2_RMD'
+json_path = './RMD_scores/generated_LE_ver1_sdxl_floyd_cogview2_sd3_auraflow.json'
+target_path = './images/generated_LE_ver1_RMD'
 
 prompt_json = json.load(open(prompt_json_path, 'r'))
 with open(json_path, 'r') as f:
@@ -51,8 +51,8 @@ for model in models:
 
 # Get object list
 first_model = next(iter(PATH_dict)); first_path = PATH_dict[first_model]
-# uids = os.listdir(first_path)
-uids = ['225', '1095']
+uids = os.listdir(first_path)
+# uids = ['225', '1095']
 
 # Shuffle the images
 for model in PATH_dict.keys():

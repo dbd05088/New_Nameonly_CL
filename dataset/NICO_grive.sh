@@ -100,12 +100,30 @@
 # tar -xf NICO_LE_diversified.tar -C NICO
 # rm NICO_LE_diversified.tar
 
-./gdrive files download 1Z1gCCg4eU8-QmsDacDWfFn57tULTgbwt # NICO_50_2_sdxl
-./gdrive files download 1xAhIE2wlohg9gAqQ5a52XDuaELjHUkOt # NICO_50_3_sdxl
-./gdrive files download 1yp_g2V-J8-ARNbxj8rNlsZ2PXMSepsUE # NICO_50_4_sdxl
-tar -xf NICO_50_2_sdxl.tar -C NICO
-tar -xf NICO_50_3_sdxl.tar -C NICO
-tar -xf NICO_50_4_sdxl.tar -C NICO
-rm NICO_50_2_sdxl.tar
-rm NICO_50_3_sdxl.tar
-rm NICO_50_4_sdxl.tar
+# NICO prompt test
+# ./gdrive files download 1Z1gCCg4eU8-QmsDacDWfFn57tULTgbwt # NICO_50_2_sdxl
+# ./gdrive files download 1xAhIE2wlohg9gAqQ5a52XDuaELjHUkOt # NICO_50_3_sdxl
+# ./gdrive files download 1yp_g2V-J8-ARNbxj8rNlsZ2PXMSepsUE # NICO_50_4_sdxl
+# tar -xf NICO_50_2_sdxl.tar -C NICO
+# tar -xf NICO_50_3_sdxl.tar -C NICO
+# tar -xf NICO_50_4_sdxl.tar -C NICO
+# rm NICO_50_2_sdxl.tar
+# rm NICO_50_3_sdxl.tar
+# rm NICO_50_4_sdxl.tar
+
+# NICO prompt diversification (synclr, synthclip, fake_f, LE, sdbp)
+./gdrive files download 1Lc31gXUgr5mgmJZcbFp_D3QA5khxHI5m # NICO_synclr_sdxl
+./gdrive files download 1QVHNpAt2X9AfchiwRMYtnovuYtIkPVk2 # NICO_synthclip_sdxl
+./gdrive files download 1Y63gWXwOpeCM4XHVKqd60z2V-mFTLQzh # NICO_fake_f_sdxl
+./gdrive files download 1ZNb5kUWUqikqvVadZ4_MEGNR_NOTSk-- # NICO_LE_sdxl
+./gdrive files download 1ol88XfZWbPGy5bj3VwUqngrSTwvlPLet # NICO_sdbp_sdxl
+tar -xf NICO_synclr_sdxl.tar -C NICO
+tar -xf NICO_synthclip_sdxl.tar -C NICO
+tar -xf NICO_fake_f_sdxl.tar -C NICO
+tar -xf NICO_LE_sdxl.tar -C NICO
+tar -xf NICO_sdbp_sdxl.tar -C NICO
+rm NICO_synclr_sdxl.tar
+rm NICO_synthclip_sdxl.tar
+rm NICO_fake_f_sdxl.tar
+rm NICO_LE_sdxl.tar
+rm NICO_sdbp_sdxl.tar

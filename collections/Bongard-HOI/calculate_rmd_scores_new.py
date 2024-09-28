@@ -126,17 +126,15 @@ def softmax_with_temperature(z, T):
 if __name__ == "__main__":
     # object1/action1, object1/action2, ..., object2/action1, object2/action2, ...
     NUM_POS_ACTIONS = 7
-    prompt_json_path = '../../nameonly/prompt_generation/prompts/generated_LLM_sdxl_ver3.json'
+    prompt_json_path = '../../nameonly/prompt_generation/prompts/generated_LE_ver1.json'
     image_paths = {
-        'sdxl': './images/generated_LLM_sdxl_ver3',
-        'floyd': './images/generated_LLM_floyd_ver3',
-        'cogview2': './images/generated_LLM_cogview2_ver3',
-        'sd3': './images/generated_LLM_sd3_ver3',
-        'flux': './images/generated_LLM_flux_ver3',
-        'kolors': './images/generated_LLM_kolors_ver3',
-        'auraflow': './images/generated_LLM_auraflow_ver3',
+        'sdxl': './images/generated_LE_ver1_sdxl',
+        'floyd': './images/generated_LE_ver1_floyd',
+        'cogview2': './images/generated_LE_ver1_cogview2',
+        'sd3': './images/generated_LE_ver1_sd3',
+        'auraflow': './images/generated_LE_ver1_auraflow',
     }
-    json_save_path = './RMD_scores/generated_LLM_sdxl_ver3_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.json'
+    json_save_path = './RMD_scores/generated_LE_ver1_sdxl_floyd_cogview2_sd3_auraflow.json'
     prompt_json = json.load(open(prompt_json_path, 'r'))
     
     # Convert prompt dictionary mapping to key - value pairs
