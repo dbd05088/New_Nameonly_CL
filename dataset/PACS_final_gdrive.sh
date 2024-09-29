@@ -1522,40 +1522,44 @@
 # rm PACS_final_cot_50_2_woflux_DINO_base_CurvMatch_20_0.0001.tar
 # rm PACS_final_cot_50_2_woflux_DINO_base_Adacore_20_0.0001.tar
 
-# Web new
-./gdrive files download 1O65R1A5Mj7GetXDpx3XudPUHP6og6ysn # PACS_final_bing_large_wofilter
-./gdrive files download 1OMmbCKiTOn6dlcxaDsX2kN5SD9npvI00 # PACS_final_bing_wofilter
-./gdrive files download 1_v22fW7m-fGKG_5c--S_ulwGQG7evIF0 # PACS_final_flickr_large_wofilter
-./gdrive files download 1xz49D-B90dVfDu_CPI0OpPIX-I5wZ-Ac # PACS_final_flickr_wofilter
-./gdrive files download 1_4B2Ww38vnzPUmqbRPUlCVrIfQ9OaTIx # PACS_final_google_large_wofilter
-./gdrive files download 1HgdrD8nISKkQketyHRs9MhxwKYuL3btt # PACS_final_google_wofilter
-./gdrive files download 18XBjEHSKZmgv_uOl4sS0-yc481wJN4vA # PACS_final_bing_large_wfilter
-./gdrive files download 1qoLRcGTK8tiibhHjlmd9gTrBRRJfetAk # PACS_final_bing_wfilter
-./gdrive files download 15NyPX7bbIglQwWNqkHKrLNGY08N7QjLc # PACS_final_flickr_large_wfilter
-./gdrive files download 1UDQ68hGjmyTAFInrYovPHaDTa5E-gH9a # PACS_final_flickr_wfilter
-./gdrive files download 1FbVB5GefoxvZWqsyG5h55cZ13jIFAckI # PACS_final_google_large_wfilter
-./gdrive files download 18T5JdBrqgxDP9HObO85tdKCddPNx9BtL # PACS_final_google_wfilter
-tar -xf PACS_final_bing_large_wofilter.tar -C PACS_final
-tar -xf PACS_final_bing_wofilter.tar -C PACS_final
-tar -xf PACS_final_flickr_large_wofilter.tar -C PACS_final
-tar -xf PACS_final_flickr_wofilter.tar -C PACS_final
-tar -xf PACS_final_google_large_wofilter.tar -C PACS_final
-tar -xf PACS_final_google_wofilter.tar -C PACS_final
-tar -xf PACS_final_bing_large_wfilter.tar -C PACS_final
-tar -xf PACS_final_bing_wfilter.tar -C PACS_final
-tar -xf PACS_final_flickr_large_wfilter.tar -C PACS_final
-tar -xf PACS_final_flickr_wfilter.tar -C PACS_final
-tar -xf PACS_final_google_large_wfilter.tar -C PACS_final
-tar -xf PACS_final_google_wfilter.tar -C PACS_final
-rm PACS_final_bing_large_wofilter.tar
-rm PACS_final_bing_wofilter.tar
-rm PACS_final_flickr_large_wofilter.tar
-rm PACS_final_flickr_wofilter.tar
-rm PACS_final_google_large_wofilter.tar
-rm PACS_final_google_wofilter.tar
-rm PACS_final_bing_large_wfilter.tar
-rm PACS_final_bing_wfilter.tar
-rm PACS_final_flickr_large_wfilter.tar
-rm PACS_final_flickr_wfilter.tar
-rm PACS_final_google_large_wfilter.tar
-rm PACS_final_google_wfilter.tar
+# # Web new
+# ./gdrive files download 1O65R1A5Mj7GetXDpx3XudPUHP6og6ysn # PACS_final_bing_large_wofilter
+# ./gdrive files download 1OMmbCKiTOn6dlcxaDsX2kN5SD9npvI00 # PACS_final_bing_wofilter
+# ./gdrive files download 1_v22fW7m-fGKG_5c--S_ulwGQG7evIF0 # PACS_final_flickr_large_wofilter
+# ./gdrive files download 1xz49D-B90dVfDu_CPI0OpPIX-I5wZ-Ac # PACS_final_flickr_wofilter
+# ./gdrive files download 1_4B2Ww38vnzPUmqbRPUlCVrIfQ9OaTIx # PACS_final_google_large_wofilter
+# ./gdrive files download 1HgdrD8nISKkQketyHRs9MhxwKYuL3btt # PACS_final_google_wofilter
+# ./gdrive files download 18XBjEHSKZmgv_uOl4sS0-yc481wJN4vA # PACS_final_bing_large_wfilter
+# ./gdrive files download 1qoLRcGTK8tiibhHjlmd9gTrBRRJfetAk # PACS_final_bing_wfilter
+# ./gdrive files download 15NyPX7bbIglQwWNqkHKrLNGY08N7QjLc # PACS_final_flickr_large_wfilter
+# ./gdrive files download 1UDQ68hGjmyTAFInrYovPHaDTa5E-gH9a # PACS_final_flickr_wfilter
+# ./gdrive files download 1FbVB5GefoxvZWqsyG5h55cZ13jIFAckI # PACS_final_google_large_wfilter
+# ./gdrive files download 18T5JdBrqgxDP9HObO85tdKCddPNx9BtL # PACS_final_google_wfilter
+# tar -xf PACS_final_bing_large_wofilter.tar -C PACS_final
+# tar -xf PACS_final_bing_wofilter.tar -C PACS_final
+# tar -xf PACS_final_flickr_large_wofilter.tar -C PACS_final
+# tar -xf PACS_final_flickr_wofilter.tar -C PACS_final
+# tar -xf PACS_final_google_large_wofilter.tar -C PACS_final
+# tar -xf PACS_final_google_wofilter.tar -C PACS_final
+# tar -xf PACS_final_bing_large_wfilter.tar -C PACS_final
+# tar -xf PACS_final_bing_wfilter.tar -C PACS_final
+# tar -xf PACS_final_flickr_large_wfilter.tar -C PACS_final
+# tar -xf PACS_final_flickr_wfilter.tar -C PACS_final
+# tar -xf PACS_final_google_large_wfilter.tar -C PACS_final
+# tar -xf PACS_final_google_wfilter.tar -C PACS_final
+# rm PACS_final_bing_large_wofilter.tar
+# rm PACS_final_bing_wofilter.tar
+# rm PACS_final_flickr_large_wofilter.tar
+# rm PACS_final_flickr_wofilter.tar
+# rm PACS_final_google_large_wofilter.tar
+# rm PACS_final_google_wofilter.tar
+# rm PACS_final_bing_large_wfilter.tar
+# rm PACS_final_bing_wfilter.tar
+# rm PACS_final_flickr_large_wfilter.tar
+# rm PACS_final_flickr_wfilter.tar
+# rm PACS_final_google_large_wfilter.tar
+# rm PACS_final_google_wfilter.tar
+
+./gdrive files download 1HXnpsFGHGkEWRgkZgZzd3d33w5V0c1rj # PACS_final_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_auraflow_equalweight
+tar -xf PACS_final_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar -C PACS_final
+rm PACS_final_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar
