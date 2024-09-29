@@ -526,10 +526,14 @@
 # tar -xf DomainNet_dynamic_50_sdxl.tar -C DomainNet
 # rm DomainNet_dynamic_50_sdxl.tar
 
-# DomainNet equalweight ver6, ver7
-./gdrive files download 1fcnDDA8OVuXI2XM4nEF0USDTSkSJpMMe # DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_ver6
-./gdrive files download 1koZAf5mNldBOpGsxmmw9EEDSP4lfbEsT # DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_ver7
-tar -xf DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_ver6.tar -C DomainNet
-tar -xf DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_ver7.tar -C DomainNet
-rm DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_ver6.tar
-rm DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_ver7.tar
+# # DomainNet equalweight ver6, ver7
+# ./gdrive files download 1fcnDDA8OVuXI2XM4nEF0USDTSkSJpMMe # DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_ver6
+# ./gdrive files download 1koZAf5mNldBOpGsxmmw9EEDSP4lfbEsT # DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_ver7
+# tar -xf DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_ver6.tar -C DomainNet
+# tar -xf DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_ver7.tar -C DomainNet
+# rm DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_ver6.tar
+# rm DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_ver7.tar
+
+./gdrive files download 14BKE63_O5cxOxM9_xpCoSght2BlNKVrK # DomainNet_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_auraflow_equalweight
+tar -xf DomainNet_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar -C DomainNet
+rm DomainNet_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar
