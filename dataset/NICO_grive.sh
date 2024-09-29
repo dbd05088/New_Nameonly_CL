@@ -128,13 +128,24 @@
 # rm NICO_LE_sdxl.tar
 # rm NICO_sdbp_sdxl.tar
 
-# NICO RMD, fake_f, synclr, synthclip
-./gdrive files download 1zshsy2TLYyg1OqbUQJDHghJwFDLf1u5q # NICO_fake_f_sdxl_floyd_cogview2_sd3_auraflow
-./gdrive files download 1d7DvxBTlEgpwZry3CC0E0lVZfRZR9xDj # NICO_synclr_sdxl_floyd_cogview2_sd3_auraflow
-./gdrive files download 1A8LWAdmndyWu8bbgHCYu19ZF5CGK98q2 # NICO_synthclip_sdxl_floyd_cogview2_sd3_auraflow
-tar -xf NICO_fake_f_sdxl_floyd_cogview2_sd3_auraflow.tar -C NICO
-tar -xf NICO_synclr_sdxl_floyd_cogview2_sd3_auraflow.tar -C NICO
-tar -xf NICO_synthclip_sdxl_floyd_cogview2_sd3_auraflow.tar -C NICO
-rm NICO_fake_f_sdxl_floyd_cogview2_sd3_auraflow.tar
-rm NICO_synclr_sdxl_floyd_cogview2_sd3_auraflow.tar
-rm NICO_synthclip_sdxl_floyd_cogview2_sd3_auraflow.tar
+# # NICO RMD, fake_f, synclr, synthclip
+# ./gdrive files download 1zshsy2TLYyg1OqbUQJDHghJwFDLf1u5q # NICO_fake_f_sdxl_floyd_cogview2_sd3_auraflow
+# ./gdrive files download 1d7DvxBTlEgpwZry3CC0E0lVZfRZR9xDj # NICO_synclr_sdxl_floyd_cogview2_sd3_auraflow
+# ./gdrive files download 1A8LWAdmndyWu8bbgHCYu19ZF5CGK98q2 # NICO_synthclip_sdxl_floyd_cogview2_sd3_auraflow
+# tar -xf NICO_fake_f_sdxl_floyd_cogview2_sd3_auraflow.tar -C NICO
+# tar -xf NICO_synclr_sdxl_floyd_cogview2_sd3_auraflow.tar -C NICO
+# tar -xf NICO_synthclip_sdxl_floyd_cogview2_sd3_auraflow.tar -C NICO
+# rm NICO_fake_f_sdxl_floyd_cogview2_sd3_auraflow.tar
+# rm NICO_synclr_sdxl_floyd_cogview2_sd3_auraflow.tar
+# rm NICO_synthclip_sdxl_floyd_cogview2_sd3_auraflow.tar
+
+# NICO new prompts
+./gdrive files download 1V_qkZvMIS6p2I36P6PBud_4ESrF4SthG # NICO_50_1_sdxl
+./gdrive files download 1NolnaKhP7yRWeYzR6Nz9YwGmr5MN07Wo # NICO_50_5_sdxl
+./gdrive files download 1wnUdVhJH5Io05CtU4_c2U8X9iLBgT5y5 # NICO_50_12_sdxl
+tar -xf NICO_50_1_sdxl.tar -C NICO
+tar -xf NICO_50_5_sdxl.tar -C NICO
+tar -xf NICO_50_12_sdxl.tar -C NICO
+rm NICO_50_1_sdxl.tar
+rm NICO_50_5_sdxl.tar
+rm NICO_50_12_sdxl.tar
