@@ -1,11 +1,13 @@
 import pickle
 import json
+import random
 from classes import *
 
-dataset_count = DomainNet_count
-pickle_path = './prompts/prompt_LE_DomainNet.pkl'
-json_path = './prompts/LE_100_DomainNet.json'
+dataset_count = NICO_count
+pickle_path = './prompts/prompt_LE_NICO.pkl'
+json_path = './prompts/LE_NICO_new.json'
 LE_dict = pickle.load(open(pickle_path, 'rb'))
+NUM_PROMPTS = 50
 
 result_dict = {}
 for cls in dataset_count.keys():
@@ -19,7 +21,8 @@ for cls in dataset_count.keys():
         ]
     }
     
-    for i, prompt in enumerate(LE_dict[cls]):
+    prompts = random.sample(LE_dict[cls], NUM_PROMPTS)
+    for i, prompt in enumerate(prompts):
         result_dict[cls]["metaprompts"][0]["prompts"].append(
             {
                 "index": i,
