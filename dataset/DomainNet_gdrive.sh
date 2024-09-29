@@ -521,7 +521,15 @@
 # rm DomainNet_sdbp_wo_flux_DINO_base_Uncertainty_10_0.0001.tar
 # rm DomainNet_sdbp_wo_flux_CLIP_moderate.tar
 
-# DomainNet dynamic 50 sdxl
-./gdrive files download 1M-wT4kiVgX9t7TRCn1OFjC31e_cpdcAn # DomainNet_dynamic_50_sdxl
-tar -xf DomainNet_dynamic_50_sdxl.tar -C DomainNet
-rm DomainNet_dynamic_50_sdxl.tar
+# # DomainNet dynamic 50 sdxl
+# ./gdrive files download 1M-wT4kiVgX9t7TRCn1OFjC31e_cpdcAn # DomainNet_dynamic_50_sdxl
+# tar -xf DomainNet_dynamic_50_sdxl.tar -C DomainNet
+# rm DomainNet_dynamic_50_sdxl.tar
+
+# DomainNet equalweight ver6, ver7
+./gdrive files download 1fcnDDA8OVuXI2XM4nEF0USDTSkSJpMMe # DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_ver6
+./gdrive files download 1koZAf5mNldBOpGsxmmw9EEDSP4lfbEsT # DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_ver7
+tar -xf DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_ver6.tar -C DomainNet
+tar -xf DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_ver7.tar -C DomainNet
+rm DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_ver6.tar
+rm DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_ver7.tar
