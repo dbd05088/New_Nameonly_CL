@@ -1,0 +1,2102 @@
+{
+    "airplane": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A huge airplane is in full service."
+                    },
+                    {
+                        "index": 1,
+                        "content": "A man is putting a model airplane together."
+                    },
+                    {
+                        "index": 2,
+                        "content": "A young passenger airplane is flying high above an airplane at sea."
+                    },
+                    {
+                        "index": 3,
+                        "content": "an airplane is going to a port"
+                    },
+                    {
+                        "index": 4,
+                        "content": "Someone is flying an airplane."
+                    },
+                    {
+                        "index": 5,
+                        "content": "the airplane is flying."
+                    },
+                    {
+                        "index": 6,
+                        "content": "An airplane parked outside with windows closed."
+                    },
+                    {
+                        "index": 7,
+                        "content": "An airplane landed on a runway."
+                    },
+                    {
+                        "index": 8,
+                        "content": "A very small airplane in the sky."
+                    },
+                    {
+                        "index": 9,
+                        "content": "A young boy and an older woman are flying on an airplane."
+                    },
+                    {
+                        "index": 10,
+                        "content": "two people and a plane on the runway"
+                    },
+                    {
+                        "index": 11,
+                        "content": "An airplane parked in an airport."
+                    },
+                    {
+                        "index": 12,
+                        "content": "A commercial airplane is getting ready to depart."
+                    },
+                    {
+                        "index": 13,
+                        "content": "A airplane with a wing of it's."
+                    },
+                    {
+                        "index": 14,
+                        "content": "There is an airplane."
+                    },
+                    {
+                        "index": 15,
+                        "content": "A white airplane traveling along the tracks."
+                    },
+                    {
+                        "index": 16,
+                        "content": "an airplane is flying over the lake."
+                    },
+                    {
+                        "index": 17,
+                        "content": "airplane on the runway"
+                    },
+                    {
+                        "index": 18,
+                        "content": "Several a flying airplane that has exploded."
+                    },
+                    {
+                        "index": 19,
+                        "content": "an airplane is in the air for several hours."
+                    },
+                    {
+                        "index": 20,
+                        "content": "small airplane is really a huge asset to wing."
+                    },
+                    {
+                        "index": 21,
+                        "content": "A small airplane is going through some pretty rough patches."
+                    },
+                    {
+                        "index": 22,
+                        "content": "airplane is in flight for safety"
+                    },
+                    {
+                        "index": 23,
+                        "content": "The airplane is flying over the town."
+                    },
+                    {
+                        "index": 24,
+                        "content": "an airplane going flying over country"
+                    },
+                    {
+                        "index": 25,
+                        "content": "an airplane in a zebra flight"
+                    },
+                    {
+                        "index": 26,
+                        "content": "airplane and a water heater"
+                    },
+                    {
+                        "index": 27,
+                        "content": "A pair of airplanes parked at a tavern."
+                    },
+                    {
+                        "index": 28,
+                        "content": "An airplane has no roof."
+                    },
+                    {
+                        "index": 29,
+                        "content": "airplane in the sky"
+                    },
+                    {
+                        "index": 30,
+                        "content": "A small airplane that is parked beside a wall."
+                    },
+                    {
+                        "index": 31,
+                        "content": "A small airplane on a runway."
+                    },
+                    {
+                        "index": 32,
+                        "content": "airplane is a nice passenger airplane."
+                    },
+                    {
+                        "index": 33,
+                        "content": "airplane on a runway"
+                    },
+                    {
+                        "index": 34,
+                        "content": "The passengers on the airplane are getting used."
+                    },
+                    {
+                        "index": 35,
+                        "content": "a large passenger airplane in the harbor"
+                    },
+                    {
+                        "index": 36,
+                        "content": "airplanes in the air"
+                    },
+                    {
+                        "index": 37,
+                        "content": "An airplane in the gulf flying on an airstrip."
+                    },
+                    {
+                        "index": 38,
+                        "content": "a white airplane over a hill as well as aircraft"
+                    },
+                    {
+                        "index": 39,
+                        "content": "Airplanes of different configurations are parked"
+                    },
+                    {
+                        "index": 40,
+                        "content": "large airplane that makes the pier was a must"
+                    },
+                    {
+                        "index": 41,
+                        "content": "An airplane cruising along the runway."
+                    },
+                    {
+                        "index": 42,
+                        "content": "A man is getting ready for a flight with an airplane."
+                    },
+                    {
+                        "index": 43,
+                        "content": "airplane that is the longest aerodrome ever built and carries fuel on it."
+                    },
+                    {
+                        "index": 44,
+                        "content": "airplane on a green background"
+                    },
+                    {
+                        "index": 45,
+                        "content": "The airplane is on the runway and is flying over the clouds."
+                    },
+                    {
+                        "index": 46,
+                        "content": "airplane with a wing and antenna."
+                    },
+                    {
+                        "index": 47,
+                        "content": "airplane on the road"
+                    },
+                    {
+                        "index": 48,
+                        "content": "An airplane that is going around a port."
+                    },
+                    {
+                        "index": 49,
+                        "content": "An airplane in the distance with no roof as its passenger."
+                    }
+                ]
+            }
+        ]
+    },
+    "automobile": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "automobile make will make an autonomous automobile model last month."
+                    },
+                    {
+                        "index": 1,
+                        "content": "vehicle are a part of a collection of automobiles in the country"
+                    },
+                    {
+                        "index": 2,
+                        "content": "A group of automobiles that have rear brakes."
+                    },
+                    {
+                        "index": 3,
+                        "content": "automobile make looks more like a motorcycle than an automobile"
+                    },
+                    {
+                        "index": 4,
+                        "content": "an automobile is ready to go on sale in the stores"
+                    },
+                    {
+                        "index": 5,
+                        "content": "automobile is the largest automobile in the world."
+                    },
+                    {
+                        "index": 6,
+                        "content": "automobile make made this new product after a long summer."
+                    },
+                    {
+                        "index": 7,
+                        "content": "automobile make operates this brand"
+                    },
+                    {
+                        "index": 8,
+                        "content": "automobile make lowered its engine to allow all automobile make"
+                    },
+                    {
+                        "index": 9,
+                        "content": "automobile make is considering importing automobile model"
+                    },
+                    {
+                        "index": 10,
+                        "content": "automobile make and i want the car to be different than what we did earlier."
+                    },
+                    {
+                        "index": 11,
+                        "content": "the automobile makes have introduced new models every year"
+                    },
+                    {
+                        "index": 12,
+                        "content": "automobile make explains why a new seat is so essential."
+                    },
+                    {
+                        "index": 13,
+                        "content": "automobile making on the horizon"
+                    },
+                    {
+                        "index": 14,
+                        "content": "the automobile which came to be known as a prototype of our own"
+                    },
+                    {
+                        "index": 15,
+                        "content": "automobile make has begun tying its cars to the ground."
+                    },
+                    {
+                        "index": 16,
+                        "content": "automobile make is an example of these automobiles that have seen great transformation."
+                    },
+                    {
+                        "index": 17,
+                        "content": "automobile making is a very important business."
+                    },
+                    {
+                        "index": 18,
+                        "content": "automobile makes repairing the roof of its trunk"
+                    },
+                    {
+                        "index": 19,
+                        "content": "automobile model this one has a rearview camera a large hood"
+                    },
+                    {
+                        "index": 20,
+                        "content": "automobile make uses automobile model"
+                    },
+                    {
+                        "index": 21,
+                        "content": "automobile make in the borough."
+                    },
+                    {
+                        "index": 22,
+                        "content": "automobile makes a lot of noise but the cars are all october."
+                    },
+                    {
+                        "index": 23,
+                        "content": "automobile model a car in its twilight years"
+                    },
+                    {
+                        "index": 24,
+                        "content": "The automobile is parked on the street."
+                    },
+                    {
+                        "index": 25,
+                        "content": "automobile make has been the name of the game since its invention."
+                    },
+                    {
+                        "index": 26,
+                        "content": "automobile make in the market for a new model"
+                    },
+                    {
+                        "index": 27,
+                        "content": "automobile make and automobile make"
+                    },
+                    {
+                        "index": 28,
+                        "content": "automobile make in a city."
+                    },
+                    {
+                        "index": 29,
+                        "content": "automobile make in the countryside."
+                    },
+                    {
+                        "index": 30,
+                        "content": "automobile make provides transport."
+                    },
+                    {
+                        "index": 31,
+                        "content": "person is the first car that has seen a red light in the lobby"
+                    },
+                    {
+                        "index": 32,
+                        "content": "automobile make makes an economic return on its investment"
+                    },
+                    {
+                        "index": 33,
+                        "content": "A red automobile is in a test and then another, which is out."
+                    },
+                    {
+                        "index": 34,
+                        "content": "automobile make released another example of a clean mp3 player with various kinds of audio content"
+                    },
+                    {
+                        "index": 35,
+                        "content": "automobile make would like to have someone look at its new windows."
+                    },
+                    {
+                        "index": 36,
+                        "content": "The automobile is still going strong."
+                    },
+                    {
+                        "index": 37,
+                        "content": "automobile make has relaunched its inventory of classic automobiles"
+                    },
+                    {
+                        "index": 38,
+                        "content": "automobile makes the cut in traffic"
+                    },
+                    {
+                        "index": 39,
+                        "content": "automobile make was created for the automobile industry"
+                    },
+                    {
+                        "index": 40,
+                        "content": "automobile makes the most of its era."
+                    },
+                    {
+                        "index": 41,
+                        "content": "automobile make has introduced a range of premium models."
+                    },
+                    {
+                        "index": 42,
+                        "content": "automobile make lowered out another automobile"
+                    },
+                    {
+                        "index": 43,
+                        "content": "automobile making automobile making is another option."
+                    },
+                    {
+                        "index": 44,
+                        "content": "automobile model may be an object of some debate."
+                    },
+                    {
+                        "index": 45,
+                        "content": "automobile make is the only model it has"
+                    },
+                    {
+                        "index": 46,
+                        "content": "automobile make has developed a series of innovative guises to increase its economy."
+                    },
+                    {
+                        "index": 47,
+                        "content": "automobile make has been criticized by some as an excessively large supplier."
+                    },
+                    {
+                        "index": 48,
+                        "content": "automobile make of a man"
+                    },
+                    {
+                        "index": 49,
+                        "content": "automobile make is considering new leases for motor vehicles"
+                    }
+                ]
+            }
+        ]
+    },
+    "bird": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "a bird is seen coming inside the home"
+                    },
+                    {
+                        "index": 1,
+                        "content": "a bird that sats outside a bird feeder"
+                    },
+                    {
+                        "index": 2,
+                        "content": "the birds are having a great time"
+                    },
+                    {
+                        "index": 3,
+                        "content": "A bird on a wall shivers"
+                    },
+                    {
+                        "index": 4,
+                        "content": "birds will play and return for the year"
+                    },
+                    {
+                        "index": 5,
+                        "content": "A woman is showing a little about a bird and what to do with it."
+                    },
+                    {
+                        "index": 6,
+                        "content": "A pair of birds with a tassel and a leaf."
+                    },
+                    {
+                        "index": 7,
+                        "content": "a swoosh over your favorite bird to play."
+                    },
+                    {
+                        "index": 8,
+                        "content": "female blue bird at sunrise with the yellow bird in winter field"
+                    },
+                    {
+                        "index": 9,
+                        "content": "a cute little blackbird at a circus"
+                    },
+                    {
+                        "index": 10,
+                        "content": "striped eagle or bird and its wing in nature"
+                    },
+                    {
+                        "index": 11,
+                        "content": "a brown bird near an industrial building with a white wooden top"
+                    },
+                    {
+                        "index": 12,
+                        "content": "An Asian bird nests in a small tree."
+                    },
+                    {
+                        "index": 13,
+                        "content": "A bird is standing there next to others on the ground."
+                    },
+                    {
+                        "index": 14,
+                        "content": "birds in the sun."
+                    },
+                    {
+                        "index": 15,
+                        "content": "robin the rooster a white bird"
+                    },
+                    {
+                        "index": 16,
+                        "content": "bird and the sun on a pond"
+                    },
+                    {
+                        "index": 17,
+                        "content": "A small bird with a blue shirt in it."
+                    },
+                    {
+                        "index": 18,
+                        "content": "birds hopping for a dinner made in the garden"
+                    },
+                    {
+                        "index": 19,
+                        "content": "birds can be found around ponds and ponds."
+                    },
+                    {
+                        "index": 20,
+                        "content": "birds swimming in the pond."
+                    },
+                    {
+                        "index": 21,
+                        "content": "the big bird was looking out the window"
+                    },
+                    {
+                        "index": 22,
+                        "content": "a group of birds with wings are being placed"
+                    },
+                    {
+                        "index": 23,
+                        "content": "the first person to have taken birds over in a city."
+                    },
+                    {
+                        "index": 24,
+                        "content": "a female bird on its bed with a wooden eagle in front of it"
+                    },
+                    {
+                        "index": 25,
+                        "content": "A young girl in a tent with a birds in it."
+                    },
+                    {
+                        "index": 26,
+                        "content": "The bird on the roof is really pretty."
+                    },
+                    {
+                        "index": 27,
+                        "content": "a woman with a bird is talking to a man at his garage"
+                    },
+                    {
+                        "index": 28,
+                        "content": "bird with eyes crossed with a blue sky in late summer"
+                    },
+                    {
+                        "index": 29,
+                        "content": "two adults playing outside with a bird"
+                    },
+                    {
+                        "index": 30,
+                        "content": "white birch surrounded by green lily pads near a white painted bird and"
+                    },
+                    {
+                        "index": 31,
+                        "content": "flock of small white bird near the shore"
+                    },
+                    {
+                        "index": 32,
+                        "content": "giclee the bird of the park"
+                    },
+                    {
+                        "index": 33,
+                        "content": "a bird in an orchard"
+                    },
+                    {
+                        "index": 34,
+                        "content": "A young blackbird reaches out for some help."
+                    },
+                    {
+                        "index": 35,
+                        "content": "A pair of birds and two fish in a row."
+                    },
+                    {
+                        "index": 36,
+                        "content": "birds of prey thursday"
+                    },
+                    {
+                        "index": 37,
+                        "content": "a bird falls asleep among the surrounding trees"
+                    },
+                    {
+                        "index": 38,
+                        "content": "The bird is flying low over the fence."
+                    },
+                    {
+                        "index": 39,
+                        "content": "a bird in flight aplenty"
+                    },
+                    {
+                        "index": 40,
+                        "content": "birds for sale in a city"
+                    },
+                    {
+                        "index": 41,
+                        "content": "a large flock of birds are seen grazing near the cliffs"
+                    },
+                    {
+                        "index": 42,
+                        "content": "some flamingoes some flying green birds around them"
+                    },
+                    {
+                        "index": 43,
+                        "content": "i saw a bird of the road with a man in his lap"
+                    },
+                    {
+                        "index": 44,
+                        "content": "a white bird being released"
+                    },
+                    {
+                        "index": 45,
+                        "content": "Several green and white wings and birds are grazing in a large garden."
+                    },
+                    {
+                        "index": 46,
+                        "content": "a large ruffed bird in a flower bed"
+                    },
+                    {
+                        "index": 47,
+                        "content": "a bird eats green grass during a flight."
+                    },
+                    {
+                        "index": 48,
+                        "content": "beautiful blue birds and an adult raccoon growing in a field"
+                    },
+                    {
+                        "index": 49,
+                        "content": "the gummy teddy bear looking for a chick bird on the wall"
+                    }
+                ]
+            }
+        ]
+    },
+    "cat": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "three cats and one dog occupy and fight over who is who."
+                    },
+                    {
+                        "index": 1,
+                        "content": "white cat looking at camera"
+                    },
+                    {
+                        "index": 2,
+                        "content": "A furry cat is laying underneath a tree."
+                    },
+                    {
+                        "index": 3,
+                        "content": "A gray cat in the bathroom, in the shower."
+                    },
+                    {
+                        "index": 4,
+                        "content": "the cat was dubbed star and was spotted smiling at a city after its release"
+                    },
+                    {
+                        "index": 5,
+                        "content": "cat is the symbol of nation"
+                    },
+                    {
+                        "index": 6,
+                        "content": "cat gets the hug of a friend"
+                    },
+                    {
+                        "index": 7,
+                        "content": "A cat at a cat show."
+                    },
+                    {
+                        "index": 8,
+                        "content": "The cat is resting on it's body."
+                    },
+                    {
+                        "index": 9,
+                        "content": "A cat is laying on a tarmac and having a biscuit"
+                    },
+                    {
+                        "index": 10,
+                        "content": "cat is sleeping in the cat home"
+                    },
+                    {
+                        "index": 11,
+                        "content": "cat in the kitchen"
+                    },
+                    {
+                        "index": 12,
+                        "content": "the cat grew up on the roof"
+                    },
+                    {
+                        "index": 13,
+                        "content": "A cat is coming out and asking for something."
+                    },
+                    {
+                        "index": 14,
+                        "content": "A cat is eating a carrot in a pan."
+                    },
+                    {
+                        "index": 15,
+                        "content": "Cat on cat face."
+                    },
+                    {
+                        "index": 16,
+                        "content": "a cat in a tv"
+                    },
+                    {
+                        "index": 17,
+                        "content": "A purple and black cat comes to a family of people."
+                    },
+                    {
+                        "index": 18,
+                        "content": "a cat on a green house in fall"
+                    },
+                    {
+                        "index": 19,
+                        "content": "A cat in a house on it's back porch."
+                    },
+                    {
+                        "index": 20,
+                        "content": "An old-fashioned cat on a tray."
+                    },
+                    {
+                        "index": 21,
+                        "content": "A cat is on an acorn."
+                    },
+                    {
+                        "index": 22,
+                        "content": "A cat is laying down on the floor."
+                    },
+                    {
+                        "index": 23,
+                        "content": "cat that loves to gimp on its back"
+                    },
+                    {
+                        "index": 24,
+                        "content": "cute kittens and a cat are at the cat park"
+                    },
+                    {
+                        "index": 25,
+                        "content": "a cat outside the house"
+                    },
+                    {
+                        "index": 26,
+                        "content": "A cat with a hood up"
+                    },
+                    {
+                        "index": 27,
+                        "content": "A dog is trying to get out from under a cat."
+                    },
+                    {
+                        "index": 28,
+                        "content": "A cat is waiting for a home."
+                    },
+                    {
+                        "index": 29,
+                        "content": "The cat is getting down and looking down."
+                    },
+                    {
+                        "index": 30,
+                        "content": "A black cat is begging to get something done with his beard"
+                    },
+                    {
+                        "index": 31,
+                        "content": "i made a list of all the cats they had."
+                    },
+                    {
+                        "index": 32,
+                        "content": "The cat was very friendly and kind."
+                    },
+                    {
+                        "index": 33,
+                        "content": "a kitten falls off a red cat."
+                    },
+                    {
+                        "index": 34,
+                        "content": "the kitties are not allowed to have a cat"
+                    },
+                    {
+                        "index": 35,
+                        "content": "A small cat is eating some vegetables on the table."
+                    },
+                    {
+                        "index": 36,
+                        "content": "A black cat that is resting in the corner."
+                    },
+                    {
+                        "index": 37,
+                        "content": "An orange cat is lying down on a table"
+                    },
+                    {
+                        "index": 38,
+                        "content": "A white cat, but it is very short."
+                    },
+                    {
+                        "index": 39,
+                        "content": "A cat in a zoo."
+                    },
+                    {
+                        "index": 40,
+                        "content": "A little girl plays with a cat in a cat park."
+                    },
+                    {
+                        "index": 41,
+                        "content": "A cat is being forced into a room with no window."
+                    },
+                    {
+                        "index": 42,
+                        "content": "a black cat with a red belt behind him in the barn"
+                    },
+                    {
+                        "index": 43,
+                        "content": "these cats are going to be a bit hard to figure out."
+                    },
+                    {
+                        "index": 44,
+                        "content": "a cat goes to the garden for play after a brief spell"
+                    },
+                    {
+                        "index": 45,
+                        "content": "A black cat is walking past."
+                    },
+                    {
+                        "index": 46,
+                        "content": "cats grazing on the grass"
+                    },
+                    {
+                        "index": 47,
+                        "content": "A long dog with a cat in it."
+                    },
+                    {
+                        "index": 48,
+                        "content": "A cat is sitting on a chair."
+                    },
+                    {
+                        "index": 49,
+                        "content": "an image of a cat in the middle of a crowd."
+                    }
+                ]
+            }
+        ]
+    },
+    "deer": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "a man makes a deer deer"
+                    },
+                    {
+                        "index": 1,
+                        "content": "many white deer from all parts of the country in the desert"
+                    },
+                    {
+                        "index": 2,
+                        "content": "black bears on a wooded slope with an occasional deer"
+                    },
+                    {
+                        "index": 3,
+                        "content": "a young lone deer playing zoo"
+                    },
+                    {
+                        "index": 4,
+                        "content": "a deer in a gorge"
+                    },
+                    {
+                        "index": 5,
+                        "content": "a deer trying to graze on the ground"
+                    },
+                    {
+                        "index": 6,
+                        "content": "couple with deer at the farm"
+                    },
+                    {
+                        "index": 7,
+                        "content": "a deer is seen on its way out"
+                    },
+                    {
+                        "index": 8,
+                        "content": "A man is driving a deer through the forest."
+                    },
+                    {
+                        "index": 9,
+                        "content": "small white deer in the open field at sunrise"
+                    },
+                    {
+                        "index": 10,
+                        "content": "a deer looks upon a tree."
+                    },
+                    {
+                        "index": 11,
+                        "content": "hunters grazing upon a deer"
+                    },
+                    {
+                        "index": 12,
+                        "content": "a deer wanders among the reeds."
+                    },
+                    {
+                        "index": 13,
+                        "content": "a herd of deer at a hunting trip"
+                    },
+                    {
+                        "index": 14,
+                        "content": "a deer at a zoo"
+                    },
+                    {
+                        "index": 15,
+                        "content": "huge herd of deer on the ridge"
+                    },
+                    {
+                        "index": 16,
+                        "content": "a deer on the prairie"
+                    },
+                    {
+                        "index": 17,
+                        "content": "a herd of deer"
+                    },
+                    {
+                        "index": 18,
+                        "content": "A man has a deer and they have been in the forest for months"
+                    },
+                    {
+                        "index": 19,
+                        "content": "deer in a forest"
+                    },
+                    {
+                        "index": 20,
+                        "content": "a deer grazes off to a puddle"
+                    },
+                    {
+                        "index": 21,
+                        "content": "deer in a zoo with a bull"
+                    },
+                    {
+                        "index": 22,
+                        "content": "red deer and his family on a field of black dirt."
+                    },
+                    {
+                        "index": 23,
+                        "content": "deer grazing in the shade"
+                    },
+                    {
+                        "index": 24,
+                        "content": "an open deer in an enclosure"
+                    },
+                    {
+                        "index": 25,
+                        "content": "deer are grazing in an area"
+                    },
+                    {
+                        "index": 26,
+                        "content": "The deer is sitting in the trough with the man."
+                    },
+                    {
+                        "index": 27,
+                        "content": "deer and giraffe are seen in the countryside"
+                    },
+                    {
+                        "index": 28,
+                        "content": "deer at the border of zoo"
+                    },
+                    {
+                        "index": 29,
+                        "content": "a deer with black fur and moss in a valley"
+                    },
+                    {
+                        "index": 30,
+                        "content": "deer are known through this photograph"
+                    },
+                    {
+                        "index": 31,
+                        "content": "group of deer in a park"
+                    },
+                    {
+                        "index": 32,
+                        "content": "deer and snow bear near the lake"
+                    },
+                    {
+                        "index": 33,
+                        "content": "Two reindeer next to each other are grazing on the ground."
+                    },
+                    {
+                        "index": 34,
+                        "content": "whitetail deer in the park"
+                    },
+                    {
+                        "index": 35,
+                        "content": "deer foraging around a city"
+                    },
+                    {
+                        "index": 36,
+                        "content": "Several deer and giraffe are found in a forest"
+                    },
+                    {
+                        "index": 37,
+                        "content": "a deer in the grass"
+                    },
+                    {
+                        "index": 38,
+                        "content": "a deer leaves the park"
+                    },
+                    {
+                        "index": 39,
+                        "content": "a group of deer graze on the ground."
+                    },
+                    {
+                        "index": 40,
+                        "content": "lion and deer together at the same table"
+                    },
+                    {
+                        "index": 41,
+                        "content": "Three deer as they graze outside of a farm tent."
+                    },
+                    {
+                        "index": 42,
+                        "content": "some young deer have emerged in the field over the past week or so"
+                    },
+                    {
+                        "index": 43,
+                        "content": "cute little baby deer feeding a crowd."
+                    },
+                    {
+                        "index": 44,
+                        "content": "a deer in full fall wearing a hat"
+                    },
+                    {
+                        "index": 45,
+                        "content": "white bearded steed with deer at the lake"
+                    },
+                    {
+                        "index": 46,
+                        "content": "a deer at the deer shelter"
+                    },
+                    {
+                        "index": 47,
+                        "content": "deer with its fur up and ready for a hunt"
+                    },
+                    {
+                        "index": 48,
+                        "content": "a deer makes its way down a gravel trail this summer."
+                    },
+                    {
+                        "index": 49,
+                        "content": "a deer in the country on a winter day and then some"
+                    }
+                ]
+            }
+        ]
+    },
+    "dog": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "three dogs and children playing in a garden"
+                    },
+                    {
+                        "index": 1,
+                        "content": "This is a dog and two other dogs are in a shed."
+                    },
+                    {
+                        "index": 2,
+                        "content": "A dog near a waterfall."
+                    },
+                    {
+                        "index": 3,
+                        "content": "a white dog with blue eyes on a brightly colored tree"
+                    },
+                    {
+                        "index": 4,
+                        "content": "a black and white dog waiting for someone to remove his bag"
+                    },
+                    {
+                        "index": 5,
+                        "content": "An infant dog tries to make himself laugh outside the window."
+                    },
+                    {
+                        "index": 6,
+                        "content": "The dog is tethered to a large piece of wood."
+                    },
+                    {
+                        "index": 7,
+                        "content": "A dog is taking a bath under the stars."
+                    },
+                    {
+                        "index": 8,
+                        "content": "A cute black dog and people are playing together and having a biscuit."
+                    },
+                    {
+                        "index": 9,
+                        "content": "a dog is coming from the vets"
+                    },
+                    {
+                        "index": 10,
+                        "content": "A dog sleeping with its teeth up."
+                    },
+                    {
+                        "index": 11,
+                        "content": "A man is pushing a dog."
+                    },
+                    {
+                        "index": 12,
+                        "content": "A white dog is being shredded as part of his pedigree."
+                    },
+                    {
+                        "index": 13,
+                        "content": "A small dog in a hut with other dogs on it."
+                    },
+                    {
+                        "index": 14,
+                        "content": "A woman is pushing a dog."
+                    },
+                    {
+                        "index": 15,
+                        "content": "A dog, he says, is showing off his abilities to the dogs in front of him"
+                    },
+                    {
+                        "index": 16,
+                        "content": "A red and orange dog at the mall."
+                    },
+                    {
+                        "index": 17,
+                        "content": "the dog was happy"
+                    },
+                    {
+                        "index": 18,
+                        "content": "A cat shows off his dog."
+                    },
+                    {
+                        "index": 19,
+                        "content": "A dog has been bitten by it, while euthanized."
+                    },
+                    {
+                        "index": 20,
+                        "content": "A dog from a nearby zoo is crying."
+                    },
+                    {
+                        "index": 21,
+                        "content": "A bunch of dogs are being groomed up in a zoo."
+                    },
+                    {
+                        "index": 22,
+                        "content": "A dog is inside our home"
+                    },
+                    {
+                        "index": 23,
+                        "content": "A friend is pushing a dog out on pavement."
+                    },
+                    {
+                        "index": 24,
+                        "content": "small dog on the sidewalks."
+                    },
+                    {
+                        "index": 25,
+                        "content": "an old dog in a white shirt at a zoo."
+                    },
+                    {
+                        "index": 26,
+                        "content": "A man a dog on his toy."
+                    },
+                    {
+                        "index": 27,
+                        "content": "A red dog is on a green blanket in the yard"
+                    },
+                    {
+                        "index": 28,
+                        "content": "A white dog by an eagle pointing him towards the eagle."
+                    },
+                    {
+                        "index": 29,
+                        "content": "young black dog trying to walk around outside"
+                    },
+                    {
+                        "index": 30,
+                        "content": "a little black giraffe with their fluffy fluffy skin next to his dog"
+                    },
+                    {
+                        "index": 31,
+                        "content": "A boy is at home with his dog in all places."
+                    },
+                    {
+                        "index": 32,
+                        "content": "A dog is swiping the fence inside of a city."
+                    },
+                    {
+                        "index": 33,
+                        "content": "dog with a man is on a grassy area"
+                    },
+                    {
+                        "index": 34,
+                        "content": "cute dog begging for love."
+                    },
+                    {
+                        "index": 35,
+                        "content": "A dog in his pen is poo, and the poo is soggy."
+                    },
+                    {
+                        "index": 36,
+                        "content": "A dog by a watering hole."
+                    },
+                    {
+                        "index": 37,
+                        "content": "Two dogs are perched on a tree"
+                    },
+                    {
+                        "index": 38,
+                        "content": "The dog will be chasing the camera after this."
+                    },
+                    {
+                        "index": 39,
+                        "content": "A black and white dog on a peg"
+                    },
+                    {
+                        "index": 40,
+                        "content": "Two large dogs are in a hospital room, and the next dog is in a room"
+                    },
+                    {
+                        "index": 41,
+                        "content": "Dogs of all ages and racers eat a meat barley."
+                    },
+                    {
+                        "index": 42,
+                        "content": "A dog that is eating leaves in the backyard."
+                    },
+                    {
+                        "index": 43,
+                        "content": "The dog is crying on the floor and is begging for food."
+                    },
+                    {
+                        "index": 44,
+                        "content": "A dog licking its teeth."
+                    },
+                    {
+                        "index": 45,
+                        "content": "A dog is playing with a large white rug."
+                    },
+                    {
+                        "index": 46,
+                        "content": "dog with the handlebars... as a friend shows this"
+                    },
+                    {
+                        "index": 47,
+                        "content": "dog on a black dog"
+                    },
+                    {
+                        "index": 48,
+                        "content": "the dog wants an asian view."
+                    },
+                    {
+                        "index": 49,
+                        "content": "The dog is very young and cute."
+                    }
+                ]
+            }
+        ]
+    },
+    "frog": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "a frog on the bank"
+                    },
+                    {
+                        "index": 1,
+                        "content": "pink frog in the garden"
+                    },
+                    {
+                        "index": 2,
+                        "content": "the frog is a red jellyfish on the horizon"
+                    },
+                    {
+                        "index": 3,
+                        "content": "frog and a bee crawling among the flowers"
+                    },
+                    {
+                        "index": 4,
+                        "content": "white frog with a shiny tip in the rain"
+                    },
+                    {
+                        "index": 5,
+                        "content": "frog on the grass in flower"
+                    },
+                    {
+                        "index": 6,
+                        "content": "a frog is in the yard."
+                    },
+                    {
+                        "index": 7,
+                        "content": "phocodile out looking for the frog on the leaf"
+                    },
+                    {
+                        "index": 8,
+                        "content": "frog on a grassy yard at dusk"
+                    },
+                    {
+                        "index": 9,
+                        "content": "young frog standing up from a flower vase"
+                    },
+                    {
+                        "index": 10,
+                        "content": "a species of frogs with a striped underside."
+                    },
+                    {
+                        "index": 11,
+                        "content": "frog flying through the leaves"
+                    },
+                    {
+                        "index": 12,
+                        "content": "a frog with a horn in its hair"
+                    },
+                    {
+                        "index": 13,
+                        "content": "a frog can be quite large so it floats and plows"
+                    },
+                    {
+                        "index": 14,
+                        "content": "a frog inside a pond."
+                    },
+                    {
+                        "index": 15,
+                        "content": "frog on a rock"
+                    },
+                    {
+                        "index": 16,
+                        "content": "a frog and its eggs on their stems"
+                    },
+                    {
+                        "index": 17,
+                        "content": "frog with big eggs on it"
+                    },
+                    {
+                        "index": 18,
+                        "content": "a frog with wings on a tree"
+                    },
+                    {
+                        "index": 19,
+                        "content": "frog eating a twig in grass"
+                    },
+                    {
+                        "index": 20,
+                        "content": "yellow frog crawling in the grass"
+                    },
+                    {
+                        "index": 21,
+                        "content": "frogs among the many other frogs in a wild grove"
+                    },
+                    {
+                        "index": 22,
+                        "content": "frog and moss... the frog has escaped with the dragon"
+                    },
+                    {
+                        "index": 23,
+                        "content": "baby frog on his back and a man at the zoo."
+                    },
+                    {
+                        "index": 24,
+                        "content": "frog being able to swim in the water under a spring storm"
+                    },
+                    {
+                        "index": 25,
+                        "content": "a frog in a pond"
+                    },
+                    {
+                        "index": 26,
+                        "content": "lone frog eating at the edge of a pond"
+                    },
+                    {
+                        "index": 27,
+                        "content": "frog moving in and out on the wall"
+                    },
+                    {
+                        "index": 28,
+                        "content": "the frog is the king of frogs"
+                    },
+                    {
+                        "index": 29,
+                        "content": "a frog in a field"
+                    },
+                    {
+                        "index": 30,
+                        "content": "the frog is seen in a pond"
+                    },
+                    {
+                        "index": 31,
+                        "content": "a frog in a flower"
+                    },
+                    {
+                        "index": 32,
+                        "content": "frog in a pond"
+                    },
+                    {
+                        "index": 33,
+                        "content": "the frog is a lily in a field that is not in the"
+                    },
+                    {
+                        "index": 34,
+                        "content": "red and white frogs at an entrance"
+                    },
+                    {
+                        "index": 35,
+                        "content": "frog lying down under the moon"
+                    },
+                    {
+                        "index": 36,
+                        "content": "a huge frog sitting next to the water"
+                    },
+                    {
+                        "index": 37,
+                        "content": "frog and some grasses"
+                    },
+                    {
+                        "index": 38,
+                        "content": "green frog in natural habitat"
+                    },
+                    {
+                        "index": 39,
+                        "content": "white frog sleeping on a white ledge"
+                    },
+                    {
+                        "index": 40,
+                        "content": "a young frog in its natural habitat"
+                    },
+                    {
+                        "index": 41,
+                        "content": "frog in a field"
+                    },
+                    {
+                        "index": 42,
+                        "content": "the frog is in the pond"
+                    },
+                    {
+                        "index": 43,
+                        "content": "red frog eats a green mossy mossy"
+                    },
+                    {
+                        "index": 44,
+                        "content": "frog with flowers in the trees"
+                    },
+                    {
+                        "index": 45,
+                        "content": "a frog on a lake."
+                    },
+                    {
+                        "index": 46,
+                        "content": "a frog and its parents in a watery waterway with no ice"
+                    },
+                    {
+                        "index": 47,
+                        "content": "fly over a brown and yellow frog at the pond"
+                    },
+                    {
+                        "index": 48,
+                        "content": "The frog is talking with the hen into taking food from the hen."
+                    },
+                    {
+                        "index": 49,
+                        "content": "small frog in the grass in the garden"
+                    }
+                ]
+            }
+        ]
+    },
+    "horse": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "a huge red horse on a fence"
+                    },
+                    {
+                        "index": 1,
+                        "content": "A horse riding on a large white horse, surrounded by a forest."
+                    },
+                    {
+                        "index": 2,
+                        "content": "The horses have a pair of shoes and are on an equestrian stable."
+                    },
+                    {
+                        "index": 3,
+                        "content": "horse with the helmet for the tour and dress"
+                    },
+                    {
+                        "index": 4,
+                        "content": "horses on the horse trail"
+                    },
+                    {
+                        "index": 5,
+                        "content": "Two girls are holding a horse in the open pastures."
+                    },
+                    {
+                        "index": 6,
+                        "content": "horses at a fair"
+                    },
+                    {
+                        "index": 7,
+                        "content": "A young woman is trying to dress up as a horse."
+                    },
+                    {
+                        "index": 8,
+                        "content": "old old man a horse near the entrance"
+                    },
+                    {
+                        "index": 9,
+                        "content": "This horse and a horse cart are sitting on hay and having a fa"
+                    },
+                    {
+                        "index": 10,
+                        "content": "wild horses playing, one of them is a herd of t-shirts."
+                    },
+                    {
+                        "index": 11,
+                        "content": "Three horses are in a hut next to a wooden fence."
+                    },
+                    {
+                        "index": 12,
+                        "content": "Two horses are walking past a field of hay."
+                    },
+                    {
+                        "index": 13,
+                        "content": "A group of horse and their tails in a park."
+                    },
+                    {
+                        "index": 14,
+                        "content": "horse driving on a pavement in green grass"
+                    },
+                    {
+                        "index": 15,
+                        "content": "a man and his horse are riding a horse and a man is at the horse"
+                    },
+                    {
+                        "index": 16,
+                        "content": "horse on the beach"
+                    },
+                    {
+                        "index": 17,
+                        "content": "happy family with a horse, people who have horse back yards"
+                    },
+                    {
+                        "index": 18,
+                        "content": "Three black horses are in the hay bin."
+                    },
+                    {
+                        "index": 19,
+                        "content": "a horse moves along near a white border"
+                    },
+                    {
+                        "index": 20,
+                        "content": "Two horses in a zoo with british customs."
+                    },
+                    {
+                        "index": 21,
+                        "content": "horse carries a ring to the side of its rearing station."
+                    },
+                    {
+                        "index": 22,
+                        "content": "A group of white horses are running around a field in the open countryside."
+                    },
+                    {
+                        "index": 23,
+                        "content": "A horse is getting ready to graze"
+                    },
+                    {
+                        "index": 24,
+                        "content": "man a thorny horse in a flat grassy pasture"
+                    },
+                    {
+                        "index": 25,
+                        "content": "The horse jumped onto the hill."
+                    },
+                    {
+                        "index": 26,
+                        "content": "A man with a horse is going down the road to get to the barn"
+                    },
+                    {
+                        "index": 27,
+                        "content": "A man is pushing a horse."
+                    },
+                    {
+                        "index": 28,
+                        "content": "horses are riding on the tarmac in the village"
+                    },
+                    {
+                        "index": 29,
+                        "content": "horse on his right eye with blue eyes."
+                    },
+                    {
+                        "index": 30,
+                        "content": "A man and his horse at a barn, in a corner"
+                    },
+                    {
+                        "index": 31,
+                        "content": "A horse is resting at the zoo."
+                    },
+                    {
+                        "index": 32,
+                        "content": "A man has a black horse on a moor."
+                    },
+                    {
+                        "index": 33,
+                        "content": "a white horse is in a stall on a hill"
+                    },
+                    {
+                        "index": 34,
+                        "content": "horse and horse in pasture"
+                    },
+                    {
+                        "index": 35,
+                        "content": "a horse carries hay during the hayday"
+                    },
+                    {
+                        "index": 36,
+                        "content": "People near an old pasture with black horses."
+                    },
+                    {
+                        "index": 37,
+                        "content": "A family with a couple of horses, and a man, is trying to do it"
+                    },
+                    {
+                        "index": 38,
+                        "content": "A little girl is holding a horse in a hay bale."
+                    },
+                    {
+                        "index": 39,
+                        "content": "A male horse is going around a barn or garden."
+                    },
+                    {
+                        "index": 40,
+                        "content": "Then, the boy comes around to his horse."
+                    },
+                    {
+                        "index": 41,
+                        "content": "horse at the stable where i hung my clothes"
+                    },
+                    {
+                        "index": 42,
+                        "content": "a horse is on a trail"
+                    },
+                    {
+                        "index": 43,
+                        "content": "horses sway over the cliff"
+                    },
+                    {
+                        "index": 44,
+                        "content": "A white horse in a red collar."
+                    },
+                    {
+                        "index": 45,
+                        "content": "horse on a windmill with clouds"
+                    },
+                    {
+                        "index": 46,
+                        "content": "A woman riding a horse"
+                    },
+                    {
+                        "index": 47,
+                        "content": "A green and white horse is resting in a red barn"
+                    },
+                    {
+                        "index": 48,
+                        "content": "A bunch of horse that says no to those who don't want to."
+                    },
+                    {
+                        "index": 49,
+                        "content": "horse on a summer night"
+                    }
+                ]
+            }
+        ]
+    },
+    "ship": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "cruise ship with a hull on the seabed"
+                    },
+                    {
+                        "index": 1,
+                        "content": "ship is being refitted on a canal."
+                    },
+                    {
+                        "index": 2,
+                        "content": "cruise ships in the azure weather with sun rise"
+                    },
+                    {
+                        "index": 3,
+                        "content": "ships in a fleet"
+                    },
+                    {
+                        "index": 4,
+                        "content": "ship arriving at the port"
+                    },
+                    {
+                        "index": 5,
+                        "content": "some ships have a sun terrace and a starry sky on the other."
+                    },
+                    {
+                        "index": 6,
+                        "content": "ships on the main deck close up"
+                    },
+                    {
+                        "index": 7,
+                        "content": "an old rowing ship with green walls but a modern steel frame"
+                    },
+                    {
+                        "index": 8,
+                        "content": "two ships with a hull in the sun"
+                    },
+                    {
+                        "index": 9,
+                        "content": "ship docked at the port"
+                    },
+                    {
+                        "index": 10,
+                        "content": "ship towed out of the port"
+                    },
+                    {
+                        "index": 11,
+                        "content": "the ship is being built for cargo"
+                    },
+                    {
+                        "index": 12,
+                        "content": "Ships of this size in beautiful waters on an overcast day."
+                    },
+                    {
+                        "index": 13,
+                        "content": "cruise ship floats out of bay at sunrise"
+                    },
+                    {
+                        "index": 14,
+                        "content": "ship heading from port"
+                    },
+                    {
+                        "index": 15,
+                        "content": "the ship departs"
+                    },
+                    {
+                        "index": 16,
+                        "content": "ship in the harbour"
+                    },
+                    {
+                        "index": 17,
+                        "content": "ship with an oversize cargo bay at the rear"
+                    },
+                    {
+                        "index": 18,
+                        "content": "ships docked with a navy seal."
+                    },
+                    {
+                        "index": 19,
+                        "content": "ships that are loaded in the harbor"
+                    },
+                    {
+                        "index": 20,
+                        "content": "ships in a sea of empty sand."
+                    },
+                    {
+                        "index": 21,
+                        "content": "a ship which is in the harbor"
+                    },
+                    {
+                        "index": 22,
+                        "content": "cargo ships with other cargo"
+                    },
+                    {
+                        "index": 23,
+                        "content": "ship moving from a city"
+                    },
+                    {
+                        "index": 24,
+                        "content": "ship carrying cargo or cargo"
+                    },
+                    {
+                        "index": 25,
+                        "content": "vessel will moor at the port of its second port."
+                    },
+                    {
+                        "index": 26,
+                        "content": "a cargo ship is seen on the docks"
+                    },
+                    {
+                        "index": 27,
+                        "content": "ship as seen from above."
+                    },
+                    {
+                        "index": 28,
+                        "content": "a ship of the royal regiment nears the sea"
+                    },
+                    {
+                        "index": 29,
+                        "content": "an unidentified man is spotting a ship"
+                    },
+                    {
+                        "index": 30,
+                        "content": "a ship anchored at a city"
+                    },
+                    {
+                        "index": 31,
+                        "content": "the ship in a canal near the islands"
+                    },
+                    {
+                        "index": 32,
+                        "content": "ship arrives"
+                    },
+                    {
+                        "index": 33,
+                        "content": "ships docked for the funeral"
+                    },
+                    {
+                        "index": 34,
+                        "content": "ships in the harbor"
+                    },
+                    {
+                        "index": 35,
+                        "content": "ships at anchor over a waterway"
+                    },
+                    {
+                        "index": 36,
+                        "content": "ship sailed off island in the southeastern part of the country"
+                    },
+                    {
+                        "index": 37,
+                        "content": "ship anchored by ship in the sea."
+                    },
+                    {
+                        "index": 38,
+                        "content": "ship at anchor with a deck of glass"
+                    },
+                    {
+                        "index": 39,
+                        "content": "ship and its aps in the dock"
+                    },
+                    {
+                        "index": 40,
+                        "content": "ship anchored close to harbor."
+                    },
+                    {
+                        "index": 41,
+                        "content": "ship and other items have already been sent out"
+                    },
+                    {
+                        "index": 42,
+                        "content": "The ship has flies."
+                    },
+                    {
+                        "index": 43,
+                        "content": "ships on the south equator"
+                    },
+                    {
+                        "index": 44,
+                        "content": "ships going down the sea in the winter"
+                    },
+                    {
+                        "index": 45,
+                        "content": "ships are on the seabed"
+                    },
+                    {
+                        "index": 46,
+                        "content": "man on deck of a ship talking to the crew"
+                    },
+                    {
+                        "index": 47,
+                        "content": "ship goes up into harbor"
+                    },
+                    {
+                        "index": 48,
+                        "content": "ship made of steel moored in a dock."
+                    },
+                    {
+                        "index": 49,
+                        "content": "there is a ship which sails from a ship"
+                    }
+                ]
+            }
+        ]
+    },
+    "truck": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "truck parked on road"
+                    },
+                    {
+                        "index": 1,
+                        "content": "The truck is moving fast."
+                    },
+                    {
+                        "index": 2,
+                        "content": "A green and blue truck is on the way out"
+                    },
+                    {
+                        "index": 3,
+                        "content": "A truck is driving with two other cars."
+                    },
+                    {
+                        "index": 4,
+                        "content": "People are driving their trucks toward the sea."
+                    },
+                    {
+                        "index": 5,
+                        "content": "A truck of a lot is coming into an air."
+                    },
+                    {
+                        "index": 6,
+                        "content": "A truck in a parking lot with a little red lights."
+                    },
+                    {
+                        "index": 7,
+                        "content": "three man on a truck in the middle of a hillside"
+                    },
+                    {
+                        "index": 8,
+                        "content": "a commercial truck with two white tires."
+                    },
+                    {
+                        "index": 9,
+                        "content": "Two trucks are parked next to each other."
+                    },
+                    {
+                        "index": 10,
+                        "content": "A white truck on wheels in the road."
+                    },
+                    {
+                        "index": 11,
+                        "content": "the large pickup truck resembles a large SUV."
+                    },
+                    {
+                        "index": 12,
+                        "content": "A truck is out about to be loaded upon asphalt."
+                    },
+                    {
+                        "index": 13,
+                        "content": "The red and orange trucks are running."
+                    },
+                    {
+                        "index": 14,
+                        "content": "A man is swooping up to a car and truck for supplies."
+                    },
+                    {
+                        "index": 15,
+                        "content": "A yellow and white food truck which is coming down the street."
+                    },
+                    {
+                        "index": 16,
+                        "content": "A truck with a red collar carries a pink flag."
+                    },
+                    {
+                        "index": 17,
+                        "content": "A large light truck on a wind farm."
+                    },
+                    {
+                        "index": 18,
+                        "content": "A truck is out of the way."
+                    },
+                    {
+                        "index": 19,
+                        "content": "a black truck for hire on a rainy day."
+                    },
+                    {
+                        "index": 20,
+                        "content": "This is not a pickup truck, but a giraffe with a horse"
+                    },
+                    {
+                        "index": 21,
+                        "content": "A man shows a woman how to make a truck for her, then on the road"
+                    },
+                    {
+                        "index": 22,
+                        "content": "There are two semi trucks with one carrying one kilo."
+                    },
+                    {
+                        "index": 23,
+                        "content": "A firefighter in the street holding a white truck."
+                    },
+                    {
+                        "index": 24,
+                        "content": "a road is full of cars and trucks where it is possible to be."
+                    },
+                    {
+                        "index": 25,
+                        "content": "truck with the logo and the photo on it"
+                    },
+                    {
+                        "index": 26,
+                        "content": "An old car and two trucks."
+                    },
+                    {
+                        "index": 27,
+                        "content": "A truck, with the contents of it, is out."
+                    },
+                    {
+                        "index": 28,
+                        "content": "A blue truck that is getting ready to be towed."
+                    },
+                    {
+                        "index": 29,
+                        "content": "A red mini truck is in its path."
+                    },
+                    {
+                        "index": 30,
+                        "content": "The truck is on the track."
+                    },
+                    {
+                        "index": 31,
+                        "content": "Four truck with the same name on it."
+                    },
+                    {
+                        "index": 32,
+                        "content": "truck as seen from at the docks"
+                    },
+                    {
+                        "index": 33,
+                        "content": "This truck is loaded with materials."
+                    },
+                    {
+                        "index": 34,
+                        "content": "Two trucks with moving tires."
+                    },
+                    {
+                        "index": 35,
+                        "content": "These guys are going to be using the same truck."
+                    },
+                    {
+                        "index": 36,
+                        "content": "A zebra flies over a shopping truck and throws out the bag."
+                    },
+                    {
+                        "index": 37,
+                        "content": "A truck parked along a strip of land."
+                    },
+                    {
+                        "index": 38,
+                        "content": "Red or black truck in the back yards."
+                    },
+                    {
+                        "index": 39,
+                        "content": "Some trucks are just going down the road to pick up some supplies."
+                    },
+                    {
+                        "index": 40,
+                        "content": "A man is laying down on a truck with his eyes down."
+                    },
+                    {
+                        "index": 41,
+                        "content": "a truck made of recycled packaging"
+                    },
+                    {
+                        "index": 42,
+                        "content": "The slingshot is next to a big pickup truck."
+                    },
+                    {
+                        "index": 43,
+                        "content": "trucks are seen by many as these are transported."
+                    },
+                    {
+                        "index": 44,
+                        "content": "A man is hauling a container truck inside the dock to retrieve the container."
+                    },
+                    {
+                        "index": 45,
+                        "content": "trucks on the road"
+                    },
+                    {
+                        "index": 46,
+                        "content": "the truck is loaded with fuel"
+                    },
+                    {
+                        "index": 47,
+                        "content": "an old abandoned car while a man and a woman drive a truck up a"
+                    },
+                    {
+                        "index": 48,
+                        "content": "A tractor truck under construction in a field with people inside inside."
+                    },
+                    {
+                        "index": 49,
+                        "content": "A truck on sidewalks with its trailers on it."
+                    }
+                ]
+            }
+        ]
+    }
+}
