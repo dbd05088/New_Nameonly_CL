@@ -18,9 +18,9 @@ def find_dict_by_id(data, target_id):
 
 seed = 5
 base_json_path = f'./ma_splits/Bongard-HOI_train_seed{str(seed)}.json'
-base_prompt_path = '../../nameonly/prompt_generation/prompts/generated_LLM_sdxl_ver2.json'
-generated_image_path = './images/generated_LLM_ver2_RMD'
-output_path = f"./generated_LLM_ver2_RMD_splits"
+base_prompt_path = '../../nameonly/prompt_generation/prompts/generated_LE_ver1.json'
+generated_image_path = './images/generated_LE_ver1_RMD'
+output_path = f"./generated_LE_ver1_RMD_splits"
 if not os.path.exists(output_path):
     os.makedirs(output_path)
 

@@ -4,6 +4,7 @@ import random
 from openai import OpenAI
 from tqdm import tqdm
 from classes import *
+import os
 
 # dynamic, class-specific
 def generate_prompt_stage1(client, cls, previous_prompt_list):
@@ -56,11 +57,11 @@ def generate_prompt_stage2(client, cls, previous_prompt_list):
     else:
         return response_content
 
-metaprompt_json_path = './prompts/temp_base_metaprompts_dynamic_10.json' # First stage result
-totalprompt_json_path = './prompts/gpt4_hierarchy_cot_dynamic_100.json' # Second stage result
-num_metaprompts = 10
-num_prompts_per_metaprompt = 10
-max_prompts = 100
+metaprompt_json_path = './prompts/temp_base_metaprompts_dynamic_7_PACS.json' # First stage result
+totalprompt_json_path = './prompts/gpt4_hierarchy_cot_dynamic_50_new_PACS.json' # Second stage result
+num_metaprompts = 7
+num_prompts_per_metaprompt = 7
+max_prompts = 50
 dataset_count = PACS_count
 
 client = OpenAI(api_key="sk-proj-bPJxpKwauBBFBZJw7nEgT3BlbkFJePaQfARB48iyTbZfxSXg")
@@ -90,9 +91,17 @@ client = OpenAI(api_key="sk-proj-bPJxpKwauBBFBZJw7nEgT3BlbkFJePaQfARB48iyTbZfxSX
 # For the second stage (uncomment below)
 with open(metaprompt_json_path, 'r') as f:
     metaprompt_dict = json.load(f)
-    
-totalprompt_dict = {}
+
+if os.path.exists(totalprompt_json_path):
+    with open(totalprompt_json_path, 'r') as f:
+        totalprompt_dict = json.load(f)
+else:
+    totalprompt_dict = {}
+
 for cls in tqdm(dataset_count):
+    if cls in totalprompt_dict:
+        print(f"Pass: {cls}")
+        continue
     cls_tmp = cls.replace('_',' ')
     prompt_list_tmp = []
     totalprompt_dict[cls] = {'metaprompts': []}
@@ -141,6 +150,7 @@ for cls in tqdm(dataset_count):
         except Exception as e:
             print(e)
             pass
+    
+    with open(totalprompt_json_path, 'w') as f:
+        json.dump(totalprompt_dict, f)
         
-with open(totalprompt_json_path,'w') as f:
-    json.dump(totalprompt_dict,f)

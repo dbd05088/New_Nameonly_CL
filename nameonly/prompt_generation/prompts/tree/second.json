@@ -1,0 +1,184 @@
+{
+    "metaprompts": [
+        {
+            "index": 0,
+            "metaprompt_1": "A photo of a [concept].",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A stunning sunset photo of [concept] with vibrant colors."
+                },
+                {
+                    "index": 1,
+                    "content": "A high-resolution macro shot of [concept] with intricate details."
+                },
+                {
+                    "index": 2,
+                    "content": "A black and white photograph of [concept] with high contrast."
+                },
+                {
+                    "index": 3,
+                    "content": "A snowy landscape photo of [concept] with soft, natural lighting."
+                },
+                {
+                    "index": 4,
+                    "content": "A golden hour photograph of [concept] with warm, soft lighting."
+                },
+                {
+                    "index": 5,
+                    "content": "An underwater photograph of [concept] with vivid ocean colors."
+                }
+            ]
+        },
+        {
+            "index": 1,
+            "metaprompt_1": "A colorful vector clipart of [concept].",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A high-resolution photograph of [concept] in natural lighting."
+                },
+                {
+                    "index": 1,
+                    "content": "An aerial view of [concept] with vibrant colors and intricate details."
+                },
+                {
+                    "index": 2,
+                    "content": "A black-and-white close-up photograph of [concept] with high contrast and sharp details."
+                },
+                {
+                    "index": 3,
+                    "content": "A serene underwater scene with [concept] in vivid, lifelike colors."
+                },
+                {
+                    "index": 4,
+                    "content": "A misty forest scene with [concept] and atmospheric, diffused light."
+                },
+                {
+                    "index": 5,
+                    "content": "A bustling urban cityscape with [concept] and striking, neon-lit night colors."
+                }
+            ]
+        },
+        {
+            "index": 2,
+            "metaprompt_1": "A simple sketch of [concept] with bold contrasts.",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A cinematic wide shot showcasing [concept] in dramatic natural lighting."
+                },
+                {
+                    "index": 1,
+                    "content": "A photorealistic image of [concept] with vibrant and contrasting hues."
+                },
+                {
+                    "index": 2,
+                    "content": "A dusk-time long exposure shot capturing [concept] with motion blur effects."
+                },
+                {
+                    "index": 3,
+                    "content": "A golden hour capture of [concept], highlighting intricate details and warm tones."
+                },
+                {
+                    "index": 4,
+                    "content": "A high-definition underwater photograph of [concept] with sun rays penetrating the water surface."
+                },
+                {
+                    "index": 5,
+                    "content": "An aerial drone shot of [concept] in a lush, verdant landscape."
+                }
+            ]
+        },
+        {
+            "index": 3,
+            "metaprompt_1": "A high-resolution macro photograph of [concept].",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A cinematic portrait of [concept] with dramatic lighting."
+                },
+                {
+                    "index": 1,
+                    "content": "A surreal, dreamy landscape of [concept] with soft pastel colors."
+                },
+                {
+                    "index": 2,
+                    "content": "A night-time cityscape of [concept] with neon lights reflecting on wet streets."
+                },
+                {
+                    "index": 3,
+                    "content": "A crisp aerial shot of [concept] during golden hour."
+                },
+                {
+                    "index": 4,
+                    "content": "A serene underwater scene of [concept] with vibrant coral reefs and marine life."
+                },
+                {
+                    "index": 5,
+                    "content": "A high-contrast, black and white photograph of [concept] in a minimalist setting."
+                }
+            ]
+        },
+        {
+            "index": 4,
+            "metaprompt_1": "A dramatic sunset scene with [concept].",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A rainy day street scene with [concept] in vibrant city lights."
+                },
+                {
+                    "index": 1,
+                    "content": "A serene riverside landscape at dawn featuring [concept]."
+                },
+                {
+                    "index": 2,
+                    "content": "A close-up shot of [concept] in a lush green garden during spring."
+                },
+                {
+                    "index": 3,
+                    "content": "An underwater scene showcasing [concept] with colorful marine life and coral reefs."
+                },
+                {
+                    "index": 4,
+                    "content": "A misty mountain range at twilight with [concept] immersed in fog and soft light."
+                },
+                {
+                    "index": 5,
+                    "content": "A snowy forest clearing at sunrise with [concept] and crystal-clear icicles."
+                }
+            ]
+        },
+        {
+            "index": 5,
+            "metaprompt_1": "An aerial drone shot of [concept] in nature.",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A cinematic night scene of [concept] illuminated by moonlight."
+                },
+                {
+                    "index": 1,
+                    "content": "A vibrant cityscape of [concept] during sunset with dynamic shadows."
+                },
+                {
+                    "index": 2,
+                    "content": "A black and white photograph of [concept] in a bustling urban setting."
+                },
+                {
+                    "index": 3,
+                    "content": "A serene morning landscape of [concept] with golden light filtering through."
+                },
+                {
+                    "index": 4,
+                    "content": "A high-contrast infrared photograph of [concept] in a dense forest."
+                },
+                {
+                    "index": 5,
+                    "content": "A detailed underwater shot of [concept] with sunlight streaming through the water."
+                }
+            ]
+        }
+    ]
+}

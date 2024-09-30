@@ -1,5 +1,6 @@
 import os
 import argparse
+from tqdm import tqdm
 from classes import *
 
 parser = argparse.ArgumentParser()
@@ -19,7 +20,7 @@ cls_dir_count_dict = {cls: len(os.listdir(os.path.join(args.source_dir, cls))) f
                       if os.path.isdir(os.path.join(args.source_dir, cls))}
 
 cls_not_generated = []
-for cls in list(cls_num_dict.keys()):
+for cls in tqdm(list(cls_num_dict.keys())):
     if cls not in cls_dir_count_dict.keys():
         cls_not_generated.append((cls, 0))
     else:

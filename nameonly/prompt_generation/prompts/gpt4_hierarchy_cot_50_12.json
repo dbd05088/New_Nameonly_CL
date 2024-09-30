@@ -1,0 +1,210 @@
+{
+    "metaprompts": [
+        {
+            "index": 0,
+            "metaprompt": "dummy",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A photo of a [concept]."
+                },
+                {
+                    "index": 1,
+                    "content": "A photo of a vibrant [concept] in nature."
+                },
+                {
+                    "index": 2,
+                    "content": "A photo of [concept] in vibrant autumn colors."
+                },
+                {
+                    "index": 3,
+                    "content": "A photo of a sunny [concept] on a beach."
+                },
+                {
+                    "index": 4,
+                    "content": "A photo of a glowing [concept] at twilight."
+                },
+                {
+                    "index": 5,
+                    "content": "A photo of a misty forest [concept]."
+                },
+                {
+                    "index": 6,
+                    "content": "A photo of a snowy mountain [concept]."
+                },
+                {
+                    "index": 7,
+                    "content": "A photo of a [concept] in a dense, misty forest."
+                },
+                {
+                    "index": 8,
+                    "content": "A photo of [concept] in an underwater coral reef with vivid marine life."
+                },
+                {
+                    "index": 9,
+                    "content": "A close-up, photorealistic shot of a reflective [concept] against an autumn forest backdrop."
+                },
+                {
+                    "index": 10,
+                    "content": "A photo of [concept] in a misty forest during early morning."
+                },
+                {
+                    "index": 11,
+                    "content": "A photo of [concept] reflecting on a serene lake at sunrise."
+                },
+                {
+                    "index": 12,
+                    "content": "A detailed aerial view of a snowy mountain with [concept] at dawn."
+                },
+                {
+                    "index": 13,
+                    "content": "A high-resolution photo of a serene [concept] by the ocean at sunrise."
+                },
+                {
+                    "index": 14,
+                    "content": "A close-up photo of a detailed [concept] in a bustling cityscape at dusk."
+                },
+                {
+                    "index": 15,
+                    "content": "A photo of a cozy [concept] in a warmly lit rustic cabin."
+                },
+                {
+                    "index": 16,
+                    "content": "A photo of [concept] on a sunny beach with crystal clear water."
+                },
+                {
+                    "index": 17,
+                    "content": "A photo of [concept] in a snowy village during twilight."
+                },
+                {
+                    "index": 18,
+                    "content": "A photo of [concept] in a serene mountain landscape at sunrise."
+                },
+                {
+                    "index": 19,
+                    "content": "A realistic underwater scene showcasing a mysterious [concept] surrounded by corals."
+                },
+                {
+                    "index": 20,
+                    "content": "A lifelike cityscape featuring a futuristic [concept] at sunset."
+                },
+                {
+                    "index": 21,
+                    "content": "A photo of a serene [concept] during sunset over a mountain lake."
+                },
+                {
+                    "index": 22,
+                    "content": "A photo of [concept] in an antique, candle-lit library."
+                },
+                {
+                    "index": 23,
+                    "content": "A photo of a tranquil [concept] in a blooming meadow."
+                },
+                {
+                    "index": 24,
+                    "content": "A photo of a picturesque [concept] by the seaside cliffs at sunrise."
+                },
+                {
+                    "index": 25,
+                    "content": "A photo of a majestic [concept] under starry skies in a desert landscape."
+                },
+                {
+                    "index": 26,
+                    "content": "A photo of an ancient [concept] in a lush jungle at midday."
+                },
+                {
+                    "index": 27,
+                    "content": "A photo of a bustling city street [concept] during twilight."
+                },
+                {
+                    "index": 28,
+                    "content": "A high-definition photo of an intricate [concept] under dappled sunlight in a lush forest."
+                },
+                {
+                    "index": 29,
+                    "content": "A hyper-realistic depiction of a bustling marketplace with [concept] at noon."
+                },
+                {
+                    "index": 30,
+                    "content": "A photo of [concept] in a snowy mountain landscape during golden hour."
+                },
+                {
+                    "index": 31,
+                    "content": "A photo of [concept] in a lush garden during spring bloom."
+                },
+                {
+                    "index": 32,
+                    "content": "A lifelike image of a reflective [concept] in a tranquil snowy landscape."
+                },
+                {
+                    "index": 33,
+                    "content": "A photo of a vibrant [concept] in a tropical rainforest."
+                },
+                {
+                    "index": 34,
+                    "content": "A photo of [concept] in a futuristic city with neon lights."
+                },
+                {
+                    "index": 35,
+                    "content": "A photo of a bustling [concept] in a cityscape at night."
+                },
+                {
+                    "index": 36,
+                    "content": "A photorealistic image of a vivid [concept] in a picturesque countryside during golden hour."
+                },
+                {
+                    "index": 37,
+                    "content": "A photorealistic image of an illuminated [concept] in a vibrant urban setting at night."
+                },
+                {
+                    "index": 38,
+                    "content": "A photo of a serene lake [concept] at sunset."
+                },
+                {
+                    "index": 39,
+                    "content": "A photo of a tranquil [concept] in a lush garden at dawn."
+                },
+                {
+                    "index": 40,
+                    "content": "A photo of [concept] in a bustling cityscape at night."
+                },
+                {
+                    "index": 41,
+                    "content": "A photo of a bustling city [concept] at night."
+                },
+                {
+                    "index": 42,
+                    "content": "A photo of a picturesque [concept] in a snow-covered village at twilight."
+                },
+                {
+                    "index": 43,
+                    "content": "A photo of a cozy [concept] in a rustic cabin during autumn."
+                },
+                {
+                    "index": 44,
+                    "content": "A photo of a bustling marketplace [concept] under a bright, blue sky."
+                },
+                {
+                    "index": 45,
+                    "content": "A photo of a serene [concept] at sunset by the lakeside."
+                },
+                {
+                    "index": 46,
+                    "content": "A crisp photo of a majestic [concept] against a dramatic mountain backdrop at noon."
+                },
+                {
+                    "index": 47,
+                    "content": "A photo of a vibrant [concept] at dawn in a desert landscape."
+                },
+                {
+                    "index": 48,
+                    "content": "A photo of a vibrant [concept] in an autumn forest."
+                },
+                {
+                    "index": 49,
+                    "content": "A photo of [concept] at a vibrant carnival with colorful lights and decorations."
+                }
+            ]
+        }
+    ]
+}

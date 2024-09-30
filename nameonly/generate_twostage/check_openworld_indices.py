@@ -2,7 +2,7 @@ import os
 import json
 
 prompt_path = '../prompt_generation/prompts/openworld_diversified.json'
-root_dir = '/home/user/seongwon/New_Nameonly_CL/nameonly/raw_datasets/iclr_generated/openworld/openworld_diversified_floyd'
+root_dir = './generated_datasets/openworld_diversified_auraflow'
 
 with open('../prompt_generation/prompts/openworld_diversified.json', 'r') as f:
     prompt_dict = json.load(f)

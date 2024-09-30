@@ -4,12 +4,9 @@ embedding_model: 'clip'
 dataset: 'DomainNet' # PACS, DomainNet, cifar10
 use_ma_size: False
 image_paths:
-  sdxl: './raw_datasets/iclr_generated/DomainNet/DomainNet_cot_50_2_sdxl_subsampled_filtered'
-  floyd: './raw_datasets/iclr_generated/DomainNet/DomainNet_cot_50_2_floyd_subsampled_filtered'
-  cogview2: './raw_datasets/iclr_generated/DomainNet/DomainNet_cot_50_2_cogview2_subsampled_filtered'
-  sd3: './raw_datasets/iclr_generated/DomainNet/DomainNet_cot_50_2_sd3_subsampled_filtered'
-  flux: './raw_datasets/iclr_generated/DomainNet/DomainNet_cot_50_2_flux_subsampled_filtered'
-  kolors: './raw_datasets/iclr_generated/DomainNet/DomainNet_cot_50_2_kolors_subsampled_filtered'
-  auraflow: './raw_datasets/iclr_generated/DomainNet/DomainNet_cot_50_2_auraflow_subsampled_filtered'
-
-json_save_path: './RMD_scores/DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_flux_kolors_auraflow.json'
+  sdxl: './raw_datasets/iclr_generated/DomainNet/DomainNet_sdbp_sdxl_subsampled_filtered'
+  floyd: './raw_datasets/iclr_generated/DomainNet/DomainNet_sdbp_floyd_subsampled_filtered'
+  cogview2: './raw_datasets/iclr_generated/DomainNet/DomainNet_sdbp_cogview2_subsampled_filtered'
+  sd3: './raw_datasets/iclr_generated/DomainNet/DomainNet_sdbp_sd3_subsampled_filtered'
+  auraflow: './raw_datasets/iclr_generated/DomainNet/DomainNet_sdbp_auraflow_subsampled_filtered'
+json_save_path: './RMD_scores/DomainNet_sdbp_sdxl_floyd_cogview2_sd3_auraflow.json'

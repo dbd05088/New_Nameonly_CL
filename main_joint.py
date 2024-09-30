@@ -10,6 +10,8 @@ from utils.joint_dataset import CustomDataset
 from utils.train_utils import select_model
 from tqdm import tqdm
 from utils.data_loader import ImageDataset, get_statistics
+import torch.nn.functional as F
+from torch import nn
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--dataset', type=str, required=True)
@@ -118,12 +120,63 @@ def test(model, criterion, test_dataloader, device):
             corrects += torch.sum(preds == labels).item()
             total += labels.size(0)
     return running_loss / len(test_dataloader), corrects / total
+
+
+
+# Training
+def clip_train(model, criterion, optimizer, train_loader, device, text_class_tokens):
+    model.train()
+    running_loss = 0.0
+    for inputs, labels in tqdm(train_loader):
+        inputs, labels = inputs.to(device), labels.to(device)
+        optimizer.zero_grad()
+        outputs = model(inputs, text_class_tokens)
+        # logits_per_image =outputs['logit_scale'] * outputs['image_features'] @ outputs['text_features'].T
+        # loss = F.cross_entropy(logits_per_image, labels)
+        # text_probs = (100.0 * image_features @ text_features.T).softmax(dim=-1)
+        # top_probs, top_labels = text_probs.topk(1, dim=-1)
+        # total += labels.size(0)
+        # correct += torch.sum(top_labels == labels.unsqueeze(1)).item()
+        loss = criterion(*outputs, labels=labels)
+        loss.backward()
+        optimizer.step()
+        running_loss += loss.item()
+    return running_loss / len(train_loader)
+
+def clip_test(model, criterion, test_dataloader, device, text_class_tokens):
+    model.eval()
+    running_loss = 0.0
+    corrects = 0
+    total = 0
+    with torch.no_grad():
+        for inputs, labels in test_dataloader:
+            inputs, labels = inputs.to(device), labels.to(device)
+            image_features = model.encode_image(inputs)
+            text_features = model.encode_text(text_class_tokens)
+            image_features /= image_features.norm(dim=-1, keepdim=True)
+            text_features /= text_features.norm(dim=-1, keepdim=True)
+            text_probs = (100.0 * image_features @ text_features.T).softmax(dim=-1)
+            top_probs, top_labels = text_probs.topk(1, dim=-1)
+            total += labels.size(0)
+            corrects += torch.sum(top_labels == labels.unsqueeze(1)).item()
+    # return running_loss / len(test_dataloader), corrects / total
+    return None, corrects / total
                 
 def main():
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    model = select_model(args.model_name, dataset=args.dataset, num_classes=num_classes).to(device)
+    train_root_dir = os.path.join('./dataset', args.dataset, f'{args.dataset}_{args.type}')
+    if "clip" in args.model_name:
+        model, pretrain_train_transform, pretrain_val_transform, tokenizer, criterion = select_model(args.model_name, args.dataset)
+        model = model.to(device)
+        criterion = ClipLoss().to(device)
+        prompt_template = 'this is a photo of a '
+        exposed_classes = list(os.listdir(train_root_dir))
+        text_class_prompts = [prompt_template+cla for cla in exposed_classes]
+        text_class_tokens = tokenizer(text_class_prompts).to(device)
+    else:
+        model = select_model(args.model_name, dataset=args.dataset, num_classes=num_classes).to(device)
+        criterion = torch.nn.CrossEntropyLoss()
     
-    criterion = torch.nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=args.learning_rate)
     
     eval_results = {
@@ -141,11 +194,17 @@ def main():
     
     for epoch in range(args.num_epochs):
         print(f"Starting epoch {epoch+1}/{args.num_epochs}")
-        train_loss = train(model, criterion, optimizer, train_dataloader, device)
+        if "clip" in args.model_name:
+            train_loss = clip_train(model, criterion, optimizer, train_dataloader, device, text_class_tokens)
+        else:
+            train_loss = train(model, criterion, optimizer, train_dataloader, device)
         # Evaluate
         for domain, test_dataloader in tqdm(test_dataloaders.items()):
             if test_dataloader is not None:
-                test_loss, accuracy = test(model, criterion, test_dataloader, device)
+                if "clip" in args.model_name:
+                    _, accuracy = clip_test(model, criterion, test_dataloader, device, text_class_tokens)
+                else:
+                    test_loss, accuracy = test(model, criterion, test_dataloader, device)
                 if domain == 'id':
                     eval_results['in_domain_intermediate'].append(accuracy)
                 else:
@@ -190,5 +249,72 @@ def main():
         'exposed_classes': list(os.listdir(train_root_dir))
         }, f'./real_ckpt/{args.model_name}_{args.dataset}.pth')
     
+    
+class ClipLoss(nn.Module):
+
+    def __init__(
+            self,
+            local_loss=False,
+            gather_with_grad=False,
+            cache_labels=True,
+            rank=0,
+            world_size=1,
+            use_horovod=False,
+    ):
+        super().__init__()
+        self.local_loss = local_loss
+        self.gather_with_grad = gather_with_grad
+        self.cache_labels = cache_labels
+        self.rank = rank
+        self.world_size = world_size
+        self.use_horovod = use_horovod
+
+        # cache state
+        self.prev_num_logits = 0
+        self.labels = {}
+
+    def get_ground_truth(self, device, num_logits) -> torch.Tensor:
+        # calculated ground-truth and cache if enabled
+        if self.prev_num_logits != num_logits or device not in self.labels:
+            labels = torch.arange(num_logits, device=device, dtype=torch.long)
+            if self.world_size > 1 and self.local_loss:
+                labels = labels + num_logits * self.rank
+            if self.cache_labels:
+                self.labels[device] = labels
+                self.prev_num_logits = num_logits
+        else:
+            labels = self.labels[device]
+        return labels
+
+    def get_logits(self, image_features, text_features, logit_scale):
+        if self.world_size > 1:
+            all_image_features, all_text_features = gather_features(
+                image_features, text_features,
+                self.local_loss, self.gather_with_grad, self.rank, self.world_size, self.use_horovod)
+
+            if self.local_loss:
+                logits_per_image = logit_scale * image_features @ all_text_features.T
+                logits_per_text = logit_scale * text_features @ all_image_features.T
+            else:
+                logits_per_image = logit_scale * all_image_features @ all_text_features.T
+                logits_per_text = logits_per_image.T
+        else:
+            logits_per_image = logit_scale * image_features @ text_features.T
+            logits_per_text = logit_scale * text_features @ image_features.T
+        
+        return logits_per_image, logits_per_text
+
+    def forward(self, image_features, text_features, logit_scale,labels, output_dict=False):
+        device = image_features.device
+        logits_per_image, logits_per_text = self.get_logits(image_features, text_features, logit_scale)
+
+        # labels = self.get_ground_truth(device, logits_per_image.shape[0])
+        total_loss = F.cross_entropy(logits_per_image, labels)
+            
+
+        # return {"contrastive_loss": total_loss} if output_dict else total_loss
+        return total_loss
+
+
 if __name__ == '__main__':
     main()

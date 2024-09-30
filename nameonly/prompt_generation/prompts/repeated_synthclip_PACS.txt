@@ -1,0 +1,19 @@
+#horse
+A majestic brown horse gallops freely through a sunlit meadow of wildflowers. - 0
+A majestic brown horse gallops through a sunlit meadow filled with vibrant wildflowers. - 4
+A majestic horse grazes peacefully in a sunlit meadow surrounded by vibrant wildflowers. - 8
+A majestic brown horse gallops freely through a sunlit meadow covered in vibrant wildflowers. - 15
+A majestic brown horse grazes peacefully in a sunlit meadow surrounded by vibrant wildflowers. - 27
+A majestic horse gallops through a sprawling, sunlit meadow surrounded by vibrant wildflowers. - 29
+
+
+# person
+10: A young woman sits on a park bench, reading a book under the autumn leaves. 
+12: A young woman enjoys reading a book under a tree in a sunlit park.
+23: A young woman sits on a park bench reading a book under the autumn leaves.
+41: A young woman reads a book while sitting on a park bench under a tree.
+
+!!! there are lots of prompts about person who reads !!!
+
+# dog
+48 of 50 -> contains 'golden retriever' (maybe API doesn't reset?)

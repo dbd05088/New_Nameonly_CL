@@ -1,0 +1,109 @@
+# without 'Please create 50 prompt sentences (under 10 words) that fit this description.'
+
+# dog
+To generate images using a text-to-image generation model, I need to create 50 prompts. Keep the domain photorealistic and use different visual scenes and visual styles or different color profiles/ palettes. Please create 50 prompts (under 10 words) that does not overlap with each other. Please ensure that each response includes the word 'dog'. For example, "A dog in the forest.", "A photo of a dog.", "A detailed sketch of a dog.", "A hyper-realistic portrait of a dog.", etc.
+
+A dog on a snowy mountain peak.
+A dog by the beach at sunset.
+A dog running through a city street.
+A dog sitting in a flower field.
+A dog sleeping in a cozy living room.
+A dog splashing in a river.
+A dog playing in autumn leaves.
+A dog under a starry night sky.
+A dog in front of a modern skyscraper.
+A dog exploring a jungle.
+A black and white portrait of a dog.
+A dog walking in a foggy forest.
+A dog sitting on a park bench.
+A dog in a vibrant meadow.
+A dog staring at the moon.
+A dog beside an old wooden cabin.
+A dog playing with a child in a garden.
+A dog standing in the rain.
+A dog on a deserted island.
+A dog next to a vintage car.
+A dog in a bustling marketplace.
+A dog sitting in a quiet library.
+A dog walking on a country road.
+A dog on a sandy desert dune.
+A dog by a fireplace in a log cabin.
+A dog under cherry blossom trees.
+A dog running along a dirt trail.
+A dog in a sunflower field.
+A dog waiting at a train station.
+A dog by a tranquil lake at sunrise.
+A dog sitting by a large fountain.
+A dog in a futuristic cityscape.
+A dog with a mountain backdrop.
+A dog walking across a wooden bridge.
+A dog in a lush green valley.
+A dog standing in tall grass.
+A dog on a fog-covered hill.
+A dog sitting beside a calm river.
+A dog on a rocky shoreline.
+A dog under a colorful sunset.
+A dog resting in a field of lavender.
+A dog in a small village square.
+A dog playing in a snowy forest.
+A dog watching boats at a harbor.
+A dog on a busy urban sidewalk.
+A dog in front of a stone castle.
+A dog sitting by a campfire.
+A dog running on a soccer field.
+A dog walking beside a bicycle.
+A dog looking out a window on a rainy day.
+
+# person
+To generate images using a text-to-image generation model, I need to create 50 prompts. Keep the domain photorealistic and use different visual scenes and visual styles or different color profiles/ palettes. Please create 50 prompts (under 10 words) that does not overlap with each other. Please ensure that each response includes the word 'person'. For example, "A person in the forest.", "A photo of a person.", "A detailed sketch of a person.", "A hyper-realistic portrait of a person.", etc.
+
+A person hiking in the mountains.
+A person standing near a waterfall.
+A person sitting by the fireplace.
+A person walking on a crowded street.
+A person relaxing on a beach at sunset.
+A person holding a colorful umbrella in the rain.
+A person in a modern kitchen cooking.
+A person reading a book in a cozy cafe.
+A person playing the piano in a concert hall.
+A person cycling through a city park.
+A person meditating in a serene garden.
+A person painting on a canvas in a studio.
+A person playing soccer in an open field.
+A person exploring an ancient temple.
+A person admiring art in a museum.
+A person standing on a snowy mountain peak.
+A person swimming in a crystal-clear lake.
+A person riding a horse on a beach.
+A person watching fireworks in the night sky.
+A person enjoying coffee in a quiet balcony.
+A person practicing yoga at sunrise.
+A person taking photos in a bustling market.
+A person sitting on a park bench with autumn leaves.
+A person driving a vintage car through the countryside.
+A person in a flower field at golden hour.
+A person standing in front of a skyscraper at night.
+A person holding a lantern in a dark forest.
+A person playing guitar by a campfire.
+A person in a crowded metro station.
+A person skiing down a snowy slope.
+A person standing on a bridge over a river.
+A person taking a selfie in front of a famous monument.
+A person watching the sunset from a rooftop.
+A person flying a kite in a wide open field.
+A person riding a bicycle along a coastal road.
+A person walking through a foggy forest trail.
+A person running on a sandy beach at dawn.
+A person shopping in a high-end fashion store.
+A person snorkeling in vibrant coral reefs.
+A person standing in the rain under neon city lights.
+A person walking a dog in a quiet neighborhood.
+A person practicing martial arts in a dojo.
+A person sailing on a calm ocean.
+A person playing chess in a park.
+A person standing near a lighthouse by the sea.
+A person sitting in a vintage diner.
+A person skateboarding on an empty street.
+A person walking through a sunflower field.
+A person ice skating on a frozen lake.
+A person sitting by a window watching the snow fall.
