@@ -16,8 +16,8 @@
 # --------------------------IMPORTANT-------------------------- #
 MODE="er" # er, der, mir, aser, ...
 MODEL_NAME="resnet18" # vit
-DATASET="PACS_final" # PACS_final, DomainNet, cifar10, NICO, cct
-TYPES=("train_ma") # each type runs on each gpu
+DATASET="cifar10" # PACS_final, DomainNet, cifar10, NICO, cct
+TYPES=("train_ma_10000") # each type runs on each gpu
 SEEDS="1"
 GPUS=("0" "7" "2" "3" "4" "5" "6" "7") # each gpu runs each type
 # --------------------------IMPORTANT-------------------------- #
@@ -71,7 +71,7 @@ if [ "$DATASET" == "cifar10" ]; then
     BASEINIT_SAMPLES=6000 FEAT_DIM=14 FEAT_MEM_SIZE=24000
     SAMPLES_PER_TASK=20000 
     ONLINE_ITER=2
-    EVAL_POINT="1000 2000 3000 4000 5000"
+    EVAL_POINT="2000 4000 6000 8000 10000"
 
 elif [ "$DATASET" == "PACS_final" ]; then
     MEM_SIZE=200

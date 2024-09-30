@@ -45,10 +45,15 @@
 # rm CIFAR10_glide.tar
 
 
-# Compare between 5000 and 10000 (using sdxl_diversified)
-./gdrive files download 1FXM3vJ0I9ntijCLtD4IxgmPz-M1T5Iop
-./gdrive files download 1teeqK_nsl1MtSfI9kd9GfbpN-Z9uOFdX
-tar -xf cifar10_sdxl_5000.tar -C cifar10
-tar -xf cifar10_sdxl_10000.tar -C cifar10
-rm cifar10_sdxl_5000.tar
-rm cifar10_sdxl_10000.tar
+# # Compare between 5000 and 10000 (using sdxl_diversified)
+# ./gdrive files download 1FXM3vJ0I9ntijCLtD4IxgmPz-M1T5Iop
+# ./gdrive files download 1teeqK_nsl1MtSfI9kd9GfbpN-Z9uOFdX
+# tar -xf cifar10_sdxl_5000.tar -C cifar10
+# tar -xf cifar10_sdxl_10000.tar -C cifar10
+# rm cifar10_sdxl_5000.tar
+# rm cifar10_sdxl_10000.tar
+
+# train ma 10000 (0930)
+./gdrive files download 1Iba892lPEfr-r-lC66IHFkJLjS_G7abT
+tar -xf cifar10_train_ma_10000.tar -C cifar10
+rm cifar10_train_ma_10000.tar
