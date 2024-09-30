@@ -89,6 +89,13 @@
 # tar -xf cifar10_50_3_sdxl.tar -C cifar10
 # rm cifar10_50_3_sdxl.tar
 
-./gdrive files download 1rA8xAJM2xKXcEFskMJmeq8l00KAC5BdM # cifar10_50_4_sdxl
-tar -xf cifar10_50_4_sdxl.tar -C cifar10
-rm cifar10_50_4_sdxl.tar
+# ./gdrive files download 1rA8xAJM2xKXcEFskMJmeq8l00KAC5BdM # cifar10_50_4_sdxl
+# tar -xf cifar10_50_4_sdxl.tar -C cifar10
+# rm cifar10_50_4_sdxl.tar
+
+./gdrive files download 12grRkc-7w3C_abmpEQHNYj4S9Cct_yE2 # cifar10_50_1_sdxl
+./gdrive files download 1Rq8BNQcrceo5jLOZV03SRf9K3dvLhCoC # cifar10_50_7_sdxl
+tar -xf cifar10_50_1_sdxl.tar -C cifar10
+tar -xf cifar10_50_7_sdxl.tar -C cifar10
+rm cifar10_50_1_sdxl.tar
+rm cifar10_50_7_sdxl.tar
