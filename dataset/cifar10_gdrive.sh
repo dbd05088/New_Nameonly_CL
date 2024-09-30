@@ -53,7 +53,12 @@
 # rm cifar10_sdxl_5000.tar
 # rm cifar10_sdxl_10000.tar
 
-# train ma 10000 (0930)
-./gdrive files download 1Iba892lPEfr-r-lC66IHFkJLjS_G7abT
-tar -xf cifar10_train_ma_10000.tar -C cifar10
-rm cifar10_train_ma_10000.tar
+# # train ma 10000 (0930)
+# ./gdrive files download 1Iba892lPEfr-r-lC66IHFkJLjS_G7abT
+# tar -xf cifar10_train_ma_10000.tar -C cifar10
+# rm cifar10_train_ma_10000.tar
+
+# cifar10_50_2_sdxl
+./gdrive files download 1zUMOdboi3XUYUt8kZu8suuDOH5hGyF_C # cifar10_50_2_sdxl
+tar -xf cifar10_50_2_sdxl.tar -C cifar10
+rm cifar10_50_2_sdxl.tar
