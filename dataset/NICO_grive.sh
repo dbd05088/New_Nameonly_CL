@@ -150,6 +150,10 @@
 # rm NICO_50_5_sdxl.tar
 # rm NICO_50_12_sdxl.tar
 
-./gdrive files download 1H2CW_yCswPVH5BBH9dzwLlqMyR4G8NQ- # NICO_50_4_sdxl_floyd_cogview2_sd3_auraflow
-tar -xf NICO_50_4_sdxl_floyd_cogview2_sd3_auraflow.tar -C NICO
-rm NICO_50_4_sdxl_floyd_cogview2_sd3_auraflow.tar
+# ./gdrive files download 1H2CW_yCswPVH5BBH9dzwLlqMyR4G8NQ- # NICO_50_4_sdxl_floyd_cogview2_sd3_auraflow
+# tar -xf NICO_50_4_sdxl_floyd_cogview2_sd3_auraflow.tar -C NICO
+# rm NICO_50_4_sdxl_floyd_cogview2_sd3_auraflow.tar
+
+./gdrive files download 1c-HoqZ_JPNN945mVGJ2ROxOIU9fZMc2p # NICO_LE_new_sdxl
+tar -xf NICO_LE_new_sdxl.tar -C NICO
+rm NICO_LE_new_sdxl.tar
