@@ -81,6 +81,10 @@
 # tar -xf cifar10_LE_sdxl.tar -C cifar10
 # rm cifar10_LE_sdxl.tar
 
-./gdrive files download 1MMwOWMHtdLxncTeC2ZPV7Ua4Qq75XHNo # cifar10_synclr_sdxl
-tar -xf cifar10_synclr_sdxl.tar -C cifar10
-rm cifar10_synclr_sdxl.tar
+# ./gdrive files download 1MMwOWMHtdLxncTeC2ZPV7Ua4Qq75XHNo # cifar10_synclr_sdxl
+# tar -xf cifar10_synclr_sdxl.tar -C cifar10
+# rm cifar10_synclr_sdxl.tar
+
+./gdrive files download 1C1OJgJ9pE-iyR9CNlr2vSpTXPSBQTrvK # cifar10_50_3_sdxl
+tar -xf cifar10_50_3_sdxl.tar -C cifar10
+rm cifar10_50_3_sdxl.tar
