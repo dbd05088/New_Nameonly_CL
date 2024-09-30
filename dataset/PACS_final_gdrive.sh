@@ -1563,3 +1563,6 @@
 ./gdrive files download 1HXnpsFGHGkEWRgkZgZzd3d33w5V0c1rj # PACS_final_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_auraflow_equalweight
 tar -xf PACS_final_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar -C PACS_final
 rm PACS_final_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar
+./gdrive files download 1pIIxaX35vgKThIyuE5odmduscNxon_5v # PACS_final_sdbp_sdxl_50
+tar -xf PACS_final_sdbp_sdxl_50.tar -C PACS_final
+rm PACS_final_sdbp_sdxl_50.tar
