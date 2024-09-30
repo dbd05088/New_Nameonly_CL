@@ -77,6 +77,10 @@
 # rm cifar10_fake_f_sdxl.tar
 # rm cifar10_synthclip_sdxl.tar
 
-./gdrive files download 1dwsmH-dMPaZ9DvxhEq9aeLMjBIHAedKu # cifar10_LE_sdxl
-tar -xf cifar10_LE_sdxl.tar -C cifar10
-rm cifar10_LE_sdxl.tar
+# ./gdrive files download 1dwsmH-dMPaZ9DvxhEq9aeLMjBIHAedKu # cifar10_LE_sdxl
+# tar -xf cifar10_LE_sdxl.tar -C cifar10
+# rm cifar10_LE_sdxl.tar
+
+./gdrive files download 1MMwOWMHtdLxncTeC2ZPV7Ua4Qq75XHNo # cifar10_synclr_sdxl
+tar -xf cifar10_synclr_sdxl.tar -C cifar10
+rm cifar10_synclr_sdxl.tar
