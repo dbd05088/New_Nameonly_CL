@@ -63,16 +63,20 @@
 # tar -xf cifar10_50_2_sdxl.tar -C cifar10
 # rm cifar10_50_2_sdxl.tar
 
-# cifar10 50_8, synthclip, fake-f, sdbp sdxl
-./gdrive files download 1SZ_HfS5ewgUNE0AfvdzwtdtvchBKjmrO # cifar10_50_8_sdxl
-./gdrive files download 18N8LQVkkji6vZ4xlg4BY6jzo9CVjiZjf # cifar10_sdbp_sdxl
-./gdrive files download 1NiZlLOxEmwyah9sgszP2TzWLlcQe87JI # cifar10_fake_f_sdxl
-./gdrive files download 1DhJramdE5H2sYCtFbU24d1Q1scYf5B9X # cifar10_synthclip_sdxl
-tar -xf cifar10_50_8_sdxl.tar -C cifar10
-tar -xf cifar10_sdbp_sdxl.tar -C cifar10
-tar -xf cifar10_fake_f_sdxl.tar -C cifar10
-tar -xf cifar10_synthclip_sdxl.tar -C cifar10
-rm cifar10_50_8_sdxl.tar
-rm cifar10_sdbp_sdxl.tar
-rm cifar10_fake_f_sdxl.tar
-rm cifar10_synthclip_sdxl.tar
+# # cifar10 50_8, synthclip, fake-f, sdbp sdxl
+# ./gdrive files download 1SZ_HfS5ewgUNE0AfvdzwtdtvchBKjmrO # cifar10_50_8_sdxl
+# ./gdrive files download 18N8LQVkkji6vZ4xlg4BY6jzo9CVjiZjf # cifar10_sdbp_sdxl
+# ./gdrive files download 1NiZlLOxEmwyah9sgszP2TzWLlcQe87JI # cifar10_fake_f_sdxl
+# ./gdrive files download 1DhJramdE5H2sYCtFbU24d1Q1scYf5B9X # cifar10_synthclip_sdxl
+# tar -xf cifar10_50_8_sdxl.tar -C cifar10
+# tar -xf cifar10_sdbp_sdxl.tar -C cifar10
+# tar -xf cifar10_fake_f_sdxl.tar -C cifar10
+# tar -xf cifar10_synthclip_sdxl.tar -C cifar10
+# rm cifar10_50_8_sdxl.tar
+# rm cifar10_sdbp_sdxl.tar
+# rm cifar10_fake_f_sdxl.tar
+# rm cifar10_synthclip_sdxl.tar
+
+./gdrive files download 1dwsmH-dMPaZ9DvxhEq9aeLMjBIHAedKu # cifar10_LE_sdxl
+tar -xf cifar10_LE_sdxl.tar -C cifar10
+rm cifar10_LE_sdxl.tar
