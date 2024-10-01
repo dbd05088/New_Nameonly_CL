@@ -534,6 +534,10 @@
 # rm DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_ver6.tar
 # rm DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_ver7.tar
 
-./gdrive files download 14BKE63_O5cxOxM9_xpCoSght2BlNKVrK # DomainNet_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_auraflow_equalweight
-tar -xf DomainNet_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar -C DomainNet
-rm DomainNet_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar
+# ./gdrive files download 14BKE63_O5cxOxM9_xpCoSght2BlNKVrK # DomainNet_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_auraflow_equalweight
+# tar -xf DomainNet_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar -C DomainNet
+# rm DomainNet_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar
+
+./gdrive files download 1ZIP983w2N70gbKzaT3QcMKLisIxjYtTT # DomainNet_50_2_glide
+tar -xf DomainNet_50_2_glide.tar -C DomainNet
+rm DomainNet_50_2_glide.tar
