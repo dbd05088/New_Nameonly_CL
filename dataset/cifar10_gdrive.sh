@@ -63,16 +63,39 @@
 # tar -xf cifar10_50_2_sdxl.tar -C cifar10
 # rm cifar10_50_2_sdxl.tar
 
-# cifar10 50_8, synthclip, fake-f, sdbp sdxl
-./gdrive files download 1SZ_HfS5ewgUNE0AfvdzwtdtvchBKjmrO # cifar10_50_8_sdxl
-./gdrive files download 18N8LQVkkji6vZ4xlg4BY6jzo9CVjiZjf # cifar10_sdbp_sdxl
-./gdrive files download 1NiZlLOxEmwyah9sgszP2TzWLlcQe87JI # cifar10_fake_f_sdxl
-./gdrive files download 1DhJramdE5H2sYCtFbU24d1Q1scYf5B9X # cifar10_synthclip_sdxl
-tar -xf cifar10_50_8_sdxl.tar -C cifar10
-tar -xf cifar10_sdbp_sdxl.tar -C cifar10
-tar -xf cifar10_fake_f_sdxl.tar -C cifar10
-tar -xf cifar10_synthclip_sdxl.tar -C cifar10
-rm cifar10_50_8_sdxl.tar
-rm cifar10_sdbp_sdxl.tar
-rm cifar10_fake_f_sdxl.tar
-rm cifar10_synthclip_sdxl.tar
+# # cifar10 50_8, synthclip, fake-f, sdbp sdxl
+# ./gdrive files download 1SZ_HfS5ewgUNE0AfvdzwtdtvchBKjmrO # cifar10_50_8_sdxl
+# ./gdrive files download 18N8LQVkkji6vZ4xlg4BY6jzo9CVjiZjf # cifar10_sdbp_sdxl
+# ./gdrive files download 1NiZlLOxEmwyah9sgszP2TzWLlcQe87JI # cifar10_fake_f_sdxl
+# ./gdrive files download 1DhJramdE5H2sYCtFbU24d1Q1scYf5B9X # cifar10_synthclip_sdxl
+# tar -xf cifar10_50_8_sdxl.tar -C cifar10
+# tar -xf cifar10_sdbp_sdxl.tar -C cifar10
+# tar -xf cifar10_fake_f_sdxl.tar -C cifar10
+# tar -xf cifar10_synthclip_sdxl.tar -C cifar10
+# rm cifar10_50_8_sdxl.tar
+# rm cifar10_sdbp_sdxl.tar
+# rm cifar10_fake_f_sdxl.tar
+# rm cifar10_synthclip_sdxl.tar
+
+# ./gdrive files download 1dwsmH-dMPaZ9DvxhEq9aeLMjBIHAedKu # cifar10_LE_sdxl
+# tar -xf cifar10_LE_sdxl.tar -C cifar10
+# rm cifar10_LE_sdxl.tar
+
+# ./gdrive files download 1MMwOWMHtdLxncTeC2ZPV7Ua4Qq75XHNo # cifar10_synclr_sdxl
+# tar -xf cifar10_synclr_sdxl.tar -C cifar10
+# rm cifar10_synclr_sdxl.tar
+
+# ./gdrive files download 1C1OJgJ9pE-iyR9CNlr2vSpTXPSBQTrvK # cifar10_50_3_sdxl
+# tar -xf cifar10_50_3_sdxl.tar -C cifar10
+# rm cifar10_50_3_sdxl.tar
+
+# ./gdrive files download 1rA8xAJM2xKXcEFskMJmeq8l00KAC5BdM # cifar10_50_4_sdxl
+# tar -xf cifar10_50_4_sdxl.tar -C cifar10
+# rm cifar10_50_4_sdxl.tar
+
+./gdrive files download 12grRkc-7w3C_abmpEQHNYj4S9Cct_yE2 # cifar10_50_1_sdxl
+./gdrive files download 1Rq8BNQcrceo5jLOZV03SRf9K3dvLhCoC # cifar10_50_7_sdxl
+tar -xf cifar10_50_1_sdxl.tar -C cifar10
+tar -xf cifar10_50_7_sdxl.tar -C cifar10
+rm cifar10_50_1_sdxl.tar
+rm cifar10_50_7_sdxl.tar
