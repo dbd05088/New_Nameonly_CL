@@ -93,9 +93,13 @@
 # tar -xf cifar10_50_4_sdxl.tar -C cifar10
 # rm cifar10_50_4_sdxl.tar
 
-./gdrive files download 12grRkc-7w3C_abmpEQHNYj4S9Cct_yE2 # cifar10_50_1_sdxl
-./gdrive files download 1Rq8BNQcrceo5jLOZV03SRf9K3dvLhCoC # cifar10_50_7_sdxl
-tar -xf cifar10_50_1_sdxl.tar -C cifar10
-tar -xf cifar10_50_7_sdxl.tar -C cifar10
-rm cifar10_50_1_sdxl.tar
-rm cifar10_50_7_sdxl.tar
+# ./gdrive files download 12grRkc-7w3C_abmpEQHNYj4S9Cct_yE2 # cifar10_50_1_sdxl
+# ./gdrive files download 1Rq8BNQcrceo5jLOZV03SRf9K3dvLhCoC # cifar10_50_7_sdxl
+# tar -xf cifar10_50_1_sdxl.tar -C cifar10
+# tar -xf cifar10_50_7_sdxl.tar -C cifar10
+# rm cifar10_50_1_sdxl.tar
+# rm cifar10_50_7_sdxl.tar
+
+./gdrive files download 1cIS8y_gdNShk0_2_paLsSu1SBad0dB5B # cifar10_50_2_sdxl_floyd_cogview2_sd3_auraflow
+tar -xf cifar10_50_2_sdxl_floyd_cogview2_sd3_auraflow.tar -C cifar10
+rm cifar10_50_2_sdxl_floyd_cogview2_sd3_auraflow.tar
