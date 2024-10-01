@@ -1,0 +1,542 @@
+{
+    "airplane": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "An airplane typically has a long, narrow fuselage with wings attached to either side."
+                    }
+                ]
+            },
+            {
+                "index": 1,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "You can identify an airplane by its wings, engines, and aerodynamic shape designed for flight."
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "An airplane typically has a long fuselage, two wings, a tail, and engines mounted on the wings or fuselage."
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "The image shows a sleek, modern airplane flying against a backdrop of a clear blue sky."
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "An airplane soars high above the clouds."
+                    }
+                ]
+            }
+        ]
+    },
+    "automobile": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "An automobile typically has four wheels and a sleek metal body. It features windows on all sides and doors for entry and exit. The front has headlights and a grille, while the back has taillights. The interior contains seats, a steering wheel, and a dashboard."
+                    }
+                ]
+            },
+            {
+                "index": 1,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "An automobile can be identified by its four wheels, enclosed cabin, and an engine that powers it for transportation on roads."
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "An automobile typically looks like a wheeled motor vehicle with a front and rear section, windows, and doors."
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A sleek red sports car with shiny alloy wheels is parked on a coastal road with the ocean in the background."
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A sleek red automobile is parked by the roadside."
+                    }
+                ]
+            }
+        ]
+    },
+    "bird": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A bird has feathers, a beak, two wings, and two legs."
+                    }
+                ]
+            },
+            {
+                "index": 1,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "Observe characteristics such as feathers, beak shape, size, color patterns, flight behavior, and distinctive calls or songs."
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A bird typically has feathers, wings, a beak, and two legs."
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A vibrant blue jay is perched on a tree branch surrounded by green leaves, with its striking blue and white feathers glistening in the sunlight."
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A vibrant bird perched on a branch sings joyfully."
+                    }
+                ]
+            }
+        ]
+    },
+    "cat": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A cat is a small, furry animal with sharp claws and a long tail."
+                    }
+                ]
+            },
+            {
+                "index": 1,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A cat can be identified by its retractable claws, whiskers, and slit-shaped pupils."
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A cat looks like a small, furry animal with a sleek body, sharp claws, and expressive eyes."
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A fluffy white cat with blue eyes is lounging on a sunny windowsill."
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A curious cat lounges on a sunny windowsill."
+                    }
+                ]
+            }
+        ]
+    },
+    "deer": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A deer typically has a slender body, long legs, and a short tail. It is often covered in brownish fur with a white underbelly. Its large, expressive eyes and broad, flat ears are distinctive features. The males usually have antlers that shed and regrow annually."
+                    }
+                ]
+            },
+            {
+                "index": 1,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "You can identify a deer by its slender body, long legs, and antlers if it is a male."
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A deer has a slender body, long legs, and a short tail, with a coat that varies from reddish-brown to grayish-brown."
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A deer stands gracefully in a sunlit forest clearing, its ears alert and its eyes wide with curiosity."
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A deer grazes peacefully in the forest."
+                    }
+                ]
+            }
+        ]
+    },
+    "dog": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A dog typically has four legs, fur, and a tail."
+                    }
+                ]
+            },
+            {
+                "index": 1,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "You can identify a dog by its characteristic features such as a wagging tail, barking, and four legs."
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A dog typically has four legs, a tail, fur, and a distinct facial expression with a snout and ears."
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A golden retriever is playing fetch in a grassy park, its fur shining in the sunlight."
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A playful dog enjoys a sunny day in the park."
+                    }
+                ]
+            }
+        ]
+    },
+    "frog": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A frog has a smooth, moist skin, bulging eyes, and long hind legs for jumping."
+                    }
+                ]
+            },
+            {
+                "index": 1,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "You can identify a frog by its smooth, moist skin and long hind legs adapted for jumping."
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A frog typically has smooth, moist skin, bulging eyes, and strong, webbed hind legs for jumping."
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A green frog sits on a lily pad in a calm pond."
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A vibrant frog sits perched on a green leaf."
+                    }
+                ]
+            }
+        ]
+    },
+    "horse": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A horse has a large, muscular body with long legs. It has a long neck and mane, and a tail covered in long hair. Its head is elongated with large nostrils and expressive eyes. The coat can be various colors, such as brown, black, or white. The hooves are hard and help with running."
+                    }
+                ]
+            },
+            {
+                "index": 1,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "You can identify a horse by its large size, elongated face, and four strong, slender legs."
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A horse has a long, muscular body with four strong legs, a mane of hair along its neck, and a tail."
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "The image depicts a sleek, black horse trotting gracefully through a green meadow."
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A majestic horse grazes peacefully in the open field."
+                    }
+                ]
+            }
+        ]
+    },
+    "ship": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A ship is a large, sturdy vessel designed to carry cargo or passengers across bodies of water. It has a strong hull, multiple decks, and a propulsion system. The ship features a bridge for navigation, cabins for crew and passengers, and cargo holds or storage areas."
+                    }
+                ]
+            },
+            {
+                "index": 1,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "You can identify a ship by its unique International Maritime Organization (IMO) number."
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A ship typically has a long, sleek hull, multiple decks, and various cabins or compartments."
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "The image shows a large, majestic ship sailing on calm blue waters, with white sails billowing in the wind."
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A majestic ship sails through calm waters."
+                    }
+                ]
+            }
+        ]
+    },
+    "truck": {
+        "metaprompts": [
+            {
+                "index": 0,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A truck typically has a large, boxy build with a sturdy frame. It features a spacious cargo area in the back. It usually sits on heavy-duty tires.  A truck often has a powerful front grille and dual side mirrors. The cab has a raised position."
+                    }
+                ]
+            },
+            {
+                "index": 1,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "You can identify a truck by its large size and the presence of a cargo area or bed."
+                    }
+                ]
+            },
+            {
+                "index": 2,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A truck typically has a large, boxy body with a cab in the front for the driver and passengers."
+                    }
+                ]
+            },
+            {
+                "index": 3,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A red semi-truck with a chrome grill is parked at a loading dock."
+                    }
+                ]
+            },
+            {
+                "index": 4,
+                "metaprompt": "dummy",
+                "prompts": [
+                    {
+                        "index": 0,
+                        "content": "A red truck drives down a dusty road."
+                    }
+                ]
+            }
+        ]
+    }
+}
