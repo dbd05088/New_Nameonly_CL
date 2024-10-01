@@ -151,46 +151,51 @@
 # rm cifar10_synclr_wo_flux_DINO_base_Submodular_10_0.0001.tar
 # rm cifar10_synclr_wo_flux_DINO_base_Uncertainty_10_0.0001.tar
 
-# HIWING coresets, synthclip coresets
-./gdrive files download 1okrnh3Qs7w46AvFma79MWOO1OrZ1HSMm # cifar10_50_2_wo_flux_CLIP_moderate
-./gdrive files download 1GWHFfEJ7UeXLrZtz4aDMmSS2QTtKU5Go # cifar10_50_2_wo_flux_DINO_base_Adacore_10_0.0001
-./gdrive files download 1S-ruCE_LiHTPpqHMaUrUCg-biU5S3Kbi # cifar10_50_2_wo_flux_DINO_base_CurvMatch_10_0.0001
-./gdrive files download 1MuyFmwD5VBWKUxqKxlF3u8sy1cF8B8tE # cifar10_50_2_wo_flux_DINO_base_Glister_10_0.0001
-./gdrive files download 1y3yFmEJk8HCBuhznGSykqFF5MRN_TYKe # cifar10_50_2_wo_flux_DINO_base_GradMatch_10_0.0001
-./gdrive files download 1d3HZ3c6S62HETlBdNUoOWAEcC0qbNjS0 # cifar10_50_2_wo_flux_DINO_base_Submodular_10_0.0001
-./gdrive files download 1bfmhmRBJXdsNPJqFgtp2UDZt1kDyoIid # cifar10_50_2_wo_flux_DINO_base_Uncertainty_10_0.0001
-./gdrive files download 15B4Gj0YTVyBZ1yyv03L51LTz294wxY9_ # cifar10_synthclip_wo_flux_CLIP_moderate
-./gdrive files download 1Kd7M3zQ4BiHEQn2lny5rUo82GFWvoPyu # cifar10_synthclip_wo_flux_DINO_base_Adacore_10_0.0001
-./gdrive files download 1BcHMxAdS5Obbf11DK73Mi56AsRIKzSP1 # cifar10_synthclip_wo_flux_DINO_base_CurvMatch_10_0.0001
-./gdrive files download 1Zox1iM_wytAiC52TkE6hVtMbOV1QubCU # cifar10_synthclip_wo_flux_DINO_base_Glister_10_0.0001
-./gdrive files download 15OKpaYFJZhWBLg8wWE7-ZntLfn1GSM3O # cifar10_synthclip_wo_flux_DINO_base_GradMatch_10_0.0001
-./gdrive files download 1IwctENHswoExxGZqiK0KimnlXownNpEZ # cifar10_synthclip_wo_flux_DINO_base_Submodular_10_0.0001
-./gdrive files download 1wGMS_jnvVJ-kwaEKaeero9w8fOnWlZ1B # cifar10_synthclip_wo_flux_DINO_base_Uncertainty_10_0.0001
-tar -xf cifar10_50_2_wo_flux_CLIP_moderate.tar -C cifar10
-tar -xf cifar10_50_2_wo_flux_DINO_base_Adacore_10_0.0001.tar -C cifar10
-tar -xf cifar10_50_2_wo_flux_DINO_base_CurvMatch_10_0.0001.tar -C cifar10
-tar -xf cifar10_50_2_wo_flux_DINO_base_Glister_10_0.0001.tar -C cifar10
-tar -xf cifar10_50_2_wo_flux_DINO_base_GradMatch_10_0.0001.tar -C cifar10
-tar -xf cifar10_50_2_wo_flux_DINO_base_Submodular_10_0.0001.tar -C cifar10
-tar -xf cifar10_50_2_wo_flux_DINO_base_Uncertainty_10_0.0001.tar -C cifar10
-tar -xf cifar10_synthclip_wo_flux_CLIP_moderate.tar -C cifar10
-tar -xf cifar10_synthclip_wo_flux_DINO_base_Adacore_10_0.0001.tar -C cifar10
-tar -xf cifar10_synthclip_wo_flux_DINO_base_CurvMatch_10_0.0001.tar -C cifar10
-tar -xf cifar10_synthclip_wo_flux_DINO_base_Glister_10_0.0001.tar -C cifar10
-tar -xf cifar10_synthclip_wo_flux_DINO_base_GradMatch_10_0.0001.tar -C cifar10
-tar -xf cifar10_synthclip_wo_flux_DINO_base_Submodular_10_0.0001.tar -C cifar10
-tar -xf cifar10_synthclip_wo_flux_DINO_base_Uncertainty_10_0.0001.tar -C cifar10
-rm cifar10_50_2_wo_flux_CLIP_moderate.tar
-rm cifar10_50_2_wo_flux_DINO_base_Adacore_10_0.0001.tar
-rm cifar10_50_2_wo_flux_DINO_base_CurvMatch_10_0.0001.tar
-rm cifar10_50_2_wo_flux_DINO_base_Glister_10_0.0001.tar
-rm cifar10_50_2_wo_flux_DINO_base_GradMatch_10_0.0001.tar
-rm cifar10_50_2_wo_flux_DINO_base_Submodular_10_0.0001.tar
-rm cifar10_50_2_wo_flux_DINO_base_Uncertainty_10_0.0001.tar
-rm cifar10_synthclip_wo_flux_CLIP_moderate.tar
-rm cifar10_synthclip_wo_flux_DINO_base_Adacore_10_0.0001.tar
-rm cifar10_synthclip_wo_flux_DINO_base_CurvMatch_10_0.0001.tar
-rm cifar10_synthclip_wo_flux_DINO_base_Glister_10_0.0001.tar
-rm cifar10_synthclip_wo_flux_DINO_base_GradMatch_10_0.0001.tar
-rm cifar10_synthclip_wo_flux_DINO_base_Submodular_10_0.0001.tar
-rm cifar10_synthclip_wo_flux_DINO_base_Uncertainty_10_0.0001.tar
+# # HIWING coresets, synthclip coresets
+# ./gdrive files download 1okrnh3Qs7w46AvFma79MWOO1OrZ1HSMm # cifar10_50_2_wo_flux_CLIP_moderate
+# ./gdrive files download 1GWHFfEJ7UeXLrZtz4aDMmSS2QTtKU5Go # cifar10_50_2_wo_flux_DINO_base_Adacore_10_0.0001
+# ./gdrive files download 1S-ruCE_LiHTPpqHMaUrUCg-biU5S3Kbi # cifar10_50_2_wo_flux_DINO_base_CurvMatch_10_0.0001
+# ./gdrive files download 1MuyFmwD5VBWKUxqKxlF3u8sy1cF8B8tE # cifar10_50_2_wo_flux_DINO_base_Glister_10_0.0001
+# ./gdrive files download 1y3yFmEJk8HCBuhznGSykqFF5MRN_TYKe # cifar10_50_2_wo_flux_DINO_base_GradMatch_10_0.0001
+# ./gdrive files download 1d3HZ3c6S62HETlBdNUoOWAEcC0qbNjS0 # cifar10_50_2_wo_flux_DINO_base_Submodular_10_0.0001
+# ./gdrive files download 1bfmhmRBJXdsNPJqFgtp2UDZt1kDyoIid # cifar10_50_2_wo_flux_DINO_base_Uncertainty_10_0.0001
+# ./gdrive files download 15B4Gj0YTVyBZ1yyv03L51LTz294wxY9_ # cifar10_synthclip_wo_flux_CLIP_moderate
+# ./gdrive files download 1Kd7M3zQ4BiHEQn2lny5rUo82GFWvoPyu # cifar10_synthclip_wo_flux_DINO_base_Adacore_10_0.0001
+# ./gdrive files download 1BcHMxAdS5Obbf11DK73Mi56AsRIKzSP1 # cifar10_synthclip_wo_flux_DINO_base_CurvMatch_10_0.0001
+# ./gdrive files download 1Zox1iM_wytAiC52TkE6hVtMbOV1QubCU # cifar10_synthclip_wo_flux_DINO_base_Glister_10_0.0001
+# ./gdrive files download 15OKpaYFJZhWBLg8wWE7-ZntLfn1GSM3O # cifar10_synthclip_wo_flux_DINO_base_GradMatch_10_0.0001
+# ./gdrive files download 1IwctENHswoExxGZqiK0KimnlXownNpEZ # cifar10_synthclip_wo_flux_DINO_base_Submodular_10_0.0001
+# ./gdrive files download 1wGMS_jnvVJ-kwaEKaeero9w8fOnWlZ1B # cifar10_synthclip_wo_flux_DINO_base_Uncertainty_10_0.0001
+# tar -xf cifar10_50_2_wo_flux_CLIP_moderate.tar -C cifar10
+# tar -xf cifar10_50_2_wo_flux_DINO_base_Adacore_10_0.0001.tar -C cifar10
+# tar -xf cifar10_50_2_wo_flux_DINO_base_CurvMatch_10_0.0001.tar -C cifar10
+# tar -xf cifar10_50_2_wo_flux_DINO_base_Glister_10_0.0001.tar -C cifar10
+# tar -xf cifar10_50_2_wo_flux_DINO_base_GradMatch_10_0.0001.tar -C cifar10
+# tar -xf cifar10_50_2_wo_flux_DINO_base_Submodular_10_0.0001.tar -C cifar10
+# tar -xf cifar10_50_2_wo_flux_DINO_base_Uncertainty_10_0.0001.tar -C cifar10
+# tar -xf cifar10_synthclip_wo_flux_CLIP_moderate.tar -C cifar10
+# tar -xf cifar10_synthclip_wo_flux_DINO_base_Adacore_10_0.0001.tar -C cifar10
+# tar -xf cifar10_synthclip_wo_flux_DINO_base_CurvMatch_10_0.0001.tar -C cifar10
+# tar -xf cifar10_synthclip_wo_flux_DINO_base_Glister_10_0.0001.tar -C cifar10
+# tar -xf cifar10_synthclip_wo_flux_DINO_base_GradMatch_10_0.0001.tar -C cifar10
+# tar -xf cifar10_synthclip_wo_flux_DINO_base_Submodular_10_0.0001.tar -C cifar10
+# tar -xf cifar10_synthclip_wo_flux_DINO_base_Uncertainty_10_0.0001.tar -C cifar10
+# rm cifar10_50_2_wo_flux_CLIP_moderate.tar
+# rm cifar10_50_2_wo_flux_DINO_base_Adacore_10_0.0001.tar
+# rm cifar10_50_2_wo_flux_DINO_base_CurvMatch_10_0.0001.tar
+# rm cifar10_50_2_wo_flux_DINO_base_Glister_10_0.0001.tar
+# rm cifar10_50_2_wo_flux_DINO_base_GradMatch_10_0.0001.tar
+# rm cifar10_50_2_wo_flux_DINO_base_Submodular_10_0.0001.tar
+# rm cifar10_50_2_wo_flux_DINO_base_Uncertainty_10_0.0001.tar
+# rm cifar10_synthclip_wo_flux_CLIP_moderate.tar
+# rm cifar10_synthclip_wo_flux_DINO_base_Adacore_10_0.0001.tar
+# rm cifar10_synthclip_wo_flux_DINO_base_CurvMatch_10_0.0001.tar
+# rm cifar10_synthclip_wo_flux_DINO_base_Glister_10_0.0001.tar
+# rm cifar10_synthclip_wo_flux_DINO_base_GradMatch_10_0.0001.tar
+# rm cifar10_synthclip_wo_flux_DINO_base_Submodular_10_0.0001.tar
+# rm cifar10_synthclip_wo_flux_DINO_base_Uncertainty_10_0.0001.tar
+
+# Glide-Syn
+./gdrive files download 1ktNtmOrAh6ltXwtYHQrxp59y31uNAuCH # cifar10_glide_syn
+tar -xf cifar10_glide_syn.tar -C cifar10
+rm cifar10_glide_syn.tar
