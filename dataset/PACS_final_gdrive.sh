@@ -1560,9 +1560,14 @@
 # rm PACS_final_google_large_wfilter.tar
 # rm PACS_final_google_wfilter.tar
 
-./gdrive files download 1HXnpsFGHGkEWRgkZgZzd3d33w5V0c1rj # PACS_final_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_auraflow_equalweight
-tar -xf PACS_final_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar -C PACS_final
-rm PACS_final_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar
-./gdrive files download 1pIIxaX35vgKThIyuE5odmduscNxon_5v # PACS_final_sdbp_sdxl_50
-tar -xf PACS_final_sdbp_sdxl_50.tar -C PACS_final
-rm PACS_final_sdbp_sdxl_50.tar
+# ./gdrive files download 1HXnpsFGHGkEWRgkZgZzd3d33w5V0c1rj # PACS_final_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_auraflow_equalweight
+# tar -xf PACS_final_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar -C PACS_final
+# rm PACS_final_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar
+# ./gdrive files download 1pIIxaX35vgKThIyuE5odmduscNxon_5v # PACS_final_sdbp_sdxl_50
+# tar -xf PACS_final_sdbp_sdxl_50.tar -C PACS_final
+# rm PACS_final_sdbp_sdxl_50.tar
+
+# PACS HIWING + Glide
+./gdrive files download 1yr9BImD5K16vEedF52A0EeoddY6LO7Q5 # PACS_final_50_2_glide
+tar -xf PACS_final_50_2_glide.tar -C PACS_final
+rm PACS_final_50_2_glide.tar
