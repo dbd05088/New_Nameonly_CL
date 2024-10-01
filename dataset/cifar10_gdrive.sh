@@ -123,7 +123,30 @@
 # tar -xf cifar10_base_sdxl.tar -C cifar10
 # rm cifar10_base_sdxl.tar
 
-# cifar10 sdbp + CONAN
-./gdrive files download 1EfDHNYFg2TURppGzAiO_HcTRr9iwnoVd # cifar10_sdbp_sdxl_floyd_cogview2_sd3_auraflow
-tar -xf cifar10_sdbp_sdxl_floyd_cogview2_sd3_auraflow.tar -C cifar10
-rm cifar10_sdbp_sdxl_floyd_cogview2_sd3_auraflow.tar
+# # cifar10 sdbp + CONAN
+# ./gdrive files download 1EfDHNYFg2TURppGzAiO_HcTRr9iwnoVd # cifar10_sdbp_sdxl_floyd_cogview2_sd3_auraflow
+# tar -xf cifar10_sdbp_sdxl_floyd_cogview2_sd3_auraflow.tar -C cifar10
+# rm cifar10_sdbp_sdxl_floyd_cogview2_sd3_auraflow.tar
+
+# synclr coresets
+./gdrive files download 1ad2fDkkK2AmyDOaiI9JASjjJP5r1-APE # cifar10_synclr_wo_flux_CLIP_moderate
+./gdrive files download 1-NqhcaObYwTlL1vfjw-MOD1xxzb0kXsc # cifar10_synclr_wo_flux_DINO_base_Adacore_10_0.0001
+./gdrive files download 1Ckq0-aaUe1c95zLShHHxZ6lXegNhHIB8 # cifar10_synclr_wo_flux_DINO_base_CurvMatch_10_0.0001
+./gdrive files download 1K_C_OQeK8SJMvnvrM6LqznkR-XuRgme8 # cifar10_synclr_wo_flux_DINO_base_Glister_10_0.0001
+./gdrive files download 1fi3TaSkLN1cdRwajXnTe44E1fbhlai4l # cifar10_synclr_wo_flux_DINO_base_GradMatch_10_0.0001
+./gdrive files download 1kcCpcMtvwTTcA4oz3aKo6heZ82OIwOy0 # cifar10_synclr_wo_flux_DINO_base_Submodular_10_0.0001
+./gdrive files download 1QaqSSzfw0Vxt91VOTSlsrF70KOjPxFjz # cifar10_synclr_wo_flux_DINO_base_Uncertainty_10_0.0001
+tar -xf cifar10_synclr_wo_flux_CLIP_moderate.tar -C cifar10
+tar -xf cifar10_synclr_wo_flux_DINO_base_Adacore_10_0.0001.tar -C cifar10
+tar -xf cifar10_synclr_wo_flux_DINO_base_CurvMatch_10_0.0001.tar -C cifar10
+tar -xf cifar10_synclr_wo_flux_DINO_base_Glister_10_0.0001.tar -C cifar10
+tar -xf cifar10_synclr_wo_flux_DINO_base_GradMatch_10_0.0001.tar -C cifar10
+tar -xf cifar10_synclr_wo_flux_DINO_base_Submodular_10_0.0001.tar -C cifar10
+tar -xf cifar10_synclr_wo_flux_DINO_base_Uncertainty_10_0.0001.tar -C cifar10
+rm cifar10_synclr_wo_flux_CLIP_moderate.tar
+rm cifar10_synclr_wo_flux_DINO_base_Adacore_10_0.0001.tar
+rm cifar10_synclr_wo_flux_DINO_base_CurvMatch_10_0.0001.tar
+rm cifar10_synclr_wo_flux_DINO_base_Glister_10_0.0001.tar
+rm cifar10_synclr_wo_flux_DINO_base_GradMatch_10_0.0001.tar
+rm cifar10_synclr_wo_flux_DINO_base_Submodular_10_0.0001.tar
+rm cifar10_synclr_wo_flux_DINO_base_Uncertainty_10_0.0001.tar
