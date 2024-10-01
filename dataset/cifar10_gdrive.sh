@@ -104,16 +104,20 @@
 # tar -xf cifar10_50_2_sdxl_floyd_cogview2_sd3_auraflow.tar -C cifar10
 # rm cifar10_50_2_sdxl_floyd_cogview2_sd3_auraflow.tar
 
-# RMD, prompt ablation 
-./gdrive files download 1MWF5saCsMnEakqGmWN-QfajJnLJjwWIx # cifar10_fake_f_sdxl_floyd_cogview2_sd3_auraflow
-./gdrive files download 1JQc7nhcX4lTtR1yKlfSbLejhdLS8mg9f # cifar10_LE_sdxl_floyd_cogview2_sd3_auraflow
-./gdrive files download 11Ao-Ntvmdb2G9tIBY_H9jQQnOad2i9Uf # cifar10_synclr_sdxl_floyd_cogview2_sd3_auraflow
-./gdrive files download 1w_k8jsZU1NYkYSR2KC4MAtLcLwRsXId9 # cifar10_synthclip_sdxl_floyd_cogview2_sd3_auraflow
-tar -xf cifar10_fake_f_sdxl_floyd_cogview2_sd3_auraflow.tar -C cifar10
-tar -xf cifar10_LE_sdxl_floyd_cogview2_sd3_auraflow.tar -C cifar10
-tar -xf cifar10_synclr_sdxl_floyd_cogview2_sd3_auraflow.tar -C cifar10
-tar -xf cifar10_synthclip_sdxl_floyd_cogview2_sd3_auraflow.tar -C cifar10
-rm cifar10_fake_f_sdxl_floyd_cogview2_sd3_auraflow.tar
-rm cifar10_LE_sdxl_floyd_cogview2_sd3_auraflow.tar
-rm cifar10_synclr_sdxl_floyd_cogview2_sd3_auraflow.tar
-rm cifar10_synthclip_sdxl_floyd_cogview2_sd3_auraflow.tar
+# # RMD, prompt ablation 
+# ./gdrive files download 1MWF5saCsMnEakqGmWN-QfajJnLJjwWIx # cifar10_fake_f_sdxl_floyd_cogview2_sd3_auraflow
+# ./gdrive files download 1JQc7nhcX4lTtR1yKlfSbLejhdLS8mg9f # cifar10_LE_sdxl_floyd_cogview2_sd3_auraflow
+# ./gdrive files download 11Ao-Ntvmdb2G9tIBY_H9jQQnOad2i9Uf # cifar10_synclr_sdxl_floyd_cogview2_sd3_auraflow
+# ./gdrive files download 1w_k8jsZU1NYkYSR2KC4MAtLcLwRsXId9 # cifar10_synthclip_sdxl_floyd_cogview2_sd3_auraflow
+# tar -xf cifar10_fake_f_sdxl_floyd_cogview2_sd3_auraflow.tar -C cifar10
+# tar -xf cifar10_LE_sdxl_floyd_cogview2_sd3_auraflow.tar -C cifar10
+# tar -xf cifar10_synclr_sdxl_floyd_cogview2_sd3_auraflow.tar -C cifar10
+# tar -xf cifar10_synthclip_sdxl_floyd_cogview2_sd3_auraflow.tar -C cifar10
+# rm cifar10_fake_f_sdxl_floyd_cogview2_sd3_auraflow.tar
+# rm cifar10_LE_sdxl_floyd_cogview2_sd3_auraflow.tar
+# rm cifar10_synclr_sdxl_floyd_cogview2_sd3_auraflow.tar
+# rm cifar10_synthclip_sdxl_floyd_cogview2_sd3_auraflow.tar
+
+./gdrive files download 1QTQMmzBAGhMc0pILa_PYUuzjrXPtooa6 # cifar10_base_sdxl
+tar -xf cifar10_base_sdxl.tar -C cifar10
+rm cifar10_base_sdxl.tar
