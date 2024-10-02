@@ -244,7 +244,33 @@
 # rm cifar10_LE_wo_flux_DINO_base_Submodular_10_0.0001.tar
 # rm cifar10_LE_wo_flux_DINO_base_Uncertainty_10_0.0001.tar
 
-# HIWING + Glide
-./gdrive files download 1k0xxeYy-GF1gyHPC_3AiTPX_Rnsio8m5 # cifar10_50_2_glide
-tar -xf cifar10_50_2_glide.tar -C cifar10
-rm cifar10_50_2_glide.tar
+# # HIWING + Glide
+# ./gdrive files download 1k0xxeYy-GF1gyHPC_3AiTPX_Rnsio8m5 # cifar10_50_2_glide
+# tar -xf cifar10_50_2_glide.tar -C cifar10
+# rm cifar10_50_2_glide.tar
+
+# synthclip + CONAN newsample
+./gdrive files download 1H1nBaOvOXN1b7PtMxC5rHVNpXBPvoBZ_ # cifar10_synthclip_sdxl_floyd_cogview2_sd3_auraflow_ver2
+./gdrive files download 18tQdqIufdNiHj07nem4H4Ce2Adz_v8tl # cifar10_synthclip_sdxl_floyd_cogview2_sd3_auraflow_ver3
+./gdrive files download 1maHOIP4tNsBWn-akNveW799jSnhafdlE # cifar10_synthclip_sdxl_floyd_cogview2_sd3_auraflow_ver4
+./gdrive files download 1rtf6DJP89V69NTmyxdFThRcuTpyppZiS # cifar10_synthclip_sdxl_floyd_cogview2_sd3_auraflow_ver5
+./gdrive files download 1ecAdTvGUmjoRD6sN3U77DlLQq7gU3Q_W # cifar10_synthclip_sdxl_floyd_cogview2_sd3_auraflow_ver6
+./gdrive files download 1BQh19Dirxr-3mF1TQeQwCG2jLQ7UVX2r # cifar10_synthclip_sdxl_floyd_cogview2_sd3_auraflow_ver7
+./gdrive files download 1rWXqq17llFYqlcXMOxVSPIasxnbDI5pV # cifar10_synthclip_sdxl_floyd_cogview2_sd3_auraflow_ver8
+./gdrive files download 18VjZNQI8Q4Okcr5h5ByIKK1bBvGYJpkz # cifar10_synthclip_sdxl_floyd_cogview2_sd3_auraflow_ver9
+tar -xf cifar10_synthclip_sdxl_floyd_cogview2_sd3_auraflow_ver2.tar -C cifar10
+tar -xf cifar10_synthclip_sdxl_floyd_cogview2_sd3_auraflow_ver3.tar -C cifar10
+tar -xf cifar10_synthclip_sdxl_floyd_cogview2_sd3_auraflow_ver4.tar -C cifar10
+tar -xf cifar10_synthclip_sdxl_floyd_cogview2_sd3_auraflow_ver5.tar -C cifar10
+tar -xf cifar10_synthclip_sdxl_floyd_cogview2_sd3_auraflow_ver6.tar -C cifar10
+tar -xf cifar10_synthclip_sdxl_floyd_cogview2_sd3_auraflow_ver7.tar -C cifar10
+tar -xf cifar10_synthclip_sdxl_floyd_cogview2_sd3_auraflow_ver8.tar -C cifar10
+tar -xf cifar10_synthclip_sdxl_floyd_cogview2_sd3_auraflow_ver9.tar -C cifar10
+rm cifar10_synthclip_sdxl_floyd_cogview2_sd3_auraflow_ver2.tar
+rm cifar10_synthclip_sdxl_floyd_cogview2_sd3_auraflow_ver3.tar
+rm cifar10_synthclip_sdxl_floyd_cogview2_sd3_auraflow_ver4.tar
+rm cifar10_synthclip_sdxl_floyd_cogview2_sd3_auraflow_ver5.tar
+rm cifar10_synthclip_sdxl_floyd_cogview2_sd3_auraflow_ver6.tar
+rm cifar10_synthclip_sdxl_floyd_cogview2_sd3_auraflow_ver7.tar
+rm cifar10_synthclip_sdxl_floyd_cogview2_sd3_auraflow_ver8.tar
+rm cifar10_synthclip_sdxl_floyd_cogview2_sd3_auraflow_ver9.tar
