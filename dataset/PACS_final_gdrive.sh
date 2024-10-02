@@ -1567,7 +1567,18 @@
 # tar -xf PACS_final_sdbp_sdxl_50.tar -C PACS_final
 # rm PACS_final_sdbp_sdxl_50.tar
 
-# PACS HIWING + Glide
-./gdrive files download 1yr9BImD5K16vEedF52A0EeoddY6LO7Q5 # PACS_final_50_2_glide
-tar -xf PACS_final_50_2_glide.tar -C PACS_final
-rm PACS_final_50_2_glide.tar
+# # PACS HIWING + Glide
+# ./gdrive files download 1yr9BImD5K16vEedF52A0EeoddY6LO7Q5 # PACS_final_50_2_glide
+# tar -xf PACS_final_50_2_glide.tar -C PACS_final
+# rm PACS_final_50_2_glide.tar
+
+# Ours topk, bottomk, inverse
+./gdrive files download 1Cm7Zi7S2dSutS_PQdZ_moKnSGdMEIqB- # PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_topk
+./gdrive files download 1U2B-dPSLxyNzWCOuRf8MtgBCBpYEcoMG # PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_bottomk
+./gdrive files download 1d4fBE-n21QOoE7Q5sQbfGGYVGu_rJjln # PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_inverse
+tar -xf PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_topk.tar -C PACS_final
+tar -xf PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_bottomk.tar -C PACS_final
+tar -xf PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_inverse.tar -C PACS_final
+rm PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_topk.tar
+rm PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_bottomk.tar
+rm PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_inverse.tar
