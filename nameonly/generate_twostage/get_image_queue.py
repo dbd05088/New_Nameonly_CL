@@ -377,7 +377,8 @@ def generate_single_class(
     class_prompt_dict,
     result_json_path,
     API_KEY=None,
-    resume_prompt_idx=None
+    resume_prompt_idx=None,
+    imagenet=False,
 ):
     if not 'metaprompts' in class_prompt_dict:
         use_dynamic_prompt = True
@@ -429,11 +430,15 @@ def generate_single_class(
         if not use_dynamic_prompt:
             assert "[concept]" in prompt[0], f"[concept] not exists in {prompt}!"
             class_name_tmp = class_name.replace("_"," ") # remove underbar
-            prompt_with_cls = (prompt[0].replace('[concept]', class_name_tmp), prompt[1], prompt[2])
+            if not imagenet:
+                prompt_with_cls = (prompt[0].replace('[concept]', class_name_tmp), prompt[1], prompt[2])
+            else:
+                imagenet_description = ImageNet_description[class_name]
+                prompt_with_cls = (prompt[0].replace('[concept]', imagenet_description), prompt[1], prompt[2])
             concatenated_prompt_list[i] = prompt_with_cls
         else:
             concatenated_prompt_list[i] = (prompt[0], prompt[1], prompt[2])
-    
+
     # Find the prompt index to start generating images
     if max_prompt_indices is not None:
         resume_prompt_idx = next(i for i, v in enumerate(concatenated_prompt_list) if v[2] == f"{max_prompt_indices[0]}_{max_prompt_indices[1]}")
@@ -540,6 +545,10 @@ if __name__ == "__main__":
     debug = config['debug']
     sample_num_dict = count_dict[config['dataset']]
     classes = list(sample_num_dict.keys())
+    if '0' in classes:
+        print(f"ImageNet classes are used")
+        imagenet = True
+        
     if 'end_class' in config:
         classes = classes[config['start_class']:config['end_class'] + 1]
         print(f"Set classes to {classes}")
@@ -601,7 +610,8 @@ if __name__ == "__main__":
             class_prompt_dict=class_prompt_dict,
             API_KEY=config['api_key'],
             result_json_path=os.path.join(image_root_dir, f"{original_class_indices[next_cls_idx]}.json"),
-            resume_prompt_idx=resume_prompt_idx
+            resume_prompt_idx=resume_prompt_idx,
+            imagenet=imagenet
         )
         mark_task_done(queue_name, next_cls_idx)
     
