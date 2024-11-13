@@ -21,5 +21,5 @@ for i, label in enumerate(labels):
 result_dict = {}
 SAMPLE_COUNT = 300
 for i, label in enumerate(label_postprocessed):
-    result_dict[str(i)] = label
+    result_dict[str(i)] = 200
 breakpoint()
