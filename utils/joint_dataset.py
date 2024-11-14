@@ -4,12 +4,19 @@ from PIL import Image
 from torch.utils.data import Dataset
 
 class CustomDataset(Dataset):
-    def __init__(self, root_dir, transform=None):
+    def __init__(self, root_dir, transform=None, multi_train=False):
         self.root_dir = root_dir
         self.transform = transform
         self.images = []
         self.labels = []
-        self._load_data()
+        if multi_train:
+            real_root_dir = root_dir
+            for domain_name in os.listdir(real_root_dir):
+                self.root_dir = os.path.join(real_root_dir, domain_name)
+                self._load_data()
+                
+        else:
+            self._load_data()
         
     def _load_data(self):
         for label, class_name in enumerate(os.listdir(self.root_dir)):
