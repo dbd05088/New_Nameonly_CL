@@ -9,7 +9,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('-d', '--dataset', type=str, default=None)
 parser.add_argument('-s', '--source_path', type=str, required=True)
 parser.add_argument('-t', '--target_path', type=str, default=None)
-parser.add_argument('-r', '--subsample_ratio', type=float, default=1.1)
+parser.add_argument('-r', '--subsample_ratio', type=float)
 parser.add_argument('-n', '--subsample_count', type=int)
 
 args = parser.parse_args()
@@ -19,7 +19,8 @@ dataset_mapping = {'DomainNet': DomainNet_count, 'officehome': officehome_count,
                    'food101': food101_count, 'cct': cct_count, 'pacs_sdxl': pacs_sdxl_count, 
                    'pacs_dalle2': pacs_dalle2_count, 'pacs_deepfloyd': pacs_deepfloyd_count,
                    'pacs_cogview2': pacs_cogview2_count, 'pacs_sdxl_new': pacs_sdxl_new_count,
-                   'pacs_dalle2_new': pacs_dalle2_new_count, 'NICO': NICO_count}
+                   'pacs_dalle2_new': pacs_dalle2_new_count, 'NICO': NICO_count,
+                   'ImageNet': ImageNet_count}
 
 # Define default configurations for datasets
 replacements = {
@@ -28,6 +29,7 @@ replacements = {
     "DomainNet": "DomainNet",
     "NICO": "NICO",
     "cifar10": "cifar10",
+    "ImageNet": "ImageNet",
 }
 
 # CHANGE THIS!!!

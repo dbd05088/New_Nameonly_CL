@@ -35,7 +35,8 @@ dataset_mapping = {'DomainNet': DomainNet_count, 'officehome': officehome_count,
                    'food101': food101_count, 'cct': cct_count, 'pacs_sdxl': pacs_sdxl_count, 
                    'pacs_dalle2': pacs_dalle2_count, 'pacs_deepfloyd': pacs_deepfloyd_count,
                    'pacs_cogview2': pacs_cogview2_count, 'pacs_sdxl_new': pacs_sdxl_new_count,
-                   'pacs_dalle2_new': pacs_dalle2_new_count, 'NICO': NICO_count}
+                   'pacs_dalle2_new': pacs_dalle2_new_count, 'NICO': NICO_count,
+                   'ImageNet': ImageNet_count}
 
 # Find dataset name
 if args.dataset is None:
@@ -60,7 +61,7 @@ if not os.path.exists(output_dir):
 
 
 # Load the images
-image_extensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp']
+image_extensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.JPEG']
 class_to_paths_dict = {}
 
 classes = sample_num_dict.keys()

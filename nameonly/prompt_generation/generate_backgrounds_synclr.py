@@ -6,15 +6,20 @@ from classes import *
 from openai import OpenAI
 from tqdm import tqdm
 
+count_dict = ImageNet_count; imagenet=True
 NUM_BACKGROUNDS = 100
-backgrounds_json_path = './prompts/backgrounds_synclr.json'
-class_list = list(DomainNet_count.keys())
-client = OpenAI(api_key="sk-proj-bPJxpKwauBBFBZJw7nEgT3BlbkFJePaQfARB48iyTbZfxSXg")
+backgrounds_json_path = './prompts/backgrounds_synclr_ImageNet.json'
+class_list = list(ImageNet_count.keys())
+client = OpenAI(api_key="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")
 
-def get_backgrounds(client, cls, num_backgrounds):
+def get_backgrounds(client, cls, num_backgrounds, imagenet=False):
     while True:
         try:
-            prompt = f"""To generate images from various backgrounds, I want to create a list of backgrounds suitable for a specific class. Background should be suitable for the class. For example, a football field background would not be suitable for a class like blue whale. Please generate a list of {num_backgrounds} backgrounds for the following class.\nclass: {cls.replace('_', ' ')}\nPlease make sure that the response format is in the form of backgrounds: ["background1", "background2", ...], and the length of the list should be {num_backgrounds}. Do not output any unnecessary information.\n"""
+            if imagenet:
+                cls_name = ImageNet_description[cls]
+            else:
+                cls_name = cls.replace('_', ' ')
+            prompt = f"""To generate images from various backgrounds, I want to create a list of backgrounds suitable for a specific class. Background should be suitable for the class. For example, a football field background would not be suitable for a class like blue whale. Please generate a list of {num_backgrounds} backgrounds for the following class.\nclass: {cls_name}\nPlease make sure that the response format is in the form of backgrounds: ["background1", "background2", ...], and the length of the list should be {num_backgrounds}. Do not output any unnecessary information.\n"""
             response = client.chat.completions.create(
                 model="gpt-4o",
                 messages=[
@@ -48,7 +53,8 @@ for cls in tqdm(class_list):
     backgrounds = []
     while len(backgrounds) < NUM_BACKGROUNDS:
         print(f"Getting {NUM_BACKGROUNDS - len(backgrounds)} backgrounds for class {cls}")
-        response_list = get_backgrounds(client, cls, NUM_BACKGROUNDS - len(backgrounds))
+        response_list = get_backgrounds(client, cls, NUM_BACKGROUNDS - len(backgrounds),
+                                        imagenet=imagenet)
         backgrounds.extend(response_list)
     result_dict[cls] = backgrounds[:NUM_BACKGROUNDS]
 

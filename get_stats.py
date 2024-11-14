@@ -14,7 +14,7 @@ from torch.utils.data import Dataset, DataLoader
 from torchvision import transforms
 from tqdm import tqdm
 
-image_exts = ['.jpg', '.jpeg', '.png', '.bmp']
+image_exts = ['.jpg', '.jpeg', '.png', '.bmp', '.JPEG']
 
 transform = transforms.Compose([
     transforms.ToTensor()
