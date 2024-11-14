@@ -24,7 +24,7 @@ END_CLASS=999
 PROMPT_DIR='../prompt_generation/prompts/gpt4_hierarchy_cot_50_2.json'
 INCREASE_RATIO=1.15
 # Ignored when running on datacenter
-GPU_ID={1:-0}
+GPU_ID=${1:-0}
 # ----------------- IMPORTANT -----------------
 
 # # Uncomment when running on OUR gpu servers (both cogview2 and others supported)
