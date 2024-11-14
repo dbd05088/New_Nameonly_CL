@@ -158,6 +158,22 @@ elif [ "$DATASET" == "NICO" ]; then
     ONLINE_ITER=3
     EVAL_POINT="9600 19200 28800 38400 48000"
 
+elif [ "$DATASET" == "ImageNet" ]; then
+    MEM_SIZE=20000 # (changed 0901 - after 10x increase)
+    N_SMP_CLS="9" K="3" MIR_CANDS=50
+    CANDIDATE_SIZE=50 VAL_SIZE=5
+    VAL_PERIOD=500 EVAL_PERIOD=5000
+    BATCHSIZE=256; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
+    # Change vit learning rate (0611)
+    if [ "$MODEL_NAME" == "vit" ]; then
+        LR=1e-4
+        echo "Set vit learning rate 1e-4!!!"
+    fi
+    BASEINIT_SAMPLES=30523 FEAT_DIM=14 FEAT_MEM_SIZE=168000
+    SAMPLES_PER_TASK=40000
+    ONLINE_ITER=0.25
+    EVAL_POINT="40000 80000 120000 160000 200000"
+
 else
     echo "Undefined setting"
     exit 1
