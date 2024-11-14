@@ -17,6 +17,7 @@ replacements = {
     "DomainNet": "DomainNet",
     "NICO": "NICO",
     "cifar10": "cifar10",
+    "ImageNet": "ImageNet",
 }
 
 # Find dataset name
@@ -54,7 +55,7 @@ def check_image_size(image_path, size):
 
 def convert_images_in_directory(directory_path):
     print(f"Checking corrupted images in {directory_path}")
-    image_extensions = ['.jpg', '.jpeg', '.png', '.bmp', '.tiff', '.tif']
+    image_extensions = ['.jpg', '.jpeg', '.png', '.bmp', '.tiff', '.tif', '.JPEG']
     corrupted_files = []
     for root, dirs, files in os.walk(directory_path):
         for file in files:
@@ -86,7 +87,8 @@ dataset_mapping = {'DomainNet': DomainNet_count, 'officehome': officehome_count,
                    'food101': food101_count, 'cct': cct_count, 'pacs_sdxl': pacs_sdxl_count, 
                    'pacs_dalle2': pacs_dalle2_count, 'pacs_deepfloyd': pacs_deepfloyd_count,
                    'pacs_cogview2': pacs_cogview2_count, 'pacs_sdxl_new': pacs_sdxl_new_count,
-                   'pacs_dalle2_new': pacs_dalle2_new_count, 'NICO': NICO_count}
+                   'pacs_dalle2_new': pacs_dalle2_new_count, 'NICO': NICO_count,
+                   'ImageNet': ImageNet_count}
 
 class_names_dict = dataset_mapping[args.dataset]
 dir_cls_count_dict = {cls: len(os.listdir(os.path.join(directory_path, cls))) for cls in os.listdir(directory_path) if not cls.endswith('.json')}
@@ -113,8 +115,9 @@ exact_match = dir_cls_count_dict == class_names_dict
 # Choose all images in the first class
 class_names = [cls for cls in os.listdir(directory_path) if not cls.endswith('.json')]
 class_name = class_names[0]
+
 for image in os.listdir(os.path.join(directory_path, class_name)):
-    if image.endswith('.jpg') or image.endswith('.jpeg') or image.endswith('.png'):
+    if image.endswith('.jpg') or image.endswith('.jpeg') or image.endswith('.png') or image.endswith("JPEG"):
         # Check
         image_path = os.path.join(directory_path, class_name, image)
         # print(f"Checking image size...")

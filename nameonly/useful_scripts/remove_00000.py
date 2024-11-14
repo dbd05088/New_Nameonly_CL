@@ -7,7 +7,7 @@ count_dict = cct_count
 path = '/home/user/seongwon/nameonly/raw_datasets/web/cct/cct_bing'
 target_path = '/home/user/seongwon/nameonly/raw_datasets/web/cct/cct_bing_removed_00000'
 
-image_extension = ['.jpg', '.jpeg', '.png', '.gif', '.bmp']
+image_extension = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.JPEG']
 classes = count_dict.keys()
 for cls in tqdm(classes):
     cls_path = os.path.join(path, cls, '00000')

@@ -17,7 +17,7 @@ OUTPUT_PATH = '/workspace/home/user/seongwon/crawling/crawler/datasets/cifar10/c
 if not os.path.exists(OUTPUT_PATH):
     os.makedirs(OUTPUT_PATH)
 
-image_extension = ['.jpg', '.jpeg', '.png', '.gif', '.bmp']
+image_extension = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.JPEG']
 
 class_names = count_dict.keys()
 flickr_images_dict = {cls: os.listdir(os.path.join(flickr_PATH, cls)) for cls in class_names}
