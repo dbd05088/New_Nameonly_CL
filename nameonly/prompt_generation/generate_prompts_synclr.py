@@ -7,15 +7,17 @@ from openai import OpenAI
 from tqdm import tqdm
 from synclr_utils import fg_example, bg_example, fgbg_example, fgrel_example, relation_list
 
-background_json_path = './prompts/backgrounds_synclr.json'
-prompt_json_path = './prompts/synclr_DomainNet.json'
-dataset_count = DomainNet_count
+background_json_path = './prompts/backgrounds_synclr_ImageNet.json'
+prompt_json_path = './prompts/synclr_ImageNet.json'
+dataset_count = ImageNet_count
 NUM_PROMPTS = 50
 
 with open(background_json_path, 'r') as f:
     backgrounds_dict = json.load(f)
 
 def sample_prompt(client, cls):
+    cls_idx = cls
+    cls = ImageNet_description[cls]
     fg_model_sample = random.random()
     if fg_model_sample < 0.44:
         fg_mode = 0
@@ -63,7 +65,7 @@ def sample_prompt(client, cls):
     else:
         num_example = len(fgbg_example)
         chosen_idx = random.sample(range(num_example), 3)
-        background = random.sample(backgrounds_dict[cls], 1)[0]
+        background = random.sample(backgrounds_dict[cls_idx], 1)[0]
         current_prompt = """Generate an image description with an object category and an environment category:
 
                                                     {}, {} => {}
@@ -88,7 +90,7 @@ def sample_prompt(client, cls):
     response_content = response.choices[0].message.content
     return response_content
     
-client = OpenAI(api_key="sk-proj-bPJxpKwauBBFBZJw7nEgT3BlbkFJePaQfARB48iyTbZfxSXg")
+client = OpenAI(api_key="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")
 
 if os.path.exists(prompt_json_path):
     with open(prompt_json_path, 'r') as f:
