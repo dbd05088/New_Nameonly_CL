@@ -1,5 +1,6 @@
 import re
 import json
+import os
 import random
 from classes import *
 from openai import OpenAI
@@ -8,12 +9,15 @@ from tqdm import tqdm
 random.seed(42)
 
 # DomainNet
-prompt_json_path = './prompts/synthclip_PACS_100.json'
-dataset_count = PACS_count
-NUM_PROMPTS = 100
+prompt_json_path = './prompts/synthclip_ImageNet_50.json'
+dataset_count = ImageNet_count; imagenet=True
+NUM_PROMPTS = 50
 
-def generate_img_caption(client, cls):
-    cls_tmp = cls.replace('_',' ')
+def generate_img_caption(client, cls, imagenet=False):
+    if imagenet:
+        cls_tmp = ImageNet_description[cls]
+    else: 
+        cls_tmp = cls.replace('_',' ')
     base_message = f"Your task is to write me an image caption that includes and visually describes a scene around a concept. Your concept is {cls_tmp}. Output one single grammatically correct caption that is no longer than 15 words. Do not output any notes, word counts, facts, etc. Output one single sentence only."
     
     response = client.chat.completions.create(
@@ -24,19 +28,26 @@ def generate_img_caption(client, cls):
         ]
     )
     response_content = response.choices[0].message.content
-    
     return response_content # assume work well w/ condition: Output one single sentence only.
     
 
-client = OpenAI(api_key="sk-proj-bPJxpKwauBBFBZJw7nEgT3BlbkFJePaQfARB48iyTbZfxSXg")
+client = OpenAI(api_key="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")
 
-totalprompt_dict = {}
+if os.path.exists(prompt_json_path):
+    with open(prompt_json_path, 'r') as f:
+        totalprompt_dict = json.load(f)
+else:
+    totalprompt_dict = {}
+
 for cls in tqdm(dataset_count):
+    if cls in totalprompt_dict:
+        print(f"Skipping {cls}")
+        continue
     totalprompt_dict[cls] = {'metaprompts': []}
     class_prompt_list = []
     
-    for i in range(NUM_PROMPTS):
-        img_caption = generate_img_caption(client,cls)
+    for i in tqdm(range(NUM_PROMPTS)):
+        img_caption = generate_img_caption(client, cls, imagenet=imagenet)
         
         totalprompt_dict[cls]['metaprompts'].append(
             {
@@ -51,5 +62,5 @@ for cls in tqdm(dataset_count):
             }
         )
 
-with open(prompt_json_path, 'w') as f:
-    json.dump(totalprompt_dict, f)
+    with open(prompt_json_path, 'w') as f:
+        json.dump(totalprompt_dict, f)
