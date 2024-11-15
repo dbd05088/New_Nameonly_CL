@@ -76,6 +76,7 @@ class CLManagerBase:
         self.test_datalist = test_datalist
         self.cls_dict = {}
         self.total_samples = len(self.train_datalist)
+        print("here", self.total_samples)
         self.type_name = kwargs["type_name"]
         if self.model_name == 'vit':
             self.train_transform, self.test_transform, self.cpu_transform, self.n_classes = get_transform(self.dataset, self.transforms, self.method_name, self.type_name, self.transform_on_gpu, 224)
@@ -415,6 +416,9 @@ class CLManagerBase:
             if self.cur_task < self.tasks-1:
                 self.calculate_fast_adaptation(domain_name, sample_num, test_list, cls_dict, batch_size, n_worker)
             # self.get_forgetting(domain_name, sample_num, test_list, cls_dict, batch_size, n_worker)
+        # print("test_list", test_list[0], domain_name)
+        for data in test_list:
+            data['klass'] = str(data['klass'])
         test_df = pd.DataFrame(test_list)
         '''
         if "clear" in self.dataset:
