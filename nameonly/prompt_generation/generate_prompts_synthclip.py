@@ -9,8 +9,8 @@ from tqdm import tqdm
 random.seed(42)
 
 # DomainNet
-prompt_json_path = './prompts/synthclip_ImageNet_50.json'
-dataset_count = ImageNet_count; imagenet=True
+prompt_json_path = './prompts/synthclip_CUB_200.json'
+dataset_count = CUB_200_count; imagenet=False
 NUM_PROMPTS = 50
 
 def generate_img_caption(client, cls, imagenet=False):
