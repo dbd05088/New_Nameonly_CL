@@ -88,7 +88,7 @@ dataset_mapping = {'DomainNet': DomainNet_count, 'officehome': officehome_count,
                    'pacs_dalle2': pacs_dalle2_count, 'pacs_deepfloyd': pacs_deepfloyd_count,
                    'pacs_cogview2': pacs_cogview2_count, 'pacs_sdxl_new': pacs_sdxl_new_count,
                    'pacs_dalle2_new': pacs_dalle2_new_count, 'NICO': NICO_count,
-                   'ImageNet': ImageNet_count}
+                   'ImageNet': ImageNet_count, 'CUB_200': CUB_200_count}
 
 class_names_dict = dataset_mapping[args.dataset]
 dir_cls_count_dict = {cls: len(os.listdir(os.path.join(directory_path, cls))) for cls in os.listdir(directory_path) if not cls.endswith('.json')}
@@ -128,7 +128,7 @@ for image in os.listdir(os.path.join(directory_path, class_name)):
 
 print(f"Count enough (over threshold): {enough}")
 print(f"Count exact match: {exact_match}")
-print(f"Image size correct: {image_size_correct}")
+# print(f"Image size correct: {image_size_correct}")
 
 if not enough:
     print(f"Classes with less than threshold count: {less_than_threshold}")

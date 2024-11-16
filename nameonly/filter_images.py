@@ -36,7 +36,7 @@ dataset_mapping = {'DomainNet': DomainNet_count, 'officehome': officehome_count,
                    'pacs_dalle2': pacs_dalle2_count, 'pacs_deepfloyd': pacs_deepfloyd_count,
                    'pacs_cogview2': pacs_cogview2_count, 'pacs_sdxl_new': pacs_sdxl_new_count,
                    'pacs_dalle2_new': pacs_dalle2_new_count, 'NICO': NICO_count,
-                   'ImageNet': ImageNet_count}
+                   'ImageNet': ImageNet_count, 'CUB_200': CUB_200_count}
 
 # Find dataset name
 if args.dataset is None:
