@@ -62,7 +62,7 @@ def generate_prompt_stage2(client, metaprompt, previous_prompt_list):
 metaprompt_json_path = './prompts/temp_base_metaprompts.json' # First stage result
 totalprompt_json_path = './prompts/gpt4_hierarchy_cot_6.json' # Second stage result
 
-client = OpenAI(api_key="sk-proj-bPJxpKwauBBFBZJw7nEgT3BlbkFJePaQfARB48iyTbZfxSXg")
+client = OpenAI(api_key="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")
 num_metaprompts = 10
 num_prompts_per_metaprompt = 5
 

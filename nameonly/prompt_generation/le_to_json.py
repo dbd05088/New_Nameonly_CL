@@ -3,9 +3,9 @@ import json
 import random
 from classes import *
 
-dataset_count = NICO_count
-pickle_path = './prompts/prompt_LE_NICO.pkl'
-json_path = './prompts/LE_NICO_new.json'
+dataset_count = CUB_200_count
+pickle_path = './prompts/prompt_LE_CUB200.pkl'
+json_path = './prompts/LE_CUB_200.json'
 LE_dict = pickle.load(open(pickle_path, 'rb'))
 NUM_PROMPTS = 50
 
@@ -29,7 +29,6 @@ for cls in dataset_count.keys():
                 "content": prompt
             }
         )
-    
 
 with open(json_path, 'w') as f:
     json.dump(result_dict, f, indent=4)

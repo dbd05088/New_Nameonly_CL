@@ -6,10 +6,10 @@ from classes import *
 from openai import OpenAI
 from tqdm import tqdm
 
-count_dict = ImageNet_count; imagenet=True
+count_dict = CUB_200_count; imagenet=False
 NUM_BACKGROUNDS = 100
-backgrounds_json_path = './prompts/backgrounds_synclr_ImageNet.json'
-class_list = list(ImageNet_count.keys())
+backgrounds_json_path = './prompts/backgrounds_synclr_CUB_200.json'
+class_list = list(count_dict.keys())
 client = OpenAI(api_key="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")
 
 def get_backgrounds(client, cls, num_backgrounds, imagenet=False):
