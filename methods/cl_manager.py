@@ -152,6 +152,9 @@ class CLManagerBase:
         elif 'ImageNet' in self.dataset:
             self.tasks = 5
             self.cls_per_task = [200]*self.tasks
+        elif 'CUB_200' in self.dataset:
+            self.tasks = 5
+            self.cls_per_task = [40]*self.tasks
         
         total_cls=0
         self.cul_cls_per_task = []

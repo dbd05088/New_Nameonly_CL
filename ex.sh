@@ -16,8 +16,8 @@
 # --------------------------IMPORTANT-------------------------- #
 MODE="er" # er, der, mir, aser, ...
 MODEL_NAME="resnet18" # vit
-DATASET="cifar10" # PACS_final, DomainNet, cifar10, NICO, cct
-TYPES=("train_ma_10000") # each type runs on each gpu
+DATASET="CUB_200" # PACS_final, DomainNet, cifar10, NICO, cct
+TYPES=("train_ma") # each type runs on each gpu
 SEEDS="1"
 GPUS=("0" "7" "2" "3" "4" "5" "6" "7") # each gpu runs each type
 # --------------------------IMPORTANT-------------------------- #
@@ -173,6 +173,22 @@ elif [ "$DATASET" == "ImageNet" ]; then
     SAMPLES_PER_TASK=40000
     ONLINE_ITER=0.25
     EVAL_POINT="40000 80000 120000 160000 200000"
+
+elif [ "$DATASET" == "CUB_200" ]; then
+    MEM_SIZE=1000 # (changed 0901 - after 10x increase)
+    N_SMP_CLS="9" K="3" MIR_CANDS=50
+    CANDIDATE_SIZE=50 VAL_SIZE=5
+    VAL_PERIOD=500 EVAL_PERIOD=300
+    BATCHSIZE=16; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
+    # Change vit learning rate (0611)
+    if [ "$MODEL_NAME" == "vit" ]; then
+        LR=1e-4
+        echo "Set vit learning rate 1e-4!!!"
+    fi
+    BASEINIT_SAMPLES=30523 FEAT_DIM=14 FEAT_MEM_SIZE=168000
+    SAMPLES_PER_TASK=40000
+    ONLINE_ITER=2
+    EVAL_POINT="1000 2000 3000 4000 5994"
 
 else
     echo "Undefined setting"
