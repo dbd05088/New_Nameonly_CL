@@ -817,6 +817,11 @@ def select_model(model_name, dataset=None, num_classes=None, opt_dict=None, G=Fa
         )
 
     model = model_class(opt, model_imagenet)
+    if dataset == "CUB_200":
+        resnet18_pretrained = models.resnet18(pretrained=True)
+        num_ftrs = resnet18_pretrained.fc.in_features
+        resnet18_pretrained.fc = nn.Linear(num_ftrs, num_classes)
+        print("imagenet pretrained")
     return model
 
 ##### for ASER #####

@@ -6,7 +6,7 @@ from scipy.stats import sem
 from collections import defaultdict
 
 warnings.filterwarnings(action='ignore')
-dir = 'NICO'
+dir = 'CUB_200'
 
 if 'PACS' in dir:
     in_dis = ['final_test_ma']
@@ -33,6 +33,11 @@ elif 'NICO' in dir:
     ood_dis = ['autumn', 'dim', 'grass', 'outdoor', 'rock', 'water']
     n_samples, n_tasks = 12000, 5
     cls_per_task = [12]*n_tasks
+elif 'CUB_200' in dir:
+    in_dis = ['test_ma']
+    ood_dis = ['painting']
+    n_samples, n_tasks = 5994, 5
+    cls_per_task = [40]*n_tasks
 
 total_cls=0
 cul_cls_per_task = []
