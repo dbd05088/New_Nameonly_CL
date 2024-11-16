@@ -11,6 +11,9 @@ mkdir -p ImageNet
 tar -xf ImageNet_c.tar -C ImageNet
 tar -xf ImageNet_r_50.tar -C ImageNet
 tar -xf ImageNet_test.tar -C ImageNet
+rm ImageNet_c.tar
+rm ImageNet_r_50.tar
+rm ImageNet_test.tar
 
 # ImageNet RMD
 ./gdrive files download 120YZogsTblFW0Li-hbYg2uMMCSuOB-2k # ImageNet_50_2_sdxl_floyd_cogview2_sd3_auraflow
