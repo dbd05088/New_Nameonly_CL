@@ -28,6 +28,7 @@ replacements = {
     "DomainNet": "DomainNet",
     "NICO": "NICO",
     "cifar10": "cifar10",
+    "ImageNet": "ImageNet",
 }
 
 dataset_mapping = {'DomainNet': DomainNet_count, 'officehome': officehome_count, 'PACS': PACS_count, 
@@ -48,6 +49,11 @@ if args.dataset is None:
 
 sample_num_dict = dataset_mapping[args.dataset]
 print(f"Sample num dict: {sample_num_dict}")
+if args.dataset == "ImageNet":
+    print("Detected dataset: ImageNet")
+    imagenet = True
+else:
+    imagenet = False
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 # Check args.end_class
@@ -94,7 +100,11 @@ for class_name, image_paths in tqdm(class_to_paths_dict.items()):
     
     if len(image_paths) > sample_num:
         prompt = f"A photo of {class_name}"
-        formatted_class_name = class_name.replace('_', ' ')
+        if not imagenet:
+            formatted_class_name = class_name.replace('_', ' ')
+        else:
+            formatted_class_name = ImageNet_description[class_name].replace('_', ' ')
+        
         # Add article to prompt
         if formatted_class_name[0] in ['a', 'e', 'i', 'o', 'u']:
             prompt = f"A photo of an {formatted_class_name}"
