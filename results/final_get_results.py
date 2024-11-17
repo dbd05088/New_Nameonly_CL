@@ -6,7 +6,7 @@ from scipy.stats import sem
 from collections import defaultdict
 
 warnings.filterwarnings(action='ignore')
-dir = 'CUB_200'
+dir = 'ImageNet'
 
 if 'PACS' in dir:
     in_dis = ['final_test_ma']
@@ -38,6 +38,13 @@ elif 'CUB_200' in dir:
     ood_dis = ['painting']
     n_samples, n_tasks = 5994, 5
     cls_per_task = [40]*n_tasks
+elif 'ImageNet' in dir:
+    in_dis = ['test_ma']
+    # ood_dis = ['shot_noise_10', 'saturate_10', 'speckle_noise_10', 'brightness_10', 'zoom_blur_10', 'impulse_noise_10', 'contrast_10', 'jpeg_compression_10', 'splatter_10', 'pixelate_10', 'snow_10', 'elastic_transform_10', 'gaussian_noise_10', 'motion_blur_10', 'gaussian_blur_10', 'fog_10', 'glass_blur_10', 'defocus_blur_10', 'frost_10']
+    ood_dis = ['r_50']
+    nsamples, n_tasks = 5994, 5
+    cls_per_task = [1000]*n_tasks
+
 
 total_cls=0
 cul_cls_per_task = []
@@ -59,6 +66,7 @@ for exp in exp_list:
 
 print(exp_type_list)
 def print_from_log(exp_name, in_dis, ood_dis, seeds=(1,2,3,4,5)):
+    print("here")
     in_avg, imb_in_avg = [], []
     in_last, imb_in_last = [], []
     ood_avg, imb_ood_avg = [], []
