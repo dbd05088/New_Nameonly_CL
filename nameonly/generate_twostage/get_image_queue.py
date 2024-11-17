@@ -548,6 +548,8 @@ if __name__ == "__main__":
     if '0' in classes:
         print(f"ImageNet classes are used")
         imagenet = True
+    else:
+        imagenet=False
         
     if 'end_class' in config:
         classes = classes[config['start_class']:config['end_class'] + 1]
