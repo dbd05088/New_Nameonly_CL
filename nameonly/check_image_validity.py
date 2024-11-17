@@ -18,6 +18,7 @@ replacements = {
     "NICO": "NICO",
     "cifar10": "cifar10",
     "ImageNet": "ImageNet",
+    "CUB_200": "CUB_200",
 }
 
 # Find dataset name
