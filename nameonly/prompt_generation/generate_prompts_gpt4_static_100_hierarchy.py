@@ -54,46 +54,34 @@ def generate_prompt_stage2(client, previous_prompt_list):
     else:
         return response_content
 
-metaprompt_json_path = './prompts/temp_base_metaprompts_7_10.json' # First stage result
-totalprompt_json_path = './prompts/gpt4_hierarchy_cot_50_11.json' # Second stage result
-num_metaprompts = 7
-num_prompts_per_metaprompt = 7
+num_metaprompts = 2
+num_prompts_per_metaprompt = 2
 max_prompts = 50
+totalprompt_json_path = "gpt4_hierarchy_cot_tree_2.json"
+client = OpenAI(api_key="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")
 
-client = OpenAI(api_key="sk-proj-bPJxpKwauBBFBZJw7nEgT3BlbkFJePaQfARB48iyTbZfxSXg")
 
-# # For the first stage
+# you should choose 3 proper metaprompts!
+totalprompts = []
+metaprompts = ['A photo of a [concept].']
 
-# # you should choose 3 proper metaprompts!
-# metaprompts = ['A photo of a [concept].', 'A colorful vector clipart of [concept].','A simple sketch of [concept] with bold contrasts.']
+for i in tqdm(range(num_metaprompts - 1)): # hard coded: 3 examples
+    try:
+        prompt = generate_prompt_stage1(client, metaprompts)
+        print(f"Previous prompt list: {metaprompts}")
+        print(f"Generated metaprompt for stage: {prompt}")
+        metaprompts.append(prompt)
+    except Exception as e:
+        print(e)
+        pass
+totalprompts.extend(metaprompts)
+metaprompts_before = metaprompts
 
-# for i in tqdm(range(num_metaprompts - 3)): # hard coded: 3 examples
-#     try:
-#         prompt = generate_prompt_stage1(client, metaprompts)
-#         print(f"Previous prompt list: {metaprompts}")
-#         print(f"Generated metaprompt for stage: {prompt}")
-#         metaprompts.append(prompt)
-#     except Exception as e:
-#         print(e)
-#         pass
-
-# with open(metaprompt_json_path, 'w') as f:
-#     json.dump(metaprompts, f)
-
-# For the second stage (uncomment below)
-with open(metaprompt_json_path, 'r') as f:
-    metaprompt_list = json.load(f)
-
-prompt_list = []
-for i, metaprompt in enumerate(tqdm(metaprompt_list)):
+# Second stage
+metaprompts = []
+for i, metaprompt in enumerate(tqdm(metaprompts_before)):
     cot_list = [metaprompt]
     
-    tmp = [x for x in range(len(metaprompt_list)) if x!=i]
-    sampled_numbers = random.sample(tmp,2)
-    
-    for n in sampled_numbers:
-        cot_list.append(metaprompt_list[n]) # only for cot_list, not prompt_list
-
     for j in range(1, num_prompts_per_metaprompt + 1): # hard-coded: 3 examples
         while True:
             try:
@@ -101,15 +89,79 @@ for i, metaprompt in enumerate(tqdm(metaprompt_list)):
                 print(f"previous generated prompts: {cot_list}")
                 print(f"Generated prompt: {prompt}")
                 assert '[concept]' in prompt
-                prompt_list.append(prompt)
+                metaprompts.append(prompt)
                 cot_list.append(prompt)
                 break
             except Exception as e:
                 print(e)
                 pass
+totalprompts.extend(metaprompts)
+metaprompts_before = metaprompts
 
-# Concatenate metaprompts and prompts
-final_prompt_list = metaprompt_list + random.sample(prompt_list, max_prompts - num_metaprompts)
+# Third stage
+metaprompts = []
+for i, metaprompt in enumerate(tqdm(metaprompts_before)):
+    cot_list = [metaprompt]
+    
+    for j in range(1, num_prompts_per_metaprompt + 1): # hard-coded: 3 examples
+        while True:
+            try:
+                prompt = generate_prompt_stage2(client, cot_list)
+                print(f"previous generated prompts: {cot_list}")
+                print(f"Generated prompt: {prompt}")
+                assert '[concept]' in prompt
+                metaprompts.append(prompt)
+                cot_list.append(prompt)
+                break
+            except Exception as e:
+                print(e)
+                pass
+totalprompts.extend(metaprompts)
+metaprompts_before = metaprompts
+
+# Fourth stage
+metaprompts = []
+for i, metaprompt in enumerate(tqdm(metaprompts_before)):
+    cot_list = [metaprompt]
+    
+    for j in range(1, num_prompts_per_metaprompt + 1): # hard-coded: 3 examples
+        while True:
+            try:
+                prompt = generate_prompt_stage2(client, cot_list)
+                print(f"previous generated prompts: {cot_list}")
+                print(f"Generated prompt: {prompt}")
+                assert '[concept]' in prompt
+                metaprompts.append(prompt)
+                cot_list.append(prompt)
+                break
+            except Exception as e:
+                print(e)
+                pass
+totalprompts.extend(metaprompts)
+metaprompts_before = metaprompts
+
+# Fifth stage
+metaprompts = []
+for i, metaprompt in enumerate(tqdm(metaprompts_before)):
+    cot_list = [metaprompt]
+    
+    for j in range(1, num_prompts_per_metaprompt + 1): # hard-coded: 3 examples
+        while True:
+            try:
+                prompt = generate_prompt_stage2(client, cot_list)
+                print(f"previous generated prompts: {cot_list}")
+                print(f"Generated prompt: {prompt}")
+                assert '[concept]' in prompt
+                metaprompts.append(prompt)
+                cot_list.append(prompt)
+                break
+            except Exception as e:
+                print(e)
+                pass
+totalprompts.extend(metaprompts)
+metaprompts_before = metaprompts
+breakpoint()
+final_prompt_list = random.sample(totalprompts, max_prompts)
 
 # Generate final json
 totalprompt_dict = {'metaprompts': []}
