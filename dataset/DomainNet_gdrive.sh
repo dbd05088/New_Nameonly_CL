@@ -542,16 +542,24 @@
 # tar -xf DomainNet_50_2_glide.tar -C DomainNet
 # rm DomainNet_50_2_glide.tar
 
-# Temperature experiments
-./gdrive files download 1PRdkrxz__xCVzhYV_1__ZKG37SBKs6eY # DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_0_125
-./gdrive files download 1WOd3OqjdN1GsKFLx3KwerdBxNgOwpt1B # DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_0_25
-./gdrive files download 1JNvO2s7MdNJ36kcJYr9C7QWEc1Mq6ehr # DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_1
-./gdrive files download 10Uxnsy_lF6hyDKB-tBuSi3RleA_vq8g0 # DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_2
-tar -xf DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_0_125.tar -C DomainNet
-tar -xf DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_0_25.tar -C DomainNet
-tar -xf DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_1.tar -C DomainNet
-tar -xf DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_2.tar -C DomainNet
-rm DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_0_125.tar
-rm DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_0_25.tar
-rm DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_1.tar
-rm DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_2.tar
+# # Temperature experiments
+# ./gdrive files download 1PRdkrxz__xCVzhYV_1__ZKG37SBKs6eY # DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_0_125
+# ./gdrive files download 1WOd3OqjdN1GsKFLx3KwerdBxNgOwpt1B # DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_0_25
+# ./gdrive files download 1JNvO2s7MdNJ36kcJYr9C7QWEc1Mq6ehr # DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_1
+# ./gdrive files download 10Uxnsy_lF6hyDKB-tBuSi3RleA_vq8g0 # DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_2
+# tar -xf DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_0_125.tar -C DomainNet
+# tar -xf DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_0_25.tar -C DomainNet
+# tar -xf DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_1.tar -C DomainNet
+# tar -xf DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_2.tar -C DomainNet
+# rm DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_0_125.tar
+# rm DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_0_25.tar
+# rm DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_1.tar
+# rm DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_2.tar
+
+# DomainNet hierarchy experiments
+./gdrive files download 1xrvTGTJdWOy1LKj0svi2RmZoObjvMsBa # DomainNet_tree_2
+./gdrive files download 1YaL7vwq6VwWgRGyTmiAXI7dYOTPwJ2BL # DomainNet_tree_4
+tar -xf DomainNet_tree_2.tar -C DomainNet
+tar -xf DomainNet_tree_4.tar -C DomainNet
+rm DomainNet_tree_2.tar
+rm DomainNet_tree_4.tar
