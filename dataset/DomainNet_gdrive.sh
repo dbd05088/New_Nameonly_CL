@@ -556,10 +556,15 @@
 # rm DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_1.tar
 # rm DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_2.tar
 
-# DomainNet hierarchy experiments
-./gdrive files download 1xrvTGTJdWOy1LKj0svi2RmZoObjvMsBa # DomainNet_tree_2
-./gdrive files download 1YaL7vwq6VwWgRGyTmiAXI7dYOTPwJ2BL # DomainNet_tree_4
-tar -xf DomainNet_tree_2.tar -C DomainNet
-tar -xf DomainNet_tree_4.tar -C DomainNet
-rm DomainNet_tree_2.tar
-rm DomainNet_tree_4.tar
+# # DomainNet hierarchy experiments
+# ./gdrive files download 1xrvTGTJdWOy1LKj0svi2RmZoObjvMsBa # DomainNet_tree_2
+# ./gdrive files download 1YaL7vwq6VwWgRGyTmiAXI7dYOTPwJ2BL # DomainNet_tree_4
+# tar -xf DomainNet_tree_2.tar -C DomainNet
+# tar -xf DomainNet_tree_4.tar -C DomainNet
+# rm DomainNet_tree_2.tar
+# rm DomainNet_tree_4.tar
+
+# DomainNet Real-Fake
+./gdrive files download 150rLPOkqw5cfToaMJJ2PVk4CixrN3f60 # DomainNet_train_ma_real_fake
+tar -xf DomainNet_train_ma_real_fake.tar -C DomainNet
+rm DomainNet_train_ma_real_fake.tar
