@@ -65,3 +65,20 @@ def get_count_value_from_string(search_string):
             return count_dict[key]
     
     raise ValueError(f"Search string - {search_string} doesn't match any of count dict!")
+
+def get_count_dict(dataset):
+    match_dict = {
+        'PACS': PACS_count,
+        'DomainNet': DomainNet_count,
+        'cifar10': cifar10_count,
+        'cct': cct_count,
+        'NICO': NICO_count,
+        'ImageNet': ImageNet_count,
+        'CUB': CUB_200_count
+    }
+    
+    for key in match_dict.keys():
+        if key.lower() in dataset.lower():
+            print(f"Detected dataset {key}")
+            return match_dict[key]
+    raise ValueError("Dataset not found")
