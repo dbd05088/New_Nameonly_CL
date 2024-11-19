@@ -16,8 +16,8 @@ conda activate generate # cogview
 
 # ----------------- IMPORTANT -----------------
 DATASET="ImageNet" # PACS, DomainNet, cifar10, NICO
-IMAGE_DIR='./generated_datasets/ImageNet_50_2_floyd'
-GENERATIVE_MODEL="floyd" # sdxl, floyd, cogview2, sd3, sdturbo, flux, kolors, auraflow
+IMAGE_DIR='./generated_datasets/ImageNet_50_2_sdxl'
+GENERATIVE_MODEL="sdxl" # sdxl, floyd, cogview2, sd3, sdturbo, flux, kolors, auraflow
 # WARNING: Do not split the class indices across multiple runs in the same server
 START_CLASS=0
 END_CLASS=999
@@ -25,6 +25,7 @@ PROMPT_DIR='../prompt_generation/prompts/gpt4_hierarchy_cot_50_2.json'
 INCREASE_RATIO=1.15
 # Ignored when running on datacenter
 GPU_ID=${1:-0}
+LORA_PATH="none"
 # ----------------- IMPORTANT -----------------
 
 # # Uncomment when running on OUR gpu servers (both cogview2 and others supported)
@@ -32,7 +33,8 @@ GPU_ID=${1:-0}
 # mkdir -p logs
 # CUDA_VISIBLE_DEVICES=$GPU_ID nohup python get_image_queue.py --config_path ./configs/default.yaml --dataset $DATASET \
 # --image_dir $IMAGE_DIR --generative_model $GENERATIVE_MODEL --start_class $START_CLASS --end_class $END_CLASS \
-# --prompt_dir $PROMPT_DIR --increase_ratio $INCREASE_RATIO > "logs/${BASENAME}_${GPU_ID}.log" 2>&1 &
+# --prompt_dir $PROMPT_DIR --increase_ratio $INCREASE_RATIO --lora_path $LORA_PATH \
+#  > "logs/${BASENAME}_${GPU_ID}.log" 2>&1 &
 
 
 # Uncomment following lines when running on datacenter
@@ -43,11 +45,11 @@ if [ "$GENERATIVE_MODEL" == "cogview2" ]; then
     cd ../
     CUDA_HOME=/opt/ohpc/pub/apps/cuda/12.5 python get_image_queue.py --config_path ./configs/default.yaml --dataset $DATASET --image_dir $IMAGE_DIR \
     --generative_model $GENERATIVE_MODEL --start_class $START_CLASS --end_class $END_CLASS --prompt_dir $PROMPT_DIR \
-    --increase_ratio $INCREASE_RATIO
+    --increase_ratio $INCREASE_RATIO --lora_path $LORA_PATH
 else
     python get_image_queue.py --config_path ./configs/default.yaml --dataset $DATASET --image_dir $IMAGE_DIR \
     --generative_model $GENERATIVE_MODEL --start_class $START_CLASS --end_class $END_CLASS --prompt_dir $PROMPT_DIR \
-    --increase_ratio $INCREASE_RATIO
+    --increase_ratio $INCREASE_RATIO --lora_path $LORA_PATH
 fi
 
 # Estimated time for image generation
