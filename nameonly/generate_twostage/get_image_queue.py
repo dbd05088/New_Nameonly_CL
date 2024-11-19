@@ -516,12 +516,17 @@ if __name__ == "__main__":
     parser.add_argument('--prompt_dir', type=str, default=None)
     parser.add_argument('--increase_ratio', type=float, default=None)
     parser.add_argument('--num_samples_per_cls', type=int, default=None)
+    parser.add_argument('--lora_path', type=str, default=None)
     
     parser_config = parser.parse_args()
+    if parser_config.lora_path == "none":
+        print(f"Lora path is set to None")
+        parser_config.lora_path = None
 
     config = get_config(config_path=parser_config.config_path)
     
     # Override config if arguments are explicitly provided (start, end class)
+    config['lora_path'] = parser_config.lora_path
     if parser_config.dataset is not None:
         config['dataset'] = parser_config.dataset
     if parser_config.image_dir is not None:
@@ -578,6 +583,12 @@ if __name__ == "__main__":
     else:
         model = model_selector(config['generative_model'], API_KEY=config['api_key'])
 
+    # Load lora if specified
+    if config['generative_model'] == "sdxl" and config['lora_path'] is not None:
+        print(f"Load Lora from {config['lora_path']}")
+        model.pipe.load_lora_weights(config['lora_path'])
+        
+    
     # Set start prompt index if provided
     resume_prompt_idx = config.get('resume_prompt_idx')
     
