@@ -1,7 +1,7 @@
 #!/bin/bash
-DATASET_NAME="PACS"
-GPU_ID=0
-DATA_DIR="PACS_final_train_ma"
+DATASET_NAME="DomainNet"
+GPU_ID=2
+DATA_DIR="DomainNet_train_ma"
 
 
 IMAGE_DIR="./${DATA_DIR}"
@@ -27,7 +27,7 @@ TARGET_DIR="${DATA_DIR}_real_fake"
 # --report_to=tensorboard \
 # --resolution=512 --random_flip \
 # --train_batch_size=8 \
-# --num_train_epochs=100 --checkpointing_steps=500 \
+# --num_train_epochs=10 --checkpointing_steps=500 \
 # --learning_rate=1e-04 --lr_scheduler="constant" \
 # --seed=42 \
 # --output_dir=${OUTPUT_DIR} \

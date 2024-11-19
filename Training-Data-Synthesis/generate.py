@@ -189,7 +189,7 @@ class StableDiffusionHandler:
     def generate_ImageNet1k(self):
         print(f"Generation: {self.method}")
         print("Full",self.if_full)
-        self.pipe = self.get_stablediffusion("stable-diffusion-v1-5/stable-diffusion-v1-5", lora=self.lora_path)
+        self.pipe = self.get_stablediffusion("stable-diffusion-v1-5/stable-diffusion-v1-5")
         self.pipe.to("cuda")
         # Load metadata jsonl file
         with open(f"{self.metadata_path}", "r") as f:
@@ -210,6 +210,10 @@ class StableDiffusionHandler:
             batch_prompts = prompts[i:i+bs]
             batch_image_names = [m["file_name"].split("/")[1] for m in batch_metadata]
             batch_class_ids = [m["file_name"].split("/")[0] for m in batch_metadata]
+            if previously_generated_class is None or previously_generated_class != batch_class_ids[0]:
+                lora_path = os.path.join(self.lora_path, f"lora_layers_{batch_class_ids[0]}.pt")
+                print(f"Loading LoRA: {lora_path}")
+                self.pipe.unet.load_attn_procs(lora_path)
             batch_negative_prompts = ["distorted, unrealistic, blurry, out of frame, cropped, deformed" for n in range(len(batch_metadata))]
             
             print(f"Generation {len(batch_metadata)} images")
