@@ -39,7 +39,8 @@ def group_lists(list1, list2, list3, list4, list5):
 def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--dataset",default="imagenette", help="Which Dataset")
-    parser.add_argument("--index",default=0,type=int,help="split task")
+    parser.add_argument("--start_index", required=True, type=int,help="split task")
+    parser.add_argument("--end_index", required=True, type=int,help="split task")
     parser.add_argument("--version",default="v57",type=str,help="out_version")
     parser.add_argument("--lora_path",default=None,type=str,help="lora path")
     parser.add_argument("--batch_size",default=8,type=int,help="batch size")
@@ -88,6 +89,8 @@ class StableDiffusionHandler:
         self.init_image_strength = args.image_strength  # 0.75
         self.scheduler = "UniPC"
         self.img_size = args.img_size   # 512
+        self.start_index = args.start_index
+        self.end_index = args.end_index
         
     ### Get Pipelines
     def get_stablediffusion(self, stablediffusion_path, lora=None):
@@ -116,17 +119,6 @@ class StableDiffusionHandler:
             pipe.scheduler = DPMSolverMultistepScheduler.from_config(pipe.scheduler.config, use_karras=True, algorithm_type="sde-dpmsolver++")
         return pipe
 
-    def get_subdataset_loader(self, real_dst_train, bsz, num_chunks=8):
-        # split Task
-        chunk_size = len(real_dst_train) // num_chunks
-        chunk_index = self.args.index
-        if chunk_index == num_chunks-1:
-            subset_indices = range(chunk_index*chunk_size, len(real_dst_train))
-        else:
-            subset_indices = range(chunk_index*chunk_size, (chunk_index+1)*chunk_size)
-        subset_dataset = Subset(real_dst_train, indices=subset_indices)
-        dataloader = DataLoader(subset_dataset, batch_size=bsz, shuffle=False, num_workers=4)
-        return dataloader
 
     ### Generate
     def generate_sd(self,prompts,negative_prompts):
@@ -201,6 +193,16 @@ class StableDiffusionHandler:
         caption_suffix = [m["text"] for m in metadata]
         prompts = [f"{base_prompts[n]}, {caption_suffix[n]}, best quality" for n in range(len(metadata))]
         bs = self.batch_size; img_size = (512, 512)
+        
+        # Fine start, end cls index
+        classes = sorted(list(set(class_names)))
+        class_range = list(range(self.start_index, self.end_index + 1))
+        selected_classes = [classes[i] for i in class_range]
+        print(f"Slicing classes: {selected_classes}")
+        metadata_idx = [idx for idx, m in enumerate(metadata) if m["file_name"].split("/")[0] in selected_classes]
+        metadata = [metadata[idx] for idx in metadata_idx]
+        prompts = [prompts[idx] for idx in metadata_idx]
+        print(f"Length of metadata: {len(metadata)}")
         
         # Iterate through batches
         image_idx = 0
