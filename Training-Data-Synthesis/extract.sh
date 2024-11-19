@@ -1,7 +1,7 @@
 #!/bin/bash
-DATASET_NAME="DomainNet"
-GPU_ID=2
-DATA_DIR="DomainNet_train_ma"
+DATASET_NAME="PACS"
+GPU_ID=0
+DATA_DIR="PACS_final_train_ma"
 
 
 IMAGE_DIR="./${DATA_DIR}"
@@ -38,6 +38,8 @@ TARGET_DIR="${DATA_DIR}_real_fake"
 # --exp_id 0
 # echo "All processes completed"
 
+
+# Generation
 guidance_tokens=('Yes')
 SDXLs=('No')
 image_strengths=(0.75)
@@ -48,8 +50,28 @@ imst="${image_strengths[$i]}"
 echo "$ver LoRA: $lora Method $method"
 # Iterate from 0-7, cover all case for nchunks <= 8
 
-j=$GPU_ID
-CUDA_VISIBLE_DEVICES=$j python generate.py --index ${j} --method "SDT2I_LoRA" --batch_size 24 \
+# GPUS=("0" "1" "2" "3" "4" "5")
+# nchunks=${#GPUS[@]}
+# mkdir -p ./log
+# for ((j=0; j<${#GPUS[@]}; j++)); do
+#     CUDA_VISIBLE_DEVICES=${GPUS[j]} nohup python generate.py \
+#         --index ${j} \
+#         --method "SDT2I_LoRA" \
+#         --batch_size 24 \
+#         --use_caption "blip2" \
+#         --lora_path $lora_path \
+#         --if_SDXL $SDXL \
+#         --use_guidance $guidance_token \
+#         --img_size 512 \
+#         --cross_attention_scale 0.5 \
+#         --image_strength $imst \
+#         --nchunks $nchunks \
+#         --metadata_path $metadata_path \
+#         --target_path $TARGET_DIR > ./log/${DATA_DIR}_real_fake_${j}.log 2>&1 &
+# done
+
+GPU_ID=5
+CUDA_VISIBLE_DEVICES=$GPU_ID nohup python generate.py --start_index 6 --end_index 6 --method "SDT2I_LoRA" --batch_size 24 \
 --use_caption "blip2" --lora_path $lora_path --if_SDXL $SDXL --use_guidance $guidance_token \
---img_size 512 --cross_attention_scale 0.5 --image_strength $imst --nchunks 1 \
---metadata_path $metadata_path --target_path $TARGET_DIR
+--img_size 512 --cross_attention_scale 0.5 --image_strength $imst --nchunks 3 \
+--metadata_path $metadata_path --target_path $TARGET_DIR > ./log/${DATA_DIR}_real_fake_${GPU_ID}.log 2>&1 &
