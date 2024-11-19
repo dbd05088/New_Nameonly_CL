@@ -1583,9 +1583,20 @@
 # rm PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_bottomk.tar
 # rm PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_inverse.tar
 
-./gdrive files download 1aKOamivwrZZsCkLcDlHHhaiftNDdiWuK # PACS_final_tree_2_sdxl
-./gdrive files download 1w9Lm3d9civYS_Mk0VA4j1_MzeOZhqbw7 # PACS_final_tree_4_sdxl
-tar -xf PACS_final_tree_2_sdxl.tar -C PACS_final
-tar -xf PACS_final_tree_4_sdxl.tar -C PACS_final
-rm PACS_final_tree_2_sdxl.tar
-rm PACS_final_tree_4_sdxl.tar
+# Hierarchy experiments (for rebuttal)
+# ./gdrive files download 1aKOamivwrZZsCkLcDlHHhaiftNDdiWuK # PACS_final_tree_2_sdxl
+# ./gdrive files download 1w9Lm3d9civYS_Mk0VA4j1_MzeOZhqbw7 # PACS_final_tree_4_sdxl
+# tar -xf PACS_final_tree_2_sdxl.tar -C PACS_final
+# tar -xf PACS_final_tree_4_sdxl.tar -C PACS_final
+# rm PACS_final_tree_2_sdxl.tar
+# rm PACS_final_tree_4_sdxl.tar
+
+# # Real-fake baseline
+# ./gdrive files download 17OKYRZSYZgVq6c7sXFxtDxRe31FtMyK_ # PACS_final_train_ma_real_fake
+# tar -xf PACS_final_train_ma_real_fake.tar -C PACS_final
+# rm PACS_final_train_ma_real_fake.tar
+
+# Real-fake (CL setup)
+./gdrive files download 1wRlRcAK7aTJO9ejAPNEUiQuDz4Z605Zw # PACS_final_train_ma_real_fake_cl
+tar -xf PACS_final_train_ma_real_fake_cl.tar -C PACS_final
+rm PACS_final_train_ma_real_fake_cl.tar

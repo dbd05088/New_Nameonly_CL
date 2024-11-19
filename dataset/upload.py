@@ -8,11 +8,10 @@ os.system("./gdrive account import gdrive_export-dbd05088_naver_com.tar")
 os.system("./gdrive account switch dbd05088@naver.com")
 
 # Files to upload
-dataset = "CUB_200"
+dataset = "ImageNet"
 create_tar = True
 files = [
-    "CUB_200_50_2_sdxl",
-    "CUB_200_50_2_sdxl_floyd_cogview2_sd3_auraflow",
+    "ImageNet_train_400",
 ]
 # Change path
 files = [os.path.join(dataset, file) for file in files]
