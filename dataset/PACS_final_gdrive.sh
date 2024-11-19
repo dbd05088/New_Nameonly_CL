@@ -1591,7 +1591,12 @@
 # rm PACS_final_tree_2_sdxl.tar
 # rm PACS_final_tree_4_sdxl.tar
 
-# Real-fake baseline
-./gdrive files download 17OKYRZSYZgVq6c7sXFxtDxRe31FtMyK_ # PACS_final_train_ma_real_fake
-tar -xf PACS_final_train_ma_real_fake.tar -C PACS_final
-rm PACS_final_train_ma_real_fake.tar
+# # Real-fake baseline
+# ./gdrive files download 17OKYRZSYZgVq6c7sXFxtDxRe31FtMyK_ # PACS_final_train_ma_real_fake
+# tar -xf PACS_final_train_ma_real_fake.tar -C PACS_final
+# rm PACS_final_train_ma_real_fake.tar
+
+# Real-fake (CL setup)
+./gdrive files download 1wRlRcAK7aTJO9ejAPNEUiQuDz4Z605Zw # PACS_final_train_ma_real_fake_cl
+tar -xf PACS_final_train_ma_real_fake_cl.tar -C PACS_final
+rm PACS_final_train_ma_real_fake_cl.tar
