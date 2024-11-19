@@ -91,7 +91,8 @@ dataset_mapping = {'DomainNet': DomainNet_count, 'officehome': officehome_count,
                    'pacs_dalle2_new': pacs_dalle2_new_count, 'NICO': NICO_count,
                    'ImageNet': ImageNet_count, 'CUB_200': CUB_200_count}
 
-class_names_dict = dataset_mapping[args.dataset]
+class_names_dict = get_count_dict(args.dataset)
+# class_names_dict = dataset_mapping[args.dataset]
 dir_cls_count_dict = {cls: len(os.listdir(os.path.join(directory_path, cls))) for cls in os.listdir(directory_path) if not cls.endswith('.json') and os.path.isdir(os.path.join(directory_path, cls))}
 
 print(f"Current threshold ratio: {args.threshold_ratio}")
