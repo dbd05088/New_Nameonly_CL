@@ -379,6 +379,7 @@ def generate_single_class(
     API_KEY=None,
     resume_prompt_idx=None,
     imagenet=False,
+    config=None
 ):
     if not 'metaprompts' in class_prompt_dict:
         use_dynamic_prompt = True
@@ -429,7 +430,10 @@ def generate_single_class(
     for i, prompt in enumerate(concatenated_prompt_list):
         if not use_dynamic_prompt:
             assert "[concept]" in prompt[0], f"[concept] not exists in {prompt}!"
-            class_name_tmp = class_name.replace("_"," ") # remove underbar
+            if config['lora_path'] is None:
+                class_name_tmp = class_name.replace("_"," ") # remove underbar
+            else:
+                class_name_tmp = class_name # Because lora knows the class name with underbar
             if not imagenet:
                 prompt_with_cls = (prompt[0].replace('[concept]', class_name_tmp), prompt[1], prompt[2])
             else:
@@ -624,7 +628,8 @@ if __name__ == "__main__":
             API_KEY=config['api_key'],
             result_json_path=os.path.join(image_root_dir, f"{original_class_indices[next_cls_idx]}.json"),
             resume_prompt_idx=resume_prompt_idx,
-            imagenet=imagenet
+            imagenet=imagenet,
+            config=config
         )
         mark_task_done(queue_name, next_cls_idx)
     
