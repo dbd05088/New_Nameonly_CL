@@ -44,7 +44,7 @@ if args.dataset is None:
             print(f"Dataset not specified. Detected dataset: {replacement}")
             args.dataset = replacement
             break
-count_dict = dataset_mapping[args.dataset]
+count_dict = get_count_dict(args.dataset)
 
 # Set target directory name
 if args.target_path is None:

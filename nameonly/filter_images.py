@@ -47,9 +47,10 @@ if args.dataset is None:
             args.dataset = replacement
             break
 
-sample_num_dict = dataset_mapping[args.dataset]
+sample_num_dict = get_count_dict(args.dataset)
+# sample_num_dict = dataset_mapping[args.dataset]
 print(f"Sample num dict: {sample_num_dict}")
-if args.dataset == "ImageNet":
+if "ImageNet" in args.dataset:
     print("Detected dataset: ImageNet")
     imagenet = True
 else:
