@@ -25,3 +25,8 @@ tar -xf CUB_200_50_2_sdxl.tar -C CUB_200
 tar -xf CUB_200_50_2_sdxl_floyd_cogview2_sd3_auraflow.tar -C CUB_200
 rm CUB_200_50_2_sdxl.tar
 rm CUB_200_50_2_sdxl_floyd_cogview2_sd3_auraflow.tar
+
+# DB finetuned
+./gdrive files download 1Ov_djKBIJqJSEJwBAWKbkZLqR1VYpL13 # CUB_200_db
+tar -xf CUB_200_db.tar -C CUB_200
+rm CUB_200_db.tar
