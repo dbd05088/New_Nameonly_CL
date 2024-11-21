@@ -1601,16 +1601,27 @@
 # tar -xf PACS_final_train_ma_real_fake_cl.tar -C PACS_final
 # rm PACS_final_train_ma_real_fake_cl.tar
 
-# Real fake more parameters
-./gdrive files download 1anZFYjfZ39A4dKRPUYKQGlqHsCAp9n3G # PACS_final_train_ma_10_real_fake
-./gdrive files download 1DcAHYKq758sfD01hFpS7I_RVukYEvZvM # PACS_final_train_ma_50_real_fake
-./gdrive files download 1lsgtL_S-eOA_xs-AIYm04pw_u0LLXic1 # PACS_final_train_ma_200_real_fake
-./gdrive files download 1fCbv8OBx7dSnAwxTW9I7kKzw7G5x2b_v # PACS_final_train_ma_400_real_fake
-tar -xf PACS_final_train_ma_10_real_fake.tar -C PACS_final
-tar -xf PACS_final_train_ma_50_real_fake.tar -C PACS_final
-tar -xf PACS_final_train_ma_200_real_fake.tar -C PACS_final
-tar -xf PACS_final_train_ma_400_real_fake.tar -C PACS_final
-rm PACS_final_train_ma_10_real_fake.tar
-rm PACS_final_train_ma_50_real_fake.tar
-rm PACS_final_train_ma_200_real_fake.tar
-rm PACS_final_train_ma_400_real_fake.tar
+# # Real fake more parameters
+# ./gdrive files download 1anZFYjfZ39A4dKRPUYKQGlqHsCAp9n3G # PACS_final_train_ma_10_real_fake
+# ./gdrive files download 1DcAHYKq758sfD01hFpS7I_RVukYEvZvM # PACS_final_train_ma_50_real_fake
+# ./gdrive files download 1lsgtL_S-eOA_xs-AIYm04pw_u0LLXic1 # PACS_final_train_ma_200_real_fake
+# ./gdrive files download 1fCbv8OBx7dSnAwxTW9I7kKzw7G5x2b_v # PACS_final_train_ma_400_real_fake
+# tar -xf PACS_final_train_ma_10_real_fake.tar -C PACS_final
+# tar -xf PACS_final_train_ma_50_real_fake.tar -C PACS_final
+# tar -xf PACS_final_train_ma_200_real_fake.tar -C PACS_final
+# tar -xf PACS_final_train_ma_400_real_fake.tar -C PACS_final
+# rm PACS_final_train_ma_10_real_fake.tar
+# rm PACS_final_train_ma_50_real_fake.tar
+# rm PACS_final_train_ma_200_real_fake.tar
+# rm PACS_final_train_ma_400_real_fake.tar
+
+# DB finetuned
+./gdrive files download 1T_XQG0xTY_2xZ0CjvhAtBEsVEJ_KOP1G # PACS_final_db_3
+./gdrive files download 1Brl6_Qy_iIohe-1w1GbfEie-tqQqNoHq # PACS_final_db_5
+./gdrive files download 1KYzalT65VponuPX_Pp1bTZr2zAQt0BYz # PACS_final_db_10
+tar -xf PACS_final_db_3.tar -C PACS_final
+tar -xf PACS_final_db_5.tar -C PACS_final
+tar -xf PACS_final_db_10.tar -C PACS_final
+rm PACS_final_db_3.tar
+rm PACS_final_db_5.tar
+rm PACS_final_db_10.tar
