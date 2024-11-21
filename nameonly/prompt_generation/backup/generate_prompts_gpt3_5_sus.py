@@ -46,10 +46,10 @@ def generate_prompt_sus(client, concept_name):
     
     return total_response_results
 
-cls_count_dict = PACS_count
+cls_count_dict = DomainNet_count
 result_json_path = './prompts/sus_PACS_before_process.json'
 
-client = OpenAI(api_key="sk-proj-b6mF6aJroOzev4yh1afBT3BlbkFJcgqlS8S3hrxASu62u3a6")
+client = OpenAI(api_key="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")
 classes = list(cls_count_dict.keys())
 
 totalprompt_dict = {}
