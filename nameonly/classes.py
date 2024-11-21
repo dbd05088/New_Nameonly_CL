@@ -59,7 +59,7 @@ pacs_sdxl_new_count = {'horse': 91, 'elephant': 92, 'person': 197, 'dog': 86, 'g
 pacs_dalle2_new_count = {'horse': 68, 'elephant': 69, 'person': 148, 'dog': 65, 'guitar': 63, 'giraffe': 62, 'house': 96}
 NICO_count = {'football': 800, 'airplane': 800, 'dolphin': 800, 'dog': 800, 'elephant': 800, 'tent': 800, 'pumpkin': 800, 'wolf': 800, 'goose': 800, 'frog': 800, 'hat': 800, 'truck': 800, 'crab': 800, 'cactus': 800, 'squirrel': 800, 'cat': 800, 'bicycle': 800, 'sailboat': 800, 'bear': 800, 'clock': 800, 'fishing_rod': 800, 'shrimp': 800, 'crocodile': 800, 'spider': 800, 'flower': 800, 'kangaroo': 800, 'cow': 800, 'wheat': 800, 'helicopter': 800, 'tiger': 800, 'butterfly': 800, 'hot_air_balloon': 800, 'lion': 800, 'tortoise': 800, 'corn': 800, 'seal': 800, 'giraffe': 800, 'motorcycle': 800, 'sunflower': 800, 'fox': 800, 'umbrella': 800, 'bus': 800, 'lifeboat': 800, 'pineapple': 800, 'car': 800, 'sheep': 800, 'monkey': 800, 'mailbox': 800, 'horse': 800, 'scooter': 800, 'owl': 800, 'racket': 800, 'lizard': 800, 'chair': 800, 'ostrich': 800, 'rabbit': 800, 'gun': 800, 'ship': 800, 'bird': 800, 'train': 800}
 count_dict = {'PACS': PACS_count, 'DomainNet': DomainNet_count, 'cifar10': cifar10_count, 'cct': cct_count, 'NICO': NICO_count,
-              'ImageNet': ImageNet_count, 'CUB_200': CUB_200_count}
+              'ImageNet': ImageNet_count, 'ImageNet_400': ImageNet_400_count, 'CUB_200': CUB_200_count}
 
 def get_count_value_from_string(search_string):
     search_string = search_string.lower()
