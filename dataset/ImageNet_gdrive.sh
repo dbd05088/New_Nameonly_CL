@@ -32,7 +32,12 @@
 # tar -xf ImageNet_50_2_sdxl.tar -C ImageNet
 # rm ImageNet_50_2_sdxl.tar
 
-# ImageNet train_ma 400
-./gdrive files download 1ZC1cfRtsXQNVKpI2hOT3_8NsGu5tbmbQ # ImageNet_train_400
-tar -xf ImageNet_train_400.tar -C ImageNet
-rm ImageNet_train_400.tar
+# # ImageNet train_ma 400
+# ./gdrive files download 1ZC1cfRtsXQNVKpI2hOT3_8NsGu5tbmbQ # ImageNet_train_400
+# tar -xf ImageNet_train_400.tar -C ImageNet
+# rm ImageNet_train_400.tar
+
+# ImageNet ours 400
+./gdrive files download 1HhE3NZ9A_xXGAlGTO_E9gGQ58v2BTHr8 # ImageNet_50_2_full_sdxl_floyd_cogview2_sd3_auraflow
+tar -xf ImageNet_50_2_full_sdxl_floyd_cogview2_sd3_auraflow.tar -C ImageNet
+rm ImageNet_50_2_full_sdxl_floyd_cogview2_sd3_auraflow.tar
