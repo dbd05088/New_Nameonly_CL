@@ -1615,13 +1615,27 @@
 # rm PACS_final_train_ma_200_real_fake.tar
 # rm PACS_final_train_ma_400_real_fake.tar
 
-# DB finetuned
-./gdrive files download 1T_XQG0xTY_2xZ0CjvhAtBEsVEJ_KOP1G # PACS_final_db_3
-./gdrive files download 1Brl6_Qy_iIohe-1w1GbfEie-tqQqNoHq # PACS_final_db_5
-./gdrive files download 1KYzalT65VponuPX_Pp1bTZr2zAQt0BYz # PACS_final_db_10
-tar -xf PACS_final_db_3.tar -C PACS_final
-tar -xf PACS_final_db_5.tar -C PACS_final
-tar -xf PACS_final_db_10.tar -C PACS_final
-rm PACS_final_db_3.tar
-rm PACS_final_db_5.tar
-rm PACS_final_db_10.tar
+# # DB finetuned
+# ./gdrive files download 1T_XQG0xTY_2xZ0CjvhAtBEsVEJ_KOP1G # PACS_final_db_3
+# ./gdrive files download 1Brl6_Qy_iIohe-1w1GbfEie-tqQqNoHq # PACS_final_db_5
+# ./gdrive files download 1KYzalT65VponuPX_Pp1bTZr2zAQt0BYz # PACS_final_db_10
+# tar -xf PACS_final_db_3.tar -C PACS_final
+# tar -xf PACS_final_db_5.tar -C PACS_final
+# tar -xf PACS_final_db_10.tar -C PACS_final
+# rm PACS_final_db_3.tar
+# rm PACS_final_db_5.tar
+# rm PACS_final_db_10.tar
+
+# PACS_final tree more
+./gdrive files download 1cZidV_EHLdoaVG-lOnQPkgNuwdpceRM4 # PACS_final_tree_d2_w5
+./gdrive files download 1mJGVfQZe5EUR9ea9xhlxP-ubWeIriN97 # PACS_final_tree_d3_w7
+./gdrive files download 14kxNWG3NY_Ktepytqmab2n6NiLHMn-U- # PACS_final_tree_d1_w7
+./gdrive files download 1n_3bRIILy4hBJttDwH5eaVbbRtFJ32bo # PACS_final_tree_d2_w10
+tar -xf PACS_final_tree_d2_w5.tar -C PACS_final
+tar -xf PACS_final_tree_d3_w7.tar -C PACS_final
+tar -xf PACS_final_tree_d1_w7.tar -C PACS_final
+tar -xf PACS_final_tree_d2_w10.tar -C PACS_final
+rm PACS_final_tree_d2_w5.tar
+rm PACS_final_tree_d3_w7.tar
+rm PACS_final_tree_d1_w7.tar
+rm PACS_final_tree_d2_w10.tar
