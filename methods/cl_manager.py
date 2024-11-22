@@ -417,8 +417,8 @@ class CLManagerBase:
             self.scheduler.step()
 
     def _save_ckpt(self, sample_num):
-        save_path = f"pretrained/{self.dataset}/{self.type_name}/{self.online_iter}"
-        os.makedirs(f"pretrained/{self.dataset}/{self.type_name}/{self.online_iter}", exist_ok=True)
+        save_path = f"pretrained/{self.dataset}/{self.type_name}/{self.online_iter}_{self.rnd_seed}"
+        os.makedirs(f"pretrained/{self.dataset}/{self.type_name}/{self.online_iter}_{self.rnd_seed}", exist_ok=True)
         torch.save({
         'num_samples': sample_num,
         'tasks': self.exposed_classes,
