@@ -425,7 +425,7 @@ class CLManagerBase:
         'model_state_dict': self.model.state_dict(),
         }, os.path.join(save_path, f"{sample_num}_ckpt.pth"))
 
-    def online_evaluate(self, domain_name, cur_task, test_list, sample_num, batch_size, n_worker, cls_dict, cls_addition, data_time):
+    def online_evaluate(self, domain_name, cur_task, test_list, sample_num, batch_size, n_worker, cls_dict, cls_addition, data_time=None):
         if self.no_eval_during_train:
             self._save_ckpt(sample_num)
             print("Evaluation skipped")

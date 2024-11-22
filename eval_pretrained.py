@@ -14,12 +14,15 @@ from utils.data_loader import get_train_datalist
 from utils.method_manager_new import select_method
 from utils.train_utils import send_message
 
+import torch.nn as nn
+
 def load_trained_item(model, ckpt_path):
-    print("CKPT PATH", ckpt_path)
     ckpt = torch.load(ckpt_path)
-    print("Loaded checkpoint")
+    seen_tasks = ckpt.get('tasks', [])
+    model_fc = getattr(model, 'fc')
+    print("exposed classes", seen_tasks)
+    setattr(model, 'fc', nn.Linear(model_fc.in_features, len(seen_tasks)))
     model.load_state_dict(ckpt['model_state_dict'])
-    seen_tasks = ckpt.get('seen_tasks', [])
     return model, ckpt['num_samples'], seen_tasks
 
 def main():
@@ -57,7 +60,7 @@ def main():
 
 
     # get datalist
-    # train_datalist, cls_dict, cls_addition = get_train_datalist(args.dataset, args.sigma, args.repeat, args.init_cls, args.rnd_seed, args.type_name)
+    train_datalist, cls_dict, cls_addition = get_train_datalist(args.dataset, args.sigma, args.repeat, args.init_cls, args.rnd_seed, args.type_name)
     test_domain_name, test_datalists = get_test_datalist(args.dataset)
     samples_cnt = 0
     # print("args.dataset", args.dataset, "num_samples", len(train_datalist)) #num_samples[args.dataset]
@@ -91,9 +94,9 @@ def main():
     eval_pretrain_weight_dir =  f"pretrained/{args.dataset}/{args.type_name}/{args.online_iter}_{args.rnd_seed}"
     for weight in os.listdir(eval_pretrain_weight_dir):
         weight_dir = os.path.join(eval_pretrain_weight_dir, weight)
-        model, seen_tasks = load_trained_item(method.model, weight_dir)
+        model, sample_num, seen_tasks = load_trained_item(method.model, weight_dir)
         method.exposed_classes = seen_tasks
-        method.model = model
+        method.model = model.to(device)
         avg_acc = []
         cls_acc = []
         avg_loss = []
@@ -102,7 +105,7 @@ def main():
         eval_results["percls_acc"].append(np.mean(cls_acc))
         eval_results["data_cnt"].append(samples_cnt)
         for domain_name, test_datalist  in zip(test_domain_name, test_datalists):
-            sample_num, eval_dict = method.online_evaluate(domain_name, cur_task, test_datalist, samples_cnt, 32, args.n_worker, cls_dict, cls_addition, data["time"])
+            sample_num, eval_dict = method.online_evaluate(domain_name, cur_task, test_datalist, sample_num, 32, args.n_worker, cls_dict, cls_addition)
             avg_acc.append(eval_dict['avg_acc'])
             avg_loss.append(eval_dict['avg_loss'])
             cls_acc.append(eval_dict['cls_acc'])
