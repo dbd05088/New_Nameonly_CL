@@ -7,9 +7,9 @@ from openai import OpenAI
 from tqdm import tqdm
 from synclr_utils import fg_example, bg_example, fgbg_example, fgrel_example, relation_list
 
-background_json_path = './prompts/backgrounds_synclr_CUB_200.json'; imagenet=False
-prompt_json_path = './prompts/synclr_CUB_200.json'
-dataset_count = CUB_200_count
+background_json_path = './prompts/backgrounds_synclr_birds31.json'; imagenet=False
+prompt_json_path = './prompts/synclr_birds31.json'
+dataset_count = birds31_count
 NUM_PROMPTS = 50
 
 with open(background_json_path, 'r') as f:
