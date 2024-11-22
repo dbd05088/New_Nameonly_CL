@@ -92,7 +92,8 @@ def main():
     
     
     eval_pretrain_weight_dir =  f"pretrained/{args.dataset}/{args.type_name}/{args.online_iter}_{args.rnd_seed}"
-    for weight in os.listdir(eval_pretrain_weight_dir):
+    sorted_epoch_list = sorted(os.listdir(eval_pretrain_weight_dir), key=lambda x: int(x.split('_')[0]))
+    for weight in sorted_epoch_list:
         weight_dir = os.path.join(eval_pretrain_weight_dir, weight)
         model, sample_num, seen_tasks = load_trained_item(method.model, weight_dir)
         method.exposed_classes = seen_tasks
