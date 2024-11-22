@@ -155,7 +155,7 @@ class CLManagerBase:
         elif 'CUB_200' in self.dataset:
             self.tasks = 5
             self.cls_per_task = [40]*self.tasks
-        elif 'birds32' in self.dataset:
+        elif 'birds31' in self.dataset:
             self.tasks = 5
             self.cls_per_task = [5,5,5,5,6]
         
