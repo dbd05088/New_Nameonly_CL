@@ -22,9 +22,9 @@ INVERSE = False
 TEMPERATURE = 0.5
 
 # IMPORTANT
-base_path = '/home/user/imagenet_ours'
-json_path = './RMD_scores/ImageNet_50_2_full_sdxl_floyd_cogview2_sd3_auraflow.json'
-target_path = './raw_datasets/iclr_generated/ImageNet_50_2_full_sdxl_floyd_cogview2_sd3_auraflow'
+base_path = './raw_datasets/iclr_generated/DomainNet'
+json_path = './RMD_scores/DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow.json'
+target_path = './raw_datasets/iclr_generated/DomainNet/DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_0'
 # IMPORTANT
 
 count_dict = get_count_value_from_string(base_path)

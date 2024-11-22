@@ -11,6 +11,9 @@ parser.add_argument('-s', '--source_path', type=str, required=True)
 parser.add_argument('-t', '--threshold_ratio', type=float, default=1.0)
 args = parser.parse_args()
 
+RED = "\033[31m"
+RESET = "\033[0m"
+
 replacements = {
     "PACS": "PACS",
     "cct": "cct",
@@ -19,6 +22,7 @@ replacements = {
     "cifar10": "cifar10",
     "ImageNet": "ImageNet",
     "CUB_200": "CUB_200",
+    "birds31": "birds31"
 }
 
 # Find dataset name
@@ -125,7 +129,7 @@ for image in os.listdir(os.path.join(directory_path, class_name)):
         # print(f"Checking image size...")
         image_size_correct = check_image_size(image_path, (224, 224))
         if not image_size_correct:
-            print(f"WARNING: Image {image_path} does not have the correct size.")
+            print(f"{RED}WARNING: Image {image_path} does not have the correct size.{RESET}")
             break
 
 print(f"Count enough (over threshold): {enough}")
@@ -133,7 +137,7 @@ print(f"Count exact match: {exact_match}")
 # print(f"Image size correct: {image_size_correct}")
 
 if not enough:
-    print(f"Classes with less than threshold count: {less_than_threshold}")
+    print(f"{RED}Classes with less than threshold count: {less_than_threshold}{RESET}")
     raise ValueError(f"Classes with less than threshold count: {less_than_threshold}")
 
 # Step 3: Check image validity

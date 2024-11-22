@@ -564,7 +564,27 @@
 # rm DomainNet_tree_2.tar
 # rm DomainNet_tree_4.tar
 
-# DomainNet Real-Fake
-./gdrive files download 150rLPOkqw5cfToaMJJ2PVk4CixrN3f60 # DomainNet_train_ma_real_fake
-tar -xf DomainNet_train_ma_real_fake.tar -C DomainNet
-rm DomainNet_train_ma_real_fake.tar
+# # DomainNet Real-Fake
+# ./gdrive files download 150rLPOkqw5cfToaMJJ2PVk4CixrN3f60 # DomainNet_train_ma_real_fake
+# tar -xf DomainNet_train_ma_real_fake.tar -C DomainNet
+# rm DomainNet_train_ma_real_fake.tar
+
+# Temperature more && CLIP ratio experiments
+./gdrive files download 1_dbpA-VGSGMCVTMn7OOrw9dwr0FIqH09 # DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_0_0625
+./gdrive files download 1ULDX7TOSSzqfGguKEjkjilZgDbtusIle # DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_4
+./gdrive files download 1OTfBN7nzncP8wSPiTlvg-ePpAAzjyQ4F # DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_87_5
+./gdrive files download 1nyQRLbXzxDQAIsCE5stevGUsv8VnHBWJ # DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_92_5
+./gdrive files download 1RLhKtuUn3e9OuzQGT4EQvlN29irA9yUQ # DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_95
+./gdrive files download 1ozQz840JcIakm6geMEVj1XktXiVGghLb # DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_97_5
+tar -xf DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_0_0625.tar -C DomainNet
+tar -xf DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_4.tar -C DomainNet
+tar -xf DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_87_5.tar -C DomainNet
+tar -xf DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_92_5.tar -C DomainNet
+tar -xf DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_95.tar -C DomainNet
+tar -xf DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_97_5.tar -C DomainNet
+rm DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_0_0625.tar
+rm DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_4.tar
+rm DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_87_5.tar
+rm DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_92_5.tar
+rm DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_95.tar
+rm DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_97_5.tar
