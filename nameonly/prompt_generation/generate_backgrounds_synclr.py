@@ -6,9 +6,9 @@ from classes import *
 from openai import OpenAI
 from tqdm import tqdm
 
-count_dict = CUB_200_count; imagenet=False
+count_dict = birds31_count; imagenet=False
 NUM_BACKGROUNDS = 100
-backgrounds_json_path = './prompts/backgrounds_synclr_CUB_200.json'
+backgrounds_json_path = './prompts/backgrounds_synclr_birds31.json'
 class_list = list(count_dict.keys())
 client = OpenAI(api_key="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")
 
