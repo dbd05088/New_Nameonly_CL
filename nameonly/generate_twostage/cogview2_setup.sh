@@ -26,4 +26,6 @@ cd ../
 python - <<EOF
 from CogView2.generator import Cogview2
 model = Cogview2(img_size=224, style='photo', batch_size=1, max_inference_batch_size=1)
+image = model.generate_images("Cat")
+image.save("cat.jpg")
 EOF
