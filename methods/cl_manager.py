@@ -155,6 +155,9 @@ class CLManagerBase:
         elif 'CUB_200' in self.dataset:
             self.tasks = 5
             self.cls_per_task = [40]*self.tasks
+        elif 'birds32' in self.dataset:
+            self.tasks = 5
+            self.cls_per_task = [5,5,5,5,6]
         
         total_cls=0
         self.cul_cls_per_task = []
@@ -171,6 +174,8 @@ class CLManagerBase:
         self.aoa_eval = False
         self.saved_model = copy.deepcopy(self.model)
         self.fast_model = None
+        
+        self.no_eval_during_train = kwargs['no_eval_during_train']
         
 
     def prep_fast_adaptation_data(self):
@@ -411,50 +416,63 @@ class CLManagerBase:
         else:
             self.scheduler.step()
 
+    def _save_ckpt(self, sample_num):
+        save_path = f"pretrained/{self.dataset}/{self.type_name}/{self.online_iter}"
+        os.makedirs(f"pretrained/{self.dataset}/{self.type_name}/{self.online_iter}", exist_ok=True)
+        torch.save({
+        'num_samples': sample_num,
+        'tasks': self.exposed_classes,
+        'model_state_dict': self.model.state_dict(),
+        }, os.path.join(save_path, f"{sample_num}_ckpt.pth"))
 
     def online_evaluate(self, domain_name, cur_task, test_list, sample_num, batch_size, n_worker, cls_dict, cls_addition, data_time):
-        self.cur_task = cur_task
-        if sample_num in self.eval_point:
-            self.calculate_task_metric(domain_name, sample_num, test_list, cls_dict, batch_size, n_worker)
-            if self.cur_task < self.tasks-1:
-                self.calculate_fast_adaptation(domain_name, sample_num, test_list, cls_dict, batch_size, n_worker)
-            # self.get_forgetting(domain_name, sample_num, test_list, cls_dict, batch_size, n_worker)
-        # print("test_list", test_list[0], domain_name)
-        for data in test_list:
-            data['klass'] = str(data['klass'])
-        test_df = pd.DataFrame(test_list)
-        '''
-        if "clear" in self.dataset:
-            exp_test_df = test_df[test_df['time'] < self.exposed_domains[-1]]
-            if len(self.exposed_domains) == 0:
-                exp_test_df = test_df[test_df['klass'].isin(self.exposed_classes)]
+        if self.no_eval_during_train:
+            self._save_ckpt(sample_num)
+            print("Evaluation skipped")
+            return sample_num, {'avg_acc':0, 'avg_loss':0,'cls_acc':0}
         else:
+            self.cur_task = cur_task
+            if sample_num in self.eval_point:
+                self.calculate_task_metric(domain_name, sample_num, test_list, cls_dict, batch_size, n_worker)
+                if self.cur_task < self.tasks-1:
+                    self.calculate_fast_adaptation(domain_name, sample_num, test_list, cls_dict, batch_size, n_worker)
+                # self.get_forgetting(domain_name, sample_num, test_list, cls_dict, batch_size, n_worker)
+            # print("test_list", test_list[0], domain_name)
+            for data in test_list:
+                data['klass'] = str(data['klass'])
+            test_df = pd.DataFrame(test_list)
+            '''
+            if "clear" in self.dataset:
+                exp_test_df = test_df[test_df['time'] < self.exposed_domains[-1]]
+                if len(self.exposed_domains) == 0:
+                    exp_test_df = test_df[test_df['klass'].isin(self.exposed_classes)]
+            else:
+                exp_test_df = test_df[test_df['klass'].isin(self.exposed_classes)]
+            '''
             exp_test_df = test_df[test_df['klass'].isin(self.exposed_classes)]
-        '''
-        exp_test_df = test_df[test_df['klass'].isin(self.exposed_classes)]
-        
-        print("exposed_domains", self.exposed_domains)
-        print("exposed_classes", self.exposed_classes)
-        print("exp_test_df", len(exp_test_df))
-        test_dataset = ImageDataset(
-            exp_test_df,
-            dataset=self.dataset,
-            transform=self.test_transform,
-            cls_list=self.exposed_classes,
-            data_dir=self.data_dir
-        )
-        test_loader = DataLoader(
-            test_dataset,
-            shuffle=True,
-            batch_size=batch_size,
-            num_workers=n_worker,
-        )
-        eval_dict = self.evaluation(test_loader, self.criterion)
-        
-        self.report_test(domain_name, sample_num, eval_dict["avg_loss"], eval_dict["avg_acc"], eval_dict["cls_acc"])
             
-        del test_loader
-        return sample_num, eval_dict
+            print("exposed_domains", self.exposed_domains)
+            print("exposed_classes", self.exposed_classes)
+            print("exp_test_df", len(exp_test_df))
+            test_dataset = ImageDataset(
+                exp_test_df,
+                dataset=self.dataset,
+                transform=self.test_transform,
+                cls_list=self.exposed_classes,
+                data_dir=self.data_dir
+            )
+            test_loader = DataLoader(
+                test_dataset,
+                shuffle=True,
+                batch_size=batch_size,
+                num_workers=n_worker,
+            )
+            eval_dict = self.evaluation(test_loader, self.criterion)
+            
+            self.report_test(domain_name, sample_num, eval_dict["avg_loss"], eval_dict["avg_acc"], eval_dict["cls_acc"])
+                
+            del test_loader
+            return sample_num, eval_dict
 
 
     def evaluation(self, test_loader, criterion):
