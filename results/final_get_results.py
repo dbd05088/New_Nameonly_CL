@@ -44,6 +44,12 @@ elif 'ImageNet' in dir:
     ood_dis = ['r_50']
     nsamples, n_tasks = 5994, 5
     cls_per_task = [1000]*n_tasks
+elif 'ImageNet' in dir:
+    in_dis = ['test_ma']
+    # ood_dis = ['shot_noise_10', 'saturate_10', 'speckle_noise_10', 'brightness_10', 'zoom_blur_10', 'impulse_noise_10', 'contrast_10', 'jpeg_compression_10', 'splatter_10', 'pixelate_10', 'snow_10', 'elastic_transform_10', 'gaussian_noise_10', 'motion_blur_10', 'gaussian_blur_10', 'fog_10', 'glass_blur_10', 'defocus_blur_10', 'frost_10']
+    ood_dis = ['r_50']
+    nsamples, n_tasks = 1240, 5
+    cls_per_task = [5,5,5,5,6]
 
 
 total_cls=0
