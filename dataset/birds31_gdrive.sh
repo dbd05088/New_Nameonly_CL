@@ -35,16 +35,36 @@
 # rm birds31_db_5.tar
 # rm birds31_db_10.tar
 
-# prompt baselines
-./gdrive files download 1i_pYTI_oRf1ncJximPz1wwnXorWzSttq # birds31_LE
-./gdrive files download 1F0JiFu_jjVlveKZwd7Rs01jxbAAIQs2K # birds31_fake_f
-./gdrive files download 1nA2H8iTi2vkQyQEr_NvSj0j5eY2YzPce # birds31_synclr
-./gdrive files download 15sJUj9AnR0h4gH_aItFQ_xL5q-NsgY62 # birds31_synthclip
-tar -xf birds31_LE.tar -C birds31
-tar -xf birds31_fake_f.tar -C birds31
-tar -xf birds31_synclr.tar -C birds31
-tar -xf birds31_synthclip.tar -C birds31
-rm birds31_LE.tar
-rm birds31_fake_f.tar
-rm birds31_synclr.tar
-rm birds31_synthclip.tar
+# # prompt baselines
+# ./gdrive files download 1i_pYTI_oRf1ncJximPz1wwnXorWzSttq # birds31_LE
+# ./gdrive files download 1F0JiFu_jjVlveKZwd7Rs01jxbAAIQs2K # birds31_fake_f
+# ./gdrive files download 1nA2H8iTi2vkQyQEr_NvSj0j5eY2YzPce # birds31_synclr
+# ./gdrive files download 15sJUj9AnR0h4gH_aItFQ_xL5q-NsgY62 # birds31_synthclip
+# tar -xf birds31_LE.tar -C birds31
+# tar -xf birds31_fake_f.tar -C birds31
+# tar -xf birds31_synclr.tar -C birds31
+# tar -xf birds31_synthclip.tar -C birds31
+# rm birds31_LE.tar
+# rm birds31_fake_f.tar
+# rm birds31_synclr.tar
+# rm birds31_synthclip.tar
+
+# RMD parameter search
+./gdrive files download 1i7wAtXkHknQjdlUTbWsiDy4PFklObjt9 # birds31_50_2_sdxl_floyd_cogview2_sd3_auraflow_temp0_125
+./gdrive files download 1TtwU9PQVX1Ha0Ky78FLu9ngfgdff5Ny- # birds31_50_2_sdxl_floyd_cogview2_sd3_auraflow_temp0_25
+./gdrive files download 1SBmPPV1MWoOXad5yedUoDpTd0PzpBAaP # birds31_50_2_sdxl_floyd_cogview2_sd3_auraflow_temp0_5
+./gdrive files download 1m5HsxtkTyHoH5VhaDSMVhptnpd73f8E4 # birds31_50_2_sdxl_floyd_cogview2_sd3_auraflow_temp0_75
+./gdrive files download 1FcyKe4VLb7rWYC19QAnTlrsAwnrRINLl # birds31_50_2_sdxl_floyd_cogview2_sd3_auraflow_temp1
+./gdrive files download 1tlsviJuSzuP8n69eibndr_gM6QG8mOIx # birds31_50_2_sdxl_floyd_cogview2_sd3_auraflow_temp2
+tar -xf birds31_50_2_sdxl_floyd_cogview2_sd3_auraflow_temp0_125.tar -C birds31
+tar -xf birds31_50_2_sdxl_floyd_cogview2_sd3_auraflow_temp0_25.tar -C birds31
+tar -xf birds31_50_2_sdxl_floyd_cogview2_sd3_auraflow_temp0_5.tar -C birds31
+tar -xf birds31_50_2_sdxl_floyd_cogview2_sd3_auraflow_temp0_75.tar -C birds31
+tar -xf birds31_50_2_sdxl_floyd_cogview2_sd3_auraflow_temp1.tar -C birds31
+tar -xf birds31_50_2_sdxl_floyd_cogview2_sd3_auraflow_temp2.tar -C birds31
+rm birds31_50_2_sdxl_floyd_cogview2_sd3_auraflow_temp0_125.tar
+rm birds31_50_2_sdxl_floyd_cogview2_sd3_auraflow_temp0_25.tar
+rm birds31_50_2_sdxl_floyd_cogview2_sd3_auraflow_temp0_5.tar
+rm birds31_50_2_sdxl_floyd_cogview2_sd3_auraflow_temp0_75.tar
+rm birds31_50_2_sdxl_floyd_cogview2_sd3_auraflow_temp1.tar
+rm birds31_50_2_sdxl_floyd_cogview2_sd3_auraflow_temp2.tar
