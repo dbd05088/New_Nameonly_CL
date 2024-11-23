@@ -24,6 +24,8 @@ from methods.cupl import CuPL
 from methods.sus import SUS
 from methods.VLM import VLM
 
+from methods.clip_er import CLIP_ER
+
 logger = logging.getLogger()
 
 
@@ -214,6 +216,14 @@ def select_method(args, train_datalist, test_datalist, device, model_args = None
         )
     elif args.mode == "ours":
         method = Ours(
+            train_datalist=train_datalist,
+            test_datalist=test_datalist,
+            device=device,
+            **kwargs,
+        )
+    
+    elif args.mode == "clip_er":
+        method = CLIP_ER(
             train_datalist=train_datalist,
             test_datalist=test_datalist,
             device=device,
