@@ -589,7 +589,18 @@
 # rm DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_95.tar
 # rm DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_97_5.tar
 
-# DB finetune with 5 samples
-./gdrive files download 1IC_7ns5Ny5cwN8tZjZGDGa3W-oo9mXjr # DomainNet_db_5_500
-tar -xf DomainNet_db_5_500.tar -C DomainNet
-rm DomainNet_db_5_500.tar
+# # DB finetune with 5 samples
+# ./gdrive files download 1IC_7ns5Ny5cwN8tZjZGDGa3W-oo9mXjr # DomainNet_db_5_500
+# tar -xf DomainNet_db_5_500.tar -C DomainNet
+# rm DomainNet_db_5_500.tar
+
+# DomainNet more truncate ratio
+./gdrive files download 1lu_NRZLj1DbWmgnJGGo9o2-7nXAuip-q # DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_30
+./gdrive files download 1FeCEtjKkISbFOp-5MW0zxuxc9Ie0B8CQ # DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_50
+./gdrive files download 1BaNZS-G6i8lS61yZS3oqwTvJVQ0od-DQ # DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_70
+tar -xf DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_30.tar -C DomainNet
+tar -xf DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_50.tar -C DomainNet
+tar -xf DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_70.tar -C DomainNet
+rm DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_30.tar
+rm DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_50.tar
+rm DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_70.tar
