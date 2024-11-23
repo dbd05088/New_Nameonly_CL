@@ -33,10 +33,10 @@ def generate_prompt_stage1(client, previous_prompt_list):
     else:
         return response_content
 
-totalprompt_json_path = './prompts/gpt4_wo_hierarchy.json'
+totalprompt_json_path = './prompts/gpt4_wo_hierarchy_100.json'
 
-client = OpenAI(api_key="sk-proj-bPJxpKwauBBFBZJw7nEgT3BlbkFJePaQfARB48iyTbZfxSXg")
-num_prompts = 50
+client = OpenAI(api_key="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")
+num_prompts = 100
 
 prompts = ['A photo of a [concept].']
 for i in tqdm(range(num_prompts - 1)):

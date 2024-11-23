@@ -1626,16 +1626,27 @@
 # rm PACS_final_db_5.tar
 # rm PACS_final_db_10.tar
 
-# PACS_final tree more
-./gdrive files download 1cZidV_EHLdoaVG-lOnQPkgNuwdpceRM4 # PACS_final_tree_d2_w5
-./gdrive files download 1mJGVfQZe5EUR9ea9xhlxP-ubWeIriN97 # PACS_final_tree_d3_w7
-./gdrive files download 14kxNWG3NY_Ktepytqmab2n6NiLHMn-U- # PACS_final_tree_d1_w7
-./gdrive files download 1n_3bRIILy4hBJttDwH5eaVbbRtFJ32bo # PACS_final_tree_d2_w10
-tar -xf PACS_final_tree_d2_w5.tar -C PACS_final
-tar -xf PACS_final_tree_d3_w7.tar -C PACS_final
-tar -xf PACS_final_tree_d1_w7.tar -C PACS_final
-tar -xf PACS_final_tree_d2_w10.tar -C PACS_final
-rm PACS_final_tree_d2_w5.tar
-rm PACS_final_tree_d3_w7.tar
-rm PACS_final_tree_d1_w7.tar
-rm PACS_final_tree_d2_w10.tar
+# # PACS_final tree more
+# ./gdrive files download 1cZidV_EHLdoaVG-lOnQPkgNuwdpceRM4 # PACS_final_tree_d2_w5
+# ./gdrive files download 1mJGVfQZe5EUR9ea9xhlxP-ubWeIriN97 # PACS_final_tree_d3_w7
+# ./gdrive files download 14kxNWG3NY_Ktepytqmab2n6NiLHMn-U- # PACS_final_tree_d1_w7
+# ./gdrive files download 1n_3bRIILy4hBJttDwH5eaVbbRtFJ32bo # PACS_final_tree_d2_w10
+# tar -xf PACS_final_tree_d2_w5.tar -C PACS_final
+# tar -xf PACS_final_tree_d3_w7.tar -C PACS_final
+# tar -xf PACS_final_tree_d1_w7.tar -C PACS_final
+# tar -xf PACS_final_tree_d2_w10.tar -C PACS_final
+# rm PACS_final_tree_d2_w5.tar
+# rm PACS_final_tree_d3_w7.tar
+# rm PACS_final_tree_d1_w7.tar
+# rm PACS_final_tree_d2_w10.tar
+
+# PACS_final tree more (100 prompts)
+./gdrive files download 1GNepbWNc4yBB8_DSTceO-HhBCQiyzMI0 # PACS_final_d3_w5_100_sdxl
+./gdrive files download 1QhmjGIRKYmJCyB2dHZEeRJsJyQkG-tuw # PACS_final_d1_w100_100_sdxl
+./gdrive files download 1Khlmn3YNArAICZkJuZArMNr9ZU4_xPXM # PACS_final_d4_w3_100_sdxl
+tar -xf PACS_final_d3_w5_100_sdxl.tar -C PACS_final
+tar -xf PACS_final_d1_w100_100_sdxl.tar -C PACS_final
+tar -xf PACS_final_d4_w3_100_sdxl.tar -C PACS_final
+rm PACS_final_d3_w5_100_sdxl.tar
+rm PACS_final_d1_w100_100_sdxl.tar
+rm PACS_final_d4_w3_100_sdxl.tar

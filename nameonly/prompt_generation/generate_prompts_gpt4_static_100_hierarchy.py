@@ -54,10 +54,10 @@ def generate_prompt_stage2(client, previous_prompt_list):
     else:
         return response_content
 
-num_metaprompts = 5
-num_prompts_per_metaprompt = 5
-max_prompts = 25
-totalprompt_json_path = "prompts/gpt4_hierarchy_cot_tree_d2_w5.json"
+num_metaprompts = 3
+num_prompts_per_metaprompt = 3
+max_prompts = 100
+totalprompt_json_path = "prompts/gpt4_hierarchy_cot_tree_d4_w3_100.json"
 client = OpenAI(api_key="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")
 
 
@@ -98,28 +98,27 @@ for i, metaprompt in enumerate(tqdm(metaprompts_before)):
 totalprompts.extend(metaprompts)
 metaprompts_before = metaprompts
 
-# Save after the second stage
-final_prompt_list = random.sample(totalprompts, max_prompts)
+# # Save after the second stage
+# final_prompt_list = random.sample(totalprompts, max_prompts)
 
-# Generate final json
-totalprompt_dict = {'metaprompts': []}
-totalprompt_dict['metaprompts'] = [
-    {
-        'index': 0,
-        'metaprompt': 'dummy',
-        'prompts': [
-            {
-                'index': i,
-                'content': prompt
-            } for i, prompt in enumerate(final_prompt_list)
-        ]
-    }
-]
+# # Generate final json
+# totalprompt_dict = {'metaprompts': []}
+# totalprompt_dict['metaprompts'] = [
+#     {
+#         'index': 0,
+#         'metaprompt': 'dummy',
+#         'prompts': [
+#             {
+#                 'index': i,
+#                 'content': prompt
+#             } for i, prompt in enumerate(final_prompt_list)
+#         ]
+#     }
+# ]
 
-with open(totalprompt_json_path, 'w') as f:
-    json.dump(totalprompt_dict, f)
+# with open(totalprompt_json_path, 'w') as f:
+#     json.dump(totalprompt_dict, f)
 
-breakpoint()
 # Third stage
 metaprompts = []
 for i, metaprompt in enumerate(tqdm(metaprompts_before)):
@@ -183,6 +182,28 @@ for i, metaprompt in enumerate(tqdm(metaprompts_before)):
 totalprompts.extend(metaprompts)
 metaprompts_before = metaprompts
 
+# Save after 4 stages
+final_prompt_list = random.sample(totalprompts, max_prompts)
+
+# Generate final json
+totalprompt_dict = {'metaprompts': []}
+totalprompt_dict['metaprompts'] = [
+    {
+        'index': 0,
+        'metaprompt': 'dummy',
+        'prompts': [
+            {
+                'index': i,
+                'content': prompt
+            } for i, prompt in enumerate(final_prompt_list)
+        ]
+    }
+]
+
+with open(totalprompt_json_path, 'w') as f:
+    json.dump(totalprompt_dict, f)
+
+breakpoint()
 # Fifth stage
 metaprompts = []
 for i, metaprompt in enumerate(tqdm(metaprompts_before)):
