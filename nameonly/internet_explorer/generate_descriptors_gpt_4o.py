@@ -5,7 +5,7 @@ from tqdm import tqdm
 from openai import OpenAI
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
-target_dir = os.path.abspath(os.path.join(current_dir, '../../'))
+target_dir = os.path.abspath(os.path.join(current_dir, '../'))
 sys.path.append(target_dir)
 from classes import get_count_dict
 
