@@ -10,9 +10,9 @@ target_dir = os.path.abspath(os.path.join(current_dir, '../'))
 sys.path.append(target_dir)
 from classes import get_count_dict
 
-count_dict = get_count_dict("PACS")
-descriptors = "PACS_descriptors.json"
-target_dir = "PACS_final_internet_explorer"
+count_dict = get_count_dict("DomainNet")
+descriptors = "DomainNet_descriptors.json"
+target_dir = "DomainNet_internet_explorer"
 increase_ratio = 1.15
 concepts = list(count_dict.keys())
 
@@ -25,6 +25,10 @@ for concept in tqdm(concepts):
     download_path = os.path.join(target_dir, concept)
     current_count = 0
     min_images = int(count_dict[concept] * increase_ratio)
+    if os.path.exists(download_path) and len(os.listdir(download_path)) >= min_images:
+        print(f"Skipping {concept} as it already has {min_images} images")
+        continue
+    
     print(f"Downloading images for {concept} with a minimum of {min_images} images")
     descriptors_list = descriptors_dict[concept]
     
@@ -32,7 +36,7 @@ for concept in tqdm(concepts):
         if current_count >= min_images:
             break
         query_string = f"{descriptor} {concept}"
-        downloader(query_string, limit=10, output_dir=download_path, adult_filter_off=True, 
+        downloader(query_string, limit=20, output_dir=download_path, adult_filter_off=True, 
                    timeout=60, filter="", verbose=True, badsites= [], name=f"Image_{i}")
         
         # Count the number of images recursively
