@@ -36,7 +36,13 @@
 # tar -xf ImageNet_400_50_2_full_sdxl_floyd_cogview2_sd3_auraflow.tar -C ImageNet_400
 # rm ImageNet_400_50_2_full_sdxl_floyd_cogview2_sd3_auraflow.tar
 
-# ImageNet ours 400
-./gdrive files download 1ZDMObIEmhcS7DPsQLBpsWmzelrEGkqV0 # ImageNet_400_glide_syn_400
-tar -xf  ImageNet_400_glide_syn_400.tar -C ImageNet_400
-rm ImageNet_400_glide_syn_400.tar
+# # ImageNet_400_glide_syn_400
+# ./gdrive files download 1ZDMObIEmhcS7DPsQLBpsWmzelrEGkqV0 # ImageNet_400_glide_syn_400
+# tar -xf  ImageNet_400_glide_syn_400.tar -C ImageNet_400
+# rm ImageNet_400_glide_syn_400.tar
+
+# # ImageNet_400_ma_plus_rmd_500
+# ./gdrive files download 1IHaR2VcNOZxMqWw7NnRETat_A1GeNfK8 # ImageNet_400_ma_plus_rmd_500
+# tar -xf  ImageNet_400_ma_plus_rmd_500.tar -C ImageNet_400
+# rm ImageNet_400_ma_plus_rmd_500.tar
+
