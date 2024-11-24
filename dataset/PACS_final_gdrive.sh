@@ -1640,13 +1640,18 @@
 # rm PACS_final_tree_d1_w7.tar
 # rm PACS_final_tree_d2_w10.tar
 
-# PACS_final tree more (100 prompts)
-./gdrive files download 1GNepbWNc4yBB8_DSTceO-HhBCQiyzMI0 # PACS_final_d3_w5_100_sdxl
-./gdrive files download 1QhmjGIRKYmJCyB2dHZEeRJsJyQkG-tuw # PACS_final_d1_w100_100_sdxl
-./gdrive files download 1Khlmn3YNArAICZkJuZArMNr9ZU4_xPXM # PACS_final_d4_w3_100_sdxl
-tar -xf PACS_final_d3_w5_100_sdxl.tar -C PACS_final
-tar -xf PACS_final_d1_w100_100_sdxl.tar -C PACS_final
-tar -xf PACS_final_d4_w3_100_sdxl.tar -C PACS_final
-rm PACS_final_d3_w5_100_sdxl.tar
-rm PACS_final_d1_w100_100_sdxl.tar
-rm PACS_final_d4_w3_100_sdxl.tar
+# # PACS_final tree more (100 prompts)
+# ./gdrive files download 1GNepbWNc4yBB8_DSTceO-HhBCQiyzMI0 # PACS_final_d3_w5_100_sdxl
+# ./gdrive files download 1QhmjGIRKYmJCyB2dHZEeRJsJyQkG-tuw # PACS_final_d1_w100_100_sdxl
+# ./gdrive files download 1Khlmn3YNArAICZkJuZArMNr9ZU4_xPXM # PACS_final_d4_w3_100_sdxl
+# tar -xf PACS_final_d3_w5_100_sdxl.tar -C PACS_final
+# tar -xf PACS_final_d1_w100_100_sdxl.tar -C PACS_final
+# tar -xf PACS_final_d4_w3_100_sdxl.tar -C PACS_final
+# rm PACS_final_d3_w5_100_sdxl.tar
+# rm PACS_final_d1_w100_100_sdxl.tar
+# rm PACS_final_d4_w3_100_sdxl.tar
+
+# PACS_final internet explorer
+./gdrive files download 1y-hjQdvypZE8dtndFNcsGK82n4d1vsea # PACS_final_internet_explorer
+tar -xf PACS_final_internet_explorer.tar -C PACS_final
+rm PACS_final_internet_explorer.tar

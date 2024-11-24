@@ -13,7 +13,7 @@ from classes import get_count_dict
 count_dict = get_count_dict("DomainNet")
 descriptors = "DomainNet_descriptors.json"
 target_dir = "DomainNet_internet_explorer"
-start_index = 0; end_index = 59
+start_index = 0; end_index = 344
 increase_ratio = 1.15
 concepts = list(count_dict.keys())
 concepts = concepts[start_index:end_index + 1]
