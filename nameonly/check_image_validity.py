@@ -68,6 +68,7 @@ def convert_images_in_directory(directory_path):
                 file_path = os.path.join(root, file)
                 # print(f"Processing {file_path}")
                 try:
+                    # print(f"Processing {file_path}")
                     image = cv2.imread(file_path)
                     if image is None:
                         raise ValueError("Image could not be read, possibly due to a format issue or file corruption.")

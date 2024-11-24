@@ -75,11 +75,11 @@ def main():
         
         print(f"All procceses have completed. Total number of resized images: {total_resized}")
         print(f"Removing old data...")
-        # if total_resized > 0:
-        #     print(f"Removing old directory {SOURCE_PATH}")
-        #     shutil.rmtree(SOURCE_PATH)
-        #     print(f"Renaming {TARGET_PATH} to {SOURCE_PATH}")
-        #     os.rename(TARGET_PATH, SOURCE_PATH)
+        if total_resized > 0:
+            print(f"Removing old directory {SOURCE_PATH}")
+            shutil.rmtree(SOURCE_PATH)
+            print(f"Renaming {TARGET_PATH} to {SOURCE_PATH}")
+            os.rename(TARGET_PATH, SOURCE_PATH)
 
 
 if __name__ == "__main__":
