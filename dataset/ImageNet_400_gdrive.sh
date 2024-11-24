@@ -17,16 +17,16 @@
 # ./gdrive files download 13VQ678_Cs2qnWLULQR4Vp5cK2XV4j1n5 # ImageNet_c_all
 # ./gdrive files download 1P23z_1FNJhyYS82eWVwnREIRkkkPuRIB # ImageNet_d_new
 
-# tar -xf ImageNet_r_50.tar -C ImageNet
-# tar -xf ImageNet_test.tar -C ImageNet
-# tar -xf ImageNet_c_all.tar -C ImageNet
-# tar -xf ImageNet_d_new.tar -C ImageNet
+# tar -xf ImageNet_r_50.tar -C ImageNet_400
+# tar -xf ImageNet_test.tar -C ImageNet_400
+# tar -xf ImageNet_c_all.tar -C ImageNet_400
+# tar -xf ImageNet_d_new.tar -C ImageNet_400
 # rm ImageNet_r_50.tar
 # rm ImageNet_test.tar
 # rm ImageNet_c_all.tar
 # rm ImageNet_d_new.tar
 
-# # # ImageNet train_ma 400
+# # ImageNet train_ma 400
 # ./gdrive files download 1pxRkAkMczWyOPVOh8DrIqPE-DAUmFmGz # ImageNet_400_train_ma
 # tar -xf ImageNet_400_train_ma.tar -C ImageNet_400
 # rm ImageNet_400_train_ma.tar
@@ -46,3 +46,7 @@
 # tar -xf  ImageNet_400_ma_plus_rmd_500.tar -C ImageNet_400
 # rm ImageNet_400_ma_plus_rmd_500.tar
 
+# # ImageNet_400_LE_sdxl_floyd_cogview2_sd3_auraflow
+# ./gdrive files download 1LjjPmekT4wf76kClspF3rSy3gdn9lxXP # ImageNet_400_LE_sdxl_floyd_cogview2_sd3_auraflow
+# tar -xf  ImageNet_400_LE_sdxl_floyd_cogview2_sd3_auraflow.tar -C ImageNet_400
+# rm ImageNet_400_LE_sdxl_floyd_cogview2_sd3_auraflow
