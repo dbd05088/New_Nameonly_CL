@@ -465,6 +465,7 @@ def generate_single_class(
                     break
             except Exception as e:
                 print(e)
+                error_message = str(e)
                 if "CUDA out of memory" in error_message:
                     print("CUDA out of memory error detected. Exiting the process.")
                     sys.exit(1)  # Exit the process with a non-zero status
