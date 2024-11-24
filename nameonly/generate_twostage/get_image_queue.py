@@ -465,6 +465,9 @@ def generate_single_class(
                     break
             except Exception as e:
                 print(e)
+                if "CUDA out of memory" in error_message:
+                    print("CUDA out of memory error detected. Exiting the process.")
+                    sys.exit(1)  # Exit the process with a non-zero status
                 attempt_count += 1
                 if attempt_count >= 3:
                     print(f"Failed to generate image for {prompt_type} - {image_name} - {prompt}")
