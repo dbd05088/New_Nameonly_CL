@@ -13,13 +13,17 @@ from classes import get_count_dict
 count_dict = get_count_dict("DomainNet")
 descriptors = "DomainNet_descriptors.json"
 target_dir = "DomainNet_internet_explorer"
+start_index = 0; end_index = 59
 increase_ratio = 1.15
 concepts = list(count_dict.keys())
+concepts = concepts[start_index:end_index + 1]
+
 
 image_exts = ['.jpg', '.jpeg', '.png', '.bmp', '.JPEG']
 
 with open(descriptors, 'r') as f:
     descriptors_dict = json.load(f)
+    
 
 for concept in tqdm(concepts):
     download_path = os.path.join(target_dir, concept)
