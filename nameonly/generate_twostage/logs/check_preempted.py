@@ -10,6 +10,9 @@ def find_preemption_start_line(log_file_path):
         if "DUE TO PREEMPTION" in line:
             preemption_line_index = i
             break
+        elif "No locks available" in line:
+            preemption_line_index = i
+            break
 
     if preemption_line_index is None:
         # print("No line contains 'DUE TO PREEMPTION'.")
