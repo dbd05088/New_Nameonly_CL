@@ -1,0 +1,810 @@
+{
+    "metaprompts": [
+        {
+            "index": 0,
+            "metaprompt": "dummy",
+            "prompts": [
+                {
+                    "index": 0,
+                    "content": "A photo of a [concept]."
+                },
+                {
+                    "index": 1,
+                    "content": "A colorful vector clipart of [concept]."
+                },
+                {
+                    "index": 2,
+                    "content": "A simple sketch of [concept] with bold contrasts."
+                },
+                {
+                    "index": 3,
+                    "content": "A high-contrast black and white photo of [concept]."
+                },
+                {
+                    "index": 4,
+                    "content": "A vintage sepia-tone image of [concept]."
+                },
+                {
+                    "index": 5,
+                    "content": "A surreal landscape painting of [concept] using pastel tones."
+                },
+                {
+                    "index": 6,
+                    "content": "A cinematic HDR photograph of [concept] at sunset."
+                },
+                {
+                    "index": 7,
+                    "content": "A macro shot of [concept] with vibrant colors."
+                },
+                {
+                    "index": 8,
+                    "content": "A hyper-realistic 3D render of [concept] in neon lights."
+                },
+                {
+                    "index": 9,
+                    "content": "A minimalist monochrome painting of [concept] in grayscale."
+                },
+                {
+                    "index": 10,
+                    "content": "A dreamy soft-focus portrait of [concept] using warm hues."
+                },
+                {
+                    "index": 11,
+                    "content": "A moody twilight scene of [concept] with deep shadows."
+                },
+                {
+                    "index": 12,
+                    "content": "An underwater photograph of [concept] with shimmering reflections."
+                },
+                {
+                    "index": 13,
+                    "content": "A dynamic aerial view of [concept] with vibrant colors."
+                },
+                {
+                    "index": 14,
+                    "content": "A dreamy underwater shot of [concept] in soft blues and greens."
+                },
+                {
+                    "index": 15,
+                    "content": "An industrial cityscape of [concept] with neon lighting and reflections in puddles."
+                },
+                {
+                    "index": 16,
+                    "content": "A tranquil misty morning lakeside scene with [concept] in muted earth tones."
+                },
+                {
+                    "index": 17,
+                    "content": "A whimsical infrared photo of [concept] rendered in ethereal pinks and purples."
+                },
+                {
+                    "index": 18,
+                    "content": "A vibrant sunset landscape of [concept] with warm, rich colors."
+                },
+                {
+                    "index": 19,
+                    "content": "A crisp autumn scene featuring [concept] with rich earthy tones and morning mist."
+                },
+                {
+                    "index": 20,
+                    "content": "A minimalist aerial shot of [concept] using a cool blue and white color scheme."
+                },
+                {
+                    "index": 21,
+                    "content": "An aerial drone shot of [concept] during autumn with a rich, warm color palette."
+                },
+                {
+                    "index": 22,
+                    "content": "A bustling marketplace scene of [concept] with dynamic movement and vivid cultural colors."
+                },
+                {
+                    "index": 23,
+                    "content": "A lush, tropical rainforest scene of [concept] with vivid greens and filtered sunlight."
+                },
+                {
+                    "index": 24,
+                    "content": "A vibrant night scene with [concept] illuminated by colorful neon lights."
+                },
+                {
+                    "index": 25,
+                    "content": "A night sky panorama of [concept] with dazzling stars and deep indigo tones."
+                },
+                {
+                    "index": 26,
+                    "content": "A serene twilight landscape of [concept] with pastel tones and soft lighting."
+                },
+                {
+                    "index": 27,
+                    "content": "A moody desert scene of [concept] with dramatic shadows and warm, earthy tones."
+                },
+                {
+                    "index": 28,
+                    "content": "A cozy interior scene of [concept] with soft lighting and warm, earthy tones."
+                },
+                {
+                    "index": 29,
+                    "content": "A cinematic night-time scene of [concept] illuminated by moonlight with deep blue highlights."
+                },
+                {
+                    "index": 30,
+                    "content": "A dynamic aerial view of [concept] with a cool monochromatic palette."
+                },
+                {
+                    "index": 31,
+                    "content": "A nighttime cityscape of [concept] with colorful reflections and atmospheric lighting."
+                },
+                {
+                    "index": 32,
+                    "content": "A snowy winter evening scene with [concept] under shimmering silver moonlight."
+                },
+                {
+                    "index": 33,
+                    "content": "A high-contrast black and white close-up of [concept] in dramatic lighting."
+                },
+                {
+                    "index": 34,
+                    "content": "An idyllic countryside of [concept] in a soothing, pastel springtime palette."
+                },
+                {
+                    "index": 35,
+                    "content": "A bustling marketplace scene with [concept] in vibrant, sunlit earth tones."
+                },
+                {
+                    "index": 36,
+                    "content": "A vibrant garden of [concept] with blooming flowers and vivid green foliage."
+                },
+                {
+                    "index": 37,
+                    "content": "An intriguing foggy morning scene of [concept] with muted grey and lavender tones."
+                },
+                {
+                    "index": 38,
+                    "content": "A futuristic cityscape of [concept] with metallic textures and vibrant cyberpunk aesthetics."
+                },
+                {
+                    "index": 39,
+                    "content": "An enchanting night sky of [concept] with glittering stars and a sapphire color palette."
+                },
+                {
+                    "index": 40,
+                    "content": "A bustling market scene of [concept] with bright colors and lively, dynamic elements."
+                },
+                {
+                    "index": 41,
+                    "content": "An intricate urban skyline of [concept] with a soft, misty dawn color palette."
+                },
+                {
+                    "index": 42,
+                    "content": "A high-resolution snapshot of [concept] under neon city lights."
+                },
+                {
+                    "index": 43,
+                    "content": "A tranquil forest scene of [concept] with dappled sunlight and earthy tones."
+                },
+                {
+                    "index": 44,
+                    "content": "A cinematic landscape of [concept] at dusk with vivid, saturated colors."
+                },
+                {
+                    "index": 45,
+                    "content": "A crisp black-and-white photograph of [concept] with dramatic shadows."
+                },
+                {
+                    "index": 46,
+                    "content": "A tranquil lakeside scene of [concept] at sunset with reflections and soft warm tones."
+                },
+                {
+                    "index": 47,
+                    "content": "A serene desert scene of [concept] in soft pastel shades and gentle lighting."
+                },
+                {
+                    "index": 48,
+                    "content": "A minimalist snowy landscape of [concept] in stark black and white."
+                },
+                {
+                    "index": 49,
+                    "content": "A dreamy underwater scene of [concept] with ethereal turquoise and teal hues."
+                },
+                {
+                    "index": 50,
+                    "content": "A rainy urban street scene of [concept] with reflections and a cool color palette."
+                },
+                {
+                    "index": 51,
+                    "content": "An ethereal misty forest scene of [concept] with soft, translucent greens and silvers."
+                },
+                {
+                    "index": 52,
+                    "content": "A moody forest scene of [concept] enveloped in fog and muted green tones."
+                },
+                {
+                    "index": 53,
+                    "content": "A vibrant underwater scene of [concept] with vivid coral reefs and diverse marine life."
+                },
+                {
+                    "index": 54,
+                    "content": "A vibrant sunset cityscape of [concept] with neon reflections on wet streets."
+                },
+                {
+                    "index": 55,
+                    "content": "A moonlit beach of [concept] with gentle waves and silvery highlights."
+                },
+                {
+                    "index": 56,
+                    "content": "A tranquil sunset silhouette of [concept] with a gradient of orange and purple hues."
+                },
+                {
+                    "index": 57,
+                    "content": "A misty mountain landscape of [concept] in soft, ethereal lavender and grey tones."
+                },
+                {
+                    "index": 58,
+                    "content": "A vibrant wide-angle landscape photo of [concept] at golden hour."
+                },
+                {
+                    "index": 59,
+                    "content": "A rainy street scene with [concept] in neon lights reflecting off the wet pavement."
+                },
+                {
+                    "index": 60,
+                    "content": "A desert sunset of [concept] with warm tones and distant silhouettes."
+                },
+                {
+                    "index": 61,
+                    "content": "A rustic countryside scene of [concept] with golden fields under a dramatic sky."
+                },
+                {
+                    "index": 62,
+                    "content": "A rustic autumn forest scene of [concept] with rich, earthy colors and morning fog."
+                },
+                {
+                    "index": 63,
+                    "content": "A lush forest landscape of [concept] with a vibrant autumn color palette."
+                },
+                {
+                    "index": 64,
+                    "content": "An underwater photograph of [concept] with soft, natural lighting and cool tones."
+                },
+                {
+                    "index": 65,
+                    "content": "A crisp high-contrast aerial photo of [concept] using a natural earth-toned palette."
+                },
+                {
+                    "index": 66,
+                    "content": "A lush tropical paradise of [concept] bathed in vibrant greens and crystal-clear waters."
+                },
+                {
+                    "index": 67,
+                    "content": "A bustling marketplace scene of [concept] with lively colors and dynamic movement."
+                },
+                {
+                    "index": 68,
+                    "content": "A surreal cloudscape of [concept] with swirling pastel colors and glowing sunbeams."
+                },
+                {
+                    "index": 69,
+                    "content": "A futuristic cityscape of [concept] in a dramatic chiaroscuro lighting style."
+                },
+                {
+                    "index": 70,
+                    "content": "A foggy morning photo of [concept] with muted pastel colors and soft lighting."
+                },
+                {
+                    "index": 71,
+                    "content": "A rainy city street at night with [concept] reflecting vibrant streetlamp colors."
+                },
+                {
+                    "index": 72,
+                    "content": "A dynamic aerial view of [concept] with vibrant autumnal foliage and winding rivers."
+                },
+                {
+                    "index": 73,
+                    "content": "An idyllic countryside scene of [concept] with golden fields and gentle, natural light."
+                },
+                {
+                    "index": 74,
+                    "content": "An elegant nightscape of [concept] under a sky full of vivid auroras."
+                },
+                {
+                    "index": 75,
+                    "content": "A rustic countryside view of [concept] painted in soft sepia and amber tones."
+                },
+                {
+                    "index": 76,
+                    "content": "A serene golden hour portrait of [concept] with soft pastel tones."
+                },
+                {
+                    "index": 77,
+                    "content": "A dynamic motion shot of [concept] with intense colors and dramatic shadows."
+                },
+                {
+                    "index": 78,
+                    "content": "A tranquil beach scene of [concept] with soft pastel pink and orange hues."
+                },
+                {
+                    "index": 79,
+                    "content": "A tranquil underwater scene of [concept] with a soft, muted teal color palette."
+                },
+                {
+                    "index": 80,
+                    "content": "A stark minimalist photograph of [concept] with high contrast black and white tones."
+                },
+                {
+                    "index": 81,
+                    "content": "A snowy mountain landscape at sunrise with [concept] in soft pink and blue hues."
+                },
+                {
+                    "index": 82,
+                    "content": "A close-up portrait of [concept] in a high-contrast black and white film style."
+                },
+                {
+                    "index": 83,
+                    "content": "A winter mountain vista of [concept] with bright sunlight and crisp, icy blues."
+                },
+                {
+                    "index": 84,
+                    "content": "A dramatic black-and-white action shot of [concept] with sharp contrasts and crisp details."
+                },
+                {
+                    "index": 85,
+                    "content": "A serene sunset scene of [concept] in soft pastel hues."
+                },
+                {
+                    "index": 86,
+                    "content": "A dramatic chiaroscuro painting of [concept] with deep shadows and bright highlights."
+                },
+                {
+                    "index": 87,
+                    "content": "A vibrant street art mural of [concept] with bold and contrasting colors."
+                },
+                {
+                    "index": 88,
+                    "content": "A moody, overcast coastal scene of [concept] with dramatic, stormy skies and deep blues."
+                },
+                {
+                    "index": 89,
+                    "content": "A futuristic city view with [concept] under glowing cyberpunk lights."
+                },
+                {
+                    "index": 90,
+                    "content": "A tranquil twilight panorama of [concept] bathed in cool indigo and lavender tones."
+                },
+                {
+                    "index": 91,
+                    "content": "A surreal double exposure photograph of [concept] against a starry night sky."
+                },
+                {
+                    "index": 92,
+                    "content": "A futuristic city skyline of [concept] with sleek buildings and vivid night lights."
+                },
+                {
+                    "index": 93,
+                    "content": "An elegant art gallery interior of [concept] with soft ambient lighting and neutral tones."
+                },
+                {
+                    "index": 94,
+                    "content": "A luminous moonlit scene of [concept] with deep blues and silvery highlights."
+                },
+                {
+                    "index": 95,
+                    "content": "A snow-covered city street scene of [concept] with glowing windows and cool winter tones."
+                },
+                {
+                    "index": 96,
+                    "content": "A lush garden scene of [concept] with vibrant greens and dappled sunlight."
+                },
+                {
+                    "index": 97,
+                    "content": "A tranquil mountain landscape of [concept] with pastel hues and misty ambiance."
+                },
+                {
+                    "index": 98,
+                    "content": "A bustling harbor scene of [concept] with colorful boats and sparkling water reflections."
+                },
+                {
+                    "index": 99,
+                    "content": "A cozy winter cabin scene of [concept] with warm light and soft, muted colors."
+                },
+                {
+                    "index": 100,
+                    "content": "A twilight scene with soft, cool tones capturing [concept] against a starry sky."
+                },
+                {
+                    "index": 101,
+                    "content": "A serene, minimalist desert scene capturing [concept] with earth-toned hues at dusk."
+                },
+                {
+                    "index": 102,
+                    "content": "A serene coastal scene of [concept] with gentle waves and a muted pastel color palette."
+                },
+                {
+                    "index": 103,
+                    "content": "A high-definition macro photograph of [concept] in morning dew with soft lighting."
+                },
+                {
+                    "index": 104,
+                    "content": "A coastal sunset with [concept] bathed in vibrant orange and pink hues."
+                },
+                {
+                    "index": 105,
+                    "content": "A bustling market scene of [concept] with colorful stalls and lively interactions."
+                },
+                {
+                    "index": 106,
+                    "content": "A cinematic nighttime cityscape of [concept] illuminated by warm streetlights and reflections."
+                },
+                {
+                    "index": 107,
+                    "content": "A minimalist architectural interior of [concept] with clean lines and natural lighting."
+                },
+                {
+                    "index": 108,
+                    "content": "A tranquil lakeside reflection of [concept] in muted lavender and teal tones."
+                },
+                {
+                    "index": 109,
+                    "content": "A high-resolution winter scene of [concept] with a chilling blue and silver palette."
+                },
+                {
+                    "index": 110,
+                    "content": "A vibrant street scene of [concept] during sunset with glowing city lights."
+                },
+                {
+                    "index": 111,
+                    "content": "A serene lakeside scene capturing [concept] with mirror-like reflections and autumn foliage."
+                },
+                {
+                    "index": 112,
+                    "content": "A panoramic photograph of [concept] during a snowstorm with a muted, monochromatic palette."
+                },
+                {
+                    "index": 113,
+                    "content": "A serene winter forest of [concept] with soft snowfall and pale, muted colors."
+                },
+                {
+                    "index": 114,
+                    "content": "A futuristic cityscape at dusk with [concept] highlighted by striking neon purples."
+                },
+                {
+                    "index": 115,
+                    "content": "A lush jungle scene of [concept] in vibrant greens and dappled sunlight."
+                },
+                {
+                    "index": 116,
+                    "content": "A rustic countryside scene of [concept] in autumn with warm, earthy color tones."
+                },
+                {
+                    "index": 117,
+                    "content": "A hyper-realistic macro shot of [concept] in cool blue and green hues."
+                },
+                {
+                    "index": 118,
+                    "content": "A whimsical garden scene with [concept] in vivid, contrasting primary colors."
+                },
+                {
+                    "index": 119,
+                    "content": "A rain-soaked street view of [concept] with muted colors and reflective puddles."
+                },
+                {
+                    "index": 120,
+                    "content": "A vintage sepia-toned photograph of [concept] with muted, rustic textures."
+                },
+                {
+                    "index": 121,
+                    "content": "A tranquil forest scene with [concept] enveloped in a lush, earthy color palette."
+                },
+                {
+                    "index": 122,
+                    "content": "A snowy mountain landscape of [concept] with crisp air and bright, icy blues."
+                },
+                {
+                    "index": 123,
+                    "content": "A lush, vibrant forest scene with [concept] in natural light."
+                },
+                {
+                    "index": 124,
+                    "content": "A hyper-realistic HDR photograph of [concept] in vibrant, contrasting colors."
+                },
+                {
+                    "index": 125,
+                    "content": "A photorealistic portrait of [concept] in grayscale with dramatic lighting."
+                },
+                {
+                    "index": 126,
+                    "content": "An aerial view of [concept] with dramatic lighting and rich warm colors."
+                },
+                {
+                    "index": 127,
+                    "content": "A bustling cityscape featuring [concept] with a high-contrast noir effect."
+                },
+                {
+                    "index": 128,
+                    "content": "An abstract geometric illustration of [concept] using a pastel color palette."
+                },
+                {
+                    "index": 129,
+                    "content": "A detailed street scene of [concept] with rich golden and neutral earth tones."
+                },
+                {
+                    "index": 130,
+                    "content": "A golden hour beach scene of [concept] with soft golds and vibrant turquoise hues."
+                },
+                {
+                    "index": 131,
+                    "content": "A photorealistic still life of [concept] with a warm, golden hour glow."
+                },
+                {
+                    "index": 132,
+                    "content": "A snowy mountain panorama of [concept] with crisp whites and deep blue shadows."
+                },
+                {
+                    "index": 133,
+                    "content": "A vibrant carnival scene of [concept] with bold primary colors and vivid lights."
+                },
+                {
+                    "index": 134,
+                    "content": "A sepia-toned vintage scene of [concept] evoking nostalgia and timeless elegance."
+                },
+                {
+                    "index": 135,
+                    "content": "A vibrant sunset silhouette of [concept] against a fiery sky, with vivid contrast."
+                },
+                {
+                    "index": 136,
+                    "content": "A serene sunset scene of [concept] with warm pastel tones."
+                },
+                {
+                    "index": 137,
+                    "content": "A bustling cityscape of [concept] with neon lights and dramatic angles."
+                },
+                {
+                    "index": 138,
+                    "content": "A serene mountain sunrise with [concept] in soft pastel hues."
+                },
+                {
+                    "index": 139,
+                    "content": "A stormy sea view of [concept] with dramatic waves and dark, moody colors."
+                },
+                {
+                    "index": 140,
+                    "content": "A bustling cityscape at dawn featuring [concept] with warm, golden hues and long shadows."
+                },
+                {
+                    "index": 141,
+                    "content": "An autumn park scene of [concept] with rich orange hues and falling leaves."
+                },
+                {
+                    "index": 142,
+                    "content": "A futuristic neon-lit cityscape of [concept] with a vivid, glowing color scheme."
+                },
+                {
+                    "index": 143,
+                    "content": "A macro close-up shot of [concept] with vivid colors and intricate details."
+                },
+                {
+                    "index": 144,
+                    "content": "An early morning countryside of [concept] with dewy fields and soft, diffused light."
+                },
+                {
+                    "index": 145,
+                    "content": "A serene dawn view of [concept] highlighted by pastel hues and soft lighting."
+                },
+                {
+                    "index": 146,
+                    "content": "A snowy landscape with [concept] in a cool, serene grayscale palette."
+                },
+                {
+                    "index": 147,
+                    "content": "A snowy village scene of [concept] with twinkling lights and deep blue shadows."
+                },
+                {
+                    "index": 148,
+                    "content": "A moody, misty forest morning of [concept] with muted earth tones and soft focus."
+                },
+                {
+                    "index": 149,
+                    "content": "A rustic cabin scene of [concept] using earthy tones and soft evening light."
+                },
+                {
+                    "index": 150,
+                    "content": "A misty morning view of [concept] in warm golden-red tones."
+                },
+                {
+                    "index": 151,
+                    "content": "An industrial scene at night with [concept] illuminated by cool, metallic lights."
+                },
+                {
+                    "index": 152,
+                    "content": "A nighttime forest trail of [concept] illuminated by moonlight with cool, silvery tones."
+                },
+                {
+                    "index": 153,
+                    "content": "A vibrant street scene of [concept] with neon lights and reflections on wet pavement."
+                },
+                {
+                    "index": 154,
+                    "content": "A vibrant oil painting of [concept] in a swirling, energetic palette of reds and yellows."
+                },
+                {
+                    "index": 155,
+                    "content": "A dynamic urban skyline of [concept] with striking contrasting shadows at twilight."
+                },
+                {
+                    "index": 156,
+                    "content": "A dynamic cityscape of [concept] captured under neon lights with a futuristic vibe."
+                },
+                {
+                    "index": 157,
+                    "content": "A hyper-detailed macro photograph of [concept] with a rich monochrome palette."
+                },
+                {
+                    "index": 158,
+                    "content": "A lush panoramic landscape photo of [concept] at dawn with golden light and mist."
+                },
+                {
+                    "index": 159,
+                    "content": "A surreal underwater scene of [concept] with luminescent colors and intricate details."
+                },
+                {
+                    "index": 160,
+                    "content": "A vibrant hyper-realistic depiction of [concept] underwater with glowing bioluminescent colors."
+                },
+                {
+                    "index": 161,
+                    "content": "A detailed macro photograph of [concept] with vibrant, contrasting colors."
+                },
+                {
+                    "index": 162,
+                    "content": "A vivid midday landscape of [concept] with a bright and saturated color scheme."
+                },
+                {
+                    "index": 163,
+                    "content": "A vibrant neon-lit depiction of [concept] in a bustling urban setting."
+                },
+                {
+                    "index": 164,
+                    "content": "A wildflower meadow at dawn with [concept] surrounded by soft golden and lavender light."
+                },
+                {
+                    "index": 165,
+                    "content": "A serene forest scene of [concept] with golden lighting and soft shadows."
+                },
+                {
+                    "index": 166,
+                    "content": "An industrial interior of [concept] with metallic textures and contrasting light."
+                },
+                {
+                    "index": 167,
+                    "content": "A radiant golden hour photo of [concept] with soft backlighting and gentle shadows."
+                },
+                {
+                    "index": 168,
+                    "content": "A hyper-detailed close-up of [concept] in a monochrome palette."
+                },
+                {
+                    "index": 169,
+                    "content": "A crystal clear underwater scene featuring [concept] in brilliant aquamarine shades."
+                },
+                {
+                    "index": 170,
+                    "content": "A foggy forest scene of [concept] with muted earth tones and diffused light."
+                },
+                {
+                    "index": 171,
+                    "content": "A fine art photograph of [concept] in rich earth tones with dramatic lighting."
+                },
+                {
+                    "index": 172,
+                    "content": "A vibrant festival scene of [concept] featuring bold primary colors and bustling activity."
+                },
+                {
+                    "index": 173,
+                    "content": "An underwater scene of [concept] bathed in ethereal blue-green tones."
+                },
+                {
+                    "index": 174,
+                    "content": "A dramatic aerial photograph of [concept] at sunrise with vivid golden hues."
+                },
+                {
+                    "index": 175,
+                    "content": "A lush rainforest scene of [concept] enveloped in rich greens and earth tones."
+                },
+                {
+                    "index": 176,
+                    "content": "A serene pastel-colored landscape of [concept] under a clear blue sky."
+                },
+                {
+                    "index": 177,
+                    "content": "An infrared filter photograph of [concept] in a lush forest setting."
+                },
+                {
+                    "index": 178,
+                    "content": "A dramatic desert sunset with [concept] silhouetted against fiery orange-red skies."
+                },
+                {
+                    "index": 179,
+                    "content": "A crisp dawn image of [concept] in warm sepia tones."
+                },
+                {
+                    "index": 180,
+                    "content": "A stormy seascape of [concept] with moody skies and crashing waves."
+                },
+                {
+                    "index": 181,
+                    "content": "A detailed steampunk illustration of [concept] with metallic and sepia tones."
+                },
+                {
+                    "index": 182,
+                    "content": "A dramatic cinematic scene of [concept] in deep blue and silver tones."
+                },
+                {
+                    "index": 183,
+                    "content": "A sunny aerial photograph of [concept] with a rich, warm color palette."
+                },
+                {
+                    "index": 184,
+                    "content": "A bustling street market of [concept] with a rich, earthy color palette."
+                },
+                {
+                    "index": 185,
+                    "content": "An aerial view of [concept] in pastel colors under soft, diffused lighting."
+                },
+                {
+                    "index": 186,
+                    "content": "A bustling marketplace scene of [concept] with vivid colors and intricate details."
+                },
+                {
+                    "index": 187,
+                    "content": "An impressionistic forest scene of [concept] with dappled sunlight and rich, saturated greens."
+                },
+                {
+                    "index": 188,
+                    "content": "A dramatic stormy ocean scene of [concept] with crashing waves and a dark color palette."
+                },
+                {
+                    "index": 189,
+                    "content": "A cinematic landscape of [concept] at golden hour with deep shadows and warm hues."
+                },
+                {
+                    "index": 190,
+                    "content": "A tranquil lakeside view of [concept] with soft reflections and autumnal hues."
+                },
+                {
+                    "index": 191,
+                    "content": "A serene mountain landscape of [concept] with crisp winter colors and clear blue skies."
+                },
+                {
+                    "index": 192,
+                    "content": "A macro photo of [concept] with vivid, saturated colors emphasizing intricate details."
+                },
+                {
+                    "index": 193,
+                    "content": "A moody oil painting of [concept] in dark and muted earth tones."
+                },
+                {
+                    "index": 194,
+                    "content": "A vintage-style sepia photograph of [concept] in a sunlit garden."
+                },
+                {
+                    "index": 195,
+                    "content": "An autumnal forest scene with [concept] in warm oranges and reds under crisp sunlight."
+                },
+                {
+                    "index": 196,
+                    "content": "A serene lakeside view of [concept] at dawn with mist and delicate pink hues."
+                },
+                {
+                    "index": 197,
+                    "content": "A serene underwater scene of [concept] with shimmering, cool blue tones."
+                },
+                {
+                    "index": 198,
+                    "content": "A detailed close-up of [concept] with a vivid and striking neon color palette."
+                },
+                {
+                    "index": 199,
+                    "content": "A glowing golden hour desert landscape with [concept] casting long shadows."
+                }
+            ]
+        }
+    ]
+}
