@@ -16,10 +16,10 @@
 # --------------------------IMPORTANT-------------------------- #
 MODE="er" # er, der, mir, aser, ...
 MODEL_NAME="resnet18" # vit
-DATASET="PACS_final" # PACS_final, DomainNet, cifar10, NICO, cct
-TYPES=("train_ma") # each type runs on each gpu
+DATASET="ImageNet_400" # PACS_final, DomainNet, cifar10, NICO, cct
+TYPES=("glide_syn_400") # each type runs on each gpu
 SEEDS="1"
-GPUS=("0" "7" "2" "3" "4" "5" "6" "7") # each gpu runs each type
+GPUS=("1" "7" "2" "3" "4" "5" "6" "7") # each gpu runs each type
 # --------------------------IMPORTANT-------------------------- #
 
 # If explicitly provided, use the provided arguments
@@ -237,7 +237,7 @@ for RND_SEED in $SEEDS
 do
     for index in "${!TYPES[@]}"
     do
-    LOG_FILE="${LOG_DIR}/eval_iclr_${MODEL_NAME}_${DATASET}_${MODE}_${TYPES[$index]}_sd${RND_SEED}.log"
+    LOG_FILE="${LOG_DIR}/eval_iclr_${MODEL_NAME}_${DATASET}_${MODE}_${TYPES[$index]}_iter${ONLINE_ITER}_sd${RND_SEED}.log"
     echo "SEED: $RND_SEED"
         CUDA_VISIBLE_DEVICES=${GPUS[$index]} nohup python eval_pretrained.py --mode $MODE $DATA_DIR \
         --dataset $DATASET --unfreeze_rate $UNFREEZE_RATE $USE_KORNIA --k_coeff $K_COEFF --temperature $TEMPERATURE \
