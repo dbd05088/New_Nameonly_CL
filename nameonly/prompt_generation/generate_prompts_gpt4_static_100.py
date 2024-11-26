@@ -54,15 +54,15 @@ def generate_prompt_stage2(client, previous_prompt_list):
     else:
         return response_content
 
-metaprompt_json_path = './prompts/temp_base_metaprompts_7_10.json' # First stage result
-totalprompt_json_path = './prompts/gpt4_hierarchy_cot_50_11.json' # Second stage result
-num_metaprompts = 7
-num_prompts_per_metaprompt = 7
-max_prompts = 50
+metaprompt_json_path = './prompts/temp_base_metaprompts_14.json' # First stage result
+totalprompt_json_path = './prompts/gpt4_hierarchy_cot_200.json' # Second stage result
+num_metaprompts = 14
+num_prompts_per_metaprompt = 14
+max_prompts = 200
 
-client = OpenAI(api_key="sk-proj-bPJxpKwauBBFBZJw7nEgT3BlbkFJePaQfARB48iyTbZfxSXg")
+client = OpenAI(api_key="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")
 
-# # For the first stage
+# For the first stage
 
 # # you should choose 3 proper metaprompts!
 # metaprompts = ['A photo of a [concept].', 'A colorful vector clipart of [concept].','A simple sketch of [concept] with bold contrasts.']
