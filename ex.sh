@@ -16,10 +16,10 @@
 # --------------------------IMPORTANT-------------------------- #
 MODE="er" # er, der, mir, aser, ...
 MODEL_NAME="resnet18" # vit
-DATASET="PACS_final" # PACS_final, DomainNet, cifar10, NICO, cct
-TYPES=("train_ma") # each type runs on each gpu
+DATASET="DomainNet" # PACS_final, DomainNet, cifar10, NICO, cct
+TYPES=("50_2_sdxl_floyd_cogview2_sd3_auraflow_0_0625") # each type runs on each gpu
 SEEDS="1"
-GPUS=("0" "7" "2" "3" "4" "5" "6" "7") # each gpu runs each type
+GPUS=("6" "7" "2" "3" "4" "5" "6" "7") # each gpu runs each type
 # --------------------------IMPORTANT-------------------------- #
 
 # If explicitly provided, use the provided arguments
@@ -57,6 +57,8 @@ REPEAT=1
 INIT_CLS=100
 USE_AMP=""
 
+#--no_eval_during_train
+
 if [ "$DATASET" == "cifar10" ]; then
     MEM_SIZE=1000
     N_SMP_CLS="9" K="3" MIR_CANDS=50
@@ -71,7 +73,7 @@ if [ "$DATASET" == "cifar10" ]; then
     BASEINIT_SAMPLES=6000 FEAT_DIM=14 FEAT_MEM_SIZE=24000
     SAMPLES_PER_TASK=20000 
     ONLINE_ITER=2
-    EVAL_POINT="1000 2000 3000 4000 5000"
+    EVAL_POINT="2000 4000 6000 8000 10000"
 
 elif [ "$DATASET" == "PACS_final" ]; then
     MEM_SIZE=200
@@ -157,6 +159,71 @@ elif [ "$DATASET" == "NICO" ]; then
     SAMPLES_PER_TASK=960
     ONLINE_ITER=3
     EVAL_POINT="9600 19200 28800 38400 48000"
+
+elif [ "$DATASET" == "ImageNet_200" ]; then
+    MEM_SIZE=20000 # (changed 0901 - after 10x increase)
+    N_SMP_CLS="9" K="3" MIR_CANDS=50
+    CANDIDATE_SIZE=50 VAL_SIZE=5
+    VAL_PERIOD=500 EVAL_PERIOD=5000
+    BATCHSIZE=256; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
+    # Change vit learning rate (0611)
+    if [ "$MODEL_NAME" == "vit" ]; then
+        LR=1e-4
+        echo "Set vit learning rate 1e-4!!!"
+    fi
+    BASEINIT_SAMPLES=30523 FEAT_DIM=14 FEAT_MEM_SIZE=168000
+    SAMPLES_PER_TASK=40000
+    ONLINE_ITER=0.25
+    EVAL_POINT="40000 80000 120000 160000 200000"
+
+elif [ "$DATASET" == "ImageNet_400" ]; then
+    MEM_SIZE=40000 # (changed 0901 - after 10x increase)
+    N_SMP_CLS="9" K="3" MIR_CANDS=50
+    CANDIDATE_SIZE=50 VAL_SIZE=5
+    VAL_PERIOD=500 EVAL_PERIOD=10000
+    BATCHSIZE=256; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
+    # Change vit learning rate (0611)
+    if [ "$MODEL_NAME" == "vit" ]; then
+        LR=1e-4
+        echo "Set vit learning rate 1e-4!!!"
+    fi
+    BASEINIT_SAMPLES=30523 FEAT_DIM=14 FEAT_MEM_SIZE=168000
+    SAMPLES_PER_TASK=40000
+    ONLINE_ITER=0.25
+    EVAL_POINT="80000 160000 240000 320000 400000"
+
+elif [ "$DATASET" == "CUB_200" ]; then
+    MEM_SIZE=1000 # (changed 0901 - after 10x increase)
+    N_SMP_CLS="9" K="3" MIR_CANDS=50
+    CANDIDATE_SIZE=50 VAL_SIZE=5
+    VAL_PERIOD=500 EVAL_PERIOD=300
+    BATCHSIZE=16; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
+    # Change vit learning rate (0611)
+    if [ "$MODEL_NAME" == "vit" ]; then
+        LR=1e-4
+        echo "Set vit learning rate 1e-4!!!"
+    fi
+    BASEINIT_SAMPLES=30523 FEAT_DIM=14 FEAT_MEM_SIZE=168000
+    SAMPLES_PER_TASK=40000
+    ONLINE_ITER=2
+    EVAL_POINT="1000 2000 3000 4000 5994"
+
+elif [ "$DATASET" == "birds31" ]; then
+    MEM_SIZE=300 # (changed 0901 - after 10x increase)
+    N_SMP_CLS="9" K="3" MIR_CANDS=50
+    CANDIDATE_SIZE=50 VAL_SIZE=5
+    VAL_PERIOD=500 EVAL_PERIOD=100
+    BATCHSIZE=16; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
+    # Change vit learning rate (0611)
+    if [ "$MODEL_NAME" == "vit" ]; then
+        LR=1e-4
+        echo "Set vit learning rate 1e-4!!!"
+    fi
+    BASEINIT_SAMPLES=30523 FEAT_DIM=14 FEAT_MEM_SIZE=168000
+    SAMPLES_PER_TASK=40000
+    ONLINE_ITER=2
+    EVAL_POINT="236 475 714 953 1240"
+
 
 else
     echo "Undefined setting"

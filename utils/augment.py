@@ -511,7 +511,11 @@ def get_statistics(dataset: str, type_name:str):
         "food101",
         "cct", 
         "PACS_final",
-        "NICO"
+        "NICO",
+        "ImageNet_200",
+        "ImageNet_400",
+        "CUB_200",
+        "birds31"
     ]
 
     with open('./utils/data_statistics.json', 'r') as f:
@@ -527,7 +531,11 @@ def get_statistics(dataset: str, type_name:str):
         "aircraft": 100,
         "food101": 101,
         "cct": 12,
-        "NICO": 60
+        "NICO": 60,
+        "ImageNet_200": 1000,
+        "ImageNet_400": 1000,
+        "CUB_200": 200,
+        "birds31": 31
     }
 
     in_channels = 3

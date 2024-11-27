@@ -104,7 +104,7 @@ def calculate_features_clip(image_paths, model):
     model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32").to(device)
 
     dataset = ImageDataset(image_paths, processor)
-    dataloader = DataLoader(dataset, batch_size=128, shuffle=False, num_workers=4)
+    dataloader = DataLoader(dataset, batch_size=512, shuffle=False, num_workers=4)
 
     # Preprocess the images
     image_features = []

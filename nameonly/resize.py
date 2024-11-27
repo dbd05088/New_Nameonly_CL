@@ -15,10 +15,20 @@ def resize_images(classes, source_path, target_path, queue, size=(224, 224)):
         for img in images:
             if img.startswith('.'):
                 continue
-            image = Image.open(os.path.join(source_path, cls, img))
-            image = image.resize(size)
+            try:
+                image = Image.open(os.path.join(source_path, cls, img))
+                image = image.resize(size)
+            except Exception as e:
+                print(f"Error occured while processing {cls}/{img}")
+                print(e)
+                continue
             num_resized += 1
-            image.save(os.path.join(target_path, cls, img))
+            try:
+                image.save(os.path.join(target_path, cls, img))
+            except Exception as e:
+                print(f"Error occured while saving {cls}/{img}")
+                print(e)
+                continue
     
     queue.put(num_resized)
     

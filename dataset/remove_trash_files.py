@@ -9,6 +9,6 @@ for subdir, _, _ in os.walk(root_folder):
     # Use glob to find all files starting with '.' in each subfolder
     for file in glob.glob(os.path.join(subdir, '.*')):
         # Check if the file is an image by its extension, you can add or remove extensions according to your needs
-        if file.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.bmp')):
+        if file.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.bmp', '.JPEG')):
             os.remove(file)  # Delete the file
             print(f'Deleted: {file}')  # Optional: print out the name of the deleted file for confirmation

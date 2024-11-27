@@ -11,12 +11,18 @@ parser.add_argument('-s', '--source_path', type=str, required=True)
 parser.add_argument('-t', '--threshold_ratio', type=float, default=1.0)
 args = parser.parse_args()
 
+RED = "\033[31m"
+RESET = "\033[0m"
+
 replacements = {
     "PACS": "PACS",
     "cct": "cct",
     "DomainNet": "DomainNet",
     "NICO": "NICO",
     "cifar10": "cifar10",
+    "ImageNet": "ImageNet",
+    "CUB_200": "CUB_200",
+    "birds31": "birds31"
 }
 
 # Find dataset name
@@ -54,7 +60,7 @@ def check_image_size(image_path, size):
 
 def convert_images_in_directory(directory_path):
     print(f"Checking corrupted images in {directory_path}")
-    image_extensions = ['.jpg', '.jpeg', '.png', '.bmp', '.tiff', '.tif']
+    image_extensions = ['.jpg', '.jpeg', '.png', '.bmp', '.tiff', '.tif', '.JPEG']
     corrupted_files = []
     for root, dirs, files in os.walk(directory_path):
         for file in files:
@@ -62,6 +68,7 @@ def convert_images_in_directory(directory_path):
                 file_path = os.path.join(root, file)
                 # print(f"Processing {file_path}")
                 try:
+                    # print(f"Processing {file_path}")
                     image = cv2.imread(file_path)
                     if image is None:
                         raise ValueError("Image could not be read, possibly due to a format issue or file corruption.")
@@ -86,10 +93,12 @@ dataset_mapping = {'DomainNet': DomainNet_count, 'officehome': officehome_count,
                    'food101': food101_count, 'cct': cct_count, 'pacs_sdxl': pacs_sdxl_count, 
                    'pacs_dalle2': pacs_dalle2_count, 'pacs_deepfloyd': pacs_deepfloyd_count,
                    'pacs_cogview2': pacs_cogview2_count, 'pacs_sdxl_new': pacs_sdxl_new_count,
-                   'pacs_dalle2_new': pacs_dalle2_new_count, 'NICO': NICO_count}
+                   'pacs_dalle2_new': pacs_dalle2_new_count, 'NICO': NICO_count,
+                   'ImageNet': ImageNet_count, 'CUB_200': CUB_200_count}
 
-class_names_dict = dataset_mapping[args.dataset]
-dir_cls_count_dict = {cls: len(os.listdir(os.path.join(directory_path, cls))) for cls in os.listdir(directory_path) if not cls.endswith('.json')}
+class_names_dict = get_count_dict(args.dataset)
+# class_names_dict = dataset_mapping[args.dataset]
+dir_cls_count_dict = {cls: len(os.listdir(os.path.join(directory_path, cls))) for cls in os.listdir(directory_path) if not cls.endswith('.json') and os.path.isdir(os.path.join(directory_path, cls))}
 
 print(f"Current threshold ratio: {args.threshold_ratio}")
 # Step 1-1: Check class names
@@ -113,22 +122,23 @@ exact_match = dir_cls_count_dict == class_names_dict
 # Choose all images in the first class
 class_names = [cls for cls in os.listdir(directory_path) if not cls.endswith('.json')]
 class_name = class_names[0]
+
 for image in os.listdir(os.path.join(directory_path, class_name)):
-    if image.endswith('.jpg') or image.endswith('.jpeg') or image.endswith('.png'):
+    if image.endswith('.jpg') or image.endswith('.jpeg') or image.endswith('.png') or image.endswith("JPEG"):
         # Check
         image_path = os.path.join(directory_path, class_name, image)
         # print(f"Checking image size...")
         image_size_correct = check_image_size(image_path, (224, 224))
         if not image_size_correct:
-            print(f"WARNING: Image {image_path} does not have the correct size.")
+            print(f"{RED}WARNING: Image {image_path} does not have the correct size.{RESET}")
             break
 
 print(f"Count enough (over threshold): {enough}")
 print(f"Count exact match: {exact_match}")
-print(f"Image size correct: {image_size_correct}")
+# print(f"Image size correct: {image_size_correct}")
 
 if not enough:
-    print(f"Classes with less than threshold count: {less_than_threshold}")
+    print(f"{RED}Classes with less than threshold count: {less_than_threshold}{RESET}")
     raise ValueError(f"Classes with less than threshold count: {less_than_threshold}")
 
 # Step 3: Check image validity

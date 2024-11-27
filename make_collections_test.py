@@ -1,7 +1,7 @@
 import os
 import json
 
-type = 'sketch'
+type = 'test_ma'
 source_path = f'/home/user/seongwon/New_Nameonly_CL/dataset/DomainNet/DomainNet_MA/{type}'
 target_path = f'/home/user/seongwon/New_Nameonly_CL/collections/DomainNet/test/DomainNet_{type}_sigma0_repeat1_init100_seed1.json'
 

@@ -534,6 +534,78 @@
 # rm DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_ver6.tar
 # rm DomainNet_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_ver7.tar
 
-./gdrive files download 14BKE63_O5cxOxM9_xpCoSght2BlNKVrK # DomainNet_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_auraflow_equalweight
-tar -xf DomainNet_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar -C DomainNet
-rm DomainNet_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar
+# ./gdrive files download 14BKE63_O5cxOxM9_xpCoSght2BlNKVrK # DomainNet_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_auraflow_equalweight
+# tar -xf DomainNet_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar -C DomainNet
+# rm DomainNet_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar
+
+# ./gdrive files download 1ZIP983w2N70gbKzaT3QcMKLisIxjYtTT # DomainNet_50_2_glide
+# tar -xf DomainNet_50_2_glide.tar -C DomainNet
+# rm DomainNet_50_2_glide.tar
+
+# # Temperature experiments
+# ./gdrive files download 1PRdkrxz__xCVzhYV_1__ZKG37SBKs6eY # DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_0_125
+# ./gdrive files download 1WOd3OqjdN1GsKFLx3KwerdBxNgOwpt1B # DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_0_25
+# ./gdrive files download 1JNvO2s7MdNJ36kcJYr9C7QWEc1Mq6ehr # DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_1
+# ./gdrive files download 10Uxnsy_lF6hyDKB-tBuSi3RleA_vq8g0 # DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_2
+# tar -xf DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_0_125.tar -C DomainNet
+# tar -xf DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_0_25.tar -C DomainNet
+# tar -xf DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_1.tar -C DomainNet
+# tar -xf DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_2.tar -C DomainNet
+# rm DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_0_125.tar
+# rm DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_0_25.tar
+# rm DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_1.tar
+# rm DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_2.tar
+
+# # DomainNet hierarchy experiments
+# ./gdrive files download 1xrvTGTJdWOy1LKj0svi2RmZoObjvMsBa # DomainNet_tree_2
+# ./gdrive files download 1YaL7vwq6VwWgRGyTmiAXI7dYOTPwJ2BL # DomainNet_tree_4
+# tar -xf DomainNet_tree_2.tar -C DomainNet
+# tar -xf DomainNet_tree_4.tar -C DomainNet
+# rm DomainNet_tree_2.tar
+# rm DomainNet_tree_4.tar
+
+# # DomainNet Real-Fake
+# ./gdrive files download 150rLPOkqw5cfToaMJJ2PVk4CixrN3f60 # DomainNet_train_ma_real_fake
+# tar -xf DomainNet_train_ma_real_fake.tar -C DomainNet
+# rm DomainNet_train_ma_real_fake.tar
+
+# # Temperature more && CLIP ratio experiments
+# ./gdrive files download 1_dbpA-VGSGMCVTMn7OOrw9dwr0FIqH09 # DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_0_0625
+# ./gdrive files download 1ULDX7TOSSzqfGguKEjkjilZgDbtusIle # DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_4
+# ./gdrive files download 1OTfBN7nzncP8wSPiTlvg-ePpAAzjyQ4F # DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_87_5
+# ./gdrive files download 1nyQRLbXzxDQAIsCE5stevGUsv8VnHBWJ # DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_92_5
+# ./gdrive files download 1RLhKtuUn3e9OuzQGT4EQvlN29irA9yUQ # DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_95
+# ./gdrive files download 1ozQz840JcIakm6geMEVj1XktXiVGghLb # DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_97_5
+# tar -xf DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_0_0625.tar -C DomainNet
+# tar -xf DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_4.tar -C DomainNet
+# tar -xf DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_87_5.tar -C DomainNet
+# tar -xf DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_92_5.tar -C DomainNet
+# tar -xf DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_95.tar -C DomainNet
+# tar -xf DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_97_5.tar -C DomainNet
+# rm DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_0_0625.tar
+# rm DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_4.tar
+# rm DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_87_5.tar
+# rm DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_92_5.tar
+# rm DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_95.tar
+# rm DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_97_5.tar
+
+# # DB finetune with 5 samples
+# ./gdrive files download 1IC_7ns5Ny5cwN8tZjZGDGa3W-oo9mXjr # DomainNet_db_5_500
+# tar -xf DomainNet_db_5_500.tar -C DomainNet
+# rm DomainNet_db_5_500.tar
+
+# # DomainNet more truncate ratio
+# ./gdrive files download 1lu_NRZLj1DbWmgnJGGo9o2-7nXAuip-q # DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_30
+# ./gdrive files download 1FeCEtjKkISbFOp-5MW0zxuxc9Ie0B8CQ # DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_50
+# ./gdrive files download 1BaNZS-G6i8lS61yZS3oqwTvJVQ0od-DQ # DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_70
+# tar -xf DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_30.tar -C DomainNet
+# tar -xf DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_50.tar -C DomainNet
+# tar -xf DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_70.tar -C DomainNet
+# rm DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_30.tar
+# rm DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_50.tar
+# rm DomainNet_50_2_sdxl_floyd_cogview2_sd3_auraflow_70.tar
+
+# Internet explorer
+./gdrive files download 1-5zPSOvc0saxnjZ2zBJjTcJp0_YNIklm # DomainNet_internet_explorer
+tar -xf DomainNet_internet_explorer.tar -C DomainNet
+rm DomainNet_internet_explorer.tar

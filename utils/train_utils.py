@@ -277,6 +277,25 @@ def select_optimizer(opt_name, lr, model, kwargs=None):
         opt = create_LLM_optimizer(model, kwargs["mm_projector_lr"], kwargs["weight_decay"])
     return opt
 
+def select_cl_optimizer(opt_name, lr, model, kwargs=None):
+    wd = 0.2
+    beta1, beta2, eps = 0.9, 0.98, 1.0e-6
+    exclude = lambda n, p: p.ndim < 2 or "bn" in n or "ln" in n or "bias" in n or 'logit_scale' in n
+    include = lambda n, p: not exclude(n, p)
+    named_parameters = list(model.named_parameters())
+    gain_or_bias_params = [p for n, p in named_parameters if exclude(n, p) and p.requires_grad]
+    rest_params = [p for n, p in named_parameters if include(n, p) and p.requires_grad]
+    optimizer = optim.AdamW(
+        [
+            {"params": gain_or_bias_params, "weight_decay":wd},
+            {"params": rest_params, "weight_decay": wd},
+        ],
+        lr=lr,
+        betas=(beta1, beta2),
+        eps=eps,
+    )
+    return optimizer
+
 def select_scheduler(sched_name, opt, hparam=None):
     if "exp" in sched_name:
         scheduler = optim.lr_scheduler.ExponentialLR(opt, gamma=hparam)
@@ -817,6 +836,11 @@ def select_model(model_name, dataset=None, num_classes=None, opt_dict=None, G=Fa
         )
 
     model = model_class(opt, model_imagenet)
+    if dataset == "CUB_200":
+        resnet18_pretrained = models.resnet18(pretrained=True)
+        num_ftrs = resnet18_pretrained.fc.in_features
+        resnet18_pretrained.fc = nn.Linear(num_ftrs, num_classes)
+        print("imagenet pretrained")
     return model
 
 ##### for ASER #####

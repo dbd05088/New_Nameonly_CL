@@ -14,7 +14,7 @@ OUTPUT_PATH = '/workspace/home/user/seongwon/crawling/crawler/datasets/PACS/PACS
 if not os.path.exists(OUTPUT_PATH):
     os.makedirs(OUTPUT_PATH)
 
-image_extension = ['.jpg', '.jpeg', '.png', '.gif', '.bmp']
+image_extension = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.JPEG']
 
 class_names = os.listdir(PATHS[0])
 for class_name in tqdm(class_names):

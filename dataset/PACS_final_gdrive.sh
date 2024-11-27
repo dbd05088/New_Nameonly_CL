@@ -1560,6 +1560,98 @@
 # rm PACS_final_google_large_wfilter.tar
 # rm PACS_final_google_wfilter.tar
 
-./gdrive files download 1HXnpsFGHGkEWRgkZgZzd3d33w5V0c1rj # PACS_final_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_auraflow_equalweight
-tar -xf PACS_final_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar -C PACS_final
-rm PACS_final_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar
+# ./gdrive files download 1HXnpsFGHGkEWRgkZgZzd3d33w5V0c1rj # PACS_final_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_auraflow_equalweight
+# tar -xf PACS_final_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar -C PACS_final
+# rm PACS_final_wo_cot_wo_hierarchy_50_sdxl_floyd_cogview2_sd3_auraflow_equalweight.tar
+# ./gdrive files download 1pIIxaX35vgKThIyuE5odmduscNxon_5v # PACS_final_sdbp_sdxl_50
+# tar -xf PACS_final_sdbp_sdxl_50.tar -C PACS_final
+# rm PACS_final_sdbp_sdxl_50.tar
+
+# # PACS HIWING + Glide
+# ./gdrive files download 1yr9BImD5K16vEedF52A0EeoddY6LO7Q5 # PACS_final_50_2_glide
+# tar -xf PACS_final_50_2_glide.tar -C PACS_final
+# rm PACS_final_50_2_glide.tar
+
+# # Ours topk, bottomk, inverse
+# ./gdrive files download 1Cm7Zi7S2dSutS_PQdZ_moKnSGdMEIqB- # PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_topk
+# ./gdrive files download 1U2B-dPSLxyNzWCOuRf8MtgBCBpYEcoMG # PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_bottomk
+# ./gdrive files download 1d4fBE-n21QOoE7Q5sQbfGGYVGu_rJjln # PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_inverse
+# tar -xf PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_topk.tar -C PACS_final
+# tar -xf PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_bottomk.tar -C PACS_final
+# tar -xf PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_inverse.tar -C PACS_final
+# rm PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_topk.tar
+# rm PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_bottomk.tar
+# rm PACS_final_cot_50_2_sdxl_floyd_cogview2_sd3_auraflow_inverse.tar
+
+# Hierarchy experiments (for rebuttal)
+# ./gdrive files download 1aKOamivwrZZsCkLcDlHHhaiftNDdiWuK # PACS_final_tree_2_sdxl
+# ./gdrive files download 1w9Lm3d9civYS_Mk0VA4j1_MzeOZhqbw7 # PACS_final_tree_4_sdxl
+# tar -xf PACS_final_tree_2_sdxl.tar -C PACS_final
+# tar -xf PACS_final_tree_4_sdxl.tar -C PACS_final
+# rm PACS_final_tree_2_sdxl.tar
+# rm PACS_final_tree_4_sdxl.tar
+
+# # Real-fake baseline
+# ./gdrive files download 17OKYRZSYZgVq6c7sXFxtDxRe31FtMyK_ # PACS_final_train_ma_real_fake
+# tar -xf PACS_final_train_ma_real_fake.tar -C PACS_final
+# rm PACS_final_train_ma_real_fake.tar
+
+# # Real-fake (CL setup)
+# ./gdrive files download 1wRlRcAK7aTJO9ejAPNEUiQuDz4Z605Zw # PACS_final_train_ma_real_fake_cl
+# tar -xf PACS_final_train_ma_real_fake_cl.tar -C PACS_final
+# rm PACS_final_train_ma_real_fake_cl.tar
+
+# # Real fake more parameters
+# ./gdrive files download 1anZFYjfZ39A4dKRPUYKQGlqHsCAp9n3G # PACS_final_train_ma_10_real_fake
+# ./gdrive files download 1DcAHYKq758sfD01hFpS7I_RVukYEvZvM # PACS_final_train_ma_50_real_fake
+# ./gdrive files download 1lsgtL_S-eOA_xs-AIYm04pw_u0LLXic1 # PACS_final_train_ma_200_real_fake
+# ./gdrive files download 1fCbv8OBx7dSnAwxTW9I7kKzw7G5x2b_v # PACS_final_train_ma_400_real_fake
+# tar -xf PACS_final_train_ma_10_real_fake.tar -C PACS_final
+# tar -xf PACS_final_train_ma_50_real_fake.tar -C PACS_final
+# tar -xf PACS_final_train_ma_200_real_fake.tar -C PACS_final
+# tar -xf PACS_final_train_ma_400_real_fake.tar -C PACS_final
+# rm PACS_final_train_ma_10_real_fake.tar
+# rm PACS_final_train_ma_50_real_fake.tar
+# rm PACS_final_train_ma_200_real_fake.tar
+# rm PACS_final_train_ma_400_real_fake.tar
+
+# # DB finetuned
+# ./gdrive files download 1T_XQG0xTY_2xZ0CjvhAtBEsVEJ_KOP1G # PACS_final_db_3
+# ./gdrive files download 1Brl6_Qy_iIohe-1w1GbfEie-tqQqNoHq # PACS_final_db_5
+# ./gdrive files download 1KYzalT65VponuPX_Pp1bTZr2zAQt0BYz # PACS_final_db_10
+# tar -xf PACS_final_db_3.tar -C PACS_final
+# tar -xf PACS_final_db_5.tar -C PACS_final
+# tar -xf PACS_final_db_10.tar -C PACS_final
+# rm PACS_final_db_3.tar
+# rm PACS_final_db_5.tar
+# rm PACS_final_db_10.tar
+
+# # PACS_final tree more
+# ./gdrive files download 1cZidV_EHLdoaVG-lOnQPkgNuwdpceRM4 # PACS_final_tree_d2_w5
+# ./gdrive files download 1mJGVfQZe5EUR9ea9xhlxP-ubWeIriN97 # PACS_final_tree_d3_w7
+# ./gdrive files download 14kxNWG3NY_Ktepytqmab2n6NiLHMn-U- # PACS_final_tree_d1_w7
+# ./gdrive files download 1n_3bRIILy4hBJttDwH5eaVbbRtFJ32bo # PACS_final_tree_d2_w10
+# tar -xf PACS_final_tree_d2_w5.tar -C PACS_final
+# tar -xf PACS_final_tree_d3_w7.tar -C PACS_final
+# tar -xf PACS_final_tree_d1_w7.tar -C PACS_final
+# tar -xf PACS_final_tree_d2_w10.tar -C PACS_final
+# rm PACS_final_tree_d2_w5.tar
+# rm PACS_final_tree_d3_w7.tar
+# rm PACS_final_tree_d1_w7.tar
+# rm PACS_final_tree_d2_w10.tar
+
+# # PACS_final tree more (100 prompts)
+# ./gdrive files download 1GNepbWNc4yBB8_DSTceO-HhBCQiyzMI0 # PACS_final_d3_w5_100_sdxl
+# ./gdrive files download 1QhmjGIRKYmJCyB2dHZEeRJsJyQkG-tuw # PACS_final_d1_w100_100_sdxl
+# ./gdrive files download 1Khlmn3YNArAICZkJuZArMNr9ZU4_xPXM # PACS_final_d4_w3_100_sdxl
+# tar -xf PACS_final_d3_w5_100_sdxl.tar -C PACS_final
+# tar -xf PACS_final_d1_w100_100_sdxl.tar -C PACS_final
+# tar -xf PACS_final_d4_w3_100_sdxl.tar -C PACS_final
+# rm PACS_final_d3_w5_100_sdxl.tar
+# rm PACS_final_d1_w100_100_sdxl.tar
+# rm PACS_final_d4_w3_100_sdxl.tar
+
+# PACS_final internet explorer
+./gdrive files download 1y-hjQdvypZE8dtndFNcsGK82n4d1vsea # PACS_final_internet_explorer
+tar -xf PACS_final_internet_explorer.tar -C PACS_final
+rm PACS_final_internet_explorer.tar

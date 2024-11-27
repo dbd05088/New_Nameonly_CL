@@ -20,7 +20,7 @@
 46: "A majestic brown horse grazes peacefully in a sunlit meadow surrounded by wildflowers."
 
 # dog
-# 'golden retreiver' used for 48 sentences, except 2 sentence (maybe reset doesn't work?)
+# 'golden retreiver' used for 48 sentences, except 2 sentence
 
 <Group1>
 2: A golden retriever joyfully chases a frisbee in a sunlit, grassy park.

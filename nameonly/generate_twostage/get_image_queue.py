@@ -377,7 +377,9 @@ def generate_single_class(
     class_prompt_dict,
     result_json_path,
     API_KEY=None,
-    resume_prompt_idx=None
+    resume_prompt_idx=None,
+    imagenet=False,
+    config=None
 ):
     if not 'metaprompts' in class_prompt_dict:
         use_dynamic_prompt = True
@@ -428,12 +430,19 @@ def generate_single_class(
     for i, prompt in enumerate(concatenated_prompt_list):
         if not use_dynamic_prompt:
             assert "[concept]" in prompt[0], f"[concept] not exists in {prompt}!"
-            class_name_tmp = class_name.replace("_"," ") # remove underbar
-            prompt_with_cls = (prompt[0].replace('[concept]', class_name_tmp), prompt[1], prompt[2])
+            if config['lora_path'] is None:
+                class_name_tmp = class_name.replace("_"," ") # remove underbar
+            else:
+                class_name_tmp = class_name # Because lora knows the class name with underbar
+            if not imagenet:
+                prompt_with_cls = (prompt[0].replace('[concept]', class_name_tmp), prompt[1], prompt[2])
+            else:
+                imagenet_description = ImageNet_description[class_name]
+                prompt_with_cls = (prompt[0].replace('[concept]', imagenet_description), prompt[1], prompt[2])
             concatenated_prompt_list[i] = prompt_with_cls
         else:
             concatenated_prompt_list[i] = (prompt[0], prompt[1], prompt[2])
-    
+
     # Find the prompt index to start generating images
     if max_prompt_indices is not None:
         resume_prompt_idx = next(i for i, v in enumerate(concatenated_prompt_list) if v[2] == f"{max_prompt_indices[0]}_{max_prompt_indices[1]}")
@@ -456,6 +465,10 @@ def generate_single_class(
                     break
             except Exception as e:
                 print(e)
+                error_message = str(e)
+                if "CUDA out of memory" in error_message:
+                    print("CUDA out of memory error detected. Exiting the process.")
+                    sys.exit(1)  # Exit the process with a non-zero status
                 attempt_count += 1
                 if attempt_count >= 3:
                     print(f"Failed to generate image for {prompt_type} - {image_name} - {prompt}")
@@ -511,12 +524,17 @@ if __name__ == "__main__":
     parser.add_argument('--prompt_dir', type=str, default=None)
     parser.add_argument('--increase_ratio', type=float, default=None)
     parser.add_argument('--num_samples_per_cls', type=int, default=None)
+    parser.add_argument('--lora_path', type=str, default=None)
     
     parser_config = parser.parse_args()
+    if parser_config.lora_path == "none":
+        print(f"Lora path is set to None")
+        parser_config.lora_path = None
 
     config = get_config(config_path=parser_config.config_path)
     
     # Override config if arguments are explicitly provided (start, end class)
+    config['lora_path'] = parser_config.lora_path
     if parser_config.dataset is not None:
         config['dataset'] = parser_config.dataset
     if parser_config.image_dir is not None:
@@ -540,6 +558,12 @@ if __name__ == "__main__":
     debug = config['debug']
     sample_num_dict = count_dict[config['dataset']]
     classes = list(sample_num_dict.keys())
+    if '0' in classes:
+        print(f"ImageNet classes are used")
+        imagenet = True
+    else:
+        imagenet=False
+        
     if 'end_class' in config:
         classes = classes[config['start_class']:config['end_class'] + 1]
         print(f"Set classes to {classes}")
@@ -567,6 +591,12 @@ if __name__ == "__main__":
     else:
         model = model_selector(config['generative_model'], API_KEY=config['api_key'])
 
+    # Load lora if specified
+    if config['generative_model'] == "sdxl" and config['lora_path'] is not None:
+        print(f"Load Lora from {config['lora_path']}")
+        model.pipe.load_lora_weights(config['lora_path'])
+        
+    
     # Set start prompt index if provided
     resume_prompt_idx = config.get('resume_prompt_idx')
     
@@ -601,7 +631,9 @@ if __name__ == "__main__":
             class_prompt_dict=class_prompt_dict,
             API_KEY=config['api_key'],
             result_json_path=os.path.join(image_root_dir, f"{original_class_indices[next_cls_idx]}.json"),
-            resume_prompt_idx=resume_prompt_idx
+            resume_prompt_idx=resume_prompt_idx,
+            imagenet=imagenet,
+            config=config
         )
         mark_task_done(queue_name, next_cls_idx)
     

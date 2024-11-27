@@ -28,6 +28,7 @@ replacements = {
     "DomainNet": "DomainNet",
     "NICO": "NICO",
     "cifar10": "cifar10",
+    "ImageNet": "ImageNet",
 }
 
 dataset_mapping = {'DomainNet': DomainNet_count, 'officehome': officehome_count, 'PACS': PACS_count, 
@@ -35,7 +36,8 @@ dataset_mapping = {'DomainNet': DomainNet_count, 'officehome': officehome_count,
                    'food101': food101_count, 'cct': cct_count, 'pacs_sdxl': pacs_sdxl_count, 
                    'pacs_dalle2': pacs_dalle2_count, 'pacs_deepfloyd': pacs_deepfloyd_count,
                    'pacs_cogview2': pacs_cogview2_count, 'pacs_sdxl_new': pacs_sdxl_new_count,
-                   'pacs_dalle2_new': pacs_dalle2_new_count, 'NICO': NICO_count}
+                   'pacs_dalle2_new': pacs_dalle2_new_count, 'NICO': NICO_count,
+                   'ImageNet': ImageNet_count, 'CUB_200': CUB_200_count}
 
 # Find dataset name
 if args.dataset is None:
@@ -45,8 +47,14 @@ if args.dataset is None:
             args.dataset = replacement
             break
 
-sample_num_dict = dataset_mapping[args.dataset]
+sample_num_dict = get_count_dict(args.dataset)
+# sample_num_dict = dataset_mapping[args.dataset]
 print(f"Sample num dict: {sample_num_dict}")
+if "ImageNet" in args.dataset:
+    print("Detected dataset: ImageNet")
+    imagenet = True
+else:
+    imagenet = False
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 # Check args.end_class
@@ -60,7 +68,7 @@ if not os.path.exists(output_dir):
 
 
 # Load the images
-image_extensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp']
+image_extensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.JPEG']
 class_to_paths_dict = {}
 
 classes = sample_num_dict.keys()
@@ -93,7 +101,11 @@ for class_name, image_paths in tqdm(class_to_paths_dict.items()):
     
     if len(image_paths) > sample_num:
         prompt = f"A photo of {class_name}"
-        formatted_class_name = class_name.replace('_', ' ')
+        if not imagenet:
+            formatted_class_name = class_name.replace('_', ' ')
+        else:
+            formatted_class_name = ImageNet_description[class_name].replace('_', ' ')
+        
         # Add article to prompt
         if formatted_class_name[0] in ['a', 'e', 'i', 'o', 'u']:
             prompt = f"A photo of an {formatted_class_name}"

@@ -14,7 +14,7 @@ from torch.utils.data import Dataset, DataLoader
 from torchvision import transforms
 from tqdm import tqdm
 
-image_exts = ['.jpg', '.jpeg', '.png', '.bmp']
+image_exts = ['.jpg', '.jpeg', '.png', '.bmp', '.JPEG']
 
 transform = transforms.Compose([
     transforms.ToTensor()
@@ -84,7 +84,7 @@ if __name__ == '__main__':
     
     last_part = os.path.basename(os.path.normpath(args.image_root_dir))
     
-    dataset_list = ["PACS_final", "DomainNet", "cct", "NICO", "cifar10"]
+    dataset_list = ["PACS_final", "DomainNet", "cct", "NICO", "cifar10", "ImageNet_200", "ImageNet_400", "CUB_200", "birds31"]
     dataset_name = next((name for name in dataset_list if last_part.startswith(name)), None)
     type_name = last_part[len(dataset_name) + 1:]
     print(f"Detected dataset name: {dataset_name}, type name: {type_name}")
