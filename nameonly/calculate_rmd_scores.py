@@ -256,7 +256,8 @@ if __name__ == "__main__":
     # RMD = distance_specific - distance_agnostic
     print(f"Calculating RMD scores...")
     RMD = mahalanobis_distance_manually(features, mu_agnostic, cov_agnostic, mu_specific_dict, cov_specific, class_labels)
-
+    print(f"Done calculating RMD scores...")
+    
     # Split RMD scores using model labels
     RMD_each_model = {}
     for model in image_paths.keys():

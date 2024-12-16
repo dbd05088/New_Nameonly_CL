@@ -20,7 +20,7 @@ dataset_mapping = {'DomainNet': DomainNet_count, 'officehome': officehome_count,
                    'pacs_dalle2': pacs_dalle2_count, 'pacs_deepfloyd': pacs_deepfloyd_count,
                    'pacs_cogview2': pacs_cogview2_count, 'pacs_sdxl_new': pacs_sdxl_new_count,
                    'pacs_dalle2_new': pacs_dalle2_new_count, 'NICO': NICO_count,
-                   'ImageNet': ImageNet_count, 'CUB_200': CUB_200_count}
+                   'ImageNet': ImageNet_count, 'CUB_200': CUB_200_count, 'ImageNet_full': ImageNet_full_count}
 
 # Define default configurations for datasets
 replacements = {
@@ -60,7 +60,7 @@ for cls in tqdm(classes):
         subsample_num = int(count_dict[cls] * subsample_ratio)
     elif subsample_count is not None:
         subsample_num = subsample_count
-
+    
     source_class_path = os.path.join(source_path, cls)
     target_class_path = os.path.join(target_path, cls)
 

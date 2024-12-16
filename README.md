@@ -1,5 +1,39 @@
 # New Nameonly CL
 
+## Overall Pipeline
+1. Generate prompts for image generation (see [generation.md](generation.md)).
+2. Perform image generation for each model (see [generation.md](generation.md)).
+3. Subsample and filter the generated images (see [ensemble.md](ensemble.md)).
+4. Calculate RMD scores and perform RMD ensemble using the filtered images (see [ensemble.md](ensemble.md)).
+5. Upload the final image directory to Google Drive (use [./dataset/upload.py](./dataset/upload.py) or upload manually).
+6. Compute stats for the image directory and generate a JSON file to push:
+    - `get_stats.py`
+    - `make_collections.py`
+
+
+## How to Renew Gdrive Token
+
+1. Run the `gdrive files list` command in your local environment.  
+    - If the `gdrive` command is not available, download the gdrive binary from [https://github.com/glotlabs/gdrive/releases](https://github.com/glotlabs/gdrive/releases).
+2. When a link is displayed, follow it and log in with your Google account.
+3. Execute the following command to export the account:  
+    ```bash
+    gdrive account export <YOUR_EMAIL>
+    ```
+4. Transfer the generated `.tar` file to the server using `scp`.
+5. On the server, remove the existing account with the following command:  
+    ```bash
+    gdrive account remove <YOUR_EMAIL>
+    ```
+6. Import the token file on the server:  
+    ```bash
+    gdrive account import <TOKEN_FILE.tar>
+    ```
+7. If necessary, switch to the correct account using the following command:  
+    ```bash
+    gdrive account switch <YOUR_EMAIL>
+    ```
+
 ## How to download datasets
 1. Setup gdrive for linux by following the instructions
     ```bash
