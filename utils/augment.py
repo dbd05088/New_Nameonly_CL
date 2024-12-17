@@ -514,6 +514,7 @@ def get_statistics(dataset: str, type_name:str):
         "NICO",
         "ImageNet_200",
         "ImageNet_400",
+        "ImageNet_full",
         "CUB_200",
         "birds31"
     ]
@@ -534,6 +535,7 @@ def get_statistics(dataset: str, type_name:str):
         "NICO": 60,
         "ImageNet_200": 1000,
         "ImageNet_400": 1000,
+        "ImageNet_full": 1000,
         "CUB_200": 200,
         "birds31": 31
     }
