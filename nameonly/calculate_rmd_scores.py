@@ -263,6 +263,7 @@ if __name__ == "__main__":
     for model in image_paths.keys():
         RMD_each_model[model] = RMD[model_labels == model]
     
+    print(f"Generating model - class - image_path - RMD dictionary...")
     # Generate model - class - image_path - RMD dictionary
     result_dict = {}
     model_class_image_RMD = {}

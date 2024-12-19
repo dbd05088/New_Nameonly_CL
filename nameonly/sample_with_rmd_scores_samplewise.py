@@ -22,13 +22,13 @@ INVERSE = False
 TEMPERATURE = 0.5
 
 # IMPORTANT
-base_path = '/home/user/imagenet_ours'
-json_path = './RMD_scores/ImageNet_LE_full_sdxl_floyd_cogview2_sd3_auraflow.json'
-target_path = './raw_datasets/iclr_rebuttal/ImageNet/ImageNet_LE_sdxl_floyd_cogview2_sd3_auraflow'
+base_path = '/home/user/smh/New_Nameonly_CL/nameonly/generate_twostage/generated_datasets/ImageNet_final'
+json_path = './RMD_scores/ImageNet_ours_full_sdxl_floyd_cogview2_sd3_auraflow.json'
+target_path = './raw_datasets/iclr_rebuttal/ImageNet/ImageNet_ours_full_sdxl_floyd_cogview2_sd3_auraflow'
 # IMPORTANT
 
 count_dict = get_count_value_from_string(base_path)
-# count_dict = ImageNet_400
+count_dict = ImageNet_full_count
 
 with open(json_path, 'r') as f:
     RMD_scores = json.load(f)
