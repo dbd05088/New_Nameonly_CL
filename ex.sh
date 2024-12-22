@@ -16,10 +16,10 @@
 # --------------------------IMPORTANT-------------------------- #
 MODE="er" # er, der, mir, aser, ...
 MODEL_NAME="resnet18" # vit
-DATASET="DomainNet" # PACS_final, DomainNet, cifar10, NICO, cct
-TYPES=("50_2_sdxl_floyd_cogview2_sd3_auraflow_0_0625") # each type runs on each gpu
+DATASET="ImageNet_full" # PACS_final, DomainNet, cifar10, NICO, cct
+TYPES=("ours_sdxl_floyd_cogview2_sd3_auraflow") # each type runs on each gpu
 SEEDS="1"
-GPUS=("6" "7" "2" "3" "4" "5" "6" "7") # each gpu runs each type
+GPUS=("1" "7" "2" "3" "4" "5" "6" "7") # each gpu runs each type
 # --------------------------IMPORTANT-------------------------- #
 
 # If explicitly provided, use the provided arguments
@@ -32,7 +32,7 @@ fi
 if [ -n "$5" ]; then
     SEEDS="$5"
 fi
-NOTE="iclr_${MODEL_NAME}_${DATASET}_${MODE}"
+NOTE="iclr_${MODEL_NAME}_${DATASET}_${MODE}_iter0_5"
 
 echo "MODE: $MODE"
 echo "MODEL_NAME: $MODEL_NAME"
@@ -191,6 +191,22 @@ elif [ "$DATASET" == "ImageNet_400" ]; then
     SAMPLES_PER_TASK=40000
     ONLINE_ITER=0.25
     EVAL_POINT="80000 160000 240000 320000 400000"
+
+elif [ "$DATASET" == "ImageNet_full" ]; then
+    MEM_SIZE=100000 # (changed 0901 - after 10x increase)
+    N_SMP_CLS="9" K="3" MIR_CANDS=50
+    CANDIDATE_SIZE=50 VAL_SIZE=5
+    VAL_PERIOD=500 EVAL_PERIOD=25000
+    BATCHSIZE=256; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
+    # Change vit learning rate (0611)
+    if [ "$MODEL_NAME" == "vit" ]; then
+        LR=1e-4
+        echo "Set vit learning rate 1e-4!!!"
+    fi
+    BASEINIT_SAMPLES=30523 FEAT_DIM=14 FEAT_MEM_SIZE=168000
+    SAMPLES_PER_TASK=40000
+    ONLINE_ITER=0.5
+    EVAL_POINT="200000 400000 600000 800000 1000000"
 
 elif [ "$DATASET" == "CUB_200" ]; then
     MEM_SIZE=1000 # (changed 0901 - after 10x increase)

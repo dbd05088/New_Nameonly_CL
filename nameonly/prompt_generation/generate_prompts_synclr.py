@@ -7,10 +7,10 @@ from openai import OpenAI
 from tqdm import tqdm
 from synclr_utils import fg_example, bg_example, fgbg_example, fgrel_example, relation_list
 
-background_json_path = './prompts/backgrounds_synclr_birds31.json'; imagenet=False
-prompt_json_path = './prompts/synclr_birds31.json'
-dataset_count = birds31_count
-NUM_PROMPTS = 50
+background_json_path = './prompts/backgrounds_synclr_ImageNet.json'; imagenet=True
+prompt_json_path = './prompts/synclr_ImageNet_200.json'
+dataset_count = ImageNet_count
+NUM_PROMPTS = 200
 
 with open(background_json_path, 'r') as f:
     backgrounds_dict = json.load(f)
@@ -27,7 +27,7 @@ def sample_prompt(client, cls):
         fg_mode = 1
     else:
         fg_mode = 2
-    fg_mode = 2
+    
     if fg_mode == 0:
         num_example = len(fg_example)
         chosen_idx = random.sample(range(num_example), 3)
