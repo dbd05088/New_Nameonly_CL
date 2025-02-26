@@ -85,6 +85,7 @@ class CLManagerBase:
         self.cutmix = "cutmix" in kwargs["transforms"]
         
         self.model = select_model(self.model_name, dataset=self.dataset, num_classes=1).to(self.device)
+        print("self.model", self.model)
         self.optimizer = select_optimizer(self.opt_name, self.lr, self.model)
         self.scheduler = select_scheduler(self.sched_name, self.optimizer)
 
@@ -417,8 +418,8 @@ class CLManagerBase:
             self.scheduler.step()
 
     def _save_ckpt(self, sample_num):
-        save_path = f"pretrained/{self.dataset}/{self.type_name}/{self.online_iter}_{self.rnd_seed}"
-        os.makedirs(f"pretrained/{self.dataset}/{self.type_name}/{self.online_iter}_{self.rnd_seed}", exist_ok=True)
+        save_path = f"pretrained/{self.dataset}/{self.model_name}_{self.type_name}/{self.memory_size}_{self.online_iter}_{self.rnd_seed}"
+        os.makedirs(f"pretrained/{self.dataset}/{self.model_name}_{self.type_name}/{self.memory_size}_{self.online_iter}_{self.rnd_seed}", exist_ok=True)
         torch.save({
         'num_samples': sample_num,
         'tasks': self.exposed_classes,
@@ -432,10 +433,10 @@ class CLManagerBase:
             return sample_num, {'avg_acc':0, 'avg_loss':0,'cls_acc':0}
         else:
             self.cur_task = cur_task
-            if sample_num in self.eval_point:
-                self.calculate_task_metric(domain_name, sample_num, test_list, cls_dict, batch_size, n_worker)
-                if self.cur_task < self.tasks-1:
-                    self.calculate_fast_adaptation(domain_name, sample_num, test_list, cls_dict, batch_size, n_worker)
+            # if sample_num in self.eval_point:
+                # self.calculate_task_metric(domain_name, sample_num, test_list, cls_dict, batch_size, n_worker)
+                # if self.cur_task < self.tasks-1:
+                    # self.calculate_fast_adaptation(domain_name, sample_num, test_list, cls_dict, batch_size, n_worker)
                 # self.get_forgetting(domain_name, sample_num, test_list, cls_dict, batch_size, n_worker)
             # print("test_list", test_list[0], domain_name)
             for data in test_list:
@@ -523,7 +524,7 @@ class CLManagerBase:
                 y = data["label"]
                 x = x.to(self.device)
                 y = y.to(self.device)
-                logit = self.fast_model(x)
+                # logit = self.fast_model(x)
                 loss = criterion(logit, y)
                 pred = torch.argmax(logit, dim=-1)
                 _, preds = logit.topk(self.topk, 1, True, True)

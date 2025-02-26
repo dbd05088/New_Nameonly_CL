@@ -1,11 +1,11 @@
-#!/bin/bash
-#SBATCH -p suma_rtx4090
-##SBATCH -q big_qos
-#SBATCH --job-name=P_v_50_2_eq
-#SBATCH --output=logs/%x_%j.out
-#SBATCH --gres=gpu:1
-#SBATCH --exclude=node37
-##SBATCH -c 32
+# !/bin/bash
+# SBATCH -p suma_rtx4090
+# #SBATCH -q big_qos
+# SBATCH --job-name=P_v_50_2_eq
+# SBATCH --output=logs/%x_%j.out
+# SBATCH --gres=gpu:1
+# SBATCH --exclude=node37
+# #SBATCH -c 32
 
 # ulimit -u 200000
 # source ~/.bashrc
@@ -14,10 +14,10 @@
 # conda activate generate
 
 # --------------------------IMPORTANT-------------------------- #
-MODE="er" # er, der, mir, aser, ...
-MODEL_NAME="resnet18" # vit
+MODE="baseline" # er, der, mir, aser, ...
+MODEL_NAME="resnet50" # vit
 DATASET="ImageNet_400" # PACS_final, DomainNet, cifar10, NICO, cct
-TYPES=("glide_syn_400") # each type runs on each gpu
+TYPES=("train_ma") # each type runs on each gpu 
 SEEDS="1"
 GPUS=("1" "7" "2" "3" "4" "5" "6" "7") # each gpu runs each type
 # --------------------------IMPORTANT-------------------------- #
@@ -32,7 +32,7 @@ fi
 if [ -n "$5" ]; then
     SEEDS="$5"
 fi
-NOTE="eval_iclr_${MODEL_NAME}_${DATASET}_${MODE}"
+NOTE="eval_iclr_${MODEL_NAME}_${DATASET}_${MODE}_iter1_c_3_test"
 
 echo "MODE: $MODE"
 echo "MODEL_NAME: $MODEL_NAME"
@@ -177,7 +177,7 @@ elif [ "$DATASET" == "ImageNet_200" ]; then
     EVAL_POINT="40000 80000 120000 160000 200000"
 
 elif [ "$DATASET" == "ImageNet_400" ]; then
-    MEM_SIZE=40000 # (changed 0901 - after 10x increase)
+    MEM_SIZE=20000 # (changed 0901 - after 10x increase)
     N_SMP_CLS="9" K="3" MIR_CANDS=50
     CANDIDATE_SIZE=50 VAL_SIZE=5
     VAL_PERIOD=500 EVAL_PERIOD=10000
@@ -189,8 +189,24 @@ elif [ "$DATASET" == "ImageNet_400" ]; then
     fi
     BASEINIT_SAMPLES=30523 FEAT_DIM=14 FEAT_MEM_SIZE=168000
     SAMPLES_PER_TASK=40000
-    ONLINE_ITER=0.25
+    ONLINE_ITER=1
     EVAL_POINT="80000 160000 240000 320000 400000"
+
+elif [ "$DATASET" == "ImageNet_full" ]; then
+    MEM_SIZE=50000 # (changed 0901 - after 10x increase)
+    N_SMP_CLS="9" K="3" MIR_CANDS=50
+    CANDIDATE_SIZE=50 VAL_SIZE=5
+    VAL_PERIOD=500 EVAL_PERIOD=25000
+    BATCHSIZE=256; LR=3e-4 OPT_NAME="adam" SCHED_NAME="default" IMP_UPDATE_PERIOD=1
+    # Change vit learning rate (0611)
+    if [ "$MODEL_NAME" == "vit" ]; then
+        LR=1e-4
+        echo "Set vit learning rate 1e-4!!!"
+    fi
+    BASEINIT_SAMPLES=30523 FEAT_DIM=14 FEAT_MEM_SIZE=168000
+    SAMPLES_PER_TASK=40000
+    ONLINE_ITER=1
+    EVAL_POINT="200000 400000 600000 800000 1000000"
 
 elif [ "$DATASET" == "CUB_200" ]; then
     MEM_SIZE=1000 # (changed 0901 - after 10x increase)
@@ -232,7 +248,6 @@ fi
 
 LOG_DIR="logs"
 mkdir -p $LOG_DIR
-
 for RND_SEED in $SEEDS
 do
     for index in "${!TYPES[@]}"

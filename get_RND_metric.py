@@ -11,9 +11,9 @@ from utils.joint_dataset import CustomDataset
 
 
 # Get Recognizability & Diversity
-img_folder_dir = '/home/vision/mjlee/New_Nameonly_CL/dataset/cct/cct_train_ma'
-dataset = 'cct'
-type_name = 'train_ma'
+img_folder_dir = '/home/user/smh/PACS_for_diversity/PACS_final_synthclip'
+dataset = 'PACS_final'
+type_name = 'synthclip'
 model_name = 'resnet18'   # resnet18 / vit
 ckpt_dir = 'RnD_ckpt'
 ckpt_path = os.path.join(ckpt_dir, f'{model_name}_{dataset}.pth')
@@ -23,6 +23,16 @@ ckpt = torch.load(ckpt_path)
 
 
 mean, std, n_classes, inp_size, _ = get_statistics(dataset=dataset, type_name=type_name)
+# if dataset == 'DomainNet':
+#     inp_size = 224
+#     n_classes = 345
+#     mean = [0.48233780, 0.44213275, 0.41226821]
+#     std = [0.25210841, 0.22401817, 0.21974742]
+# if dataset == 'PACS_final':
+#     inp_size = 224
+#     n_classes = 7
+#     mean = [0.49400071, 0.41623791, 0.38352530]
+#     std = [0.19193159, 0.16502413, 0.15799975]
 model = select_model(model_name, dataset=dataset, num_classes=n_classes).cuda()
 model.load_state_dict(ckpt['model_state_dict'])
 exposed_classes = ckpt['exposed_classes']
@@ -84,3 +94,4 @@ if not os.path.exists("results/RND"):
 with open(f"results/RND/{model_name}_{dataset}_{type_name}.log", 'w') as rnd_file:
     rnd_file.write(f"Diversity: {diversity}\n")
     rnd_file.write(f"Recognizability: {recognizability}")
+    

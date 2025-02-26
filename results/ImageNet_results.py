@@ -66,7 +66,7 @@ exp_list = [exp for exp in exp_list if os.path.isdir(exp)] # Filter only dirs
 
 for exp in exp_list:
     for exp_type in os.listdir(exp):
-        if os.path.isdir(os.path.join(exp, exp_type)) and "eval" in os.path.join(exp, exp_type):
+        if os.path.isdir(os.path.join(exp, exp_type)) and "eval_iclr_resnet18" in os.path.join(exp, exp_type) and "baseline" not in os.path.join(exp, exp_type):
             exp_type_list.append(os.path.join(exp, exp_type)) # iclr_resnet18_cifar10_xder/complete_ma
 
 
