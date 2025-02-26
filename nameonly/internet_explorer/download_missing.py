@@ -6,20 +6,22 @@ import shutil
 from tqdm import tqdm
 from better_bing_image_downloader import downloader
 from unittest.mock import patch
-
+import numpy as np
 current_dir = os.path.dirname(os.path.abspath(__file__))
 target_dir = os.path.abspath(os.path.join(current_dir, '../'))
 sys.path.append(target_dir)
 from classes import get_count_dict, get_discription_dict
 
-dataset = "Bongard_HOI"
+dataset = "ImageNet"
 count_dict = get_count_dict(dataset)
 descriptors = f"{dataset}_descriptors.json"
-target_dir = f"{dataset}_internet_explorer_0_20"
-start_index = 0; end_index = 20
-increase_ratio = 3
+target_dir = f"{dataset}_internet_explorer_missing"
+target_index = [201, 9, 319, 379] 
+# [105, 12, 127, 153, 169, 2, 201, 249, 258, 269, 276, 277, 288, 299, 318, 319, 329, 330, 349, 354, 364, 366, 367, 368, 369, 375, 379, 439, 642, 655, 699, 850, 9]
+increase_ratio = 1.15
 concepts = list(count_dict.keys())
-concepts = concepts[start_index:end_index + 1]
+concepts = np.array(concepts)[target_index]
+expand_ratio = 6
 description_dict = get_discription_dict(dataset) if dataset=="ImageNet" else None
 
 
@@ -33,9 +35,9 @@ for concept in tqdm(concepts):
     # concept = concept.replace('', '')
     download_path = os.path.join(target_dir, concept)
     current_count = 0
-    min_images = int(count_dict[concept] * increase_ratio)
+    min_images = int(count_dict[concept] * increase_ratio * expand_ratio)
     descriptors_list = descriptors_dict[concept]
-    download_per_descriptor = int(math.ceil(min_images / len(descriptors_list)))
+    download_per_descriptor = int(math.ceil(min_images / len(descriptors_list))) * expand_ratio
     if os.path.exists(download_path) and len(os.listdir(download_path)) >= min_images:
         print(f"Skipping {concept} as it already has {min_images} images")
         continue
@@ -76,3 +78,4 @@ for concept in tqdm(concepts):
     # Remove all subdirectories
     for d in dirs:
         shutil.rmtree(os.path.join(download_path, d))
+
