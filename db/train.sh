@@ -1,16 +1,10 @@
 # #!/bin/bash
 
-IMAGE_DIR="CUB_200_train_ma_3"
-CLASS_PROMPT="a photo of a bird"
-CLASS_DATA_DIR="./bird"
-
-# # Generate metadata
-# python generate_metadata.py --image_dir $IMAGE_DIR
-
+IMAGE_DIR="PACS_final_train_ma_5"
 
 # Train dreambooth
 export MODEL_NAME="stabilityai/stable-diffusion-xl-base-1.0"
-export OUTPUT_DIR="lora-trained-xl_CUB_200_train_ma_3"
+export OUTPUT_DIR="lora-trained-xl_PACS_final_train_ma_5"
 # export VAE_PATH="madebyollin/sdxl-vae-fp16-fix"
 
 accelerate launch train_dreambooth_lora_sdxl.py \
@@ -29,6 +23,6 @@ accelerate launch train_dreambooth_lora_sdxl.py \
   --seed="0" \
   --push_to_hub \
   --instance_prompt="temp" \
-  --with_prior_preservation \
-  --class_data_dir=$CLASS_DATA_DIR \
-  --class_prompt="$CLASS_PROMPT" \
+  # --with_prior_preservation \
+  # --class_data_dir=$CLASS_DATA_DIR \
+  # --class_prompt="$CLASS_PROMPT" \
