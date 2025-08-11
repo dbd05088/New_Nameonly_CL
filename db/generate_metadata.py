@@ -13,8 +13,9 @@ parser.add_argument("--image_dir", type=str, required=True)
 args = parser.parse_args()
 
 jsonl_data = []
-count_dict = get_count_dict(args.image_dir)
-classes = list(count_dict.keys())
+# count_dict = get_count_dict(args.image_dir)
+# classes = list(count_dict.keys())
+classes = os.listdir(args.image_dir)
 for cls in tqdm(classes):
         cls_path = os.path.join(args.image_dir, cls)
         for image_path in os.listdir(cls_path):
